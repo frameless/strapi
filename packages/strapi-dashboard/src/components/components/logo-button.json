@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_components_logo_buttons",
+  "info": {
+    "displayName": "logoButton",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "appearance": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary"],
+      "default": "primary"
+    }
+  }
+}

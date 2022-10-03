@@ -1,0 +1,27 @@
+# Ignore 3rd party files
+node_modules
+SearchBar
+
+# Ignore minified files
+*.min.js
+
+# Ignore generated files
+dist
+build
+tmp
+.docusaurus
+CHANGELOG.md
+package-lock.json
+sample
+
+# Ignore generated files from Stencil
+packages/*/dist
+packages/*/CHANGELOG.md
+packages/iconset-react/src/components
+packages/iconset-vue/src/vue-component-lib
+packages/iconset-vue/src/components.ts
+packages/iconset-web-component/loader
+packages/iconset-web-component/src/components.d.ts
+packages/iconset-web-component/src/components/**/*.md
+packages/iconset-web-component/www/
+

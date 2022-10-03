@@ -1,0 +1,32 @@
+{
+  "name": "@rameless/strapi-plugin-ckeditor5",
+  "version": "0.0.0",
+  "description": "Replaces the default Strapi WYSIWYG editor with a customized buil of CKEditor 5 packed with useful plugins.",
+  "strapi": {
+    "name": "ckeditor5",
+    "description": "Replaces the default Strapi WYSIWYG editor with a customized buil of CKEditor 5 packed with useful plugins.",
+    "kind": "plugin",
+    "displayName": "Ckeditor 5"
+  },
+  "files": [
+    "admin",
+    "server",
+    "strapi-admin.js",
+    "strapi-server.js"
+  ],
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^35.1.0",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@utrecht/component-library-css": "^1.0.0-alpha.340",
+    "@utrecht/component-library-react": "^1.0.0-alpha.149",
+    "@utrecht/design-tokens": "^1.0.0-alpha.333"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": ">=4.0.0"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
