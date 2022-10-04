@@ -14,7 +14,7 @@
     "url": "git@github.com:frameless/strapi.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/@frameless"
   },
   "files": [
     "admin",
