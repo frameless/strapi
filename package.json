@@ -1,12 +1,19 @@
 {
   "name": "@frameless/cms",
-  "version": "0.0.0-development",
+  "version": "0.0.0-semantically-released",
   "description": "",
   "workspaces": [
     "packages/utrecht-editor",
     "packages/strapi-plugin-ckeditor5",
     "packages/strapi-dashboard"
   ],
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "npm run --workspaces build --if-present",
     "test": "npm run test --workspaces --if-present",
