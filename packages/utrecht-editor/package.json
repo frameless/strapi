@@ -2,7 +2,7 @@
   "name": "@frameless/utrecht-editor",
   "author": "",
   "description": "A custom CKEditor 5",
-  "version": "0.0.1",
+  "version": "0.0.0-semantically-released",
   "license": "SEE LICENSE IN LICENSE.md",
   "private": true,
   "main": "./build/ckeditor.js",
