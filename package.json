@@ -28,6 +28,8 @@
     "@babel/eslint-parser": "7.19.1",
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
+    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/git": "10.0.1",
     "@strapi-community/eslint-config": "0.4.3",
     "@types/node": "18.8.0",
     "@typescript-eslint/eslint-plugin": "5.38.1",
