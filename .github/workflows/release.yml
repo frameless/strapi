@@ -28,6 +28,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          npm config set "//npm.pkg.github.com/:_authToken" "${GH_TOKEN}"
+          npm config set "//npm.pkg.github.com/:_authToken=${GH_TOKEN}"
+          npm config set "@frameless:registry=https://npm.pkg.github.com/"
           npm run release
           npm config delete "//npm.pkg.github.com/:_authToken"
+          npm config delete "@frameless:registry"
