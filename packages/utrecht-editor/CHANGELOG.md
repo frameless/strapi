@@ -1,3 +1,10 @@
+# @frameless/utrecht-editor [1.1.0](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.0.1...@frameless/utrecht-editor@1.1.0) (2022-10-05)
+
+
+### Features
+
+* build custom html support plugin ([342eebc](https://github.com/frameless/strapi/commit/342eebcd784043f4e8643ee0fd11475077b9828d))
+
 ## @frameless/utrecht-editor [1.0.1](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.0.0...@frameless/utrecht-editor@1.0.1) (2022-10-04)
 
 
