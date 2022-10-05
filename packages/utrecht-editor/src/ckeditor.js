@@ -13,9 +13,6 @@ import ClassicEditor from "@ckeditor/ckeditor5-editor-classic/src/classiceditor.
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
 import FindAndReplace from "@ckeditor/ckeditor5-find-and-replace/src/findandreplace.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
-import HtmlEmbed from "@ckeditor/ckeditor5-html-embed/src/htmlembed.js";
-import GeneralHtmlSupport from "@ckeditor/ckeditor5-html-support/src/generalhtmlsupport.js";
-import HtmlComment from "@ckeditor/ckeditor5-html-support/src/htmlcomment.js";
 import AutoImage from "@ckeditor/ckeditor5-image/src/autoimage.js";
 import Image from "@ckeditor/ckeditor5-image/src/image.js";
 import ImageCaption from "@ckeditor/ckeditor5-image/src/imagecaption.js";
@@ -35,7 +32,7 @@ import Mention from "@ckeditor/ckeditor5-mention/src/mention.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import PasteFromOffice from "@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js";
 import RemoveFormat from "@ckeditor/ckeditor5-remove-format/src/removeformat.js";
-import SourceEditing from "@ckeditor/ckeditor5-source-editing/src/sourceediting.js";
+import { SourceEditing } from "@ckeditor/ckeditor5-source-editing";
 import Style from "@ckeditor/ckeditor5-style/src/style.js";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableCaption from "@ckeditor/ckeditor5-table/src/tablecaption.js";
@@ -45,8 +42,12 @@ import TableProperties from "@ckeditor/ckeditor5-table/src/tableproperties";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformation.js";
 import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount.js";
+import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
 
-class Editor extends ClassicEditor {}
+
+import { ExtendHTMLSupport } from "./CustomHTMLSupport"
+
+class Editor extends ClassicEditor { }
 
 // Plugins to include in the build.
 Editor.builtinPlugins = [
@@ -60,10 +61,9 @@ Editor.builtinPlugins = [
   CloudServices,
   Essentials,
   FindAndReplace,
-  GeneralHtmlSupport,
-  Heading,
-  HtmlComment,
+  ExtendHTMLSupport,
   HtmlEmbed,
+  Heading,
   Image,
   ImageCaption,
   ImageInsert,
@@ -116,13 +116,14 @@ Editor.defaultConfig = {
       "undo",
       "redo",
       "findAndReplace",
-      "htmlEmbed",
       "alignment",
       "imageInsert",
       "removeFormat",
       "style",
+      'GeneralHtmlSupport',
       "sourceEditing",
       "textPartLanguage",
+      "HtmlEmbed"
     ],
   },
   language: "en",
