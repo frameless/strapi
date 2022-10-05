@@ -12,7 +12,7 @@
     "lint:fix": "eslint --ext .js src --fix"
   },
   "dependencies": {
-    "@rameless/strapi-plugin-ckeditor5": "0.0.0-semantically-released",
+    "@rameless/strapi-plugin-ckeditor5": "file:../strapi-plugin-ckeditor5",
     "@strapi/plugin-graphql": "4.4.1",
     "@strapi/plugin-i18n": "4.4.1",
     "@strapi/plugin-users-permissions": "4.4.1",

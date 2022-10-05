@@ -37,6 +37,9 @@ const configuration = {
     "undo",
     "redo",
     "textPartLanguage",
+    'GeneralHtmlSupport',
+    'SourceEditing',
+    'HtmlEmbed'
   ],
   heading: {
     options: [
@@ -104,6 +107,19 @@ const configuration = {
       { title: "Dutch", languageCode: "nl" },
       { title: "English", languageCode: "en" },
     ],
+  },
+  htmlSupport: {
+    allow: [
+      {
+        name: /.*/,
+        attributes: true,
+        classes: true,
+        styles: true
+      }
+    ]
+  },
+  htmlEmbed: {
+    showPreviews: true
   },
   fillEmptyBlocks: false,
 };

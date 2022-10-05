@@ -27,7 +27,9 @@
     "@ckeditor/ckeditor5-react": "^5.0.2",
     "@utrecht/component-library-css": "^1.0.0-alpha.340",
     "@utrecht/component-library-react": "^1.0.0-alpha.149",
-    "@utrecht/design-tokens": "^1.0.0-alpha.333"
+    "@utrecht/design-tokens": "^1.0.0-alpha.333",
+    "@utrecht/icon": "1.0.0-alpha.241",
+    "@utrecht/web-component-library-react": "1.0.0-alpha.352"
   },
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"
@@ -36,5 +38,8 @@
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "lodash": "4.17.21"
+  }
 }
