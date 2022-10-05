@@ -12,7 +12,7 @@
     "url": "git@github.com:frameless/strapi.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@frameless"
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "build": "npm run --workspaces build --if-present",

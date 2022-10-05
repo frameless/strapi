@@ -11,7 +11,7 @@
     "url": "git@github.com:frameless/strapi.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@frameless"
+    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-alignment": "^35.1.0",
