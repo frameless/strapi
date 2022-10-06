@@ -1,5 +1,5 @@
 {
-  "name": "@rameless/strapi-dashboard",
+  "name": "@frameless/strapi-dashboard",
   "private": false,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -12,7 +12,7 @@
     "lint:fix": "eslint --ext .js src --fix"
   },
   "dependencies": {
-    "@rameless/strapi-plugin-ckeditor5": "file:../strapi-plugin-ckeditor5",
+    "@frameless/strapi-plugin-ckeditor5": "file:../strapi-plugin-ckeditor5",
     "@strapi/plugin-graphql": "4.4.1",
     "@strapi/plugin-i18n": "4.4.1",
     "@strapi/plugin-users-permissions": "4.4.1",
