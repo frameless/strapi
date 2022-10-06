@@ -1,7 +1,6 @@
 module.exports = {
   ckeditor5: {
     enabled: true,
-    // resolve: "@rameless/strapi-plugin-ckeditor5",
   },
   slugify: {
     enabled: true,
