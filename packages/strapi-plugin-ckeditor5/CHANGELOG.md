@@ -1,3 +1,21 @@
+# @frameless/strapi-plugin-ckeditor5 1.0.0 (2022-10-07)
+
+
+### Bug Fixes
+
+* add the scoop to the publish config ([9076118](https://github.com/frameless/strapi/commit/907611819b2a6b6b010b89a43006921a8df39582))
+* **ckeditor5:** enable release ([e329641](https://github.com/frameless/strapi/commit/e329641bc0f59c81e85a0f3f0df1931b67010620))
+* fix an typo ([3ba5f9e](https://github.com/frameless/strapi/commit/3ba5f9e7e510ce8bd35e571e88e4ce7cb7ebe3da))
+* fix the plugin name ([db7a8d3](https://github.com/frameless/strapi/commit/db7a8d3f3b2a63e210ee0264b1391353a0f8b515))
+* install @utrecht/icon in the correct package ([45bca57](https://github.com/frameless/strapi/commit/45bca5782ff384609a3476bda54afd8ca1c669c1))
+* set private to false to allow push to npm ([096fdeb](https://github.com/frameless/strapi/commit/096fdeb665dad1c51ca0752ed1de04f5b1a73bed))
+* set private to true ([0c743c5](https://github.com/frameless/strapi/commit/0c743c5f64482c20f6ac5bc993e30be05bff8825))
+
+
+### Features
+
+* build custom html support plugin ([342eebc](https://github.com/frameless/strapi/commit/342eebcd784043f4e8643ee0fd11475077b9828d))
+
 # @rameless/strapi-plugin-ckeditor5 [1.1.0](https://github.com/frameless/strapi/compare/@rameless/strapi-plugin-ckeditor5@1.0.2...@rameless/strapi-plugin-ckeditor5@1.1.0) (2022-10-05)
 
 
