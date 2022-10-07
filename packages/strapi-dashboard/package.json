@@ -19,8 +19,8 @@
     "@strapi/plugin-users-permissions": "4.4.1",
     "@strapi/strapi": "4.4.1",
     "better-sqlite3": "7.6.2",
-    "slugify": "^1.6.5",
-    "strapi-plugin-slugify": "^2.2.3"
+    "slugify": "1.6.5",
+    "strapi-plugin-slugify": "2.2.3"
   },
   "author": {
     "name": ""
@@ -32,5 +32,8 @@
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "react-select": "5.4.0"
+  }
 }
