@@ -120,10 +120,9 @@ Editor.defaultConfig = {
       "imageInsert",
       "removeFormat",
       "style",
-      'GeneralHtmlSupport',
       "sourceEditing",
       "textPartLanguage",
-      "HtmlEmbed"
+      "htmlEmbed"
     ],
   },
   language: "en",

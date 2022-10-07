@@ -37,9 +37,8 @@ const configuration = {
     "undo",
     "redo",
     "textPartLanguage",
-    'GeneralHtmlSupport',
-    'SourceEditing',
-    'HtmlEmbed'
+    'sourceEditing',
+    'htmlEmbed'
   ],
   heading: {
     options: [
