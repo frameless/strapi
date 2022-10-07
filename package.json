@@ -17,7 +17,7 @@
   "scripts": {
     "build": "npm run --workspaces build --if-present",
     "test": "npm run test --workspaces --if-present",
-    "clean": "npm run --workspaces clean",
+    "clean": "npm run --workspaces clean --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "release": "multi-semantic-release --ignore-packages=packages/strapi-dashboard/**"
