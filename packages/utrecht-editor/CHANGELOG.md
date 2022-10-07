@@ -1,3 +1,11 @@
+## @frameless/utrecht-editor [1.1.1](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.1.0...@frameless/utrecht-editor@1.1.1) (2022-10-07)
+
+
+### Bug Fixes
+
+* fix the plugin name ([db7a8d3](https://github.com/frameless/strapi/commit/db7a8d3f3b2a63e210ee0264b1391353a0f8b515))
+* install @utrecht/icon in the correct package ([45bca57](https://github.com/frameless/strapi/commit/45bca5782ff384609a3476bda54afd8ca1c669c1))
+
 # @frameless/utrecht-editor [1.1.0](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.0.1...@frameless/utrecht-editor@1.1.0) (2022-10-05)
 
 
