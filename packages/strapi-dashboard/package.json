@@ -23,6 +23,7 @@
     "better-sqlite3": "7.6.2",
     "pg": "8.8.0",
     "pg-connection-string": "2.5.0",
+    "react-select": "5.4.0",
     "slugify": "1.6.5",
     "strapi-plugin-slugify": "2.2.3"
   },
@@ -36,8 +37,5 @@
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "react-select": "5.4.0"
-  }
+  "license": "MIT"
 }
