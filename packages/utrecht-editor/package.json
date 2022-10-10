@@ -43,6 +43,7 @@
     "@ckeditor/ckeditor5-table": "35.2.0",
     "@ckeditor/ckeditor5-theme-lark": "35.2.0",
     "@ckeditor/ckeditor5-typing": "35.2.0",
+    "@ckeditor/ckeditor5-widget": "35.2.0",
     "@ckeditor/ckeditor5-word-count": "35.2.0",
     "@utrecht/icon": "1.0.0-alpha.242",
     "css-loader": "5.2.7",
@@ -56,6 +57,7 @@
   },
   "scripts": {
     "build": "webpack --mode production",
+    "build:watch": "webpack --mode production --watch --hot",
     "clean": "rimraf build"
   }
 }
