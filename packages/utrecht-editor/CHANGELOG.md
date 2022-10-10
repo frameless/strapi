@@ -1,3 +1,10 @@
+## @frameless/utrecht-editor [1.2.1](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.2.0...@frameless/utrecht-editor@1.2.1) (2022-10-10)
+
+
+### Bug Fixes
+
+* set private to false to enable to release ([3c7e979](https://github.com/frameless/strapi/commit/3c7e979aaa1a346a3606ef394bdea01542468d98))
+
 # @frameless/utrecht-editor [1.2.0](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.1.1...@frameless/utrecht-editor@1.2.0) (2022-10-10)
 
 
