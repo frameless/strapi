@@ -1,3 +1,10 @@
+# @frameless/strapi-plugin-ckeditor5 [1.1.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.0.0...@frameless/strapi-plugin-ckeditor5@1.1.0) (2022-10-10)
+
+
+### Features
+
+* integrate the section plugin ([09b537e](https://github.com/frameless/strapi/commit/09b537ebdf6fe01b058e6fb48c080f276dfe2779))
+
 # @frameless/strapi-plugin-ckeditor5 1.0.0 (2022-10-07)
 
 
