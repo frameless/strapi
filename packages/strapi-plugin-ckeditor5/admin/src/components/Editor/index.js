@@ -15,6 +15,9 @@ const Wrapper = styled(Box)`
     > div {
       min-height: ${200 / 16}em;
     }
+    > textarea {
+      width: 100%;
+    }
   }
 `;
 
@@ -38,7 +41,8 @@ const configuration = {
     "redo",
     "textPartLanguage",
     'sourceEditing',
-    'htmlEmbed'
+    'htmlEmbed',
+    'simpleBox'
   ],
   heading: {
     options: [
@@ -118,7 +122,7 @@ const configuration = {
     ]
   },
   htmlEmbed: {
-    showPreviews: true
+    showPreviews: true,
   },
   fillEmptyBlocks: false,
 };
