@@ -1,3 +1,10 @@
+# @frameless/utrecht-editor [1.2.0](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.1.1...@frameless/utrecht-editor@1.2.0) (2022-10-10)
+
+
+### Features
+
+* build a mvp section plugin ([4e4ddf4](https://github.com/frameless/strapi/commit/4e4ddf419861d16b8b2552c16409715e261f6b45))
+
 ## @frameless/utrecht-editor [1.1.1](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.1.0...@frameless/utrecht-editor@1.1.1) (2022-10-07)
 
 
