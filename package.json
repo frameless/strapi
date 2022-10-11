@@ -24,6 +24,10 @@
   },
   "author": "",
   "license": "",
+  "engines": {
+    "node": ">=16.16.0 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
   "devDependencies": {
     "@babel/eslint-parser": "7.19.1",
     "@commitlint/cli": "17.1.2",
