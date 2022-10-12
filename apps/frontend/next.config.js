@@ -7,7 +7,7 @@ const nextConfig = {
     locales: ['nl', 'en', "ar"]
   },
   images: {
-    domains: [process.env.HOSTNAME],
+    domains: [process.env.VERCEL_URL, process.env.HOSTNAME].filter(Boolean),
   },
 }
 
