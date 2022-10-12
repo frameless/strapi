@@ -1,0 +1,84 @@
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+    --utrecht-space-around: 1;
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+.utrecht-nav{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.utrecht-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.utrecht-main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colors-secondary-bg);
+}
+
+
+
+[dir=ltr] .utrecht-language-switcher_item{
+  margin-inline-start: 20px;
+}
+
+[dir=rtl] .utrecht-language-switcher_item{
+  margin-inline-end: 20px;
+}
+
+.utrecht-language-switcher_item::after{
+  content: ' | '; 
+}
+
+[dir=ltr] .utrecht-language-switcher_item::after{
+  margin-inline-start: 10px;
+}
+
+[dir=rtl] .utrecht-language-switcher_item::after{
+  margin-inline-end: 10px;
+}
+
+.utrecht-language-switcher_item:last-child::after{
+  content: none;
+
+}
+
+
+.utrecht-language-switcher_item--current {
+  --utrecht-link-color: black;
+  --utrecht-link-visited-color: black;
+  font-weight: 700;
+}

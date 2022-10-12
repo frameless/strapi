@@ -1,0 +1,34 @@
+{
+  "name": "@frameless/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "rimraf build .next"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.0",
+    "@utrecht/component-library-css": "^1.0.0-alpha.356",
+    "@utrecht/component-library-react": "^1.0.0-alpha.165",
+    "@utrecht/design-tokens": "^1.0.0-alpha.349",
+    "@utrecht/web-component-library-react": "^1.0.0-alpha.355",
+    "graphql": "^16.6.0",
+    "next": "12.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^8.0.3",
+    "rehype-raw": "^6.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.18",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.23.1",
+    "eslint-config-next": "12.3.1",
+    "lodash": "^4.17.21",
+    "typescript": "4.8.3"
+  }
+}
