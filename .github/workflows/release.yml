@@ -23,6 +23,15 @@ jobs:
           registry-url: "https://npm.pkg.github.com/"
           scope: "@frameless"
       - run: npm ci
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_DEBUG: false
+          envkey_HOSTNAME: ${{ secrets.HOSTNAME }}
+          envkey_API_URL_STRAPI: ${{ secrets.API_URL_STRAPI }}
+          directory: apps/frontend
+          file_name: .env.production.local
+          fail_on_empty: false
       - name: Build
         run: npm run build
       - name: Release
