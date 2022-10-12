@@ -1,3 +1,10 @@
+## @frameless/utrecht-editor [1.2.2](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.2.1...@frameless/utrecht-editor@1.2.2) (2022-10-12)
+
+
+### Bug Fixes
+
+* enable only three languages [en, nl, ar] ([bf40554](https://github.com/frameless/strapi/commit/bf40554ad13cd51a162279fc8456b55e3a9f4ed6))
+
 ## @frameless/utrecht-editor [1.2.1](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.2.0...@frameless/utrecht-editor@1.2.1) (2022-10-10)
 
 
