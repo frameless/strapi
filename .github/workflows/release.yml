@@ -27,8 +27,8 @@ jobs:
         uses: SpicyPizza/create-envfile@v1.3
         with:
           envkey_DEBUG: false
-          envkey_HOSTNAME: ${{ secrets.HOSTNAME }}
-          envkey_API_URL_STRAPI: ${{ secrets.API_URL_STRAPI }}
+          envkey_STRAPI_HOSTNAME: ${{ secrets.STRAPI_HOSTNAME }}
+          envkey_STRAPI_GRAPHQL_URL: ${{ secrets.STRAPI_GRAPHQL_URL }}
           directory: apps/frontend
           file_name: .env.production.local
           fail_on_empty: false

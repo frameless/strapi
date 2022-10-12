@@ -3,20 +3,20 @@
 ## Getting Started
 
 **Environment variable**
-create two files in the root
+create two files in root of this package
 
 1 - `.env.development.local`
 
 ```env
 STRAPI_HOSTNAME=localhost
-API_URL_STRAPI=http://$STRAPI_HOSTNAME:1337/graphql
+STRAPI_GRAPHQL_URL=http://$STRAPI_HOSTNAME:1337/graphql
 ```
 
 2 - `.env.production.local`
 
 ```env
 STRAPI_HOSTNAME=utrecht-cms-c3nji.ondigitalocean
-API_URL_STRAPI=http://$STRAPI_HOSTNAME:1337/graphql
+STRAPI_GRAPHQL_URL=http://$STRAPI_HOSTNAME:1337/graphql
 ```
 
 Just cloned the repo!
