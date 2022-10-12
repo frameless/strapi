@@ -5,7 +5,8 @@
   "workspaces": [
     "packages/utrecht-editor",
     "packages/strapi-plugin-ckeditor5",
-    "packages/strapi-dashboard"
+    "packages/strapi-dashboard",
+    "apps/**"
   ],
   "repository": {
     "type": "git+ssh",
@@ -16,11 +17,13 @@
   },
   "scripts": {
     "build": "npm run --workspaces build --if-present",
+    "dev": "concurrently \"npm run develop -w @frameless/strapi-dashboard\" \"npm run dev -w @frameless/frontend\"",
+    "start": "concurrently \"npm run start -w @frameless/strapi-dashboard\" \"npm run start -w @frameless/frontend\"",
     "test": "npm run test --workspaces --if-present",
     "clean": "npm run --workspaces clean --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
-    "release": "multi-semantic-release --ignore-packages=packages/strapi-dashboard/**"
+    "release": "multi-semantic-release --ignore-packages=packages/strapi-dashboard/**, apps/**"
   },
   "author": "",
   "license": "",
@@ -39,6 +42,7 @@
     "@typescript-eslint/eslint-plugin": "5.38.1",
     "@typescript-eslint/parser": "5.38.1",
     "babel-eslint": "10.1.0",
+    "concurrently": "7.4.0",
     "eslint": "8.24.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
