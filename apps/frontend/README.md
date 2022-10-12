@@ -8,16 +8,15 @@ create two files in the root
 1 - `.env.development.local`
 
 ```env
-HOSTNAME=localhost
-PORT=1337
-API_URL_STRAPI=http://$HOSTNAME:$PORT/graphql
+STRAPI_HOSTNAME=localhost
+API_URL_STRAPI=http://$STRAPI_HOSTNAME:1337/graphql
 ```
 
 2 - `.env.production.local`
 
 ```env
-HOSTNAME=utrecht-cms-c3nji.ondigitalocean
-API_URL_STRAPI=https://utrecht-cms-c3nji.ondigitalocean.app/graphql
+STRAPI_HOSTNAME=utrecht-cms-c3nji.ondigitalocean
+API_URL_STRAPI=http://$STRAPI_HOSTNAME:1337/graphql
 ```
 
 Just cloned the repo!
