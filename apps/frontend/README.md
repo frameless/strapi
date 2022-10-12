@@ -10,14 +10,14 @@ create two files in the root
 ```env
 HOSTNAME=localhost
 PORT=1337
-API_URL=http://$HOSTNAME:$PORT/graphql
+API_URL_STRAPI=http://$HOSTNAME:$PORT/graphql
 ```
 
 2 - `.env.production.local`
 
 ```env
 HOSTNAME=utrecht-cms-c3nji.ondigitalocean
-API_URL=https://utrecht-cms-c3nji.ondigitalocean.app/graphql
+API_URL_STRAPI=https://utrecht-cms-c3nji.ondigitalocean.app/graphql
 ```
 
 Just cloned the repo!
