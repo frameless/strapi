@@ -23,7 +23,7 @@
     "clean": "npm run --workspaces clean --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
-    "release": "multi-semantic-release --ignore-packages=packages/strapi-dashboard/**, apps/**"
+    "release": "multi-semantic-release --ignore-packages=packages/strapi-dashboard/**,apps/frontend/**"
   },
   "author": "",
   "license": "",
