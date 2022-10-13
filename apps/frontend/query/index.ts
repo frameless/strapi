@@ -37,7 +37,6 @@ query getProductBySlug($slug: String, $locale: I18NLocaleCode){
         title
         slug
         excerpt
-        PageHeading
         flexibleSection{
           id
           title
