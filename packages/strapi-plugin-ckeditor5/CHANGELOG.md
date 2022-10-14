@@ -1,3 +1,10 @@
+## @frameless/strapi-plugin-ckeditor5 [1.1.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.1.0...@frameless/strapi-plugin-ckeditor5@1.1.1) (2022-10-14)
+
+
+### Bug Fixes
+
+* prevent inline style in the ckeditor ([76608a6](https://github.com/frameless/strapi/commit/76608a6ab7c52b392e170c9c0459b4c3810ff2c5))
+
 # @frameless/strapi-plugin-ckeditor5 [1.1.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.0.0...@frameless/strapi-plugin-ckeditor5@1.1.0) (2022-10-10)
 
 
