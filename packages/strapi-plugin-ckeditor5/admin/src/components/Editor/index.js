@@ -117,9 +117,9 @@ const configuration = {
         name: /.*/,
         attributes: true,
         classes: true,
-        styles: true
       }
-    ]
+    ],
+    disallow: ['style']
   },
   htmlEmbed: {
     showPreviews: true,
