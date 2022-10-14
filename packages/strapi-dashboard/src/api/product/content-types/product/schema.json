@@ -34,14 +34,6 @@
         }
       }
     },
-    "PageHeading": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "flexibleSection": {
       "type": "component",
       "repeatable": false,
