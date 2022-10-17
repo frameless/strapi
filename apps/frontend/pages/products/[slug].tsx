@@ -20,6 +20,14 @@ import {
   Link,
   Button,
   ButtonLink,
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
 } from "@utrecht/component-library-react";
 
 import { UtrechtDigidButton } from "@utrecht/web-component-library-react";
@@ -31,24 +39,54 @@ const components: Components = {
   h4: ({ children, node }) => <Heading4 {...node.properties}>{children}</Heading4>,
   h5: ({ children, node }) => <Heading5 {...node.properties}>{children}</Heading5>,
   h6: ({ children, node }) => <Heading6 {...node.properties}>{children}</Heading6>,
-  p: ({ children, node }) => {
-    const cleanChildren = children.filter((el) => el != null);
-    return <Paragraph {...node.properties}>{cleanChildren}</Paragraph>;
-  },
+  p: ({ children, node }) => <Paragraph {...node.properties}>{children}</Paragraph>,
   ul: ({ children, node }) => <UnorderedList {...node.properties}>{children}</UnorderedList>,
   li: ({ children, node }) => <UnorderedListItem {...node.properties}>{children}</UnorderedListItem>,
   a: ({ children, node }) => <Link {...node.properties}>{children}</Link>,
+  table: ({ children, node }) => {
+    delete node.properties?.style;
+    return <Table {...node.properties}>{children}</Table>;
+  },
+  tbody: ({ children, node }) => {
+    delete node.properties?.style;
+    return <TableBody {...node.properties}>{children}</TableBody>;
+  },
+  td: ({ children, node }) => {
+    delete node.properties?.style;
+    return <TableCell {...node.properties}>{children}</TableCell>;
+  },
+  thead: ({ children, node }) => {
+    delete node.properties?.style;
+    return <TableHeader {...node.properties}>{children}</TableHeader>;
+  },
+  tfoot: ({ children, node }) => {
+    delete node.properties?.style;
+    return <TableFooter {...node.properties}>{children}</TableFooter>;
+  },
+  th: ({ children, node }) => {
+    delete node.properties?.style;
+    return <TableHeaderCell {...node.properties}>{children}</TableHeaderCell>;
+  },
+  tr: ({ children, node }) => {
+    delete node.properties?.style;
+    return <TableRow {...node.properties}>{children}</TableRow>;
+  },
+  caption: ({ children, node }) => {
+    delete node.properties?.style;
+    return <TableCaption {...node.properties}>{children}</TableCaption>;
+  },
 };
 
-const Product: NextPage = ({ product }: any) => {
+const Product: NextPage = ({ product, localizations }: any) => {
   const { title, body, flexibleSection, excerpt } = product.attributes;
+
   return (
     <>
       <Head>
         <title>{product.attributes.title}</title>
         <meta name="description" content={excerpt} />
       </Head>
-      <Layout>
+      <Layout localizations={localizations}>
         <Heading1>{title}</Heading1>
         <div>
           {flexibleSection && flexibleSection.title && <h2>{flexibleSection.title}</h2>}
@@ -122,10 +160,17 @@ export async function getStaticProps(ctx: any) {
       notFound: true,
     };
   }
+  const localizations = data.products.data[0].attributes.localizations.data.map(({ attributes }: any) => attributes);
+  localizations.push({
+    locale: data.products.data[0].attributes.locale,
+    slug: data.products.data[0].attributes.slug,
+    __typename: "Product",
+  });
 
   return {
     props: {
       product: data.products.data[0],
+      localizations,
     },
     revalidate: 1,
   };
@@ -136,14 +181,15 @@ export async function getStaticPaths(ctx: any) {
     query: GET_ALL_SLUGS,
     variables: { locale: ctx.locale },
   });
+  const paths = data.products.data.map(({ attributes }: any) => {
+    return {
+      params: { slug: attributes.slug },
+      locale: attributes.locale,
+    };
+  });
 
   return {
-    paths: data.products.data.map(({ attributes }: any) => {
-      return {
-        params: { slug: attributes.slug },
-        locale: attributes.locale,
-      };
-    }),
+    paths,
     fallback: "blocking",
   };
 }

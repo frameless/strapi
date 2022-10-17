@@ -37,6 +37,14 @@ query getProductBySlug($slug: String, $locale: I18NLocaleCode){
         title
         slug
         excerpt
+        localizations{
+          data{
+            attributes{
+              locale
+              slug
+            }
+          }
+        }
         flexibleSection{
           id
           title
