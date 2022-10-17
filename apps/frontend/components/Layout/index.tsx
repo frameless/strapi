@@ -24,7 +24,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, onClick, localizations
       <LanguageSwitcher onClick={onClick} localizations={localizations} />
     </nav>
     <Main>
-      <PageContent>{children}</PageContent>
+      <PageContent style={{ position: "relative" }}>{children}</PageContent>
     </Main>
     <PageFooter />
   </Page>
