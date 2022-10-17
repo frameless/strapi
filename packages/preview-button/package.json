@@ -1,0 +1,33 @@
+{
+  "name": "@frameless/preview-button",
+  "version": "0.0.0-semantically-released",
+  "description": "This is the description of the plugin.",
+  "private": false,
+  "strapi": {
+    "name": "preview-button",
+    "description": "Description of Preview Button plugin",
+    "kind": "plugin",
+    "displayName": "Preview Button"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {},
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
+  "engines": {
+    "node": ">=16.16.0 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

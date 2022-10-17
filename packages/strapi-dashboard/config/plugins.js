@@ -14,6 +14,9 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  'preview-button': {
+    enabled: true,
+  },
   upload: {
     config: {
       provider: 'cloudinary',

@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@frameless/strapi-plugin-ckeditor5": "file:../strapi-plugin-ckeditor5",
+    "@frameless/preview-button": "file:../preview-button",
     "@strapi/plugin-graphql": "4.4.1",
     "@strapi/plugin-i18n": "4.4.1",
     "@strapi/plugin-users-permissions": "4.4.1",
