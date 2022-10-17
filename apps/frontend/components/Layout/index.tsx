@@ -1,9 +1,4 @@
-import {
-  Page,
-  PageContent,
-  PageFooter,
-  PageHeader,
-} from "@utrecht/component-library-react";
+import { Page, PageContent, PageFooter, PageHeader } from "@utrecht/component-library-react";
 import Link from "next/link";
 import React from "react";
 import { LanguageSwitcher } from "../LanguageSwitcher";
@@ -18,7 +13,7 @@ interface LayoutProps extends LanguageSwitcherProps {
   children: React.ReactNode;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, onClick }) => (
+export const Layout: React.FC<LayoutProps> = ({ children, onClick, localizations }) => (
   <Page className="utrecht-main-wrapper">
     <nav className="utrecht-nav">
       <PageHeader>
@@ -26,7 +21,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, onClick }) => (
           <UtrechtLogo />
         </Link>
       </PageHeader>
-      <LanguageSwitcher onClick={onClick} />
+      <LanguageSwitcher onClick={onClick} localizations={localizations} />
     </nav>
     <Main>
       <PageContent>{children}</PageContent>
