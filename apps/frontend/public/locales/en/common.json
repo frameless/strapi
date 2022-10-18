@@ -1,0 +1,8 @@
+{
+    "actions": {
+        "turn-off-the-preview-mode": "turn off the preview mode"
+    },
+    "warnings": {
+        "preview-mode": "Warning: Preview mode is on"
+    }
+}

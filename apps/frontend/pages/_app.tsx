@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import { appWithTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import React from "react";
 import "@utrecht/component-library-css";
@@ -20,4 +21,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

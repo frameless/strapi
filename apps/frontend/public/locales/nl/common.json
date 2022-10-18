@@ -1,0 +1,8 @@
+{
+    "actions":{
+        "turn-off-the-preview-mode":"schakel de voorbeeldmodus uit"
+    },
+    "warnings": {
+        "preview-mode": "Waarschuwing: voorbeeldmodus is ingeschakeld"
+    }
+}
