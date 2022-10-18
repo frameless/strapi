@@ -49,18 +49,6 @@ a {
   background-color: var(--colors-secondary-bg);
 }
 
-.alert{
-  background-color: lightgoldenrodyellow;
-  padding-inline: 10px;
-  padding-block: 10px;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
-  text-align: center;
-}
-
-
 [dir=ltr] .utrecht-language-switcher_item{
   margin-inline-start: 20px;
 }

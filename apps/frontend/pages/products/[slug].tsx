@@ -3,11 +3,11 @@ import Head from "next/head";
 import ReactMarkdown, { Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import type { GetStaticPropsContext } from "next";
-import NextLink from "next/link";
-
 import { client } from "../../apolloClient";
 import { GET_PRODUCT_BY_SLUG, GET_ALL_SLUGS } from "../../query";
 import { Layout } from "../../components/Layout";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 import {
   Heading1,
@@ -34,6 +34,7 @@ import {
 
 import { UtrechtDigidButton } from "@utrecht/web-component-library-react";
 import { useRouter } from "next/router";
+import { Alert } from "../../components/alert";
 
 const components: Components = {
   h1: ({ children, node }) => <Heading1 {...node.properties}>{children}</Heading1>,
@@ -83,6 +84,7 @@ const components: Components = {
 const Product: NextPage = ({ product, localizations, preview }: any) => {
   const { title, body, flexibleSection, excerpt } = product.attributes;
   const { asPath, locale, defaultLocale } = useRouter();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -92,14 +94,15 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
       </Head>
       <Layout localizations={localizations}>
         {preview && (
-          <div className="alert">
-            <span>Preview mode is on</span>{" "}
-            <Link href={`/api/clear-preview-mode-cookies?slug=${locale}${asPath}&default_locale=${defaultLocale}`}>
-              turn off
-            </Link>
-          </div>
+          <Alert message={t("warnings.preview-mode")}>
+            <ButtonLink
+              href={`/api/clear-preview-mode-cookies?slug=${locale}${asPath}&default_locale=${defaultLocale}`}
+            >
+              {t("actions.turn-off-the-preview-mode")}
+            </ButtonLink>
+          </Alert>
         )}
-        <Heading1>{title}</Heading1>
+        <Heading1 style={{ marginBlockStart: "3rem" }}>{title}</Heading1>
         <div>
           {flexibleSection && flexibleSection.title && <h2>{flexibleSection.title}</h2>}
           {flexibleSection && flexibleSection.subTitle && (
@@ -161,7 +164,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
 
 export default Product;
 
-export async function getStaticProps({ params, preview, locale }: GetStaticPropsContext) {
+export async function getStaticProps({ params, preview, locale, defaultLocale }: GetStaticPropsContext) {
   const { data } = await client.query({
     query: GET_PRODUCT_BY_SLUG,
     variables: { slug: params?.slug, locale: locale, pageMode: preview ? "PREVIEW" : "LIVE" },
@@ -184,6 +187,7 @@ export async function getStaticProps({ params, preview, locale }: GetStaticProps
       product: data.products.data[0],
       localizations,
       preview: preview ? preview : null,
+      ...(await serverSideTranslations(locale || "nl", ["common"])),
     },
     revalidate: 1,
   };
@@ -206,4 +210,3 @@ export async function getStaticPaths(ctx: any) {
     fallback: "blocking",
   };
 }
-// http://localhost:1234/api/preview?secret=39E813DB-2869-40B3-968B-12F2149B9392&slug=nice-page-nl&locale=nl&type=products

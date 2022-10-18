@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
+const { i18n } = require('./next-i18next.config');
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  i18n: {
-    defaultLocale: "nl",
-    locales: ['nl', 'en', "ar"]
-  },
+  i18n,
   images: {
     domains: [process.env.STRAPI_HOSTNAME],
   },

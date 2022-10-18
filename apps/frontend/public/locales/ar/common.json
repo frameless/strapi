@@ -1,0 +1,8 @@
+{
+    "actions":{
+        "turn-off-the-preview-mode":"قم بإيقاف تشغيل وضع المعاينة"
+    },
+    "warnings": {
+        "preview-mode": "تحذير: وضع المعاينة قيد التشغيل"
+    }
+}
