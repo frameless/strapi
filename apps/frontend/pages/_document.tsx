@@ -1,14 +1,8 @@
-import Document, {
-  Html,
-  Main,
-  NextScript,
-  Head,
-  DocumentContext,
-} from "next/document";
+import Document, { Html, Main, NextScript, Head, DocumentContext } from "next/document";
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps, locale: ctx?.locale || "en" };
+    return { ...initialProps, locale: ctx?.locale };
   }
   render() {
     const { locale } = this.props.__NEXT_DATA__;
