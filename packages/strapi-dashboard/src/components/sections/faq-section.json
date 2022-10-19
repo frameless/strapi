@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_faq_sections",
+  "info": {
+    "displayName": "FAQ section",
+    "icon": "question",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "accordion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.accordion"
+    }
+  }
+}

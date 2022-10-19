@@ -60,6 +60,12 @@
       },
       "type": "string",
       "required": true
+    },
+    "faq": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faq.faq",
+      "inversedBy": "products"
     }
   }
 }
