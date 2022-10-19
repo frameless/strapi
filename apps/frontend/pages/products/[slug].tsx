@@ -59,13 +59,17 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
               flexibleSection.accordion &&
               flexibleSection.accordion.length > 0 &&
               flexibleSection.accordion.map((item: any, index: number) => (
-                <Accordion key={index} label={item.title} body={<Markdown>{item.body}</Markdown>} />
+                <Accordion locale={locale} key={index} label={item.title} body={<Markdown>{item.body}</Markdown>} />
               ))}
           </div>
         </div>
         <div>{body && <Markdown>{body}</Markdown>}</div>
         {faq.data && (
-          <FAQSection accordion={faq.data.attributes.faq.accordion} sectionTitle={faq.data.attributes.title} />
+          <FAQSection
+            locale={locale}
+            accordion={faq.data.attributes.faq.accordion}
+            sectionTitle={faq.data.attributes.title}
+          />
         )}
       </Layout>
     </>
