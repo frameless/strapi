@@ -7,16 +7,18 @@ import styles from "./index.module.css";
 export interface AccordionProps {
   label?: string;
   body?: any;
+  locale?: string;
 }
 
 const cx = classnames.bind(styles);
 
-export const Accordion: React.FC<AccordionProps> = ({ label, body }) => {
+export const Accordion: React.FC<AccordionProps> = ({ label, body, locale }) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <div className={cx("utrecht-accordion")}>
       <Heading3 className={cx("utrecht-accordion__label")}>
         <Button
+          dir={locale}
           className={cx("utrecht-accordion__button")}
           appearance="subtle-button"
           aria-expanded={expanded}

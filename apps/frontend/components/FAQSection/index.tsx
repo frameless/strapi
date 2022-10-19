@@ -15,16 +15,17 @@ type AccordionType = {
 export interface FAQSectionProps {
   sectionTitle?: string;
   accordion?: AccordionType[];
+  locale?: string;
 }
 const cx = classnames.bind(styles);
 
-export const FAQSection: React.FC<FAQSectionProps> = ({ sectionTitle, accordion }) => (
+export const FAQSection: React.FC<FAQSectionProps> = ({ sectionTitle, accordion, locale }) => (
   <section className={cx("utrecht-faq-section")}>
     <Heading2>{sectionTitle}</Heading2>
     {accordion &&
       accordion.length > 0 &&
       accordion.map(({ id, title, body }: any) => (
-        <Accordion key={id} label={title} body={<Markdown>{body}</Markdown>} />
+        <Accordion locale={locale} key={id} label={title} body={<Markdown>{body}</Markdown>} />
       ))}
   </section>
 );
