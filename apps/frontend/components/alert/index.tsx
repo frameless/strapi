@@ -6,7 +6,7 @@ export interface AlertProps {
 
 import styles from "./index.module.css";
 
-var cx = classnames.bind(styles);
+const cx = classnames.bind(styles);
 
 export const Alert: React.FC<AlertProps> = ({ children, message }) => (
   <div className={cx("alert")}>
