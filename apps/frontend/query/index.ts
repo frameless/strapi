@@ -37,6 +37,20 @@ export const GET_PRODUCT_BY_SLUG = gql`
           title
           slug
           excerpt
+          faq{
+            data{
+              attributes{
+                title
+                faq{
+                  accordion{
+                    id
+                    title
+                    body
+                  }
+                }
+              }
+            }
+          }
           localizations {
             data {
               attributes {
