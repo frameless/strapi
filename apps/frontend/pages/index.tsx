@@ -39,6 +39,11 @@ export const getStaticProps = async (ctx: any) => {
     query: GET_ALL_PRODUCTS_SLUG,
     variables: { locale: ctx.locale },
   });
+  if (!data.products) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
