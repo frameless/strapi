@@ -5,8 +5,20 @@ import { LanguageSwitcher } from "../LanguageSwitcher";
 import { UtrechtLogo } from "../UtrechtLogo";
 import { LanguageSwitcherProps } from "../LanguageSwitcher/index";
 
-const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <main className="utrecht-main">{children}</main>
+const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
+
+const escapeComment = (data: any) => String(data).replace(/--/g, "-\u200B-");
+
+const HTMLComment = ({ data }: any) => (
+  <noscript dangerouslySetInnerHTML={{ __html: `<!--${escapeComment(data)}-->` }} />
+);
+
+export const SearchIndexContent: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
+  <>
+    <HTMLComment data="TYPO3SEARCH_begin" />
+    {children}
+    <HTMLComment data="TYPO3SEARCH_end" />
+  </>
 );
 
 interface LayoutProps extends LanguageSwitcherProps {
@@ -15,17 +27,19 @@ interface LayoutProps extends LanguageSwitcherProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children, onClick, localizations }) => (
   <Page className="utrecht-main-wrapper">
-    <nav className="utrecht-nav">
-      <PageHeader>
-        <Link passHref href="/">
-          <UtrechtLogo />
-        </Link>
-      </PageHeader>
-      <LanguageSwitcher onClick={onClick} localizations={localizations} />
-    </nav>
-    <Main>
-      <PageContent style={{ position: "relative" }}>{children}</PageContent>
-    </Main>
+    <PageHeader className="utrecht-page-header--modifier">
+      <Link passHref href="/">
+        <UtrechtLogo />
+      </Link>
+      <nav>
+        <LanguageSwitcher onClick={onClick} localizations={localizations} />
+      </nav>
+    </PageHeader>
+    <PageContent className="utrecht-page-content--modifier" style={{ position: "relative" }}>
+      <SearchIndexContent>
+        <Main>{children}</Main>
+      </SearchIndexContent>
+    </PageContent>
     <PageFooter />
   </Page>
 );
