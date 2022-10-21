@@ -30,13 +30,13 @@ a {
   }
 }
 
-.utrecht-nav{
+.utrecht-page-header--modifier {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
 
-.utrecht-main {
+.utrecht-page-content--modifier {
   flex: 1;
   display: flex;
   flex-direction: column;
