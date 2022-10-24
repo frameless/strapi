@@ -31,6 +31,7 @@ jobs:
           envkey_STRAPI_GRAPHQL_URL: ${{ secrets.STRAPI_GRAPHQL_URL }}
           envkey_REVALIDATE_SECRET_TOKEN: ${{ secrets.REVALIDATE_SECRET_TOKEN }}
           envkey_PREVIEW_SECRET_TOKEN: ${{ secrets.PREVIEW_SECRET_TOKEN }}
+          envkey_FRONTEND_SITE_URL: ${{ secrets.FRONTEND_SITE_URL }}
           directory: apps/frontend
           file_name: .env.production.local
           fail_on_empty: false

@@ -112,3 +112,11 @@ exports
 *.cache
 build
 .strapi-updater.json
+
+############################
+# Nextjs
+############################
+
+# Sitemap plugin
+**/**/public/*.xml
+**/**/public/*.txt
