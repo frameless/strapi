@@ -11,6 +11,7 @@ create two files in root of this package
 STRAPI_HOSTNAME=localhost
 STRAPI_GRAPHQL_URL=http://$STRAPI_HOSTNAME:1337/graphql
 REVALIDATE_SECRET_TOKEN=9ABCD68B-8B89-46EA-AAC6-BCE97BCB900A
+FRONTEND_SITE_URL=https://utrecht-strapi-website.frameless.io/
 ```
 
 2 - `.env.production.local`
