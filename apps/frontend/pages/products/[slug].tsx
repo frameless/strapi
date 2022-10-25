@@ -28,6 +28,9 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
       <Head>
         <title>{product.attributes.title}</title>
         <meta name="description" content={excerpt} />
+        {product.attributes.metaTags && product.attributes.metaTags.keymatch && (
+          <meta name="keymatch" content={product.attributes.metaTags.keymatch} />
+        )}
       </Head>
       <Layout localizations={localizations}>
         {preview && (
