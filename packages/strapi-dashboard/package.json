@@ -14,8 +14,8 @@
     "clean": "rimraf build .cache"
   },
   "dependencies": {
-    "@frameless/strapi-plugin-ckeditor5": "file:../strapi-plugin-ckeditor5",
     "@frameless/preview-button": "file:../preview-button",
+    "@frameless/strapi-plugin-ckeditor5": "file:../strapi-plugin-ckeditor5",
     "@strapi/plugin-graphql": "4.4.1",
     "@strapi/plugin-i18n": "4.4.1",
     "@strapi/plugin-users-permissions": "4.4.1",
@@ -26,6 +26,7 @@
     "pg-connection-string": "2.5.0",
     "react-select": "5.4.0",
     "slugify": "1.6.5",
+    "strapi-plugin-publisher": "1.1.4",
     "strapi-plugin-slugify": "2.2.3"
   },
   "author": {
