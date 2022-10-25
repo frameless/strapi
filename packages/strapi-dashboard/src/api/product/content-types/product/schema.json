@@ -66,6 +66,16 @@
       "relation": "manyToOne",
       "target": "api::faq.faq",
       "inversedBy": "products"
+    },
+    "metaTags": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "seo.meta"
     }
   }
 }

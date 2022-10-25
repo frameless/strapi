@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_seo_metas",
+  "info": {
+    "displayName": "metaTags",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "keymatch": {
+      "type": "string"
+    }
+  }
+}
