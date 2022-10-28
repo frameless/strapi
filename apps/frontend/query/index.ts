@@ -37,15 +37,27 @@ export const GET_PRODUCT_BY_SLUG = gql`
           title
           slug
           excerpt
-          metaTags{
+          metaTags {
             keymatch
           }
-          faq{
-            data{
-              attributes{
+          price {
+          data {
+            attributes {
+              price {
+                id
+                label
+                value
+                currency
+              }
+            }
+          }
+        }
+        faq {
+            data {
+              attributes {
                 title
-                faq{
-                  accordion{
+                faq {
+                  accordion {
                     id
                     title
                     body

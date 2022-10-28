@@ -20,6 +20,7 @@ import {
   TableHeaderCell,
   TableRow,
 } from "@utrecht/component-library-react";
+import React from "react";
 
 const components: Components = {
   h1: ({ children, node }) => {
@@ -98,10 +99,26 @@ const components: Components = {
 
 interface MarkdownProps {
   children: any;
+  data?: any;
 }
 
-export const Markdown: React.FC<MarkdownProps> = ({ children }) => (
-  <ReactMarkdown components={components} rehypePlugins={[rehypeRaw]}>
-    {children}
-  </ReactMarkdown>
-);
+export const Markdown: React.FC<MarkdownProps> = ({ children, data }) => {
+  return (
+    <ReactMarkdown
+      components={{
+        ...components,
+        section: ({ children, node }) => {
+          if (node.properties?.dataId && data && data.length > 0) {
+            const product: any = data.find(({ id }: any) => id === node.properties?.dataId);
+            const price = `${product.currency} ${product?.value}`;
+            return <data value={price}>{price}</data>;
+          }
+          return <section {...node.properties}>{children}</section>;
+        },
+      }}
+      rehypePlugins={[rehypeRaw]}
+    >
+      {children}
+    </ReactMarkdown>
+  );
+};
