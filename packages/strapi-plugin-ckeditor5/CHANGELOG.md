@@ -1,3 +1,10 @@
+# @frameless/strapi-plugin-ckeditor5 [1.2.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.1.1...@frameless/strapi-plugin-ckeditor5@1.2.0) (2022-10-28)
+
+
+### Features
+
+* integrate product price widget plugin into ckeditor5 ([2ac0207](https://github.com/frameless/strapi/commit/2ac0207d1a0193829911de813b6e777df850e261))
+
 ## @frameless/strapi-plugin-ckeditor5 [1.1.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.1.0...@frameless/strapi-plugin-ckeditor5@1.1.1) (2022-10-14)
 
 
