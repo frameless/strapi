@@ -14,7 +14,13 @@
       "type": "string"
     },
     "currency": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "EUR",
+        "USD"
+      ],
+      "required": false,
+      "default": "EUR"
     }
   }
 }
