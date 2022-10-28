@@ -1,3 +1,10 @@
+# @frameless/utrecht-editor [1.3.0](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.2.2...@frameless/utrecht-editor@1.3.0) (2022-10-28)
+
+
+### Features
+
+* create product price widget plugin ([e3478aa](https://github.com/frameless/strapi/commit/e3478aa0e118f0c7a1cbdc5e3d9a04ede324aefb))
+
 ## @frameless/utrecht-editor [1.2.2](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.2.1...@frameless/utrecht-editor@1.2.2) (2022-10-12)
 
 
