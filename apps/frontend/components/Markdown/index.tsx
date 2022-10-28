@@ -100,9 +100,10 @@ const components: Components = {
 interface MarkdownProps {
   children: any;
   data?: any;
+  locale?: string;
 }
 
-export const Markdown: React.FC<MarkdownProps> = ({ children, data }) => {
+export const Markdown: React.FC<MarkdownProps> = ({ children, data, locale }) => {
   return (
     <ReactMarkdown
       components={{
@@ -110,7 +111,11 @@ export const Markdown: React.FC<MarkdownProps> = ({ children, data }) => {
         section: ({ children, node }) => {
           if (node.properties?.dataId && data && data.length > 0) {
             const product: any = data.find(({ id }: any) => id === node.properties?.dataId);
-            const price = `${product.currency} ${product?.value}`;
+            const price = new Intl.NumberFormat(locale, {
+              style: "currency",
+              currency: product?.currency,
+            }).format(Number(product?.value));
+
             return <data value={price}>{price}</data>;
           }
           return <section {...node.properties}>{children}</section>;
