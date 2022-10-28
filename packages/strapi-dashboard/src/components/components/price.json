@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_components_prices",
+  "info": {
+    "displayName": "price",
+    "icon": "euro-sign",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    }
+  }
+}
