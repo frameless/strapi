@@ -9,6 +9,7 @@ module.exports = (config, webpack) => {
       STRAPI_FRONTEND_URL: JSON.stringify(process.env.STRAPI_FRONTEND_URL),
       STRAPI_FRONTEND_PREVIEW_SECRET: JSON.stringify(process.env.STRAPI_FRONTEND_PREVIEW_SECRET),
       STRAPI_FRONTEND_TYPE: JSON.stringify(process.env.STRAPI_FRONTEND_TYPE),
+      STRAPI_BACKEND_URL: JSON.stringify(process.env.STRAPI_BACKEND_URL),
     })
   )
   return config;

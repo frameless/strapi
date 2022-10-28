@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_components_passport_and_id_card_costs",
+  "info": {
+    "displayName": " Passport and ID card costs",
+    "icon": "passport",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "application": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "decimal"
+    }
+  }
+}

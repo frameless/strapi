@@ -76,6 +76,12 @@
         }
       },
       "component": "seo.meta"
+    },
+    "price": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::price.price",
+      "inversedBy": "products"
     }
   }
 }
