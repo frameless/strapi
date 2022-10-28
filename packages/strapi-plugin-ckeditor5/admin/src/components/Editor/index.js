@@ -10,7 +10,7 @@ import "@utrecht/component-library-css";
 import "@utrecht/component-library-css/dist/html.css";
 import "@utrecht/design-tokens/dist/index.css";
 
-import { ProductPriceList } from "../ProductPrice"
+import { ProductPriceList, formatCurrency } from "../ProductPrice"
 
 const Wrapper = styled(Box)`
   .ck-editor__main {
@@ -133,11 +133,12 @@ function Editor({ onChange, name, value, disabled }) {
     products: {
       productRenderer: async (id, domElement) => {
         const product = productPrice.find((price) => parseInt(price.id) === parseInt(id));
-        ReactDOM.render(<p id={id}>{product?.currency} {product?.value}</p>, domElement);
+        ReactDOM.render(product?.currency ? <p id={id}>{formatCurrency(product)}</p> : null, domElement);
       },
     },
     fillEmptyBlocks: false,
   };
+
 
   const fetchProductPrice = async () => {
 
@@ -151,8 +152,8 @@ function Editor({ onChange, name, value, disabled }) {
           query: `{
                 prices{
                   data{
-                    attributes{
-                      price{
+                    attributes {
+                      price {
                         id
                         label
                         value
@@ -165,7 +166,7 @@ function Editor({ onChange, name, value, disabled }) {
         }),
       });
       const { data } = await res.json();
-      setProductPrice(data.prices.data[0].attributes.price);
+      setProductPrice(data.prices.data[0]?.attributes?.price);
     } catch (error) {
 
     }
@@ -179,8 +180,10 @@ function Editor({ onChange, name, value, disabled }) {
     <>
       <ProductPriceList onChange={(id) => {
         setPriceValue(id)
-        editor.execute("insertProduct", id);
-        editor.editing.view.focus();
+        if (id) {
+          editor.execute("insertProduct", id);
+          editor.editing.view.focus();
+        }
       }}
         products={productPrice}
         selectedValue={priceValue}
