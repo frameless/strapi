@@ -1,3 +1,10 @@
+## @frameless/strapi-plugin-ckeditor5 [1.2.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.2.0...@frameless/strapi-plugin-ckeditor5@1.2.1) (2022-10-28)
+
+
+### Bug Fixes
+
+* enable currency sign ([ebe048d](https://github.com/frameless/strapi/commit/ebe048d9a83b201c1ff4af97c263f4118cc47e3c))
+
 # @frameless/strapi-plugin-ckeditor5 [1.2.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.1.1...@frameless/strapi-plugin-ckeditor5@1.2.0) (2022-10-28)
 
 
