@@ -4,10 +4,13 @@ import ClassicEditor from "@frameless/utrecht-editor";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import ReactDOM from "react-dom";
 
 import "@utrecht/component-library-css";
 import "@utrecht/component-library-css/dist/html.css";
 import "@utrecht/design-tokens/dist/index.css";
+
+import { ProductPriceList } from "../ProductPrice"
 
 const Wrapper = styled(Box)`
   .ck-editor__main {
@@ -21,127 +24,186 @@ const Wrapper = styled(Box)`
   }
 `;
 
-const configuration = {
-  toolbar: [
-    "heading",
-    "|",
-    "bold",
-    "italic",
-    "link",
-    "bulletedList",
-    "numberedList",
-    "|",
-    "indent",
-    "outdent",
-    "|",
-    "blockQuote",
-    "insertTable",
-    "mediaEmbed",
-    "undo",
-    "redo",
-    "textPartLanguage",
-    'sourceEditing',
-    'htmlEmbed',
-    'simpleBox'
-  ],
-  heading: {
-    options: [
-      { model: "paragraph", title: "Paragraph", class: "utrecht-paragraph" },
-      {
-        model: "paragraphLead",
-        view: {
-          name: "paragraph",
-          classes: "utrecht-paragraph utrecht-paragraph--lead",
+function Editor({ onChange, name, value, disabled }) {
+  const [productPrice, setProductPrice] = React.useState([]);
+  const [editor, setEditor] = React.useState([]);
+  const [priceValue, setPriceValue] = React.useState('');
+
+  const configuration = {
+    toolbar: [
+      "heading",
+      "|",
+      "bold",
+      "italic",
+      "link",
+      "bulletedList",
+      "numberedList",
+      "|",
+      "indent",
+      "outdent",
+      "|",
+      "blockQuote",
+      "insertTable",
+      "mediaEmbed",
+      "undo",
+      "redo",
+      "textPartLanguage",
+      "sourceEditing",
+      "htmlEmbed",
+      "simpleBox",
+    ],
+    heading: {
+      options: [
+        { model: "paragraph", title: "Paragraph", class: "utrecht-paragraph" },
+        {
+          model: "paragraphLead",
+          view: {
+            name: "paragraph",
+            classes: "utrecht-paragraph utrecht-paragraph--lead",
+          },
+          title: "Paragraph Lead",
+          class: "utrecht-paragraph utrecht-paragraph--lead",
+          converterPriority: "high",
         },
-        title: "Paragraph Lead",
-        class: "utrecht-paragraph utrecht-paragraph--lead",
-        converterPriority: "high",
-      },
-      {
-        model: "heading1",
-        view: "h1",
-        title: "Heading 1",
-        class: "utrecht-heading-1",
-      },
-      {
-        model: "heading2",
-        view: "h2",
-        title: "Heading 2",
-        class: "utrecht-heading-2",
-      },
-      {
-        model: "heading3",
-        view: "h3",
-        title: "Heading 3",
-        class: "utrecht-heading-3",
-      },
-      {
-        model: "heading4",
-        view: "h4",
-        title: "Heading 4",
-        class: "utrecht-heading-4",
-      },
-      {
-        model: "heading5",
-        view: "h5",
-        title: "Heading 5",
-        class: "utrecht-heading-5",
-      },
-    ],
-  },
-  link: {
-    options: [
-      { model: "link", view: "a", title: "Link", class: "utrecht-link" },
-    ],
-    decorators: {
-      openInNewTab: {
-        mode: "manual",
-        label: "Open in a new tab",
-        attributes: {
-          target: "_blank",
-          rel: "noopener noreferrer",
+        {
+          model: "heading1",
+          view: "h1",
+          title: "Heading 1",
+          class: "utrecht-heading-1",
+        },
+        {
+          model: "heading2",
+          view: "h2",
+          title: "Heading 2",
+          class: "utrecht-heading-2",
+        },
+        {
+          model: "heading3",
+          view: "h3",
+          title: "Heading 3",
+          class: "utrecht-heading-3",
+        },
+        {
+          model: "heading4",
+          view: "h4",
+          title: "Heading 4",
+          class: "utrecht-heading-4",
+        },
+        {
+          model: "heading5",
+          view: "h5",
+          title: "Heading 5",
+          class: "utrecht-heading-5",
+        },
+      ],
+    },
+    link: {
+      options: [{ model: "link", view: "a", title: "Link", class: "utrecht-link" }],
+      decorators: {
+        openInNewTab: {
+          mode: "manual",
+          label: "Open in a new tab",
+          attributes: {
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
         },
       },
     },
-  },
-  language: {
-    textPartLanguage: [
-      { title: "Arabic", languageCode: "ar" },
-      { title: "Dutch", languageCode: "nl" },
-      { title: "English", languageCode: "en" },
-    ],
-  },
-  htmlSupport: {
-    allow: [
-      {
-        name: /.*/,
-        attributes: true,
-        classes: true,
-      }
-    ],
-    disallow: ['style']
-  },
-  htmlEmbed: {
-    showPreviews: true,
-  },
-  fillEmptyBlocks: false,
-};
+    language: {
+      textPartLanguage: [
+        { title: "Arabic", languageCode: "ar" },
+        { title: "Dutch", languageCode: "nl" },
+        { title: "English", languageCode: "en" },
+      ],
+    },
+    htmlSupport: {
+      allow: [
+        {
+          name: /.*/,
+          attributes: true,
+          classes: true,
+        },
+      ],
+      disallow: ["style"],
+    },
+    htmlEmbed: {
+      showPreviews: true,
+    },
+    products: {
+      productRenderer: async (id, domElement) => {
+        const product = productPrice.find((price) => parseInt(price.id) === parseInt(id));
+        ReactDOM.render(<p id={id}>{product?.currency} {product?.value}</p>, domElement);
+      },
+    },
+    fillEmptyBlocks: false,
+  };
 
-function Editor({ onChange, name, value, disabled }) {
+  const fetchProductPrice = async () => {
+
+    try {
+      const res = await fetch(STRAPI_BACKEND_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: `{
+                prices{
+                  data{
+                    attributes{
+                      price{
+                        id
+                        label
+                        value
+                        currency
+                      }
+                    }
+                  }
+                }
+              }`,
+        }),
+      });
+      const { data } = await res.json();
+      setProductPrice(data.prices.data[0].attributes.price);
+    } catch (error) {
+
+    }
+  };
+
+  React.useEffect(() => {
+    fetchProductPrice();
+  }, []);
+
   return (
-    <Wrapper className={["utrecht-theme", "utrecht-html"].join(" ")}>
-      <CKEditor
-        editor={ClassicEditor}
-        disabled={disabled}
-        config={configuration}
-        data={value || ""}
-        onReady={(editor) => editor.setData(value || "")}
-        onChange={(event, editor) => {
-          const data = editor.getData();
-          onChange({ target: { name, value: data } });
-        }}
+    <>
+      <ProductPriceList onChange={(id) => {
+        setPriceValue(id)
+        editor.execute("insertProduct", id);
+        editor.editing.view.focus();
+      }}
+        products={productPrice}
+        selectedValue={priceValue}
       />
-    </Wrapper>
+      <Wrapper className={["utrecht-theme", "utrecht-html"].join(" ")}>
+        {productPrice && productPrice.length > 0 && (
+          <CKEditor
+            editor={ClassicEditor}
+            disabled={disabled}
+            config={configuration}
+            data={value || ""}
+            onReady={(editor) => {
+              editor.setData(value || "");
+              setEditor(editor);
+            }}
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              onChange({ target: { name, value: data } });
+            }}
+          />
+        )}
+      </Wrapper>
+    </>
   );
 }
 
