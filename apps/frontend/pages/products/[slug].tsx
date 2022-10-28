@@ -66,7 +66,13 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
               ))}
           </div>
         </div>
-        <div>{body && <Markdown>{body}</Markdown>}</div>
+        <div>
+          {body && (
+            <Markdown data={product.attributes.price && product.attributes.price?.data?.attributes.price}>
+              {body}
+            </Markdown>
+          )}
+        </div>
         {faq.data && (
           <FAQSection
             locale={locale}
