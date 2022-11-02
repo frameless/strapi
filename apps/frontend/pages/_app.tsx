@@ -4,6 +4,9 @@ import { useRouter } from "next/router";
 import React from "react";
 import "@utrecht/component-library-css";
 import "@utrecht/design-tokens/dist/index.css";
+
+import SearchState from "../context/search/state";
+
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -16,7 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="utrecht-theme">
-      <Component {...pageProps} />
+      <SearchState>
+        <Component {...pageProps} />
+      </SearchState>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import React from "react";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import { UtrechtLogo } from "../UtrechtLogo";
 import { LanguageSwitcherProps } from "../LanguageSwitcher/index";
+import { SearchBar, SearchBarProps } from "../SearchBar";
 
 const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
 
@@ -21,18 +22,36 @@ export const SearchIndexContent: React.FC<{ children?: React.ReactNode }> = ({ c
   </>
 );
 
-interface LayoutProps extends LanguageSwitcherProps {
+interface LayoutProps extends LanguageSwitcherProps, SearchBarProps {
   children: React.ReactNode;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, onClick, localizations }) => (
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  onClick,
+  localizations,
+  onSearchChange,
+  onSearchSubmit,
+  searchBarValue,
+  suggestedHits,
+  suggestions,
+}) => (
   <Page className="utrecht-main-wrapper">
-    <PageHeader className="utrecht-page-header--modifier">
-      <Link passHref href="/">
-        <UtrechtLogo />
-      </Link>
+    <PageHeader>
       <nav>
-        <LanguageSwitcher onClick={onClick} localizations={localizations} />
+        <Link passHref href="/">
+          <UtrechtLogo />
+        </Link>
+        <div className="nav__content">
+          <LanguageSwitcher onClick={onClick} localizations={localizations} />
+          <SearchBar
+            onSearchChange={onSearchChange}
+            suggestedHits={suggestedHits}
+            suggestions={suggestions}
+            onSearchSubmit={onSearchSubmit}
+            searchBarValue={searchBarValue}
+          />
+        </div>
       </nav>
     </PageHeader>
     <PageContent className="utrecht-page-content--modifier" style={{ position: "relative" }}>

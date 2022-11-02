@@ -30,12 +30,6 @@ a {
   }
 }
 
-.utrecht-page-header--modifier {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
 .utrecht-page-content--modifier {
   flex: 1;
   display: flex;
@@ -79,4 +73,25 @@ a {
   --utrecht-link-color: black;
   --utrecht-link-visited-color: black;
   font-weight: 700;
+}
+
+.nav__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.utrecht-search-bar__dropdown {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  border: 1px solid #c00;
+  background-color: #FFF;
 }

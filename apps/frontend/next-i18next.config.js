@@ -7,4 +7,5 @@ module.exports = {
         // https://github.com/i18next/next-i18next#vercel-and-netlify
         localePath: path.resolve('./public/locales')
     },
+    react: { useSuspense: false },
 };

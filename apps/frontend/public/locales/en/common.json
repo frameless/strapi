@@ -4,5 +4,8 @@
     },
     "warnings": {
         "preview-mode": "Warning: Preview mode is on"
+    },
+    "seo": {
+        "title": "Search | Municipality of Utrecht"
     }
 }
