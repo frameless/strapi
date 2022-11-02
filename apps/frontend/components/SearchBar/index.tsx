@@ -37,22 +37,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearchSubmit, onSearchCh
     </form>
     {suggestedHits &&
       suggestedHits.length > 0 && <div className="utrecht-search-bar__dropdown">
-     <UnorderedList >
-        <Heading4>Bedoelt u:</Heading4>
-        {
-          suggestedHits.map(({ titleRaw, url }, index: number) => (
-            <UnorderedListItem key={index}>
-              <Link href={url} passHref>
-                <UtrechtLink>
-                  {titleRaw}
-                </UtrechtLink>
-              </Link>
-            </UnorderedListItem>
-          ))}
-      </UnorderedList>
-    {suggestions &&
+      {suggestions &&
       suggestions.length > 0 && <UnorderedList>
-        <Heading4>Meteen naar:</Heading4>
+         <Heading4>Bedoelt u:</Heading4>
         {
           suggestions.map(({ text }, index: number) => (
             <UnorderedListItem key={index}>
@@ -64,6 +51,19 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearchSubmit, onSearchCh
             </UnorderedListItem>
           ))}
       </UnorderedList>}
+     <UnorderedList >
+     <Heading4>Meteen naar:</Heading4>
+        {
+          suggestedHits.map(({ titleRaw, url }, index: number) => (
+            <UnorderedListItem key={index}>
+              <Link href={url} passHref>
+                <UtrechtLink>
+                  {titleRaw}
+                </UtrechtLink>
+              </Link>
+            </UnorderedListItem>
+          ))}
+      </UnorderedList>
       </div>}
   </div>
 )
