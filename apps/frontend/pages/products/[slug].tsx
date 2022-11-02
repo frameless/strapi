@@ -7,7 +7,7 @@ import { GET_PRODUCT_BY_SLUG, GET_ALL_SLUGS } from "../../query";
 import { Layout } from "../../components/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import React from "react";
+import React, { useContext } from "react";
 
 import { Heading1, ButtonLink } from "@utrecht/component-library-react";
 
@@ -17,10 +17,15 @@ import { Alert } from "../../components/alert";
 import { Markdown } from "../../components/Markdown";
 import { FAQSection } from "../../components/FAQSection";
 import { Accordion } from "../../components/Accordion";
+import SearchContext from "../../context/search/context";
+
+import { i18n } from "../../next-i18next.config";
 
 const Product: NextPage = ({ product, localizations, preview }: any) => {
   const { title, body, flexibleSection, excerpt, faq } = product.attributes;
   const { asPath, locale, defaultLocale } = useRouter();
+  const { getSearchResult, setQuery, query, suggestedHits, suggestions, getSuggestedSearch } =
+    useContext(SearchContext);
   const { t } = useTranslation();
 
   return (
@@ -32,7 +37,20 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
           <meta name="keymatch" content={product.attributes.metaTags.keymatch} />
         )}
       </Head>
-      <Layout localizations={localizations}>
+      <Layout
+        onSearchChange={(event) => {
+          setQuery(event.target.value);
+          getSuggestedSearch(locale || i18n.defaultLocale, query);
+        }}
+        onSearchSubmit={(event) => {
+          event.preventDefault();
+          getSearchResult(locale || i18n.defaultLocale, query);
+        }}
+        searchBarValue={query}
+        localizations={localizations}
+        suggestedHits={suggestedHits}
+        suggestions={suggestions}
+      >
         {preview && (
           <Alert message={t("warnings.preview-mode")}>
             <ButtonLink
