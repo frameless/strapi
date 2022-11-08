@@ -26,6 +26,7 @@
     "pg-connection-string": "2.5.0",
     "react-select": "5.4.0",
     "slugify": "1.6.5",
+    "strapi-plugin-import-export-entries": "1.18.0",
     "strapi-plugin-publisher": "1.1.4",
     "strapi-plugin-slugify": "2.2.3"
   },
