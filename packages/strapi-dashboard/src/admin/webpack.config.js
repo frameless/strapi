@@ -1,4 +1,6 @@
 'use strict';
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+
 /* eslint-disable no-unused-vars */
 module.exports = (config, webpack) => {
   // Note: we provide webpack above so you should not `require` it
@@ -12,5 +14,6 @@ module.exports = (config, webpack) => {
       STRAPI_BACKEND_URL: JSON.stringify(process.env.STRAPI_BACKEND_URL),
     })
   )
+  config.plugins.push(new MonacoWebpackPlugin());
   return config;
 };
