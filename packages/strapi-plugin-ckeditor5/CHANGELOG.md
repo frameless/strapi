@@ -1,3 +1,10 @@
+# @frameless/strapi-plugin-ckeditor5 [1.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.2.1...@frameless/strapi-plugin-ckeditor5@1.3.0) (2022-11-09)
+
+
+### Features
+
+* display the price field dynamically ([bf31130](https://github.com/frameless/strapi/commit/bf31130c85bc644c2ac797bebb4a4a31e61c7e20))
+
 ## @frameless/strapi-plugin-ckeditor5 [1.2.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.2.0...@frameless/strapi-plugin-ckeditor5@1.2.1) (2022-10-28)
 
 
