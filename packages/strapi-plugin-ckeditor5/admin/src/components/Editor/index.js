@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import ReactDOM from "react-dom";
+import { useParams } from "react-router";
+
 
 import "@utrecht/component-library-css";
 import "@utrecht/component-library-css/dist/html.css";
@@ -23,11 +25,16 @@ const Wrapper = styled(Box)`
     }
   }
 `;
-
+let mounted = false
 function Editor({ onChange, name, value, disabled }) {
   const [productPrice, setProductPrice] = React.useState([]);
   const [editor, setEditor] = React.useState([]);
   const [priceValue, setPriceValue] = React.useState('');
+  // const urlSearchParams = new URLSearchParams(window.location.search);
+  // const params = Object.fromEntries(urlSearchParams.entries());
+  // const languageContent = params["plugins[i18n][locale]"];
+  const { id: pageId } = useParams()
+
 
   const configuration = {
     toolbar: [
@@ -132,8 +139,9 @@ function Editor({ onChange, name, value, disabled }) {
     },
     products: {
       productRenderer: async (id, domElement) => {
-        const product = productPrice.find((price) => parseInt(price.id) === parseInt(id));
+        const product = productPrice?.price.find((price) => parseInt(price.id) === parseInt(id));
         ReactDOM.render(product?.currency ? <p id={id}>{formatCurrency(product)}</p> : null, domElement);
+
       },
     },
     fillEmptyBlocks: false,
@@ -150,29 +158,39 @@ function Editor({ onChange, name, value, disabled }) {
         },
         body: JSON.stringify({
           query: `{
-                prices{
-                  data{
-                    attributes {
-                      price {
-                        id
-                        label
-                        value
-                        currency
+            product(id:${pageId}){
+              data {
+                id
+                attributes{
+                  price {
+                    data {
+                      attributes {
+                        title
+                        price {
+                          id
+                          currency
+                          label
+                          value
+                        }
                       }
                     }
                   }
                 }
+              }
+            }
               }`,
         }),
       });
       const { data } = await res.json();
-      setProductPrice(data.prices.data[0]?.attributes?.price);
+
+      setProductPrice(data.product.data?.attributes?.price?.data?.attributes || []);
     } catch (error) {
 
     }
   };
 
   React.useEffect(() => {
+    mounted = true
     fetchProductPrice();
   }, []);
 
@@ -185,26 +203,25 @@ function Editor({ onChange, name, value, disabled }) {
           editor.editing.view.focus();
         }
       }}
-        products={productPrice}
+        label={productPrice.title}
+        products={productPrice.price}
         selectedValue={priceValue}
       />
       <Wrapper className={["utrecht-theme", "utrecht-html"].join(" ")}>
-        {productPrice && productPrice.length > 0 && (
-          <CKEditor
-            editor={ClassicEditor}
-            disabled={disabled}
-            config={configuration}
-            data={value || ""}
-            onReady={(editor) => {
-              editor.setData(value || "");
-              setEditor(editor);
-            }}
-            onChange={(event, editor) => {
-              const data = editor.getData();
-              onChange({ target: { name, value: data } });
-            }}
-          />
-        )}
+        {mounted && <CKEditor
+          editor={ClassicEditor}
+          disabled={disabled}
+          config={configuration}
+          data={value || ""}
+          onReady={(editor) => {
+            editor.setData(value || "");
+            setEditor(editor);
+          }}
+          onChange={(event, editor) => {
+            const data = editor.getData();
+            onChange({ target: { name, value: data } });
+          }}
+        />}
       </Wrapper>
     </>
   );
