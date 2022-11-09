@@ -18,6 +18,9 @@
       "pluginOptions": {},
       "component": "components.price"
     },
+    "title": {
+      "type": "string"
+    },
     "products": {
       "type": "relation",
       "relation": "oneToMany",
