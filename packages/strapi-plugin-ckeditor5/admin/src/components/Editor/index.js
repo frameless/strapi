@@ -139,7 +139,7 @@ function Editor({ onChange, name, value, disabled }) {
     },
     products: {
       productRenderer: async (id, domElement) => {
-        const product = productPrice?.price.find((price) => parseInt(price.id) === parseInt(id));
+        const product = productPrice?.price?.find((price) => parseInt(price.id) === parseInt(id));
         ReactDOM.render(product?.currency ? <p id={id}>{formatCurrency(product)}</p> : null, domElement);
 
       },
@@ -192,6 +192,9 @@ function Editor({ onChange, name, value, disabled }) {
   React.useEffect(() => {
     mounted = true
     fetchProductPrice();
+    return () => {
+      mounted = false
+    }
   }, []);
 
   return (
