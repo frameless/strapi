@@ -1,3 +1,10 @@
+## @frameless/strapi-plugin-ckeditor5 [1.3.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.3.0...@frameless/strapi-plugin-ckeditor5@1.3.1) (2022-11-10)
+
+
+### Bug Fixes
+
+* fix find is not a function issue ([f2186c6](https://github.com/frameless/strapi/commit/f2186c68db4ddad61a56ae667efecb293355e050))
+
 # @frameless/strapi-plugin-ckeditor5 [1.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.2.1...@frameless/strapi-plugin-ckeditor5@1.3.0) (2022-11-09)
 
 
