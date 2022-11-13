@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:dcterms="http://purl.org/dc/terms/" 
+    xmlns:overheid="http://standaarden.overheid.nl/owms/terms/"  
+    xmlns:overheidproduct="http://standaarden.overheid.nl/product/terms/"  
+    xmlns:overheidsc="http://standaarden.overheid.nl/sc/terms/"
+    targetNamespace="http://standaarden.overheid.nl/product/terms/" 
+    xmlns="http://standaarden.overheid.nl/product/terms/" 
+    elementFormDefault="qualified" version="4.0">
+    
+    <!-- xml:base="http://standaarden.overheid.nl/owms/xsd/" 
+    xm:base not used due to issues with Xerces en XML Spy -->
+
+    <xs:include schemaLocation="../../../owms/4.0/xsd/owms-types.xsd"/>
+    <xs:include schemaLocation="../../../owms/4.0/xsd/overheid-schemes.xsd"/>
+    <xs:include schemaLocation="../../../owms/4.0/xsd/owms-classes.xsd"/>
+    
+     <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="sc-owms-classes-redef.xsd"/>
+    <xs:import namespace="http://standaarden.overheid.nl/owms/terms/" schemaLocation="sc-overheid-classes-redef.xsd"/>
+      
+    <!-- TO DO: rename 'root-elem' for your application. -->
+   
+ 
+    <xs:element name="scproducten">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="scproduct" maxOccurs="unbounded"/>              
+            </xs:sequence>           
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="scproduct">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="meta"/>           
+                <xs:element ref="body"/>                
+            </xs:sequence>
+            <xs:attribute name="owms-version" type="xs:token" fixed="4.0" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="meta">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="owmskern">
+                    <!-- NOT TO DO: To stay OWMS compliant do not alter this element. This element enforces the mandatory elements of owms (owms-kern or owms-core) to be part of your scheme. -->
+                    <xs:complexType>
+                          <xs:group ref="overheid:owmskern"/>
+                    </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="owmsmantel" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="dcterms:audience" minOccurs="1" maxOccurs="2"/>
+                            <xs:element ref="dcterms:subject" minOccurs="0" maxOccurs="unbounded"/>
+                            <xs:element ref="dcterms:abstract" minOccurs="1" maxOccurs="1"/> 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="scmeta" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="productID" type="xs:string" />                          
+                            <xs:element name="onlineAanvragen" minOccurs="1" maxOccurs="1" >
+                                <xs:simpleType>
+                                    <xs:restriction  base="xs:string">
+                                        <xs:enumeration value="ja"></xs:enumeration>
+                                        <xs:enumeration value="digid"></xs:enumeration>  
+                                        <xs:enumeration value="nee"></xs:enumeration>
+                                     </xs:restriction>
+                                </xs:simpleType>                                
+                            </xs:element>                                                          
+                            <xs:element name="aanvraagURL" type="InformationObject" minOccurs="0" maxOccurs="1" /> 
+                            <xs:element name="eenmaligAanmelden" minOccurs="0" maxOccurs="1" >
+                                <xs:simpleType>
+                                    <xs:restriction  base="xs:string">
+                                        <xs:enumeration value="ja"></xs:enumeration>
+                                        <xs:enumeration value="nee"></xs:enumeration>
+                                        <xs:enumeration value="digi-d"></xs:enumeration>
+                                    </xs:restriction>
+                                </xs:simpleType>   
+                            </xs:element>
+                            <xs:element name="contactpunt" type="InformationObject" minOccurs="0" maxOccurs="1"/>                           
+                            <xs:element name="uniformeProductnaam" type="UniformeProductnaam" minOccurs="0" maxOccurs="unbounded" />                              
+                            <xs:element name="gerelateerdProduct" type="UniformeProductnaam" minOccurs="0" maxOccurs="unbounded" /> 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>                
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="body">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productHTML" minOccurs="0" maxOccurs="1">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>    
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+        <!-- ====================================== -->
+        <!-- Product eigen datatypes -->
+        
+        <xs:complexType name="UniformeProductnaam">
+            <xs:annotation>
+                <xs:documentation>
+                    
+                </xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+                <xs:extension base="NonEmptyString">
+                    <xs:attribute name="scheme" type="xs:QName" fixed="overheid:UniformeProductnaam"/>
+                    <xs:attribute name="resourceIdentifier" type="URI" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+        
+
+</xs:schema>

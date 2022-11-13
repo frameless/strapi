@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+    xmlns:overheid="http://standaarden.overheid.nl/owms/terms/"
+    xmlns:template="http://standaarden.overheid.nl/template/"
+    xmlns="http://standaarden.overheid.nl/owms/terms/"
+    targetNamespace="http://standaarden.overheid.nl/owms/terms/"
+    elementFormDefault="qualified">
+    <!-- Change: 2018-08-28
+         By: Hans Overbeek
+         RFC: KOOP18040216
+         schemalocation had absoluut pad naar http://standaarden.overheid.nl. Validators gingen niet goed 
+         om met redirect van http naar https. Relatieve adressering is bovendien te verkiezen boven absolute url. 
+         Daarom absolute url gewijzigd naar relatieve url.-->
+    <xs:redefine schemaLocation="owms.xsd">
+        <xs:simpleType name="BeslissendOrgaanScheme">
+            <xs:restriction base="BeslissendOrgaanScheme">
+                <xs:enumeration value="overheid:BestuursorgaanDeelgemeente"/>
+                <xs:enumeration value="overheid:BestuursorgaanGemeente"/>
+                <xs:enumeration value="overheid:BestuursorgaanMinisterie"/>
+                <xs:enumeration value="overheid:BestuursorgaanProvincie"/>
+                <xs:enumeration value="overheid:BestuursorgaanRegionaalSamenwerkingsorgaan"/>
+                <xs:enumeration value="overheid:BestuursorgaanWaterschap"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="AgentScheme">
+            <xs:restriction base="AgentScheme">
+                <xs:enumeration value="overheid:Adviescollege"/>
+                <xs:enumeration value="overheid:Deelgemeente"/>
+                <xs:enumeration value="overheid:StatenGeneraal"/>
+                <xs:enumeration value="overheid:Dienst"/>
+                <xs:enumeration value="overheid:DienstAgentschapInstellingOfProject"/>
+                <xs:enumeration value="overheid:Gemeente"/>
+                <xs:enumeration value="overheid:HoogCollegeVanStaat"/>
+                <xs:enumeration value="overheid:Koepelorganisatie"/>
+                <xs:enumeration value="overheid:KoninklijkHuis"/>
+                <xs:enumeration value="overheid:Ministerie"/>
+                <xs:enumeration value="overheid:OpenbaarLichaamVoorBedrijfEnBeroep"/>
+                <xs:enumeration value="overheid:Politiekorps"/>
+                <xs:enumeration value="overheid:Provincie"/>
+                <xs:enumeration value="overheid:RechterlijkeMacht"/>
+                <xs:enumeration value="overheid:Regering"/>
+                <xs:enumeration value="overheid:RegionaalSamenwerkingsorgaan"/>
+                <xs:enumeration value="overheid:Rijksinspectie"/>
+                <xs:enumeration value="overheid:Waterschap"/>
+                <xs:enumeration value="overheid:ZelfstandigBestuursorgaan"/>
+            </xs:restriction>
+        </xs:simpleType>
+        
+    </xs:redefine>
+
+</xs:schema>

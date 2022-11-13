@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- File: owms-types.xsd
+          Function: this XML-scheme declares some simple types that are used for components of the metadata standard 
+          for Dutch government information: the Overheid.nl Web Metadata Standaard (OWMS).
+          More information: see standaarden.overheid.nl. -->
+
+	<xs:simpleType name="DateTimeFormat">
+		<xs:union memberTypes="xs:date xs:dateTime"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="NonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SchemeName">
+		<xs:restriction base="xs:QName">
+			<xs:pattern value="(overheid|\p{Ll}+):\p{Lu}\c+"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="URI">
+		<xs:restriction base="xs:anyURI">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

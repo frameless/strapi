@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+    xmlns:overheid="http://standaarden.overheid.nl/owms/terms/"
+    xmlns:template="http://standaarden.overheid.nl/template/"
+    xmlns="http://standaarden.overheid.nl/owms/terms/"
+    targetNamespace="http://standaarden.overheid.nl/owms/terms/"
+    elementFormDefault="qualified">
+    
+    <xs:redefine schemaLocation="../../../owms/4.0/xsd/owms.xsd">
+       
+        <xs:simpleType name="BeslissendOrgaanScheme">
+            <xs:restriction base="BeslissendOrgaanScheme">
+                <xs:enumeration value="overheid:BestuursorgaanDeelgemeente"/>
+                <xs:enumeration value="overheid:BestuursorgaanGemeente"/>
+                <xs:enumeration value="overheid:BestuursorgaanMinisterie"/>
+                <xs:enumeration value="overheid:BestuursorgaanProvincie"/>
+                <xs:enumeration value="overheid:BestuursorgaanRegionaalSamenwerkingsorgaan"/>
+                <xs:enumeration value="overheid:BestuursorgaanWaterschap"/>
+            </xs:restriction>
+        </xs:simpleType>
+        
+        
+        <xs:complexType name="Agent">
+            <xs:annotation>
+                <xs:documentation> </xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+                <xs:restriction base="Agent">
+                    <xs:attribute name="scheme" type="AgentScheme" use="required"/>
+                    <xs:attribute name="resourceIdentifier" type="URI" use="required"/>
+                </xs:restriction>
+            </xs:simpleContent>
+        </xs:complexType>
+        
+        
+        <xs:simpleType name="AgentScheme">
+            <xs:restriction base="AgentScheme">
+                <!--
+                    <xs:enumeration value="overheid:Adviescollege"/>
+                -->
+                <xs:enumeration value="overheid:AndereOrganisatie"/>
+                <!--
+                    <xs:enumeration value="overheid:Deelgemeente"/>
+                    <xs:enumeration value="overheid:EersteOfTweedeKamer"/>
+                    <xs:enumeration value="overheid:DienstAgentschapInstellingOfProject"/>
+                -->
+                <xs:enumeration value="overheid:Gemeente"/>
+                <xs:enumeration value="overheid:GGD"/>
+                <!--
+                    <xs:enumeration value="overheid:HoogCollegeVanStaat"/>
+                    <xs:enumeration value="overheid:Koepelorganisatie"/>
+                    <xs:enumeration value="overheid:KoninklijkHuis"/>
+                -->
+                    <xs:enumeration value="overheid:Ministerie"/>
+                <!-->    
+                <xs:enumeration value="overheid:OpenbaarLichaamVoorBedrijfEnBeroep"/>
+                    <xs:enumeration value="overheid:Politiekorps"/>
+                -->
+                <xs:enumeration value="overheid:Provincie"/>
+                <!--
+                    <xs:enumeration value="overheid:RechterlijkeMacht"/>
+                    <xs:enumeration value="overheid:Regering"/>
+                    <xs:enumeration value="overheid:RegionaalSamenwerkingsorgaan"/>
+                -->             
+                <xs:enumeration value="overheid:Waterschap"/>
+                <!--
+                    <xs:enumeration value="overheid:ZelfstandigBestuursorgaan"/>
+                -->
+            </xs:restriction>
+        </xs:simpleType>
+        
+    </xs:redefine>
+
+</xs:schema>

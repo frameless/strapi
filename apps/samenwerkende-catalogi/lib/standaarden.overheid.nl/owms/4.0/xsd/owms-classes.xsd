@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+   xmlns:xml="http://www.w3.org/XML/1998/namespace">
+
+    <!-- File: owms-classes.xsd
+          Function: this XML-scheme declares all classes that are used to define range for properties that are part of the metadata standard 
+          for Dutch government information: the Overheid.nl Web Metadata Standaard (OWMS).
+          More information: see standaarden.overheid.nl. -->
+
+    <xs:include schemaLocation="owms-types.xsd"/>
+    <xs:include schemaLocation="overheid-schemes.xsd"/>
+
+    <!-- Change: 2018-08-28 
+         By: Hans Overbeek
+         RFC: KOOP18040216
+         schemalocation had absoluut pad naar http://standaarden.overheid.nl. Validators gingen niet goed 
+         om met redirect van http naar https. Relatieve adressering is bovendien te verkiezen boven absolute url. 
+         Daarom absolute url gewijzigd naar relatieve url.-->
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml-att.xsd"/>
+    
+   <xs:complexType name="Agent">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="AgentScheme" use="required"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+    
+   <xs:complexType name="AgentClassOrFreeText">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="AgentClassScheme" use="optional"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+    
+   <xs:complexType name="AgentOrFreeText">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="AgentScheme" use="optional"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+    
+   <xs:complexType name="BeslissendOrgaan">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="BeslissendOrgaanScheme" use="required"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+    
+   <xs:complexType name="FreeText">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute ref="xml:lang" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+    
+   <xs:complexType name="InformationObject">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="resourceIdentifier" type="xs:anyURI" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+    
+   <xs:complexType name="InformationType">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="InformationTypeScheme" use="required"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+    
+   <xs:complexType name="Location">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="LocationScheme" use="required"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+    
+   <xs:complexType name="PeriodOfTime">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start" type="DateTimeFormat"/>
+            <xs:element name="end" type="DateTimeFormat" minOccurs="0"/> 
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
+        </xs:sequence>      
+   </xs:complexType>
+    
+   <xs:complexType name="TripleType">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="scheme" type="SchemeName" use="optional"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>
