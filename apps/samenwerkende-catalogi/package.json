@@ -1,0 +1,11 @@
+{
+  "name": "@frameless/samenwerkende-catalogi",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js > sc.xml"
+  },
+  "dependencies": {
+    "jsdom": "20.0.2"
+  }
+}
