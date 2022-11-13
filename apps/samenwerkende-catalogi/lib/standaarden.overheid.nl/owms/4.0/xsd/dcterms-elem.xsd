@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:overheid="http://standaarden.overheid.nl/owms/terms/"
+    xmlns:sch="http://www.ascc.net/xml/schematron"
+    xmlns="http://purl.org/dc/terms/" 
+    targetNamespace="http://purl.org/dc/terms/"
+    elementFormDefault="unqualified">
+       
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml-att.xsd"/>
+    <xs:include schemaLocation="owms-types.xsd"/>
+    
+     
+    <!-- overheid-schemes
+        Function: this XML-scheme declares all encoding schemes that are used to define range for properties that are part of the metadata standard 
+        for Dutch government information: the Overheid.nl Web Metadata Standaard (OWMS).
+        More information: see standaarden.overheid.nl. -->
+ 
+    
+    <!-- Datatypes om de juiste subklasse/cv (type) aan te geven van de waarde in de content. 
+        Waarde uit content moet voorkomen in respectieve cv. Te testen met Schematron. -->
+    
+    <xs:simpleType name="OverheidAgentScheme">
+        <xs:restriction base="xs:QName">
+            <xs:enumeration value="overheid:Adviescollege"/>
+            <xs:enumeration value="overheid:Deelgemeente"/>
+            <xs:enumeration value="overheid:StatenGeneraal"/>
+            <xs:enumeration value="overheid:Dienst"/>
+            <xs:enumeration value="overheid:DienstAgentschapInstellingOfProject"/>
+            <xs:enumeration value="overheid:Gemeente"/>
+            <xs:enumeration value="overheid:HoogCollegeVanStaat"/>
+            <xs:enumeration value="overheid:Koepelorganisatie"/>
+            <xs:enumeration value="overheid:KoninklijkHuis"/>
+            <xs:enumeration value="overheid:Ministerie"/>
+            <xs:enumeration value="overheid:OpenbaarLichaamVoorBedrijfEnBeroep"/>
+            <xs:enumeration value="overheid:Politiekorps"/>
+            <xs:enumeration value="overheid:Provincie"/>
+            <xs:enumeration value="overheid:RechterlijkeMacht"/>
+            <xs:enumeration value="overheid:Regering"/>
+            <xs:enumeration value="overheid:RegionaalSamenwerkingsorgaan"/>
+            <xs:enumeration value="overheid:Rijksinspectie"/>
+            <xs:enumeration value="overheid:Waterschap"/>
+            <xs:enumeration value="overheid:ZelfstandigBestuursorgaan"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AgentScheme">
+        <xs:union memberTypes="OverheidAgentScheme">
+            <xs:simpleType>
+                <xs:restriction base="SchemeName"/>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    
+    <xs:simpleType name="OverheidAgentClassScheme">
+        <xs:restriction base="xs:QName">
+            <xs:enumeration value="overheid:Doelgroep"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AgentClassScheme">
+        <xs:union memberTypes="OverheidAgentClassScheme">
+            <xs:simpleType>
+                <xs:restriction base="SchemeName"/>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    
+    <xs:simpleType name="OverheidLocationScheme">
+        <xs:restriction base="xs:QName">
+            <xs:enumeration value="overheid:PostcodeHuisnummer"/>
+            <xs:enumeration value="overheid:Gemeente"/>
+            <xs:enumeration value="overheid:Provincie"/>
+            <xs:enumeration value="overheid:Waterschap"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LocationScheme">
+        <xs:union memberTypes="OverheidLocationScheme">
+            <xs:simpleType>
+                <xs:restriction base="SchemeName"/>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    
+    <xs:simpleType name="OverheidBestuursOrgaanScheme">
+        <xs:restriction base="xs:QName">
+            <xs:enumeration value="overheid:BestuursorgaanDeelgemeente"/>
+            <xs:enumeration value="overheid:BestuursorgaanGemeente"/>
+            <xs:enumeration value="overheid:BestuursorgaanMinisterie"/>
+            <xs:enumeration value="overheid:BestuursorgaanProvincie"/>
+            <xs:enumeration value="overheid:BestuursorgaanRegionaalSamenwerkingsorgaan"/>
+            <xs:enumeration value="overheid:BestuursorgaanWaterschap"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BeslissendOrgaanScheme">
+        <xs:union memberTypes="OverheidBestuursOrgaanScheme">
+            <xs:simpleType>
+                <xs:restriction base="SchemeName"/>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    
+    <xs:simpleType name="OverheidInformationTypeScheme">
+        <xs:restriction base="xs:QName">
+            <xs:enumeration value="overheid:Informatietype"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="InformationTypeScheme">
+        <xs:union memberTypes="OverheidInformationTypeScheme">
+            <xs:simpleType>
+                <xs:restriction base="SchemeName"/>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    
+    <!-- owms-classes
+        Function: this XML-scheme declares all classes that are used to define range for properties that are part of the metadata standard 
+        for Dutch government information: the Overheid.nl Web Metadata Standaard (OWMS).
+        More information: see standaarden.overheid.nl. -->
+    
+    
+    <xs:complexType name="Agent">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="AgentScheme" use="required"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="AgentClassOrFreeText">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="AgentClassScheme" use="optional"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="AgentOrFreeText">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="AgentScheme" use="optional"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="BeslissendOrgaan">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="BeslissendOrgaanScheme" use="required"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="FreeText">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute ref="xml:lang" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="InformationObject">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="resourceIdentifier" type="xs:anyURI" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="InformationType">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="InformationTypeScheme" use="required"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="Location">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="scheme" type="LocationScheme" use="required"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="PeriodOfTime">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start" type="DateTimeFormat" />
+            <xs:element name="end" type="DateTimeFormat" minOccurs="0"/> 
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
+        </xs:sequence>      
+    </xs:complexType>
+    
+    <xs:complexType name="TripleType">
+        <xs:annotation>
+            <xs:documentation>
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="scheme" type="SchemeName" use="optional"/>
+                <xs:attribute name="resourceIdentifier" type="URI" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+   
+    
+    <!-- dcterms-elem
+          Function: this XML-scheme defines all dcterms elements that are part of the metadata standard 
+          for Dutch government information: the Overheid.nl Web Metadata Standaard (OWMS).
+          More information: see standaarden.overheid.nl. -->
+    
+
+    <!-- We start with the eight elements which are in the owms-kern (owms core) -->
+    <xs:element name="identifier" type="URI">
+        <xs:annotation>
+            <xs:documentation>Verwijzing/URL.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="title" type="FreeText">
+        <xs:annotation>
+            <xs:documentation>Titel.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="type" type="InformationType">
+        <xs:annotation>
+            <xs:documentation>InformatieType.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="modified" type="DateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>Wijzigingsdatum.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="creator" type="Agent">
+        <xs:annotation>
+            <xs:documentation>Auteur.</xs:documentation>
+            <xs:appinfo/>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="spatial" type="Location">
+        <xs:annotation>
+            <xs:documentation>Locatie.</xs:documentation>
+            <xs:appinfo/>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="temporal" type="PeriodOfTime">
+        <xs:annotation>
+            <xs:documentation>Geldigheid.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="language" type="xs:language">
+        <xs:annotation>
+            <xs:documentation>Taal. 'nl' of 'fy' of 'en'.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    
+    <!-- All other dcterms elements in alphabetical order -->
+
+    <xs:element name="abstract" type="FreeText">
+        <xs:annotation>
+            <xs:documentation>Samenvatting.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="accessRights" type="TripleType">
+        <xs:annotation>
+            <xs:documentation>Toegangsrechten.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="alternative" type="FreeText">
+        <xs:annotation>
+            <xs:documentation>Alternatieve titel.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="audience" type="AgentClassOrFreeText">
+        <xs:annotation>
+            <xs:documentation>Doelgroep.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="available" type="PeriodOfTime">
+        <xs:annotation>
+            <xs:documentation>Looptijd publicatie.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="conformsTo" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Voldoet aan.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="contributor" type="AgentOrFreeText">
+        <xs:annotation>
+            <xs:documentation>Met bijdrage van.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="coverage" type="FreeText">
+        <xs:annotation>
+            <xs:documentation>Dekking.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="created" type="DateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>Datum gemaakt. Formaat is datum (YYYY-MM-DD) of datumtijd
+                (YYYY-MM-DDT00:00:00). </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="date" type="DateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>Datum. Formaat is datum (YYYY-MM-DD) of datumtijd
+                (YYYY-MM-DDT00:00:00). </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="dateAccepted" type="DateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>Datum van acceptatie. Formaat is datum (YYYY-MM-DD) of datumtijd
+                (YYYY-MM-DDT00:00:00). </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="dateCopyrighted" type="DateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>Datum van copyright. Formaat is datum (YYYY-MM-DD) of datumtijd
+                (YYYY-MM-DDT00:00:00). </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="dateSubmitted" type="DateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>Datum van submission. Formaat is datum (YYYY-MM-DD) of datumtijd
+                (YYYY-MM-DDT00:00:00). </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="description" type="FreeText">
+        <xs:annotation>
+            <xs:documentation>Omschrijving.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="educationLevel" type="AgentClassOrFreeText">
+        <xs:annotation>
+            <xs:documentation>Opleidingsniveau.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="extent" type="FreeText">
+        <xs:annotation>
+            <xs:documentation> Grootte of tijdsduur van de bron.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="format" type="FreeText">
+        <xs:annotation>
+            <xs:documentation>Vrije Tekst.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="hasFormat" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Heeft formaat.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="hasPart" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Omvat onderdeel.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="hasVersion" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation> Heeft versie.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="instructionalMethod" type="FreeText">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="isFormatOf" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Is formaat van.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="isPartOf" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Is onderdeel van.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="isReferencedBy" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Wordt aangehaald door.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="isReplacedBy" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Is vervangen door.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="isRequiredBy" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Is vereist door.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="isVersionOf" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Is een versie van.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="issued" type="DateTimeFormat">
+        <xs:annotation>
+            <xs:documentation>Uitgiftedatum.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="license" type="TripleType">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="mediator" type="AgentClassOrFreeText">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="provenance" type="TripleType">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="publisher" type="AgentOrFreeText">
+        <xs:annotation>
+            <xs:documentation>Publicerende organisatie.</xs:documentation>
+            <xs:appinfo> </xs:appinfo>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="references" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Verwijst naar.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="relation" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Relatie.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="replaces" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Vervangt.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="requires" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Vereist.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="rights" type="TripleType">
+        <xs:annotation>
+            <xs:documentation>Rechten.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="rightsHolder" type="AgentOrFreeText">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="source" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Bron.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="subject" type="TripleType">
+        <xs:annotation>
+            <xs:documentation>Onderwerp.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="tableOfContents" type="InformationObject">
+        <xs:annotation>
+            <xs:documentation>Inhoudsopgave.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="valid" type="PeriodOfTime">
+        <xs:annotation>
+            <xs:documentation>Datum geldig.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+</xs:schema>

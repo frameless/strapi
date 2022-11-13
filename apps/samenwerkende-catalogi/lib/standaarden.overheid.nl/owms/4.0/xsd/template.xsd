@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:overheid="http://standaarden.overheid.nl/owms/terms/" 
+    xmlns="http://standaarden.overheid.nl/template/"
+    targetNamespace="http://standaarden.overheid.nl/template/" 
+    elementFormDefault="qualified" version="X.X">
+    
+    <!-- xml:base="http://standaarden.overheid.nl/owms/xsd/" 
+    xm:base not used due to issues with Xerces en XML Spy -->
+    
+    <!-- File: template.xsd
+          Function: this template XML-scheme enables a simple definition of a metadata scheme which complies
+          to the metadata standard for Dutch government information: the Overheid.nl Web Metadata Standaard (OWMS).
+          More information: see standaarden.overheid.nl
+
+          TO DO:
+          - Rename template.xsd to the name of your application;
+          - Replace namespace 'template' in this xsd by the name of your application. 
+
+          Important:
+          Despite the fact that the overheid namespace is "http://standaarden.overheid.nl/owms/terms/", the schema locations have https-URLs.
+    -->
+ 
+    <xs:include schemaLocation="https://standaarden.overheid.nl/owms/4.0/xsd/owms-types.xsd"/>
+    <xs:include schemaLocation="https://standaarden.overheid.nl/owms/4.0/xsd/overheid-schemes.xsd"/>
+    <xs:include schemaLocation="https://standaarden.overheid.nl/owms/4.0/xsd/owms-classes.xsd"/>
+
+    <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="https://standaarden.overheid.nl/owms/3.5/xsd/owms-classes-redef.xsd"/>
+    <xs:import namespace="http://standaarden.overheid.nl/owms/terms/" schemaLocation="https://standaarden.overheid.nl/owms/3.5/xsd/overheid-classes-redef.xsd"/>
+
+    <!-- TO DO: rename 'root-elem' for your application. -->
+    <xs:element name="root-elem">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="meta"/>
+                <!-- set minOccurs to 1 if you surely have body content-->
+                <xs:element ref="body" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="owms-version" type="xs:token" fixed="3.5" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="meta">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="owmskern">
+                    <!-- NOT TO DO: To stay OWMS compliant do not alter this element. This element enforces the mandatory elements of owms (owms-kern or owms-core) to be part of your scheme. -->
+                    <xs:complexType>
+                          <xs:group ref="overheid:owmskern"/>
+                    </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="owmsmantel" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- TO DO: remove comment-tags to include all dcterms elements as refered to by owms: -->
+                            <!-- <xs:group ref="overheid:owmsmantel" maxOccurs="unbounded"/> -->
+                            
+                            <!-- TO DO: to include only specific dcterms elements into your scheme:  -->
+                            <!-- Example: <xs:element ref="dcterms:valid"/> -->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+                <!--  TO DO: replace 'template' in 'templatemeta' by the name of your application. -->
+                <xs:element name="templatemeta" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- TO DO (optional): add application specific metadata. -->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="othermeta" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- TO DO (optional): add other metadata like for instance inspire. -->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="body">
+        <!-- TO DO: here goes the definition of the structure of the content. -->
+    </xs:element>
+    
+    <!-- TO DO: your own datatypes or by xs:include of external scheme. -->
+
+</xs:schema>
