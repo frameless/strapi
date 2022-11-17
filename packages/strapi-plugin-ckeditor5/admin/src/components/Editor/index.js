@@ -25,16 +25,15 @@ const Wrapper = styled(Box)`
     }
   }
 `;
-let mounted = false
 function Editor({ onChange, name, value, disabled }) {
   const [productPrice, setProductPrice] = React.useState([]);
   const [editor, setEditor] = React.useState([]);
   const [priceValue, setPriceValue] = React.useState('');
+  const [busy, setBusy] = React.useState(false)
   // const urlSearchParams = new URLSearchParams(window.location.search);
   // const params = Object.fromEntries(urlSearchParams.entries());
   // const languageContent = params["plugins[i18n][locale]"];
   const { id: pageId } = useParams()
-
 
   const configuration = {
     toolbar: [
@@ -151,6 +150,7 @@ function Editor({ onChange, name, value, disabled }) {
   const fetchProductPrice = async () => {
 
     try {
+      setBusy(true)
       const res = await fetch(STRAPI_BACKEND_URL, {
         method: "POST",
         headers: {
@@ -184,19 +184,16 @@ function Editor({ onChange, name, value, disabled }) {
       const { data } = await res.json();
 
       setProductPrice(data.product.data?.attributes?.price?.data?.attributes || []);
+      setBusy(false)
     } catch (error) {
-
+      console.log(error);
+      setBusy(false)
     }
   };
 
   React.useEffect(() => {
-    mounted = true
     fetchProductPrice();
-    return () => {
-      mounted = false
-    }
-  }, []);
-
+  }, [pageId]);
   return (
     <>
       <ProductPriceList onChange={(id) => {
@@ -211,7 +208,7 @@ function Editor({ onChange, name, value, disabled }) {
         selectedValue={priceValue}
       />
       <Wrapper className={["utrecht-theme", "utrecht-html"].join(" ")}>
-        {mounted && <CKEditor
+        {!busy && <CKEditor
           editor={ClassicEditor}
           disabled={disabled}
           config={configuration}
