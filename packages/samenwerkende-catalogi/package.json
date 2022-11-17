@@ -1,0 +1,20 @@
+{
+  "name": "@frameless/samenwerkende-catalogi",
+  "version": "0.0.0-semantically-released",
+  "private": true,
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "build": "node src/index.js"
+  },
+  "devDependencies": {
+    "@stedi/prettier-plugin-jsonata": "1.14.0",
+    "prettier": "2.7.1",
+    "xmlbuilder2": "3.0.2"
+  }
+}
