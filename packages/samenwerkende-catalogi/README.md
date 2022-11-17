@@ -50,3 +50,19 @@ De gegenereerde XML kan getest worden door een XML Schema validator te gebruiken
 
 - [Samenwerkende Catalogi op standaarden.overheid.nl](https://standaarden.overheid.nl/sc)
 - [Samenwerkende Catalogi bij Logius](https://logius.nl/diensten/samenwerkende-catalogi)
+
+## Environment variables
+
+create a file in the root with name `.env`
+
+**Development**:
+
+copy the variable below and paste it in the new created file
+
+```sh
+STRAPI_BACKEND_URL=https://utrecht-strapi-cms.frameless.io/graphql
+```
+
+**Production**:
+
+currently, we use Digitalocean to host the Strapi, so you have to provide the environment variable value there with the deployed url
