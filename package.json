@@ -6,6 +6,7 @@
     "packages/utrecht-editor",
     "packages/strapi-plugin-ckeditor5",
     "packages/strapi-dashboard",
+    "packages/**",
     "apps/**"
   ],
   "repository": {

@@ -16,6 +16,7 @@
   "dependencies": {
     "@frameless/preview-button": "file:../preview-button",
     "@frameless/strapi-plugin-ckeditor5": "file:../strapi-plugin-ckeditor5",
+    "@frameless/strapi-plugin-gemeente-select": "0.0.0-semantically-released",
     "@strapi/plugin-graphql": "4.5.0",
     "@strapi/plugin-i18n": "4.5.0",
     "@strapi/plugin-users-permissions": "4.5.0",
