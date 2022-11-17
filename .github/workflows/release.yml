@@ -23,17 +23,26 @@ jobs:
           registry-url: "https://npm.pkg.github.com/"
           scope: "@frameless"
       - run: npm ci
-      - name: Make envfile
+      - name: Make envfile frontend
         uses: SpicyPizza/create-envfile@v1.3
         with:
           envkey_DEBUG: false
           envkey_STRAPI_HOSTNAME: ${{ secrets.STRAPI_HOSTNAME }}
-          envkey_STRAPI_GRAPHQL_URL: ${{ secrets.STRAPI_GRAPHQL_URL }}
+          envkey_STRAPI_BACKEND_URL: ${{ secrets.STRAPI_BACKEND_URL }}
           envkey_REVALIDATE_SECRET_TOKEN: ${{ secrets.REVALIDATE_SECRET_TOKEN }}
           envkey_PREVIEW_SECRET_TOKEN: ${{ secrets.PREVIEW_SECRET_TOKEN }}
-          envkey_FRONTEND_SITE_URL: ${{ secrets.FRONTEND_SITE_URL }}
+          envkey_STRAPI_FRONTEND_URL: ${{ secrets.STRAPI_FRONTEND_URL }}
           directory: apps/frontend
           file_name: .env.production.local
+          fail_on_empty: false
+      - name: Make envfile samenwerkende catalogi
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_DEBUG: false
+          envkey_STRAPI_BACKEND_URL: ${{ secrets.STRAPI_BACKEND_URL }}
+          envkey_STRAPI_FRONTEND_URL: ${{ secrets.STRAPI_FRONTEND_URL }}
+          directory: packages/samenwerkende-catalogi
+          file_name: .env
           fail_on_empty: false
       - name: Build
         run: npm run build
