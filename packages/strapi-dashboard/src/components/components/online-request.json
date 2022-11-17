@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_online_requests",
+  "info": {
+    "displayName": "onlineRequest",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "ja",
+        "nee",
+        "digid"
+      ],
+      "required": true
+    }
+  }
+}

@@ -32,7 +32,8 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": false
     },
     "flexibleSection": {
       "type": "component",
@@ -82,6 +83,17 @@
       "relation": "manyToOne",
       "target": "api::price.price",
       "inversedBy": "products"
+    },
+    "catalogiMeta": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.catalogi-meta",
+      "required": false
     }
   }
 }

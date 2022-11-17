@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_components_spatials",
+  "info": {
+    "displayName": "spatial",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "schema": {
+      "type": "enumeration",
+      "enum": [
+        "Gemeente"
+      ],
+      "required": true
+    },
+    "resourceIdentifier": {
+      "type": "customField",
+      "customField": "plugin::gemeente-select.gemeente"
+    }
+  }
+}

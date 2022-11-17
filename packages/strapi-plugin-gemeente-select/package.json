@@ -1,0 +1,30 @@
+{
+    "name": "@frameless/strapi-plugin-gemeente-select",
+    "version": "0.0.0-semantically-released",
+    "description": "A strapi custom field for selecting gemeente",
+    "private": false,
+    "strapi": {
+        "name": "gemeente-select",
+        "description": "Gemeente Select custom field",
+        "kind": "plugin",
+        "displayName": "Gemeente Select"
+    },
+    "repository": {
+        "type": "git+ssh",
+        "url": "git@github.com:frameless/strapi.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "author": {
+        "name": ""
+    },
+    "license": "MIT",
+    "peerDependencies": {
+        "@strapi/strapi": ">=4.0.0"
+    },
+    "engines": {
+        "node": ">=16.16.0 <=18.x.x",
+        "npm": ">=6.0.0"
+    }
+}
