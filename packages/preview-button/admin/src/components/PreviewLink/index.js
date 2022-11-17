@@ -14,7 +14,7 @@ const PreviewLink = () => {
             size="S"
             startIcon={<Eye />}
             style={{ width: '100%' }}
-            href={`${STRAPI_FRONTEND_URL}?secret=${STRAPI_FRONTEND_PREVIEW_SECRET}&type=${STRAPI_FRONTEND_TYPE}&slug=${initialData.slug}&locale=${initialData.locale}`}
+            href={`${STRAPI_FRONTEND_URL}/api/preview?secret=${STRAPI_FRONTEND_PREVIEW_SECRET}&type=${STRAPI_FRONTEND_TYPE}&slug=${initialData.slug}&locale=${initialData.locale}`}
             variant="secondary"
             target="_blank"
             rel="noopener noreferrer"
