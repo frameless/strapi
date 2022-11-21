@@ -2,13 +2,12 @@ const { mapKeys } = require('lodash');
 const axios = require('axios');
 const { create } = require('xmlbuilder2');
 const { formatJsonata } = require("@stedi/prettier-plugin-jsonata/dist/lib");
-var fs = require('fs');
+const fs = require('fs');
 require('dotenv').config();
 const gemeente = require('@frameless/catalogi-data');
 
 const { createSchema, getPrefLabel } = require('./helpers')
 
-const path = require('path')
 const dir = './dist';
 const prefixMap = {
   xsi: "http://www.w3.org/2001/XMLSchema-instance",
@@ -154,24 +153,6 @@ const fetchProductPrice = async () => {
   }
 }
 fetchProductPrice();
-
-
-(function generateGemeenetJson() {
-  fs.readFile(require.resolve(path.resolve(process.cwd(), 'src/gemeente.xml')), (err, data) => {
-    if (err) {
-      console.log(err);
-    }
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, {
-        recursive: true
-      });
-    }
-
-    const doc = create(data.toString());
-    const gemeenteJson = doc.toObject()
-    fs.writeFileSync(`${dir}/gemeente.json`, prettierFormateJson(gemeenteJson));
-  })
-})()
 
 function prettierFormateJson(json) {
   return formatJsonata(JSON.stringify(json), { printWidth: 120, tabWidth: 2, useTabs: false });

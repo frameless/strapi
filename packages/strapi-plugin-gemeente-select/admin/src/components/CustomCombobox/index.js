@@ -4,7 +4,7 @@ import { Combobox, ComboboxOption } from '@strapi/design-system/Combobox';
 import { Stack } from '@strapi/design-system/Stack';
 import { Field, FieldLabel, FieldError, FieldHint } from '@strapi/design-system/Field';
 import { useIntl } from 'react-intl';
-import gemeente from "@frameless/samenwerkende-catalogi/dist/gemeente.json"
+import gemeente from "@frameless/catalogi-data"
 
 const CustomCombobox = ({
     value,
