@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "npm run swc:production",
+    "predev": "npm run swc:development",
     "dev": "next dev -p 1234",
+    "swc:production": "NODE_ENV=production node samenwerkendecatalogi.js",
+    "swc:development": "NODE_ENV=development node samenwerkendecatalogi.js",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
@@ -12,6 +16,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.0",
+    "@frameless/samenwerkende-catalogi": "0.0.0-semantically-released",
     "@utrecht/component-library-css": "^1.0.0-alpha.356",
     "@utrecht/component-library-react": "^1.0.0-alpha.165",
     "@utrecht/design-tokens": "^1.0.0-alpha.349",
