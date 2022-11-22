@@ -6,16 +6,14 @@
   },
   "options": {},
   "attributes": {
-    "schema": {
-      "type": "enumeration",
-      "enum": [
-        "Gemeente"
-      ],
-      "required": true
-    },
     "resourceIdentifier": {
       "type": "customField",
       "customField": "plugin::gemeente-select.gemeente"
+    },
+    "scheme": {
+      "type": "customField",
+      "customField": "plugin::scheme-select.scheme",
+      "required": true
     }
   }
 }

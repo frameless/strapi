@@ -6,7 +6,7 @@ const fs = require('fs');
 require('dotenv').config();
 const gemeente = require('@frameless/catalogi-data');
 
-const { createSchema, getPrefLabel } = require('./helpers')
+const { createScheme, getPrefLabel } = require('./helpers')
 
 const dir = './dist';
 const prefixMap = {
@@ -35,11 +35,11 @@ const fetchProductPrice = async () => {
                 updatedAt
                 catalogiMeta {
                   spatial {
-                    schema
+                    scheme
                     resourceIdentifier
                   }
                   authority {
-                    schema
+                    scheme
                     resourceIdentifier
                   }
                   audience{
@@ -65,19 +65,20 @@ const fetchProductPrice = async () => {
       const prefLabelSpatial = getPrefLabel(gemeente.cv.value, attributes.catalogiMeta.spatial.resourceIdentifier)
       const prefLabelAuthority = getPrefLabel(gemeente.cv.value, attributes.catalogiMeta.authority.resourceIdentifier)
 
-      const schema = createSchema("{http://standaarden.overheid.nl/owms/terms/}Gemeente", prefixMap)
+      const schemeAuthority = createScheme(attributes.catalogiMeta.authority.scheme, prefixMap)
+      const schemeSpatial = createScheme(attributes.catalogiMeta.spatial.scheme, prefixMap)
 
       const path = 'products' // can be from the CMS
       const identifier = `${process.env.STRAPI_FRONTEND_URL}/${attributes.locale}/${path}/${attributes.slug}`
 
       const spatial = {
-        schema,
+        schemeSpatial,
         resourceIdentifier: gemeenteSpatial,
         label: prefLabelSpatial
       }
 
       const authority = {
-        schema: schema,
+        schemeAuthority,
         resourceIdentifier: gemeenteAuthority,
         label: prefLabelAuthority,
       }
@@ -114,12 +115,12 @@ const fetchProductPrice = async () => {
         .ele('dcterms:type').att({ scheme: 'overheid:Informatietype' }).txt('productbeschrijving').up()
         .ele('dcterms:modified').txt(item.modified).up()
         .ele('dcterms:spatial').att({
-          scheme: item.spatial.schema,
+          scheme: item.authority.scheme,
           resourceIdentifier: item.spatial.resourceIdentifier
         })
         .txt(item.spatial.label).up()
         .ele('overheid:authority').att({
-          scheme: item.authority.schema,
+          scheme: item.authority.scheme,
           resourceIdentifier: item.authority.resourceIdentifier
         })
         .txt(item.authority.label).up()

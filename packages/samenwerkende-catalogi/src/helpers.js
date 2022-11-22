@@ -20,7 +20,7 @@ const createName = (namespaceURI, name, map) => {
 
 const CLARK_REGEXP = /^(?:\{([^\}]*)\})?(.+)$/;
 
-const createSchemaType = (string) => {
+const createSchemeType = (string) => {
     const match = CLARK_REGEXP.exec(string);
 
     return match && {
@@ -29,11 +29,11 @@ const createSchemaType = (string) => {
     };
 };
 
-const createSchema = (id, map) => {
-    const schemaData = createSchemaType(id);
-    if (schemaData) {
-        return createName(schemaData.namespaceURI, schemaData.name, map)
+const createScheme = (id, map) => {
+    const schemeData = createSchemeType(id);
+    if (schemeData) {
+        return createName(schemeData.namespaceURI, schemeData.name, map)
     }
 }
 
-module.exports = { createSchema, getPrefLabel }
+module.exports = { createScheme, getPrefLabel }

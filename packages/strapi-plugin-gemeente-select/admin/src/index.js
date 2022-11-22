@@ -1,4 +1,3 @@
-// @ts-check
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
 import pluginId from './pluginId';
 import ComboboxIcon from './components/ComboboxIcon';
