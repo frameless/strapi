@@ -15,7 +15,7 @@ const prefixMap = {
 };
 const xmlnsPrefixMap = mapKeys(prefixMap, (_value, key) => `xmlns:${key}`);
 
-const convertJsonToXML = (data) => {
+const convertJsonToXML = (data, frontend_url) => {
   if (data && data.length > 0) {
     const root = create({ version: "1.0" })
       .ele("overheidproduct:scproducten")
@@ -33,9 +33,8 @@ const convertJsonToXML = (data) => {
 
       const schemeAuthority = createScheme(attributes.catalogiMeta?.authority?.scheme, prefixMap);
       const schemeSpatial = createScheme(attributes.catalogiMeta?.spatial?.scheme, prefixMap);
-
       const path = "products"; // can be from the CMS
-      const identifier = `${process.env.STRAPI_FRONTEND_URL}/${attributes.locale}/${path}/${attributes.slug}`;
+      const identifier = `${frontend_url.endsWith('/') ? frontend_url : `${frontend_url}/`}${attributes.locale}/${path}/${attributes.slug}`;
 
       const spatial = {
         schemeSpatial,
@@ -68,6 +67,24 @@ const convertJsonToXML = (data) => {
       };
     });
     meta.forEach((item) => {
+      if (
+        !item.title ||
+        !item.identifier ||
+        !item.language ||
+        !item.authority.scheme ||
+        !item.spatial.resourceIdentifier ||
+        !item.authority.scheme ||
+        !item.authority.resourceIdentifier ||
+        !item.audiences ||
+        item.audiences.length === 0 ||
+        !audience.scheme ||
+        !audience.type ||
+        !item.abstract ||
+        !item.productId ||
+        !item.onlineAanvragen
+      ) {
+        return
+      }
       const scproduct = root.ele("overheidproduct:scproduct").att({ "owms-version": "4.0" });
       const meta = scproduct.ele("overheidproduct:meta");
       meta
