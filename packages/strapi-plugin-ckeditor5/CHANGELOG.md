@@ -1,3 +1,10 @@
+## @frameless/strapi-plugin-ckeditor5 [1.3.2](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.3.1...@frameless/strapi-plugin-ckeditor5@1.3.2) (2022-11-23)
+
+
+### Bug Fixes
+
+* replace mounted with busy state ([d11d184](https://github.com/frameless/strapi/commit/d11d1844d9cb42e590984bd091cf7f935b63d1c6))
+
 ## @frameless/strapi-plugin-ckeditor5 [1.3.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.3.0...@frameless/strapi-plugin-ckeditor5@1.3.1) (2022-11-10)
 
 
