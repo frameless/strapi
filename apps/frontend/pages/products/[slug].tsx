@@ -27,7 +27,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
   const { getSearchResult, setQuery, query, suggestedHits, suggestions, getSuggestedSearch } =
     useContext(SearchContext);
   const { t } = useTranslation();
-
+  const priceData = product.attributes.price && product.attributes.price?.data?.attributes.price;
   return (
     <>
       <Head>
@@ -63,8 +63,12 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
         <Heading1 style={{ marginBlockStart: "3rem" }}>{title}</Heading1>
         <div>
           {flexibleSection && flexibleSection.title && <h2>{flexibleSection.title}</h2>}
-          {flexibleSection && flexibleSection.subTitle && <Markdown>{flexibleSection.subTitle}</Markdown>}
-          {flexibleSection && flexibleSection.option1 && <Markdown>{flexibleSection.option1}</Markdown>}
+          {flexibleSection && flexibleSection.subTitle && (
+            <Markdown data={priceData}>{flexibleSection.subTitle}</Markdown>
+          )}
+          {flexibleSection && flexibleSection.option1 && (
+            <Markdown data={priceData}>{flexibleSection.option1}</Markdown>
+          )}
           {flexibleSection && flexibleSection.digidButton && (
             <UtrechtDigidButton>
               <ButtonLink
@@ -80,17 +84,16 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
               flexibleSection.accordion &&
               flexibleSection.accordion.length > 0 &&
               flexibleSection.accordion.map((item: any, index: number) => (
-                <Accordion locale={locale} key={index} label={item.title} body={<Markdown>{item.body}</Markdown>} />
+                <Accordion
+                  locale={locale}
+                  key={index}
+                  label={item.title}
+                  body={<Markdown data={priceData}>{item.body}</Markdown>}
+                />
               ))}
           </div>
         </div>
-        <div>
-          {body && (
-            <Markdown data={product.attributes.price && product.attributes.price?.data?.attributes.price}>
-              {body}
-            </Markdown>
-          )}
-        </div>
+        <div>{body && <Markdown data={priceData}>{body}</Markdown>}</div>
         {faq.data && (
           <FAQSection
             locale={locale}
