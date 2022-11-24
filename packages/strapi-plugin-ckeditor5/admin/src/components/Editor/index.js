@@ -61,6 +61,7 @@ function Editor({ onChange, name, value, disabled }) {
       "sourceEditing",
       "htmlEmbed",
       "simpleBox",
+      "spotlight"
     ],
     heading: {
       options: [
