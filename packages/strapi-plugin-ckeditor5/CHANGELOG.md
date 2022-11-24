@@ -1,3 +1,10 @@
+## @frameless/strapi-plugin-ckeditor5 [1.4.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.4.0...@frameless/strapi-plugin-ckeditor5@1.4.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* disable plugin page in starpi ckeditor5 ([a80fced](https://github.com/frameless/strapi/commit/a80fceddf4a1db0547018d14ba7d514bcfbba5ec))
+
 # @frameless/strapi-plugin-ckeditor5 [1.4.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.3.2...@frameless/strapi-plugin-ckeditor5@1.4.0) (2022-11-24)
 
 
