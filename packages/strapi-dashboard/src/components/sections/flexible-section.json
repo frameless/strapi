@@ -27,11 +27,6 @@
     },
     "option2": {
       "type": "richtext"
-    },
-    "spotlight": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.spotlight"
     }
   }
 }
