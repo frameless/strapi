@@ -1,3 +1,10 @@
+# @frameless/strapi-plugin-ckeditor5 [1.4.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.3.2...@frameless/strapi-plugin-ckeditor5@1.4.0) (2022-11-24)
+
+
+### Features
+
+* enable spotlight plugin ([e3ce3a8](https://github.com/frameless/strapi/commit/e3ce3a8a2f78186430fc3ab3c65d2ae534ce5180))
+
 ## @frameless/strapi-plugin-ckeditor5 [1.3.2](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.3.1...@frameless/strapi-plugin-ckeditor5@1.3.2) (2022-11-23)
 
 
