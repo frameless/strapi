@@ -1,3 +1,10 @@
+# @frameless/utrecht-editor [1.4.0](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.3.0...@frameless/utrecht-editor@1.4.0) (2022-11-24)
+
+
+### Features
+
+* add spotlight plugin ([d61ed86](https://github.com/frameless/strapi/commit/d61ed865898f746d25874321e54187f7acb1db60))
+
 # @frameless/utrecht-editor [1.3.0](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.2.2...@frameless/utrecht-editor@1.3.0) (2022-10-28)
 
 
