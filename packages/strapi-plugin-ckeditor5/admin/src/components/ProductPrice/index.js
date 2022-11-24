@@ -15,12 +15,24 @@ export const formatCurrency = (product, locale = 'nl') => {
 export const ProductPriceList = ({ products, onChange, selectedValue, label }) => {
     return products &&
         products.length > 0 ? (
-        <Combobox label={label} value={selectedValue} onChange={onChange}>
+        <select value={selectedValue} onChange={onChange} style={{
+            position: 'relative',
+            border: '1px solid #dcdce4',
+            paddingRight: '12px',
+            paddingLeft: '12px',
+            paddingTop: '10px',
+            paddingBottom: '12px',
+            borderRadius: '4px',
+            background: '#ffffff',
+            outline: 'none',
+            boxShadow: 0
+            }}>
+            <option></option>
             {products.map((product) => (
-                <ComboboxOption value={product.id} id={product.id} key={product.id}>
-                    {`${product.label} ${formatCurrency(product)}`}
-                </ComboboxOption>
+                <option value={product.id} id={product.id} key={product.id}>
+                    {`${product.label}: ${formatCurrency(product)}`}
+                </option>
             ))}
-        </Combobox>
+        </select>
     ) : null;
 };

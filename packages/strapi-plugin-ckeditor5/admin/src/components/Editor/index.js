@@ -7,12 +7,11 @@ import styled from "styled-components";
 import ReactDOM from "react-dom";
 import { useParams } from "react-router";
 
-
 import "@utrecht/component-library-css";
 import "@utrecht/component-library-css/dist/html.css";
 import "@utrecht/design-tokens/dist/index.css";
 
-import { ProductPriceList, formatCurrency } from "../ProductPrice"
+import { ProductPriceList, formatCurrency } from "../ProductPrice";
 
 const Wrapper = styled(Box)`
   .ck-editor__main {
@@ -32,12 +31,12 @@ const Wrapper = styled(Box)`
 function Editor({ onChange, name, value, disabled }) {
   const [productPrice, setProductPrice] = React.useState([]);
   const [editor, setEditor] = React.useState([]);
-  const [priceValue, setPriceValue] = React.useState('');
-  const [busy, setBusy] = React.useState(false)
+  const [priceValue, setPriceValue] = React.useState("");
+  const [busy, setBusy] = React.useState(false);
   // const urlSearchParams = new URLSearchParams(window.location.search);
   // const params = Object.fromEntries(urlSearchParams.entries());
   // const languageContent = params["plugins[i18n][locale]"];
-  const { id: pageId } = useParams()
+  const { id: pageId } = useParams();
 
   const configuration = {
     toolbar: [
@@ -145,17 +144,14 @@ function Editor({ onChange, name, value, disabled }) {
       productRenderer: async (id, domElement) => {
         const product = productPrice?.price?.find((price) => parseInt(price.id) === parseInt(id));
         ReactDOM.render(product?.currency ? <p id={id}>{formatCurrency(product)}</p> : null, domElement);
-
       },
     },
     fillEmptyBlocks: false,
   };
 
-
   const fetchProductPrice = async () => {
-
     try {
-      setBusy(true)
+      setBusy(true);
       const res = await fetch(STRAPI_BACKEND_URL, {
         method: "POST",
         headers: {
@@ -189,10 +185,10 @@ function Editor({ onChange, name, value, disabled }) {
       const { data } = await res.json();
 
       setProductPrice(data.product.data?.attributes?.price?.data?.attributes || []);
-      setBusy(false)
+      setBusy(false);
     } catch (error) {
       console.log(error);
-      setBusy(false)
+      setBusy(false);
     }
   };
 
@@ -201,32 +197,36 @@ function Editor({ onChange, name, value, disabled }) {
   }, [pageId]);
   return (
     <>
-      <ProductPriceList onChange={(id) => {
-        setPriceValue(id)
-        if (id) {
-          editor.execute("insertProduct", id);
-          editor.editing.view.focus();
-        }
-      }}
+      <ProductPriceList
+        onChange={(evt) => {
+          const id = evt.target.value;
+          setPriceValue(id);
+          if (id) {
+            editor.execute("insertProduct", id);
+            editor.editing.view.focus();
+          }
+        }}
         label={productPrice.title}
         products={productPrice.price}
         selectedValue={priceValue}
       />
       <Wrapper className={["utrecht-theme", "utrecht-html"].join(" ")}>
-        {!busy && <CKEditor
-          editor={ClassicEditor}
-          disabled={disabled}
-          config={configuration}
-          data={value || ""}
-          onReady={(editor) => {
-            editor.setData(value || "");
-            setEditor(editor);
-          }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            onChange({ target: { name, value: data } });
-          }}
-        />}
+        {!busy && (
+          <CKEditor
+            editor={ClassicEditor}
+            disabled={disabled}
+            config={configuration}
+            data={value || ""}
+            onReady={(editor) => {
+              editor.setData(value || "");
+              setEditor(editor);
+            }}
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              onChange({ target: { name, value: data } });
+            }}
+          />
+        )}
       </Wrapper>
     </>
   );
