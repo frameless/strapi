@@ -25,10 +25,10 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "35.1.0",
     "@ckeditor/ckeditor5-react": "5.0.2",
-    "@utrecht/component-library-css": "1.0.0-alpha.340",
-    "@utrecht/component-library-react": "1.0.0-alpha.149",
-    "@utrecht/design-tokens": "1.0.0-alpha.333",
-    "@utrecht/web-component-library-react": "1.0.0-alpha.352"
+    "@utrecht/component-library-css": "1.0.0-alpha.379",
+    "@utrecht/component-library-react": "1.0.0-alpha.188",
+    "@utrecht/design-tokens": "1.0.0-alpha.372",
+    "@utrecht/web-component-library-react": "1.0.0-alpha.378"
   },
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"
