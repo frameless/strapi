@@ -1,4 +1,4 @@
-import { Page, PageContent, PageFooter, PageHeader } from "@utrecht/component-library-react";
+import { Article, Page, PageContent, PageFooter, PageHeader } from "@utrecht/component-library-react";
 import Link from "next/link";
 import React from "react";
 import { LanguageSwitcher } from "../LanguageSwitcher";
@@ -56,7 +56,9 @@ export const Layout: React.FC<LayoutProps> = ({
     </PageHeader>
     <PageContent className="utrecht-page-content--modifier" style={{ position: "relative" }}>
       <SearchIndexContent>
-        <Main>{children}</Main>
+        <Main>
+          <Article>{children}</Article>
+        </Main>
       </SearchIndexContent>
     </PageContent>
     <PageFooter />
