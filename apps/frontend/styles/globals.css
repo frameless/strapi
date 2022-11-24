@@ -85,3 +85,7 @@ nav {
   border: 1px solid #c00;
   background-color: #FFF;
 }
+
+.utrecht-spotlight-section > :first-child {
+  --utrecht-space-around: 0;
+}
