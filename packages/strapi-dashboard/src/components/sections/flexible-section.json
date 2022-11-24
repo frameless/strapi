@@ -28,7 +28,7 @@
     "option2": {
       "type": "richtext"
     },
-    "spotlightAside": {
+    "spotlight": {
       "type": "component",
       "repeatable": false,
       "component": "components.spotlight"
