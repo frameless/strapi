@@ -24,6 +24,10 @@ const Wrapper = styled(Box)`
       width: 100%;
     }
   }
+  .ck-content span[lang] {
+    /* undo italic styling from CK Editor */
+    font-style: inherit !important;
+  }
 `;
 function Editor({ onChange, name, value, disabled }) {
   const [productPrice, setProductPrice] = React.useState([]);
