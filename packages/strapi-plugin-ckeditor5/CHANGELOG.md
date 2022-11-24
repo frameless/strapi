@@ -1,3 +1,10 @@
+## @frameless/strapi-plugin-ckeditor5 [1.4.2](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.4.1...@frameless/strapi-plugin-ckeditor5@1.4.2) (2022-11-24)
+
+
+### Bug Fixes
+
+* hardcoded <select> instead of Strapi DS <Combobox> ([14d8e0e](https://github.com/frameless/strapi/commit/14d8e0e1cf3ead47b87ae972c79bab2d5b8f3d57))
+
 ## @frameless/strapi-plugin-ckeditor5 [1.4.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.4.0...@frameless/strapi-plugin-ckeditor5@1.4.1) (2022-11-24)
 
 
