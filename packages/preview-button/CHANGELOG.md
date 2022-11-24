@@ -1,3 +1,10 @@
+## @frameless/preview-button [1.0.1](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.0.0...@frameless/preview-button@1.0.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* disable plugin page in starpi preview button ([3d3d433](https://github.com/frameless/strapi/commit/3d3d43360d1d956e395639557452c20241ef8279))
+
 # @frameless/preview-button 1.0.0 (2022-11-23)
 
 
