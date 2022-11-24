@@ -44,6 +44,7 @@ import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformatio
 import WordCount from "@ckeditor/ckeditor5-word-count/src/wordcount";
 import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
 import { SimpleBox } from './simplebox'
+import { Spotlight } from './spotlight'
 import { ProductPreviewEditing } from './ProductPriceWidget/editing';
 
 import { ExtendHTMLSupport } from "./CustomHTMLSupport"
@@ -94,6 +95,7 @@ Editor.builtinPlugins = [
   TextTransformation,
   WordCount,
   SimpleBox,
+  Spotlight,
   ProductPreviewEditing,
 ];
 
@@ -127,6 +129,7 @@ Editor.defaultConfig = {
       "textPartLanguage",
       "htmlEmbed",
       "simpleBox",
+      "spotlight"
     ],
   },
   language: "en",
