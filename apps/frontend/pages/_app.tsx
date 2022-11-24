@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [dir]);
 
   return (
-    <div className="utrecht-theme">
+    <div className="utrecht-theme utrecht-theme--media-query-color-scheme">
       <SearchState>
         <Component {...pageProps} />
       </SearchState>
