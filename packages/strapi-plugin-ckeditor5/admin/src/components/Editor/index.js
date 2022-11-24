@@ -27,6 +27,9 @@ const Wrapper = styled(Box)`
     /* undo italic styling from CK Editor */
     font-style: inherit !important;
   }
+  .utrecht-spotlight-section > :first-child {
+    --utrecht-space-around: 0;
+  }
 `;
 function Editor({ onChange, name, value, disabled }) {
   const [productPrice, setProductPrice] = React.useState([]);
