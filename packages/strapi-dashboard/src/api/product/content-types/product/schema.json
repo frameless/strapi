@@ -94,6 +94,16 @@
       },
       "component": "components.catalogi-meta",
       "required": false
+    },
+    "spotlightSection": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.spotlight"
     }
   }
 }
