@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import "@utrecht/component-library-css";
 import "@utrecht/design-tokens/dist/index.css";
+import classNames from "classnames";
 
 import SearchState from "../context/search/state";
 
@@ -18,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [dir]);
 
   return (
-    <div className="utrecht-theme utrecht-theme--media-query-color-scheme">
+    <div className={classNames("utrecht-theme", "utrecht-theme--media-query-color-scheme")}>
       <SearchState>
         <Component {...pageProps} />
       </SearchState>
