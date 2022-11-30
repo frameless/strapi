@@ -1,15 +1,15 @@
-.alert{
-    background-color: lightgoldenrodyellow;
-    padding-inline: 10px;
-    padding-block: 10px;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    display: flex;
-    align-items: center;
-  }
+.alert {
+  background-color: lightgoldenrodyellow;
+  padding-inline: 10px;
+  padding-block: 10px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
 
-  .alert__message {
-    margin-inline-end: 10px;
-  }
+.alert__message {
+  margin-inline-end: 10px;
+}

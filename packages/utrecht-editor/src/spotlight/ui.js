@@ -2,34 +2,34 @@ import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 
 export class SpotlightUI extends Plugin {
-    init() {
-        const editor = this.editor
-        const t = editor.t;
+  init() {
+    const editor = this.editor;
+    const t = editor.t;
 
-        // The "Spotlight" button must be registered among the UI components of the editor
-        // to be displayed in the toolbar.
-        editor.ui.componentFactory.add('spotlight', locale => {
-            // The state of the button will be bound to the widget command.
-            const command = editor.commands.get('insertSpotlight');
+    // The "Spotlight" button must be registered among the UI components of the editor
+    // to be displayed in the toolbar.
+    editor.ui.componentFactory.add('spotlight', (locale) => {
+      // The state of the button will be bound to the widget command.
+      const command = editor.commands.get('insertSpotlight');
 
-            // The button will be an instance of ButtonView.
-            const buttonView = new ButtonView(locale);
+      // The button will be an instance of ButtonView.
+      const buttonView = new ButtonView(locale);
 
-            buttonView.set({
-                // The t() function helps localize the editor. All strings enclosed in t() can be
-                // translated and change when the language of the editor changes.
-                label: t('Spotlight'),
-                withText: true,
-                tooltip: true
-            });
+      buttonView.set({
+        // The t() function helps localize the editor. All strings enclosed in t() can be
+        // translated and change when the language of the editor changes.
+        label: t('Spotlight'),
+        withText: true,
+        tooltip: true,
+      });
 
-            // Bind the state of the button to the command.
-            buttonView.bind('isOn', 'isEnabled').to(command, 'value', 'isEnabled');
+      // Bind the state of the button to the command.
+      buttonView.bind('isOn', 'isEnabled').to(command, 'value', 'isEnabled');
 
-            // Execute the command when the button is clicked (executed).
-            this.listenTo(buttonView, 'execute', () => editor.execute('insertSpotlight'));
+      // Execute the command when the button is clicked (executed).
+      this.listenTo(buttonView, 'execute', () => editor.execute('insertSpotlight'));
 
-            return buttonView;
-        });
-    }
+      return buttonView;
+    });
+  }
 }

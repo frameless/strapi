@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const GET_ALL_PRODUCTS_SLUG = gql`
   query getAllProductsSlugQuery($locale: I18NLocaleCode) {
@@ -41,18 +41,18 @@ export const GET_PRODUCT_BY_SLUG = gql`
             keymatch
           }
           price {
-          data {
-            attributes {
-              price {
-                id
-                label
-                value
-                currency
+            data {
+              attributes {
+                price {
+                  id
+                  label
+                  value
+                  currency
+                }
               }
             }
           }
-        }
-        faq {
+          faq {
             data {
               attributes {
                 title
@@ -111,7 +111,7 @@ export const GET_PRODUCT_BY_SLUG = gql`
 `;
 
 export const GET_PRODUCT_BY_SLUG_AND_LOCALE = gql`
-  query getProductBySlugAndLocale($slug: String, $locale: I18NLocaleCode,  $pageMode: PublicationState) {
+  query getProductBySlugAndLocale($slug: String, $locale: I18NLocaleCode, $pageMode: PublicationState) {
     products(filters: { slug: { eq: $slug } }, locale: $locale, publicationState: $pageMode) {
       data {
         attributes {

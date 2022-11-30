@@ -1,6 +1,6 @@
 const config = {
   locales: [
-    "ar",
+    'ar',
     // 'fr',
     // 'cs',
     // 'de',
@@ -12,7 +12,7 @@ const config = {
     // 'ja',
     // 'ko',
     // 'ms',
-    "nl",
+    'nl',
     // 'no',
     // 'pl',
     // 'pt-BR',
@@ -22,14 +22,14 @@ const config = {
     // 'sv',
     // 'th',
     // 'tr',
-    "uk",
+    'uk',
     // 'vi',
     // 'zh-Hans',
     // 'zh',
   ],
 };
 
-const bootstrap = () => { };
+const bootstrap = () => {};
 
 export default {
   config,

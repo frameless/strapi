@@ -1,6 +1,6 @@
-import type { GetStaticPropsContext, NextPage } from "next";
-import Head from "next/head";
-import Link from "next/link";
+import type { GetStaticPropsContext, NextPage } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
 import {
   UnorderedList,
   UnorderedListItem,
@@ -8,16 +8,16 @@ import {
   Heading2,
   Paragraph,
   Heading1,
-} from "@utrecht/component-library-react";
-import { useContext, useEffect } from "react";
+} from '@utrecht/component-library-react';
+import { useContext, useEffect } from 'react';
 
-import { Layout } from "../../components/Layout";
-import SearchContext from "../../context/search/context";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
+import { Layout } from '../../components/Layout';
+import SearchContext from '../../context/search/context';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
 
-import { i18n } from "../../next-i18next.config";
+import { i18n } from '../../next-i18next.config';
 
 const SearchPage: NextPage = () => {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ const SearchPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{t("seo.title")}</title>
+        <title>{t('seo.title')}</title>
       </Head>
       <Layout
         onSearchChange={(event) => {
@@ -55,7 +55,7 @@ const SearchPage: NextPage = () => {
               <UnorderedListItem key={index}>
                 <Link href={url} passHref>
                   <UtrechtLink>
-                    <Heading2 style={{ color: "inherit" }} dangerouslySetInnerHTML={{ __html: fields.title }} />
+                    <Heading2 style={{ color: 'inherit' }} dangerouslySetInnerHTML={{ __html: fields.title }} />
                   </UtrechtLink>
                 </Link>
                 <Paragraph dangerouslySetInnerHTML={{ __html: fields.body }} />
@@ -83,7 +83,7 @@ const SearchPage: NextPage = () => {
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      ...(await serverSideTranslations(locale || "nl", ["common"])),
+      ...(await serverSideTranslations(locale || 'nl', ['common'])),
     },
   };
 }

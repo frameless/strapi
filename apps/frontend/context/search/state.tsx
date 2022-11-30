@@ -1,15 +1,15 @@
-import React, { useReducer, useState } from "react";
-import { useRouter } from "next/router";
-import axios from "axios";
+import React, { useReducer, useState } from 'react';
+import { useRouter } from 'next/router';
+import axios from 'axios';
 
-import Context from "./context";
-import Reducer from "./reducer";
+import Context from './context';
+import Reducer from './reducer';
 import {
   GET_SEARCH_RESULTS,
   GET_SEARCH_RESULTS_ERROR,
   GET_SUGGESTED_SEARCH,
   GET_SUGGESTED_SEARCH_ERROR,
-} from "../types";
+} from '../types';
 
 const State = (props: any) => {
   const initialState = {
@@ -18,7 +18,7 @@ const State = (props: any) => {
     suggestions: [],
     loading: true,
     error: null,
-    query: "",
+    query: '',
     setQuery: () => {},
   };
 
@@ -29,8 +29,8 @@ const State = (props: any) => {
     try {
       const res = await axios.get(
         `https://public.pandosearch.com/products.utrecht.nl-${locale}/search?q=${encodeURIComponent(
-          currentQuery ? currentQuery : query
-        )}&track=false`
+          currentQuery ? currentQuery : query,
+        )}&track=false`,
       );
       dispatch({ type: GET_SEARCH_RESULTS, payload: res.data });
       if (query) {
@@ -48,8 +48,8 @@ const State = (props: any) => {
     try {
       const res = await axios.get(
         `https://public.pandosearch.com/products.utrecht.nl-${locale}/suggest?track=false&q=${encodeURIComponent(
-          currentQuery ? currentQuery : query
-        )}`
+          currentQuery ? currentQuery : query,
+        )}`,
       );
       dispatch({ type: GET_SUGGESTED_SEARCH, payload: res.data });
     } catch (error) {

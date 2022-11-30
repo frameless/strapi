@@ -7,10 +7,7 @@
   "attributes": {
     "type": {
       "type": "enumeration",
-      "enum": [
-        "particulier",
-        "ondernemer"
-      ]
+      "enum": ["particulier", "ondernemer"]
     }
   }
 }

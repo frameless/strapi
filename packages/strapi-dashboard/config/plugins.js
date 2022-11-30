@@ -8,8 +8,8 @@ module.exports = ({ env }) => ({
       shouldUpdateSlug: true,
       contentTypes: {
         product: {
-          field: "slug",
-          references: "title",
+          field: 'slug',
+          references: 'title',
         },
       },
     },
@@ -36,6 +36,6 @@ module.exports = ({ env }) => ({
     enabled: true,
   },
   'import-export-entries': {
-    enabled: true
+    enabled: true,
   },
 });

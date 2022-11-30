@@ -3,7 +3,9 @@
   "version": "0.0.0-semantically-released",
   "private": false,
   "main": "./dist/gemeente.json",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git+ssh",
     "url": "git@github.com:frameless/strapi.git"

@@ -1,17 +1,17 @@
-const fs = require('fs')
-const { convertJsonToXML } = require("@frameless/samenwerkende-catalogi/src/index")
-const axios = require('axios')
-const env = process.env.NODE_ENV === 'production' ? process.env.NODE_ENV : 'development'
+const fs = require('fs');
+const { convertJsonToXML } = require('@frameless/samenwerkende-catalogi/src/index');
+const axios = require('axios');
+const env = process.env.NODE_ENV === 'production' ? process.env.NODE_ENV : 'development';
 
-require("dotenv").config({ path: `./.env.${env}.local` });
+require('dotenv').config({ path: `./.env.${env}.local` });
 
 const createSWC = async () => {
-    try {
-        const { data } = await axios({
-            url: process.env.STRAPI_BACKEND_URL,
-            method: 'post',
-            data: {
-                query: `
+  try {
+    const { data } = await axios({
+      url: process.env.STRAPI_BACKEND_URL,
+      method: 'post',
+      data: {
+        query: `
               {
                 products(locale: "nl"){
                   data {
@@ -43,13 +43,13 @@ const createSWC = async () => {
                   }
                 }
               }
-            `
-            }
-        })
-        const xml = convertJsonToXML(data.data.products.data, process.env.STRAPI_FRONTEND_URL);
-        fs.writeFileSync('./public/samenwerkendecatalogi.xml', xml)
-    } catch (error) {
-        console.log(error);
-    }
-}
-createSWC()
+            `,
+      },
+    });
+    const xml = convertJsonToXML(data.data.products.data, process.env.STRAPI_FRONTEND_URL);
+    fs.writeFileSync('./public/samenwerkendecatalogi.xml', xml);
+  } catch (error) {
+    console.log(error);
+  }
+};
+createSWC();

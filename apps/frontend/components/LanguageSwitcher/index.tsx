@@ -1,6 +1,6 @@
-import clsx from "clsx";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import clsx from 'clsx';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export interface Localizations {
   locale: string;
@@ -16,7 +16,7 @@ export interface LanguageSwitcherProps {
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onClick, localizations }) => {
   const { locales, asPath, locale: currentLocale } = useRouter();
   type T = keyof typeof mappedLocales;
-  const mappedLocales = { nl: "Netherlands", en: "English" };
+  const mappedLocales = { nl: 'Netherlands', en: 'English' };
 
   return (
     <div className="utrecht-language-switcher">
@@ -26,12 +26,12 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onClick, loc
               <Link href={`/products/${slug}`} locale={locale}>
                 <a
                   onClick={onClick}
-                  className={clsx("utrecht-link", {
-                    "utrecht-language-switcher_item--current": locale === currentLocale,
+                  className={clsx('utrecht-link', {
+                    'utrecht-language-switcher_item--current': locale === currentLocale,
                   })}
                   hrefLang={locale}
                   lang={locale}
-                  rel={locale !== currentLocale ? "alternate" : ""}
+                  rel={locale !== currentLocale ? 'alternate' : ''}
                   title={mappedLocales[locale as T]}
                 >
                   {locale.toUpperCase()}
@@ -45,12 +45,12 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onClick, loc
               <Link href={asPath} locale={locale}>
                 <a
                   onClick={onClick}
-                  className={clsx("utrecht-link", {
-                    "utrecht-language-switcher_item--current": locale === currentLocale,
+                  className={clsx('utrecht-link', {
+                    'utrecht-language-switcher_item--current': locale === currentLocale,
                   })}
                   hrefLang={locale}
                   lang={locale}
-                  rel={locale !== currentLocale ? "alternate" : ""}
+                  rel={locale !== currentLocale ? 'alternate' : ''}
                   title={mappedLocales[locale as T]}
                 >
                   {locale.toUpperCase()}

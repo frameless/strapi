@@ -1,25 +1,25 @@
-import { NextPage } from "next";
-import Head from "next/head";
+import { NextPage } from 'next';
+import Head from 'next/head';
 
-import type { GetStaticPropsContext } from "next";
-import { client } from "../../apolloClient";
-import { GET_PRODUCT_BY_SLUG, GET_ALL_SLUGS } from "../../query";
-import { Layout } from "../../components/Layout";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import React, { useContext } from "react";
+import type { GetStaticPropsContext } from 'next';
+import { client } from '../../apolloClient';
+import { GET_PRODUCT_BY_SLUG, GET_ALL_SLUGS } from '../../query';
+import { Layout } from '../../components/Layout';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import React, { useContext } from 'react';
 
-import { Heading1, ButtonLink } from "@utrecht/component-library-react";
+import { Heading1, ButtonLink } from '@utrecht/component-library-react';
 
-import { UtrechtDigidButton } from "@utrecht/web-component-library-react";
-import { useRouter } from "next/router";
-import { Alert } from "../../components/alert";
-import { Markdown } from "../../components/Markdown";
-import { FAQSection } from "../../components/FAQSection";
-import { Accordion } from "../../components/Accordion";
-import SearchContext from "../../context/search/context";
+import { UtrechtDigidButton } from '@utrecht/web-component-library-react';
+import { useRouter } from 'next/router';
+import { Alert } from '../../components/alert';
+import { Markdown } from '../../components/Markdown';
+import { FAQSection } from '../../components/FAQSection';
+import { Accordion } from '../../components/Accordion';
+import SearchContext from '../../context/search/context';
 
-import { i18n } from "../../next-i18next.config";
+import { i18n } from '../../next-i18next.config';
 
 const Product: NextPage = ({ product, localizations, preview }: any) => {
   const { title, body, flexibleSection, excerpt, faq } = product.attributes;
@@ -52,15 +52,15 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
         suggestions={suggestions}
       >
         {preview && (
-          <Alert message={t("warnings.preview-mode")}>
+          <Alert message={t('warnings.preview-mode')}>
             <ButtonLink
               href={`/api/clear-preview-mode-cookies?slug=${locale}${asPath}&default_locale=${defaultLocale}`}
             >
-              {t("actions.turn-off-the-preview-mode")}
+              {t('actions.turn-off-the-preview-mode')}
             </ButtonLink>
           </Alert>
         )}
-        <Heading1 style={{ marginBlockStart: "3rem" }}>{title}</Heading1>
+        <Heading1 style={{ marginBlockStart: '3rem' }}>{title}</Heading1>
         <div>
           {flexibleSection && flexibleSection.title && <h2>{flexibleSection.title}</h2>}
           {flexibleSection && flexibleSection.subTitle && (
@@ -111,7 +111,7 @@ export default Product;
 export async function getStaticProps({ params, preview, locale }: GetStaticPropsContext) {
   const { data } = await client.query({
     query: GET_PRODUCT_BY_SLUG,
-    variables: { slug: params?.slug, locale: locale, pageMode: preview ? "PREVIEW" : "LIVE" },
+    variables: { slug: params?.slug, locale: locale, pageMode: preview ? 'PREVIEW' : 'LIVE' },
   });
 
   if (!data || data.products.data.length === 0) {
@@ -123,7 +123,7 @@ export async function getStaticProps({ params, preview, locale }: GetStaticProps
   localizations.push({
     locale: data.products.data[0].attributes.locale,
     slug: data.products.data[0].attributes.slug,
-    __typename: "Product",
+    __typename: 'Product',
   });
 
   return {
@@ -131,7 +131,7 @@ export async function getStaticProps({ params, preview, locale }: GetStaticProps
       product: data.products.data[0],
       localizations,
       preview: preview ? preview : null,
-      ...(await serverSideTranslations(locale || "nl", ["common"])),
+      ...(await serverSideTranslations(locale || 'nl', ['common'])),
     },
     revalidate: 1,
   };
@@ -151,6 +151,6 @@ export async function getStaticPaths(ctx: any) {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }

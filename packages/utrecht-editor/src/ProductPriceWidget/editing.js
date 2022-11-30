@@ -4,100 +4,103 @@ import { toWidget, Widget } from '@ckeditor/ckeditor5-widget';
 import { InsertProductPreviewCommand } from './command';
 
 export class ProductPreviewEditing extends Plugin {
+  static get requires() {
+    return [Widget];
+  }
+  init() {
+    this._defineSchema();
+    this._defineConverters();
 
-    static get requires() {
-        return [Widget];
-    }
-    init() {
-        this._defineSchema();
-        this._defineConverters();
+    this.editor.commands.add('insertProduct', new InsertProductPreviewCommand(this.editor));
+  }
 
-        this.editor.commands.add('insertProduct', new InsertProductPreviewCommand(this.editor));
-    }
+  _defineSchema() {
+    const schema = this.editor.model.schema;
 
-    _defineSchema() {
-        const schema = this.editor.model.schema;
+    schema.register('productPreview', {
+      // Behaves like a self-contained object (e.g. an image).
+      isObject: true,
 
-        schema.register('productPreview', {
-            // Behaves like a self-contained object (e.g. an image).
-            isObject: true,
+      // Allow in places where other blocks are allowed (e.g. directly in the root).
+      allowWhere: '$block',
 
-            // Allow in places where other blocks are allowed (e.g. directly in the root).
-            allowWhere: '$block',
+      // Each product preview has an ID. A unique ID tells the application which
+      // product it represents and makes it possible to render it inside a widget.
+      allowAttributes: ['id'],
+    });
+  }
 
-            // Each product preview has an ID. A unique ID tells the application which
-            // product it represents and makes it possible to render it inside a widget.
-            allowAttributes: ['id']
+  _defineConverters() {
+    const editor = this.editor;
+    const conversion = editor.conversion;
+    const renderProduct = editor.config.get('products').productRenderer;
+
+    // <productPreview> converters ((data) view → model)
+    conversion.for('upcast').elementToElement({
+      view: {
+        name: 'section',
+        classes: ['utrecht-product-price-widget'],
+      },
+      model: (viewElement, { writer: modelWriter }) => {
+        // Read the "data-id" attribute from the view and set it as the "id" in the model.
+        return modelWriter.createElement('productPreview', {
+          id: parseInt(viewElement.getAttribute('data-id')),
         });
-    }
+      },
+    });
 
-    _defineConverters() {
-        const editor = this.editor;
-        const conversion = editor.conversion;
-        const renderProduct = editor.config.get('products').productRenderer;
+    // <productPreview> converters (model → data view)
+    conversion.for('dataDowncast').elementToElement({
+      model: 'productPreview',
+      view: (modelElement, { writer: viewWriter }) => {
+        // In the data view, the model <productPreview> corresponds to:
+        //
+        // <section class="product" data-id="..."></section>
+        return viewWriter.createEmptyElement('section', {
+          class: 'utrecht-product-price-widget',
+          'data-id': modelElement.getAttribute('id'),
+        });
+      },
+    });
 
-        // <productPreview> converters ((data) view → model)
-        conversion.for('upcast').elementToElement({
-            view: {
-                name: 'section',
-                classes: ['utrecht-product-price-widget']
-            },
-            model: (viewElement, { writer: modelWriter }) => {
-                // Read the "data-id" attribute from the view and set it as the "id" in the model.
-                return modelWriter.createElement('productPreview', {
-                    id: parseInt(viewElement.getAttribute('data-id'))
-                });
-            }
+    // <productPreview> converters (model → editing view)
+    conversion.for('editingDowncast').elementToElement({
+      model: 'productPreview',
+      view: (modelElement, { writer: viewWriter }) => {
+        // In the editing view, the model <productPreview> corresponds to:
+        //
+        // <section class="product" data-id="...">
+        //     <div class="product__react-wrapper">
+        //         <ProductPreview /> (React component)
+        //     </div>
+        // </section>
+        const id = modelElement.getAttribute('id');
+
+        // The outermost <section class="product" data-id="..."></section> element.
+        const section = viewWriter.createContainerElement('section', {
+          class: 'product',
+          'data-id': id,
         });
 
-        // <productPreview> converters (model → data view)
-        conversion.for('dataDowncast').elementToElement({
-            model: 'productPreview',
-            view: (modelElement, { writer: viewWriter }) => {
-                // In the data view, the model <productPreview> corresponds to:
-                //
-                // <section class="product" data-id="..."></section>
-                return viewWriter.createEmptyElement('section', {
-                    class: 'utrecht-product-price-widget',
-                    'data-id': modelElement.getAttribute('id'),
-                });
-            }
-        });
+        // The inner <div class="product__react-wrapper"></div> element.
+        // This element will host a React <ProductPreview /> component.
+        const reactWrapper = viewWriter.createRawElement(
+          'div',
+          {
+            class: 'utrecht-product-price-widget__react-wrapper',
+          },
+          function (domElement) {
+            // This the place where React renders the actual product preview hosted
+            // by a UIElement in the view. You are using a function (renderer) passed as
+            // editor.config.products#productRenderer.
+            renderProduct(id, domElement);
+          },
+        );
 
-        // <productPreview> converters (model → editing view)
-        conversion.for('editingDowncast').elementToElement({
-            model: 'productPreview',
-            view: (modelElement, { writer: viewWriter }) => {
-                // In the editing view, the model <productPreview> corresponds to:
-                //
-                // <section class="product" data-id="...">
-                //     <div class="product__react-wrapper">
-                //         <ProductPreview /> (React component)
-                //     </div>
-                // </section>
-                const id = modelElement.getAttribute('id');
+        viewWriter.insert(viewWriter.createPositionAt(section, 0), reactWrapper);
 
-                // The outermost <section class="product" data-id="..."></section> element.
-                const section = viewWriter.createContainerElement('section', {
-                    class: 'product',
-                    'data-id': id
-                });
-
-                // The inner <div class="product__react-wrapper"></div> element.
-                // This element will host a React <ProductPreview /> component.
-                const reactWrapper = viewWriter.createRawElement('div', {
-                    class: 'utrecht-product-price-widget__react-wrapper'
-                }, function (domElement) {
-                    // This the place where React renders the actual product preview hosted
-                    // by a UIElement in the view. You are using a function (renderer) passed as
-                    // editor.config.products#productRenderer.
-                    renderProduct(id, domElement);
-                });
-
-                viewWriter.insert(viewWriter.createPositionAt(section, 0), reactWrapper);
-
-                return toWidget(section, viewWriter, { label: 'product preview widget' });
-            }
-        });
-    }
+        return toWidget(section, viewWriter, { label: 'product preview widget' });
+      },
+    });
+  }
 }

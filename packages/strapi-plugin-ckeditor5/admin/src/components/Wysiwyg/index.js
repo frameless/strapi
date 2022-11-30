@@ -1,32 +1,23 @@
-import { Box, Button, Stack, Typography } from "@strapi/design-system";
-import Landscape from "@strapi/icons/Landscape";
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import { useIntl } from "react-intl";
-import Editor from "../Editor";
-import MediaLib from "../MediaLib";
+import { Box, Button, Stack, Typography } from '@strapi/design-system';
+import Landscape from '@strapi/icons/Landscape';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useIntl } from 'react-intl';
+import Editor from '../Editor';
+import MediaLib from '../MediaLib';
 
-function Wysiwyg({
-  name,
-  onChange,
-  value,
-  intlLabel,
-  disabled,
-  error,
-  description,
-  required,
-}) {
+function Wysiwyg({ name, onChange, value, intlLabel, disabled, error, description, required }) {
   const { formatMessage } = useIntl();
   const [mediaLibVisible, setMediaLibVisible] = useState(false);
 
   const handleToggleMediaLib = () => setMediaLibVisible((prev) => !prev);
 
   const handleChangeAssets = (assets) => {
-    let newValue = value || "";
+    let newValue = value || '';
 
     // eslint-disable-next-line array-callback-return
     assets.map((asset) => {
-      if (asset.mime.includes("image")) {
+      if (asset.mime.includes('image')) {
         const imgTag = `<p><img src="${asset.url}" alt="${asset.alt}"></img></p>`;
 
         newValue = `${newValue}${imgTag}`;
@@ -52,45 +43,29 @@ function Wysiwyg({
             </Typography>
           )}
         </Box>
-        <Button
-          startIcon={<Landscape />}
-          variant="secondary"
-          fullWidth
-          onClick={handleToggleMediaLib}
-        >
+        <Button startIcon={<Landscape />} variant="secondary" fullWidth onClick={handleToggleMediaLib}>
           Media library
         </Button>
-        <Editor
-          disabled={disabled}
-          name={name}
-          onChange={onChange}
-          value={value}
-        />
+        <Editor disabled={disabled} name={name} onChange={onChange} value={value} />
         {error && (
           <Typography variant="pi" textColor="danger600">
             {formatMessage({ id: error, defaultMessage: error })}
           </Typography>
         )}
-        {description && (
-          <Typography variant="pi">{formatMessage(description)}</Typography>
-        )}
+        {description && <Typography variant="pi">{formatMessage(description)}</Typography>}
       </Stack>
-      <MediaLib
-        isOpen={mediaLibVisible}
-        onChange={handleChangeAssets}
-        onToggle={handleToggleMediaLib}
-      />
+      <MediaLib isOpen={mediaLibVisible} onChange={handleChangeAssets} onToggle={handleToggleMediaLib} />
     </>
   );
 }
 
 Wysiwyg.defaultProps = {
-  description: "",
+  description: '',
   disabled: false,
   error: undefined,
-  intlLabel: "",
+  intlLabel: '',
   required: false,
-  value: "",
+  value: '',
 };
 
 Wysiwyg.propTypes = {

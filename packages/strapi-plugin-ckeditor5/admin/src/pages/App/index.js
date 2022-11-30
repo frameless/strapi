@@ -5,14 +5,14 @@
  *
  */
 
-import { NotFound } from "@strapi/helper-plugin";
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import pluginId from "../../pluginId";
-import HomePage from "../HomePage";
+import { NotFound } from '@strapi/helper-plugin';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import pluginId from '../../pluginId';
+import HomePage from '../HomePage';
 
-import "@utrecht/component-library-css";
-import "@utrecht/design-tokens/dist/index.css";
+import '@utrecht/component-library-css';
+import '@utrecht/design-tokens/dist/index.css';
 
 function App() {
   return (
