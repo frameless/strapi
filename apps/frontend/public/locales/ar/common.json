@@ -1,11 +1,11 @@
 {
-    "actions":{
-        "turn-off-the-preview-mode":"قم بإيقاف تشغيل وضع المعاينة"
-    },
-    "warnings": {
-        "preview-mode": "تحذير: وضع المعاينة قيد التشغيل"
-    },
-    "seo": {
-        "title": "بحث | بلدية أوتريخت"
-    }
+  "actions": {
+    "turn-off-the-preview-mode": "قم بإيقاف تشغيل وضع المعاينة"
+  },
+  "warnings": {
+    "preview-mode": "تحذير: وضع المعاينة قيد التشغيل"
+  },
+  "seo": {
+    "title": "بحث | بلدية أوتريخت"
+  }
 }

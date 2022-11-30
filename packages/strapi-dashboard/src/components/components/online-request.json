@@ -8,11 +8,7 @@
   "attributes": {
     "type": {
       "type": "enumeration",
-      "enum": [
-        "ja",
-        "nee",
-        "digid"
-      ],
+      "enum": ["ja", "nee", "digid"],
       "required": true
     }
   }

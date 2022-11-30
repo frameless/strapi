@@ -1,10 +1,10 @@
-import { prefixFileUrlWithBackendUrl, useLibrary } from "@strapi/helper-plugin";
-import PropTypes from "prop-types";
-import React from "react";
+import { prefixFileUrlWithBackendUrl, useLibrary } from '@strapi/helper-plugin';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 function MediaLib({ isOpen, onChange, onToggle }) {
   const { components } = useLibrary();
-  const MediaLibraryDialog = components["media-library"];
+  const MediaLibraryDialog = components['media-library'];
 
   const handleSelectAssets = (files) => {
     const formattedFiles = files.map((f) => ({
@@ -20,12 +20,7 @@ function MediaLib({ isOpen, onChange, onToggle }) {
     return null;
   }
 
-  return (
-    <MediaLibraryDialog
-      onClose={onToggle}
-      onSelectAssets={handleSelectAssets}
-    />
-  );
+  return <MediaLibraryDialog onClose={onToggle} onSelectAssets={handleSelectAssets} />;
 }
 
 MediaLib.defaultProps = {

@@ -1,9 +1,9 @@
-import { prefixPluginTranslations } from "@strapi/helper-plugin";
-import pluginPkg from "../../package.json";
-import pluginId from "./pluginId";
-import Initializer from "./components/Initializer";
-import PreviewLink from "./components/PreviewLink";
-import PluginIcon from "./components/PluginIcon";
+import { prefixPluginTranslations } from '@strapi/helper-plugin';
+import pluginPkg from '../../package.json';
+import pluginId from './pluginId';
+import Initializer from './components/Initializer';
+import PreviewLink from './components/PreviewLink';
+import PluginIcon from './components/PluginIcon';
 
 const name = pluginPkg.strapi.name;
 export default {
@@ -38,8 +38,8 @@ export default {
   },
 
   bootstrap(app) {
-    app.injectContentManagerComponent("editView", "right-links", {
-      name: "preview-link",
+    app.injectContentManagerComponent('editView', 'right-links', {
+      name: 'preview-link',
       Component: PreviewLink,
     });
   },
@@ -61,7 +61,7 @@ export default {
               locale,
             };
           });
-      })
+      }),
     );
     return Promise.resolve(importedTrads);
   },

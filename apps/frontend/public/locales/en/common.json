@@ -1,11 +1,11 @@
 {
-    "actions": {
-        "turn-off-the-preview-mode": "turn off the preview mode"
-    },
-    "warnings": {
-        "preview-mode": "Warning: Preview mode is on"
-    },
-    "seo": {
-        "title": "Search | Municipality of Utrecht"
-    }
+  "actions": {
+    "turn-off-the-preview-mode": "turn off the preview mode"
+  },
+  "warnings": {
+    "preview-mode": "Warning: Preview mode is on"
+  },
+  "seo": {
+    "title": "Search | Municipality of Utrecht"
+  }
 }

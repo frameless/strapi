@@ -33,7 +33,7 @@
 }
 
 .utrecht-accordion__button[dir="ar"]::after {
-  left:0 ;
+  left: 0;
   position: absolute;
 }
 

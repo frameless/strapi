@@ -15,10 +15,7 @@
     },
     "currency": {
       "type": "enumeration",
-      "enum": [
-        "EUR",
-        "USD"
-      ],
+      "enum": ["EUR", "USD"],
       "required": false,
       "default": "EUR"
     }

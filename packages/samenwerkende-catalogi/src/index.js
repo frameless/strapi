@@ -1,27 +1,27 @@
-const { mapKeys } = require("lodash");
-const { create } = require("xmlbuilder2");
-const fs = require("fs");
-require("dotenv").config();
-const gemeente = require("@frameless/catalogi-data");
+const { mapKeys } = require('lodash');
+const { create } = require('xmlbuilder2');
+const fs = require('fs');
+require('dotenv').config();
+const gemeente = require('@frameless/catalogi-data');
 
-const { createScheme, getPrefLabel } = require("./helpers");
+const { createScheme, getPrefLabel } = require('./helpers');
 
-const dir = "./dist";
+const dir = './dist';
 const prefixMap = {
-  xsi: "http://www.w3.org/2001/XMLSchema-instance",
-  dcterms: "http://purl.org/dc/terms/",
-  overheid: "http://standaarden.overheid.nl/owms/terms/",
-  overheidproduct: "http://standaarden.overheid.nl/product/terms/",
+  xsi: 'http://www.w3.org/2001/XMLSchema-instance',
+  dcterms: 'http://purl.org/dc/terms/',
+  overheid: 'http://standaarden.overheid.nl/owms/terms/',
+  overheidproduct: 'http://standaarden.overheid.nl/product/terms/',
 };
 const xmlnsPrefixMap = mapKeys(prefixMap, (_value, key) => `xmlns:${key}`);
 
 const convertJsonToXML = (data, frontend_url) => {
   if (data && data.length > 0) {
-    const root = create({ version: "1.0" })
-      .ele("overheidproduct:scproducten")
+    const root = create({ version: '1.0' })
+      .ele('overheidproduct:scproducten')
       .att({
         ...xmlnsPrefixMap,
-        "xsi:schemaLocation": "https://standaarden.overheid.nl/product/terms/sc.xsd",
+        'xsi:schemaLocation': 'https://standaarden.overheid.nl/product/terms/sc.xsd',
       });
 
     const meta = data.map(({ attributes, id }) => {
@@ -33,8 +33,10 @@ const convertJsonToXML = (data, frontend_url) => {
 
       const schemeAuthority = createScheme(attributes.catalogiMeta?.authority?.scheme, prefixMap);
       const schemeSpatial = createScheme(attributes.catalogiMeta?.spatial?.scheme, prefixMap);
-      const path = "products"; // can be from the CMS
-      const identifier = `${frontend_url.endsWith('/') ? frontend_url : `${frontend_url}/`}${attributes.locale}/${path}/${attributes.slug}`;
+      const path = 'products'; // can be from the CMS
+      const identifier = `${frontend_url.endsWith('/') ? frontend_url : `${frontend_url}/`}${
+        attributes.locale
+      }/${path}/${attributes.slug}`;
 
       const spatial = {
         schemeSpatial,
@@ -50,7 +52,7 @@ const convertJsonToXML = (data, frontend_url) => {
 
       const audiences =
         attributes.catalogiMeta && attributes.catalogiMeta?.audience
-          ? attributes.catalogiMeta?.audience.map(({ id, type }) => ({ id, type, scheme: "overheid:Doelgroep" }))
+          ? attributes.catalogiMeta?.audience.map(({ id, type }) => ({ id, type, scheme: 'overheid:Doelgroep' }))
           : [];
 
       return {
@@ -83,62 +85,62 @@ const convertJsonToXML = (data, frontend_url) => {
         !item.productId ||
         !item.onlineAanvragen
       ) {
-        return
+        return;
       }
-      const scproduct = root.ele("overheidproduct:scproduct").att({ "owms-version": "4.0" });
-      const meta = scproduct.ele("overheidproduct:meta");
+      const scproduct = root.ele('overheidproduct:scproduct').att({ 'owms-version': '4.0' });
+      const meta = scproduct.ele('overheidproduct:meta');
       meta
-        .ele("overheidproduct:owmskern")
-        .ele("dcterms:identifier")
+        .ele('overheidproduct:owmskern')
+        .ele('dcterms:identifier')
         .txt(item.identifier)
         .up()
-        .ele("dcterms:title")
+        .ele('dcterms:title')
         .txt(item.title)
         .up()
-        .ele("dcterms:language")
+        .ele('dcterms:language')
         .txt(item.language)
         .up()
-        .ele("dcterms:type")
-        .att({ scheme: "overheid:Informatietype" })
-        .txt("productbeschrijving")
+        .ele('dcterms:type')
+        .att({ scheme: 'overheid:Informatietype' })
+        .txt('productbeschrijving')
         .up()
-        .ele("dcterms:modified")
+        .ele('dcterms:modified')
         .txt(item.modified)
         .up()
-        .ele("dcterms:spatial")
+        .ele('dcterms:spatial')
         .att({
           scheme: item.authority.scheme,
           resourceIdentifier: item.spatial.resourceIdentifier,
         })
         .txt(item.spatial.label)
         .up()
-        .ele("overheid:authority")
+        .ele('overheid:authority')
         .att({
           scheme: item.authority.scheme,
           resourceIdentifier: item.authority.resourceIdentifier,
         })
         .txt(item.authority.label)
         .up();
-      const owmsmantel = meta.ele("overheidproduct:owmsmantel");
+      const owmsmantel = meta.ele('overheidproduct:owmsmantel');
       item.audiences.forEach((audience) => {
         owmsmantel
-          .ele("dcterms:audience")
+          .ele('dcterms:audience')
           .att({
             scheme: audience.scheme,
             resourceIdentifier: `http://standaarden.overheid.nl/owms/terms/${audience?.type.toLowerCase()}`,
           })
           .txt(audience.type);
       });
-      owmsmantel.ele("dcterms:abstract").txt(item.abstract).up();
+      owmsmantel.ele('dcterms:abstract').txt(item.abstract).up();
       meta
-        .ele("overheidproduct:scmeta")
-        .ele("overheidproduct:productID")
+        .ele('overheidproduct:scmeta')
+        .ele('overheidproduct:productID')
         .txt(item.productId)
         .up()
-        .ele("overheidproduct:onlineAanvragen")
+        .ele('overheidproduct:onlineAanvragen')
         .txt(item.onlineAanvragen)
         .up();
-      scproduct.ele("overheidproduct:body");
+      scproduct.ele('overheidproduct:body');
     });
 
     // convert the XML tree to string
@@ -154,4 +156,4 @@ const convertJsonToXML = (data, frontend_url) => {
   }
 };
 
-module.exports = { convertJsonToXML }
+module.exports = { convertJsonToXML };

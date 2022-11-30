@@ -4,12 +4,12 @@
  *
  */
 
-import React from "react";
+import React from 'react';
 // import PropTypes from 'prop-types';
-import pluginId from "../../pluginId";
+import pluginId from '../../pluginId';
 
 function HomePage() {
-  return null
+  return null;
 }
 
 export default HomePage;

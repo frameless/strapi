@@ -4,7 +4,7 @@ import { SpotlightEditing } from './editing';
 import { SpotlightUI } from './ui';
 
 export class Spotlight extends Plugin {
-    static get requires() {
-        return [SpotlightEditing, SpotlightUI];
-    }
+  static get requires() {
+    return [SpotlightEditing, SpotlightUI];
+  }
 }

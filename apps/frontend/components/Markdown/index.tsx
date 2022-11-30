@@ -1,5 +1,5 @@
-import ReactMarkdown, { Components } from "react-markdown";
-import rehypeRaw from "rehype-raw";
+import ReactMarkdown, { Components } from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import {
   Heading1,
   Heading2,
@@ -19,8 +19,8 @@ import {
   TableHeader,
   TableHeaderCell,
   TableRow,
-} from "@utrecht/component-library-react";
-import React from "react";
+} from '@utrecht/component-library-react';
+import React from 'react';
 
 const components: Components = {
   h1: ({ children, node }) => {
@@ -112,7 +112,7 @@ export const Markdown: React.FC<MarkdownProps> = ({ children, data, locale }) =>
           if (node.properties?.dataId && data && data.length > 0) {
             const product: any = data.find(({ id }: any) => id === node.properties?.dataId);
             const price = new Intl.NumberFormat(locale, {
-              style: "currency",
+              style: 'currency',
               currency: product?.currency,
             }).format(Number(product?.value));
 

@@ -1,14 +1,14 @@
-import { Article, Page, PageContent, PageFooter, PageHeader } from "@utrecht/component-library-react";
-import Link from "next/link";
-import React from "react";
-import { LanguageSwitcher } from "../LanguageSwitcher";
-import { UtrechtLogo } from "../UtrechtLogo";
-import { LanguageSwitcherProps } from "../LanguageSwitcher/index";
-import { SearchBar, SearchBarProps } from "../SearchBar";
+import { Article, Page, PageContent, PageFooter, PageHeader } from '@utrecht/component-library-react';
+import Link from 'next/link';
+import React from 'react';
+import { LanguageSwitcher } from '../LanguageSwitcher';
+import { UtrechtLogo } from '../UtrechtLogo';
+import { LanguageSwitcherProps } from '../LanguageSwitcher/index';
+import { SearchBar, SearchBarProps } from '../SearchBar';
 
 const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
 
-const escapeComment = (data: any) => String(data).replace(/--/g, "-\u200B-");
+const escapeComment = (data: any) => String(data).replace(/--/g, '-\u200B-');
 
 const HTMLComment = ({ data }: any) => (
   <noscript dangerouslySetInnerHTML={{ __html: `<!--${escapeComment(data)}-->` }} />
@@ -54,7 +54,7 @@ export const Layout: React.FC<LayoutProps> = ({
         </div>
       </nav>
     </PageHeader>
-    <PageContent className="utrecht-page-content--modifier" style={{ position: "relative" }}>
+    <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
       <SearchIndexContent>
         <Main>
           <Article>{children}</Article>

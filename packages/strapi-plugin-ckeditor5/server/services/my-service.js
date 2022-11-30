@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 module.exports = () => ({
   getWelcomeMessage() {
-    return "Welcome to Strapi 🚀";
+    return 'Welcome to Strapi 🚀';
   },
 });

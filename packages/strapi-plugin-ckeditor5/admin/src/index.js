@@ -1,15 +1,15 @@
-import { prefixPluginTranslations } from "@strapi/helper-plugin";
-import pluginPkg from "../../package.json";
-import pluginId from "./pluginId";
-import Initializer from "./components/Initializer";
-import PluginIcon from "./components/PluginIcon";
-import Wysiwyg from "./components/Wysiwyg";
+import { prefixPluginTranslations } from '@strapi/helper-plugin';
+import pluginPkg from '../../package.json';
+import pluginId from './pluginId';
+import Initializer from './components/Initializer';
+import PluginIcon from './components/PluginIcon';
+import Wysiwyg from './components/Wysiwyg';
 
 const name = pluginPkg.strapi.name;
 
 export default {
   register(app) {
-    app.addFields({ type: "wysiwyg", Component: Wysiwyg });
+    app.addFields({ type: 'wysiwyg', Component: Wysiwyg });
     // app.addMenuLink({
     //   to: `/plugins/${pluginId}`,
     //   icon: PluginIcon,
@@ -41,13 +41,11 @@ export default {
     });
   },
 
-  bootstrap() { },
+  bootstrap() {},
   async registerTrads({ locales }) {
     const importedTrads = await Promise.all(
       locales.map((locale) => {
-        return import(
-          /* webpackChunkName: "translation-[request]" */ `./translations/${locale}.json`
-        )
+        return import(/* webpackChunkName: "translation-[request]" */ `./translations/${locale}.json`)
           .then(({ default: data }) => {
             return {
               data: prefixPluginTranslations(data, pluginId),
@@ -60,7 +58,7 @@ export default {
               locale,
             };
           });
-      })
+      }),
     );
 
     return Promise.resolve(importedTrads);
