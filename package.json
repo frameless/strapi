@@ -19,12 +19,14 @@
   },
   "scripts": {
     "build": "npm run --workspaces build --if-present",
+    "format": "prettier --write .",
     "dev": "concurrently \"npm run develop -w @frameless/strapi-dashboard\" \"npm run dev -w @frameless/frontend\"",
     "start": "concurrently \"npm run start -w @frameless/strapi-dashboard\" \"npm run start -w @frameless/frontend\"",
     "test": "npm run test --workspaces --if-present",
     "clean": "npm run --workspaces clean --if-present",
-    "lint": "npm run lint --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present && prettier --check . ",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "prepare": "husky install",
     "release": "multi-semantic-release --ignore-packages=packages/strapi-dashboard/**,apps/frontend/**"
   },
   "author": "",
