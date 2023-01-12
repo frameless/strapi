@@ -5,10 +5,10 @@ const env = process.env.NODE_ENV === 'production' ? process.env.NODE_ENV : 'deve
 
 require('dotenv').config({ path: `./.env.${env}.local` });
 
-const createSWC = async () => {
+const createSWC = async (url) => {
   try {
     const { data } = await axios({
-      url: process.env.STRAPI_BACKEND_URL,
+      url,
       method: 'post',
       data: {
         query: `
@@ -46,10 +46,10 @@ const createSWC = async () => {
             `,
       },
     });
-    const xml = convertJsonToXML(data.data.products.data, process.env.STRAPI_FRONTEND_URL);
+    const xml = convertJsonToXML(data.data.products.data, url);
     fs.writeFileSync('./public/samenwerkendecatalogi.xml', xml);
   } catch (error) {
     console.log(error);
   }
 };
-createSWC();
+createSWC(process.env.STRAPI_FRONTEND_URL || 'https://example.com/');
