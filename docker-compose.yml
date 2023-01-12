@@ -1,0 +1,67 @@
+version: "3.1"
+
+services:
+  strapi:
+    build:
+      args:
+        NODE_ENV: development
+        STRAPI_HOSTNAME: localhost
+      context: .
+      dockerfile: ./Dockerfile
+    command: "dev:strapi"
+    ports:
+      - 1337:1337
+    volumes:
+      - .:/var/www/
+      - /var/www/node_modules
+      - /var/www/apps/frontend/node_modules
+      - /var/www/packages/strapi-dashboard/node_modules
+    networks:
+      - api
+      - private
+    environment:
+      - STRAPI_HOSTNAME=localhost
+      - STRAPI_FRONTEND_URL=https://utrecht-strapi-website.frameless.io/
+  website:
+    build:
+      args:
+        NODE_ENV: development
+        STRAPI_HOSTNAME: localhost
+      context: .
+      dockerfile: ./Dockerfile
+    command: "dev:website"
+    ports:
+      - 1234:1234
+    volumes:
+      - .:/var/www/
+      - /var/www/node_modules
+      - /var/www/apps/frontend/node_modules
+      - /var/www/packages/strapi-dashboard/node_modules
+    networks:
+      - api
+      - public
+    environment:
+      - REVALIDATE_SECRET_TOKEN=9ABCD68B-8B89-46EA-AAC6-BCE97BCB900A
+      - STRAPI_BACKEND_URL=http://localhost:1337/graphql
+      - STRAPI_FRONTEND_URL=https://utrecht-strapi-website.frameless.io/
+      - STRAPI_HOSTNAME=localhost
+    # volumes:
+    #   - strapi:/var/www/html
+
+  # db:
+  #   image: mariadb:10.5.8
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: exampledb
+  #     MYSQL_USER: exampleuser
+  #     MYSQL_PASSWORD: examplepass
+  #     MYSQL_RANDOM_ROOT_PASSWORD: "1"
+  #   volumes:
+  #     - db:/var/lib/mysql
+# volumes:
+#   strapi:
+#   db:
+networks:
+  api:
+  public:
+  private:

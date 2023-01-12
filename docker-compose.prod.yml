@@ -1,0 +1,37 @@
+version: "3.1"
+
+services:
+  strapi:
+    build:
+      args:
+        NODE_ENV: production
+    command: "start:strapi"
+    # restart: always
+    ports:
+      - 8081:1337
+
+  website:
+    build:
+      args:
+        NODE_ENV: production
+    command: "start:website"
+    # restart: always
+    ports:
+      - 8082:8080
+
+    # volumes:
+    #   - strapi:/var/www/html
+
+  # db:
+  #   image: mariadb:10.5.8
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: exampledb
+  #     MYSQL_USER: exampleuser
+  #     MYSQL_PASSWORD: examplepass
+  #     MYSQL_RANDOM_ROOT_PASSWORD: "1"
+  #   volumes:
+  #     - db:/var/lib/mysql
+# volumes:
+#   strapi:
+#   db:
