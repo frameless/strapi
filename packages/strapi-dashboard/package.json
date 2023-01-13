@@ -18,19 +18,19 @@
     "@frameless/strapi-plugin-ckeditor5": "file:../strapi-plugin-ckeditor5",
     "@frameless/strapi-plugin-gemeente-select": "0.0.0-semantically-released",
     "@frameless/strapi-plugin-scheme-select": "0.0.0-semantically-released",
-    "@strapi/plugin-graphql": "4.5.0",
-    "@strapi/plugin-i18n": "4.5.0",
-    "@strapi/plugin-users-permissions": "4.5.0",
-    "@strapi/provider-upload-cloudinary": "4.5.0",
-    "@strapi/strapi": "4.5.0",
+    "@strapi/plugin-graphql": "4.5.6",
+    "@strapi/plugin-i18n": "4.5.6",
+    "@strapi/plugin-users-permissions": "4.5.6",
+    "@strapi/provider-upload-cloudinary": "4.5.6",
+    "@strapi/strapi": "4.5.6",
     "better-sqlite3": "7.6.2",
     "pg": "8.8.0",
     "pg-connection-string": "2.5.0",
-    "react-select": "5.6.0",
+    "react-select": "5.6.1",
     "slugify": "1.6.5",
     "strapi-plugin-import-export-entries": "1.18.0",
     "strapi-plugin-publisher": "1.1.4",
-    "strapi-plugin-slugify": "2.3.1"
+    "strapi-plugin-slugify": "2.3.2"
   },
   "author": {
     "name": ""

@@ -24,11 +24,11 @@
   ],
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "35.1.0",
-    "@ckeditor/ckeditor5-react": "5.0.2",
-    "@utrecht/component-library-css": "1.0.0-alpha.379",
-    "@utrecht/component-library-react": "1.0.0-alpha.188",
-    "@utrecht/design-tokens": "1.0.0-alpha.372",
-    "@utrecht/web-component-library-react": "1.0.0-alpha.378"
+    "@ckeditor/ckeditor5-react": "5.0.6",
+    "@utrecht/component-library-css": "1.0.0-alpha.425",
+    "@utrecht/component-library-react": "1.0.0-alpha.234",
+    "@utrecht/design-tokens": "1.0.0-alpha.418",
+    "@utrecht/web-component-library-react": "1.0.0-alpha.424"
   },
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"
