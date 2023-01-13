@@ -11,6 +11,9 @@ ARG HUSKY_SKIP_INSTALL=true
 # COPY package.json package-lock.json ./
 COPY package*.json ./
 
+
+#CMD ["npm", "install"]
+
 RUN if test "$NODE_ENV" = 'development'; \
 then \
     npm config set "//registry.npmjs.org/:_authToken" "${NPM_TOKEN}" \

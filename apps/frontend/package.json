@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "npm run swc:production",
-    "predev": "npm run swc:development",
     "dev": "next dev -p 1234",
     "swc:production": "NODE_ENV=production node samenwerkendecatalogi.js",
     "swc:development": "NODE_ENV=development node samenwerkendecatalogi.js",
