@@ -32,10 +32,4 @@ module.exports = ({ env }) => ({
       },
     },
   },
-  publisher: {
-    enabled: true,
-  },
-  'import-export-entries': {
-    enabled: true,
-  },
 });
