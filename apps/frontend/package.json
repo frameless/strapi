@@ -15,21 +15,21 @@
     "clean": "rimraf build .next"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.0",
+    "@apollo/client": "3.7.0",
     "@frameless/samenwerkende-catalogi": "0.0.0-semantically-released",
-    "@utrecht/component-library-css": "^1.0.0-alpha.356",
-    "@utrecht/component-library-react": "^1.0.0-alpha.165",
-    "@utrecht/design-tokens": "^1.0.0-alpha.349",
-    "@utrecht/web-component-library-react": "^1.0.0-alpha.355",
+    "@utrecht/component-library-css": "1.0.0-alpha.356",
+    "@utrecht/component-library-react": "1.0.0-alpha.165",
+    "@utrecht/design-tokens": "1.0.0-alpha.349",
+    "@utrecht/web-component-library-react": "1.0.0-alpha.355",
     "axios": "1.1.3",
-    "graphql": "^16.6.0",
+    "graphql": "16.6.0",
     "next": "12.3.1",
     "next-i18next": "12.1.0",
     "next-sitemap": "3.1.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-markdown": "^8.0.3",
-    "rehype-raw": "^6.1.1"
+    "react-markdown": "8.0.3",
+    "rehype-raw": "6.1.1"
   },
   "devDependencies": {
     "@types/node": "18.7.18",
@@ -38,7 +38,7 @@
     "classnames": "2.3.2",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.1",
-    "lodash": "^4.17.21",
+    "lodash": "4.17.21",
     "typescript": "4.8.3"
   }
 }
