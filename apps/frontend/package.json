@@ -8,9 +8,9 @@
     "dev": "next dev -p 1234",
     "swc:production": "NODE_ENV=production node samenwerkendecatalogi.js",
     "swc:development": "NODE_ENV=development node samenwerkendecatalogi.js",
-    "build": "next build",
+    "builddd": "next build",
     "postbuild": "next-sitemap",
-    "start": "next start",
+    "starttt": "next start",
     "lint": "next lint",
     "clean": "rimraf build .next"
   },
