@@ -6,9 +6,9 @@
     "packages/utrecht-editor",
     "packages/strapi-plugin-ckeditor5",
     "packages/catalogi-data",
-    "packages/strapi-dashboard",
-    "packages/**",
-    "apps/**"
+    "apps/strapi-dashboard",
+    "apps/frontend",
+    "packages/**"
   ],
   "repository": {
     "type": "git+ssh",
@@ -18,10 +18,10 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
+    "start": "npm run --workspaces start --if-present",
     "build": "npm run --workspaces build --if-present",
     "format": "prettier --write .",
     "dev": "concurrently \"npm run dev -w @frameless/strapi-dashboard\" \"npm run dev -w @frameless/frontend\"",
-    "start": "npm run -w @frameless/strapi-dashboard start",
     "start:dev": "concurrently \"npm run start -w @frameless/strapi-dashboard\" \"npm run start -w @frameless/frontend\"",
     "test": "npm run test --workspaces --if-present",
     "clean": "npm run --workspaces clean --if-present",
@@ -32,7 +32,7 @@
   "author": "",
   "license": "",
   "engines": {
-    "node": ">=16.16.0 <=18.x.x",
+    "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
   "devDependencies": {

@@ -1,41 +1,38 @@
-# @frameless/frontend app
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-**Environment variable**
-create two files in root of this package
-
-1 - `.env.development.local`
-
-```env
-STRAPI_HOSTNAME=localhost
-STRAPI_BACKEND_URL=http://$STRAPI_HOSTNAME:1337/graphql
-REVALIDATE_SECRET_TOKEN=9ABCD68B-8B89-46EA-AAC6-BCE97BCB900A
-STRAPI_FRONTEND_URL=https://utrecht-strapi-website.frameless.io/
-```
-
-2 - `.env.production.local`
-
-```env
-STRAPI_HOSTNAME=utrecht-cms-c3nji.ondigitalocean
-STRAPI_BACKEND_URL=https://$STRAPI_HOSTNAME.app/graphql
-REVALIDATE_SECRET_TOKEN=F920E798-CF4A-40F9-9688-D4D70B74D3CD
-```
-
-Just cloned the repo!
-
-run this command from the root level
-
-```bash
-npm i
-```
-
-To run the development server
-
-Run the script below from the root
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-Will trigger the backend and the frontend!
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

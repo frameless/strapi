@@ -21,10 +21,14 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@strapi/strapi": ">=4.0.0"
+    "@strapi/strapi": "4.7.1"
   },
   "engines": {
-    "node": ">=16.16.0 <=18.x.x",
+    "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "@strapi/design-system": "1.6.5",
+    "@strapi/icons": "1.6.5"
   }
 }

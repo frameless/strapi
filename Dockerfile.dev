@@ -1,0 +1,36 @@
+
+FROM node:16-alpine as build
+# Installing libvips-dev for sharp Compatibility
+RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
+ARG NODE_ENV=development
+ENV NODE_ENV=${NODE_ENV}
+ARG STRAPI_BACKEND_URL
+ENV STRAPI_BACKEND_URL=${STRAPI_BACKEND_URL}
+WORKDIR /opt/app
+COPY ./package.json ./package-lock.json ./
+ENV PATH /opt/app/node_modules/.bin:$PATH
+COPY ./ .
+
+
+# Build target dependencies #
+#############################
+FROM build AS dependencies
+# Install prod dependencies
+RUN npm install
+
+# Build target builder #
+########################
+FROM build AS builder
+COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
+COPY . /opt/app/
+RUN npm run --workspace packages/utrecht-editor --workspace packages/catalogi-data build && \
+    rm -rf node_modules
+
+# Build target production #
+###########################
+FROM build AS development
+COPY --from=builder /opt/app /opt/app
+COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
+
+EXPOSE 1337
+CMD ["npm", "run" , "dev"]

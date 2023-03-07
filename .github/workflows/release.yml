@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    branches: [main, beta]
+    branches: [main]
   pull_request:
 jobs:
   continuous-integration:
@@ -44,8 +44,28 @@ jobs:
           directory: packages/samenwerkende-catalogi
           file_name: .env
           fail_on_empty: false
+      - name: Make envfile backend
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_DEBUG: false
+          envkey_APP_KEYS: ${{ secrets.APP_KEYS }}
+          envkey_API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
+          envkey_ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
+          envkey_JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          envkey_STRAPI_FRONTEND_PREVIEW_SECRET: ${{ secrets.STRAPI_FRONTEND_PREVIEW_SECRET }}
+          envkey_STRAPI_FRONTEND_TYPE: ${{ secrets.STRAPI_FRONTEND_TYPE }}
+          envkey_DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
+          envkey_DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+          envkey_STRAPI_BACKEND_URL: ${{ secrets.STRAPI_BACKEND_URL }}
+          envkey_DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+          envkey_DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+          envkey_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          envkey_DATABASE_SSL: ${{ secrets.DATABASE_SSL }}
+          envkey_NODE_ENV: ${{ secrets.NODE_ENV }}
+          file_name: .env
+          fail_on_empty: false
       - name: Build
-        run: npm run build
+        run: npm run --workspace packages build --if-present
       - name: Release
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         env:
@@ -54,3 +74,41 @@ jobs:
           npm config set "//npm.pkg.github.com/:_authToken=${GH_TOKEN}"
           npm run release
           npm config delete "//npm.pkg.github.com/:_authToken"
+  continuous-deployment:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            ghcr.io/${{ github.repository }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

@@ -23,8 +23,8 @@
     "strapi-server.js"
   ],
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "35.1.0",
-    "@ckeditor/ckeditor5-react": "5.0.2",
+    "@ckeditor/ckeditor5-react": "5.1.0",
+    "@strapi/icons": "1.6.5",
     "@utrecht/component-library-css": "1.0.0-alpha.379",
     "@utrecht/component-library-react": "1.0.0-alpha.188",
     "@utrecht/design-tokens": "1.0.0-alpha.372",
