@@ -1,0 +1,42 @@
+{
+  "name": "@frameless/strapi-dashboard",
+  "private": false,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "dev": "strapi develop",
+    "develop:watch": "strapi develop --watch-admin",
+    "start": "strapi start",
+    "prebuild": "npm run clean",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "lint": "eslint --ext .js src",
+    "lint:fix": "eslint --ext .js src --fix",
+    "clean": "rimraf build .cache dist"
+  },
+  "dependencies": {
+    "@frameless/preview-button": "0.0.0-semantically-released",
+    "@frameless/strapi-plugin-ckeditor5": "0.0.0-semantically-released",
+    "@frameless/strapi-plugin-gemeente-select": "0.0.0-semantically-released",
+    "@frameless/strapi-plugin-scheme-select": "0.0.0-semantically-released",
+    "@strapi/plugin-graphql": "4.7.1",
+    "@strapi/plugin-i18n": "4.7.1",
+    "@strapi/plugin-users-permissions": "4.7.1",
+    "@strapi/strapi": "4.7.1",
+    "better-sqlite3": "7.6.2",
+    "pg": "8.9.0",
+    "slugify": "1.6.5",
+    "strapi-plugin-slugify": "2.3.2"
+  },
+  "author": {
+    "name": ""
+  },
+  "strapi": {
+    "uuid": "3d9f46d7-679c-4633-8821-761d8bbb5bea"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

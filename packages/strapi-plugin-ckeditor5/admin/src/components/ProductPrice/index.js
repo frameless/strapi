@@ -1,5 +1,4 @@
 import React from 'react';
-import { Combobox, ComboboxOption } from '@strapi/design-system';
 
 export const formatCurrency = (product, locale = 'nl') => {
   if (product) {

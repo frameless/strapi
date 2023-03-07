@@ -12,3 +12,4 @@ tmp
 .next
 CHANGELOG.md
 package-lock.json
+.strapi-updater.json

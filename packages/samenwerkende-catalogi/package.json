@@ -9,7 +9,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "devDependencies": {
+  "dependencies": {
     "xmlbuilder2": "3.0.2"
   }
 }

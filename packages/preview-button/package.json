@@ -16,7 +16,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@strapi/design-system": "1.6.4",
+    "@strapi/icons": "1.6.4"
+  },
   "author": {
     "name": "A Strapi developer"
   },
@@ -26,8 +29,11 @@
     }
   ],
   "engines": {
-    "node": ">=16.16.0 <=18.x.x",
+    "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "@strapi/strapi": ">=4.0.0"
+  }
 }

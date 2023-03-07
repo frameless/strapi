@@ -1,13 +1,13 @@
-
-version: '3'
+version: "3"
 services:
   strapi:
     container_name: strapi
     build:
       context: .
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     image: strapi:latest
     restart: unless-stopped
+    command: npm run --workspace apps/strapi-dashboard start
     env_file: .env
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
@@ -20,15 +20,32 @@ services:
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
-    volumes:
-      - strapi-dashboard:/app/packages/strapi-dashboard
     ports:
-      - '1337:1337'
+      - "1337:1337"
     networks:
       - strapi
     depends_on:
       - strapi_db
-
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: npm run  --workspace apps/frontend start
+    env_file: ./apps/frontend/.env
+    environment:
+      REVALIDATE_SECRET_TOKEN: ${REVALIDATE_SECRET_TOKEN}
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
+      STRAPI_HOSTNAME: ${STRAPI_HOSTNAME}
+      STRAPI_FRONTEND_URL: ${STRAPI_FRONTEND_URL}
+      STRAPI_BACKEND_URL: ${STRAPI_BACKEND_URL}
+    ports:
+      - "3000:3000"
+    networks:
+      - strapi
+    depends_on:
+      - strapi
   strapi_db:
     container_name: strapi_db
     platform: linux/amd64 #for platform error on Apple M1 chips
@@ -40,13 +57,12 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-      - strapi-data:/var/lib/postgresql/data/ #using a volume
-      #- ./data:/var/lib/postgresql/data/ # if you want to use a bind folder
-
+      - strapi-data:/var/lib/postgresql/data/
     ports:
-      - '5432:5432'
+      - "5432:5432"
     networks:
       - strapi
+
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
@@ -60,11 +76,10 @@ services:
       - strapi
     depends_on:
       - strapi_db
-      
+
 volumes:
   strapi-data:
-  strapi-dashboard:
-  
+
 networks:
   strapi:
     name: Strapi

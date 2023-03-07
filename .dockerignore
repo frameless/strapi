@@ -1,54 +1,29 @@
-# All node_modules directories
-node_modules
-**/node_modules
-
-# All secrets
-**/.env.local
-**/.env.*.local
-
-# By default all git files
-.git
-.gitignore
-.gitattributes
-.github
-
-# Tools caches
-.cache/*
-tsconfig.tsbuildinfo
-.eslintcache
-
-# Yarn
-!.yarnrc.yml
-!.yarn/plugins
-!.yarn/releases
-
-# Used when building with nextjs (next-eslint)
-!.eslintrc.base.json
-!.prettierignore
-!.prettierrc.js
-!.eslintignore
-.next
-
-# npm
-!.npmrc
-npm-debug.log
-
-# Docker related
-.dockerignore
 Dockerfile
-docker-compose.*.yml
+Dockerfile.*
 docker-compose.yml
-docker
+docker-compose.*.yml
+.dockerignore
+node_modules/
+**/node_modules
+**/**/node_modules
+npm-debug.log
+README.md
+.next/
+.git
+.tmp/
+.cache/
+build/
+data/
+.env
+.env*
 
-# Log files
-logs
+**/.next
+**/.tmp
+**/build/
+**/data/
+**/dist/
+**/.cache/
+**/node_modules/
+**/.DS_Store
+docs
 *.log
-
-# Temp files
-tmp
-*.tmp
-
-# IDE related
-
-.idea
-.vscode
