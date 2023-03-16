@@ -60,7 +60,12 @@ const Home: NextPage<{ products?: any }> = ({ products }) => {
 export default Home;
 
 export const getStaticProps = async (ctx: any) => {
-  const res = await client.query({ query: GET_ALL_PRODUCTS_SLUG, variables: { locale: ctx.locale } });
+  // const res = await client.query({ query: GET_ALL_PRODUCTS_SLUG, variables: { locale: ctx.locale } });
+  const res = {
+    data: {
+      products: undefined,
+    },
+  } as any;
 
   if (!res?.data.products) {
     return {
