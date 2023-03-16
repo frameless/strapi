@@ -144,6 +144,11 @@ export async function getStaticProps({ params, preview, locale }: GetStaticProps
 }
 
 export async function getStaticPaths(ctx: any) {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  };
+  /*
   const res = await client.query({ query: GET_ALL_SLUGS, variables: { locale: ctx.locale } });
 
   const paths =
@@ -160,4 +165,5 @@ export async function getStaticPaths(ctx: any) {
     paths: paths,
     fallback: 'blocking',
   };
+  */
 }
