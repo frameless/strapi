@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean && npm run swc:prod",
     "clean": "rimraf build .next",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "swc:prod": "NODE_ENV=prod node samenwerkendecatalogi.js",
+    "swc:dev": "NODE_ENV=dev node samenwerkendecatalogi.js"
   },
   "dependencies": {
     "@apollo/client": "3.7.10",

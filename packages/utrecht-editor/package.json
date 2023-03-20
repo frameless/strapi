@@ -58,6 +58,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:watch": "webpack --mode production --watch --hot",
+    "build-dev": "npm run build",
     "clean": "rimraf build"
   }
 }

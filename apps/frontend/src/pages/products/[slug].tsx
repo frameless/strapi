@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 
-import type { GetStaticPropsContext } from 'next';
 import { client } from '../../client';
 import { GET_PRODUCT_BY_SLUG, GET_ALL_SLUGS } from '../../query';
 import { Layout } from '../../components/Layout';
@@ -108,7 +107,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
 
 export default Product;
 
-export async function getStaticProps({ params, preview, locale }: GetStaticPropsContext) {
+export async function getServerSideProps({ params, preview, locale }: any) {
   const res = await client.query({
     query: GET_PRODUCT_BY_SLUG,
     variables: {
@@ -134,36 +133,10 @@ export async function getStaticProps({ params, preview, locale }: GetStaticProps
 
   return {
     props: {
-      product: res.data.products.data[0],
+      product: res.data?.products.data[0],
       localizations,
       preview: preview ? preview : null,
       ...(await serverSideTranslations(locale || 'nl', ['common'])),
     },
-    revalidate: 1,
   };
-}
-
-export async function getStaticPaths(ctx: any) {
-  return {
-    paths: [],
-    fallback: 'blocking',
-  };
-  /*
-  const res = await client.query({ query: GET_ALL_SLUGS, variables: { locale: ctx.locale } });
-
-  const paths =
-    res.data && res.data?.products && res.data?.products?.data?.length > 0
-      ? res?.data.products.data.map(({ attributes }: any) => {
-          return {
-            params: { slug: attributes.slug },
-            locale: attributes.locale,
-          };
-        })
-      : [];
-
-  return {
-    paths: paths,
-    fallback: 'blocking',
-  };
-  */
 }

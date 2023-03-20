@@ -1,12 +1,12 @@
-
 FROM node:16-alpine as build
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
+RUN apk update && apk add bash
 ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/app
 COPY ./package.json ./package-lock.json ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
+
 COPY ./ .
 
 
@@ -35,11 +35,14 @@ FROM build AS production
 COPY --from=builder /opt/app /opt/app
 COPY --from=dependencies /prod_node_modules /opt/app/node_modules
 
+RUN chmod +x ./bin/wait-for-it.sh
+
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 RUN chown -R nextjs:nodejs /opt/app/apps/frontend/.next
 
 USER nextjs
 
+ENV NODE_ENV=${NODE_ENV}
 EXPOSE 1337
 CMD ["npm", "run" , "start"]

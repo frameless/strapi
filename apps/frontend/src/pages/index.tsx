@@ -59,13 +59,8 @@ const Home: NextPage<{ products?: any }> = ({ products }) => {
 
 export default Home;
 
-export const getStaticProps = async (ctx: any) => {
-  // const res = await client.query({ query: GET_ALL_PRODUCTS_SLUG, variables: { locale: ctx.locale } });
-  const res = {
-    data: {
-      products: undefined,
-    },
-  } as any;
+export const getServerSideProps = async (ctx: any) => {
+  const res = await client.query({ query: GET_ALL_PRODUCTS_SLUG, variables: { locale: ctx.locale } });
 
   if (!res?.data.products) {
     return {
@@ -75,8 +70,7 @@ export const getStaticProps = async (ctx: any) => {
 
   return {
     props: {
-      products: res?.data.products.data,
+      products: res?.data?.products?.data,
     },
-    revalidate: 1,
   };
 };

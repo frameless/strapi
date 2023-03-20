@@ -9,14 +9,14 @@ if [[ $1 = "prod" || $1 = "dev" ]] && [[ $2="up" || $2="down" ]] || [[ $3 = "--b
     echo "Running docker-compose -f $fileEnv $downOrUp $build"
 
     echo -n "" > './.env'
-    echo -n "" > './apps/frontend/.env'
     while IFS= read -r line
     do
  
     echo "$line" >> './.env'
 
-    echo "$line" >> './apps/frontend/.env'
     done < "$input"
+
+    . ./.env
 
     docker-compose -f $fileEnv $downOrUp $build
 else
