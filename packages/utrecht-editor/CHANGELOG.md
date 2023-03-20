@@ -1,3 +1,10 @@
+## @frameless/utrecht-editor [1.4.1](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.4.0...@frameless/utrecht-editor@1.4.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* the docker network issue ([bf98b4e](https://github.com/frameless/strapi/commit/bf98b4efd365c22764b48898f9952b18daa7e6df))
+
 # @frameless/utrecht-editor [1.4.0](https://github.com/frameless/strapi/compare/@frameless/utrecht-editor@1.3.0...@frameless/utrecht-editor@1.4.0) (2022-11-24)
 
 
