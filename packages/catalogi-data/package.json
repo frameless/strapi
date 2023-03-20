@@ -14,7 +14,8 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "build": "node src/index.js"
+    "build": "node src/index.js",
+    "build-dev": "npm run build"
   },
   "devDependencies": {
     "@stedi/prettier-plugin-jsonata": "1.14.2",

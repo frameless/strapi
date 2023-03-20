@@ -1,4 +1,4 @@
-import type { GetStaticPropsContext, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import {
@@ -80,7 +80,7 @@ const SearchPage: NextPage = () => {
   );
 };
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getServerSideProps({ locale }: any) {
   return {
     props: {
       ...(await serverSideTranslations(locale || 'nl', ['common'])),

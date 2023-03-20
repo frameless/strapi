@@ -7,18 +7,29 @@ services:
       dockerfile: Dockerfile.dev
     image: strapi:latest
     restart: unless-stopped
+    volumes:
+      - ./package.json:/opt/app/package.json
+      - ./package-lock.json:/opt/app/package-lock.json
+      - ./apps/strapi-dashboard/config:/opt/app/apps/strapi-dashboard/config
+      - ./apps/strapi-dashboard/src:/opt/app/apps/strapi-dashboard/src
+      - ./apps/strapi-dashboard/package.json:/opt/app/apps/strapi-dashboard/package.json
+      - ./apps/strapi-dashboard/public/uploads:/opt/app/apps/strapi-dashboard/public/uploads
     command: npm run --workspace apps/strapi-dashboard dev
-    env_file: .env
     environment:
+      HOST: ${HOST}
+      PORT: ${PORT}
+      APP_KEYS: ${APP_KEYS}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      JWT_SECRET: ${JWT_SECRET}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      STRAPI_FRONTEND_TYPE: ${STRAPI_FRONTEND_TYPE}
+      STRAPI_FRONTEND_PREVIEW_SECRET: ${STRAPI_FRONTEND_PREVIEW_SECRET}
       DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_HOST: strapi_db
       DATABASE_PORT: ${DATABASE_PORT}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      JWT_SECRET: ${JWT_SECRET}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
     ports:
       - "1337:1337"
@@ -32,8 +43,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: npm run --workspace apps/frontend dev
-    env_file: .env
+    command: ./bin/wait-for-it.sh strapi:1337 -- npm run --workspace apps/frontend dev
     environment:
       REVALIDATE_SECRET_TOKEN: ${REVALIDATE_SECRET_TOKEN}
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
@@ -57,6 +67,15 @@ services:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "sh -c 'pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}'",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
     volumes:
       - strapi-data:/var/lib/postgresql/data/
     ports:

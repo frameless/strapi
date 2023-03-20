@@ -2,14 +2,21 @@
 FROM node:16-alpine as build
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
+RUN apk update && apk add bash
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
-ARG STRAPI_BACKEND_URL
-ENV STRAPI_BACKEND_URL=${STRAPI_BACKEND_URL}
 WORKDIR /opt/app
 COPY ./package.json ./package-lock.json ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
-COPY ./ .
+COPY ./apps/frontend/package.json apps/frontend/package.json
+COPY ./apps/strapi-dashboard/package.json apps/strapi-dashboard/package.json
+COPY ./packages/catalogi-data/package.json packages/catalogi-data/package.json
+COPY ./packages/preview-button/package.json packages/preview-button/package.json
+COPY ./packages/samenwerkende-catalogi/package.json packages/samenwerkende-catalogi/package.json
+COPY ./packages/strapi-plugin-ckeditor5/package.json packages/strapi-plugin-ckeditor5/package.json
+COPY ./packages/strapi-plugin-gemeente-select/package.json packages/strapi-plugin-gemeente-select/package.json
+COPY ./packages/strapi-plugin-scheme-select/package.json packages/strapi-plugin-scheme-select/package.json
+COPY ./packages/utrecht-editor/package.json packages/utrecht-editor/package.json
 
 
 # Build target dependencies #
@@ -23,14 +30,13 @@ RUN npm install
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN npm run --workspace packages/utrecht-editor --workspace packages/catalogi-data build && \
-    rm -rf node_modules
+RUN npm run build-dev --workspaces
 
 # Build target production #
 ###########################
 FROM build AS development
 COPY --from=builder /opt/app /opt/app
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
-
+RUN chmod +x ./bin/wait-for-it.sh
 EXPOSE 1337
 CMD ["npm", "run" , "dev"]
