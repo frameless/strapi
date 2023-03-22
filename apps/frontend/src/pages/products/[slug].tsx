@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-
+import type { GetServerSideProps } from 'next';
 import { client } from '../../client';
 import { GET_PRODUCT_BY_SLUG, GET_ALL_SLUGS } from '../../query';
 import { Layout } from '../../components/Layout';
@@ -107,7 +107,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
 
 export default Product;
 
-export async function getServerSideProps({ params, preview, locale }: any) {
+export const getServerSideProps: GetServerSideProps = async ({ params, preview, locale, previewData }) => {
   const res = await client.query({
     query: GET_PRODUCT_BY_SLUG,
     variables: {
@@ -117,14 +117,13 @@ export async function getServerSideProps({ params, preview, locale }: any) {
     },
   });
 
-  if (!res?.data || (res.data?.products && res.data?.products.le && res.data?.products?.data?.length === 0)) {
+  if (!res?.data || res.data?.products?.data?.length === 0) {
     return {
       notFound: true,
     };
   }
-  const localizations = res.data.products.data[0].attributes.localizations.data.map(
-    ({ attributes }: any) => attributes,
-  );
+  const localizations =
+    res.data.products.data[0]?.attributes.localizations.data.map(({ attributes }: any) => attributes) || [];
   localizations.push({
     locale: res.data.products.data[0].attributes.locale,
     slug: res.data.products.data[0].attributes.slug,
@@ -139,4 +138,4 @@ export async function getServerSideProps({ params, preview, locale }: any) {
       ...(await serverSideTranslations(locale || 'nl', ['common'])),
     },
   };
-}
+};
