@@ -10,7 +10,7 @@ export const formatCurrency = (product, locale = 'nl') => {
   }
 };
 
-export const ProductPriceList = ({ products, onChange, selectedValue, label }) => {
+export const ProductPriceList = ({ products, onChange, selectedValue }) => {
   return products && products.length > 0 ? (
     <select
       value={selectedValue}
@@ -28,7 +28,7 @@ export const ProductPriceList = ({ products, onChange, selectedValue, label }) =
         boxShadow: 0,
       }}
     >
-      <option></option>
+      <option defaultChecked>Select price</option>
       {products.map((product) => (
         <option value={product.id} id={product.id} key={product.id}>
           {`${product.label}: ${formatCurrency(product)}`}

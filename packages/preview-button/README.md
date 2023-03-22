@@ -8,12 +8,12 @@ Create plugins file or update the existing file `./config/plugins.ts` or `.js`
 
 ```ts
 export default ({ env }) => ({
-  'preview-button': {
+  "preview-button": {
     enabled: true,
     config: {
-      domain: env('STRAPI_FRONTEND_URL'),
-      token: env('PREVIEW_SECRET_TOKEN'),
-      slug: 'products',
+      domain: env("STRAPI_FRONTEND_URL"),
+      token: env("PREVIEW_SECRET_TOKEN"),
+      slug: "products",
     },
   },
 });
@@ -23,12 +23,12 @@ export default ({ env }) => ({
 
 ```js
 module.exports = ({ env }) => ({
-  'preview-button': {
+  "preview-button": {
     enabled: true,
     config: {
-      domain: env('STRAPI_FRONTEND_URL'),
-      token: env('PREVIEW_SECRET_TOKEN'),
-      slug: 'products',
+      domain: env("STRAPI_FRONTEND_URL"),
+      token: env("PREVIEW_SECRET_TOKEN"),
+      slug: "products",
     },
   },
 });

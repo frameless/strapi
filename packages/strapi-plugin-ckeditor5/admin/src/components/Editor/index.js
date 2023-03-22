@@ -6,7 +6,6 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactDOM from 'react-dom';
 import { useParams } from 'react-router';
-
 import '@utrecht/component-library-css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/design-tokens/dist/index.css';
@@ -155,7 +154,7 @@ function Editor({ onChange, name, value, disabled }) {
   const fetchProductPrice = async () => {
     try {
       setBusy(true);
-      const res = await fetch(STRAPI_BACKEND_URL, {
+      const res = await fetch(`${process.env.STRAPI_ADMIN_BACKEND_URL}/graphql`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -209,7 +208,6 @@ function Editor({ onChange, name, value, disabled }) {
             editor.editing.view.focus();
           }
         }}
-        label={productPrice.title}
         products={productPrice.price}
         selectedValue={priceValue}
       />
