@@ -30,7 +30,7 @@ RUN npm install
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN npm run build-dev --workspaces
+RUN npm run build-dev --workspaces --if-present
 
 # Build target production #
 ###########################
