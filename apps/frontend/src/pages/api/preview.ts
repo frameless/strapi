@@ -18,10 +18,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
 
     // If the slug doesn't exist prevent preview mode from being enabled
-    if (!cmsRes.data || cmsRes.data.products.data.length === 0) {
+    if (!cmsRes?.data || cmsRes.data.products.data.length === 0) {
       return res?.status(404).redirect('/404');
     }
-    const path = `/${req.query.locale}/${req.query.type}/${cmsRes.data.products.data[0].attributes.slug}`;
+    const path = `/${req.query.locale}/${req.query.type}/${cmsRes.data.products?.data[0]?.attributes.slug}`;
     // Enable Preview Mode by setting the cookies
     // Set the duration of the preview to 1 hour
     res.setPreviewData(
