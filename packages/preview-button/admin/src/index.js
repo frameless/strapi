@@ -4,10 +4,12 @@ import pluginId from './pluginId';
 import Initializer from './components/Initializer';
 import PreviewLink from './components/PreviewLink';
 import PluginIcon from './components/PluginIcon';
+import reducers from './reducers';
 
 const name = pluginPkg.strapi.name;
 export default {
   register(app) {
+    app.addReducers(reducers);
     // app.addMenuLink({
     //   to: `/plugins/${pluginId}`,
     //   icon: PluginIcon,

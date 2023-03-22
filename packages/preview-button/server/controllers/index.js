@@ -1,7 +1,7 @@
 'use strict';
 
-const myController = require('./my-controller');
+const previewButton = require('./preview-button');
 
 module.exports = {
-  myController,
+  'preview-button': previewButton,
 };
