@@ -16,6 +16,11 @@ export default ({ env }) => ({
   },
   'preview-button': {
     enabled: true,
+    config: {
+      domain: env('STRAPI_FRONTEND_URL'),
+      token: env('PREVIEW_SECRET_TOKEN'),
+      slug: 'products',
+    },
   },
   upload: {
     config: {
