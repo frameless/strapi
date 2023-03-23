@@ -15,6 +15,40 @@ export const GET_ALL_PRODUCTS_SLUG = gql`
   }
 `;
 
+export const GET_SAMENWERKENDECATALOGI = gql`
+  query getSamenwerkendecatalogi($locale: I18NLocaleCode) {
+    products(locale: $locale) {
+      data {
+        id
+        attributes {
+          title
+          excerpt
+          slug
+          locale
+          updatedAt
+          catalogiMeta {
+            spatial {
+              scheme
+              resourceIdentifier
+            }
+            authority {
+              scheme
+              resourceIdentifier
+            }
+            audience {
+              id
+              type
+            }
+            onlineRequest {
+              type
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const GET_ALL_SLUGS = gql`
   query getAllSlugsQuery {
     products(locale: "all") {
