@@ -68,22 +68,20 @@ const convertJsonToXML = (data, frontend_url) => {
         audiences,
       };
     });
+
     meta.forEach((item) => {
       if (
         !item.title ||
-        !item.identifier ||
         !item.language ||
-        !item.authority.scheme ||
+        !item.productId ||
+        !item.abstract ||
+        !item.onlineAanvragen ||
+        !item.identifier ||
+        !item.spatial.schemeSpatial ||
         !item.spatial.resourceIdentifier ||
-        !item.authority.scheme ||
         !item.authority.resourceIdentifier ||
         !item.audiences ||
-        item.audiences.length === 0 ||
-        !audience.scheme ||
-        !audience.type ||
-        !item.abstract ||
-        !item.productId ||
-        !item.onlineAanvragen
+        item.audiences.length === 0
       ) {
         return;
       }
@@ -146,13 +144,10 @@ const convertJsonToXML = (data, frontend_url) => {
     // convert the XML tree to string
     const xml = root.end({ prettyPrint: true });
 
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, {
-        recursive: true,
-      });
-    }
-
     return xml;
+  } else {
+    throw new Error('The function parameters are required');
+    // TODO improve the error validations or switch to TypeScript
   }
 };
 
