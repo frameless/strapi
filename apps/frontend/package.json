@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "prebuild": "npm run clean && npm run swc:prod",
+    "prebuild": "npm run clean",
     "clean": "rimraf build .next",
     "build": "next build",
-    "postbuild": "next-sitemap",
     "start": "next start -p 3000",
     "lint": "next lint",
     "swc:prod": "NODE_ENV=prod node samenwerkendecatalogi.js",

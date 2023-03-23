@@ -8,6 +8,7 @@ export const GET_ALL_PRODUCTS_SLUG = gql`
           slug
           title
           locale
+          updatedAt
         }
       }
     }
