@@ -1,3 +1,10 @@
+## @frameless/samenwerkende-catalogi [1.0.1](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@1.0.0...@frameless/samenwerkende-catalogi@1.0.1) (2023-03-23)
+
+
+### Bug Fixes
+
+* fix the if statement in samenwerkende package ([b4aad01](https://github.com/frameless/strapi/commit/b4aad010c351b1828437ae0ca8f6ef790f8140a4))
+
 # @frameless/samenwerkende-catalogi 1.0.0 (2022-11-23)
 
 
