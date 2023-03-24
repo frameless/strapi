@@ -12,4 +12,5 @@ tmp
 .next
 CHANGELOG.md
 package-lock.json
+yarn.lock
 .strapi-updater.json

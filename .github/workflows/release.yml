@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,10 +19,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: "yarn"
           registry-url: "https://npm.pkg.github.com/"
           scope: "@frameless"
-      - run: npm ci
+      - run: yarn install --frozen-lockfile
       - name: Make envfile frontend
         uses: SpicyPizza/create-envfile@v1.3
         with:
