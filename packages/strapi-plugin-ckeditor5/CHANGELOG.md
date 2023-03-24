@@ -1,3 +1,10 @@
+## @frameless/strapi-plugin-ckeditor5 [1.4.3](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.4.2...@frameless/strapi-plugin-ckeditor5@1.4.3) (2023-03-24)
+
+
+### Bug Fixes
+
+* use strapi backend env variable ([895628d](https://github.com/frameless/strapi/commit/895628d25403a09a3dc80921c7a0364e9d33dd75))
+
 ## @frameless/strapi-plugin-ckeditor5 [1.4.2](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.4.1...@frameless/strapi-plugin-ckeditor5@1.4.2) (2022-11-24)
 
 
