@@ -1,3 +1,15 @@
+# @frameless/preview-button [1.1.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.0.1...@frameless/preview-button@1.1.0) (2023-03-24)
+
+
+### Bug Fixes
+
+* use strapi backend env variable ([895628d](https://github.com/frameless/strapi/commit/895628d25403a09a3dc80921c7a0364e9d33dd75))
+
+
+### Features
+
+* make preview-button configurable from strapi dashboard ([924faa7](https://github.com/frameless/strapi/commit/924faa7a1576af955d58214f495202e721aadad2))
+
 ## @frameless/preview-button [1.0.1](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.0.0...@frameless/preview-button@1.0.1) (2022-11-24)
 
 
