@@ -1,12 +1,12 @@
 
-FROM node:16-alpine as build
+FROM node:18-alpine as build
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 RUN apk update && apk add bash
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/app
-COPY ./package.json ./package-lock.json ./
+COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
 COPY ./apps/frontend/package.json apps/frontend/package.json
 COPY ./apps/strapi-dashboard/package.json apps/strapi-dashboard/package.json
@@ -23,14 +23,14 @@ COPY ./packages/utrecht-editor/package.json packages/utrecht-editor/package.json
 #############################
 FROM build AS dependencies
 # Install prod dependencies
-RUN npm install
+RUN yarn install
 
 # Build target builder #
 ########################
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN npm run build-dev --workspaces --if-present
+RUN yarn nx run-many --target=build --projects=@frameless/catalogi-data,@frameless/utrecht-editor
 
 # Build target production #
 ###########################
@@ -39,4 +39,4 @@ COPY --from=builder /opt/app /opt/app
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 RUN chmod +x ./bin/wait-for-it.sh
 EXPOSE 1337
-CMD ["npm", "run" , "dev"]
+CMD ["yarn", "dev"]

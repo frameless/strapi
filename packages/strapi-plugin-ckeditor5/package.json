@@ -28,7 +28,8 @@
     "@utrecht/component-library-css": "1.0.0-alpha.379",
     "@utrecht/component-library-react": "1.0.0-alpha.188",
     "@utrecht/design-tokens": "1.0.0-alpha.372",
-    "@utrecht/web-component-library-react": "1.0.0-alpha.378"
+    "@utrecht/web-component-library-react": "1.0.0-alpha.378",
+    "@frameless/utrecht-editor": "0.0.0-semantically-released"
   },
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"

@@ -9,12 +9,12 @@ services:
     restart: unless-stopped
     volumes:
       - ./package.json:/opt/app/package.json
-      - ./package-lock.json:/opt/app/package-lock.json
+      - ./yarn.lock:/opt/app/yarn.lock
       - ./apps/strapi-dashboard/config:/opt/app/apps/strapi-dashboard/config
       - ./apps/strapi-dashboard/src:/opt/app/apps/strapi-dashboard/src
       - ./apps/strapi-dashboard/package.json:/opt/app/apps/strapi-dashboard/package.json
       - ./apps/strapi-dashboard/public/uploads:/opt/app/apps/strapi-dashboard/public/uploads
-    command: npm run --workspace apps/strapi-dashboard dev
+    command: yarn nx run @frameless/strapi-dashboard:dev
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
@@ -43,7 +43,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh strapi:1337 -- npm run --workspace apps/frontend dev
+    command: ./bin/wait-for-it.sh strapi:1337 -- yarn nx run @frameless/frontend:dev
     environment:
       REVALIDATE_SECRET_TOKEN: ${REVALIDATE_SECRET_TOKEN}
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
@@ -87,8 +87,8 @@ services:
     image: dpage/pgadmin4
     restart: always
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=root
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     ports:
       - "8080:80"
     networks:
