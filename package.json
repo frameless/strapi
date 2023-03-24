@@ -33,8 +33,7 @@
   "author": "",
   "license": "",
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
-    "npm": ">=6.0.0"
+    "node": "18.x.x"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.19.1",
