@@ -1,5 +1,4 @@
 const { create } = require('xmlbuilder2');
-const { formatJsonata } = require('@stedi/prettier-plugin-jsonata/dist/lib');
 const path = require('path');
 const fs = require('fs');
 const dir = './dist';
@@ -17,10 +16,6 @@ const dir = './dist';
 
     const doc = create(data.toString());
     const gemeenteJson = doc.toObject();
-    fs.writeFileSync(`${dir}/gemeente.json`, prettierFormateJson(gemeenteJson));
+    fs.writeFileSync(`${dir}/gemeente.json`, JSON.stringify(gemeenteJson));
   });
 })();
-
-function prettierFormateJson(json) {
-  return formatJsonata(JSON.stringify(json), { printWidth: 120, tabWidth: 2, useTabs: false });
-}
