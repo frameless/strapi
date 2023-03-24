@@ -71,6 +71,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           npm config set "//npm.pkg.github.com/:_authToken=${GH_TOKEN}"
+          config set workspaces-update false
           npm run release
           npm config delete "//npm.pkg.github.com/:_authToken"
   continuous-deployment:
