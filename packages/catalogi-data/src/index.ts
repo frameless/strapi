@@ -1,6 +1,7 @@
-const { create } = require('xmlbuilder2');
-const path = require('path');
-const fs = require('fs');
+import { create } from 'xmlbuilder2/lib';
+import * as path from 'path';
+import * as fs from 'fs';
+
 const dir = './dist';
 
 (function generateGemeenetJson() {
