@@ -1,6 +1,6 @@
 import { client } from '@/client';
 import { GET_SAMENWERKENDECATALOGI } from '@/query';
-import { convertJsonToXML } from '@frameless/samenwerkende-catalogi/src/index';
+import { convertJsonToXML } from '@frameless/samenwerkende-catalogi';
 import { GetServerSideProps } from 'next';
 import React from 'react';
 
@@ -13,8 +13,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res, locale }) =>
       locale,
     },
   });
-
-  const xml = convertJsonToXML(data?.products?.data, process.env.STRAPI_FRONTEND_URL);
+  // TODO improve validation in case there is no data or url
+  const xml = convertJsonToXML(data?.products?.data, process.env.STRAPI_FRONTEND_URL as string);
 
   if (res) {
     res.setHeader('Content-Type', 'text/xml');
