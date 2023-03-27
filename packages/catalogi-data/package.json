@@ -14,13 +14,11 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "build": "node src/index.js",
-    "build-dev": "npm run build"
+    "prebuild": "npm run tsc",
+    "build": "node dist/index.js",
+    "tsc": "tsc"
   },
-  "devDependencies": {
-    "prettier": "2.8.4"
-  },
-  "dependencies": {
-    "xmlbuilder2": "3.0.2"
+  "peerDependencies": {
+    "xmlbuilder2": ">=3.0.2"
   }
 }
