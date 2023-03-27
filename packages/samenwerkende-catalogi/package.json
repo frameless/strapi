@@ -2,14 +2,30 @@
   "name": "@frameless/samenwerkende-catalogi",
   "version": "0.0.0-semantically-released",
   "private": false,
+  "sideEffects": true,
   "repository": {
     "type": "git+ssh",
     "url": "git@github.com:frameless/strapi.git"
   },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "./dist"
+  ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
+    "@frameless/catalogi-data": "0.0.0-semantically-released",
     "xmlbuilder2": "3.0.2"
+  },
+  "scripts": {
+    "prebuild": "yarn clean",
+    "builds": "rollup -c ",
+    "build": "yarn build:browser && yarn build:node",
+    "build:browser": "tsc -p ./tsconfig.browser.json",
+    "build:node": "tsc -p ./tsconfig.node.json",
+    "clean": "rimraf dist"
   }
 }

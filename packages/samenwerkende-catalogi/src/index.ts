@@ -1,21 +1,64 @@
-const { mapKeys } = require('lodash');
-const { create } = require('xmlbuilder2');
-const fs = require('fs');
-require('dotenv').config();
-const gemeente = require('@frameless/catalogi-data');
+import { mapKeys } from 'lodash';
+import { create } from 'xmlbuilder2';
+import dotenv from 'dotenv';
+import * as gemeente from '@frameless/catalogi-data';
 
-const { createScheme, getPrefLabel } = require('./helpers');
+import { createScheme, getPrefLabel } from './helpers';
 
-const dir = './dist';
+dotenv.config();
 const prefixMap = {
   xsi: 'http://www.w3.org/2001/XMLSchema-instance',
   dcterms: 'http://purl.org/dc/terms/',
   overheid: 'http://standaarden.overheid.nl/owms/terms/',
   overheidproduct: 'http://standaarden.overheid.nl/product/terms/',
 };
+
 const xmlnsPrefixMap = mapKeys(prefixMap, (_value, key) => `xmlns:${key}`);
 
-const convertJsonToXML = (data, frontend_url) => {
+type SpatialType = {
+  resourceIdentifier: string;
+  scheme: string;
+  label: string;
+};
+
+type AuthorityType = {
+  scheme: string;
+  resourceIdentifier: string;
+  label: string;
+};
+
+type OnlineRequestType = {
+  type: string;
+};
+
+type CatalogiMetaType = {
+  spatial: SpatialType;
+  authority: AuthorityType;
+  audience: AudienceType[];
+  onlineRequest: OnlineRequestType;
+};
+
+type AudienceType = {
+  id: string;
+  type: string;
+  scheme: string;
+};
+
+type SamenWerkendeCatalogiAttributesTypes = {
+  catalogiMeta: CatalogiMetaType;
+  locale: string;
+  slug: string;
+  title: string;
+  updatedAt: string;
+  excerpt: string;
+};
+
+type SamenWerkendeCatalogiDataType = {
+  id: string;
+  attributes: SamenWerkendeCatalogiAttributesTypes;
+};
+
+export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend_url: string) => {
   if (data && data.length > 0) {
     const root = create({ version: '1.0' })
       .ele('overheidproduct:scproducten')
@@ -39,13 +82,13 @@ const convertJsonToXML = (data, frontend_url) => {
       }/${path}/${attributes.slug}`;
 
       const spatial = {
-        schemeSpatial,
+        scheme: schemeSpatial,
         resourceIdentifier: gemeenteSpatial,
         label: prefLabelSpatial,
       };
 
       const authority = {
-        schemeAuthority,
+        scheme: schemeAuthority,
         resourceIdentifier: gemeenteAuthority,
         label: prefLabelAuthority,
       };
@@ -77,7 +120,7 @@ const convertJsonToXML = (data, frontend_url) => {
         !item.abstract ||
         !item.onlineAanvragen ||
         !item.identifier ||
-        !item.spatial.schemeSpatial ||
+        !item.spatial.scheme ||
         !item.spatial.resourceIdentifier ||
         !item.authority.resourceIdentifier ||
         !item.audiences ||
@@ -147,8 +190,5 @@ const convertJsonToXML = (data, frontend_url) => {
     return xml;
   } else {
     throw new Error('The function parameters are required');
-    // TODO improve the error validations or switch to TypeScript
   }
 };
-
-module.exports = { convertJsonToXML };
