@@ -50,6 +50,11 @@ services:
       STRAPI_HOSTNAME: ${STRAPI_HOSTNAME}
       STRAPI_FRONTEND_URL: ${STRAPI_FRONTEND_URL}
       STRAPI_BACKEND_URL: ${STRAPI_BACKEND_URL}
+    volumes: # enable hot-reload
+      - ./apps/frontend/src:/opt/app/apps/frontend/src
+      - ./apps/frontend/public:/opt/app/apps/frontend/public
+      - ./apps/frontend/.next:/opt/app/apps/frontend/.next
+      - ./apps/frontend/package.json:/opt/app/apps/frontend/package.json
     ports:
       - "3000:3000"
     networks:
