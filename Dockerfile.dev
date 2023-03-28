@@ -5,6 +5,8 @@ RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automa
 RUN apk update && apk add bash
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
+ARG STRAPI_HOSTNAME
+ENV STRAPI_HOSTNAME=${STRAPI_HOSTNAME}
 WORKDIR /opt/app
 COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
