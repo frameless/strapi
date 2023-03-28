@@ -4,7 +4,7 @@ delete i18n.localePath;
 const nextConfig = {
   i18n,
   images: {
-    domains: [process.env.STRAPI_HOSTNAME || 'utrecht-cms-c3nji.ondigitalocean'],
+    domains: [process.env.STRAPI_HOSTNAME],
   },
 };
 
