@@ -30,7 +30,7 @@ RUN yarn install
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN  yarn nx run-many --target=build --projects=@frameless/catalogi-data,@frameless/samenwerkende-catalogi,@frameless/utrecht-editor
+RUN  npm run build --workspace packages/catalogi-data --workspace packages/samenwerkende-catalogi --workspace packages/utrecht-editor
 
 # Build target production #
 ###########################

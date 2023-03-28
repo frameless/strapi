@@ -2,7 +2,7 @@ FROM node:18-alpine as build
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 RUN apk update && apk add bash
-ARG NODE_ENV
+ARG NODE_ENV=production
 WORKDIR /opt/app
 COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
@@ -14,18 +14,18 @@ COPY ./ .
 #############################
 FROM build AS dependencies
 # Install prod dependencies
-RUN NODE_ENV=production yarn install --production=true && \
+RUN yarn install --production=true --frozen-lockfile && \
     # Cache prod dependencies
     cp -R node_modules /prod_node_modules && \
     # Install dev dependencies
-    yarn install --frozen-lockfile
+    yarn install --production=false
 
 # Build target builder #
 ########################
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN yarn nx run-many --target=build && \
+RUN yarn build && \
     rm -rf node_modules
 
 

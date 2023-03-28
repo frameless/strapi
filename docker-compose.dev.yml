@@ -14,7 +14,7 @@ services:
       - ./apps/strapi-dashboard/src:/opt/app/apps/strapi-dashboard/src
       - ./apps/strapi-dashboard/package.json:/opt/app/apps/strapi-dashboard/package.json
       - ./apps/strapi-dashboard/public/uploads:/opt/app/apps/strapi-dashboard/public/uploads
-    command: yarn nx run @frameless/strapi-dashboard:dev
+    command: npm run dev --workspace @frameless/strapi-dashboard
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
@@ -43,7 +43,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh strapi:1337 -- yarn nx run @frameless/frontend:dev
+    command: ./bin/wait-for-it.sh strapi:1337 -- npm run dev --workspace @frameless/frontend
     environment:
       REVALIDATE_SECRET_TOKEN: ${REVALIDATE_SECRET_TOKEN}
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
