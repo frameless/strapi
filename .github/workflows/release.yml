@@ -53,6 +53,7 @@ jobs:
           envkey_ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
           envkey_JWT_SECRET: ${{ secrets.JWT_SECRET }}
           envkey_PREVIEW_SECRET_TOKEN: ${{ secrets.PREVIEW_SECRET_TOKEN }}
+          envkey_TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
           envkey_DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
           envkey_DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
           envkey_STRAPI_BACKEND_URL: ${{ secrets.STRAPI_BACKEND_URL }}

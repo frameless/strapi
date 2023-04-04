@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_components_spotlights",
+  "info": {
+    "displayName": "spotlight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["default", "info", "warning"],
+      "default": "default"
+    },
+    "aside": {
+      "type": "boolean"
+    }
+  }
+}
