@@ -75,6 +75,81 @@ export const GET_PRODUCT_BY_SLUG = gql`
           metaTags {
             keymatch
           }
+          sections {
+            ... on ComponentComponentsLogoButton {
+              __typename
+              label
+              href
+              text
+              logo_button_appearance
+              logo
+            }
+            ... on ComponentComponentsSpotlight {
+              __typename
+              content
+              type
+            }
+            ... on ComponentComponentsBlockContent {
+              __typename
+              content
+            }
+            ... on ComponentComponentsMultiColumnsButton {
+              __typename
+              column {
+                id
+                title
+                logoButton {
+                  __typename
+                  label
+                  href
+                  text
+                  logo
+                  logo_button_appearance
+                }
+                buttonLink {
+                  __typename
+                  label
+                  href
+                  text
+                  icon
+                  button_link_appearance
+                }
+              }
+            }
+            ... on ComponentComponentsButtonLink {
+              __typename
+              label
+              href
+              text
+              icon
+              button_link_appearance
+            }
+            ... on ComponentComponentsFaq {
+              __typename
+              faq {
+                data {
+                  attributes {
+                    title
+                    faq {
+                      accordion {
+                        id
+                        title
+                        body
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            ... on ComponentComponentsAccordionSection {
+              __typename
+              item {
+                id
+                title
+                body
+              }
+            }
+          }
           price {
             data {
               attributes {
@@ -87,20 +162,6 @@ export const GET_PRODUCT_BY_SLUG = gql`
               }
             }
           }
-          faq {
-            data {
-              attributes {
-                title
-                faq {
-                  accordion {
-                    id
-                    title
-                    body
-                  }
-                }
-              }
-            }
-          }
           localizations {
             data {
               attributes {
@@ -109,35 +170,6 @@ export const GET_PRODUCT_BY_SLUG = gql`
               }
             }
           }
-          flexibleSection {
-            id
-            title
-            subTitle
-            option1
-            digidButton {
-              id
-              label
-              href
-              logo {
-                data {
-                  attributes {
-                    name
-                    width
-                    height
-                    url
-                    alternativeText
-                  }
-                }
-              }
-              appearance
-            }
-            accordion {
-              id
-              title
-              body
-            }
-          }
-          body
           locale
         }
       }
