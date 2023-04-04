@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_components_button_links",
+  "info": {
+    "displayName": "buttonLink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "boolean"
+    },
+    "label": {
+      "type": "string"
+    },
+    "button_link_appearance": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary"]
+    }
+  }
+}

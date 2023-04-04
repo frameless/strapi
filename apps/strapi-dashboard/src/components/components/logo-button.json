@@ -12,16 +12,16 @@
     "href": {
       "type": "string"
     },
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images", "files", "videos", "audios"]
+    "text": {
+      "type": "string"
     },
-    "appearance": {
+    "logo": {
       "type": "enumeration",
-      "enum": ["primary", "secondary"],
-      "default": "primary"
+      "enum": ["digid", "eherkenning", "eidas"]
+    },
+    "logo_button_appearance": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary"]
     }
   }
 }

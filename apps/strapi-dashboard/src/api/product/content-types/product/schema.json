@@ -35,24 +35,6 @@
       },
       "required": false
     },
-    "flexibleSection": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.flexible-section",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "body": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
@@ -61,12 +43,6 @@
       },
       "type": "string",
       "required": true
-    },
-    "faq": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::faq.faq",
-      "inversedBy": "products"
     },
     "metaTags": {
       "type": "component",
@@ -94,6 +70,23 @@
       },
       "component": "components.catalogi-meta",
       "required": false
+    },
+    "sections": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "components.logo-button",
+        "components.spotlight",
+        "components.block-content",
+        "components.multi-columns-button",
+        "components.button-link",
+        "components.faq",
+        "components.accordion-section"
+      ]
     }
   }
 }
