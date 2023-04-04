@@ -83,3 +83,39 @@ nav {
 .utrecht-spotlight-section > :first-child {
   --utrecht-space-around: 0;
 }
+
+.utrecht-multi-columns-button {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.utrecht-digid-button svg {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.utrecht-multi-columns-button__item {
+  --utrecht-paragraph-margin-block-end: 16px;
+  width: 50%;
+  padding-block: 20px;
+  padding-inline: 20px;
+}
+.utrecht-multi-columns-button__item:first-child {
+  border-right: 1px solid #e5e5e5;
+}
+
+.utrecht-multi-columns-button__item:last-child {
+  border-left: 1px solid #e5e5e5;
+}
+
+.utrecht-multi-columns-button__button {
+  --utrecht-button-inline-size: 100%;
+  margin-block-end: 16px;
+}
+
+.utrecht-logo-button_container {
+  display: flex;
+  gap: 12px;
+  margin-block-end: 16px;
+}

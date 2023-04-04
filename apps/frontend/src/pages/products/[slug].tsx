@@ -2,15 +2,20 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import type { GetServerSideProps } from 'next';
 import { client } from '../../client';
-import { GET_PRODUCT_BY_SLUG, GET_ALL_SLUGS } from '../../query';
+import { GET_PRODUCT_BY_SLUG } from '../../query';
 import { Layout } from '../../components/Layout';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import React, { useContext } from 'react';
 
-import { Heading1, ButtonLink } from '@utrecht/component-library-react';
+import { Heading1, ButtonLink, Heading3, Paragraph, SpotlightSection } from '@utrecht/component-library-react';
 
-import { UtrechtDigidButton } from '@utrecht/web-component-library-react';
+import {
+  UtrechtDigidButton,
+  UtrechtEherkenningLogo,
+  UtrechtEidasLogo,
+  UtrechtDigidLogo,
+} from '@utrecht/web-component-library-react';
 import { useRouter } from 'next/router';
 import { Alert } from '../../components/alert';
 import { Markdown } from '../../components/Markdown';
@@ -20,13 +25,142 @@ import SearchContext from '../../context/search/context';
 
 import { i18n } from '../../../next-i18next.config';
 
+const LogoButton = ({ logo, appearance, href, text, label }: any) => {
+  switch (logo) {
+    case 'digid':
+      return (
+        <div className="utrecht-logo-button">
+          {label && <Heading3>{label}</Heading3>}
+          <div className="utrecht-logo-button_container">
+            <UtrechtDigidLogo />
+            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
+              {text}
+            </ButtonLink>
+          </div>
+        </div>
+      );
+    case 'eherkenning':
+      return (
+        <div className="utrecht-logo-button">
+          {label && <Heading3>{label}</Heading3>}
+          <div className="utrecht-logo-button_container">
+            <UtrechtEherkenningLogo />
+            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
+              {text}
+            </ButtonLink>
+          </div>
+        </div>
+      );
+    case 'eidas':
+      return (
+        <div className="utrecht-logo-button">
+          {label && <Heading3>{label}</Heading3>}
+          <div className="utrecht-logo-button_container">
+            <UtrechtEidasLogo />
+            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
+              {text}
+            </ButtonLink>
+          </div>
+        </div>
+      );
+    default:
+      return null;
+  }
+};
+
 const Product: NextPage = ({ product, localizations, preview }: any) => {
-  const { title, body, flexibleSection, excerpt, faq } = product.attributes;
+  const { title, excerpt } = product.attributes;
   const { asPath, locale, defaultLocale } = useRouter();
   const { getSearchResult, setQuery, query, suggestedHits, suggestions, getSuggestedSearch } =
     useContext(SearchContext);
   const { t } = useTranslation();
   const priceData = product.attributes.price && product.attributes.price?.data?.attributes.price;
+
+  const Sections = () =>
+    product.attributes && product.attributes.sections.length > 0
+      ? product.attributes.sections.map((component: any, index: number) => {
+          switch (component.__typename) {
+            case 'ComponentComponentsBlockContent':
+              return component.content ? (
+                <Markdown key={index} data={priceData}>
+                  {component.content}
+                </Markdown>
+              ) : null;
+            case 'ComponentComponentsLogoButton':
+              return (
+                <LogoButton
+                  key={index}
+                  href={component.href}
+                  text={component.text}
+                  appearance={component.logo_button_appearance}
+                  label={component.label}
+                  logo={component.logo}
+                />
+              );
+            case 'ComponentComponentsFaq':
+              return (
+                <FAQSection
+                  key={index}
+                  locale={locale}
+                  accordion={component.faq.data.attributes.faq.accordion}
+                  sectionTitle={component.faq.data.attributes.title}
+                />
+              );
+            case 'ComponentComponentsAccordionSection':
+              return (
+                component.item &&
+                component.item.length > 0 &&
+                component.item.map(({ body, id, title }: any) => (
+                  <Accordion key={id} locale={locale} label={title} body={<Markdown>{body}</Markdown>} />
+                ))
+              );
+            case 'ComponentComponentsSpotlight':
+              return component.content ? (
+                <SpotlightSection type={component.type}>
+                  <Markdown data={priceData}>{component.content}</Markdown>
+                </SpotlightSection>
+              ) : null;
+            case 'ComponentComponentsMultiColumnsButton':
+              return (
+                <div className="utrecht-multi-columns-button">
+                  {component.column.map(({ buttonLink, logoButton, title }: any, index: number) => (
+                    <div key={index} className="utrecht-multi-columns-button__item">
+                      <Heading3>{title}</Heading3>
+                      {buttonLink && buttonLink.button_link_appearance && buttonLink.href && buttonLink.text && (
+                        <div className="utrecht-multi-columns-button__button">
+                          <Paragraph>{buttonLink.label}</Paragraph>
+                          <ButtonLink
+                            appearance={`${buttonLink.button_link_appearance}-action-button`}
+                            href={buttonLink.href}
+                          >
+                            {buttonLink.text}
+                          </ButtonLink>
+                        </div>
+                      )}
+                      {logoButton && logoButton.logo_button_appearance && logoButton.href && logoButton.text && (
+                        <div className="utrecht-multi-columns-button__button">
+                          <Paragraph>{logoButton.label}</Paragraph>
+                          <UtrechtDigidButton>
+                            <ButtonLink
+                              appearance={`${logoButton.logo_button_appearance}-action-button`}
+                              href={logoButton.href}
+                            >
+                              {logoButton.text}
+                            </ButtonLink>
+                          </UtrechtDigidButton>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              );
+
+            default:
+              null;
+          }
+        })
+      : null;
+
   return (
     <>
       <Head>
@@ -60,46 +194,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
           </Alert>
         )}
         <Heading1 style={{ marginBlockStart: '3rem' }}>{title}</Heading1>
-        <div>
-          {flexibleSection && flexibleSection.title && <h2>{flexibleSection.title}</h2>}
-          {flexibleSection && flexibleSection.subTitle && (
-            <Markdown data={priceData}>{flexibleSection.subTitle}</Markdown>
-          )}
-          {flexibleSection && flexibleSection.option1 && (
-            <Markdown data={priceData}>{flexibleSection.option1}</Markdown>
-          )}
-          {flexibleSection && flexibleSection.digidButton && (
-            <UtrechtDigidButton>
-              <ButtonLink
-                appearance={`${flexibleSection.digidButton.appearance}-action-button`}
-                href={flexibleSection.digidButton.href}
-              >
-                {flexibleSection.digidButton.label}
-              </ButtonLink>
-            </UtrechtDigidButton>
-          )}
-          <div id="accordionGroup" className="accordion">
-            {flexibleSection &&
-              flexibleSection.accordion &&
-              flexibleSection.accordion.length > 0 &&
-              flexibleSection.accordion.map((item: any, index: number) => (
-                <Accordion
-                  locale={locale}
-                  key={index}
-                  label={item.title}
-                  body={<Markdown data={priceData}>{item.body}</Markdown>}
-                />
-              ))}
-          </div>
-        </div>
-        <div>{body && <Markdown data={priceData}>{body}</Markdown>}</div>
-        {faq.data && (
-          <FAQSection
-            locale={locale}
-            accordion={faq.data.attributes.faq.accordion}
-            sectionTitle={faq.data.attributes.title}
-          />
-        )}
+        <Sections />
       </Layout>
     </>
   );
