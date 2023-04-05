@@ -13,8 +13,12 @@ services:
       - ./apps/strapi-dashboard/config:/opt/app/apps/strapi-dashboard/config
       - ./apps/strapi-dashboard/src:/opt/app/apps/strapi-dashboard/src
       - ./apps/strapi-dashboard/package.json:/opt/app/apps/strapi-dashboard/package.json
-      - ./apps/strapi-dashboard/public/uploads:/opt/app/apps/strapi-dashboard/public/uploads
-    command: npm run dev --workspace @frameless/strapi-dashboard
+      - ./apps/strapi-dashboard/public/:/opt/app/apps/strapi-dashboard/public/
+    entrypoint: ["/bin/sh","-c"]
+    command:
+    - |
+       yarn workspace @frameless/strapi-dashboard strapi import -f demoData.tar.gz.enc --force --key ${STRAPI_IMPORT_DATA_ENCRYPTION_KEY}
+       npm run dev --workspace @frameless/strapi-dashboard
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
