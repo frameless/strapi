@@ -29,6 +29,9 @@ a {
   flex-direction: column;
   background-color: var(--colors-secondary-bg);
 }
+.utrecht-language-switcher {
+  display: flex;
+}
 
 [dir="ltr"] .utrecht-language-switcher_item {
   margin-inline-start: 20px;
