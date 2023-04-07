@@ -14,11 +14,11 @@ services:
       - ./apps/strapi-dashboard/src:/opt/app/apps/strapi-dashboard/src
       - ./apps/strapi-dashboard/package.json:/opt/app/apps/strapi-dashboard/package.json
       - ./apps/strapi-dashboard/public/:/opt/app/apps/strapi-dashboard/public/
-    entrypoint: ["/bin/sh","-c"]
+    entrypoint: ["/bin/sh", "-c"]
     command:
-    - |
-       yarn workspace @frameless/strapi-dashboard strapi import -f demoData.tar.gz.enc --force --key ${STRAPI_IMPORT_DATA_ENCRYPTION_KEY}
-       npm run dev --workspace @frameless/strapi-dashboard
+      - |
+        yarn workspace @frameless/strapi-dashboard strapi import -f demoData.tar.gz.enc --force --key ${STRAPI_IMPORT_DATA_ENCRYPTION_KEY}
+        npm run dev --workspace @frameless/strapi-dashboard
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
@@ -48,7 +48,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh strapi:1337 -- npm run dev --workspace @frameless/frontend
+    command: ./bin/wait-for-it.sh -s strapi:1337 -t 25 -- npm run dev --workspace @frameless/frontend
     environment:
       REVALIDATE_SECRET_TOKEN: ${REVALIDATE_SECRET_TOKEN}
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
