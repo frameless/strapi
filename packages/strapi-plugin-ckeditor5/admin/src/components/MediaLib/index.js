@@ -11,6 +11,8 @@ function MediaLib({ isOpen, onChange, onToggle }) {
       alt: f.alternativeText || f.name,
       url: prefixFileUrlWithBackendUrl(f.url),
       mime: f.mime,
+      width: f.width,
+      height: f.height,
     }));
 
     onChange(formattedFiles);
