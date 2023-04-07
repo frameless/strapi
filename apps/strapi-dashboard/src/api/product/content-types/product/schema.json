@@ -85,7 +85,8 @@
         "components.multi-columns-button",
         "components.button-link",
         "components.faq",
-        "components.accordion-section"
+        "components.accordion-section",
+        "components.image"
       ]
     }
   }
