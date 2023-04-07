@@ -137,7 +137,16 @@ function Editor({ onChange, name, value, disabled }) {
           classes: true,
         },
       ],
-      disallow: ['style'],
+      disallow: [
+        {
+          attributes: [
+            { key: /^on(.*)/i, value: true },
+            { key: /.*/, value: /(\b)(on\S+)(\s*)=|javascript:|(<\s*)(\/*)script/i },
+            { key: /.*/, value: /data:(?!image\/(png|jpeg|gif|webp))/i },
+          ],
+        },
+        { name: 'script' },
+      ],
     },
     htmlEmbed: {
       showPreviews: true,

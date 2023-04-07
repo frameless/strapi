@@ -15,10 +15,9 @@ function Wysiwyg({ name, onChange, value, intlLabel, disabled, error, descriptio
   const handleChangeAssets = (assets) => {
     let newValue = value || '';
 
-    // eslint-disable-next-line array-callback-return
     assets.map((asset) => {
       if (asset.mime.includes('image')) {
-        const imgTag = `<p><img src="${asset.url}" alt="${asset.alt}"></img></p>`;
+        const imgTag = `<p><img src="${asset.url}" width="${asset.width}" height="${asset.height}" alt="${asset.alt}"></img></p>`;
 
         newValue = `${newValue}${imgTag}`;
       }
