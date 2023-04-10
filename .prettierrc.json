@@ -44,7 +44,7 @@
       }
     },
     {
-      "files": ["*.html", "*.vue"],
+      "files": ["*.html"],
       "options": {
         "parser": "html",
         "printWidth": 120,
