@@ -2,6 +2,8 @@
   "name": "@frameless/strapi-plugin-ckeditor5",
   "version": "0.0.0-semantically-released",
   "description": "Replaces the default Strapi WYSIWYG editor with a customized buil of CKEditor 5 packed with useful plugins.",
+  "keywords": [],
+  "author": "@frameless",
   "private": false,
   "strapi": {
     "name": "ckeditor5",

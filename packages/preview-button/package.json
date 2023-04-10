@@ -1,8 +1,9 @@
 {
   "name": "@frameless/preview-button",
   "version": "0.0.0-semantically-released",
-  "description": "This is the description of the plugin.",
+  "description": "A Strapi plugin that enable preview button",
   "private": false,
+  "keywords": [],
   "strapi": {
     "name": "preview-button",
     "description": "Description of Preview Button plugin",
@@ -21,13 +22,8 @@
     "@strapi/icons": "1.6.4"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "@frameless"
   },
-  "maintainers": [
-    {
-      "name": "A Strapi developer"
-    }
-  ],
   "engines": {
     "node": "18.x.x"
   },

@@ -1,6 +1,6 @@
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
-import pluginId from './pluginId';
 import ComboboxIcon from './components/ComboboxIcon';
+import pluginId from './pluginId';
 import getTrad from './utils/getTrad';
 
 export default {

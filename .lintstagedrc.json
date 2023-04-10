@@ -1,3 +1,0 @@
-{
-  "*.{css,html,js,json,jsx,mdx,scss,ts,tsx}": ["prettier --check"]
-}

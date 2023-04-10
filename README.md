@@ -10,11 +10,11 @@ Start the environment with:
 cd bin/ && bash ./deploy.sh dev up --build # or
 
 # production
-cd bin/ && bash ./deploy.sh prod up --build 
+cd bin/ && bash ./deploy.sh prod up --build
 
 ```
 
-Go to http://localhost:1337 and setup an admin account.
+Go to <http://localhost:1337> and setup an admin account.
 
 Then make sure to configure the right permissions for unauthenticated users in Settings > Roles > Public. Check the following items:
 
@@ -27,4 +27,4 @@ Then make sure to configure the right permissions for unauthenticated users in S
 
 And choose "Save".
 
-You can now create products and FAQ items using the Content Manager and view them on the frontend: http://localhost:3000/.
+You can now create products and FAQ items using the Content Manager and view them on the frontend: <http://localhost:3000/>.

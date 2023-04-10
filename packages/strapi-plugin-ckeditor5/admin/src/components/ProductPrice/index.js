@@ -1,16 +1,17 @@
 import React from 'react';
 
 export const formatCurrency = (product, locale = 'nl') => {
-  if (product) {
-    const currency = new Intl.NumberFormat(locale, {
+  const currency =
+    product &&
+    new Intl.NumberFormat(locale, {
       style: 'currency',
       currency: product.currency,
     }).format(Number(product.value));
-    return currency;
-  }
+
+  return currency;
 };
 
-export const ProductPriceList = ({ products, onChange, selectedValue }) => {
+export function ProductPriceList({ products, onChange, selectedValue }) {
   return products && products.length > 0 ? (
     <select
       value={selectedValue}
@@ -36,4 +37,4 @@ export const ProductPriceList = ({ products, onChange, selectedValue }) => {
       ))}
     </select>
   ) : null;
-};
+}

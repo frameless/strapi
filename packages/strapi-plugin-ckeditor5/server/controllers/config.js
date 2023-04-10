@@ -1,9 +1,6 @@
-/* eslint object-shorthand: "error" */
-/* eslint-env es6 */
-
 'use strict';
 
-module.exports = {
+module.exports = ({ strapi }) => ({
   getConfig: async (ctx) => {
     const { configKey } = ctx.params;
     if (configKey === 'uploadcfg') {
@@ -14,4 +11,4 @@ module.exports = {
       ctx.send(config);
     }
   },
-};
+});

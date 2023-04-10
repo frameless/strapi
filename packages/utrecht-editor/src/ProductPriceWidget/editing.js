@@ -1,6 +1,5 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import { toWidget, Widget } from '@ckeditor/ckeditor5-widget';
-
 import { InsertProductPreviewCommand } from './command';
 
 export class ProductPreviewEditing extends Plugin {
@@ -44,7 +43,7 @@ export class ProductPreviewEditing extends Plugin {
       model: (viewElement, { writer: modelWriter }) => {
         // Read the "data-id" attribute from the view and set it as the "id" in the model.
         return modelWriter.createElement('productPreview', {
-          id: parseInt(viewElement.getAttribute('data-id')),
+          id: Number(viewElement.getAttribute('data-id')),
         });
       },
     });

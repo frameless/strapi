@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Combobox, ComboboxOption } from '@strapi/design-system/Combobox';
-import { Stack } from '@strapi/design-system/Stack';
-import { Field, FieldLabel, FieldError, FieldHint } from '@strapi/design-system/Field';
-import { useIntl } from 'react-intl';
 import gemeente from '@frameless/catalogi-data';
+import { Combobox, ComboboxOption } from '@strapi/design-system/Combobox';
+import { Field, FieldError, FieldHint, FieldLabel } from '@strapi/design-system/Field';
+import { Stack } from '@strapi/design-system/Stack';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useIntl } from 'react-intl';
 
-const CustomCombobox = ({
+function CustomCombobox({
   value,
   onChange,
   name,
@@ -18,7 +18,7 @@ const CustomCombobox = ({
   placeholder,
   disabled,
   error,
-}) => {
+}) {
   const { formatMessage } = useIntl();
 
   return (
@@ -48,7 +48,7 @@ const CustomCombobox = ({
       </Stack>
     </Field>
   );
-};
+}
 
 CustomCombobox.defaultProps = {
   description: null,

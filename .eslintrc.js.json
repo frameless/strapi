@@ -4,6 +4,7 @@
     "block-scoped-var": "error",
     "consistent-return": "error",
     "constructor-super": "error",
+    "no-console": "error",
     "eqeqeq": "error",
     "for-direction": "error",
     "getter-return": "error",

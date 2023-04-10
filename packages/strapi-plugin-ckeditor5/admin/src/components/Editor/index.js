@@ -1,16 +1,15 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import { Box } from '@strapi/design-system';
 import ClassicEditor from '@frameless/utrecht-editor';
+import { Box } from '@strapi/design-system';
 import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
+import React, { useCallback, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useParams } from 'react-router';
+import styled from 'styled-components';
 import '@utrecht/component-library-css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/design-tokens/dist/index.css';
-
-import { ProductPriceList, formatCurrency } from '../ProductPrice';
+import { formatCurrency, ProductPriceList } from '../ProductPrice';
 
 const Wrapper = styled(Box)`
   .ck-editor__main {
@@ -153,14 +152,14 @@ function Editor({ onChange, name, value, disabled }) {
     },
     products: {
       productRenderer: async (id, domElement) => {
-        const product = productPrice?.price?.find((price) => parseInt(price.id) === parseInt(id));
+        const product = productPrice?.price?.find((price) => Number(price.id) === Number(id));
         ReactDOM.render(product?.currency ? <p id={id}>{formatCurrency(product)}</p> : null, domElement);
       },
     },
     fillEmptyBlocks: false,
   };
 
-  const fetchProductPrice = async () => {
+  const fetchProductPrice = useCallback(async () => {
     try {
       setBusy(true);
       const res = await fetch(`${process.env.STRAPI_ADMIN_BACKEND_URL}/graphql`, {
@@ -198,20 +197,23 @@ function Editor({ onChange, name, value, disabled }) {
       setProductPrice(data.product.data?.attributes?.price?.data?.attributes || []);
       setBusy(false);
     } catch (error) {
-      console.log(error);
+      // eslint-disable-next-line no-console
+      console.error(error);
       setBusy(false);
     }
-  };
-
-  React.useEffect(() => {
-    fetchProductPrice();
   }, [pageId]);
+
+  useEffect(() => {
+    fetchProductPrice();
+  }, [pageId, fetchProductPrice]);
+
   return (
     <>
       <ProductPriceList
         onChange={(evt) => {
           const id = evt.target.value;
           setPriceValue(id);
+
           if (id) {
             editor.execute('insertProduct', id);
             editor.editing.view.focus();
