@@ -1,4 +1,4 @@
 'use strict';
-module.exports = (config, webpack) => {
+module.exports = (config, _webpack) => {
   return config;
 };
