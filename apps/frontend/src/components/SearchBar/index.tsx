@@ -1,7 +1,7 @@
-import React, { ChangeEventHandler, FormEventHandler } from 'react';
+import { Heading4, UnorderedList, UnorderedListItem, Link as UtrechtLink } from '@utrecht/component-library-react';
 import classNames from 'classnames';
-import { UnorderedList, Link as UtrechtLink, UnorderedListItem, Heading4 } from '@utrecht/component-library-react';
 import Link from 'next/link';
+import React, { ChangeEventHandler, FormEventHandler } from 'react';
 import { SuggestedHits, Suggestions } from '../../types';
 
 export interface SearchBarProps {

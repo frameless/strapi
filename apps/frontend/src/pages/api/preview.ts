@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { client } from '../../client';
 import { GET_PRODUCT_BY_SLUG_AND_LOCALE } from '../../query';
 
+// eslint-disable-next-line consistent-return
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   if (req.query.secret !== process.env.PREVIEW_SECRET_TOKEN) {
     return res.status(401).json({ message: 'Invalid token' });

@@ -76,6 +76,22 @@ export const GET_PRODUCT_BY_SLUG = gql`
             keymatch
           }
           sections {
+            ... on ComponentComponentsImage {
+              __typename
+              imageData {
+                data {
+                  attributes {
+                    name
+                    alternativeText
+                    caption
+                    width
+                    height
+                    formats
+                    url
+                  }
+                }
+              }
+            }
             ... on ComponentComponentsLogoButton {
               __typename
               label
@@ -141,6 +157,7 @@ export const GET_PRODUCT_BY_SLUG = gql`
                 }
               }
             }
+
             ... on ComponentComponentsAccordionSection {
               __typename
               item {

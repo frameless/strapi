@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { Button, Heading3 } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
-
+import React, { useState } from 'react';
 import styles from './index.module.css';
 
 export interface AccordionProps {

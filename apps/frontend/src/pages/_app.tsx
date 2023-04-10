@@ -1,12 +1,10 @@
 import type { AppProps } from 'next/app';
-import { appWithTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { appWithTranslation } from 'next-i18next';
 import React from 'react';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
-
 import SearchState from '../context/search/state';
-
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
