@@ -17,7 +17,7 @@ export const getPrefLabel = (values: Values[], resourceIdentifierQuery: string) 
 
 const lookupPrefix = (map: PrefixMap, namespaceURI: string) => {
   for (const prefix in map) {
-    if (map.hasOwnProperty(prefix) && map[prefix as string] === namespaceURI) {
+    if (Object.prototype.hasOwnProperty.call(map, prefix) && map[prefix as string] === namespaceURI) {
       return prefix;
     }
   }
@@ -29,7 +29,7 @@ const createName = (namespaceURI: string, name: string, map: PrefixMap) => {
   return prefix ? `${prefix}:${name}` : name;
 };
 
-const CLARK_REGEXP = /^(?:\{([^\}]*)\})?(.+)$/;
+const CLARK_REGEXP = /^(?:\{([^}]*)\})?(.+)$/;
 
 const createSchemeType = (string: any) => {
   const match = CLARK_REGEXP.exec(string);
