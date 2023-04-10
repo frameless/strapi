@@ -29,6 +29,8 @@
     "clean": "npm run --workspaces clean --if-present",
     "clean-node_modules": "npm exec --workspaces --include-workspace-root -- rimraf node_modules",
     "lint": "npm run lint --workspaces --if-present && prettier --check . ",
+    "lint:css": "stylelint '**/*.{css,scss}'",
+    "lint-fix:css": "stylelint --fix '**/*.{css,scss}'",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "release": "multi-semantic-release --ignore-packages=apps/strapi-dashboard/**,apps/frontend/**"
   },
