@@ -1,3 +1,10 @@
+# @frameless/strapi-plugin-ckeditor5 [1.5.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.4.3...@frameless/strapi-plugin-ckeditor5@1.5.0) (2023-04-10)
+
+
+### Features
+
+* **strapi-plugin-ckeditor5:** enable `with`, `height` in media-lib ([dfb28c8](https://github.com/frameless/strapi/commit/dfb28c868b7f31e6313c872e9ac507b82e8b5100))
+
 ## @frameless/strapi-plugin-ckeditor5 [1.4.3](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-ckeditor5@1.4.2...@frameless/strapi-plugin-ckeditor5@1.4.3) (2023-03-24)
 
 
