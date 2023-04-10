@@ -1,11 +1,13 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-    Helvetica Neue, sans-serif;
-
   --utrecht-space-around: 1;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 a {
@@ -18,17 +20,17 @@ a {
 }
 
 .utrecht-page-content--modifier {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
 .utrecht-main-wrapper {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--colors-secondary-bg);
+  min-block-size: 100vh;
 }
+
 .utrecht-language-switcher {
   display: flex;
 }
@@ -60,10 +62,11 @@ a {
 .utrecht-language-switcher_item--current {
   --utrecht-link-color: black;
   --utrecht-link-visited-color: black;
+
   font-weight: 700;
 }
 
-.nav__content {
+.utrecht-nav__content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -76,11 +79,11 @@ nav {
 }
 
 .utrecht-search-bar__dropdown {
+  background-color: #fff;
+  border: 1px solid #c00;
   position: absolute;
   width: 100%;
   z-index: 100;
-  border: 1px solid #c00;
-  background-color: #fff;
 }
 
 .utrecht-spotlight-section > :first-child {
@@ -93,16 +96,17 @@ nav {
 }
 
 .utrecht-digid-button svg {
-  width: 50px;
-  height: 50px;
   display: inline-block;
+  height: 50px;
+  width: 50px;
 }
 
 .utrecht-multi-columns-button__item {
   --utrecht-paragraph-margin-block-end: 16px;
-  width: 50%;
+
   padding-block: 20px;
   padding-inline: 20px;
+  width: 50%;
 }
 .utrecht-multi-columns-button__item:first-child {
   border-right: 1px solid #e5e5e5;
@@ -114,6 +118,7 @@ nav {
 
 .utrecht-multi-columns-button__button {
   --utrecht-button-inline-size: 100%;
+
   margin-block-end: 16px;
 }
 

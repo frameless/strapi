@@ -1,5 +1,5 @@
-import { getServerSideSitemapLegacy, ISitemapField } from 'next-sitemap';
 import { GetServerSideProps } from 'next';
+import { getServerSideSitemapLegacy, ISitemapField } from 'next-sitemap';
 import { client } from '@/client';
 import { GET_ALL_PRODUCTS_SLUG } from '@/query';
 

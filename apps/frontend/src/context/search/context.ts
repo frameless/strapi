@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, SetStateAction } from 'react';
 import { SearchResult, SuggestedHits, Suggestions } from '../../types';
 
 interface SearchResultsContext {
@@ -8,9 +8,9 @@ interface SearchResultsContext {
   error: any;
   query: string;
   loading?: boolean;
-  setQuery: (value: React.SetStateAction<string>) => void;
-  getSearchResult: (locale: string, query?: string) => any;
-  getSuggestedSearch: (locale: string, query?: string) => any;
+  setQuery: (_value: SetStateAction<string>) => void;
+  getSearchResult: (_locale: string, _query?: string) => any;
+  getSuggestedSearch: (_locale: string, _query?: string) => any;
 }
 
 const contactContext = createContext<SearchResultsContext>({

@@ -2,9 +2,9 @@ import { Article, Page, PageContent, PageFooter, PageHeader } from '@utrecht/com
 import Link from 'next/link';
 import React from 'react';
 import { LanguageSwitcher } from '../LanguageSwitcher';
-import { UtrechtLogo } from '../UtrechtLogo';
 import { LanguageSwitcherProps } from '../LanguageSwitcher/index';
 import { SearchBar, SearchBarProps } from '../SearchBar';
+import { UtrechtLogo } from '../UtrechtLogo';
 
 const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
 
@@ -42,7 +42,7 @@ export const Layout: React.FC<LayoutProps> = ({
         <Link passHref href="/" legacyBehavior>
           <UtrechtLogo />
         </Link>
-        <div className="nav__content">
+        <div className="utrecht-nav__content">
           <LanguageSwitcher onClick={onClick} localizations={localizations} />
           <SearchBar
             onSearchChange={onSearchChange}

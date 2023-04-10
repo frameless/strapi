@@ -1,29 +1,29 @@
-import { NextPage } from 'next';
-import Head from 'next/head';
-import type { GetServerSideProps } from 'next';
-import { client } from '../../client';
-import { GET_PRODUCT_BY_SLUG } from '../../query';
-import { Layout } from '../../components/Layout';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-import React, { useContext } from 'react';
-
-import { Heading1, ButtonLink, Heading3, Paragraph, SpotlightSection } from '@utrecht/component-library-react';
-
+import { Alert, ButtonLink, Heading1, Heading3, Paragraph, SpotlightSection } from '@utrecht/component-library-react';
 import {
   UtrechtDigidButton,
+  UtrechtDigidLogo,
   UtrechtEherkenningLogo,
   UtrechtEidasLogo,
-  UtrechtDigidLogo,
 } from '@utrecht/web-component-library-react';
+import { NextPage } from 'next';
+import type { GetServerSideProps } from 'next';
+import getConfig from 'next/config';
+import Head from 'next/head';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Alert } from '../../components/alert';
-import { Markdown } from '../../components/Markdown';
-import { FAQSection } from '../../components/FAQSection';
-import { Accordion } from '../../components/Accordion';
-import SearchContext from '../../context/search/context';
-
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import React, { useContext } from 'react';
 import { i18n } from '../../../next-i18next.config';
+import { client } from '../../client';
+import { Accordion } from '../../components/Accordion';
+import { FAQSection } from '../../components/FAQSection';
+import { Layout } from '../../components/Layout';
+import { Markdown } from '../../components/Markdown';
+import SearchContext from '../../context/search/context';
+import { GET_PRODUCT_BY_SLUG } from '../../query';
+
+const { publicRuntimeConfig } = getConfig();
 
 const LogoButton = ({ logo, appearance, href, text, label }: any) => {
   switch (logo) {
@@ -75,6 +75,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
     useContext(SearchContext);
   const { t } = useTranslation();
   const priceData = product.attributes.price && product.attributes.price?.data?.attributes.price;
+  const { origin } = new URL(publicRuntimeConfig.strapiBackendURL);
 
   const Sections = () =>
     product.attributes && product.attributes.sections.length > 0
@@ -82,7 +83,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
           switch (component.__typename) {
             case 'ComponentComponentsBlockContent':
               return component.content ? (
-                <Markdown key={index} data={priceData}>
+                <Markdown strapiBackendURL={origin} locale={locale} key={index} priceData={priceData}>
                   {component.content}
                 </Markdown>
               ) : null;
@@ -104,6 +105,8 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
                   locale={locale}
                   accordion={component.faq.data.attributes.faq.accordion}
                   sectionTitle={component.faq.data.attributes.title}
+                  priceData={priceData}
+                  strapiBackendURL={origin}
                 />
               );
             case 'ComponentComponentsAccordionSection':
@@ -111,13 +114,48 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
                 component.item &&
                 component.item.length > 0 &&
                 component.item.map(({ body, id, title }: any) => (
-                  <Accordion key={id} locale={locale} label={title} body={<Markdown>{body}</Markdown>} />
+                  <Accordion
+                    key={id}
+                    locale={locale}
+                    label={title}
+                    body={
+                      <Markdown priceData={priceData} locale={locale} strapiBackendURL={origin}>
+                        {body}
+                      </Markdown>
+                    }
+                  />
                 ))
               );
+            case 'ComponentComponentsImage':
+              if (
+                component.imageData &&
+                component.imageData.data.attributes &&
+                component.imageData.data.attributes.url
+              ) {
+                return (
+                  <Image
+                    src={`${origin}${component.imageData.data.attributes.url}`}
+                    alt={component.imageData.data.attributes.alternativeText || ''}
+                    sizes="(max-width: 768px) 100vw,
+                              (max-width: 1200px) 50vw,
+                              33vw"
+                    width={component.imageData.data.attributes.width}
+                    height={component.imageData.data.attributes.height}
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                );
+              } else {
+                return null;
+              }
             case 'ComponentComponentsSpotlight':
               return component.content ? (
                 <SpotlightSection type={component.type}>
-                  <Markdown data={priceData}>{component.content}</Markdown>
+                  <Markdown strapiBackendURL={origin} priceData={priceData}>
+                    {component.content}
+                  </Markdown>
                 </SpotlightSection>
               ) : null;
             case 'ComponentComponentsMultiColumnsButton':
@@ -156,7 +194,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
               );
 
             default:
-              null;
+              return <></>;
           }
         })
       : null;
@@ -185,12 +223,13 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
         suggestions={suggestions}
       >
         {preview && (
-          <Alert message={t('warnings.preview-mode')}>
+          <Alert type="warning">
             <ButtonLink
               href={`/api/clear-preview-mode-cookies?slug=${locale}${asPath}&default_locale=${defaultLocale}`}
             >
               {t('actions.turn-off-the-preview-mode')}
             </ButtonLink>
+            <Paragraph>{t('warnings.preview-mode')}</Paragraph>
           </Alert>
         )}
         <Heading1 style={{ marginBlockStart: '3rem' }}>{title}</Heading1>
@@ -202,7 +241,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
 
 export default Product;
 
-export const getServerSideProps: GetServerSideProps = async ({ params, preview, locale, previewData }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params, preview, locale }) => {
   const res = await client.query({
     query: GET_PRODUCT_BY_SLUG,
     variables: {

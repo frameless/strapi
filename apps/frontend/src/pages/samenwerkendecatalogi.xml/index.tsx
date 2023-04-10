@@ -1,8 +1,8 @@
-import { client } from '@/client';
-import { GET_SAMENWERKENDECATALOGI } from '@/query';
 import { convertJsonToXML } from '@frameless/samenwerkende-catalogi';
 import { GetServerSideProps } from 'next';
 import React from 'react';
+import { client } from '@/client';
+import { GET_SAMENWERKENDECATALOGI } from '@/query';
 
 const Samenwerkendecatalogi: React.FC = () => null;
 

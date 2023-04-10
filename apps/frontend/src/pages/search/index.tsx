@@ -1,23 +1,21 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
 import {
+  Heading1,
+  Heading2,
+  Paragraph,
   UnorderedList,
   UnorderedListItem,
   Link as UtrechtLink,
-  Heading2,
-  Paragraph,
-  Heading1,
 } from '@utrecht/component-library-react';
-import { useContext, useEffect } from 'react';
-
-import { Layout } from '../../components/Layout';
-import SearchContext from '../../context/search/context';
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useRouter } from 'next/router';
-
+import { useContext, useEffect } from 'react';
 import { i18n } from '../../../next-i18next.config';
+import { Layout } from '../../components/Layout';
+import SearchContext from '../../context/search/context';
 
 const SearchPage: NextPage = () => {
   const { t } = useTranslation();
@@ -51,7 +49,7 @@ const SearchPage: NextPage = () => {
         <UnorderedList>
           {searchResults?.hits &&
             searchResults?.hits.length > 0 &&
-            searchResults?.hits.map(({ fields, type, url }, index: number) => (
+            searchResults?.hits.map(({ fields, url }, index: number) => (
               <UnorderedListItem key={index}>
                 <Link href={url} passHref legacyBehavior>
                   <UtrechtLink>
