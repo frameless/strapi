@@ -1,14 +1,16 @@
-import React from 'react';
+import { LinkButton } from '@strapi/design-system/LinkButton';
 import { useCMEditViewDataManager } from '@strapi/helper-plugin';
 import Eye from '@strapi/icons/Eye';
-import { LinkButton } from '@strapi/design-system/LinkButton';
+import React from 'react';
 import usePluginConfig from '../../hooks/use-plugin-config';
 
-const PreviewLink = () => {
+function PreviewLink() {
   const { initialData } = useCMEditViewDataManager();
+
   if (!initialData.slug) {
     return null;
   }
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { config } = usePluginConfig();
 
   return (
@@ -25,6 +27,6 @@ const PreviewLink = () => {
       Preview
     </LinkButton>
   );
-};
+}
 
 export default PreviewLink;

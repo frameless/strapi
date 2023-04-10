@@ -1,24 +1,23 @@
-import { useEffect } from 'react';
-
-import { useSelector, useDispatch } from 'react-redux';
 import { request, useNotification } from '@strapi/helper-plugin';
-
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RESOLVE_CONFIG } from '../constants';
 import { pluginId } from '../utils';
 
 const usePluginConfig = () => {
   const dispatch = useDispatch();
   const toggleNotification = useNotification();
-  const ctx = useSelector((state) => state[`${pluginId}_config`]);
+  const { isLoading, config } = useSelector((state) => state[`${pluginId}_config`]);
 
   useEffect(() => {
     // Do nothing if we have already loaded the config data.
-    if (!ctx?.isLoading && !!ctx?.config) {
+    if (!isLoading && !!config) {
       return;
     }
 
     const abortController = new AbortController();
 
+    // eslint-disable-next-line consistent-return
     const fetchData = async () => {
       try {
         const endpoint = `/${pluginId}/config`;
@@ -26,9 +25,11 @@ const usePluginConfig = () => {
           method: 'GET',
           signal: abortController.signal,
         });
+
         return data ?? {};
       } catch (err) {
         console.error(err);
+
         if (!abortController.signal.aborted) {
           toggleNotification({
             type: 'warning',
@@ -41,10 +42,11 @@ const usePluginConfig = () => {
     };
     fetchData().then((data) => dispatch({ type: RESOLVE_CONFIG, data }));
 
+    // eslint-disable-next-line consistent-return
     return () => abortController.abort();
-  }, [dispatch, toggleNotification]);
+  }, [config, dispatch, isLoading, toggleNotification]);
 
-  return { config: ctx?.config, isLoading: ctx?.isLoading };
+  return { config, isLoading };
 };
 
 export default usePluginConfig;

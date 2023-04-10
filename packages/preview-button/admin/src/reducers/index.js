@@ -1,5 +1,5 @@
-import { pluginId } from '../utils';
 import config from './config';
+import { pluginId } from '../utils';
 
 const reducers = {
   [`${pluginId}_config`]: config,

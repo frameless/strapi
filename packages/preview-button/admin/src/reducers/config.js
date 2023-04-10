@@ -1,5 +1,5 @@
+/* eslint-disable no-param-reassign */
 import produce from 'immer';
-
 import { RESOLVE_CONFIG } from '../constants';
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
   config: {},
 };
 
+// eslint-disable-next-line default-param-last
 const configReducer = produce((state = initialState, action) => {
   switch (action.type) {
     case RESOLVE_CONFIG: {
