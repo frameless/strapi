@@ -1,21 +1,31 @@
-.simple-box {
-  padding: 10px;
-  margin: 1em 0;
-
-  background: rgba(0, 0, 0, 0.1);
-  border: solid 1px hsl(0, 0%, 77%);
+.utrecht-simple-box {
+  background: rgb(0 0 0 / 10%);
+  border-color: hsl(0 0% 77%);
   border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  margin-block-end: 1em;
+  margin-block-start: 1em;
+  padding-block-end: 10px;
+  padding-block-start: 10px;
+  padding-inline-end: 10px;
+  padding-inline-start: 10px;
 }
 
-.simple-box-title,
-.simple-box-description {
-  padding: 10px;
-  margin: 0;
+.utrecht-simple-box-title {
+  margin-block-end: 10px;
+}
 
+.utrecht-simple-box-title,
+.utrecht-simple-box-description {
   background: #fff;
-  border: solid 1px hsl(0, 0%, 77%);
-}
-
-.simple-box-title {
-  margin-bottom: 10px;
+  border-color: hsl(0 0% 77%);
+  border-style: solid;
+  border-width: 1px;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block-end: 10px;
+  padding-block-start: 10px;
+  padding-inline-end: 10px;
+  padding-inline-start: 10px;
 }

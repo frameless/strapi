@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /**
  * axios with a custom config.
  */
@@ -12,6 +11,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async (config) => {
+    // eslint-disable-next-line no-param-reassign
     config.headers = {
       Authorization: `Bearer ${auth.getToken()}`,
       Accept: 'application/json',

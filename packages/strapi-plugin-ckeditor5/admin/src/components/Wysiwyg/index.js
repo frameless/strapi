@@ -15,7 +15,7 @@ function Wysiwyg({ name, onChange, value, intlLabel, disabled, error, descriptio
   const handleChangeAssets = (assets) => {
     let newValue = value || '';
 
-    assets.map((asset) => {
+    assets.forEach((asset) => {
       if (asset.mime.includes('image')) {
         const imgTag = `<p><img src="${asset.url}" width="${asset.width}" height="${asset.height}" alt="${asset.alt}"></img></p>`;
 
@@ -24,7 +24,6 @@ function Wysiwyg({ name, onChange, value, intlLabel, disabled, error, descriptio
 
       // Handle videos and other type of files by adding some code
     });
-
     onChange({ target: { name, value: newValue } });
     handleToggleMediaLib();
   };

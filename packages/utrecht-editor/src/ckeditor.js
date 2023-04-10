@@ -13,6 +13,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor'
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import FindAndReplace from '@ckeditor/ckeditor5-find-and-replace/src/findandreplace';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
@@ -42,12 +43,10 @@ import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
-import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
+import { ExtendHTMLSupport } from './CustomHTMLSupport';
+import { ProductPreviewEditing } from './ProductPriceWidget/editing';
 import { SimpleBox } from './simplebox';
 import { Spotlight } from './spotlight';
-import { ProductPreviewEditing } from './ProductPriceWidget/editing';
-
-import { ExtendHTMLSupport } from './CustomHTMLSupport';
 
 class Editor extends ClassicEditor {}
 

@@ -28,6 +28,7 @@ const usePluginConfig = () => {
 
         return data ?? {};
       } catch (err) {
+        // eslint-disable-next-line no-console
         console.error(err);
 
         if (!abortController.signal.aborted) {

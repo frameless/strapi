@@ -3,6 +3,10 @@
   "version": "0.0.0-semantically-released",
   "private": false,
   "sideEffects": true,
+  "author": "@frameless",
+  "description": "A Nodejs application that generate the samenwerkende-catalogi XML",
+  "license": "",
+  "keywords": [],
   "repository": {
     "type": "git+ssh",
     "url": "git@github.com:frameless/strapi.git"

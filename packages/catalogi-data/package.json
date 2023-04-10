@@ -3,6 +3,10 @@
   "version": "0.0.0-semantically-released",
   "private": false,
   "main": "./dist/gemeente.json",
+  "keywords": [],
+  "author": "@frameless",
+  "description": "A Nodejs application that convert the catalogi XML to JSON formate",
+  "license": "",
   "files": [
     "dist"
   ],

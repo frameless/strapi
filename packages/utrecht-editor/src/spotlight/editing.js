@@ -1,7 +1,6 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import { toWidget, toWidgetEditable } from '@ckeditor/ckeditor5-widget/src/utils';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
-
 import { InsertSpotlightCommand } from './command';
 
 export class SpotlightEditing extends Plugin {
@@ -38,9 +37,10 @@ export class SpotlightEditing extends Plugin {
     });
 
     schema.addChildCheck((context, childDefinition) => {
-      if (context.endsWith('spotlightDescription') && childDefinition.name == 'spotlight') {
+      if (context.endsWith('spotlightDescription') && childDefinition.name === 'spotlight') {
         return false;
       }
+      return undefined;
     });
   }
 

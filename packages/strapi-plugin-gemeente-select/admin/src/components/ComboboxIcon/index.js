@@ -1,8 +1,8 @@
+import { Flex } from '@strapi/design-system/Flex';
+import { Icon } from '@strapi/design-system/Icon';
+import Globe from '@strapi/icons/Globe';
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from '@strapi/design-system/Icon';
-import { Flex } from '@strapi/design-system/Flex';
-import Globe from '@strapi/icons/Globe';
 
 const IconBox = styled(Flex)`
   background-color: #f0f0ff; /* primary100 */
@@ -13,12 +13,12 @@ const IconBox = styled(Flex)`
   }
 `;
 
-const ComboboxIcon = () => {
+function ComboboxIcon() {
   return (
     <IconBox justifyContent="center" alignItems="center" width={7} height={6} hasRadius aria-hidden>
       <Icon as={Globe} />
     </IconBox>
   );
-};
+}
 
 export default ComboboxIcon;

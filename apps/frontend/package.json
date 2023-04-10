@@ -2,6 +2,10 @@
   "name": "@frameless/frontend",
   "version": "0.1.0",
   "private": true,
+  "author": "@frameless",
+  "description": "Utrecht PDC frontend application",
+  "license": "",
+  "keywords": [],
   "scripts": {
     "dev": "next dev -p 3000",
     "prebuild": "npm run clean",

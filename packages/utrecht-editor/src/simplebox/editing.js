@@ -1,7 +1,6 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import { toWidget, toWidgetEditable } from '@ckeditor/ckeditor5-widget/src/utils';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
-
 import { InsertSimpleBoxCommand } from './command';
 
 export class SimpleBoxEditing extends Plugin {
@@ -48,9 +47,10 @@ export class SimpleBoxEditing extends Plugin {
     });
 
     schema.addChildCheck((context, childDefinition) => {
-      if (context.endsWith('simpleBoxDescription') && childDefinition.name == 'simpleBox') {
+      if (context.endsWith('simpleBoxDescription') && childDefinition.name === 'simpleBox') {
         return false;
       }
+      return undefined;
     });
   }
 
@@ -62,7 +62,7 @@ export class SimpleBoxEditing extends Plugin {
       model: 'simpleBox',
       view: {
         name: 'section',
-        classes: 'simple-box',
+        classes: 'utrecht-simple-box',
       },
     });
 
@@ -70,14 +70,14 @@ export class SimpleBoxEditing extends Plugin {
       model: 'simpleBox',
       view: {
         name: 'section',
-        classes: 'simple-box',
+        classes: 'utrecht-simple-box',
       },
     });
 
     conversion.for('editingDowncast').elementToElement({
       model: 'simpleBox',
       view: (modelElement, { writer: viewWriter }) => {
-        const section = viewWriter.createContainerElement('section', { class: 'simple-box' });
+        const section = viewWriter.createContainerElement('section', { class: 'utrecht-simple-box' });
 
         return toWidget(section, viewWriter, { label: 'simple box widget' });
       },
@@ -88,21 +88,21 @@ export class SimpleBoxEditing extends Plugin {
       model: 'simpleBoxTitle',
       view: {
         name: 'h2',
-        classes: 'simple-box-title',
+        classes: 'utrecht-simple-box-title',
       },
     });
     conversion.for('dataDowncast').elementToElement({
       model: 'simpleBoxTitle',
       view: {
         name: 'h2',
-        classes: 'simple-box-title',
+        classes: 'utrecht-simple-box-title',
       },
     });
     conversion.for('editingDowncast').elementToElement({
       model: 'simpleBoxTitle',
       view: (modelElement, { writer: viewWriter }) => {
         // Note: You use a more specialized createEditableElement() method here.
-        const h2 = viewWriter.createEditableElement('h2', { class: 'simple-box-title' });
+        const h2 = viewWriter.createEditableElement('h2', { class: 'utrecht-simple-box-title' });
 
         return toWidgetEditable(h2, viewWriter);
       },
@@ -113,7 +113,7 @@ export class SimpleBoxEditing extends Plugin {
       model: 'simpleBoxDescription',
       view: {
         name: 'div',
-        classes: 'simple-box-description',
+        classes: 'utrecht-simple-box-description',
       },
     });
 
@@ -121,14 +121,14 @@ export class SimpleBoxEditing extends Plugin {
       model: 'simpleBoxDescription',
       view: {
         name: 'div',
-        classes: 'simple-box-description',
+        classes: 'utrecht-simple-box-description',
       },
     });
     conversion.for('editingDowncast').elementToElement({
       model: 'simpleBoxDescription',
       view: (modelElement, { writer: viewWriter }) => {
         // Note: You use a more specialized createEditableElement() method here.
-        const div = viewWriter.createEditableElement('div', { class: 'simple-box-description' });
+        const div = viewWriter.createEditableElement('div', { class: 'utrecht-simple-box-description' });
 
         return toWidgetEditable(div, viewWriter);
       },

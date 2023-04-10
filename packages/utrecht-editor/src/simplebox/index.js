@@ -1,5 +1,4 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-
 import { SimpleBoxEditing } from './editing';
 import { SimpleBoxUI } from './ui';
 

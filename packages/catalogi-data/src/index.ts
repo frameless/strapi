@@ -1,12 +1,13 @@
-import { create } from 'xmlbuilder2/lib';
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
+import { create } from 'xmlbuilder2/lib';
 
 const dir = './dist';
 
 (function generateGemeenetJson() {
   fs.readFile(require.resolve(path.resolve(process.cwd(), 'src/gemeente.xml')), (err, data) => {
     if (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     }
     if (!fs.existsSync(dir)) {

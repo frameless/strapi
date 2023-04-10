@@ -2,6 +2,7 @@
   "name": "@frameless/strapi-plugin-scheme-select",
   "version": "0.0.0-semantically-released",
   "description": "A strapi custom field for selecting scheme",
+  "keywords": [],
   "private": false,
   "strapi": {
     "name": "scheme-select",
