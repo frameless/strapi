@@ -1,8 +1,7 @@
+import * as gemeente from '@frameless/catalogi-data';
+import dotenv from 'dotenv';
 import { mapKeys } from 'lodash';
 import { create } from 'xmlbuilder2';
-import dotenv from 'dotenv';
-import * as gemeente from '@frameless/catalogi-data';
-
 import { createScheme, getPrefLabel } from './helpers';
 
 dotenv.config();
