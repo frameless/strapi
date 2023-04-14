@@ -51,6 +51,15 @@ const components = ({ strapiBackendURL, priceData, locale }: any) =>
     },
     p: ({ children, node }) => {
       delete node.properties?.style;
+      if (node.properties?.dataLead) {
+        delete node.properties?.dataLead;
+        return (
+          <Paragraph {...node.properties} lead>
+            {children}
+          </Paragraph>
+        );
+      }
+
       return <Paragraph {...node.properties}>{children}</Paragraph>;
     },
     ul: ({ children, node }) => {
@@ -129,6 +138,19 @@ const components = ({ strapiBackendURL, priceData, locale }: any) =>
         return <data value={price}>{price}</data>;
       }
       return <section {...node.properties}>{children}</section>;
+    },
+    'react-widget': ({ node }: any) => {
+      if (node.properties?.id && priceData && priceData.length > 0) {
+        const product: any = priceData.find(({ id }: any) => id === node.properties?.id);
+        const price = new Intl.NumberFormat(locale, {
+          style: 'currency',
+          currency: product?.currency,
+        }).format(Number(product?.value));
+
+        return <data value={price}>{price}</data>;
+      } else {
+        return null;
+      }
     },
   } as Components);
 

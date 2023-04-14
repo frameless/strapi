@@ -19,13 +19,14 @@ COPY ./packages/strapi-plugin-ckeditor5/package.json packages/strapi-plugin-cked
 COPY ./packages/strapi-plugin-gemeente-select/package.json packages/strapi-plugin-gemeente-select/package.json
 COPY ./packages/strapi-plugin-scheme-select/package.json packages/strapi-plugin-scheme-select/package.json
 COPY ./packages/utrecht-editor/package.json packages/utrecht-editor/package.json
+COPY ./packages/strapi-tiptap-editor/package.json packages/strapi-tiptap-editor/package.json
 
 
 # Build target dependencies #
 #############################
 FROM build AS dependencies
 # Install prod dependencies
-RUN yarn install
+RUN yarn install 
 
 # Build target builder #
 ########################

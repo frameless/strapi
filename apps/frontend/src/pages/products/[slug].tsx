@@ -158,6 +158,15 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
                   </Markdown>
                 </SpotlightSection>
               ) : null;
+            case 'ComponentComponentsButtonLink':
+              return component.text && component.href ? (
+                <div>
+                  <Paragraph>{component?.label}</Paragraph>
+                  <ButtonLink appearance={`${component?.button_link_appearance}-action-button`} href={component.href}>
+                    {component.text}
+                  </ButtonLink>
+                </div>
+              ) : null;
             case 'ComponentComponentsMultiColumnsButton':
               return (
                 <div className="utrecht-multi-columns-button">
