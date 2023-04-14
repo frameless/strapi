@@ -1,5 +1,8 @@
 export default ({ env }) => ({
   ckeditor5: {
+    enabled: false,
+  },
+  'strapi-tiptap-editor': {
     enabled: true,
   },
   slugify: {

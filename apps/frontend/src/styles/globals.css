@@ -127,3 +127,23 @@ nav {
   gap: 12px;
   margin-block-end: 16px;
 }
+
+table * p {
+  --utrecht-paragraph-margin-block-start: 0;
+}
+
+th {
+  --utrecht-table-header-cell-font-weight: var(--utrecht-table-header-font-weight);
+
+  border-block-end-color: var(--utrecht-table-header-border-block-end-color, transparent);
+  border-block-end-style: solid;
+  border-block-end-width: var(--utrecht-table-header-border-block-end-width, 0);
+  padding-block-end: var(--utrecht-table-cell-padding-block-end, 0);
+  padding-block-start: var(--utrecht-table-cell-padding-block-start, 0);
+  padding-inline-end: var(--utrecht-table-cell-padding-inline-end, 0);
+  padding-inline-start: var(--utrecht-table-cell-padding-inline-start, 0);
+}
+
+th > p {
+  --utrecht-paragraph-font-weight: var(--utrecht-table-header-font-weight);
+}

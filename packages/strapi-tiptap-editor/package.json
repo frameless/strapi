@@ -1,0 +1,77 @@
+{
+  "name": "@frameless/strapi-tiptap-editor",
+  "version": "0.0.0-semantically-released",
+  "description": "A drop-in replacement for the strapi editor",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "strapi": {
+    "name": "strapi-tiptap-editor",
+    "displayName": "Strapi TipTap Editor",
+    "description": "A drop-in replacement for the strapi editor",
+    "kind": "plugin"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "keywords": [
+    "strapi",
+    "tiptap",
+    "editor"
+  ],
+  "author": "@frameless",
+  "license": "MIT",
+  "dependencies": {
+    "@tiptap/core": "2.0.3",
+    "@tiptap/extension-blockquote": "2.0.3",
+    "@tiptap/extension-bold": "2.0.3",
+    "@tiptap/extension-bullet-list": "2.0.3",
+    "@tiptap/extension-character-count": "2.0.3",
+    "@tiptap/extension-code": "2.0.3",
+    "@tiptap/extension-code-block": "2.0.3",
+    "@tiptap/extension-color": "2.0.3",
+    "@tiptap/extension-document": "2.0.3",
+    "@tiptap/extension-gapcursor": "2.0.3",
+    "@tiptap/extension-hard-break": "2.0.3",
+    "@tiptap/extension-heading": "2.0.3",
+    "@tiptap/extension-highlight": "2.0.3",
+    "@tiptap/extension-history": "2.0.3",
+    "@tiptap/extension-horizontal-rule": "2.0.3",
+    "@tiptap/extension-image": "2.0.3",
+    "@tiptap/extension-italic": "2.0.3",
+    "@tiptap/extension-link": "2.0.3",
+    "@tiptap/extension-list-item": "2.0.3",
+    "@tiptap/extension-ordered-list": "2.0.3",
+    "@tiptap/extension-paragraph": "2.0.3",
+    "@tiptap/extension-strike": "2.0.3",
+    "@tiptap/extension-table": "2.0.3",
+    "@tiptap/extension-table-cell": "2.0.3",
+    "@tiptap/extension-table-header": "2.0.3",
+    "@tiptap/extension-table-row": "2.0.3",
+    "@tiptap/extension-text": "2.0.3",
+    "@tiptap/extension-text-align": "2.0.3",
+    "@tiptap/extension-text-style": "2.0.3",
+    "@tiptap/extension-underline": "2.0.3",
+    "@tiptap/extension-youtube": "2.0.3",
+    "@tiptap/pm": "2.0.3",
+    "@tiptap/react": "2.0.3",
+    "@tiptap/starter-kit": "2.0.3",
+    "@utrecht/component-library-css": "1.0.0-alpha.486",
+    "@utrecht/component-library-react": "1.0.0-alpha.295",
+    "@utrecht/design-tokens": "1.0.0-alpha.479",
+    "classnames": "2.3.2",
+    "react-cool-inview": "3.0.1",
+    "react-icons": "4.8.0",
+    "util": "0.12.5"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": ">=4.0.0"
+  },
+  "engines": {
+    "node": "18.x.x"
+  }
+}
