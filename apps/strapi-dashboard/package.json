@@ -28,7 +28,8 @@
     "better-sqlite3": "8.2.0",
     "pg": "8.10.0",
     "slugify": "1.6.6",
-    "strapi-plugin-slugify": "2.3.2"
+    "strapi-plugin-slugify": "2.3.2",
+    "strapi-prometheus": "1.5.0"
   },
   "author": {
     "name": ""
