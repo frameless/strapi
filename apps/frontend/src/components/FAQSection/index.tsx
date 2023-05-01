@@ -14,31 +14,15 @@ export interface FAQSectionProps {
   accordion?: AccordionType[];
   locale?: string;
   priceData?: any;
-  strapiBackendURL?: any;
 }
 
-export const FAQSection: React.FC<FAQSectionProps> = ({
-  sectionTitle,
-  accordion,
-  locale,
-  priceData,
-  strapiBackendURL,
-}) => (
+export const FAQSection: React.FC<FAQSectionProps> = ({ sectionTitle, accordion, locale, priceData }) => (
   <section>
     <Heading2>{sectionTitle}</Heading2>
     {accordion &&
       accordion.length > 0 &&
       accordion.map(({ id, title, body }: any) => (
-        <Accordion
-          locale={locale}
-          key={id}
-          label={title}
-          body={
-            <Markdown priceData={priceData} strapiBackendURL={strapiBackendURL}>
-              {body}
-            </Markdown>
-          }
-        />
+        <Accordion locale={locale} key={id} label={title} body={<Markdown priceData={priceData}>{body}</Markdown>} />
       ))}
   </section>
 );
