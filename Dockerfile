@@ -3,8 +3,8 @@ FROM node:18-alpine as build
 RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 RUN apk update && apk add bash
 ARG NODE_ENV=production
-ARG STRAPI_HOSTNAME
-ENV STRAPI_HOSTNAME=${STRAPI_HOSTNAME}
+ARG STRAPI_UPLOAD_PROVIDER_HOSTNAME
+ENV STRAPI_UPLOAD_PROVIDER_HOSTNAME=${STRAPI_UPLOAD_PROVIDER_HOSTNAME}
 WORKDIR /opt/app
 COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH

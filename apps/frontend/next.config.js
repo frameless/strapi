@@ -5,10 +5,7 @@ delete i18n.localePath;
 const nextConfig = {
   i18n: { ...i18n, localeDetection: false },
   images: {
-    domains: [process.env.STRAPI_HOSTNAME || ''],
-  },
-  publicRuntimeConfig: {
-    strapiBackendURL: process.env.STRAPI_BACKEND_URL,
+    domains: [process.env.STRAPI_UPLOAD_PROVIDER_HOSTNAME || ''],
   },
 };
 
