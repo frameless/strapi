@@ -7,7 +7,6 @@ import {
 } from '@utrecht/web-component-library-react';
 import { NextPage } from 'next';
 import type { GetServerSideProps } from 'next';
-import getConfig from 'next/config';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -22,8 +21,6 @@ import { Layout } from '../../components/Layout';
 import { Markdown } from '../../components/Markdown';
 import SearchContext from '../../context/search/context';
 import { GET_PRODUCT_BY_SLUG } from '../../query';
-
-const { publicRuntimeConfig } = getConfig();
 
 const LogoButton = ({ logo, appearance, href, text, label }: any) => {
   switch (logo) {
@@ -75,7 +72,6 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
     useContext(SearchContext);
   const { t } = useTranslation();
   const priceData = product.attributes.price && product.attributes.price?.data?.attributes.price;
-  const { origin } = new URL(publicRuntimeConfig.strapiBackendURL);
 
   const Sections = () =>
     product.attributes && product.attributes.sections.length > 0
@@ -83,7 +79,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
           switch (component.__typename) {
             case 'ComponentComponentsBlockContent':
               return component.content ? (
-                <Markdown strapiBackendURL={origin} locale={locale} key={index} priceData={priceData}>
+                <Markdown locale={locale} key={index} priceData={priceData}>
                   {component.content}
                 </Markdown>
               ) : null;
@@ -106,7 +102,6 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
                   accordion={component.faq.data.attributes.faq.accordion}
                   sectionTitle={component.faq.data.attributes.title}
                   priceData={priceData}
-                  strapiBackendURL={origin}
                 />
               );
             case 'ComponentComponentsAccordionSection':
@@ -119,7 +114,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
                     locale={locale}
                     label={title}
                     body={
-                      <Markdown priceData={priceData} locale={locale} strapiBackendURL={origin}>
+                      <Markdown priceData={priceData} locale={locale}>
                         {body}
                       </Markdown>
                     }
@@ -153,9 +148,7 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
             case 'ComponentComponentsSpotlight':
               return component.content ? (
                 <SpotlightSection type={component.type}>
-                  <Markdown strapiBackendURL={origin} priceData={priceData}>
-                    {component.content}
-                  </Markdown>
+                  <Markdown priceData={priceData}>{component.content}</Markdown>
                 </SpotlightSection>
               ) : null;
             case 'ComponentComponentsButtonLink':
