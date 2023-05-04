@@ -36,7 +36,20 @@ import { FaImage } from 'react-icons/fa';
 import { GrBlockQuote } from 'react-icons/gr';
 import { VscTable } from 'react-icons/vsc';
 import { PriceList } from './PriceList';
+import { useLink } from '../../hooks/useLink';
+import { LinkDialog } from '../LinkDialog';
 import { initialTableWithCaption } from '../extensions';
+
+export function LinkToolbar({ editor, onClick }) {
+  return (
+    <IconButton
+      icon={<LinkIcon />}
+      label="Link"
+      className={['medium-icon', editor.isActive('link') ? 'is-active' : '']}
+      onClick={onClick}
+    />
+  );
+}
 
 const onHeadingChange = (editor, type) => {
   switch (type) {
@@ -63,10 +76,9 @@ const onHeadingChange = (editor, type) => {
 };
 
 export function Toolbar({ editor, toggleMediaLib, settings, productPrice }) {
-  const [isVisibleLinkDialog, setIsVisibleLinkDialog] = useState(false);
-  const [linkInput, setLinkInput] = useState('');
-  const [linkTargetInput, setLinkTargetInput] = useState('');
   const iconContextColor = useMemo(() => ({ color: '#32324D' }), []);
+  const { isVisibleLinkDialog, onCloseLinkDialog, linkInput, onLinkUrlInputChange, openLinkDialog, onInsertLink } =
+    useLink(editor);
   // YouTube
   const [isVisibleYouTubeDialog, setIsVisibleYouTubeDialog] = useState(false);
   const [youTubeInput, setYouTubeInput] = useState('');
@@ -117,32 +129,6 @@ export function Toolbar({ editor, toggleMediaLib, settings, productPrice }) {
   const [highlightPopoverVisible, setHighlightPopoverVisible] = useState(false);
   const colorInputRef = useRef();
   const highlightInputRef = useRef();
-
-  const openLinkDialog = () => {
-    const previousUrl = editor.getAttributes('link').href;
-    const previousTarget = editor.getAttributes('link').target;
-
-    // Update fields before showing dialog
-    if (previousUrl) setLinkInput(previousUrl);
-
-    if (previousTarget) setLinkTargetInput(previousTarget);
-
-    setIsVisibleLinkDialog(true);
-  };
-
-  const onInsertLink = () => {
-    // empty
-    if (linkInput === '') {
-      editor.chain().focus().extendMarkRange('link').unsetLink().run();
-    } else {
-      // update link
-      editor.chain().focus().extendMarkRange('link').setLink({ href: linkInput, target: linkTargetInput }).run();
-    }
-
-    setIsVisibleLinkDialog(false);
-    setLinkInput('');
-    setLinkTargetInput('');
-  };
 
   if (!editor) {
     return null;
@@ -408,62 +394,29 @@ export function Toolbar({ editor, toggleMediaLib, settings, productPrice }) {
                   onClick={() => editor.chain().focus().toggleBlockquote().run()}
                 />
               ) : null}
+              <LinkDialog
+                onDialogClose={onCloseLinkDialog}
+                isDialogOpen={isVisibleLinkDialog}
+                dialogTitle="Insert link"
+                textInputProps={{
+                  label: 'Link URL',
+                  placeholder: 'Write or paste the url here',
+                  name: 'url',
+                  onChange: (e) => onLinkUrlInputChange(e.target.value),
+                  value: linkInput,
+                  ariaLabel: 'URL',
+                }}
+                startActionButtonProps={{
+                  onClick: onCloseLinkDialog,
+                  text: 'Cancel',
+                }}
+                endActionButtonProps={{
+                  onClick: onInsertLink,
+                  text: 'Insert link',
+                }}
+              />
 
-              <Dialog onClose={() => setIsVisibleLinkDialog(false)} title="Insert link" isOpen={isVisibleLinkDialog}>
-                <DialogBody>
-                  <Stack spacing={2}>
-                    <TextInput
-                      label="Link URL"
-                      placeholder="Write or paste the url here"
-                      name="url"
-                      onChange={(e) => setLinkInput(e.target.value)}
-                      value={linkInput}
-                      aria-label="URL"
-                    />
-                    <Select
-                      id="linkTargetSelect"
-                      label="Link target"
-                      required
-                      placeholder="Select link target"
-                      value={linkTargetInput}
-                      onChange={setLinkTargetInput}
-                    >
-                      <Option value="_self">Self</Option>
-                      <Option value="_blank">Blank</Option>
-                      <Option value="_parent">Parent</Option>
-                      <Option value="_top">Top</Option>
-                    </Select>
-                  </Stack>
-                </DialogBody>
-                <DialogFooter
-                  startAction={
-                    <Button
-                      onClick={() => {
-                        setLinkInput('');
-                        setLinkTargetInput('');
-                        setIsVisibleLinkDialog(false);
-                      }}
-                      variant="tertiary"
-                    >
-                      Cancel
-                    </Button>
-                  }
-                  endAction={
-                    <Button onClick={() => onInsertLink()} variant="success-light">
-                      Insert link
-                    </Button>
-                  }
-                />
-              </Dialog>
-
-              {settings.links.enabled ? (
-                <IconButton
-                  icon={<LinkIcon />}
-                  label="Link"
-                  className={['medium-icon', editor.isActive('link') ? 'is-active' : '']}
-                  onClick={() => openLinkDialog()}
-                />
-              ) : null}
+              {settings.links.enabled ? <LinkToolbar onClick={openLinkDialog} editor={editor} /> : null}
 
               {settings.image.enabled ? (
                 <IconButton
