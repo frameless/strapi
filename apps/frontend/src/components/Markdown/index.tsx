@@ -18,7 +18,9 @@ import {
   UnorderedList,
   UnorderedListItem,
 } from '@utrecht/component-library-react';
+import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
+import NextLink from 'next/link';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -71,8 +73,16 @@ const components = ({ priceData, locale }: any) =>
       return <UnorderedListItem {...node.properties}>{children}</UnorderedListItem>;
     },
     a: ({ children, node }) => {
-      delete node.properties?.style;
-      return <Link {...node.properties}>{children}</Link>;
+      const external = typeof node.properties?.href === 'string' && isAbsoluteUrl(node.properties?.href);
+      return external ? (
+        <Link href={node.properties?.href as string} rel="external noopener noreferrer" external={external}>
+          {children}
+        </Link>
+      ) : (
+        <NextLink href={node.properties?.href as string} legacyBehavior passHref>
+          <Link>{children}</Link>
+        </NextLink>
+      );
     },
     table: ({ children, node }) => {
       delete node.properties?.style;
