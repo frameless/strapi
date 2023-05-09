@@ -1,10 +1,18 @@
 import { createContext } from 'react';
+import { PriceListTypes } from '../../components/extensions/Price';
 
-const ProductPriceContext = createContext({
+type ProductPriceContextTypes = {
+  error: string | null;
+  busy: boolean;
+  productPrice?: PriceListTypes;
+  getProductPrice: (_pageId: string) => void;
+};
+
+const ProductPriceContext = createContext<ProductPriceContextTypes>({
   error: null,
-  busy: '',
-  productPrice: [],
-  getProductPrice: (_pageId) => {},
+  busy: false,
+  productPrice: undefined,
+  getProductPrice: (_pageId: string) => {},
 });
 
 export default ProductPriceContext;

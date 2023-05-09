@@ -33,7 +33,7 @@ RUN yarn install
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN  npm run build --workspace packages/catalogi-data --workspace packages/samenwerkende-catalogi --workspace packages/utrecht-editor --workspace apps/strapi-dashboard
+RUN  npm run build --workspace packages/catalogi-data --workspace packages/strapi-tiptap-editor --workspace packages/samenwerkende-catalogi --workspace packages/utrecht-editor --workspace apps/strapi-dashboard
 
 # Build target production #
 ###########################

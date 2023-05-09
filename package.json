@@ -6,6 +6,7 @@
   "workspaces": [
     "packages/utrecht-editor",
     "packages/strapi-plugin-ckeditor5",
+    "packages/strapi-tiptap-editor",
     "packages/catalogi-data",
     "packages/samenwerkende-catalogi",
     "apps/strapi-dashboard",
