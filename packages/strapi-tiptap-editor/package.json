@@ -2,9 +2,6 @@
   "name": "@frameless/strapi-tiptap-editor",
   "version": "0.0.0-semantically-released",
   "description": "A drop-in replacement for the strapi editor",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "strapi": {
     "name": "strapi-tiptap-editor",
     "displayName": "Strapi TipTap Editor",
@@ -26,6 +23,9 @@
   "author": "@frameless",
   "license": "MIT",
   "dependencies": {
+    "@strapi/design-system": "1.7.3",
+    "@strapi/helper-plugin": "4.10.2",
+    "@strapi/icons": "1.7.3",
     "@tiptap/core": "2.0.3",
     "@tiptap/extension-blockquote": "2.0.3",
     "@tiptap/extension-bold": "2.0.3",
@@ -68,10 +68,21 @@
     "react-icons": "4.8.0",
     "util": "0.12.5"
   },
+  "devDependencies": {
+    "@strapi/typescript-utils": "4.10.2",
+    "@types/styled-components": "5.1.26",
+    "react-router-dom": "5.3.4",
+    "@types/react-router-dom": "5.3.3",
+    "typescript": "5.0.4"
+  },
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"
   },
   "engines": {
     "node": "18.x.x"
+  },
+  "scripts": {
+    "develop": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json"
   }
 }

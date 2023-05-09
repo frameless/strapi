@@ -55,6 +55,8 @@ module.exports = {
           './apps/strapi-dashboard/src/admin/tsconfig.json',
           './packages/catalogi-data/tsconfig.json',
           './packages/samenwerkende-catalogi/tsconfig.json',
+          './packages/strapi-tiptap-editor/tsconfig.json',
+          './packages/strapi-tiptap-editor/tsconfig.server.json',
         ],
         tsconfigRootDir: __dirname,
       },
