@@ -10,14 +10,18 @@
     "label": {
       "type": "string"
     },
-    "value": {
-      "type": "string"
-    },
     "currency": {
       "type": "enumeration",
-      "enum": ["EUR", "USD"],
+      "enum": [
+        "EUR",
+        "USD"
+      ],
       "required": false,
       "default": "EUR"
+    },
+    "value": {
+      "type": "decimal",
+      "required": true
     }
   }
 }
