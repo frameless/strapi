@@ -1,32 +1,16 @@
 const config = {
-  locales: [
-    'ar',
-    // 'fr',
-    // 'cs',
-    // 'de',
-    // 'dk',
-    // 'es',
-    // 'he',
-    // 'id',
-    // 'it',
-    // 'ja',
-    // 'ko',
-    // 'ms',
-    'nl',
-    // 'no',
-    // 'pl',
-    // 'pt-BR',
-    // 'pt',
-    // 'ru',
-    // 'sk',
-    // 'sv',
-    // 'th',
-    // 'tr',
-    'uk',
-    // 'vi',
-    // 'zh-Hans',
-    // 'zh',
-  ],
+  locales: ['nl', 'en'],
+  notifications: {
+    releases: false,
+  },
+  translations: {
+    en: {
+      'app.components.HomePage.welcome': 'Welcome to the Utrecht PDC dashboard 👋',
+    },
+    nl: {
+      'app.components.HomePage.welcome': 'Welkom bij het Utrecht PDC dashboard 👋',
+    },
+  },
 };
 
 const bootstrap = () => {};
