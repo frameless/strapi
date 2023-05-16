@@ -15,6 +15,9 @@ COPY ./ .
 # Build target dependencies #
 #############################
 FROM build AS dependencies
+# Install patch-package globally
+RUN yarn global add patch-package
+COPY ./patches /opt/app/patches
 # Install prod dependencies
 RUN yarn install --production=true --frozen-lockfile && \
     # Cache prod dependencies

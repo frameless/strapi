@@ -24,7 +24,8 @@ COPY ./packages/strapi-tiptap-editor/package.json packages/strapi-tiptap-editor/
 #############################
 FROM build AS dependencies
 # Install prod dependencies
-RUN yarn install 
+COPY ./patches /opt/app/patches
+RUN yarn install
 
 # Build target builder #
 ########################
