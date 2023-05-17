@@ -84,26 +84,32 @@ const Product: NextPage = ({ product, localizations, preview }: any) => {
                 </Markdown>
               ) : null;
             case 'ComponentComponentsLogoButton':
-              return (
-                <LogoButton
-                  key={index}
-                  href={component.href}
-                  text={component.text}
-                  appearance={component.logo_button_appearance}
-                  label={component.label}
-                  logo={component.logo}
-                />
-              );
+              if (component && component.href && component.text) {
+                return (
+                  <LogoButton
+                    key={index}
+                    href={component.href}
+                    text={component.text}
+                    appearance={component.logo_button_appearance}
+                    label={component.label}
+                    logo={component.logo}
+                  />
+                );
+              }
+              return null;
             case 'ComponentComponentsFaq':
-              return (
-                <FAQSection
-                  key={index}
-                  locale={locale}
-                  accordion={component.faq.data.attributes.faq.accordion}
-                  sectionTitle={component.faq.data.attributes.title}
-                  priceData={priceData}
-                />
-              );
+              if (component && component?.faq && component?.faq?.data && component?.faq?.data.attributes) {
+                return (
+                  <FAQSection
+                    key={index}
+                    locale={locale}
+                    accordion={component.faq.data.attributes.faq.accordion}
+                    sectionTitle={component.faq.data.attributes.title}
+                    priceData={priceData}
+                  />
+                );
+              }
+              return null;
             case 'ComponentComponentsAccordionSection':
               return (
                 component.item &&
