@@ -7,9 +7,10 @@
     "packages/strapi-tiptap-editor",
     "packages/catalogi-data",
     "packages/samenwerkende-catalogi",
+    "packages/strapi-uuid-field",
     "apps/strapi-dashboard",
     "apps/frontend",
-    "packages/**"
+    "packages/*"
   ],
   "repository": {
     "type": "git+ssh",
@@ -28,6 +29,7 @@
     "test": "npm run test --workspaces --if-present",
     "clean": "npm run --workspaces clean --if-present",
     "clean-node_modules": "npm exec --workspaces --include-workspace-root -- rimraf node_modules",
+    "clean-dist": "npm exec --workspaces --include-workspace-root -- rimraf dist",
     "lint": "npm-run-all lint:*",
     "lint-fix": "npm-run-all lint-fix:*",
     "lint:css": "stylelint '**/*.{css,scss}'",

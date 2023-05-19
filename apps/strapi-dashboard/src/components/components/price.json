@@ -19,6 +19,10 @@
     "value": {
       "type": "decimal",
       "required": true
+    },
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::strapi-uuid-field.strapi-uuid-field"
     }
   }
 }

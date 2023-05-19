@@ -20,6 +20,7 @@
     "@frameless/strapi-plugin-gemeente-select": "0.0.0-semantically-released",
     "@frameless/strapi-plugin-scheme-select": "0.0.0-semantically-released",
     "@frameless/strapi-tiptap-editor": "0.0.0-semantically-released",
+    "@frameless/strapi-uuid-field": "0.0.0-semantically-released",
     "@strapi/plugin-graphql": "4.10.5",
     "@strapi/plugin-i18n": "4.10.5",
     "@strapi/plugin-users-permissions": "4.10.5",
