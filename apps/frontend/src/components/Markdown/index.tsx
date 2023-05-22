@@ -25,7 +25,7 @@ import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
-const components = ({ priceData, locale }: any) =>
+const components = ({ strapiBackendURL, priceData, locale }: any) =>
   ({
     h1: ({ children, node }) => {
       delete node.properties?.style;
@@ -120,7 +120,7 @@ const components = ({ priceData, locale }: any) =>
       if (width && height && src && alt) {
         return (
           <Image
-            src={src}
+            src={`${strapiBackendURL}${src}`}
             alt={alt || ''}
             sizes="(max-width: 768px) 100vw,
       (max-width: 1200px) 50vw,
@@ -168,11 +168,12 @@ interface MarkdownProps {
   children: any;
   priceData: any;
   locale?: string;
+  strapiBackendURL: string;
 }
 
-export const Markdown: React.FC<MarkdownProps> = ({ children, priceData, locale }) => {
+export const Markdown: React.FC<MarkdownProps> = ({ children, priceData, locale, strapiBackendURL }) => {
   return (
-    <ReactMarkdown components={components({ priceData, locale })} rehypePlugins={[rehypeRaw]}>
+    <ReactMarkdown components={components({ priceData, locale, strapiBackendURL })} rehypePlugins={[rehypeRaw]}>
       {children}
     </ReactMarkdown>
   );
