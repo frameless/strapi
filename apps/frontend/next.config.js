@@ -7,6 +7,9 @@ const nextConfig = {
   images: {
     domains: [process.env.STRAPI_UPLOAD_PROVIDER_HOSTNAME || ''],
   },
+  publicRuntimeConfig: {
+    strapiBackendURL: process.env.STRAPI_BACKEND_URL,
+  },
 };
 
 module.exports = nextConfig;
