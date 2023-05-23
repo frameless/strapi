@@ -45,7 +45,7 @@ RUN chmod +x ./bin/wait-for-it.sh
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 RUN chown -R nextjs:nodejs /opt/app/apps/frontend/.next
-
+RUN chown -R nextjs:nodejs /opt/app/apps/strapi-dashboard/public/uploads
 USER nextjs
 
 ENV NODE_ENV=${NODE_ENV}
