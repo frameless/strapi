@@ -31,41 +31,6 @@ a {
   min-block-size: 100vh;
 }
 
-.utrecht-language-switcher {
-  display: flex;
-}
-
-[dir="ltr"] .utrecht-language-switcher_item {
-  margin-inline-start: 20px;
-}
-
-[dir="rtl"] .utrecht-language-switcher_item {
-  margin-inline-end: 20px;
-}
-
-.utrecht-language-switcher_item::after {
-  content: " | ";
-}
-
-[dir="ltr"] .utrecht-language-switcher_item::after {
-  margin-inline-start: 10px;
-}
-
-[dir="rtl"] .utrecht-language-switcher_item::after {
-  margin-inline-end: 10px;
-}
-
-.utrecht-language-switcher_item:last-child::after {
-  content: none;
-}
-
-.utrecht-language-switcher_item--current {
-  --utrecht-link-color: black;
-  --utrecht-link-visited-color: black;
-
-  font-weight: 700;
-}
-
 .utrecht-nav__content {
   display: flex;
   flex-direction: column;
