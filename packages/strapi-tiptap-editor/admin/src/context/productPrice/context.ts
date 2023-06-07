@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext } from 'react';
 import { PriceListTypes } from '../../components/extensions/Price';
 

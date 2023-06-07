@@ -1,0 +1,16 @@
+.utrecht-page-loading__title {
+  margin-block-end: 1rem;
+}
+
+.utrecht-page-skeleton__title-item {
+  padding-block-end: 1rem;
+  padding-block-start: 1rem;
+}
+
+.utrecht-page-loading__body {
+  block-size: 70vh;
+}
+
+.utrecht-page-loading__body-item {
+  block-size: 100%;
+}

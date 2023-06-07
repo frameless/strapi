@@ -1,6 +1,4 @@
-import { gql } from '@apollo/client';
-
-export const GET_ALL_PRODUCTS_SLUG = gql`
+export const GET_ALL_PRODUCTS_SLUG_FETCH = `
   query getAllProductsSlugQuery($locale: I18NLocaleCode) {
     products(locale: $locale) {
       data {
@@ -15,7 +13,7 @@ export const GET_ALL_PRODUCTS_SLUG = gql`
   }
 `;
 
-export const GET_SAMENWERKENDECATALOGI = gql`
+export const GET_SAMENWERKENDECATALOGI_FETCH = `
   query getSamenwerkendecatalogi($locale: I18NLocaleCode) {
     products(locale: $locale) {
       data {
@@ -49,21 +47,7 @@ export const GET_SAMENWERKENDECATALOGI = gql`
   }
 `;
 
-export const GET_ALL_SLUGS = gql`
-  query getAllSlugsQuery {
-    products(locale: "all") {
-      data {
-        attributes {
-          slug
-          title
-          locale
-        }
-      }
-    }
-  }
-`;
-
-export const GET_PRODUCT_BY_SLUG = gql`
+export const GET_PRODUCT_BY_SLUG_FETCH = `
   query getProductBySlug($slug: String, $locale: I18NLocaleCode, $pageMode: PublicationState) {
     products(filters: { slug: { eq: $slug } }, locale: $locale, publicationState: $pageMode) {
       data {
@@ -194,7 +178,7 @@ export const GET_PRODUCT_BY_SLUG = gql`
   }
 `;
 
-export const GET_PRODUCT_BY_SLUG_AND_LOCALE = gql`
+export const GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH = `
   query getProductBySlugAndLocale($slug: String, $locale: I18NLocaleCode, $pageMode: PublicationState) {
     products(filters: { slug: { eq: $slug } }, locale: $locale, publicationState: $pageMode) {
       data {
