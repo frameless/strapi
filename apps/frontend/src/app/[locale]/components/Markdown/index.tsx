@@ -166,9 +166,9 @@ const components = ({ strapiBackendURL, priceData, locale }: any) =>
 
 interface MarkdownProps {
   children: any;
-  priceData: any;
+  priceData?: any;
   locale?: string;
-  strapiBackendURL: string;
+  strapiBackendURL?: string;
 }
 
 export const Markdown: React.FC<MarkdownProps> = ({ children, priceData, locale, strapiBackendURL }) => {

@@ -1,7 +1,7 @@
 import { Heading1 } from '@utrecht/component-library-react/dist/css-module';
 import { cookies } from 'next/headers';
 import { GET_NOT_FOUND_PAGE } from '@/query';
-import { Markdown } from './components/Markdown';
+import { Markdown } from '../components/Markdown';
 
 const getNotFoundPage = async () => {
   const locale = cookies().get('NEXT_LOCALE')?.value as string;
