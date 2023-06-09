@@ -190,3 +190,16 @@ export const GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH = `
     }
   }
 `;
+
+export const GET_NOT_FOUND_PAGE = `
+query getNotFoundPage($locale: I18NLocaleCode){
+  notFoundPage(locale: $locale) {
+    data {
+       attributes {
+        title
+        body
+      }
+    }
+  }
+}
+`;
