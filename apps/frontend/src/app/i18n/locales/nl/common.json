@@ -1,0 +1,9 @@
+{
+  "preview-alert": {
+    "message": "Waarschuwing: voorbeeldmodus is ingeschakeld",
+    "button": "Schakel de voorbeeldmodus uit"
+  },
+  "actions": {
+    "try-again": "Probeer opnieuw"
+  }
+}

@@ -1,11 +1,10 @@
 import { Heading1, Heading2, Paragraph, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Locale } from '@/i18n-config';
 import { getSuggestedSearch } from '../actions';
 
 type ParamsType = {
-  locale: Locale;
+  locale: string;
   query: string;
 };
 

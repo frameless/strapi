@@ -3,20 +3,20 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
-import { Locale } from '@/i18n-config';
 import './index.style.css';
 
 type T = keyof typeof mappedLocales;
 const mappedLocales = { nl: 'Netherlands', en: 'English' };
-type LanguageSwitcherItemsType = { pathname: string; locale: Locale };
+type LanguageSwitcherItemsType = { pathname: string; locale: string };
 
 interface LanguageSwitcherProps {
   items: LanguageSwitcherItemsType[];
-  currentLocale: Locale;
+  currentLocale: string;
   loading?: boolean;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ items, currentLocale, loading }) => (
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ items, currentLocale, loading, onClick }) => (
   <div className="utrecht-language-switcher">
     {items &&
       items
@@ -29,6 +29,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ items, curre
               <Link
                 href={pathname}
                 locale={locale}
+                onClick={onClick}
                 className={clsx('utrecht-link', {
                   'utrecht-language-switcher_item--current': locale === currentLocale,
                 })}

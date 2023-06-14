@@ -1,60 +1,37 @@
 import { ButtonLink, Heading1, Heading3, Paragraph, SpotlightSection } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
-import { draftMode } from 'next/headers';
+import { cookies, draftMode } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { Accordion } from '@/app/[locale]/components/Accordion';
 import { FAQSection } from '@/app/[locale]/components/FAQSection';
 import { Markdown } from '@/app/[locale]/components/Markdown';
-import { i18n, Locale } from '@/i18n-config';
+import { useTranslation } from '@/app/i18n';
+import { fallbackLng } from '@/app/i18n/settings';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
-import { getDictionary } from '../../../../get-dictionary';
+import { fetchData } from '@/util/fetchData';
 import { PreviewAlert } from '../../components/PreviewAlert';
 import { UtrechtDigidButton, UtrechtDigidLogo, UtrechtEherkenningLogo, UtrechtEidasLogo } from '../../components/icons';
 
-const getAllProducts = async (locale: Locale, slug: string, secretToken?: string) => {
+const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();
-
-  if (!secretToken) {
-    draftMode().disable();
-  }
-
-  const response = await fetch(process.env.STRAPI_BACKEND_URL as string, {
-    method: 'POST',
-    cache: 'no-store',
-    headers: {
-      'Content-Type': 'application/json',
+  const { data } = await fetchData({
+    url: process.env.STRAPI_BACKEND_URL as string,
+    query: GET_PRODUCT_BY_SLUG_FETCH,
+    variables: {
+      slug: slug,
+      locale: locale,
+      pageMode: isEnabled ? 'PREVIEW' : 'LIVE',
     },
-    body: JSON.stringify({
-      query: GET_PRODUCT_BY_SLUG_FETCH,
-      variables: {
-        slug: slug,
-        locale: locale,
-        pageMode: isEnabled ? 'PREVIEW' : 'LIVE',
-      },
-    }),
   });
-
-  const { data } = await response.json();
 
   if (!data || data?.products?.data?.length === 0) {
     notFound();
   }
-  const localizations =
-    data.products.data[0]?.attributes?.localizations.data.map(({ attributes }: any) => attributes) || [];
-  localizations.push({
-    locale: data.products.data[0]?.attributes.locale,
-    slug: data.products.data[0]?.attributes.slug,
-    __typename: 'Product',
-  });
 
   return {
-    props: {
-      product: data?.products.data[0],
-      localizations,
-      preview: isEnabled ? isEnabled : null,
-    },
+    product: data?.products?.data[0],
   };
 };
 
@@ -102,33 +79,39 @@ const LogoButton = ({ logo, appearance, href, text, label }: any) => {
 };
 
 type ParamsType = {
-  locale: Locale;
+  locale: string;
   slug: string;
 };
 
 interface ProductProps {
   params: ParamsType;
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string | undefined };
 }
 
 export async function generateMetadata({ slug, locale }: any): Promise<Metadata> {
-  const { props } = await getAllProducts(locale, slug);
-
+  const { product } = await getAllProducts(locale, slug);
   return {
-    title: props.product?.attributes.title,
-    description: props.product?.attributes.excerpt,
-    keywords: props.product?.attributes?.metaTags?.keymatch,
+    title: product?.attributes.title,
+    description: product?.attributes.excerpt,
+    keywords: product?.attributes?.metaTags?.keymatch,
   };
 }
 
 const Product = async ({ params: { locale, slug }, searchParams }: ProductProps) => {
-  const { props } = await getAllProducts(locale, slug, searchParams?.secret as string);
-  const priceData = props.product?.attributes.price && props.product?.attributes.price?.data?.attributes.price;
+  const currentToken = cookies().has('secret') && cookies().get('secret')?.value;
+  const isCurrentPreviewTokenValid = searchParams.secret === currentToken;
+  const { isEnabled } = draftMode();
+  if (!isCurrentPreviewTokenValid) {
+    draftMode().disable();
+  }
+  const { product } = await getAllProducts(locale, slug);
+
+  const priceData = product?.attributes.price && product?.attributes.price?.data?.attributes.price;
   const { origin } = new URL(process.env.STRAPI_BACKEND_URL as string);
-  const dict = await getDictionary(locale);
+  const { t } = await useTranslation(locale, 'common');
   const Sections = () =>
-    props.product?.attributes && props.product?.attributes.sections.length > 0
-      ? props.product?.attributes.sections.map((component: any, index: number) => {
+    product?.attributes && product?.attributes.sections.length > 0
+      ? product?.attributes.sections.map((component: any, index: number) => {
           switch (component.__typename) {
             case 'ComponentComponentsBlockContent':
               return component.content ? (
@@ -262,19 +245,18 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
           }
         })
       : null;
-
   return (
     <>
-      {props.preview && (
+      {isCurrentPreviewTokenValid && isEnabled && (
         <PreviewAlert
           link={{
-            href: `/api/clear-preview?slug=${locale}${slug}&default_locale=${i18n.defaultLocale}`,
-            text: dict.actions['turn-off-the-preview-mode'],
+            href: `/api/clear-preview?slug=${locale}${slug}&default_locale=${fallbackLng}`,
+            text: t('preview-alert.button'),
           }}
-          message={dict.warnings['preview-mode']}
+          message={t('preview-alert.message')}
         />
       )}
-      <Heading1 style={{ marginBlockStart: '3rem' }}>{props.product?.attributes.title}</Heading1>
+      <Heading1 style={{ marginBlockStart: '3rem' }}>{product?.attributes.title}</Heading1>
       <Sections />
     </>
   );

@@ -1,4 +1,6 @@
-export const GET_ALL_PRODUCTS_SLUG_FETCH = `
+const gql = (query: any) => query;
+
+export const GET_ALL_PRODUCTS_SLUG_FETCH = gql(`
   query getAllProductsSlugQuery($locale: I18NLocaleCode) {
     products(locale: $locale) {
       data {
@@ -11,9 +13,9 @@ export const GET_ALL_PRODUCTS_SLUG_FETCH = `
       }
     }
   }
-`;
+`);
 
-export const GET_SAMENWERKENDECATALOGI_FETCH = `
+export const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
   query getSamenwerkendecatalogi($locale: I18NLocaleCode) {
     products(locale: $locale) {
       data {
@@ -45,9 +47,9 @@ export const GET_SAMENWERKENDECATALOGI_FETCH = `
       }
     }
   }
-`;
+`);
 
-export const GET_PRODUCT_BY_SLUG_FETCH = `
+export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
   query getProductBySlug($slug: String, $locale: I18NLocaleCode, $pageMode: PublicationState) {
     products(filters: { slug: { eq: $slug } }, locale: $locale, publicationState: $pageMode) {
       data {
@@ -176,9 +178,9 @@ export const GET_PRODUCT_BY_SLUG_FETCH = `
       }
     }
   }
-`;
+`);
 
-export const GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH = `
+export const GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH = gql(`
   query getProductBySlugAndLocale($slug: String, $locale: I18NLocaleCode, $pageMode: PublicationState) {
     products(filters: { slug: { eq: $slug } }, locale: $locale, publicationState: $pageMode) {
       data {
@@ -189,9 +191,9 @@ export const GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH = `
       }
     }
   }
-`;
+`);
 
-export const GET_NOT_FOUND_PAGE = `
+export const GET_NOT_FOUND_PAGE = gql(`
 query getNotFoundPage($locale: I18NLocaleCode){
   notFoundPage(locale: $locale) {
     data {
@@ -202,4 +204,4 @@ query getNotFoundPage($locale: I18NLocaleCode){
     }
   }
 }
-`;
+`);

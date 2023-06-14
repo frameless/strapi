@@ -2,6 +2,7 @@ import { RedirectType } from 'next/dist/client/components/redirect';
 import { cookies, draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH } from '@/query';
+import { fetchData } from '@/util/fetchData';
 
 export async function GET(request: Request) {
   // Parse query string parameters
@@ -13,28 +14,20 @@ export async function GET(request: Request) {
 
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
-  if (secret !== process.env.PREVIEW_SECRET_TOKEN || !slug) {
+  if (secret !== process.env.PREVIEW_SECRET_TOKEN) {
     return new Response('Invalid token', { status: 401 });
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
-  const response = await fetch(process.env.STRAPI_BACKEND_URL as string, {
-    method: 'POST',
-    cache: 'no-store',
-    headers: {
-      'Content-Type': 'application/json',
+  const { data } = await fetchData({
+    url: process.env.STRAPI_BACKEND_URL as string,
+    query: GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH,
+    variables: {
+      slug: slug,
+      locale,
+      pageMode: 'PREVIEW',
     },
-    body: JSON.stringify({
-      query: GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH,
-      variables: {
-        slug: slug,
-        locale,
-        pageMode: secret ? 'PREVIEW' : 'LIVE',
-      },
-    }),
   });
-
-  const { data } = await response.json();
 
   // If the slug doesn't exist prevent draft mode from being enabled
   if (!data || data.products.data.length === 0) {

@@ -1,6 +1,7 @@
 import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
+import { languages } from '@/app/i18n/settings';
 import { GET_ALL_PRODUCTS_SLUG_FETCH } from '@/query';
-import { i18n } from '../../../i18n-config';
+import { fetchData } from '@/util/fetchData';
 
 type Attributes = {
   locale: string;
@@ -13,7 +14,7 @@ interface ProductsAttributes {
 }
 
 // TODO find a way to fetch all available pages routes in Nextjs
-const generateStaticPagesPath = (locales: typeof i18n.locales, paths: string[]) => {
+const generateStaticPagesPath = (locales: typeof languages, paths: string[]) => {
   return locales.map((locale) =>
     paths.map((path) => ({
       loc: `${process.env.STRAPI_FRONTEND_URL}${path}`,
@@ -25,21 +26,13 @@ const generateStaticPagesPath = (locales: typeof i18n.locales, paths: string[]) 
 
 export async function GET() {
   try {
-    const response = await fetch(process.env.STRAPI_BACKEND_URL as string, {
-      method: 'POST',
-      cache: 'no-store',
-      headers: {
-        'Content-Type': 'application/json',
+    const { data } = await fetchData({
+      url: process.env.STRAPI_BACKEND_URL as string,
+      query: GET_ALL_PRODUCTS_SLUG_FETCH,
+      variables: {
+        locale: 'all',
       },
-      body: JSON.stringify({
-        query: GET_ALL_PRODUCTS_SLUG_FETCH,
-        variables: {
-          locale: 'all',
-        },
-      }),
     });
-
-    const { data } = await response.json();
 
     const products = data?.products?.data?.map(
       (product: ProductsAttributes) =>
@@ -49,7 +42,7 @@ export async function GET() {
           hreflang: product.attributes.locale,
         } as ISitemapField),
     );
-    const fields = products.concat(...generateStaticPagesPath(i18n.locales, ['/']));
+    const fields = products.concat(...generateStaticPagesPath(languages, ['/']));
 
     return getServerSideSitemap(fields);
   } catch (error) {
