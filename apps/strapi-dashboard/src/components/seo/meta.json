@@ -9,6 +9,16 @@
   "attributes": {
     "keymatch": {
       "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 60,
+      "unique": true,
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 155
     }
   }
 }
