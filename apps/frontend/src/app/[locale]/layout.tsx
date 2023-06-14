@@ -10,6 +10,7 @@ import { Logo } from './components/Logo';
 import { SearchBar } from './components/SearchBar';
 import { getLiveSuggestions, onSearchSubmitAction } from './search/actions';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useTranslation } from '../i18n/index';
 import { languages } from '../i18n/settings';
 
 const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
@@ -36,6 +37,7 @@ interface LayoutProps {
 }
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
+  const { t } = await useTranslation(locale, 'layout');
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
@@ -49,7 +51,14 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <Logo locale={locale} />
                 <div className="utrecht-nav__content">
                   <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
-                  <SearchBar onSearchSubmit={onSearchSubmitAction} onSearchChange={getLiveSuggestions} />
+                  <SearchBar
+                    onSearchSubmit={onSearchSubmitAction}
+                    onSearchChange={getLiveSuggestions}
+                    submitButtonText={t('search-bar.search-submit')}
+                    inputAriaLabel={t('search-bar.input-ariaLabel')}
+                    suggestionsTitle={t('search-bar.suggestions-title')}
+                    hitsTitle={t('search-bar.hits-title')}
+                  />
                 </div>
               </nav>
             </PageHeader>

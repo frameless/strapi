@@ -205,3 +205,20 @@ query getNotFoundPage($locale: I18NLocaleCode){
   }
 }
 `);
+
+export const GET_SEARCH_TIP_PAGE = gql(`
+  query getSearchTip ($locale: I18NLocaleCode){
+    searchTip (locale: $locale){
+      data {
+        attributes {
+          seo {
+            title
+            description
+          }
+          title
+          body
+        }
+      }
+    }
+  }
+`);

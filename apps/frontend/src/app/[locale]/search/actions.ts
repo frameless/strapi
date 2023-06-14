@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { fetchData } from '@/util/fetchData';
 
 export const getSuggestedSearch = async (locale: string, value: string) => {
-  const searchResult = fetchData({
+  const searchResult = await fetchData({
     url: `https://public.pandosearch.com/developer.pandosearch.com/search?q=${encodeURIComponent(value)}&track=false`,
     method: 'GET',
   });
@@ -13,7 +13,7 @@ export const getSuggestedSearch = async (locale: string, value: string) => {
 
 export const onSearchSubmitAction = async (formData: FormData) => {
   'use server';
-  const locale = cookies().get('NEXT_LOCALE')?.value as string;
+  const locale = cookies().get('i18next')?.value as string;
   const value = formData.get('search') as string;
   const result = await getSuggestedSearch(value, locale);
   if (result?.total) {
