@@ -5,8 +5,8 @@ import { useParams, usePathname, useSelectedLayoutSegment } from 'next/navigatio
 import React from 'react';
 import { createURL } from '@/util/create-url';
 import { fetchData } from '@/util/fetchData';
-import { LanguageSwitcher, LanguageSwitcherSkeleton } from './components/LanguageSwitcher';
-import { languages } from '../i18n/settings';
+import { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
+import { fallbackLng, languages } from '../../i18n/settings';
 
 export interface Localizations {
   locale: string;
@@ -25,7 +25,7 @@ export const ClientLanguageSwitcher = ({ locales, currentLocale }: ClientLanguag
   const params = useParams();
 
   const redirectedPathName = (locale: string) => {
-    if (!pathName) return '/nl';
+    if (!pathName) return `/${fallbackLng}`;
     const segments = pathName.split('/');
     segments[1] = locale;
     return segments.join('/');
