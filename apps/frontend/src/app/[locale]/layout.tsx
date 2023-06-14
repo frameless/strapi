@@ -2,7 +2,7 @@ import { Article, Page, PageContent, PageFooter, PageHeader } from '@utrecht/com
 import { dir } from 'i18next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { ClientLanguageSwitcher } from './ClientLanguageSwitcher';
+import { ClientLanguageSwitcher } from './components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import '../../styles/globals.css';
