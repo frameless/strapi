@@ -3,17 +3,27 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { fetchData } from '@/util/fetchData';
 import { GET_ALL_PRODUCTS_SLUG_FETCH } from '../../query';
+import { useTranslation } from '../i18n';
 
 export interface Fields {
   title: string;
   body: string;
 }
 
-export const metadata: Metadata = {
-  title: 'Alle producten  - Online loket',
-  description:
-    'Zoekt u een product of dienst van de provincie, een waterschap of het Rijk? Op het overheidsloket kunt u bij alle overheden tegelijk zoeken.',
+type Params = {
+  params: {
+    locale: string;
+  };
 };
+
+export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(locale, 'home-page');
+  return {
+    title: t('seo.title'),
+    description: t('seo.description'),
+  };
+}
 
 const Home = async ({ params: { locale } }: { params: any }) => {
   const { data } = await fetchData({

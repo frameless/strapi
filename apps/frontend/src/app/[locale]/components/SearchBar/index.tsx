@@ -14,9 +14,21 @@ export interface SearchBarProps {
   searchBarValue?: string;
   suggestedHits?: SuggestedHits[];
   suggestions?: Suggestions[];
+  submitButtonText: string;
+  inputAriaLabel: string;
+  suggestionsTitle: string;
+  hitsTitle: string;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ onSearchSubmit, searchBarValue, onSearchChange }) => {
+export const SearchBar: React.FC<SearchBarProps> = ({
+  onSearchSubmit,
+  searchBarValue,
+  onSearchChange,
+  submitButtonText,
+  inputAriaLabel,
+  suggestionsTitle,
+  hitsTitle,
+}) => {
   const [optimisticSearchValue, addOptimisticSearchValue] = useOptimistic('', (state: any, newValue: any) => ({
     ...state,
     value: newValue,
@@ -40,24 +52,24 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearchSubmit, searchBarV
           name="search"
           autoComplete="off"
           spellCheck="false"
-          aria-label="zoektermen"
+          aria-label={inputAriaLabel}
           onChange={onSearchInputChangedHandler}
           value={searchBarValue}
           required
         />
         <button
           type="submit"
-          value="Zoeken"
+          value={submitButtonText}
           className="utrecht-search-bar__button utrecht-button utrecht-button--primary-action"
         >
-          Zoeken
+          {submitButtonText}
         </button>
       </form>
       {optimisticSearchValue.value && optimisticSearchValue.value?.hits.length > 0 && (
         <div className="utrecht-search-bar__dropdown">
           {optimisticSearchValue.value?.suggestions && optimisticSearchValue.value?.suggestions.length > 0 && (
             <UnorderedList>
-              <Heading4>Bedoelt u:</Heading4>
+              <Heading4>{suggestionsTitle}</Heading4>
               {optimisticSearchValue.value?.suggestions.map(({ text }: any, index: number) => (
                 <UnorderedListItem key={index}>
                   <Link className="utrecht-link" href={`/search/?q=${text}`}>
@@ -68,7 +80,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearchSubmit, searchBarV
             </UnorderedList>
           )}
           <UnorderedList>
-            <Heading4>Meteen naar:</Heading4>
+            <Heading4>{hitsTitle}</Heading4>
             {optimisticSearchValue.value?.hits.map(({ titleRaw, url }: any, index: number) => (
               <UnorderedListItem key={index}>
                 <Link className="utrecht-link" href={url}>

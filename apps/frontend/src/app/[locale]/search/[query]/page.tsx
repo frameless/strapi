@@ -1,6 +1,9 @@
-import { Heading1, Heading2, Paragraph, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
+import { Heading2, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { useTranslation } from '../../../i18n/index';
+import { Markdown } from '../../components/Markdown';
 import { getSuggestedSearch } from '../actions';
 
 type ParamsType = {
@@ -12,14 +15,28 @@ interface SearchProps {
   params: ParamsType;
 }
 
-export const metadata: Metadata = {
-  title: 'Zoeken | Gemeente Utrecht',
-  description:
-    'Zoekt u een product of dienst van de provincie, een waterschap of het Rijk? Op het overheidsloket kunt u bij alle overheden tegelijk zoeken.',
+type Params = {
+  params: {
+    locale: string;
+    query: string;
+  };
 };
+
+export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(locale, 'search-page');
+  return {
+    title: t('seo.title'),
+    description: t('seo.description'),
+  };
+}
 
 const Search = async ({ params: { locale, query } }: SearchProps) => {
   const searchResults = await getSuggestedSearch(locale, query);
+  const { origin } = new URL(process.env.STRAPI_BACKEND_URL as string);
+  if (searchResults && searchResults.hits && searchResults.hits.length === 0) {
+    redirect(`/search/tips/${query}`);
+  }
   return (
     <>
       <UnorderedList>
@@ -30,23 +47,10 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
               <Link href={url}>
                 <Heading2 style={{ color: 'inherit' }} dangerouslySetInnerHTML={{ __html: fields.title }} />
               </Link>
-              <Paragraph dangerouslySetInnerHTML={{ __html: fields.body }} />
+              <Markdown strapiBackendURL={origin}>{fields.body}</Markdown>
             </UnorderedListItem>
           ))}
       </UnorderedList>
-      {searchResults && searchResults.hits && searchResults.hits.length === 0 && (
-        <div>
-          <Heading1>Zoekresultaten voor ‘Zoekresultaten</Heading1>
-          <div>
-            <Heading2>Probeer het nog eens:</Heading2>
-            <UnorderedList>
-              <UnorderedListItem>Zorg ervoor dat alle woorden goed gespeld zijn.</UnorderedListItem>
-              <UnorderedListItem>Probeer andere zoektermen.</UnorderedListItem>
-              <UnorderedListItem>Maak de zoektermen algemener.</UnorderedListItem>
-            </UnorderedList>
-          </div>
-        </div>
-      )}
     </>
   );
 };

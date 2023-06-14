@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "search-submit": "Search",
+    "input-ariaLabel": "search terms",
+    "suggestions-title": "Do you mean:",
+    "hits-title": "Go straight to:"
+  }
+}
