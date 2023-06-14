@@ -2,7 +2,6 @@ import { Article, Page, PageContent, PageFooter, PageHeader } from '@utrecht/com
 import { dir } from 'i18next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { i18n, Locale } from '@/i18n-config';
 import { ClientLanguageSwitcher } from './ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
@@ -11,6 +10,7 @@ import { Logo } from './components/Logo';
 import { SearchBar } from './components/SearchBar';
 import { getLiveSuggestions, onSearchSubmitAction } from './search/actions';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { languages } from '../i18n/settings';
 
 const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
 
@@ -31,7 +31,7 @@ export const SearchIndexContent: React.FC<{ children?: React.ReactNode }> = ({ c
 interface LayoutProps {
   children: React.ReactNode;
   params: {
-    locale: Locale;
+    locale: string;
   };
 }
 
@@ -48,7 +48,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               <nav>
                 <Logo locale={locale} />
                 <div className="utrecht-nav__content">
-                  <ClientLanguageSwitcher locales={i18n.locales} currentLocale={locale} />
+                  <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
                   <SearchBar onSearchSubmit={onSearchSubmitAction} onSearchChange={getLiveSuggestions} />
                 </div>
               </nav>

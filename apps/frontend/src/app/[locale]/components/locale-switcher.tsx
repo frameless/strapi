@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { i18n } from '../../../i18n-config';
+import { languages } from '@/app/i18n/settings';
 
 export default function LocaleSwitcher() {
   const pathName = usePathname();
@@ -18,7 +18,7 @@ export default function LocaleSwitcher() {
     <div>
       <p>Locale switcher:</p>
       <ul>
-        {i18n.locales.map((locale) => {
+        {languages.map((locale) => {
           return (
             <li key={locale}>
               <Link className="utrecht-link" href={redirectedPathName(locale)}>

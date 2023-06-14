@@ -1,7 +1,7 @@
-import { draftMode } from 'next/headers';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
+import { fetchData } from '@/util/fetchData';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -15,24 +15,15 @@ export async function GET(request: Request) {
 
   const cookieStore = cookies();
   cookieStore.set('slug', slug);
-  const { isEnabled } = draftMode();
-  const response = await fetch(process.env.STRAPI_BACKEND_URL as string, {
-    method: 'POST',
-    cache: 'no-store',
-    headers: {
-      'Content-Type': 'application/json',
+  const { data } = await fetchData({
+    url: process.env.STRAPI_BACKEND_URL as string,
+    query: GET_PRODUCT_BY_SLUG_FETCH,
+    variables: {
+      slug: slug,
+      locale: locale,
+      pageMode: 'LIVE',
     },
-    body: JSON.stringify({
-      query: GET_PRODUCT_BY_SLUG_FETCH,
-      variables: {
-        slug: slug,
-        locale: locale,
-        pageMode: isEnabled ? 'PREVIEW' : 'LIVE',
-      },
-    }),
   });
-
-  const { data } = await response.json();
 
   if (!data || data?.products?.data?.length === 0) {
     return NextResponse.json({ localizations: [] });

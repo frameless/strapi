@@ -1,10 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Locale } from '@/i18n-config';
-
 interface LogoProps {
-  locale: Locale;
+  locale: string;
 }
 export const Logo = ({ locale }: LogoProps) => (
   <Link href={`/${locale}`} className="utrecht-link" prefetch={false} aria-label="Gemeente Utrecht Logo">

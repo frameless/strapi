@@ -1,0 +1,9 @@
+{
+  "preview-alert": {
+    "message": "Warning: Preview mode is on",
+    "button": "Turn off the preview mode"
+  },
+  "actions": {
+    "try-again": "Try again"
+  }
+}
