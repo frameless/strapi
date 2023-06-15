@@ -1,5 +1,4 @@
 'use server';
-import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { fetchData } from '@/util/fetchData';
 
@@ -11,9 +10,7 @@ export const getSuggestedSearch = async (locale: string, value: string) => {
   return searchResult;
 };
 
-export const onSearchSubmitAction = async (formData: FormData) => {
-  'use server';
-  const locale = cookies().get('i18next')?.value as string;
+export const onSearchSubmitAction = async (formData: FormData, locale: string) => {
   const value = formData.get('search') as string;
   const result = await getSuggestedSearch(value, locale);
   if (result?.total) {

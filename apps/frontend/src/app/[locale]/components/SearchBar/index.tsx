@@ -8,7 +8,7 @@ import React from 'react';
 import { SuggestedHits, Suggestions } from '@/types';
 export interface SearchBarProps {
   // eslint-disable-next-line no-unused-vars
-  onSearchSubmit?: (formData: FormData) => void;
+  onSearchSubmit: (formData: FormData, locale: string) => void;
   // eslint-disable-next-line no-unused-vars
   onSearchChange?: (value: string) => Promise<any>;
   searchBarValue?: string;
@@ -18,6 +18,7 @@ export interface SearchBarProps {
   inputAriaLabel: string;
   suggestionsTitle: string;
   hitsTitle: string;
+  locale: string;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
@@ -28,6 +29,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   inputAriaLabel,
   suggestionsTitle,
   hitsTitle,
+  locale,
 }) => {
   const [optimisticSearchValue, addOptimisticSearchValue] = useOptimistic('', (state: any, newValue: any) => ({
     ...state,
@@ -45,7 +47,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <div style={{ position: 'relative' }}>
-      <form action={onSearchSubmit} className="utrecht-search-bar" role="search" aria-label="zoeken in utrecht.nl">
+      <form
+        action={(formData) => onSearchSubmit(formData, locale)}
+        className="utrecht-search-bar"
+        role="search"
+        aria-label="zoeken in utrecht.nl"
+      >
         <input
           type="search"
           className={classNames('utrecht-search-bar__input', 'utrecht-textbox', 'utrecht-textbox--html-input')}
