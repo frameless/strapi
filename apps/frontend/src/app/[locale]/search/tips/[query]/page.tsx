@@ -34,7 +34,7 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
 const SearchTips = async ({ params: { locale, query } }: any) => {
   const data = await getSearchTipsPage(locale);
 
-  if (!data.searchTip.data || data.searchTip.data === null) {
+  if (!data?.searchTip?.data || data?.searchTip?.data === null) {
     notFound();
   }
 
