@@ -52,6 +52,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <div className="utrecht-nav__content">
                   <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
                   <SearchBar
+                    locale={locale}
                     onSearchSubmit={onSearchSubmitAction}
                     onSearchChange={getLiveSuggestions}
                     submitButtonText={t('search-bar.search-submit')}
