@@ -17,13 +17,14 @@
   "dependencies": {
     "@frameless/samenwerkende-catalogi": "0.0.0-semantically-released",
     "@tanstack/react-query": "4.29.12",
-    "@utrecht/component-library-css": "1.0.0-alpha.452",
+    "@utrecht/component-library-css": "1.0.0-alpha.530",
     "@utrecht/component-library-react": "1.0.0-alpha.261",
-    "@utrecht/design-tokens": "1.0.0-alpha.445",
-    "@utrecht/web-component-library-react": "1.0.0-alpha.451",
+    "@utrecht/design-tokens": "1.0.0-alpha.523",
+    "@utrecht/web-component-library-react": "1.0.0-alpha.529",
     "accept-language": "3.0.18",
     "add": "2.0.6",
     "classnames": "2.3.2",
+    "downshift": "7.6.0",
     "i18next": "22.5.1",
     "i18next-browser-languagedetector": "7.0.2",
     "i18next-resources-to-backend": "1.1.4",
@@ -40,8 +41,8 @@
     "yarn": "1.22.19"
   },
   "devDependencies": {
-    "@babel/runtime": "7.22.3",
     "eslint": "8.35.0",
-    "eslint-config-next": "13.2.4"
+    "eslint-config-next": "13.2.4",
+    "sass": "1.63.6"
   }
 }
