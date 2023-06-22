@@ -1,17 +1,16 @@
 'use client';
 
-import { Heading4, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
-import classNames from 'classnames';
-import Link from 'next/link';
 import { experimental_useOptimistic as useOptimistic } from 'react';
 import React from 'react';
 import { SuggestedHits, Suggestions } from '@/types';
+import { UtrechtSearchBar } from '../UtrechtSearchBar';
+import { useRouter } from 'next/navigation';
+import { Paragraph, Link as UtrechtLink } from '@utrecht/component-library-react';
 export interface SearchBarProps {
   // eslint-disable-next-line no-unused-vars
   onSearchSubmit: (formData: FormData, locale: string) => void;
   // eslint-disable-next-line no-unused-vars
   onSearchChange?: (value: string) => Promise<any>;
-  searchBarValue?: string;
   suggestedHits?: SuggestedHits[];
   suggestions?: Suggestions[];
   submitButtonText: string;
@@ -21,9 +20,12 @@ export interface SearchBarProps {
   locale: string;
 }
 
+const itemToString = (item: any) => {
+  return item ? item.text || item.title : '';
+};
+
 export const SearchBar: React.FC<SearchBarProps> = ({
   onSearchSubmit,
-  searchBarValue,
   onSearchChange,
   submitButtonText,
   inputAriaLabel,
@@ -31,17 +33,39 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   hitsTitle,
   locale,
 }) => {
-  const [optimisticSearchValue, addOptimisticSearchValue] = useOptimistic('', (state: any, newValue: any) => ({
-    ...state,
-    value: newValue,
-    sending: true,
-  }));
+  const [optimisticSearchValue, addOptimisticSearchValue] = useOptimistic('', (state: any, newValue: any) => {
+    const results = [
+      {
+        title: newValue?.suggestions.length > 0 ? suggestionsTitle : undefined,
+        list: newValue?.suggestions,
+      },
+      {
+        title: newValue?.hits.length > 0 ? hitsTitle : undefined,
+        list: newValue?.hits,
+      },
+    ];
+    return {
+      ...state,
+      value: newValue.hits.length > 0 || newValue.suggestions.length > 0 ? results : [],
+      sending: true,
+    };
+  });
+  const { push } = useRouter();
+  const handleStateChange = (changes: any) => {
+    if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
+      if (onSearchChange) {
+        onSearchChange(changes.inputValue).then((data) => {
+          addOptimisticSearchValue(data);
+        });
+      }
+    }
+  };
 
-  const onSearchInputChangedHandler = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (onSearchChange) {
-      onSearchChange(event.target.value).then((data) => {
-        addOptimisticSearchValue(data);
-      });
+  const onChange = (selectedItem: any) => {
+    if (selectedItem && selectedItem?.type?.toLowerCase() === 'page') {
+      push(selectedItem.url);
+    } else {
+      push(`/search/${selectedItem?.text}`);
     }
   };
 
@@ -53,51 +77,32 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         role="search"
         aria-label="zoeken in utrecht.nl"
       >
-        <input
-          type="search"
-          className={classNames('utrecht-search-bar__input', 'utrecht-textbox', 'utrecht-textbox--html-input')}
-          name="search"
-          autoComplete="off"
-          spellCheck="false"
-          aria-label={inputAriaLabel}
-          onChange={onSearchInputChangedHandler}
-          value={searchBarValue}
-          required
+        <UtrechtSearchBar
+          button={{
+            label: submitButtonText,
+          }}
+          onStateChange={handleStateChange}
+          onChange={onChange}
+          items={optimisticSearchValue.value}
+          input={{
+            ariaLabel: inputAriaLabel,
+            name: 'search',
+            required: true,
+          }}
+          itemToString={itemToString}
+          renderOptions={(option) => {
+            if (option.type === 'page') {
+              return (
+                <UtrechtLink external href={option.url}>
+                  {option.title}
+                </UtrechtLink>
+              );
+            }
+
+            return option?.text && <Paragraph>{option?.text}</Paragraph>;
+          }}
         />
-        <button
-          type="submit"
-          value={submitButtonText}
-          className="utrecht-search-bar__button utrecht-button utrecht-button--primary-action"
-        >
-          {submitButtonText}
-        </button>
       </form>
-      {optimisticSearchValue.value && optimisticSearchValue.value?.hits.length > 0 && (
-        <div className="utrecht-search-bar__dropdown">
-          {optimisticSearchValue.value?.suggestions && optimisticSearchValue.value?.suggestions.length > 0 && (
-            <UnorderedList>
-              <Heading4>{suggestionsTitle}</Heading4>
-              {optimisticSearchValue.value?.suggestions.map(({ text }: any, index: number) => (
-                <UnorderedListItem key={index}>
-                  <Link className="utrecht-link" href={`/search/?q=${text}`}>
-                    {text}
-                  </Link>
-                </UnorderedListItem>
-              ))}
-            </UnorderedList>
-          )}
-          <UnorderedList>
-            <Heading4>{hitsTitle}</Heading4>
-            {optimisticSearchValue.value?.hits.map(({ titleRaw, url }: any, index: number) => (
-              <UnorderedListItem key={index}>
-                <Link className="utrecht-link" href={url}>
-                  {titleRaw}
-                </Link>
-              </UnorderedListItem>
-            ))}
-          </UnorderedList>
-        </div>
-      )}
     </div>
   );
 };
