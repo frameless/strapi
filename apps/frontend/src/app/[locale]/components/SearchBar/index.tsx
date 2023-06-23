@@ -1,11 +1,14 @@
 'use client';
 
+import { Link as UtrechtLink } from '@utrecht/component-library-react';
+import classNames from 'classnames';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { experimental_useOptimistic as useOptimistic } from 'react';
 import React from 'react';
 import { SuggestedHits, Suggestions } from '@/types';
 import { UtrechtSearchBar } from '../UtrechtSearchBar';
-import { useRouter } from 'next/navigation';
-import { Paragraph, Link as UtrechtLink } from '@utrecht/component-library-react';
+
 export interface SearchBarProps {
   // eslint-disable-next-line no-unused-vars
   onSearchSubmit: (formData: FormData, locale: string) => void;
@@ -99,7 +102,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({
               );
             }
 
-            return option?.text && <Paragraph>{option?.text}</Paragraph>;
+            return (
+              option?.text && (
+                <Link className={classNames('utrecht-link', 'utrecht-link--external')} href={`/search/${option?.text}`}>
+                  {option?.text}
+                </Link>
+              )
+            );
           }}
         />
       </form>

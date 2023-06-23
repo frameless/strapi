@@ -1,6 +1,12 @@
 html,
 body {
   --utrecht-space-around: 1;
+  --utrecht-search-bar-dropdown-inline-size: 100%;
+  --utrecht-search-bar-dropdown-z-index: 100;
+  --utrecht-search-bar-dropdown-padding-inline-start: 1rem;
+  --utrecht-search-bar-dropdown-padding-inline-end: 1rem;
+  --utrecht-search-bar-list-item-padding-block-start: 6px;
+  --utrecht-search-bar-list-item-padding-block-end: 6px;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
@@ -41,14 +47,6 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.utrecht-search-bar__dropdown {
-  background-color: #fff;
-  border: 1px solid #c00;
-  position: absolute;
-  width: 100%;
-  z-index: 100;
 }
 
 .utrecht-spotlight-section > :first-child {
