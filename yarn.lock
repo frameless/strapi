@@ -5379,55 +5379,36 @@
     "@uiw/codemirror-extensions-basic-setup" "4.20.2"
     codemirror "^6.0.0"
 
-"@utrecht/component-library-css@1.0.0-alpha.486":
-  version "1.0.0-alpha.486"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-1.0.0-alpha.486.tgz#ea2e753180ba88e183a8f3ef009d2aaf5add01d5"
-  integrity sha512-3F1BMmqao+CuEw+jDlct3rYb50V0MhQ79uYVJld6V7FTZNrVy3+weE4pK2bi0Xfd83z2DiOO41vDswXt+37Klw==
+"@utrecht/component-library-css@1.0.0-alpha.531":
+  version "1.0.0-alpha.531"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-1.0.0-alpha.531.tgz#45367d3f9007de432ef5749d36fd526acbe5e138"
+  integrity sha512-3v+rkWw4on3P0Ii6knxcCpkYBIpyleFNVrolWBuLAERIFsi/c4EjIPq9BmE65Zl2NjqnUYMGyP3M0VwJQBLxSg==
 
-"@utrecht/component-library-css@1.0.0-alpha.530":
+"@utrecht/component-library-react@1.0.0-alpha.340":
+  version "1.0.0-alpha.340"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-1.0.0-alpha.340.tgz#b6b516aaf88453ba6d8740f2812abbe0e6d31bb7"
+  integrity sha512-dvCITWl0+EisznWvixqtFhzGo/hV/3Y+9uvq0NtExBWABQ57jlz4rDNsS1u1D4KOfamCIXmxlRoX0sVPDNJKgw==
+  dependencies:
+    clsx "1.2.1"
+    date-fns "2.30.0"
+    lodash.chunk "4.2.0"
+
+"@utrecht/design-tokens@1.0.0-alpha.524":
+  version "1.0.0-alpha.524"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.524.tgz#90722baa2762f72b9d702a3fc6bd12ce2775d1b4"
+  integrity sha512-d/UE4Qgo9ML9T05EIL1M1I8CYMsMWpiZDA0DKlBYb81+eF+2G6eN7TPvPV7v1jT4PJ8g/Icbq3d0F+prDGgg/g==
+
+"@utrecht/web-component-library-react@1.0.0-alpha.530":
   version "1.0.0-alpha.530"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-1.0.0-alpha.530.tgz#68741c38d57745d3acf990c4ee1943f544fbe76c"
-  integrity sha512-eDQ9jfUdzQ//L5gyClF9WymMCpMQu4BAiXz5Z4SM2l2JeVpyUDBtRrtnrxDYDkW8Elazl7UgOd7EstMtxEtMOg==
-
-"@utrecht/component-library-react@1.0.0-alpha.261":
-  version "1.0.0-alpha.261"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-1.0.0-alpha.261.tgz#fa5ea9df8d6155ab80fd789f6dcb8bac1af98e40"
-  integrity sha512-9tHD/mUHfWtGzIAvbxPzVtcpcaXep2Bf4GvuXzQgRBLNky62aQgvIy8Qxc0JsDBSE43fu6lJOCliiGO6eHS1Pw==
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.0.0-alpha.530.tgz#ad28cdbc18a09acdd893226b25ea5e52e0af07ba"
+  integrity sha512-KBOeGAxv0v4ZSIDzZZJHQxTob+JD9pLHhiltON69/tOU4eb6TOXaG5eJ/VjzF6aF8RBH9lNQ693cM8skt5wrXw==
   dependencies:
-    clsx "1.2.1"
-    date-fns "2.29.3"
-    lodash.chunk "4.2.0"
+    "@utrecht/web-component-library-stencil" "1.0.0-alpha.530"
 
-"@utrecht/component-library-react@1.0.0-alpha.295":
-  version "1.0.0-alpha.295"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-1.0.0-alpha.295.tgz#b9058c36542db9e8e8f5a1b6f8eba7b3450137fe"
-  integrity sha512-KkqjoELU6GE52yDuDtVasEShWsHMGNl7qqo5adszpSxMBlaaEBLcbFHkqcJtBxghxyKdeqYNrvRWrA2RVsK9LA==
-  dependencies:
-    clsx "1.2.1"
-    date-fns "2.29.3"
-    lodash.chunk "4.2.0"
-
-"@utrecht/design-tokens@1.0.0-alpha.479":
-  version "1.0.0-alpha.479"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.479.tgz#61ec49719fee29da38881be50f83f658a7327dd0"
-  integrity sha512-7eBrld5QoM9eC0iEEUu7cVQUAjUPrh0MyPsOsqDqD6/RQNSL/13phXN7mB0WptJ6xKtkAhg1B0rlTY2D7uucYQ==
-
-"@utrecht/design-tokens@1.0.0-alpha.523":
-  version "1.0.0-alpha.523"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.523.tgz#690013d51e24d6354abd1a4405dd243ff082e690"
-  integrity sha512-LTG7AzNAhrOAoBnpT6jTs7bN/tzCiRcmSyknJsAxHIEnCFVnF5AKe86ynzIvCZ++68EK82w6TfMtQ+q/+GYSag==
-
-"@utrecht/web-component-library-react@1.0.0-alpha.529":
-  version "1.0.0-alpha.529"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.0.0-alpha.529.tgz#26e2ff130b485c3033c89dcea50a38bd6f0057c2"
-  integrity sha512-I9uiza/Xififv9pj/l64nzZG8PSaEDy4AQ+zaQplODmzpWvl9uvq3zZLKRyHEdxtMoD5sYCmMbEKX4zivPsEsA==
-  dependencies:
-    "@utrecht/web-component-library-stencil" "1.0.0-alpha.529"
-
-"@utrecht/web-component-library-stencil@1.0.0-alpha.529":
-  version "1.0.0-alpha.529"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.0.0-alpha.529.tgz#d57aa572e7a0c03f2f4393599ad042f826b5f8d8"
-  integrity sha512-RTs70J2luB8u9xfX2zWE9YxtG3V9ICbAAjk4gfkD+HOjamn1Tpc7UdJfsPqb4DZBPY/yLdl9ORV3nkzfQ55Ldg==
+"@utrecht/web-component-library-stencil@1.0.0-alpha.530":
+  version "1.0.0-alpha.530"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.0.0-alpha.530.tgz#5729fb5b043cbd495550a06b6c1dc16effd400a5"
+  integrity sha512-3ySOrOe8owu+s5OVZdPT9NTjkiw323YPwXDRj2Upqp75POzPufIGnA9fIALWpnGH/UdAFfXO/ysbqsd1hjjdMw==
   dependencies:
     "@stencil/core" "3.2.2"
 
@@ -7784,7 +7765,7 @@ date-fns@2.29.3:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
 
-date-fns@^2.29.3:
+date-fns@2.30.0, date-fns@^2.29.3:
   version "2.30.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.30.0.tgz#f367e644839ff57894ec6ac480de40cae4b0f4d0"
   integrity sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==
