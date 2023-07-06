@@ -1,10 +1,25 @@
 'use server';
 import { redirect } from 'next/navigation';
+import { createURL } from '@/util/create-url';
 import { fetchData } from '@/util/fetchData';
 
-export const getSuggestedSearch = async (locale: string, value: string) => {
+type Params = {
+  size?: number;
+  page?: number;
+};
+
+export const getSuggestedSearch = async (locale: string, value: string, params: Params = { page: 1, size: 10 }) => {
+  const urlParams = {
+    q: encodeURIComponent(value),
+    track: false,
+    size: params.size,
+    page: params.page,
+  };
+
+  const url = createURL('https://public.pandosearch.com/developer.pandosearch.com/search', urlParams);
+
   const searchResult = await fetchData({
-    url: `https://public.pandosearch.com/developer.pandosearch.com/search?q=${encodeURIComponent(value)}&track=false`,
+    url,
     method: 'GET',
   });
   return searchResult;
@@ -18,9 +33,14 @@ export const onSearchSubmitAction = async (formData: FormData, locale: string) =
   }
 };
 
-export const getLiveSuggestions = async (value: any) => {
+export const getLiveSuggestions = async (value: string) => {
+  const urlParams = {
+    q: encodeURIComponent(value),
+    track: false,
+  };
+  const url = createURL('https://public.pandosearch.com/developer.pandosearch.com/suggest', urlParams);
   const searchResult = await fetchData({
-    url: `https://public.pandosearch.com/developer.pandosearch.com/suggest?q=${encodeURIComponent(value)}&track=false`,
+    url,
     method: 'GET',
   });
   return searchResult;
