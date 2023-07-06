@@ -1,9 +1,9 @@
 import { Heading1 } from '@utrecht/component-library-react/dist/css-module';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Markdown } from '@/components/Markdown';
 import { GET_SEARCH_TIP_PAGE } from '@/query';
 import { fetchData } from '@/util/fetchData';
-import { Markdown } from '../../../components/Markdown';
 
 const getSearchTipsPage = async (locale: string) => {
   const { data } = await fetchData({
