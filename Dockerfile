@@ -40,12 +40,13 @@ FROM build AS production
 COPY --from=builder /opt/app /opt/app
 COPY --from=dependencies /prod_node_modules /opt/app/node_modules
 
-RUN chmod +x ./bin/wait-for-it.sh
+RUN set -eux; \
+    chmod +x ./bin/wait-for-it.sh && \
+    addgroup --system --gid 1001 pdcgroup && \
+    adduser --system --uid 1001 --ingroup pdcgroup pdcuser && \
+    chown -R pdcuser:pdcgroup /opt/app
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
-RUN chown -R nextjs:nodejs /opt/app
-USER nextjs
+USER pdcuser
 
 ENV NODE_ENV=${NODE_ENV}
 EXPOSE 1337
