@@ -2,12 +2,12 @@ import { Article, Page, PageContent, PageFooter, PageHeader } from '@utrecht/com
 import { dir } from 'i18next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { ClientLanguageSwitcher } from './components/ClientLanguageSwitcher';
+import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
-import { Logo } from './components/Logo';
-import { SearchBar } from './components/SearchBar';
+import { Logo } from '@/components/Logo';
+import { SearchBar } from '@/components/SearchBar';
 import { getLiveSuggestions, onSearchSubmitAction } from './search/actions';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from '../i18n/index';

@@ -4,15 +4,15 @@ import { cookies, draftMode } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
-import { Accordion } from '@/app/[locale]/components/Accordion';
-import { FAQSection } from '@/app/[locale]/components/FAQSection';
-import { Markdown } from '@/app/[locale]/components/Markdown';
 import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
+import { Accordion } from '@/components/Accordion';
+import { FAQSection } from '@/components/FAQSection';
+import { Markdown } from '@/components/Markdown';
+import { PreviewAlert } from '@/components/PreviewAlert';
+import { UtrechtDigidButton, UtrechtDigidLogo, UtrechtEherkenningLogo, UtrechtEidasLogo } from '@/components/icons';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
 import { fetchData } from '@/util/fetchData';
-import { PreviewAlert } from '../../components/PreviewAlert';
-import { UtrechtDigidButton, UtrechtDigidLogo, UtrechtEherkenningLogo, UtrechtEidasLogo } from '../../components/icons';
 
 const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();

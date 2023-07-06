@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
+import { ProductListContainer } from '@/components/ProductListContainer';
 import { fetchData } from '@/util/fetchData';
-import { ProductListContainer } from './components/ProductListContainer';
 import { GET_ALL_PRODUCTS_SLUG_FETCH } from '../../query';
 import { useTranslation } from '../i18n';
 
