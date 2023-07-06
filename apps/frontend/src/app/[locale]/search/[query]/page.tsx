@@ -1,9 +1,8 @@
-import { Heading2, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
+import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { useTranslation } from '../../../i18n/index';
-import { Markdown } from '../../components/Markdown';
+import { ProductListContainer } from '../../components/ProductListContainer';
 import { getSuggestedSearch } from '../actions';
 
 type ParamsType = {
@@ -30,27 +29,48 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
     description: t('seo.description'),
   };
 }
+const mappingResults = (data: any) => {
+  if (!data || data.length === 0) return [];
+  return data.map(({ url, fields }: any) => ({
+    title: fields.title,
+    url,
+    body: fields.body,
+  }));
+};
 
 const Search = async ({ params: { locale, query } }: SearchProps) => {
+  const { t } = await useTranslation(locale, 'search-page');
   const searchResults = await getSuggestedSearch(locale, query);
-  const { origin } = new URL(process.env.STRAPI_BACKEND_URL as string);
+
   if (searchResults && searchResults.hits && searchResults.hits.length === 0) {
     redirect(`/search/tips/${query}`);
   }
+
+  const results = mappingResults(searchResults.hits);
+
+  const readMoreButtonAction = async (pageIndex: number) => {
+    'use server';
+    const searchResults = await getSuggestedSearch(locale, query, {
+      page: pageIndex + 1,
+      size: 10,
+    });
+
+    return {
+      data: mappingResults(searchResults.hits),
+      pagination: { total: searchResults.total },
+    };
+  };
+
   return (
     <>
-      <UnorderedList>
-        {searchResults?.hits &&
-          searchResults?.hits.length > 0 &&
-          searchResults?.hits.map(({ fields, url }: any, index: number) => (
-            <UnorderedListItem key={index}>
-              <Link href={url}>
-                <Heading2 style={{ color: 'inherit' }} dangerouslySetInnerHTML={{ __html: fields.title }} />
-              </Link>
-              <Markdown strapiBackendURL={origin}>{fields.body}</Markdown>
-            </UnorderedListItem>
-          ))}
-      </UnorderedList>
+      <Heading1 style={{ marginBlockEnd: '3rem' }}>{t('h1', { query })}</Heading1>{' '}
+      {/*TODO: create a pageTitle component*/}
+      <ProductListContainer
+        locale={locale}
+        total={searchResults.total}
+        initialData={results}
+        onReadMoreButtonClickHandler={readMoreButtonAction}
+      />
     </>
   );
 };

@@ -1,8 +1,16 @@
 const gql = (query: any) => query;
 
 export const GET_ALL_PRODUCTS_SLUG_FETCH = gql(`
-  query getAllProductsSlugQuery($locale: I18NLocaleCode) {
-    products(locale: $locale) {
+  query getAllProductsSlugQuery($locale: I18NLocaleCode, $page: Int, $pageSize: Int) {
+      products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }) {
+        meta {
+        pagination {
+          total
+          page
+          pageSize
+          pageCount
+        }
+      }
       data {
         attributes {
           slug
