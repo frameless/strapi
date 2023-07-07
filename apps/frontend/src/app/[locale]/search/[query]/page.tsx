@@ -52,7 +52,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
     'use server';
     const searchResults = await getSuggestedSearch(locale, query, {
       page: pageIndex + 1,
-      size: 10,
+      size: 5,
     });
 
     return {

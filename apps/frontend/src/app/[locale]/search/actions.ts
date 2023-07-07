@@ -8,7 +8,7 @@ type Params = {
   page?: number;
 };
 
-export const getSuggestedSearch = async (locale: string, value: string, params: Params = { page: 1, size: 10 }) => {
+export const getSuggestedSearch = async (locale: string, value: string, params: Params = { page: 1, size: 5 }) => {
   const urlParams = {
     q: encodeURIComponent(value),
     track: false,
