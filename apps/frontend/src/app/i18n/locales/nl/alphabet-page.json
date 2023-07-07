@@ -1,0 +1,9 @@
+{
+  "seo": {
+    "title": "Producten op alfabet",
+    "description": "Hieronder ziet u de producten met een specifieke beginletter. Selecteer een andere letter om producten met een andere beginletter te tonen."
+  },
+  "h1": "Producten op alfabet",
+  "lead-paragraph": "Hieronder ziet u de producten met een specifieke beginletter. Selecteer een andere letter om producten met een andere beginletter te tonen.",
+  "product-notfound": "Er zijn geen producten beginnend met de {{letter}}"
+}
