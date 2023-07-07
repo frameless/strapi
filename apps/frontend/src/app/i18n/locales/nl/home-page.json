@@ -2,5 +2,16 @@
   "seo": {
     "title": "Alle producten  - Online loket | Gemeente Utrecht",
     "description": "Zoekt u een product of dienst van de provincie, een waterschap of het Rijk? Op het overheidsloket kunt u bij alle overheden tegelijk zoeken."
+  },
+  "h1": "Online loket",
+  "toptask": {
+    "items": [
+      { "title": "Paspoort of identiteitskaart aanvragen of verlengen" },
+      { "title": "Melding/klacht openbare ruimte doorgeven" },
+      { "title": "Verhuizing doorgeven" },
+      { "title": "Parkeren: kentekenwijziging doorgeven" },
+      { "title": "Rijbewijs aanvragen of verlengen" },
+      { "title": "Grofvuil laten ophalen" }
+    ]
   }
 }
