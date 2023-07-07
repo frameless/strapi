@@ -5,5 +5,11 @@
   },
   "actions": {
     "try-again": "Probeer opnieuw"
+  },
+  "components": {
+    "alphabetically-products-navigation": "Producten op alfabet"
+  },
+  "website-setting": {
+    "website-name": "Gemeente Utrecht"
   }
 }

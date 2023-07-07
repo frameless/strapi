@@ -43,10 +43,14 @@ a {
   justify-content: space-between;
 }
 
-nav {
+.utrecht-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.utrecht-topnav {
+  margin-block-start: 20px;
 }
 
 .utrecht-spotlight-section > :first-child {
