@@ -1,0 +1,15 @@
+.utrecht-toptask {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-block-end: 20px;
+  margin-block-start: 20px;
+}
+.utrecht-toptask__item {
+  flex: 0;
+}
+
+.utrecht-toptask-link__title {
+  margin-block-start: 12px;
+  min-block-size: 100px;
+}
