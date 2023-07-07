@@ -1,69 +1,64 @@
 'use client';
+
 import { Button } from '@utrecht/component-library-react';
-import React, { useState } from 'react';
+import classNames from 'classnames/bind';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { alphabet } from './alphabet';
+import styles from './index.module.scss';
 
-export const ProductNavigation = ({ products }) => {
-  const [selectedLetter, setSelectedLetter] = useState('');
+const css = classNames.bind(styles);
 
-  const handleLetterClick = (letter) => {
-    setSelectedLetter(letter);
+export const ProductNavigation = ({
+  pathname,
+  component,
+  currentLetter,
+}: {
+  pathname?: string;
+  component: 'link' | 'button';
+  currentLetter?: string;
+}) => {
+  const { push } = useRouter();
+  const handleLetterClick = (letter: string) => {
+    push(letter.toLocaleLowerCase());
   };
-  const alphabet = [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z',
-  ];
 
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().startsWith(selectedLetter.toLowerCase()),
-  );
-
-  return (
-    <div>
-      <h2>Product Navigation</h2>
-      <div>
-        {alphabet.map((letter) => (
-          <Button
-            appearance="subtle-button"
-            key={letter}
-            onClick={() => handleLetterClick(letter)}
-            aria-pressed={selectedLetter === letter}
-            style={{ fontWeight: selectedLetter === letter ? 'bold' : 'normal' }}
-          >
-            {letter}
-          </Button>
-        ))}
-      </div>
-      <div>
-        {filteredProducts.map((product) => (
-          <p key={product.id}>{product.name}</p>
-        ))}
-      </div>
-    </div>
-  );
+  switch (component) {
+    case 'button':
+      return (
+        <div className={css('utrecht-products-navigation')}>
+          {alphabet.map((letter) => (
+            <Button
+              key={letter}
+              appearance={currentLetter === letter ? 'primary-action-button' : 'subtle-button'} // Todo make a specific active CSS class
+              onClick={() => handleLetterClick(letter)}
+              aria-pressed={currentLetter === letter}
+              style={{ fontWeight: currentLetter === letter ? 'bold' : 'normal' }}
+            >
+              {letter}
+            </Button>
+          ))}
+        </div>
+      );
+    case 'link':
+      return (
+        <div className={css('utrecht-products-navigation')}>
+          {alphabet.map((letter) => (
+            <Link
+              prefetch={false}
+              href={`${pathname ? `${pathname}/` : ''}${letter.toLocaleLowerCase()}`}
+              className={css('utrecht-button', 'utrecht-button--subtle')}
+              key={letter}
+              onClick={() => handleLetterClick(letter)}
+              aria-pressed={currentLetter === letter}
+              style={{ fontWeight: currentLetter === letter ? 'bold' : 'normal' }}
+            >
+              {letter}
+            </Link>
+          ))}
+        </div>
+      );
+    default:
+      return <></>;
+  }
 };
-
-export default ProductNavigation;
