@@ -1,0 +1,9 @@
+{
+  "seo": {
+    "title": "Products by alphabet",
+    "description": "Below you will find the products starting with a specific letter. Select a different letter to display products starting with a different letter."
+  },
+  "h1": "Products by alphabet",
+  "lead-paragraph": "Below you will find the products starting with a specific letter. Select a different letter to display products starting with a different letter.",
+  "product-notfound": "There are no products starting with {{letter}}"
+}

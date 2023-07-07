@@ -23,6 +23,41 @@ export const GET_ALL_PRODUCTS_SLUG_FETCH = gql(`
   }
 `);
 
+export const GET_ALPHABETICALLY_PRODUCTS_BY_LETTER = gql(`
+  query getAlphabeticallyProductsByLetterQuery($locale: I18NLocaleCode, $page: Int, $pageSize: Int, $startsWith: String) {
+      products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }, filters: { title: { startsWith: $startsWith } }) {
+        meta {
+        pagination {
+          total
+          page
+          pageSize
+          pageCount
+        }
+      }
+      data {
+        attributes {
+          slug
+          title
+          locale
+          updatedAt
+        }
+      }
+    }
+  }
+`);
+
+export const CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY = gql(`
+  query checkAlphabeticallyProductsAvailability($locale: I18NLocaleCode, $startsWith: String) {
+      products(locale: $locale, filters: { title: { startsWith: $startsWith } }) {
+      data {
+        attributes {
+          title
+        }
+      }
+    }
+  }
+`);
+
 export const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
   query getSamenwerkendecatalogi($locale: I18NLocaleCode) {
     products(locale: $locale) {
