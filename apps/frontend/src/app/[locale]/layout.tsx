@@ -1,5 +1,6 @@
 import { Article, Page, PageContent, PageFooter, PageHeader } from '@utrecht/component-library-react';
 import { dir } from 'i18next';
+import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
@@ -36,6 +37,23 @@ interface LayoutProps {
   };
 }
 
+type Params = {
+  params: {
+    locale: string;
+  };
+};
+
+export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(locale, 'common');
+  return {
+    title: {
+      template: `%s | ${t('website-setting.website-name')}`,
+      default: `${t('website-setting.website-name')}`,
+    },
+  };
+}
+
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, 'layout');
   return (
@@ -47,7 +65,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <QueryClientProvider>
           <Page className="utrecht-main-wrapper">
             <PageHeader>
-              <nav>
+              <div className="utrecht-header">
                 <Logo locale={locale} />
                 <div className="utrecht-nav__content">
                   <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
@@ -61,6 +79,35 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                     hitsTitle={t('search-bar.hits-title')}
                   />
                 </div>
+              </div>
+              <nav className="utrecht-topnav">
+                <ul className="utrecht-topnav__list">
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/wonen-en-leven">
+                      Wonen en leven
+                    </a>
+                  </li>
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/zorg-en-onderwijs">
+                      Zorg en onderwijs
+                    </a>
+                  </li>
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/werk-en-inkomen">
+                      Werk en inkomen
+                    </a>
+                  </li>
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/ondernemen">
+                      Ondernemen
+                    </a>
+                  </li>
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/bestuur-en-organisatie">
+                      Bestuur en organisatie
+                    </a>
+                  </li>
+                </ul>
               </nav>
             </PageHeader>
             <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>

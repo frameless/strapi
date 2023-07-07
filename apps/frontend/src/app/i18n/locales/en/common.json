@@ -5,5 +5,11 @@
   },
   "actions": {
     "try-again": "Try again"
+  },
+  "components": {
+    "alphabetically-products-navigation": "Products by alphabet"
+  },
+  "website-setting": {
+    "website-name": "Municipality of Utrecht"
   }
 }
