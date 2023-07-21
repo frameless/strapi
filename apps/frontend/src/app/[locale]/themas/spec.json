@@ -1,0 +1,61 @@
+{
+  "data": {
+    "values": [
+      {
+        "Inzet": "Uitgaan en vermaak (7%)",
+        "value": 7
+      },
+      {
+        "Inzet": "Leefbaarheid (11%)",
+        "value": 11
+      },
+      {
+        "Inzet": "Veiligheid (28%)",
+        "value": 28
+      },
+      {
+        "Inzet": "Bouwen en slopen (9%)",
+        "value": 9
+      },
+      {
+        "Inzet": "Gebouwen: kwaliteit en gebruik (12%)",
+        "value": 12
+      },
+      {
+        "Inzet": "Verkeer (29%)",
+        "value": 29
+      },
+      {
+        "Inzet": "Milieu en energie (4%)",
+        "value": 4
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "tooltip": true,
+        "innerRadius": 60,
+        "outerRadius": 100
+      }
+    }
+  ],
+  "title": {
+    "text": "VTH-inzet",
+    "fontSize": 18
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "encoding": {
+    "color": {
+      "type": "nominal",
+      "field": "Inzet"
+    },
+    "theta": {
+      "type": "quantitative",
+      "field": "value",
+      "stack": true
+    }
+  },
+  "description": "A simple pie chart with labels."
+}

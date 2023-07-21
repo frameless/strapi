@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "themas",
+  "info": {
+    "singularName": "thema",
+    "pluralName": "themas",
+    "displayName": "Thema"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Visualisatie": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.vega-visualisatie"
+    }
+  }
+}
