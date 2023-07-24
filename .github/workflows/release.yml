@@ -25,31 +25,13 @@ jobs:
           registry-url: "https://npm.pkg.github.com/"
           scope: "@frameless"
       - run: yarn install --frozen-lockfile
-      - name: Make envfile frontend
+      - name: Make the root envfile
         uses: SpicyPizza/create-envfile@v1.3
         with:
           envkey_DEBUG: false
-          envkey_STRAPI_UPLOAD_PROVIDER_HOSTNAME: ${{ secrets.STRAPI_UPLOAD_PROVIDER_HOSTNAME }}
-          envkey_STRAPI_BACKEND_URL: ${{ secrets.STRAPI_BACKEND_URL }}
-          envkey_REVALIDATE_SECRET_TOKEN: ${{ secrets.REVALIDATE_SECRET_TOKEN }}
-          envkey_PREVIEW_SECRET_TOKEN: ${{ secrets.PREVIEW_SECRET_TOKEN }}
-          envkey_STRAPI_FRONTEND_URL: ${{ secrets.STRAPI_FRONTEND_URL }}
-          directory: apps/frontend
-          file_name: .env.production.local
-          fail_on_empty: false
-      - name: Make envfile samenwerkende catalogi
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_DEBUG: false
-          envkey_STRAPI_BACKEND_URL: ${{ secrets.STRAPI_BACKEND_URL }}
-          envkey_STRAPI_FRONTEND_URL: ${{ secrets.STRAPI_FRONTEND_URL }}
-          directory: packages/samenwerkende-catalogi
-          file_name: .env
-          fail_on_empty: false
-      - name: Make envfile backend
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_DEBUG: false
+          envkey_HOST: ${{ secrets.HOST }}
+          envkey_PORT: ${{ secrets.PORT }}
+          envkey_DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
           envkey_APP_KEYS: ${{ secrets.APP_KEYS }}
           envkey_API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
           envkey_ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
@@ -64,7 +46,12 @@ jobs:
           envkey_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
           envkey_DATABASE_SSL: ${{ secrets.DATABASE_SSL }}
           envkey_NODE_ENV: ${{ secrets.NODE_ENV }}
-          file_name: .env
+          envkey_STRAPI_FRONTEND_URL: ${{ secrets.STRAPI_FRONTEND_URL }}
+          envkey_STRAPI_UPLOAD_PROVIDER_HOSTNAME: ${{ secrets.STRAPI_UPLOAD_PROVIDER_HOSTNAME }}
+          envkey_REVALIDATE_SECRET_TOKEN: ${{ secrets.REVALIDATE_SECRET_TOKEN }}
+          envkey_PGADMIN_DEFAULT_EMAIL: ${{ secrets.PGADMIN_DEFAULT_EMAIL }}
+          envkey_PGADMIN_DEFAULT_PASSWORD: ${{ secrets.PGADMIN_DEFAULT_PASSWORD }}
+          file_name: .prod.env
           fail_on_empty: false
       - name: Build
         run: npm run --workspace packages build --if-present
