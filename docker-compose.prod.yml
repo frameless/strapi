@@ -8,11 +8,6 @@ services:
     image: strapi:latest
     restart: unless-stopped
     volumes:
-      - ./package.json:/opt/app/package.json
-      - ./yarn.lock:/opt/app/yarn.lock
-      - ./apps/strapi-dashboard/config:/opt/app/apps/strapi-dashboard/config
-      - ./apps/strapi-dashboard/src:/opt/app/apps/strapi-dashboard/src
-      - ./apps/strapi-dashboard/package.json:/opt/app/apps/strapi-dashboard/package.json
       - ./apps/strapi-dashboard/public/uploads:/opt/app/apps/strapi-dashboard/public/uploads
     command: npm run --workspace @frameless/strapi-dashboard start
     environment:
