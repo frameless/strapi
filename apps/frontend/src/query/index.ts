@@ -266,17 +266,19 @@ export const GET_SEARCH_TIP_PAGE = gql(`
   }
 `);
 
-export const GET_THEMAS = gql(`
-  query GetThemas {
-    themas {
-      data {
-        id
-        attributes {
-          Visualisatie {
-            id
-            specification
-          }
+export const GET_VISUALISATIES = gql(`
+  query GetVisualisaties {
+    visualisatie {
+    data {
+      id,
+      attributes {
+        title,
+        body,
+        visualisatie {
+          id
+          specification
         }
       }
     }
+  }
 }`);
