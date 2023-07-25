@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "visualisaties",
+  "info": {
+    "singularName": "visualisatie",
+    "pluralName": "visualisaties",
+    "displayName": "Visualisatie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "body": {
+      "type": "richtext"
+    },
+    "visualisatie": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.vega-visualisatie"
+    },
+    "title": {
+      "type": "string",
+      "unique": false
+    }
+  }
+}

@@ -1,13 +1,17 @@
 {
   "collectionName": "components_components_vega_visualisaties",
   "info": {
-    "displayName": "Vega Visualisatie"
+    "displayName": "Vega Visualisatie",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "specification": {
       "type": "json",
       "required": false
+    },
+    "title": {
+      "type": "string"
     }
   }
 }
