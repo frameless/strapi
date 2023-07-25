@@ -275,7 +275,8 @@ export const GET_VISUALISATIES = gql(`
         title,
         body,
         visualisatie {
-          id
+          id,
+          title,
           specification
         }
       }
