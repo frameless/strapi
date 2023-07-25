@@ -1,4 +1,4 @@
-import { Heading1 } from '@utrecht/component-library-react';
+import { Heading1, Paragraph } from '@utrecht/component-library-react';
 import { VisualizationSpec } from 'react-vega';
 import { Markdown } from '@/components/Markdown';
 import { VegaVisualisation } from '@/components/VegaVisualisation';
@@ -17,8 +17,11 @@ const Demo = async ({ params: { locale } }: { params: { locale: string } }) => {
       <Heading1>{data.visualisatie.data.attributes.title}</Heading1>
       <Markdown>{data.visualisatie.data.attributes.body}</Markdown>
       {data.visualisatie.data.attributes.visualisatie.map(
-        (visualisation: { id: string; specification: VisualizationSpec }) => (
-          <VegaVisualisation spec={visualisation.specification} key={visualisation.id} />
+        (visualisation: { id: string; title: string; specification: VisualizationSpec }) => (
+          <div key={visualisation.id}>
+            <Paragraph>{visualisation.title}</Paragraph>
+            <VegaVisualisation spec={visualisation.specification} />
+          </div>
         ),
       )}
     </>
