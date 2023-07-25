@@ -1,9 +1,10 @@
 import { Heading1, Heading2 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import { ProductNavigation } from '@/components/ProductNavigation';
+import { alphabet } from '@/components/ProductNavigation/alphabet';
 import { TopTask, TopTaskIconsTypes } from '@/components/Toptask';
-// import { fetchData } from '@/util/fetchData';
-// import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '../../query';
+import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
+import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n';
 
 export interface Fields {
@@ -28,19 +29,17 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Home = async ({ params: { locale } }: { params: any }) => {
   const { t } = await useTranslation(locale, ['home-page', 'common']);
-  // TODO check if we need to disable the unavailable product start with letter
-  // If we do we have each time call the api to check the whole products and that maybe cause a performance issue
-  // Check with utrecht if we can have this option in the search bar component
 
-  // const productsAvailability = alphabet.map(async (letter) => {
-  //   const { data } = await fetchData({
-  //     url: process.env.STRAPI_BACKEND_URL as string,
-  //     query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
-  //     variables: { locale, startsWith: letter.toLocaleLowerCase() },
-  //   });
-  //   return { letter, available: data.products.data.length };
-  // });
-  // const alphabetAvailability = await Promise.all(productsAvailability);
+  const productsAvailability = alphabet.map(async (letter) => {
+    const { data } = await fetchData({
+      url: process.env.STRAPI_BACKEND_URL as string,
+      query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
+      variables: { locale, startsWith: letter.toLocaleLowerCase() },
+    });
+    return { letter, availability: data.products.data.length > 0 ? true : false };
+  });
+
+  const alphabetAvailability = await Promise.all(productsAvailability);
 
   const toptask = [
     {
@@ -89,7 +88,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       </section>
       <section>
         <Heading2>{t('components.alphabetically-products-navigation')}</Heading2>
-        <ProductNavigation component="link" pathname="products/alphabet" />
+        <ProductNavigation alphabet={alphabetAvailability} component="link" pathname="products/alphabet" />
       </section>
     </>
   );

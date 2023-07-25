@@ -3,10 +3,8 @@ import type { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ProductNavigation } from '@/components/ProductNavigation';
-import {
-  // CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
-  GET_ALPHABETICALLY_PRODUCTS_BY_LETTER,
-} from '@/query';
+import { alphabet } from '@/components/ProductNavigation/alphabet';
+import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
 import { fetchData } from '@/util/fetchData';
 
 type Params = {
@@ -83,19 +81,16 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       pagination: products.meta.pagination,
     };
   };
-  // TODO check if we need to disable the unavailable product start with letter
-  // If we do we have each time call the api to check the whole products and that maybe cause a performance issue
-  // Check with utrecht if we can have this option in the search bar component
 
-  // const productsAvailability = alphabet.map(async (letter) => {
-  //   const { data } = await fetchData({
-  //     url: process.env.STRAPI_BACKEND_URL as string,
-  //     query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
-  //     variables: { locale, startsWith: letter.toLocaleLowerCase() },
-  //   });
-  //   return { letter, available: data.products.data.length };
-  // });
-  // const alphabetAvailability = await Promise.all(productsAvailability);
+  const productsAvailability = alphabet.map(async (letter) => {
+    const { data } = await fetchData({
+      url: process.env.STRAPI_BACKEND_URL as string,
+      query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
+      variables: { locale, startsWith: letter.toLocaleLowerCase() },
+    });
+    return { letter, availability: data.products.data.length > 0 ? true : false };
+  });
+  const alphabetAvailability = await Promise.all(productsAvailability);
 
   return (
     <>
@@ -103,7 +98,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         <Heading1>{t('h1')}</Heading1>
         <Paragraph lead>{t('lead-paragraph')}</Paragraph>
       </HeadingGroup>
-      <ProductNavigation component="button" currentLetter={q.toLocaleUpperCase()} />
+      <ProductNavigation component="button" currentLetter={q.toLocaleUpperCase()} alphabet={alphabetAvailability} />
       {mappingProducts(res.data) && mappingProducts(res.data).length > 0 ? (
         <ProductListContainer
           locale={locale}
