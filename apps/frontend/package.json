@@ -8,8 +8,8 @@
   "keywords": [],
   "scripts": {
     "dev": "next dev -p 3000",
-    "development-env": "STRAPI_BACKEND_URL=https://pdc-api.cg-intern.ont.utrecht.nl/graphql next dev -p 9000",
-    "acceptance-env": "STRAPI_BACKEND_URL=https://pdc-api.cg-intern.acc.utrecht.nl/graphql next dev -p 8000",
+    "development-env": "STRAPI_BACKEND_URL=https://pdc-api.cg-intern.ont.utrecht.nl/graphql STRAPI_UPLOAD_PROVIDER_HOSTNAME=pdc-api.cg-intern.ont.utrecht.nl next dev -p 9000",
+    "acceptance-env": "STRAPI_BACKEND_URL=https://pdc-api.cg-intern.acc.utrecht.nl/graphql STRAPI_UPLOAD_PROVIDER_HOSTNAME=pdc-api.cg-intern.acc.utrecht.nl next dev -p 8000",
     "prebuild": "npm run clean",
     "clean": "rimraf build .next",
     "build": "next build",
