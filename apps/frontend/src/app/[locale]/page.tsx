@@ -34,7 +34,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
     const { data } = await fetchData({
       url: process.env.STRAPI_BACKEND_URL as string,
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
-      variables: { locale, startsWith: letter.toLocaleLowerCase() },
+      variables: { locale, startsWith: letter },
     });
     return { letter, availability: data.products.data.length > 0 ? true : false };
   });
