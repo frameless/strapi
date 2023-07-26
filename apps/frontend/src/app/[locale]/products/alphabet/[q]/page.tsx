@@ -64,7 +64,12 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
   const { t } = await useTranslation(locale, ['alphabet-page']);
   const limit = 10;
   const page = 1;
-  const { products: res } = await fetchAllProducts({ locale, page, pageSize: limit, startsWith: q });
+  const { products: res } = await fetchAllProducts({
+    locale,
+    page,
+    pageSize: limit,
+    startsWith: q.toLocaleUpperCase(),
+  });
 
   const readMoreButtonAction = async (pageIndex: number) => {
     'use server';
@@ -73,7 +78,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       locale,
       page: pageIndex + 1,
       pageSize: limit,
-      startsWith: q,
+      startsWith: q.toLocaleUpperCase(),
     });
 
     return {
@@ -86,7 +91,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
     const { data } = await fetchData({
       url: process.env.STRAPI_BACKEND_URL as string,
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
-      variables: { locale, startsWith: letter.toLocaleLowerCase() },
+      variables: { locale, startsWith: letter },
     });
     return { letter, availability: data.products.data.length > 0 ? true : false };
   });
