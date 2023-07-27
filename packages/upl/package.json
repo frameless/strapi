@@ -1,0 +1,32 @@
+{
+  "name": "@frameless/upl",
+  "version": "0.0.0-semantically-released",
+  "private": false,
+  "main": "./dist/gemeente.json",
+  "keywords": [],
+  "author": "@frameless",
+  "description": "A Nodejs application that convert uniform product list to json",
+  "license": "",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "prebuild": "npm run tsc",
+    "build": "node dist/index.js",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "axios-retry": "3.5.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "9.0.2",
+    "uuid": "9.0.0"
+  }
+}
