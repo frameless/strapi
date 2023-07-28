@@ -13,7 +13,7 @@ export async function GET(_request: NextRequest, ctx: any) {
   });
 
   if (data && data.products && data.products?.data.length > 0) {
-    const xml = convertJsonToXML(data.products.data, process.env.STRAPI_FRONTEND_URL as string);
+    const xml = convertJsonToXML(data.products.data, process.env.FRONTEND_DOMAIN as string);
     return new Response(xml, {
       status: 200,
       headers: {
@@ -22,5 +22,5 @@ export async function GET(_request: NextRequest, ctx: any) {
       },
     });
   }
-  return NextResponse.redirect(new URL(process.env.STRAPI_FRONTEND_URL as string));
+  return NextResponse.redirect(new URL(process.env.FRONTEND_DOMAIN as string));
 }

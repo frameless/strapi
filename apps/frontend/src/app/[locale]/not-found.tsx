@@ -11,11 +11,11 @@ const NotFoundPage = async () => {
     query: GET_NOT_FOUND_PAGE,
     variables: { locale: locale },
   });
-  const { origin } = new URL(process.env.STRAPI_BACKEND_URL as string);
+
   return (
     <div>
       <Heading1>{data?.notFoundPage?.data?.attributes?.title}</Heading1>
-      <Markdown strapiBackendURL={origin}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+      <Markdown strapiBackendURL={process.env.STRAPI_IMAGE_URL}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
     </div>
   );
 };
