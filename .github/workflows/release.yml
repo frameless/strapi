@@ -51,6 +51,8 @@ jobs:
           envkey_REVALIDATE_SECRET_TOKEN: ${{ secrets.REVALIDATE_SECRET_TOKEN }}
           envkey_PGADMIN_DEFAULT_EMAIL: ${{ secrets.PGADMIN_DEFAULT_EMAIL }}
           envkey_PGADMIN_DEFAULT_PASSWORD: ${{ secrets.PGADMIN_DEFAULT_PASSWORD }}
+          envkey_STRAPI_IMAGE_URL: ${{ secrets.STRAPI_IMAGE_URL }}
+          envkey_FRONTEND_DOMAIN: ${{ secrets.FRONTEND_DOMAIN }}
           file_name: .prod.env
           fail_on_empty: false
       - name: Build

@@ -40,11 +40,10 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
 
   const title = data?.searchTip?.data?.attributes?.title;
   const body = data?.searchTip?.data?.attributes?.body;
-  const { origin } = new URL(process.env.STRAPI_BACKEND_URL as string);
   return (
     <>
       <Heading1>{`${title} "${query}"`}</Heading1>
-      <Markdown strapiBackendURL={origin}>{body}</Markdown>
+      <Markdown strapiBackendURL={process.env.STRAPI_IMAGE_URL}>{body}</Markdown>
     </>
   );
 };

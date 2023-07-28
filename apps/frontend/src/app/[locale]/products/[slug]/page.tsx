@@ -107,7 +107,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
   const { product } = await getAllProducts(locale, slug);
 
   const priceData = product?.attributes.price && product?.attributes.price?.data?.attributes.price;
-  const { origin } = new URL(process.env.STRAPI_BACKEND_URL as string);
+  const strapiImageURL = process.env.STRAPI_IMAGE_URL;
   const { t } = await useTranslation(locale, 'common');
   const Sections = () =>
     product?.attributes && product?.attributes.sections.length > 0
@@ -115,7 +115,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
           switch (component.__typename) {
             case 'ComponentComponentsBlockContent':
               return component.content ? (
-                <Markdown strapiBackendURL={origin} locale={locale} key={index} priceData={priceData}>
+                <Markdown strapiBackendURL={strapiImageURL} locale={locale} key={index} priceData={priceData}>
                   {component.content}
                 </Markdown>
               ) : null;
@@ -142,7 +142,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                     accordion={component.faq.data.attributes.faq.accordion}
                     sectionTitle={component.faq.data.attributes.title}
                     priceData={priceData}
-                    strapiBackendURL={origin}
+                    strapiBackendURL={strapiImageURL}
                   />
                 );
               }
@@ -157,7 +157,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                     locale={locale}
                     label={title}
                     body={
-                      <Markdown priceData={priceData} locale={locale} strapiBackendURL={origin}>
+                      <Markdown priceData={priceData} locale={locale} strapiBackendURL={strapiImageURL}>
                         {body}
                       </Markdown>
                     }
@@ -172,7 +172,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
               ) {
                 return (
                   <Image
-                    src={`${origin}${component.imageData.data.attributes.url}`}
+                    src={`${strapiImageURL}${component.imageData.data.attributes.url}`}
                     alt={component.imageData.data.attributes.alternativeText || ''}
                     sizes="(max-width: 768px) 100vw,
                               (max-width: 1200px) 50vw,
@@ -191,7 +191,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
             case 'ComponentComponentsSpotlight':
               return component.content ? (
                 <SpotlightSection type={component.type}>
-                  <Markdown strapiBackendURL={origin} priceData={priceData}>
+                  <Markdown strapiBackendURL={strapiImageURL} priceData={priceData}>
                     {component.content}
                   </Markdown>
                 </SpotlightSection>

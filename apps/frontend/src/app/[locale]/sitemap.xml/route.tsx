@@ -17,7 +17,7 @@ interface ProductsAttributes {
 const generateStaticPagesPath = (locales: typeof languages, paths: string[]) => {
   return locales.map((locale) =>
     paths.map((path) => ({
-      loc: `${process.env.STRAPI_FRONTEND_URL}${path}`,
+      loc: `${process.env.FRONTEND_DOMAIN}${path}`,
       lastmod: new Date().toISOString(),
       hreflang: locale,
     })),
@@ -37,7 +37,7 @@ export async function GET() {
     const products = data?.products?.data?.map(
       (product: ProductsAttributes) =>
         ({
-          loc: `${process.env.STRAPI_FRONTEND_URL}/${product.attributes.slug}`,
+          loc: `${process.env.FRONTEND_DOMAIN}/${product.attributes.slug}`,
           lastmod: product.attributes.updatedAt,
           hreflang: product.attributes.locale,
         } as ISitemapField),
