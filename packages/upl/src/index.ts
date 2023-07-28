@@ -3,8 +3,6 @@ import axiosRetry from 'axios-retry';
 import * as fs from 'fs';
 import { v4 } from 'uuid';
 
-const dir = './dist';
-
 axiosRetry(axios, {
   retries: 3,
   retryDelay: (retryCount) => {
@@ -57,13 +55,31 @@ axios
     // Convert the array of objects to a constant (const data = [...])
     const data = [...UPLKeyValuesArrayOfObjects];
     const dataActueel = { ...json };
-
+    const dir = './src/build';
     // Convert the array of objects to a JSON string
     const UPLKeyValuesJsonData = JSON.stringify(data, null, 2);
-
+    try {
+      fs.mkdirSync(dir);
+      // eslint-disable-next-line no-console
+      console.log('Directory created successfully!');
+    } catch (err: any) {
+      if (err.code === 'EEXIST') {
+        // eslint-disable-next-line no-console
+        console.log('Directory already exists.');
+      } else {
+        // eslint-disable-next-line no-console
+        console.error('Error creating directory:', err);
+      }
+    }
     // Write the JSON string to two different files
     fs.writeFileSync(`${dir}/UPL-actueel.ts`, `export const uplActueel = ${JSON.stringify(dataActueel, null, 2)};`);
     fs.writeFileSync(`${dir}/UPL-key-value.ts`, `export const uplKeyValues = ${UPLKeyValuesJsonData};`);
+    fs.writeFileSync(
+      `${dir}/main.ts`,
+      `export * from "./UPL-actueel"
+    export * from "./UPL-key-value"
+    `,
+    );
 
     // eslint-disable-next-line no-console
     console.log('JSON data has been written to the files successfully!');

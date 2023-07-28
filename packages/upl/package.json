@@ -1,14 +1,16 @@
 {
   "name": "@frameless/upl",
   "version": "0.0.0-semantically-released",
+  "sideEffects": true,
   "private": false,
-  "main": "./dist/gemeente.json",
+  "main": "./dist/build/main.js",
   "keywords": [],
   "author": "@frameless",
   "description": "A Nodejs application that convert uniform product list to json",
-  "license": "",
+  "types": "./dist/build/main.d.ts",
+  "license": "EUPL-1.2",
   "files": [
-    "dist"
+    "./dist"
   ],
   "repository": {
     "type": "git+ssh",
@@ -19,14 +21,16 @@
   },
   "scripts": {
     "prebuild": "npm run tsc",
-    "build": "node dist/index.js",
-    "tsc": "tsc"
+    "build": "node dist/index.js && npm run tsc",
+    "tsc": "tsc",
+    "clean": "rimraf dist src/build"
   },
   "dependencies": {
     "axios-retry": "3.5.1"
   },
   "devDependencies": {
     "@types/uuid": "9.0.2",
+    "rimraf": "5.0.1",
     "uuid": "9.0.0"
   }
 }
