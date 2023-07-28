@@ -114,12 +114,12 @@ exports
 *.cache
 build
 .strapi-updater.json
-
+dist
 ############################
 # samenwerkende-catalogi
 ############################
 **/**/dist
-/dist
+
 ############################
 # Nextjs
 ############################
