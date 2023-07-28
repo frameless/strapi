@@ -1,3 +1,10 @@
+## @frameless/upl [1.0.2](https://github.com/frameless/strapi/compare/@frameless/upl@1.0.1...@frameless/upl@1.0.2) (2023-07-28)
+
+
+### Bug Fixes
+
+* set up package to public ([a5b06b3](https://github.com/frameless/strapi/commit/a5b06b3c448fb8c234bab77b6a3b57bd2b784da7))
+
 ## @frameless/upl [1.0.1](https://github.com/frameless/strapi/compare/@frameless/upl@1.0.0...@frameless/upl@1.0.1) (2023-07-28)
 
 
