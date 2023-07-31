@@ -88,6 +88,17 @@
         "components.accordion-section",
         "components.image"
       ]
+    },
+    "vngAttributes": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.vng-attributes",
+      "private": true
     }
   }
 }
