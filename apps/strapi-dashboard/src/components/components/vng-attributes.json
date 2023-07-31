@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_components_vng_attributes",
+  "info": {
+    "displayName": "VNG Attributes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "singleDigitalGateway": {
+      "type": "enumeration",
+      "enum": [
+        "ja",
+        "nee"
+      ],
+      "required": true,
+      "private": true
+    },
+    "attachementAdded": {
+      "type": "enumeration",
+      "enum": [
+        "ja",
+        "nee"
+      ],
+      "private": true
+    },
+    "linkedEForm": {
+      "type": "enumeration",
+      "enum": [
+        "ja",
+        "nee"
+      ],
+      "private": true,
+      "required": true
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.contact",
+      "private": true,
+      "required": true
+    },
+    "eFormURL": {
+      "type": "string",
+      "unique": true,
+      "required": false,
+      "private": true
+    },
+    "identificationMethod": {
+      "type": "enumeration",
+      "enum": [
+        "digid",
+        "eherkenning",
+        "eidas"
+      ]
+    }
+  }
+}
