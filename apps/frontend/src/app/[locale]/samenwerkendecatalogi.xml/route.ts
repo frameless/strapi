@@ -18,7 +18,7 @@ export async function GET(_request: NextRequest, ctx: any) {
       status: 200,
       headers: {
         'Cache-control': 'public, s-maxage=86400, stale-while-revalidate',
-        'content-type': 'application/xml',
+        'content-type': 'application/xml; charset=utf-8',
       },
     });
   }
