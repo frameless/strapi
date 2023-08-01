@@ -45,7 +45,7 @@ const mappingProducts = (products: Product[]): { title: string; url: string }[] 
 
 const fetchAllProducts = async ({ locale, page, pageSize, startsWith }: fetchAllProductsTypes) => {
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
     query: GET_ALPHABETICALLY_PRODUCTS_BY_LETTER,
     variables: { locale, page, pageSize, startsWith },
   });
@@ -89,7 +89,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
 
   const productsAvailability = alphabet.map(async (letter) => {
     const { data } = await fetchData({
-      url: process.env.STRAPI_BACKEND_URL as string,
+      url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });

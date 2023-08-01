@@ -7,7 +7,7 @@ import { fetchData } from '@/util/fetchData';
 const NotFoundPage = async () => {
   const locale = cookies().get('i18next')?.value;
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
     query: GET_NOT_FOUND_PAGE,
     variables: { locale: locale },
   });
