@@ -61,7 +61,7 @@ type SamenWerkendeCatalogiDataType = {
 
 export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend_url: string) => {
   if (data && data.length > 0) {
-    const root = create({ version: '1.0' })
+    const root = create({ version: '1.0', encoding: 'utf-8' })
       .ele('overheidproduct:scproducten')
       .att({
         ...xmlnsPrefixMap,
