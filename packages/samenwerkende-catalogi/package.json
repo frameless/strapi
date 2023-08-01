@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@frameless/catalogi-data": "0.0.0-semantically-released",
-    "xmlbuilder2": "3.0.2"
+    "xmlbuilder2": "3.0.2",
+    "@frameless/upl": "0.0.0-semantically-released"
   },
   "scripts": {
     "prebuild": "yarn clean",
