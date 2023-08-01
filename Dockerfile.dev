@@ -20,6 +20,8 @@ COPY ./packages/samenwerkende-catalogi/package.json packages/samenwerkende-catal
 COPY ./packages/strapi-plugin-gemeente-select/package.json packages/strapi-plugin-gemeente-select/package.json
 COPY ./packages/strapi-plugin-scheme-select/package.json packages/strapi-plugin-scheme-select/package.json
 COPY ./packages/strapi-tiptap-editor/package.json packages/strapi-tiptap-editor/package.json
+COPY ./packages/upl/package.json packages/upl/package.json
+COPY ./packages/strapi-plugin-uniform-product-name/package.json packages/strapi-plugin-uniform-product-name/package.json
 
 
 # Build target dependencies #
@@ -34,7 +36,7 @@ RUN yarn install
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN  npm run build --workspace packages/catalogi-data --workspace packages/strapi-tiptap-editor --workspace packages/samenwerkende-catalogi --workspace apps/strapi-dashboard
+RUN  yarn build
 
 # Build target production #
 ###########################
