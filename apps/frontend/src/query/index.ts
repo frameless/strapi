@@ -70,6 +70,7 @@ export const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
           locale
           updatedAt
           catalogiMeta {
+            uniformProductName
             spatial {
               scheme
               resourceIdentifier
