@@ -1,3 +1,15 @@
+# @frameless/samenwerkende-catalogi [1.1.0](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@1.0.1...@frameless/samenwerkende-catalogi@1.1.0) (2023-08-01)
+
+
+### Bug Fixes
+
+* enable `encoding` ([366bcc8](https://github.com/frameless/strapi/commit/366bcc86bde59b4973c74ecdd0e66e999be5699e))
+
+
+### Features
+
+* add optional uniforme-product-naam field ([e30ba54](https://github.com/frameless/strapi/commit/e30ba546219254575fafa1288f81124d3817a659))
+
 ## @frameless/samenwerkende-catalogi [1.0.1](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@1.0.0...@frameless/samenwerkende-catalogi@1.0.1) (2023-03-23)
 
 
