@@ -1,0 +1,39 @@
+{
+  "name": "@frameless/strapi-plugin-uniform-product-name",
+  "version": "0.0.0-semantically-released",
+  "description": "A strapi custom field for selecting uniform product name",
+  "keywords": [],
+  "private": false,
+  "strapi": {
+    "name": "uniform-product-name",
+    "description": "Select uniform product name custom field",
+    "kind": "plugin",
+    "displayName": "Select uniform product name"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": ""
+  },
+  "license": "",
+  "peerDependencies": {
+    "@strapi/strapi": ">=4.0.0"
+  },
+  "engines": {
+    "node": "18.x.x"
+  },
+  "dependencies": {
+    "@strapi/design-system": "1.6.5",
+    "@strapi/icons": "1.6.5",
+    "@frameless/upl": "0.0.0-semantically-released"
+  },
+  "scripts": {
+    "develop": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json"
+  }
+}

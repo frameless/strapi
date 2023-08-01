@@ -56,6 +56,8 @@ module.exports = {
           './packages/catalogi-data/tsconfig.json',
           './packages/upl/tsconfig.json',
           './packages/samenwerkende-catalogi/tsconfig.json',
+          './packages/strapi-plugin-uniform-product-name/tsconfig.json',
+          './packages/strapi-plugin-uniform-product-name/tsconfig.server.json',
           './packages/strapi-tiptap-editor/tsconfig.json',
           './packages/strapi-tiptap-editor/tsconfig.server.json',
         ],

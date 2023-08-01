@@ -4,12 +4,14 @@
   "description": "",
   "private": true,
   "workspaces": [
+    "packages/upl",
+    "packages/strapi-plugin-uniform-product-name",
     "packages/strapi-tiptap-editor",
     "packages/catalogi-data",
     "packages/samenwerkende-catalogi",
     "apps/strapi-dashboard",
     "apps/frontend",
-    "packages/**"
+    "packages/*"
   ],
   "repository": {
     "type": "git+ssh",
