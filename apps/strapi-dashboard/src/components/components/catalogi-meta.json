@@ -30,6 +30,10 @@
       "repeatable": false,
       "component": "components.online-request",
       "required": true
+    },
+    "uniformProductName": {
+      "type": "customField",
+      "customField": "plugin::uniform-product-name.uniform-product-name"
     }
   }
 }
