@@ -1,4 +1,5 @@
 import * as gemeente from '@frameless/catalogi-data';
+import { uplKeyValues } from '@frameless/upl';
 import dotenv from 'dotenv';
 import { mapKeys } from 'lodash';
 import { create } from 'xmlbuilder2';
@@ -35,6 +36,7 @@ type CatalogiMetaType = {
   authority: AuthorityType;
   audience: AudienceType[];
   onlineRequest: OnlineRequestType;
+  uniformProductName?: string;
 };
 
 type AudienceType = {
@@ -69,7 +71,7 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
     const meta = data.map(({ attributes, id }) => {
       const gemeenteSpatial = attributes.catalogiMeta?.spatial.resourceIdentifier;
       const gemeenteAuthority = attributes.catalogiMeta?.authority.resourceIdentifier;
-
+      const uniformProductName = uplKeyValues.find(({ uri }) => uri === attributes.catalogiMeta?.uniformProductName);
       const prefLabelSpatial = getPrefLabel(gemeente.cv.value, attributes.catalogiMeta?.spatial.resourceIdentifier);
       const prefLabelAuthority = getPrefLabel(gemeente.cv.value, attributes.catalogiMeta?.authority.resourceIdentifier);
 
@@ -108,6 +110,7 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
         spatial,
         authority,
         audiences,
+        uniformProductName,
       };
     });
 
@@ -172,14 +175,17 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
           .txt(audience.type);
       });
       owmsmantel.ele('dcterms:abstract').txt(item.abstract).up();
-      meta
-        .ele('overheidproduct:scmeta')
-        .ele('overheidproduct:productID')
-        .txt(item.productId)
-        .up()
-        .ele('overheidproduct:onlineAanvragen')
-        .txt(item.onlineAanvragen)
-        .up();
+      const overheidproductScmeta = meta.ele('overheidproduct:scmeta');
+      overheidproductScmeta.ele('overheidproduct:productID').txt(item.productId).up();
+      overheidproductScmeta.ele('overheidproduct:onlineAanvragen').txt(item.onlineAanvragen).up();
+      if (item?.uniformProductName?.uri) {
+        overheidproductScmeta
+          .ele('overheidproduct:uniformeProductnaam')
+          .att({ scheme: 'overheid:UniformeProductnaam', resourceIdentifier: item?.uniformProductName?.uri })
+          .txt(item?.uniformProductName?.value)
+          .up();
+      }
+
       scproduct.ele('overheidproduct:body');
     });
 
