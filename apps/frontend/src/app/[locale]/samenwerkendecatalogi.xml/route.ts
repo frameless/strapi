@@ -5,7 +5,7 @@ import { fetchData } from '@/util/fetchData';
 
 export async function GET(_request: NextRequest, ctx: any) {
   const { data } = await fetchData({
-    url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
+    url: process.env.STRAPI_BACKEND_URL as string,
     query: GET_SAMENWERKENDECATALOGI_FETCH,
     variables: {
       locale: ctx.params.locale,

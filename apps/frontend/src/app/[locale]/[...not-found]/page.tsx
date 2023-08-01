@@ -5,7 +5,7 @@ import { fetchData } from '@/util/fetchData';
 
 const NotFoundPage = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { data } = await fetchData({
-    url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
+    url: process.env.STRAPI_BACKEND_URL as string,
     query: GET_NOT_FOUND_PAGE,
     variables: { locale: locale },
   });
