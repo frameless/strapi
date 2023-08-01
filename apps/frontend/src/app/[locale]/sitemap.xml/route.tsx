@@ -27,7 +27,7 @@ const generateStaticPagesPath = (locales: typeof languages, paths: string[]) => 
 export async function GET() {
   try {
     const { data } = await fetchData({
-      url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
+      url: process.env.STRAPI_BACKEND_URL as string,
       query: GET_ALL_PRODUCTS_SLUG_FETCH,
       variables: {
         locale: 'all',

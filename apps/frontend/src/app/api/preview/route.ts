@@ -20,7 +20,7 @@ export async function GET(request: Request) {
 
   // Fetch the headless CMS to check if the provided `slug` exists
   const { data } = await fetchData({
-    url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
+    url: process.env.STRAPI_BACKEND_URL as string,
     query: GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH,
     variables: {
       slug: slug,

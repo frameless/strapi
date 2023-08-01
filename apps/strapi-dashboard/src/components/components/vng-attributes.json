@@ -8,18 +8,27 @@
   "attributes": {
     "singleDigitalGateway": {
       "type": "enumeration",
-      "enum": ["ja", "nee"],
+      "enum": [
+        "ja",
+        "nee"
+      ],
       "required": true,
       "private": true
     },
     "attachementAdded": {
       "type": "enumeration",
-      "enum": ["ja", "nee"],
+      "enum": [
+        "ja",
+        "nee"
+      ],
       "private": true
     },
     "linkedEForm": {
       "type": "enumeration",
-      "enum": ["ja", "nee"],
+      "enum": [
+        "ja",
+        "nee"
+      ],
       "private": true,
       "required": true
     },
@@ -38,7 +47,11 @@
     },
     "identificationMethod": {
       "type": "enumeration",
-      "enum": ["digid", "eherkenning", "eidas"]
+      "enum": [
+        "digid",
+        "eherkenning",
+        "eidas"
+      ]
     }
   }
 }

@@ -17,7 +17,7 @@ import { fetchData } from '@/util/fetchData';
 const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
-    url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
+    url: process.env.STRAPI_BACKEND_URL as string,
     query: GET_PRODUCT_BY_SLUG_FETCH,
     variables: {
       slug: slug,
