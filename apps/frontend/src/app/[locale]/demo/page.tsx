@@ -7,7 +7,7 @@ import { fetchData } from '@/util/fetchData';
 
 const Demo = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
     query: GET_VISUALISATIES,
     variables: { locale: locale },
   });

@@ -32,7 +32,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
 
   const productsAvailability = alphabet.map(async (letter) => {
     const { data } = await fetchData({
-      url: process.env.STRAPI_BACKEND_URL as string,
+      url: `${process.env.STRAPI_IMAGE_URL}/graphql` as string,
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
