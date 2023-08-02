@@ -172,8 +172,12 @@ interface MarkdownProps {
 }
 
 export const Markdown: React.FC<MarkdownProps> = ({ children, priceData, locale, strapiBackendURL }) => {
+  const url = strapiBackendURL ? new URL(strapiBackendURL) : null;
   return (
-    <ReactMarkdown components={components({ priceData, locale, strapiBackendURL })} rehypePlugins={[rehypeRaw]}>
+    <ReactMarkdown
+      components={components({ priceData, locale, strapiBackendURL: url?.origin ?? '' })}
+      rehypePlugins={[rehypeRaw]}
+    >
       {children}
     </ReactMarkdown>
   );
