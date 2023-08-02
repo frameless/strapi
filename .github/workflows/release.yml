@@ -47,7 +47,6 @@ jobs:
           envkey_DATABASE_SSL: ${{ secrets.DATABASE_SSL }}
           envkey_NODE_ENV: ${{ secrets.NODE_ENV }}
           envkey_STRAPI_FRONTEND_URL: ${{ secrets.STRAPI_FRONTEND_URL }}
-          envkey_STRAPI_UPLOAD_PROVIDER_HOSTNAME: ${{ secrets.STRAPI_UPLOAD_PROVIDER_HOSTNAME }}
           envkey_REVALIDATE_SECRET_TOKEN: ${{ secrets.REVALIDATE_SECRET_TOKEN }}
           envkey_PGADMIN_DEFAULT_EMAIL: ${{ secrets.PGADMIN_DEFAULT_EMAIL }}
           envkey_PGADMIN_DEFAULT_PASSWORD: ${{ secrets.PGADMIN_DEFAULT_PASSWORD }}

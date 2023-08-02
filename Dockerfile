@@ -3,8 +3,6 @@ FROM node:18-alpine as build
 RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 RUN apk update && apk add bash
 ARG NODE_ENV=production
-ARG STRAPI_UPLOAD_PROVIDER_HOSTNAME
-ENV STRAPI_UPLOAD_PROVIDER_HOSTNAME=${STRAPI_UPLOAD_PROVIDER_HOSTNAME}
 ARG STRAPI_IMAGE_URL
 ENV STRAPI_IMAGE_URL=${STRAPI_IMAGE_URL}
 WORKDIR /opt/app
