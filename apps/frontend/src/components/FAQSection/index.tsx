@@ -1,6 +1,6 @@
 import { Heading2 } from '@utrecht/component-library-react';
 import React from 'react';
-import { Accordion } from '../Accordion';
+import { AccordionProvider } from '@/components';
 import { Markdown } from '../Markdown';
 
 type AccordionType = {
@@ -26,19 +26,19 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
 }) => (
   <section>
     <Heading2>{sectionTitle}</Heading2>
-    {accordion &&
-      accordion.length > 0 &&
-      accordion.map(({ id, title, body }: any) => (
-        <Accordion
-          locale={locale}
-          key={id}
-          label={title}
-          body={
-            <Markdown priceData={priceData} strapiBackendURL={strapiBackendURL}>
+    {accordion && accordion.length > 0 && (
+      <AccordionProvider
+        sections={accordion.map(({ id, title, body }: any) => ({
+          id,
+          label: title,
+          headingLevel: 3, // TODO add this property from CMS
+          body: (
+            <Markdown priceData={priceData} locale={locale} strapiBackendURL={strapiBackendURL}>
               {body}
             </Markdown>
-          }
-        />
-      ))}
+          ),
+        }))}
+      />
+    )}
   </section>
 );

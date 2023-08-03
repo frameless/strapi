@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
-import { Accordion } from '@/components/Accordion';
+import { AccordionProvider } from '@/components';
 import { FAQSection } from '@/components/FAQSection';
 import { Markdown } from '@/components/Markdown';
 import { PreviewAlert } from '@/components/PreviewAlert';
@@ -149,20 +149,18 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
               return null;
             case 'ComponentComponentsAccordionSection':
               return (
-                component.item &&
-                component.item.length > 0 &&
-                component.item.map(({ body, id, title }: any) => (
-                  <Accordion
-                    key={id}
-                    locale={locale}
-                    label={title}
-                    body={
+                <AccordionProvider
+                  sections={component.item.map(({ id, title, body }: any) => ({
+                    id,
+                    label: title,
+                    headingLevel: 3, // TODO add this property from CMS
+                    body: (
                       <Markdown priceData={priceData} locale={locale} strapiBackendURL={strapiImageURL}>
                         {body}
                       </Markdown>
-                    }
-                  />
-                ))
+                    ),
+                  }))}
+                />
               );
             case 'ComponentComponentsImage':
               if (
