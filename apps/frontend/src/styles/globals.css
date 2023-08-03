@@ -83,12 +83,6 @@ a {
   border-left: 1px solid #e5e5e5;
 }
 
-.utrecht-multi-columns-button__button {
-  --utrecht-button-inline-size: 100%;
-
-  margin-block-end: 16px;
-}
-
 table * p {
   --utrecht-paragraph-margin-block-start: 0;
 }

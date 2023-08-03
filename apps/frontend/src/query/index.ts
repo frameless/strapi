@@ -145,6 +145,7 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
               column {
                 id
                 title
+                headingLevel
                 logoButton {
                   __typename
                   label
@@ -152,14 +153,6 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
                   text
                   logo
                   logo_button_appearance
-                }
-                buttonLink {
-                  __typename
-                  label
-                  href
-                  text
-                  icon
-                  button_link_appearance
                 }
               }
             }

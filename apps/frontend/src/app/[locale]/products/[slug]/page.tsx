@@ -1,4 +1,4 @@
-import { ButtonLink, Heading1, Heading3, Paragraph, SpotlightSection } from '@utrecht/component-library-react';
+import { ButtonLink, Heading, Heading1, Paragraph, SpotlightSection } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import { cookies, draftMode } from 'next/headers';
 import Image from 'next/image';
@@ -8,7 +8,6 @@ import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
 import {
   AccordionProvider,
-  UtrechtDigidButton,
   UtrechtDigidLogo,
   UtrechtEherkenningLogo,
   UtrechtEidasLogo,
@@ -218,38 +217,27 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
             case 'ComponentComponentsMultiColumnsButton':
               return (
                 <div className="utrecht-multi-columns-button">
-                  {component.column.map(({ buttonLink, logoButton, title }: any, index: number) => (
-                    <div key={index} className="utrecht-multi-columns-button__item">
-                      <Heading3>{title}</Heading3>
-                      {buttonLink && buttonLink.button_link_appearance && buttonLink.href && buttonLink.text && (
-                        <div className="utrecht-multi-columns-button__button">
-                          <Paragraph>{buttonLink.label}</Paragraph>
-                          <ButtonLink
-                            appearance={`${buttonLink.button_link_appearance}-action-button`}
-                            href={buttonLink.href}
-                          >
-                            {buttonLink.text}
-                          </ButtonLink>
-                        </div>
-                      )}
-                      {logoButton && logoButton.logo_button_appearance && logoButton.href && logoButton.text && (
-                        <div className="utrecht-multi-columns-button__button">
-                          <Paragraph>{logoButton.label}</Paragraph>
-                          <UtrechtDigidButton>
-                            <ButtonLink
-                              appearance={`${logoButton.logo_button_appearance}-action-button`}
-                              href={logoButton.href}
-                            >
-                              {logoButton.text}
-                            </ButtonLink>
-                          </UtrechtDigidButton>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                  {component.column.map(({ logoButton, title, headingLevel }: any, index: number) => {
+                    return (
+                      <div key={index} className="utrecht-multi-columns-button__item">
+                        <Heading level={headingLevel || 3}>{title}</Heading>
+                        {logoButton &&
+                          logoButton.length > 0 &&
+                          logoButton.map((item: any, index: number) => (
+                            <LogoButton
+                              key={index}
+                              href={item.href}
+                              text={item.text}
+                              appearance={item.logo_button_appearance}
+                              label={item.label}
+                              logo={item.logo}
+                            />
+                          ))}
+                      </div>
+                    );
+                  })}
                 </div>
               );
-
             default:
               return <></>;
           }
