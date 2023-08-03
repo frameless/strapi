@@ -200,7 +200,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
               }
             case 'ComponentComponentsSpotlight':
               return component.content ? (
-                <SpotlightSection type={component.type}>
+                <SpotlightSection type={component.type} aside={component?.aside}>
                   <Markdown strapiBackendURL={strapiImageURL} priceData={priceData}>
                     {component.content}
                   </Markdown>

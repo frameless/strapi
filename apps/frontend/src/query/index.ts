@@ -132,6 +132,7 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
             }
             ... on ComponentComponentsSpotlight {
               __typename
+              aside
               content
               type
             }
