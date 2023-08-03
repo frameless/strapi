@@ -17,7 +17,7 @@
     },
     "logo": {
       "type": "enumeration",
-      "enum": ["digid", "eherkenning", "eidas"]
+      "enum": ["digid", "eherkenning", "eidas", "without_logo"]
     },
     "logo_button_appearance": {
       "type": "enumeration",
