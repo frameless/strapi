@@ -4982,10 +4982,24 @@
   resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-1.0.0-alpha.531.tgz#45367d3f9007de432ef5749d36fd526acbe5e138"
   integrity sha512-3v+rkWw4on3P0Ii6knxcCpkYBIpyleFNVrolWBuLAERIFsi/c4EjIPq9BmE65Zl2NjqnUYMGyP3M0VwJQBLxSg==
 
+"@utrecht/component-library-css@1.0.0-alpha.536":
+  version "1.0.0-alpha.536"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-1.0.0-alpha.536.tgz#9a53635b89a1791a56916c2ad902d86dcd7f4224"
+  integrity sha512-KNPyYy7xPBwzLFAuG1degteW4uxYlqEVAaFD/DRzE2a5eBBI5/7zuse9Y0BmRwKJ5IRTh7a5t7GURNEpxk6KOw==
+
 "@utrecht/component-library-react@1.0.0-alpha.340":
   version "1.0.0-alpha.340"
   resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-1.0.0-alpha.340.tgz#b6b516aaf88453ba6d8740f2812abbe0e6d31bb7"
   integrity sha512-dvCITWl0+EisznWvixqtFhzGo/hV/3Y+9uvq0NtExBWABQ57jlz4rDNsS1u1D4KOfamCIXmxlRoX0sVPDNJKgw==
+  dependencies:
+    clsx "1.2.1"
+    date-fns "2.30.0"
+    lodash.chunk "4.2.0"
+
+"@utrecht/component-library-react@1.0.0-alpha.345":
+  version "1.0.0-alpha.345"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-1.0.0-alpha.345.tgz#c0270dffafbcd8bb64413162776abf5d4e34ac93"
+  integrity sha512-0odRKOht/ZtN/Df955qXertC5mI49EKD5wjjZy7jLxOuD1Kg6t7b7k3JPObPyc7XjoRt17kDvtd1lT7wgoYKEA==
   dependencies:
     clsx "1.2.1"
     date-fns "2.30.0"
@@ -4996,17 +5010,22 @@
   resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.524.tgz#90722baa2762f72b9d702a3fc6bd12ce2775d1b4"
   integrity sha512-d/UE4Qgo9ML9T05EIL1M1I8CYMsMWpiZDA0DKlBYb81+eF+2G6eN7TPvPV7v1jT4PJ8g/Icbq3d0F+prDGgg/g==
 
-"@utrecht/web-component-library-react@1.0.0-alpha.530":
-  version "1.0.0-alpha.530"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.0.0-alpha.530.tgz#ad28cdbc18a09acdd893226b25ea5e52e0af07ba"
-  integrity sha512-KBOeGAxv0v4ZSIDzZZJHQxTob+JD9pLHhiltON69/tOU4eb6TOXaG5eJ/VjzF6aF8RBH9lNQ693cM8skt5wrXw==
-  dependencies:
-    "@utrecht/web-component-library-stencil" "1.0.0-alpha.530"
+"@utrecht/design-tokens@1.0.0-alpha.529":
+  version "1.0.0-alpha.529"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.529.tgz#2d90c4b6e41f3c62270ef24e5e58bf6d989d42cf"
+  integrity sha512-dzV8i57WDeOwVmUG6Exfe+wlKCz7qjFIucZlvzhSYSJ3WX0Jujc4tKYWDF/j/OmwPMDE+0kRQHp3LFFzaECzgA==
 
-"@utrecht/web-component-library-stencil@1.0.0-alpha.530":
-  version "1.0.0-alpha.530"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.0.0-alpha.530.tgz#5729fb5b043cbd495550a06b6c1dc16effd400a5"
-  integrity sha512-3ySOrOe8owu+s5OVZdPT9NTjkiw323YPwXDRj2Upqp75POzPufIGnA9fIALWpnGH/UdAFfXO/ysbqsd1hjjdMw==
+"@utrecht/web-component-library-react@1.0.0-alpha.535":
+  version "1.0.0-alpha.535"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.0.0-alpha.535.tgz#c1b4dcf04aa84e4b3e43364bf8385e73441a3464"
+  integrity sha512-VVT/IUc1AVkTWjOLNS371kH9TcceENO1qqYgLLuFerkk05w6+m/E5uj2cANM5f6luqnKv2deOsnhoIfT2538lQ==
+  dependencies:
+    "@utrecht/web-component-library-stencil" "1.0.0-alpha.535"
+
+"@utrecht/web-component-library-stencil@1.0.0-alpha.535":
+  version "1.0.0-alpha.535"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.0.0-alpha.535.tgz#eccb11e2bcdc76d2b8d8ae365128058441e52d44"
+  integrity sha512-2A97VOJYP/x7R0L0r5stJD4XS7vc+UIHKi6d5zA+6N1+5NWso3WI2T5kh+B7BSULnqE07hJ4Er7Ld7C8fO4y9g==
   dependencies:
     "@stencil/core" "3.2.2"
 
@@ -18993,15 +19012,15 @@ y18n@^5.0.5:
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-5.0.8.tgz#7f4934d0f7ca8c56f95314939ddcd2dd91ce1d55"
   integrity sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==
 
-yallist@*, yallist@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
-  integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
-
 yallist@^3.0.2:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
   integrity sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
+
+yallist@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
+  integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
 yaml@^1.10.0:
   version "1.10.2"
