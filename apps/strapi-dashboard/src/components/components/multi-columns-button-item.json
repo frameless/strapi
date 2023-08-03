@@ -11,13 +11,15 @@
     },
     "logoButton": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "components.logo-button"
     },
-    "buttonLink": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.button-link"
+    "headingLevel": {
+      "type": "integer",
+      "max": 6,
+      "min": 1,
+      "required": false,
+      "default": 3
     }
   }
 }
