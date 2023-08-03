@@ -6,11 +6,18 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
-import { AccordionProvider } from '@/components';
+import {
+  AccordionProvider,
+  UtrechtDigidButton,
+  UtrechtDigidLogo,
+  UtrechtEherkenningLogo,
+  UtrechtEidasLogo,
+  UtrechtIconArrow,
+  UtrechtLogoButton,
+} from '@/components';
 import { FAQSection } from '@/components/FAQSection';
 import { Markdown } from '@/components/Markdown';
 import { PreviewAlert } from '@/components/PreviewAlert';
-import { UtrechtDigidButton, UtrechtDigidLogo, UtrechtEherkenningLogo, UtrechtEidasLogo } from '@/components/icons';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
 import { fetchData } from '@/util/fetchData';
 
@@ -39,39 +46,44 @@ const LogoButton = ({ logo, appearance, href, text, label }: any) => {
   switch (logo) {
     case 'digid':
       return (
-        <div className="utrecht-logo-button">
-          {label && <Heading3>{label}</Heading3>}
-          <div className="utrecht-logo-button_container">
+        <p>
+          <UtrechtLogoButton>
             <UtrechtDigidLogo />
-            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
-              {text}
+            <ButtonLink appearance={`${appearance}-action-button`} href={href} aria-label={label}>
+              {text} <UtrechtIconArrow />
             </ButtonLink>
-          </div>
-        </div>
+          </UtrechtLogoButton>
+        </p>
       );
     case 'eherkenning':
       return (
-        <div className="utrecht-logo-button">
-          {label && <Heading3>{label}</Heading3>}
-          <div className="utrecht-logo-button_container">
+        <p>
+          <UtrechtLogoButton>
             <UtrechtEherkenningLogo />
-            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
-              {text}
+            <ButtonLink appearance={`${appearance}-action-button`} href={href} aria-label={label}>
+              {text} <UtrechtIconArrow />
             </ButtonLink>
-          </div>
-        </div>
+          </UtrechtLogoButton>
+        </p>
       );
     case 'eidas':
       return (
-        <div className="utrecht-logo-button">
-          {label && <Heading3>{label}</Heading3>}
-          <div className="utrecht-logo-button_container">
+        <p>
+          <UtrechtLogoButton>
             <UtrechtEidasLogo />
-            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
-              {text}
+            <ButtonLink appearance={`${appearance}-action-button`} href={href} aria-label={label}>
+              {text} <UtrechtIconArrow />
             </ButtonLink>
-          </div>
-        </div>
+          </UtrechtLogoButton>
+        </p>
+      );
+    case 'without_logo':
+      return (
+        <p>
+          <ButtonLink appearance={`${appearance}-action-button`} href={href} aria-label={label}>
+            {text} <UtrechtIconArrow />
+          </ButtonLink>
+        </p>
       );
     default:
       return null;

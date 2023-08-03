@@ -89,12 +89,6 @@ a {
   margin-block-end: 16px;
 }
 
-.utrecht-logo-button_container {
-  display: flex;
-  gap: 12px;
-  margin-block-end: 16px;
-}
-
 table * p {
   --utrecht-paragraph-margin-block-start: 0;
 }
