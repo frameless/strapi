@@ -26,15 +26,6 @@
         }
       }
     },
-    "excerpt": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": false
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {

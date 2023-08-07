@@ -101,7 +101,6 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
         attributes {
           title
           slug
-          excerpt
           metaTags {
             title
             description
