@@ -1,3 +1,5 @@
+import url from 'url';
+
 type Values = {
   resourceIdentifier?: string;
   prefLabel?: string;
@@ -48,5 +50,14 @@ export const createScheme = (id: string, map: PrefixMap) => {
     return createName(schemeData.namespaceURI, schemeData.name, map);
   } else {
     return undefined;
+  }
+};
+
+export const isValidURL = (input: string) => {
+  try {
+    new url.URL(input);
+    return true;
+  } catch (error) {
+    return false;
   }
 };
