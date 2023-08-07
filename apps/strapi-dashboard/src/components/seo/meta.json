@@ -8,17 +8,20 @@
   "options": {},
   "attributes": {
     "keymatch": {
-      "type": "string"
+      "type": "string",
+      "unique": false,
+      "required": true
     },
     "title": {
       "type": "string",
-      "maxLength": 60,
+      "maxLength": 70,
       "unique": true,
-      "required": false
+      "required": true
     },
     "description": {
       "type": "text",
-      "maxLength": 155
+      "maxLength": 160,
+      "required": true
     }
   }
 }
