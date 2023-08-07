@@ -65,12 +65,12 @@ export const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
         id
         attributes {
           title
-          excerpt
           slug
           locale
           updatedAt
           catalogiMeta {
             uniformProductName
+            description
             spatial {
               scheme
               resourceIdentifier
