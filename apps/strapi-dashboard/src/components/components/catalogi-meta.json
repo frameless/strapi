@@ -34,6 +34,10 @@
     "uniformProductName": {
       "type": "customField",
       "customField": "plugin::uniform-product-name.uniform-product-name"
+    },
+    "description": {
+      "type": "text",
+      "required": true
     }
   }
 }
