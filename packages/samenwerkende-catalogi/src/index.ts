@@ -3,7 +3,7 @@ import { uplKeyValues } from '@frameless/upl';
 import dotenv from 'dotenv';
 import { mapKeys } from 'lodash';
 import { create } from 'xmlbuilder2';
-import { createScheme, getPrefLabel } from './helpers';
+import { createScheme, getPrefLabel, isValidURL } from './helpers';
 
 dotenv.config();
 const prefixMap = {
@@ -37,6 +37,7 @@ type CatalogiMetaType = {
   audience: AudienceType[];
   onlineRequest: OnlineRequestType;
   uniformProductName?: string;
+  description: string;
 };
 
 type AudienceType = {
@@ -51,7 +52,6 @@ type SamenWerkendeCatalogiAttributesTypes = {
   slug: string;
   title: string;
   updatedAt: string;
-  excerpt: string;
 };
 
 type SamenWerkendeCatalogiDataType = {
@@ -60,7 +60,13 @@ type SamenWerkendeCatalogiDataType = {
 };
 
 export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend_url: string) => {
-  if (data && data.length > 0) {
+  if (!frontend_url) {
+    throw new Error('frontend_url is required');
+  } else if (!isValidURL(frontend_url)) {
+    throw new Error('Invalid frontend_url value');
+  } else if (!data && data.length === 0) {
+    throw new Error('The `data` parameter is required');
+  } else {
     const root = create({ version: '1.0', encoding: 'utf-8' })
       .ele('overheidproduct:scproducten')
       .att({
@@ -104,7 +110,7 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
         language: attributes.locale,
         modified: attributes.updatedAt,
         productId: id,
-        abstract: attributes.excerpt,
+        abstract: attributes.catalogiMeta?.description,
         onlineAanvragen: attributes.catalogiMeta?.onlineRequest.type,
         identifier,
         spatial,
@@ -170,7 +176,7 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
           .ele('dcterms:audience')
           .att({
             scheme: audience.scheme,
-            resourceIdentifier: `http://standaarden.overheid.nl/owms/terms/${audience?.type.toLowerCase()}`,
+            resourceIdentifier: `http://standaarden.overheid.nl/owms/terms/${audience?.type?.toLowerCase()}`,
           })
           .txt(audience.type);
       });
@@ -193,7 +199,5 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
     const xml = root.end({ prettyPrint: true });
 
     return xml;
-  } else {
-    throw new Error('The function parameters are required');
   }
 };
