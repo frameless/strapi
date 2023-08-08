@@ -26,6 +26,9 @@ type fetchAllProductsTypes = {
 type ProductAttributes = {
   title: string;
   slug: string;
+  metaTags: {
+    description: string;
+  };
 };
 
 type Product = {
@@ -37,6 +40,7 @@ const mappingProducts = (products: Product[]): { title: string; url: string }[] 
   return products.map(({ attributes }) => ({
     title: attributes.title,
     url: `/products/${attributes.slug}`,
+    body: attributes?.metaTags?.description,
   }));
 };
 

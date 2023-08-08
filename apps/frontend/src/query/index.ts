@@ -17,6 +17,9 @@ export const GET_ALL_PRODUCTS_SLUG_FETCH = gql(`
           title
           locale
           updatedAt
+          metaTags {
+            description
+          }
         }
       }
     }
@@ -40,6 +43,9 @@ export const GET_ALPHABETICALLY_PRODUCTS_BY_LETTER = gql(`
           title
           locale
           updatedAt
+          metaTags {
+            description
+          }
         }
       }
     }
