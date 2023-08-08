@@ -70,15 +70,17 @@
       },
       "type": "dynamiczone",
       "components": [
+        "components.block-content",
         "components.logo-button",
         "components.spotlight",
-        "components.block-content",
+        "components.faq",
         "components.multi-columns-button",
         "components.button-link",
-        "components.faq",
         "components.accordion-section",
         "components.image"
-      ]
+      ],
+      "required": true,
+      "min": 1
     },
     "vngAttributes": {
       "type": "component",
