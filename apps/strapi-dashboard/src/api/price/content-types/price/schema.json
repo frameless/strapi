@@ -19,7 +19,9 @@
       "component": "components.price"
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "unique": true,
+      "required": true
     },
     "products": {
       "type": "relation",

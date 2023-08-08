@@ -8,17 +8,22 @@
   "options": {},
   "attributes": {
     "label": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "currency": {
       "type": "enumeration",
-      "enum": ["EUR", "USD"],
-      "required": false,
+      "enum": [
+        "EUR",
+        "USD"
+      ],
+      "required": true,
       "default": "EUR"
     },
     "value": {
       "type": "decimal",
-      "required": true
+      "required": true,
+      "min": 0
     }
   }
 }
