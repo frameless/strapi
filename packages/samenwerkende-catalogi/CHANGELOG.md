@@ -1,3 +1,15 @@
+# @frameless/samenwerkende-catalogi [2.0.0](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@1.1.0...@frameless/samenwerkende-catalogi@2.0.0) (2023-08-08)
+
+
+### Features
+
+* enable to use `description` property from samenwerkende ([4cc1181](https://github.com/frameless/strapi/commit/4cc1181194c7b3a3833c7c9e6ea530b7a440ed3e))
+
+
+### BREAKING CHANGES
+
+* deprecated `excerpt`
+
 # @frameless/samenwerkende-catalogi [1.1.0](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@1.0.1...@frameless/samenwerkende-catalogi@1.1.0) (2023-08-01)
 
 
