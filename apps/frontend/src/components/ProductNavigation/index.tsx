@@ -32,7 +32,7 @@ export const ProductNavigation = ({
             return (
               <Button
                 key={letter}
-                appearance={currentLetter === letter ? 'primary-action-button' : 'subtle-button'} // Todo make a specific active CSS class
+                appearance={currentLetter === letter ? 'primary-action-button' : 'secondary-action-button'} // Todo make a specific active CSS class
                 disabled={!availability}
                 onClick={() => handleLetterClick(letter)}
                 aria-pressed={currentLetter === letter}
@@ -50,7 +50,13 @@ export const ProductNavigation = ({
           {alphabet.map(({ letter, availability }) => (
             <Link
               href={`${pathname ? `${pathname}/` : ''}${letter.toLocaleLowerCase()}`}
-              className={css('utrecht-button', 'utrecht-button--subtle', { 'utrecht-button--disabled': !availability })}
+              className={css(
+                'utrecht-button',
+                currentLetter === letter ? 'utrecht-button--primary-action' : 'utrecht-button--secondary-action',
+                {
+                  'utrecht-button--disabled': !availability,
+                },
+              )}
               style={{ pointerEvents: availability ? 'auto' : 'none' }}
               tabIndex={availability ? 0 : -1}
               key={letter}

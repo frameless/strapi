@@ -1,4 +1,7 @@
 .utrecht-products-navigation {
+  --utrecht-button-padding-inline-start: 1ch;
+  --utrecht-button-padding-inline-end: 1ch;
+
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
