@@ -3,11 +3,12 @@ import { VisualizationSpec } from 'react-vega';
 import { Markdown } from '@/components/Markdown';
 import { VegaVisualisation } from '@/components/VegaVisualisation';
 import { GET_VISUALISATIES } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
 const Demo = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: createStrapiURL(),
     query: GET_VISUALISATIES,
     variables: { locale: locale },
   });

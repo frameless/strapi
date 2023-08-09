@@ -3,11 +3,12 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Markdown } from '@/components/Markdown';
 import { GET_SEARCH_TIP_PAGE } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
 const getSearchTipsPage = async (locale: string) => {
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: createStrapiURL(),
     query: GET_SEARCH_TIP_PAGE,
     variables: { locale: locale },
   });
@@ -43,7 +44,7 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
   return (
     <>
       <Heading1>{`${title} "${query}"`}</Heading1>
-      <Markdown strapiBackendURL={process.env.STRAPI_IMAGE_URL}>{body}</Markdown>
+      <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{body}</Markdown>
     </>
   );
 };

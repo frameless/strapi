@@ -3,8 +3,8 @@ FROM node:18-alpine as build
 RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 RUN apk update && apk add bash
 ARG NODE_ENV=production
-ARG STRAPI_IMAGE_URL
-ENV STRAPI_IMAGE_URL=${STRAPI_IMAGE_URL}
+ARG STRAPI_PUBLIC_URL
+ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
 WORKDIR /opt/app
 COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH

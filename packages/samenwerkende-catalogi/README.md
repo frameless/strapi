@@ -60,7 +60,7 @@ create a file in the root with name `.env`
 copy the variable below and paste it in the new created file
 
 ```sh
-STRAPI_BACKEND_URL=https://utrecht-strapi-cms.frameless.io/graphql
+STRAPI_PRIVATE_URL=
 ```
 
 **Production**:

@@ -5,6 +5,7 @@ import { ProductListContainer } from '@/components/ProductListContainer';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
 type Params = {
@@ -45,7 +46,7 @@ const mappingProducts = (products: Product[]): { title: string; url: string }[] 
 
 const fetchAllProducts = async ({ locale, page, pageSize, startsWith }: fetchAllProductsTypes) => {
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: createStrapiURL(),
     query: GET_ALPHABETICALLY_PRODUCTS_BY_LETTER,
     variables: { locale, page, pageSize, startsWith },
   });
@@ -89,7 +90,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
 
   const productsAvailability = alphabet.map(async (letter) => {
     const { data } = await fetchData({
-      url: process.env.STRAPI_BACKEND_URL as string,
+      url: createStrapiURL(),
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });

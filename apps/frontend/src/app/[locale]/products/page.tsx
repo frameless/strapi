@@ -1,6 +1,7 @@
 import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import { ProductListContainer } from '@/components/ProductListContainer';
+import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { GET_ALL_PRODUCTS_SLUG_FETCH } from '../../../query';
 import { useTranslation } from '../../i18n';
@@ -41,7 +42,7 @@ const mappingProducts = (products: Product[]): { title: string; url: string }[] 
 
 const fetchAllProducts = async ({ locale, page, pageSize }: fetchAllProductsTypes) => {
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: createStrapiURL(),
     query: GET_ALL_PRODUCTS_SLUG_FETCH,
     variables: { locale, page, pageSize },
   });

@@ -40,18 +40,16 @@ jobs:
           envkey_TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
           envkey_DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
           envkey_DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
-          envkey_STRAPI_BACKEND_URL: ${{ secrets.STRAPI_BACKEND_URL }}
+          envkey_STRAPI_PRIVATE_URL: ${{ secrets.STRAPI_PRIVATE_URL }}
           envkey_DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
           envkey_DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
           envkey_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
           envkey_DATABASE_SSL: ${{ secrets.DATABASE_SSL }}
           envkey_NODE_ENV: ${{ secrets.NODE_ENV }}
-          envkey_STRAPI_FRONTEND_URL: ${{ secrets.STRAPI_FRONTEND_URL }}
-          envkey_REVALIDATE_SECRET_TOKEN: ${{ secrets.REVALIDATE_SECRET_TOKEN }}
+          envkey_FRONTEND_PUBLIC_URL: ${{ secrets.FRONTEND_PUBLIC_URL }}
           envkey_PGADMIN_DEFAULT_EMAIL: ${{ secrets.PGADMIN_DEFAULT_EMAIL }}
           envkey_PGADMIN_DEFAULT_PASSWORD: ${{ secrets.PGADMIN_DEFAULT_PASSWORD }}
-          envkey_STRAPI_IMAGE_URL: ${{ secrets.STRAPI_IMAGE_URL }}
-          envkey_FRONTEND_DOMAIN: ${{ secrets.FRONTEND_DOMAIN }}
+          envkey_STRAPI_PUBLIC_URL: ${{ secrets.STRAPI_PUBLIC_URL }}
           file_name: .prod.env
           fail_on_empty: false
       - name: Build
