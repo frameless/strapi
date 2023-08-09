@@ -1,11 +1,12 @@
 import { convertJsonToXML } from '@frameless/samenwerkende-catalogi';
 import { NextRequest, NextResponse } from 'next/server';
 import { GET_SAMENWERKENDECATALOGI_FETCH } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
 export async function GET(_request: NextRequest, ctx: any) {
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: createStrapiURL(),
     query: GET_SAMENWERKENDECATALOGI_FETCH,
     variables: {
       locale: ctx.params.locale,
@@ -13,7 +14,7 @@ export async function GET(_request: NextRequest, ctx: any) {
   });
 
   if (data && data.products && data.products?.data.length > 0) {
-    const xml = convertJsonToXML(data.products.data, process.env.FRONTEND_DOMAIN as string);
+    const xml = convertJsonToXML(data.products.data, process.env.FRONTEND_PUBLIC_URL as string);
     return new Response(xml, {
       status: 200,
       headers: {
@@ -22,5 +23,5 @@ export async function GET(_request: NextRequest, ctx: any) {
       },
     });
   }
-  return NextResponse.redirect(new URL(process.env.FRONTEND_DOMAIN as string));
+  return NextResponse.redirect(new URL(process.env.FRONTEND_PUBLIC_URL as string));
 }

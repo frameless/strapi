@@ -18,12 +18,13 @@ import { FAQSection } from '@/components/FAQSection';
 import { Markdown } from '@/components/Markdown';
 import { PreviewAlert } from '@/components/PreviewAlert';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
 const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: createStrapiURL(),
     query: GET_PRODUCT_BY_SLUG_FETCH,
     variables: {
       slug: slug,
@@ -118,7 +119,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
   const { product } = await getAllProducts(locale, slug);
 
   const priceData = product?.attributes.price && product?.attributes.price?.data?.attributes.price;
-  const strapiImageURL = process.env.STRAPI_IMAGE_URL;
+  const strapiImageURL = process.env.STRAPI_PUBLIC_URL;
   const { t } = await useTranslation(locale, 'common');
   const Sections = () =>
     product?.attributes && product?.attributes.sections.length > 0

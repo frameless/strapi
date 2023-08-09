@@ -4,6 +4,7 @@ import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
 import { TopTask, TopTaskIconsTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n';
 
@@ -32,7 +33,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
 
   const productsAvailability = alphabet.map(async (letter) => {
     const { data } = await fetchData({
-      url: process.env.STRAPI_BACKEND_URL as string,
+      url: createStrapiURL(),
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });

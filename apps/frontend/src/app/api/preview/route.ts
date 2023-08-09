@@ -2,6 +2,7 @@ import { RedirectType } from 'next/dist/client/components/redirect';
 import { cookies, draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
 export async function GET(request: Request) {
@@ -20,7 +21,7 @@ export async function GET(request: Request) {
 
   // Fetch the headless CMS to check if the provided `slug` exists
   const { data } = await fetchData({
-    url: process.env.STRAPI_BACKEND_URL as string,
+    url: createStrapiURL(),
     query: GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH,
     variables: {
       slug: slug,
