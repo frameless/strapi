@@ -44,6 +44,7 @@ import { mergeDeep } from '../../utils/merge';
 import Editor from '../Editor';
 import { Figcaption } from '../extensions/Figcaption/index';
 import { Figure } from '../extensions/Figure/index';
+import { Language } from '../extensions/Language';
 import { LeadParagraph } from '../extensions/LeadParagraph/index';
 import { Price } from '../extensions/Price/index';
 
@@ -133,6 +134,7 @@ const WysiwygContent = ({
     BulletListExtension,
     HeadingExtension,
     LeadParagraph,
+    settings.other.language ? Language : null,
     Price,
     Figcaption,
     Figure.extend({

@@ -35,9 +35,12 @@ import {
 import { FaImage } from 'react-icons/fa';
 import { GrBlockQuote } from 'react-icons/gr';
 import { VscTable } from 'react-icons/vsc';
+import { useIntl } from 'react-intl';
+import { LanguagesList } from './LanguagesList';
 import { PriceList } from './PriceList';
 import defaultSettings from '../../../../utils/defaults';
 import { useLink } from '../../hooks/useLink';
+import getTrad from '../../utils/getTrad';
 import { LinkDialog } from '../LinkDialog';
 import { PriceListTypes } from '../extensions/Price/index';
 import initialTableWithCaption from '../extensions/schema/initialTableWithCaptionData';
@@ -54,6 +57,12 @@ interface LinkToolbarProps {
   editor: EditorTypes;
   onClick: (_event: React.MouseEvent<HTMLButtonElement>) => void;
 }
+
+export const languages = [
+  { titleKey: 'languages.dutch', languageCode: 'nl' },
+  { titleKey: 'languages.english', languageCode: 'en' },
+  { titleKey: 'languages.arabic', languageCode: 'ar' },
+];
 
 export const LinkToolbar = ({ editor, onClick }: LinkToolbarProps) => {
   return (
@@ -98,7 +107,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
   const [youTubeInput, setYouTubeInput] = useState('');
   const [youTubeHeightInput, setYouTubeHeightInput] = useState(settings.youtube.height);
   const [youTubeWidthInput, setYouTubeWidthInput] = useState(settings.youtube.width);
-
+  const { formatMessage } = useIntl();
   const { observe, inView } = useInView({
     rootMargin: '-1px 0px 0px 0px',
     threshold: [1],
@@ -195,12 +204,27 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <PriceList editor={editor} productPrice={productPrice} />
               </Box>
             )}
+            {settings.other.language && (
+              <Box className="button-group">
+                <LanguagesList
+                  editor={editor}
+                  languages={languages}
+                  selectField={{
+                    placeholder: formatMessage({
+                      id: getTrad('components.languagesList.placeholder'),
+                      defaultMessage: 'Select a language',
+                    }),
+                    removeLanguageOption: formatMessage({ id: getTrad('components.languagesList.removeLanguage') }),
+                  }}
+                />
+              </Box>
+            )}
             <IconButtonGroup className="button-group">
               {settings.bold ? (
                 <IconButton
                   icon={<Bold />}
                   label="Bold"
-                  className={['large-icon', editor.isActive('bold') ? 'is-active' : '']}
+                  className={['large-icon', editor.isActive('bold') ? 'is-active' : ''].join(' ')}
                   onClick={() => editor.chain().focus().toggleBold().run()}
                 />
               ) : null}
