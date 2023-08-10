@@ -32,6 +32,7 @@ export default {
   },
   other: {
     wordcount: false,
+    language: true,
     saveJson: false,
   },
   youtube: {

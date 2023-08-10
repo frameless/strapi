@@ -1,1 +1,7 @@
-{}
+{
+  "components.languagesList.placeholder": "Select a language",
+  "components.languagesList.removeLanguage": "Remove Language",
+  "languages.dutch": "Dutch",
+  "languages.english": "English",
+  "languages.arabic": "Arabic"
+}

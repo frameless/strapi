@@ -41,6 +41,27 @@ const Other: React.FC<OtherProps> = ({ values, handleChange }) => {
           />
         </Box>
       </GridLayout>
+      <GridLayout>
+        <Box>
+          <ToggleInput
+            label="Language"
+            hint="Apply language attributes to text"
+            size="S"
+            name="other.language"
+            onLabel="Enabled"
+            offLabel="Disabled"
+            checked={values.other.language}
+            onChange={() =>
+              handleChange({
+                target: {
+                  name: 'other.language',
+                  value: !values.other.language,
+                },
+              })
+            }
+          />
+        </Box>
+      </GridLayout>
 
       <Box marginTop="2rem" marginBottom="1rem" />
 

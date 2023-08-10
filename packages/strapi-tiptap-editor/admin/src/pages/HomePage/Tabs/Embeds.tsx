@@ -40,6 +40,7 @@ export interface EditorOptions {
   other: {
     wordcount: boolean;
     saveJson: boolean;
+    language: boolean;
   };
   youtube: {
     enabled: boolean;
