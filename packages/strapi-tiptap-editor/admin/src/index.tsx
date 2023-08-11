@@ -1,3 +1,4 @@
+import { prefixPluginTranslations } from '@strapi/helper-plugin';
 import React from 'react';
 import Wysiwyg from './components/Wysiwyg';
 import GetProductPriceState from './context/productPrice/state';
@@ -47,4 +48,26 @@ export default {
     });
   },
   bootstrap() {},
+  async registerTrads({ locales }: { locales: string[] }) {
+    const importedTrads = await Promise.all(
+      locales.map(async (locale) => {
+        try {
+          const { default: data } = await import(
+            /* webpackChunkName: "translation-[request]" */ `./translations/${locale}.json`
+          );
+          return {
+            data: prefixPluginTranslations(data, pluginId),
+            locale,
+          };
+        } catch {
+          return {
+            data: {},
+            locale,
+          };
+        }
+      }),
+    );
+
+    return Promise.resolve(importedTrads);
+  },
 };
