@@ -206,18 +206,6 @@ const Text: React.FC<TextProps> = ({ values, handleChange }) => {
             onChange={() => handleChange({ target: { name: 'blockquote', value: !values.blockquote } })}
           />
         </Box>
-
-        <Box>
-          <ToggleInput
-            label="Color"
-            name="color"
-            size="S"
-            onLabel="Enabled"
-            offLabel="Disabled"
-            checked={values.color}
-            onChange={() => handleChange({ target: { name: 'color', value: !values.color } })}
-          />
-        </Box>
         <Box>
           <ToggleInput
             label="Highlight"

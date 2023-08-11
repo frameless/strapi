@@ -15,14 +15,13 @@ import Italic from '@strapi/icons/Italic';
 import Landscape from '@strapi/icons/Landscape';
 import LinkIcon from '@strapi/icons/Link';
 import NumberList from '@strapi/icons/NumberList';
-import PaintBrush from '@strapi/icons/PaintBrush';
 import Pencil from '@strapi/icons/Pencil';
 import Strikethrough from '@strapi/icons/StrikeThrough';
 import Underline from '@strapi/icons/Underline';
 import { Level } from '@tiptap/extension-heading';
 import type { Editor as EditorTypes } from '@tiptap/react';
 import classnames from 'classnames';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useInView } from 'react-cool-inview';
 import {
   AiFillYoutube,
@@ -147,12 +146,6 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
     setBase64MediaLibVisible(false);
   };
 
-  // Color picker
-  const [colorPopoverVisible, setColorPopoverVisible] = useState(false);
-  const [highlightPopoverVisible, setHighlightPopoverVisible] = useState(false);
-  const colorInputRef = useRef<HTMLInputElement>(null);
-  const highlightInputRef = useRef<HTMLInputElement>(null);
-
   if (!editor) {
     return null;
   }
@@ -252,108 +245,14 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                   onClick={() => editor.chain().focus().toggleUnderline().run()}
                 />
               ) : null}
-              {settings.color ? (
-                <IconButton
-                  icon={<PaintBrush />}
-                  label="Text color"
-                  onClick={() => {
-                    setColorPopoverVisible((s) => !s);
-                    setTimeout(() => {
-                      if (colorInputRef && colorInputRef.current) {
-                        colorInputRef.current.value = editor.getAttributes('textStyle').color;
-                      }
-                    }, 10);
-                  }}
-                />
-              ) : null}
-
               {settings.highlight ? (
                 <IconButton
                   icon={<Pencil />}
                   label="Highlight"
-                  onClick={() => {
-                    setHighlightPopoverVisible((s) => !s);
-                    setTimeout(() => {
-                      if (highlightInputRef && highlightInputRef.current) {
-                        highlightInputRef.current.value = editor.getAttributes('highlight').color;
-                      }
-                    }, 10);
-                  }}
+                  onClick={() => editor.chain().focus().toggleHighlight().run()}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('highlight') })}
                 />
               ) : null}
-              {/* text color input dialog */}
-              <Dialog onClose={() => setColorPopoverVisible(false)} title="Select color" isOpen={colorPopoverVisible}>
-                <DialogBody>
-                  <Stack spacing={2}>
-                    <input style={{ width: '100%', height: '2em' }} type="color" ref={colorInputRef} />
-                  </Stack>
-                </DialogBody>
-                <DialogFooter
-                  startAction={
-                    <Button
-                      onClick={() => {
-                        setColorPopoverVisible(false);
-                        editor.commands.unsetColor();
-                      }}
-                      variant="tertiary"
-                    >
-                      Remove color
-                    </Button>
-                  }
-                  endAction={
-                    <Button
-                      onClick={() => {
-                        if (colorInputRef && colorInputRef.current) {
-                          editor.chain().focus().setColor(colorInputRef.current.value).run();
-                          setColorPopoverVisible(false);
-                        }
-                      }}
-                      variant="success-light"
-                    >
-                      Change color
-                    </Button>
-                  }
-                />
-              </Dialog>
-
-              {/* highlight color input dialog */}
-              <Dialog
-                onClose={() => setHighlightPopoverVisible(false)}
-                title="Select color"
-                isOpen={highlightPopoverVisible}
-              >
-                <DialogBody>
-                  <Stack spacing={2}>
-                    <input style={{ width: '100%', height: '2em' }} type="color" ref={highlightInputRef} />
-                  </Stack>
-                </DialogBody>
-                <DialogFooter
-                  startAction={
-                    <Button
-                      onClick={() => {
-                        setHighlightPopoverVisible(false);
-                        editor.commands.unsetHighlight();
-                      }}
-                      variant="tertiary"
-                    >
-                      Remove color
-                    </Button>
-                  }
-                  endAction={
-                    <Button
-                      onClick={() => {
-                        if (highlightInputRef && highlightInputRef.current) {
-                          editor.chain().focus().toggleHighlight({ color: highlightInputRef.current.value }).run();
-                          setHighlightPopoverVisible(false);
-                        }
-                      }}
-                      variant="success-light"
-                    >
-                      Change color
-                    </Button>
-                  }
-                />
-              </Dialog>
             </IconButtonGroup>
 
             <IconButtonGroup className="button-group">
