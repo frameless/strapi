@@ -9,7 +9,6 @@ import BulletListExtension from '@tiptap/extension-bullet-list';
 import CharacterCountExtension from '@tiptap/extension-character-count';
 import CodeExtension from '@tiptap/extension-code';
 import CodeBlockExtension from '@tiptap/extension-code-block';
-import { Color as ColorExtension } from '@tiptap/extension-color';
 import DocumentExtension from '@tiptap/extension-document';
 import GapcursorExtension from '@tiptap/extension-gapcursor';
 import HardBreakExtension from '@tiptap/extension-hard-break';
@@ -156,7 +155,6 @@ const WysiwygContent = ({
     settings.blockquote ? BlockquoteExtension : null,
     settings.horizontal ? HorizontalRuleExtension : null,
     settings.hardbreak ? HardBreakExtension : null,
-    settings.color ? ColorExtension : null,
     settings.highlight ? HighlightExtension.configure({ multicolor: true }) : null,
     settings.links.enabled
       ? LinkExtension.configure({

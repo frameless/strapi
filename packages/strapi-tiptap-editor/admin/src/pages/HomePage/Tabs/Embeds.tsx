@@ -13,7 +13,6 @@ export interface EditorOptions {
   underline: boolean;
   code: boolean;
   blockquote: boolean;
-  color: boolean;
   highlight: boolean;
   align: string[];
   lists: string[];
