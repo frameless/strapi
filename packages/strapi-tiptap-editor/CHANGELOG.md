@@ -1,3 +1,11 @@
+## @frameless/strapi-tiptap-editor [1.2.2](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.2.1...@frameless/strapi-tiptap-editor@1.2.2) (2023-08-11)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** remove color extension en adjust highlight ([877ab5a](https://github.com/frameless/strapi/commit/877ab5ac02745167b48dbf89fb0771535cd3f990))
+* **strapi-tiptap-editor:** use `classnames` ([968189c](https://github.com/frameless/strapi/commit/968189c08063207319fa71156e18906066a23116))
+
 ## @frameless/strapi-tiptap-editor [1.2.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.2.0...@frameless/strapi-tiptap-editor@1.2.1) (2023-08-11)
 
 
