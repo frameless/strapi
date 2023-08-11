@@ -68,7 +68,7 @@ export const LinkToolbar = ({ editor, onClick }: LinkToolbarProps) => {
     <IconButton
       icon={<LinkIcon />}
       label="Link"
-      className={['medium-icon', editor.isActive('link') ? 'is-active' : '']}
+      className={classnames('medium-icon', { 'is-active': editor.isActive('link') })}
       onClick={onClick}
     />
   );
@@ -170,10 +170,10 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
 
   return (
     <div ref={observe} className={classnames({ sticky: !inView })}>
-      <Box padding={2} background="neutral100" className="menu-bar">
+      <Box padding={2} background="neutral100" className={classnames('menu-bar')}>
         <Flex justifyContent="space-between">
           <Flex style={{ flexWrap: 'wrap' }}>
-            <Box className="button-group">
+            <Box className={classnames('button-group')}>
               <Select
                 id="select1"
                 required
@@ -193,12 +193,12 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
               </Select>
             </Box>
             {productPrice && productPrice?.price?.length > 0 && productPrice.title && (
-              <Box className="button-group">
+              <Box className={classnames('button-group')}>
                 <PriceList editor={editor} productPrice={productPrice} />
               </Box>
             )}
             {settings.other.language && (
-              <Box className="button-group">
+              <Box className={classnames('button-group')}>
                 <LanguagesList
                   editor={editor}
                   languages={languages}
@@ -212,12 +212,12 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 />
               </Box>
             )}
-            <IconButtonGroup className="button-group">
+            <IconButtonGroup className={classnames('button-group')}>
               {settings.bold ? (
                 <IconButton
                   icon={<Bold />}
                   label="Bold"
-                  className={['large-icon', editor.isActive('bold') ? 'is-active' : ''].join(' ')}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('bold') })}
                   onClick={() => editor.chain().focus().toggleBold().run()}
                 />
               ) : null}
@@ -225,7 +225,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<Italic />}
                   label="Italic"
-                  className={['large-icon', editor.isActive('italic') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('italic') })}
                   onClick={() => editor.chain().focus().toggleItalic().run()}
                 />
               ) : null}
@@ -233,7 +233,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<Strikethrough />}
                   label="Strikethrough"
-                  className={['large-icon', editor.isActive('strike') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('strike') })}
                   onClick={() => editor.chain().focus().toggleStrike().run()}
                 />
               ) : null}
@@ -241,7 +241,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<Underline />}
                   label="Underline"
-                  className={['large-icon', editor.isActive('underline') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('underline') })}
                   onClick={() => editor.chain().focus().toggleUnderline().run()}
                 />
               ) : null}
@@ -255,12 +255,12 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
               ) : null}
             </IconButtonGroup>
 
-            <IconButtonGroup className="button-group">
+            <IconButtonGroup className={classnames('button-group')}>
               {settings.align.includes('left') ? (
                 <IconButton
                   icon={<AiOutlineAlignLeft />}
                   label="Align left"
-                  className={['medium-icon']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive({ textAlign: 'left' }) })}
                   onClick={() => editor.chain().focus().setTextAlign('left').run()}
                 />
               ) : null}
@@ -268,7 +268,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<AiOutlineAlignCenter />}
                   label="Align center"
-                  className={['medium-icon']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive({ textAlign: 'center' }) })}
                   onClick={() => editor.chain().focus().setTextAlign('center').run()}
                 />
               ) : null}
@@ -276,18 +276,18 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<AiOutlineAlignRight />}
                   label="Align right"
-                  className={['medium-icon']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive({ textAlign: 'right' }) })}
                   onClick={() => editor.chain().focus().setTextAlign('right').run()}
                 />
               ) : null}
             </IconButtonGroup>
 
-            <IconButtonGroup className="button-group">
+            <IconButtonGroup className={classnames('button-group')}>
               {settings.lists.includes('ul') ? (
                 <IconButton
                   icon={<BulletList />}
                   label="Bullet list"
-                  className={['large-icon', editor.isActive('bulletList') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('bulletList') })}
                   onClick={() => editor.chain().focus().toggleBulletList().run()}
                 />
               ) : null}
@@ -295,26 +295,25 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<NumberList />}
                   label="Ordered list"
-                  className={['large-icon', editor.isActive('orderedList') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('orderedList') })}
                   onClick={() => editor.chain().focus().toggleOrderedList().run()}
                 />
               ) : null}
             </IconButtonGroup>
-            <IconButtonGroup className="button-group">
+            <IconButtonGroup className={classnames('button-group')}>
               {settings.code ? (
                 <IconButton
                   icon={<Code />}
                   label="Code"
-                  className={['large-icon', editor.isActive('codeBlock') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('codeBlock') })}
                   onClick={() => editor.chain().focus().toggleCodeBlock().run()}
                 />
               ) : null}
-
               {settings.blockquote ? (
                 <IconButton
                   icon={<GrBlockQuote />}
                   label="Blockquote"
-                  className={['large-icon', editor.isActive('blockquote') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('blockquote') })}
                   onClick={() => editor.chain().focus().toggleBlockquote().run()}
                 />
               ) : null}
@@ -346,12 +345,9 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<Landscape />}
                   label={editor.isActive('image') ? 'Change image' : 'Insert image'}
-                  className={[
-                    'medium-icon',
-                    editor.isActive('image') && !editor.getAttributes('image').src.includes(';base64')
-                      ? 'is-active'
-                      : '',
-                  ]}
+                  className={classnames('large-icon', {
+                    'is-active': editor.isActive('image') && !editor.getAttributes('image').src.includes(';base64'),
+                  })}
                   onClick={toggleMediaLib}
                 />
               ) : null}
@@ -409,19 +405,16 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<FaImage />}
                   label={editor.isActive('image') ? 'Change image' : 'Insert base64 image'}
-                  className={[
-                    'medium-icon',
-                    editor.isActive('image') && editor.getAttributes('image').src.includes(';base64')
-                      ? 'is-active'
-                      : '',
-                  ]}
+                  className={classnames('large-icon', {
+                    'is-active': editor.isActive('image') && editor.getAttributes('image').src.includes(';base64'),
+                  })}
                   onClick={openBase64Dialog}
                 />
               ) : null}
               <IconButton
                 icon={<VscTable />}
                 label="Table with caption"
-                className={['large-icon', editor.isActive('capturedTable') ? 'is-active' : '']}
+                className={classnames('large-icon', { 'is-active': editor.isActive('capturedTable') })}
                 onClick={() => {
                   editor.chain().focus().insertContent(initialTableWithCaption).run();
                 }}
@@ -430,29 +423,26 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 <IconButton
                   icon={<AiOutlineTable />}
                   label="Table"
-                  className={['large-icon', editor.isActive('table') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('table') })}
                   onClick={() => editor.chain().focus().insertTable({ cols: 3, rows: 3, withHeaderRow: true }).run()}
                 />
               ) : null}
-
               {settings.youtube.enabled ? (
                 <IconButton
                   icon={<AiFillYoutube />}
                   label="YouTube"
-                  className={['large-icon', editor.isActive('youtube') ? 'is-active' : '']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('youtube') })}
                   onClick={() => setIsVisibleYouTubeDialog(true)}
                 />
               ) : null}
-
               {settings.horizontal ? (
                 <IconButton
                   icon={<AiOutlineLine />}
                   label="Horizontal line"
-                  className={['large-icon']}
+                  className={classnames('large-icon', { 'is-active': editor.isActive('horizontalRule') })}
                   onClick={() => editor.chain().focus().setHorizontalRule().run()}
                 />
               ) : null}
-
               <Dialog
                 onClose={() => setIsVisibleYouTubeDialog(false)}
                 title="Insert YouTube embed"
