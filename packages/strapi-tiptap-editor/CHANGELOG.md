@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.2.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.2.0...@frameless/strapi-tiptap-editor@1.2.1) (2023-08-11)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** fix the i18n issue ([a4f9d99](https://github.com/frameless/strapi/commit/a4f9d992d87c8ea88b1f0e32b2f987f025bdedb5))
+
 # @frameless/strapi-tiptap-editor [1.2.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.1.0...@frameless/strapi-tiptap-editor@1.2.0) (2023-08-11)
 
 
