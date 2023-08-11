@@ -52,14 +52,12 @@ export default {
     const importedTrads = await Promise.all(
       locales.map(async (locale) => {
         try {
-          const { default: data } = await import(
-            /* webpackChunkName: "translation-[request]" */ `./translations/${locale}.json`
-          );
+          const props = await import(/* webpackChunkName: "translation-[request]" */ `./translations/${locale}.json`);
           return {
-            data: prefixPluginTranslations(data, pluginId),
+            data: prefixPluginTranslations(props.default, pluginId),
             locale,
           };
-        } catch {
+        } catch (e) {
           return {
             data: {},
             locale,
