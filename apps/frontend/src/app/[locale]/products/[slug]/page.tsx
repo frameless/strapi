@@ -60,7 +60,12 @@ const LogoButton = ({ logo, appearance, href, text, label }: any) => {
         <p>
           <UtrechtLogoButton>
             <UtrechtEherkenningLogo />
-            <ButtonLink appearance={`${appearance}-action-button`} href={href} aria-label={label}>
+            <ButtonLink
+              appearance="primary-action-button"
+              href={href}
+              aria-label={label}
+              className="utrecht-button-link--magenta"
+            >
               {text} <UtrechtIconArrow />
             </ButtonLink>
           </UtrechtLogoButton>
