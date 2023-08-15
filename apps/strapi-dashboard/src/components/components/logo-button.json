@@ -21,7 +21,7 @@
     },
     "logo_button_appearance": {
       "type": "enumeration",
-      "enum": ["primary", "secondary"]
+      "enum": ["primary", "secondary", "magenta"]
     }
   }
 }
