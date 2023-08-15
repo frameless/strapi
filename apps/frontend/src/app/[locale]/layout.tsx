@@ -1,4 +1,5 @@
 import { Article, Page, PageContent, PageFooter, PageHeader } from '@utrecht/component-library-react';
+import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
@@ -59,7 +60,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
-        className={['utrecht-theme', 'utrecht-theme--media-query-color-scheme'].join(' ')}
+        className={classnames('utrecht-theme', 'utrecht-theme--media-query-color-scheme', 'utrecht-document')}
         suppressHydrationWarning={true}
       >
         <QueryClientProvider>
