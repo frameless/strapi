@@ -4,5 +4,89 @@
     "input-ariaLabel": "search terms",
     "suggestions-title": "Do you mean:",
     "hits-title": "Go straight to:"
+  },
+  "footer": {
+    "title": "Utrecht Municipality",
+    "list": [
+      {
+        "title": "Phone",
+        "items": [
+          {
+            "title": "14 030",
+            "link": "tel:14030",
+            "external": false
+          },
+          {
+            "title": "How does 14030 work?",
+            "link": "https://utrecht.nl/contact/verkort-telefoonnummer-gemeente/",
+            "external": true
+          }
+        ],
+        "paragraph": null,
+        "column": 6
+      },
+      {
+        "title": "Address",
+        "items": [],
+        "paragraph": "Stadskantoor\nStadsplateau 1\n3521AZ Utrecht",
+        "column": 6
+      },
+      {
+        "title": null,
+        "items": [
+          {
+            "title": "More contact information",
+            "link": "https://utrecht.nl/contact/",
+            "external": true
+          }
+        ],
+        "paragraph": null,
+        "column": 12
+      },
+      {
+        "title": null,
+        "items": [
+          {
+            "title": "About this website",
+            "link": "https://utrecht.nl/over-deze-website/",
+            "external": true
+          }
+        ],
+        "paragraph": null,
+        "column": 12
+      }
+    ],
+    "social_media": [
+      {
+        "icon": "facebook",
+        "link": "https://www.facebook.com/GemeenteUtrecht",
+        "external": true,
+        "title": "Follow us on Facebook"
+      },
+      {
+        "icon": "instagram",
+        "link": "https://www.instagram.com/GemeenteUtrecht",
+        "external": true,
+        "title": "Follow us on Instagram"
+      },
+      {
+        "icon": "linkedin",
+        "link": "https://nl.linkedin.com/company/gemeente-utrecht",
+        "external": true,
+        "title": "Follow us on LinkedIn"
+      },
+      {
+        "icon": "twitter",
+        "link": "https://twitter.com/gemeenteutrecht",
+        "external": true,
+        "title": "Follow us on Twitter"
+      },
+      {
+        "icon": "whatsapp",
+        "link": "https://api.whatsapp.com/send?phone=31624927665",
+        "external": false,
+        "title": "Contact us via WhatsApp"
+      }
+    ]
   }
 }
