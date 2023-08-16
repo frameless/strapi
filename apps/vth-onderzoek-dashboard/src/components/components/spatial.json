@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_spatials",
+  "info": {
+    "displayName": "spatial",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "resourceIdentifier": {
+      "type": "customField",
+      "customField": "plugin::gemeente-select.gemeente"
+    },
+    "scheme": {
+      "type": "customField",
+      "customField": "plugin::scheme-select.scheme",
+      "required": true
+    }
+  }
+}

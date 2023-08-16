@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_components_audiences",
+  "info": {
+    "displayName": "audience",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": ["particulier", "ondernemer"],
+      "required": true
+    }
+  }
+}
