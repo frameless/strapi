@@ -2,7 +2,8 @@
 
 ## Add environments variables
 
-Create `.prod.env` en `.dev.env` files and copy the env variables below
+Create two files in the project root: `.project-name.prod.env` and `.project-name.dev.env`, if they don't already exist.
+For example, you could have `.pdc.prod.env` and `.pdc.dev.env`. Then, copy the environment variables provided below into these files.
 
 ```env
 HOST=0.0.0.0
@@ -37,10 +38,10 @@ Start the environment with:
 ```bash
 # development
 
-cd bin/ && bash ./deploy.sh dev up --build # or
+cd bin/ && bash ./deploy.sh project-name dev up --build # or
 
 # production
-cd bin/ && bash ./deploy.sh prod up --build
+cd bin/ && bash ./deploy.sh project-name prod up --build
 
 ```
 
@@ -59,9 +60,7 @@ And choose "Save".
 
 You can now create products and FAQ items using the Content Manager and view them on the frontend: <http://localhost:3000/>.
 
-## Environments Variables
-
-First, you have to create two files in the project root, in case there are not exist `.prod.env` and `.dev.env`, and you can use the variable below
+## Environments Variables Types
 
 | Variable name                       |                                                                                                                                     Description                                                                                                                                     | Type                          | Default Value      | Application               | Note                                                                                                                                                                                                                     |
 | ----------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | ----------------------------- | ------------------ | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- | ------ | --- | -------- | --- | ---------------- | --------------------------------------------------------------------------------------------------------- |
@@ -100,7 +99,7 @@ Currently, we use it for the development environment.
 
 ### Usage
 
-First, you need to generate a token and assign it to `STRAPI_IMPORT_DATA_ENCRYPTION_KEY` variable in the `.dev.env` file.
+First, you need to generate a token and assign it to `STRAPI_IMPORT_DATA_ENCRYPTION_KEY` variable.
 
 Generate encryption keys in a terminal:
 
@@ -124,7 +123,7 @@ The output should be something like the example below
 | 12e2f8ffa426 | 12e2f8ffa426           | "docker-entrypoint.s…" | 25 minutes ago | Up 5 minutes (healthy) | 0.0.0.0:5432->5432/tcp           | strapi_db          |
 
 So, you need to copy the Strapi container id, then run this command `docker exec -it strapi-container-id /bin/sh` to enter the docker image
-Navigate to the `strapi-dashboard` folder by using this command `cd apps/strapi-dashboard/`, and then check if there is an existing strapi-exported file by using this command `ls`
+Navigate to the `pdc-dashboard` folder by using this command `cd apps/pdc-dashboard/`, and then check if there is an existing strapi-exported file by using this command `ls`
 
 > Note the extension file should be `.tar.gz.enc`
 
@@ -135,14 +134,14 @@ When the `demoData.tar.gz.enc` file is generated, we need to import it from Dock
 ```sh
 docker cp <Container ID>:<Path of file inside the container> <Path in the local machine>
 
-# example `docker cp a57b06124325:/opt/app/apps/strapi-dashboard/demoData.tar.gz.enc ~/Dev/react/frameless-cms/apps/strapi-dashboard/`
+# example `docker cp a57b06124325:/opt/app/apps/pdc-dashboard/demoData.tar.gz.enc ~/Dev/react/frameless-cms/apps/pdc-dashboard/`
 ```
 
 > **Note**
-> The Strapi export file name should be `demoData`, because we use it in the `docker-compose.dev.yml` to import it each time you run docker
+> The Strapi export file name should be `demoData`, because we use it in the `docker-compose.pdc.dev.yml` to import it each time you run docker
 
 ```sh
-yarn workspace @frameless/strapi-dashboard strapi import -f demoData.tar.gz.enc --force --key ${STRAPI_IMPORT_DATA_ENCRYPTION_KEY}
+yarn workspace @frameless/pdc-dashboard strapi import -f demoData.tar.gz.enc --force --key ${STRAPI_IMPORT_DATA_ENCRYPTION_KEY}
 ```
 
 In this case we update the strapi export file!

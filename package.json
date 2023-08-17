@@ -9,8 +9,8 @@
     "packages/strapi-tiptap-editor",
     "packages/catalogi-data",
     "packages/samenwerkende-catalogi",
-    "apps/strapi-dashboard",
-    "apps/frontend",
+    "apps/pdc-dashboard",
+    "apps/pdc-frontend",
     "packages/*"
   ],
   "repository": {
@@ -25,8 +25,8 @@
     "start": "npm run --workspaces start --if-present",
     "build": "npm run --workspaces build --if-present",
     "format": "prettier --write .",
-    "dev": "concurrently \"npm run dev -w @frameless/strapi-dashboard\" \"npm run dev -w @frameless/frontend\"",
-    "start:dev": "concurrently \"npm run start -w @frameless/strapi-dashboard\" \"npm run start -w @frameless/frontend\"",
+    "dev": "concurrently \"npm run dev -w @frameless/pdc-dashboard\" \"npm run dev -w @frameless/pdc-frontend\"",
+    "start:dev": "concurrently \"npm run start -w @frameless/pdc-dashboard\" \"npm run start -w @frameless/pdc-frontend\"",
     "test": "npm run test --workspaces --if-present",
     "clean": "npm run --workspaces clean --if-present",
     "clean-node_modules": "npm exec --workspaces --include-workspace-root -- rimraf node_modules",
@@ -40,7 +40,7 @@
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "lint-fix:css": "stylelint --fix '**/**/*.{css, scss}'",
     "lint-fix:js": "eslint --ext '.js,.json,.jsx,.ts,.tsx' --fix --report-unused-disable-directives .",
-    "release": "multi-semantic-release --ignore-packages=apps/strapi-dashboard/**,apps/frontend/**",
+    "release": "multi-semantic-release --ignore-packages=apps/pdc-dashboard/**,apps/pdc-frontend/**",
     "lint-fix:md": "markdownlint --fix '**/*.md'",
     "prettier": "prettier --list-different --write .",
     "postinstall": "patch-package"

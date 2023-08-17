@@ -1,15 +1,23 @@
-version: "3.8"
+version: "3"
 services:
-  strapi:
-    container_name: strapi
+  pdc_strapi:
+    container_name: pdc_strapi
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     image: strapi:latest
     restart: unless-stopped
     volumes:
-      - ./apps/strapi-dashboard/public/uploads:/opt/app/apps/strapi-dashboard/public/uploads
-    command: npm run --workspace @frameless/strapi-dashboard start
+      - ./package.json:/opt/app/package.json
+      - ./yarn.lock:/opt/app/yarn.lock
+      - ./apps/pdc-dashboard/config:/opt/app/apps/pdc-dashboard/config
+      - ./apps/pdc-dashboard/src:/opt/app/apps/pdc-dashboard/src
+      - ./apps/pdc-dashboard/package.json:/opt/app/apps/pdc-dashboard/package.json
+      - ./apps/pdc-dashboard/public/:/opt/app/apps/pdc-dashboard/public/
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        npm run dev --workspace @frameless/pdc-dashboard
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
@@ -19,41 +27,46 @@ services:
       API_TOKEN_SALT: ${API_TOKEN_SALT}
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
-      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
       DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_HOST: strapi_db
+      DATABASE_HOST: pdc_strapi_db
       DATABASE_PORT: ${DATABASE_PORT}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
       NODE_ENV: ${NODE_ENV}
     ports:
       - "1337:1337"
     networks:
-      - strapi_network
+      - pdc_strapi_network
     depends_on:
-      - strapi_db
-  frontend:
-    container_name: frontend
+      - pdc_strapi_db
+  pdc_frontend:
+    container_name: pdc_frontend
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh strapi:1337 -- npm run --workspace @frameless/frontend start
+    command: ./bin/wait-for-it.sh -s pdc_strapi:1337 -t 25 -- npm run dev --workspace @frameless/pdc-frontend
     environment:
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
       STRAPI_PUBLIC_URL: ${STRAPI_PUBLIC_URL}
+    volumes: # enable hot-reload
+      - ./apps/pdc-frontend/src:/opt/app/apps/pdc-frontend/src
+      - ./apps/pdc-frontend/public:/opt/app/apps/pdc-frontend/public
+      - ./apps/pdc-frontend/.next:/opt/app/apps/pdc-frontend/.next
+      - ./apps/pdc-frontend/package.json:/opt/app/apps/pdc-frontend/package.json
     ports:
       - "3000:3000"
     networks:
-      - strapi_network
+      - pdc_strapi_network
     depends_on:
-      - strapi
-      - strapi_db
-  strapi_db:
-    container_name: strapi_db
+      - pdc_strapi
+      - pdc_strapi_db
+  pdc_strapi_db:
+    container_name: pdc_strapi_db
     platform: linux/amd64 #for platform error on Apple M1 chips
     restart: unless-stopped
     image: postgres:12.0-alpine
@@ -71,28 +84,29 @@ services:
       timeout: 3s
       retries: 3
     volumes:
-      - strapi-data:/var/lib/postgresql/data/
+      - pdc-strapi-data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     networks:
-      - strapi_network
-  pgadmin:
-    container_name: pgadmin4_container
+      - pdc_strapi_network
+  pdc_pgadmin:
+    container_name: pdc_pgadmin
     image: dpage/pgadmin4
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     ports:
-      - "9000:80"
+      - "8080:80"
     networks:
-      - strapi_network
+      - pdc_strapi_network
     depends_on:
-      - strapi_db
+      - pdc_strapi_db
+
 volumes:
-  strapi-data:
+  pdc-strapi-data:
 
 networks:
-  strapi_network:
+  pdc_strapi_network:
     name: Strapi network
     driver: bridge
