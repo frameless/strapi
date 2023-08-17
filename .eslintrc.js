@@ -50,9 +50,9 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: [
-          './apps/frontend/tsconfig.json',
-          './apps/strapi-dashboard/tsconfig.json',
-          './apps/strapi-dashboard/src/admin/tsconfig.json',
+          './apps/pdc-frontend/tsconfig.json',
+          './apps/pdc-dashboard/tsconfig.json',
+          './apps/pdc-dashboard/src/admin/tsconfig.json',
           './packages/catalogi-data/tsconfig.json',
           './packages/upl/tsconfig.json',
           './packages/samenwerkende-catalogi/tsconfig.json',
