@@ -31,14 +31,6 @@ export default ({ env }) => ({
       },
     },
   },
-  'preview-button': {
-    enabled: true,
-    config: {
-      domain: env('FRONTEND_PUBLIC_URL'),
-      token: env('PREVIEW_SECRET_TOKEN'),
-      slug: 'products',
-    },
-  },
   upload: {
     config: {
       providerOptions: {
