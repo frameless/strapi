@@ -26,42 +26,6 @@
         }
       }
     },
-    "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
-    "metaTags": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "seo.meta"
-    },
-    "price": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::price.price",
-      "inversedBy": "products"
-    },
-    "catalogiMeta": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "components.catalogi-meta",
-      "required": false
-    },
     "sections": {
       "pluginOptions": {
         "i18n": {
@@ -82,6 +46,33 @@
       "required": true,
       "min": 1
     },
+    "price": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::price.price",
+      "inversedBy": "products"
+    },
+    "metaTags": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "seo.meta"
+    },
+    "catalogiMeta": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.catalogi-meta",
+      "required": false
+    },
     "vngAttributes": {
       "type": "component",
       "repeatable": false,
@@ -92,6 +83,15 @@
       },
       "component": "components.vng-attributes",
       "private": true
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
     }
   }
 }
