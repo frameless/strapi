@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_multi_columns_buttons",
+  "info": {
+    "displayName": "Multi Column Button"
+  },
+  "options": {},
+  "attributes": {
+    "column": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.multi-columns-button-item"
+    }
+  }
+}

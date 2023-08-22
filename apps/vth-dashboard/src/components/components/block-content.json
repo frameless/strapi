@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_block_contents",
+  "info": {
+    "displayName": "Page content",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,88 @@
+version: "3"
+services:
+  vth_strapi:
+    container_name: vth_strapi
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: vth-strapi:latest
+    restart: unless-stopped
+    volumes:
+      - ./package.json:/opt/app/package.json
+      - ./yarn.lock:/opt/app/yarn.lock
+      - ./apps/vth-dashboard/config:/opt/app/apps/vth-dashboard/config
+      - ./apps/vth-dashboard/src:/opt/app/apps/vth-dashboard/src
+      - ./apps/vth-dashboard/package.json:/opt/app/apps/vth-dashboard/package.json
+      - ./apps/vth-dashboard/public/:/opt/app/apps/vth-dashboard/public/
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        npm run dev --workspace @frameless/vth-dashboard
+    environment:
+      HOST: ${HOST}
+      PORT: ${PORT}
+      APP_KEYS: ${APP_KEYS}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      JWT_SECRET: ${JWT_SECRET}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: vth_strapi_db
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
+      NODE_ENV: ${NODE_ENV}
+    ports:
+      - "1337:1337"
+    networks:
+      - vth_strapi_network
+    depends_on:
+      - vth_strapi_db
+  vth_strapi_db:
+    container_name: vth_strapi_db
+    platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    image: postgres:12.0-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "sh -c 'pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}'",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    volumes:
+      - vth-strapi-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    networks:
+      - vth_strapi_network
+  vth_pgadmin:
+    container_name: vth_pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "8080:80"
+    networks:
+      - vth_strapi_network
+    depends_on:
+      - vth_strapi_db
+
+volumes:
+  vth-strapi-data:
+
+networks:
+  vth_strapi_network:
+    name: Strapi network
+    driver: bridge

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_components_multi_columns_button_items",
+  "info": {
+    "displayName": "multiColumnsButtonItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "logoButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.logo-button"
+    },
+    "headingLevel": {
+      "type": "integer",
+      "max": 6,
+      "min": 1,
+      "required": false,
+      "default": 3
+    }
+  }
+}

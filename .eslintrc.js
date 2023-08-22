@@ -53,6 +53,8 @@ module.exports = {
           './apps/pdc-frontend/tsconfig.json',
           './apps/pdc-dashboard/tsconfig.json',
           './apps/pdc-dashboard/src/admin/tsconfig.json',
+          './apps/vth-dashboard/tsconfig.json',
+          './apps/vth-dashboard/src/admin/tsconfig.json',
           './packages/catalogi-data/tsconfig.json',
           './packages/upl/tsconfig.json',
           './packages/samenwerkende-catalogi/tsconfig.json',
