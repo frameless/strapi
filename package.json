@@ -11,7 +11,7 @@
     "packages/samenwerkende-catalogi",
     "apps/pdc-dashboard",
     "apps/pdc-frontend",
-    "apps/vth-onderzoek-dashboard",
+    "apps/vth-dashboard",
     "packages/*"
   ],
   "repository": {
