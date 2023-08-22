@@ -9,9 +9,7 @@
     "packages/strapi-tiptap-editor",
     "packages/catalogi-data",
     "packages/samenwerkende-catalogi",
-    "apps/pdc-dashboard",
-    "apps/pdc-frontend",
-    "apps/vth-dashboard",
+    "apps/*",
     "packages/*"
   ],
   "repository": {
