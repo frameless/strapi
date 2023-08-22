@@ -12,6 +12,7 @@ COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
 COPY ./apps/pdc-frontend/package.json apps/pdc-frontend/package.json
 COPY ./apps/pdc-dashboard/package.json apps/pdc-dashboard/package.json
+COPY ./apps/vth-dashboard/package.json apps/vth-dashboard/package.json
 COPY ./packages/catalogi-data/package.json packages/catalogi-data/package.json
 COPY ./packages/preview-button/package.json packages/preview-button/package.json
 COPY ./packages/samenwerkende-catalogi/package.json packages/samenwerkende-catalogi/package.json
