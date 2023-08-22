@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.2.2...@frameless/strapi-tiptap-editor@1.3.0) (2023-08-22)
+
+
+### Features
+
+* **vth:** add vth-dashboard app ([#152](https://github.com/frameless/strapi/issues/152)) ([869e8bd](https://github.com/frameless/strapi/commit/869e8bdd0457a3d748254a27ac6c617d5d36ab6c))
+
 ## @frameless/strapi-tiptap-editor [1.2.2](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.2.1...@frameless/strapi-tiptap-editor@1.2.2) (2023-08-11)
 
 
