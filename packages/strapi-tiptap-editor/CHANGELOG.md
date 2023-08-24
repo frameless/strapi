@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.3.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.3.0...@frameless/strapi-tiptap-editor@1.3.1) (2023-08-24)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** fix types issue ([c388569](https://github.com/frameless/strapi/commit/c388569b9271ddab94def5ac9459c8b37f24e232))
+
 # @frameless/strapi-tiptap-editor [1.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.2.2...@frameless/strapi-tiptap-editor@1.3.0) (2023-08-22)
 
 
