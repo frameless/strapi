@@ -1,6 +1,6 @@
 const { apolloPrometheusPlugin } = require('strapi-prometheus');
 
-export default ({ env }) => ({
+export default () => ({
   ckeditor5: {
     enabled: false,
   },
