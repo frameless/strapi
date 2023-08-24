@@ -36,13 +36,19 @@ module.exports = {
         './.eslintrc.react.json',
       ],
       files: ['*.js', '*.jsx'],
-      plugins: ['import', 'jest'],
+      plugins: ['import', 'jest', 'prettier'],
+      rules: {
+        'prettier/prettier': 'error',
+      },
     },
     {
       extends: ['plugin:react/recommended', 'eslint-config-prettier', './.eslintrc.js.json', './.eslintrc.react.json'],
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint', 'import', 'jest'],
+      plugins: ['@typescript-eslint', 'import', 'jest', 'prettier'],
+      rules: {
+        'prettier/prettier': 'error',
+      },
     },
     {
       extends: ['plugin:react/recommended', 'eslint-config-prettier', './.eslintrc.js.json'],
@@ -66,7 +72,10 @@ module.exports = {
         ],
         tsconfigRootDir: __dirname,
       },
-      plugins: ['@typescript-eslint', 'import'],
+      plugins: ['@typescript-eslint', 'import', 'prettier'],
+      rules: {
+        'prettier/prettier': 'error',
+      },
     },
   ],
 };
