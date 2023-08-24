@@ -1,0 +1,50 @@
+{
+  "name": "@frameless/vth-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "author": "@frameless",
+  "description": "Utrecht VTH frontend application",
+  "license": "",
+  "keywords": [],
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "prebuild": "npm run clean",
+    "clean": "rimraf build .next",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "4.29.12",
+    "@utrecht/component-library-css": "1.0.0-alpha.543",
+    "@utrecht/component-library-react": "1.0.0-alpha.352",
+    "@utrecht/design-tokens": "1.0.0-alpha.536",
+    "@utrecht/web-component-library-react": "1.0.0-alpha.542",
+    "accept-language": "3.0.18",
+    "add": "2.0.6",
+    "classnames": "2.3.2",
+    "downshift": "7.6.0",
+    "i18next": "22.5.1",
+    "i18next-browser-languagedetector": "7.0.2",
+    "i18next-resources-to-backend": "1.1.4",
+    "is-absolute-url": "4.0.1",
+    "next": "13.4.5",
+    "next-sitemap": "4.1.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-i18next": "12.3.1",
+    "react-loading-skeleton": "3.3.1",
+    "react-markdown": "8.0.5",
+    "react-vega": "7.6.0",
+    "rehype-raw": "6.1.1",
+    "sharp": "0.32.1",
+    "vega": "5.25.0",
+    "vega-lite": "5.14.1",
+    "yarn": "1.22.19"
+  },
+  "devDependencies": {
+    "eslint": "8.35.0",
+    "eslint-config-next": "13.2.4",
+    "sass": "1.63.6"
+  }
+}

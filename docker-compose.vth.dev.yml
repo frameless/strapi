@@ -41,6 +41,30 @@ services:
       - vth_strapi_network
     depends_on:
       - vth_strapi_db
+  vth_frontend:
+    container_name: vth_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    command: ./bin/wait-for-it.sh -s vth_strapi:1337 -t 25 -- npm run dev --workspace @frameless/vth-frontend
+    environment:
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
+      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
+      STRAPI_PUBLIC_URL: ${STRAPI_PUBLIC_URL}
+    volumes: # enable hot-reload
+      - ./apps/vth-frontend/src:/opt/app/apps/vth-frontend/src
+      - ./apps/vth-frontend/public:/opt/app/apps/vth-frontend/public
+      - ./apps/vth-frontend/.next:/opt/app/apps/vth-frontend/.next
+      - ./apps/vth-frontend/package.json:/opt/app/apps/vth-frontend/package.json
+    ports:
+      - "3000:3000"
+    networks:
+      - vth_strapi_network
+    depends_on:
+      - vth_strapi
+      - vth_strapi_db
   vth_strapi_db:
     container_name: vth_strapi_db
     platform: linux/amd64 #for platform error on Apple M1 chips
