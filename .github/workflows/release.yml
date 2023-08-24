@@ -54,6 +54,10 @@ jobs:
           fail_on_empty: false
       - name: Build
         run: npm run --workspace packages build --if-present
+      - name: Lint
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: npm run lint
       - name: Release
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         env:
