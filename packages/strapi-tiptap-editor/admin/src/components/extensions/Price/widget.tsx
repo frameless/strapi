@@ -19,9 +19,11 @@ export default function Widget(props: Props) {
 
   return (
     <NodeViewWrapper className="utrecht-price-widget" as="span" contentEditable={false}>
-      <span draggable contentEditable={false} data-drag-handle="" id={price?.id}>
-        {formatCurrency(price)}
-      </span>
+      {price && (
+        <span draggable contentEditable={false} data-drag-handle="" id={price?.id}>
+          {formatCurrency(price)}
+        </span>
+      )}
     </NodeViewWrapper>
   );
 }
