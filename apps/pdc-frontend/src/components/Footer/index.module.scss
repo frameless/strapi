@@ -3,11 +3,12 @@
   --utrecht-footer-list-item-12-width: 100%;
   --utrecht-footer-social-media-width: 100%;
   --utrecht-footer-social-media-justify-content: flex-start;
+
+  align-items: baseline;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
-  box-sizing: border-box;
 }
 
 .utrecht-footer__list-item--6 {
@@ -27,16 +28,16 @@
 .utrecht-footer__social-media {
   display: flex;
   flex: 0 0 auto;
-  width: var(--utrecht-footer-social-media-width);
   justify-content: var(--utrecht-footer-social-media-justify-content);
+  width: var(--utrecht-footer-social-media-width);
 }
 
 .utrecht-footer__content {
   display: flex;
   flex: 0 0 auto;
-  width: 70%;
-  justify-content: flex-start;
   flex-direction: column;
+  justify-content: flex-start;
+  width: 70%;
 }
 
 .utrecht-footer__link {
@@ -47,7 +48,7 @@
   --utrecht-heading-3-margin-block-end: 14px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .utrecht-footer__layout-wrapper {
     --utrecht-footer-list-item-6-width: 50%;
     --utrecht-footer-social-media-width: 30%;

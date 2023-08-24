@@ -162,7 +162,7 @@ const components = ({ strapiBackendURL, priceData, locale }: any) =>
         return null;
       }
     },
-  } as Components);
+  }) as Components;
 
 interface MarkdownProps {
   children: any;

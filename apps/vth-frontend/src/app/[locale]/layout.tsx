@@ -129,10 +129,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   };
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body
-        className={classnames('utrecht-theme', 'utrecht-document')}
-        suppressHydrationWarning={true}
-      >
+      <body className={classnames('utrecht-theme', 'utrecht-document')} suppressHydrationWarning={true}>
         <QueryClientProvider>
           <Page className="utrecht-main-wrapper">
             <PageHeader>

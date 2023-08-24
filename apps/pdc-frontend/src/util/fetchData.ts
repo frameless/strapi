@@ -78,7 +78,10 @@ type Options = {
 };
 
 export class ErrorHandler extends Error {
-  constructor(message?: string, public options?: Options) {
+  constructor(
+    message?: string,
+    public options?: Options,
+  ) {
     super(message);
     this.name = 'ErrorHandler';
     this.options = options;
