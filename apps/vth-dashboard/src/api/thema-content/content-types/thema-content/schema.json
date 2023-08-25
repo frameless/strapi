@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "thema_contents",
+  "info": {
+    "singularName": "thema-content",
+    "pluralName": "thema-contents",
+    "displayName": "Thema Content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}
