@@ -4,7 +4,8 @@
   "info": {
     "singularName": "homepage",
     "pluralName": "homepages",
-    "displayName": "Homepage"
+    "displayName": "Homepage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,9 @@
       "type": "string",
       "required": true,
       "default": "Toezicht en Handhaving"
+    },
+    "Content": {
+      "type": "richtext"
     }
   }
 }
