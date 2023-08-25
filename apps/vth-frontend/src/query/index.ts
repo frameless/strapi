@@ -12,3 +12,15 @@ query getNotFoundPage($locale: I18NLocaleCode){
   }
 }
 `);
+
+export const GET_HOME_PAGE = gql(`
+query getHomePage {
+  homepage {
+    data {
+      attributes {
+        Title
+        Content
+      }
+    }
+  }
+}`);
