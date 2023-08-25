@@ -23,4 +23,12 @@ query getHomePage {
       }
     }
   }
+  themas {
+    data {
+      id
+      attributes {
+        Titel
+      }
+    }
+  }
 }`);
