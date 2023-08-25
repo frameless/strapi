@@ -3,7 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Article, Page, PageContent, PageHeader } from '@/components';
+import { Article, Page, PageContent, PageHeader, Surface } from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
@@ -150,60 +150,62 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         suppressHydrationWarning={true}
       >
         <QueryClientProvider>
-          <Page className="utrecht-main-wrapper">
-            <PageHeader>
-              <div className="utrecht-header">
-                <Logo locale={locale} />
-                <div className="utrecht-nav__content">
-                  <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
-                  <SearchBar
-                    locale={locale}
-                    onSearchSubmit={onSearchSubmitAction}
-                    onSearchChange={getLiveSuggestions}
-                    submitButtonText={t('search-bar.search-submit')}
-                    inputAriaLabel={t('search-bar.input-ariaLabel')}
-                    suggestionsTitle={t('search-bar.suggestions-title')}
-                    hitsTitle={t('search-bar.hits-title')}
-                  />
+          <Surface>
+            <Page className="utrecht-main-wrapper">
+              <PageHeader>
+                <div className="utrecht-header">
+                  <Logo locale={locale} />
+                  <div className="utrecht-nav__content">
+                    <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
+                    <SearchBar
+                      locale={locale}
+                      onSearchSubmit={onSearchSubmitAction}
+                      onSearchChange={getLiveSuggestions}
+                      submitButtonText={t('search-bar.search-submit')}
+                      inputAriaLabel={t('search-bar.input-ariaLabel')}
+                      suggestionsTitle={t('search-bar.suggestions-title')}
+                      hitsTitle={t('search-bar.hits-title')}
+                    />
+                  </div>
                 </div>
-              </div>
-              <nav className="utrecht-topnav">
-                <ul className="utrecht-topnav__list">
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/wonen-en-leven">
-                      Wonen en leven
-                    </a>
-                  </li>
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/zorg-en-onderwijs">
-                      Zorg en onderwijs
-                    </a>
-                  </li>
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/werk-en-inkomen">
-                      Werk en inkomen
-                    </a>
-                  </li>
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/ondernemen">
-                      Ondernemen
-                    </a>
-                  </li>
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/bestuur-en-organisatie">
-                      Bestuur en organisatie
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </PageHeader>
-            <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
-              <Main>
-                <Article>{children}</Article>
-              </Main>
-            </PageContent>
-            <Footer data={footerData} />
-          </Page>
+                <nav className="utrecht-topnav">
+                  <ul className="utrecht-topnav__list">
+                    <li className="utrecht-topnav__item">
+                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/wonen-en-leven">
+                        Wonen en leven
+                      </a>
+                    </li>
+                    <li className="utrecht-topnav__item">
+                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/zorg-en-onderwijs">
+                        Zorg en onderwijs
+                      </a>
+                    </li>
+                    <li className="utrecht-topnav__item">
+                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/werk-en-inkomen">
+                        Werk en inkomen
+                      </a>
+                    </li>
+                    <li className="utrecht-topnav__item">
+                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/ondernemen">
+                        Ondernemen
+                      </a>
+                    </li>
+                    <li className="utrecht-topnav__item">
+                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/bestuur-en-organisatie">
+                        Bestuur en organisatie
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </PageHeader>
+              <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
+                <Main>
+                  <Article>{children}</Article>
+                </Main>
+              </PageContent>
+              <Footer data={footerData} />
+            </Page>
+          </Surface>
         </QueryClientProvider>
       </body>
     </html>
