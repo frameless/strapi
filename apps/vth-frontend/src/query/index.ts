@@ -25,9 +25,22 @@ query getHomePage {
   }
   themas {
     data {
+      attributes {
+        Titel,
+        slug
+      }
+    }
+  }
+}`);
+
+export const GET_THEMA = gql(`
+query GET_THEMA($slug: String) {
+  themas(filters: { slug: { eq: $slug }}) {
+    data {
       id
       attributes {
         Titel
+        Inhoud
       }
     }
   }

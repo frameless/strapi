@@ -18,6 +18,12 @@
     },
     "Inhoud": {
       "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "minLength": 1,
+      "unique": true
     }
   }
 }
