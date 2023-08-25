@@ -45,11 +45,10 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       <UnorderedList>
         {' '}
         {themas.map((thema: any) => {
-          const id = thema.id;
-          const title = thema.attributes.Titel;
+          const { Titel, slug } = thema.attributes;
           return (
-            <UnorderedListItem key={`thema-${id}`}>
-              <Link href={`/themas/${id}`}>{title}</Link>
+            <UnorderedListItem key={`thema-${slug}`}>
+              <Link href={`/themas/${slug}`}>{Titel}</Link>
             </UnorderedListItem>
           );
         })}
