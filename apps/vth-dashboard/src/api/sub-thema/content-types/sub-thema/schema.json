@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_themas",
+  "info": {
+    "singularName": "sub-thema",
+    "pluralName": "sub-themas",
+    "displayName": "Sub-thema"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string"
+    }
+  }
+}

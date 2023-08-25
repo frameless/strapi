@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "themas",
+  "info": {
+    "singularName": "thema",
+    "pluralName": "themas",
+    "displayName": "Thema",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "required": true
+    },
+    "Inhoud": {
+      "type": "richtext"
+    }
+  }
+}
