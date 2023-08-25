@@ -34,9 +34,11 @@ a {
 }
 
 .utrecht-main-wrapper {
+  background-color: var(--utrecht-document-background-color);
   display: flex;
   flex-direction: column;
   min-block-size: 100vh;
+  padding-inline: 0 !important;
 }
 
 .utrecht-nav__content {
