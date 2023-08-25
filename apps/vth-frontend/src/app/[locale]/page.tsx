@@ -1,7 +1,8 @@
 import { createStrapiURL } from '@frameless/pdc-frontend/src/util/createStrapiURL';
 import { fetchData } from '@frameless/pdc-frontend/src/util/fetchData';
-import { Heading1 } from '@utrecht/component-library-react';
+import { Heading1, Heading2, Link, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
+import React from 'react';
 import { Markdown } from '@/components/Markdown';
 import { GET_HOME_PAGE } from '@/query';
 import { useTranslation } from '../i18n';
@@ -34,11 +35,25 @@ const Home = async ({ params: { locale } }: { params: any }) => {
   });
 
   const { Title, Content } = data.homepage.data.attributes;
+  const themas = data.themas.data;
 
   return (
     <>
       <Heading1>{Title}</Heading1>
       <Markdown>{Content}</Markdown>
+      <Heading2>Themas</Heading2>
+      <UnorderedList>
+        {' '}
+        {themas.map((thema: any) => {
+          const id = thema.id;
+          const title = thema.attributes.Titel;
+          return (
+            <UnorderedListItem key={`thema-${id}`}>
+              <Link href={`/themas/${id}`}>{title}</Link>
+            </UnorderedListItem>
+          );
+        })}
+      </UnorderedList>
     </>
   );
 };
