@@ -1,5 +1,9 @@
+import { createStrapiURL } from '@frameless/pdc-frontend/src/util/createStrapiURL';
+import { fetchData } from '@frameless/pdc-frontend/src/util/fetchData';
 import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
+import { Markdown } from '@/components/Markdown';
+import { GET_HOME_PAGE } from '@/query';
 import { useTranslation } from '../i18n';
 
 export interface Fields {
@@ -23,19 +27,18 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const Home = async ({ params: { locale } }: { params: any }) => {
-  const { t } = await useTranslation(locale, ['home-page', 'common']);
+  const { data } = await fetchData({
+    url: createStrapiURL(),
+    query: GET_HOME_PAGE,
+    variables: { locale: locale },
+  });
 
-  // todo: fetch theme data to display homepage cards
+  const { Title, Content } = data.homepage.data.attributes;
 
   return (
     <>
-      <Heading1>{t('h1')}</Heading1>
-      <p>
-        Wat pakt Toezicht en Handhaving in 2022 allemaal op? En welke resultaten hebben we de afgelopen periode bereikt?
-        Op deze website zie je in één oogopslag waarop we ons in 2023 richten, wat we de afgelopen jaren hebben gedaan
-        en welke trends we zien. Van de handhaving op afval tot het controleren van bouwplannen en van evenementen tot
-        de aanpak van huisjesmelkers.
-      </p>
+      <Heading1>{Title}</Heading1>
+      <Markdown>{Content}</Markdown>
     </>
   );
 };
