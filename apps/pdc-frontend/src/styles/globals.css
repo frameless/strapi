@@ -107,13 +107,13 @@ th > p {
   --utrecht-paragraph-font-weight: var(--utrecht-table-header-font-weight);
 }
 
-.utrecht-button-link--magenta {
+.utrecht-button-link--eherkenning {
   --utrecht-button-primary-action-focus-border-color: var(--utrecht-color-grey-10);
   --utrecht-button-primary-action-active-border-color: var(--utrecht-color-grey-10);
   --utrecht-button-primary-action-active-color: var(--utrecht-color-white);
-  --utrecht-button-primary-action-background-color: var(--utrecht-color-secondary-magenta);
-  --utrecht-button-primary-action-active-background-color: var(--utrecht-color-secondary-magenta);
-  --utrecht-button-primary-action-hover-background-color: var(--utrecht-color-secondary-magenta);
-  --utrecht-button-primary-action-focus-background-color: var(--utrecht-color-secondary-magenta);
-  --utrecht-button-primary-action-pressed-background-color: var(--utrecht-color-secondary-magenta);
+  --utrecht-button-primary-action-background-color: #bc3983;
+  --utrecht-button-primary-action-active-background-color: #bc3983;
+  --utrecht-button-primary-action-hover-background-color: #bc3983;
+  --utrecht-button-primary-action-focus-background-color: #bc3983;
+  --utrecht-button-primary-action-pressed-background-color: #bc3983;
 }

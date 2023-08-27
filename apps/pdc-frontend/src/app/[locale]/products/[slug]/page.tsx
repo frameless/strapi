@@ -64,7 +64,7 @@ const LogoButton = ({ logo, appearance, href, text, label }: any) => {
               appearance="primary-action-button"
               href={href}
               aria-label={label}
-              className="utrecht-button-link--magenta"
+              className="utrecht-button-link--eherkenning"
             >
               {text} <UtrechtIconArrow />
             </ButtonLink>
