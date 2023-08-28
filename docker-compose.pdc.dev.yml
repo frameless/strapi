@@ -17,7 +17,7 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        npm run dev --workspace @frameless/pdc-dashboard
+        npm run start:pdc-dashboard
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
@@ -47,7 +47,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh -s pdc_strapi:1337 -t 25 -- npm run dev --workspace @frameless/pdc-frontend
+    command: ./bin/wait-for-it.sh -s pdc_strapi:1337 -t 25 -- npm run start:pdc-frontend
     environment:
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
