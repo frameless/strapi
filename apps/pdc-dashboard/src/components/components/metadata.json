@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_components_vng_attributes",
+  "collectionName": "components_components_metadata",
   "info": {
-    "displayName": "VNG Attributes",
+    "displayName": "Private Metadata Attributes",
     "description": ""
   },
   "options": {},
