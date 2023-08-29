@@ -73,7 +73,7 @@
       "component": "components.catalogi-meta",
       "required": false
     },
-    "vngAttributes": {
+    "metadata": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -81,7 +81,7 @@
           "localized": true
         }
       },
-      "component": "components.vng-attributes",
+      "component": "components.metadata",
       "private": true
     },
     "slug": {
