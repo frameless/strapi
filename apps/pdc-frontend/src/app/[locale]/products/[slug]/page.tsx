@@ -110,7 +110,9 @@ export async function generateMetadata({ slug, locale }: any): Promise<Metadata>
   return {
     title: product?.attributes.metaTags.title,
     description: product?.attributes?.metaTags?.description,
-    keywords: product?.attributes?.metaTags?.keymatch,
+    other: {
+      keymatch: product?.attributes?.metaTags?.keymatch,
+    },
   };
 }
 
