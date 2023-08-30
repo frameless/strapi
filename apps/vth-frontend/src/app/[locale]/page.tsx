@@ -34,13 +34,13 @@ const Home = async ({ params: { locale } }: { params: any }) => {
     variables: { locale: locale },
   });
 
-  const { Title, Content } = data.homepage.data.attributes;
+  const { Titel, Inhoud } = data.homepage.data.attributes;
   const themas = data.themas.data;
 
   return (
     <>
-      <Heading1>{Title}</Heading1>
-      <Markdown>{Content}</Markdown>
+      <Heading1>{Titel}</Heading1>
+      <Markdown>{Inhoud}</Markdown>
       <Heading2>Themas</Heading2>
       <UnorderedList>
         {' '}

@@ -4,15 +4,24 @@
   "info": {
     "singularName": "thema-content",
     "pluralName": "thema-contents",
-    "displayName": "Thema Content"
+    "displayName": "Thema Content",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "Titel": {
       "type": "string"
+    },
+    "Inhoud": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
     }
   }
 }

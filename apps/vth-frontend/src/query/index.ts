@@ -18,8 +18,8 @@ query getHomePage {
   homepage {
     data {
       attributes {
-        Title
-        Content
+        Titel
+        Inhoud
       }
     }
   }
