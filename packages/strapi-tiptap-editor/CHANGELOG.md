@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.4.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.3.1...@frameless/strapi-tiptap-editor@1.4.0) (2023-08-30)
+
+
+### Features
+
+* **tiptap-editor:** enable to display free | gratis when the price 0 ([6e46f8b](https://github.com/frameless/strapi/commit/6e46f8bd72377983f9a81ad94d1b02edf47ee90b))
+
 ## @frameless/strapi-tiptap-editor [1.3.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.3.0...@frameless/strapi-tiptap-editor@1.3.1) (2023-08-24)
 
 
