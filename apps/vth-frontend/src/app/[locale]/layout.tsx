@@ -135,7 +135,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
             <PageHeader>
               <div className="utrecht-header">
                 <Logo locale={locale} />
-                <div className="utrecht-nav__content">
+                <div className="utrecht-nav__content" hidden>
                   <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
                 </div>
               </div>
