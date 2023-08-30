@@ -1,6 +1,9 @@
 {
+  "common.words.freeProduct": "gratis",
   "components.languagesList.placeholder": "Selecteer een taal",
   "components.languagesList.removeLanguage": "Taal verwijderen",
+  "components.priceList.placeholder": "Selecteer prijs",
+  "components.priceList.option": "{label}: {value}",
   "languages.dutch": "Nederlands",
   "languages.english": "Engels",
   "languages.arabic": "Arabisch"

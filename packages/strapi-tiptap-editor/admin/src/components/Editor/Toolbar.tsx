@@ -194,7 +194,15 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
             </Box>
             {productPrice && productPrice?.price?.length > 0 && productPrice.title && (
               <Box className={classnames('button-group')}>
-                <PriceList editor={editor} productPrice={productPrice} />
+                <PriceList
+                  value={editor.isActive('reactWidget') ? editor.getAttributes('reactWidget').id : ''}
+                  onPriceChange={(price) => {
+                    if (price && editor) {
+                      editor.chain().focus().insertReactComponent(price).run();
+                    }
+                  }}
+                  productPrice={productPrice}
+                />
               </Box>
             )}
             {settings.other.language && (
