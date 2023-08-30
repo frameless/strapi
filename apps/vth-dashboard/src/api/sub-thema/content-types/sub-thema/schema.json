@@ -4,7 +4,8 @@
   "info": {
     "singularName": "sub-thema",
     "pluralName": "sub-themas",
-    "displayName": "Sub-thema"
+    "displayName": "Sub-thema",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,14 @@
   "attributes": {
     "Titel": {
       "type": "string"
+    },
+    "Inhoud": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "minLength": 2
     }
   }
 }
