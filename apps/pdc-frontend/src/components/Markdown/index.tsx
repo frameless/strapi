@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Heading1,
   Heading2,
@@ -24,8 +26,27 @@ import NextLink from 'next/link';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import { useTranslation } from '../../app/i18n/client';
+import { fallbackLng } from '../../app/i18n/settings';
 
-const components = ({ strapiBackendURL, priceData, locale }: any) =>
+type PriceTypes = {
+  value: string;
+  label: string;
+  currency: string;
+  id: string;
+};
+
+const components = ({
+  strapiBackendURL,
+  priceData,
+  locale,
+  freeProductLabel,
+}: {
+  strapiBackendURL: string;
+  priceData: PriceTypes[];
+  locale: string;
+  freeProductLabel: string;
+}) =>
   ({
     h1: ({ children, node }) => {
       delete node.properties?.style;
@@ -140,10 +161,13 @@ const components = ({ strapiBackendURL, priceData, locale }: any) =>
     section: ({ children, node }) => {
       if (node.properties?.dataId && priceData && priceData.length > 0) {
         const product: any = priceData.find(({ id }: any) => id === node.properties?.dataId);
-        const price = new Intl.NumberFormat(locale, {
-          style: 'currency',
-          currency: product?.currency,
-        }).format(Number(product?.value));
+        const price =
+          Number(product?.value) === 0
+            ? 'Gratis'
+            : new Intl.NumberFormat(locale, {
+                style: 'currency',
+                currency: product?.currency,
+              }).format(Number(product?.value));
 
         return <data value={price}>{price}</data>;
       }
@@ -151,11 +175,14 @@ const components = ({ strapiBackendURL, priceData, locale }: any) =>
     },
     'react-widget': ({ node }: any) => {
       if (node.properties?.id && priceData && priceData.length > 0) {
-        const product: any = priceData.find(({ id }: any) => id === node.properties?.id);
-        const price = new Intl.NumberFormat(locale, {
-          style: 'currency',
-          currency: product?.currency,
-        }).format(Number(product?.value));
+        const product = priceData.find(({ id }) => id === node.properties?.id);
+        const price =
+          Number(product?.value) === 0
+            ? freeProductLabel
+            : new Intl.NumberFormat(locale, {
+                style: 'currency',
+                currency: product?.currency,
+              }).format(Number(product?.value));
 
         return <data value={price}>{price}</data>;
       } else {
@@ -173,9 +200,15 @@ interface MarkdownProps {
 
 export const Markdown: React.FC<MarkdownProps> = ({ children, priceData, locale, strapiBackendURL }) => {
   const url = strapiBackendURL ? new URL(strapiBackendURL) : null;
+  const { t } = useTranslation(locale ?? fallbackLng, 'common');
   return (
     <ReactMarkdown
-      components={components({ priceData, locale, strapiBackendURL: url?.origin ?? '' })}
+      components={components({
+        priceData,
+        locale: locale ?? fallbackLng,
+        strapiBackendURL: url?.origin ?? '',
+        freeProductLabel: t('text.free-product'),
+      })}
       rehypePlugins={[rehypeRaw]}
     >
       {children}
