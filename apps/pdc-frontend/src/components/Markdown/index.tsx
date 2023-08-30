@@ -158,21 +158,6 @@ const components = ({
         return null;
       }
     },
-    section: ({ children, node }) => {
-      if (node.properties?.dataId && priceData && priceData.length > 0) {
-        const product: any = priceData.find(({ id }: any) => id === node.properties?.dataId);
-        const price =
-          Number(product?.value) === 0
-            ? 'Gratis'
-            : new Intl.NumberFormat(locale, {
-                style: 'currency',
-                currency: product?.currency,
-              }).format(Number(product?.value));
-
-        return <data value={price}>{price}</data>;
-      }
-      return <section {...node.properties}>{children}</section>;
-    },
     'react-widget': ({ node }: any) => {
       if (node.properties?.id && priceData && priceData.length > 0) {
         const product = priceData.find(({ id }) => id === node.properties?.id);
