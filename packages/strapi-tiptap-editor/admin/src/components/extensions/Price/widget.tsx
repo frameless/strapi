@@ -1,7 +1,8 @@
 import { NodeViewWrapper } from '@tiptap/react';
 import React from 'react';
+import { useIntl } from 'react-intl';
 import ProductPriceContext from '../../../context/productPrice/context';
-import { formatCurrency } from '../../../utils/formateCurrency';
+import { getPriceValue } from '../../../utils';
 
 interface Props {
   node: {
@@ -14,14 +15,14 @@ interface Props {
 export default function Widget(props: Props) {
   const { busy, productPrice } = React.useContext(ProductPriceContext);
   const price = productPrice && productPrice.price?.find((price) => Number(price?.id) === Number(props.node.attrs.id));
+  const { formatMessage } = useIntl();
 
   if (busy) return null;
-
   return (
     <NodeViewWrapper className="utrecht-price-widget" as="span" contentEditable={false}>
       {price && (
         <span draggable contentEditable={false} data-drag-handle="" id={price?.id}>
-          {formatCurrency(price)}
+          {formatMessage({ id: getPriceValue(price, 'common.words.freeProduct') })}
         </span>
       )}
     </NodeViewWrapper>
