@@ -92,6 +92,12 @@
       },
       "type": "string",
       "required": true
+    },
+    "subcategories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subcategory.subcategory",
+      "mappedBy": "products"
     }
   }
 }
