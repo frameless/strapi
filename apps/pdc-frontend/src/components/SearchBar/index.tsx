@@ -24,7 +24,7 @@ export interface SearchBarProps {
 }
 
 const itemToString = (item: any) => {
-  return item ? item.text || item.title : '';
+  return item ? item.text || item.titleRaw : '';
 };
 
 export const SearchBar: React.FC<SearchBarProps> = ({
@@ -95,18 +95,15 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           itemToString={itemToString}
           renderOptions={(option) => {
             if (option.type === 'page') {
-              return (
-                <UtrechtLink external href={option.url}>
-                  {option.title}
-                </UtrechtLink>
-              );
+              return <UtrechtLink external href={option.url} dangerouslySetInnerHTML={{ __html: option.title }} />;
             }
-
             return (
               option?.text && (
-                <Link className={classNames('utrecht-link', 'utrecht-link--external')} href={`/search/${option?.text}`}>
-                  {option?.text}
-                </Link>
+                <Link
+                  className={classNames('utrecht-link', 'utrecht-link--external')}
+                  href={`/search/${option?.text}`}
+                  dangerouslySetInnerHTML={{ __html: option?.text }}
+                />
               )
             );
           }}
