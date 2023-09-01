@@ -22,6 +22,11 @@
       "type": "string",
       "required": true,
       "minLength": 2
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::thema.thema"
     }
   }
 }
