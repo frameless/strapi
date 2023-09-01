@@ -1,7 +1,7 @@
 {
   "collectionName": "components_components_metadata",
   "info": {
-    "displayName": "Private Metadata Attributes",
+    "displayName": "Metadata Attributes",
     "description": ""
   },
   "options": {},
@@ -17,12 +17,6 @@
       "enum": ["ja", "nee"],
       "private": true
     },
-    "linkedEForm": {
-      "type": "enumeration",
-      "enum": ["ja", "nee"],
-      "private": true,
-      "required": true
-    },
     "contact": {
       "type": "component",
       "repeatable": true,
@@ -30,15 +24,15 @@
       "private": true,
       "required": true
     },
-    "eFormURL": {
-      "type": "string",
-      "unique": true,
-      "required": false,
-      "private": true
-    },
     "identificationMethod": {
-      "type": "enumeration",
-      "enum": ["digid", "eherkenning", "eidas"]
+      "type": "component",
+      "repeatable": true,
+      "component": "components.identification-method"
+    },
+    "eForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.e-form"
     }
   }
 }
