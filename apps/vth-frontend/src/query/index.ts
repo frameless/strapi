@@ -18,15 +18,15 @@ query getHomePage {
   homepage {
     data {
       attributes {
-        Titel
-        Inhoud
+        title
+        content
       }
     }
   }
   themas {
     data {
       attributes {
-        Titel,
+        title,
         slug
       }
     }
@@ -39,8 +39,8 @@ query GET_THEMA($slug: String) {
     data {
       id
       attributes {
-        Titel
-        Inhoud
+        title
+        content
       }
     }
   }
