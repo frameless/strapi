@@ -34,8 +34,8 @@ const Home = async ({ params: { locale } }: { params: any }) => {
     variables: { locale: locale },
   });
 
-  const { title, content } = data.homepage.data.attributes;
-  const themas = data.themas.data;
+  const { title, content } = data?.homepage?.data?.attributes;
+  const themas = data?.themas?.data;
 
   return (
     <>
