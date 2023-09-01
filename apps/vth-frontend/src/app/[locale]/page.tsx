@@ -43,15 +43,15 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       <Markdown>{content}</Markdown>
       <Heading2>Themas</Heading2>
       <UnorderedList>
-        {' '}
-        {themas.map((thema: any) => {
-          const { Titel, slug } = thema.attributes;
-          return (
-            <UnorderedListItem key={`thema-${slug}`}>
-              <Link href={`/themas/${slug}`}>{Titel}</Link>
-            </UnorderedListItem>
-          );
-        })}
+        {themas &&
+          themas.map((thema: any) => {
+            const { title, slug } = thema.attributes;
+            return (
+              <UnorderedListItem key={`thema-${slug}`}>
+                <Link href={`/themas/${slug}`}>{title}</Link>
+              </UnorderedListItem>
+            );
+          })}
       </UnorderedList>
     </>
   );

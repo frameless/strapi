@@ -24,7 +24,11 @@ export default () => ({
     config: {
       shouldUpdateSlug: true,
       contentTypes: {
-        product: {
+        thema: {
+          field: 'slug',
+          references: 'title',
+        },
+        'thema-content': {
           field: 'slug',
           references: 'title',
         },

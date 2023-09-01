@@ -35,7 +35,7 @@ const Thema = async ({ params: { locale, slug } }: Params) => {
   return (
     <>
       <Heading1>{title}</Heading1>
-      <Markdown>{content}</Markdown>
+      <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
     </>
   );
 };
