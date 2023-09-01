@@ -1,7 +1,18 @@
+const UtrechtLogo = require('./extensions/logo.svg');
+
 const config = {
   locales: ['nl', 'en'],
   notifications: {
     releases: false,
+  },
+  auth: {
+    logo: UtrechtLogo,
+  },
+  head: {
+    favicon: './extensions/favicon.ico',
+  },
+  menu: {
+    logo: UtrechtLogo,
   },
   translations: {
     en: {
