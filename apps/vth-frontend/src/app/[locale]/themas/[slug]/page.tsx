@@ -30,12 +30,12 @@ const Thema = async ({ params: { locale, slug } }: Params) => {
     variables: { slug: slug, locale: locale },
   });
 
-  const { Titel, Inhoud } = data.themas.data[0].attributes;
+  const { title, content } = data.themas.data[0].attributes;
 
   return (
     <>
-      <Heading1>{Titel}</Heading1>
-      <Markdown>{Inhoud}</Markdown>
+      <Heading1>{title}</Heading1>
+      <Markdown>{content}</Markdown>
     </>
   );
 };

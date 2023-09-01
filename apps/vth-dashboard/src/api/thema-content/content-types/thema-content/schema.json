@@ -12,10 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Titel": {
+    "title": {
       "type": "string"
     },
-    "Inhoud": {
+    "content": {
       "type": "richtext"
     },
     "slug": {

@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Titel": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Inhoud": {
+    "content": {
       "type": "richtext"
     },
     "slug": {

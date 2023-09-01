@@ -12,12 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Titel": {
+    "title": {
       "type": "string",
       "required": true,
       "default": "Toezicht en Handhaving"
     },
-    "Inhoud": {
+    "content": {
       "type": "richtext"
     }
   }
