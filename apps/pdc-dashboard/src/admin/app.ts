@@ -1,3 +1,4 @@
+const UtrechtFavicon = require('./extensions/favicon.ico');
 const UtrechtLogo = require('./extensions/logo.svg');
 
 const config = {
@@ -9,7 +10,7 @@ const config = {
     logo: UtrechtLogo,
   },
   head: {
-    favicon: './extensions/favicon.ico',
+    favicon: UtrechtFavicon,
   },
   menu: {
     logo: UtrechtLogo,
