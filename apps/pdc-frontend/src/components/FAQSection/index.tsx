@@ -1,6 +1,5 @@
-import { Heading2 } from '@utrecht/component-library-react';
 import React from 'react';
-import { AccordionProvider } from '@/components';
+import { AccordionProvider, Heading2 } from '@/components';
 import { Markdown } from '../Markdown';
 
 type AccordionType = {

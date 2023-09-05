@@ -1,8 +1,8 @@
 'use client';
 
-import { Button, Heading1, Paragraph } from '@utrecht/component-library-react/dist/css-module';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Button, Heading1, Paragraph } from '@/components';
 import { useTranslation } from '../i18n/client';
 import { fallbackLng } from '../i18n/settings';
 interface ErrorPageProps {

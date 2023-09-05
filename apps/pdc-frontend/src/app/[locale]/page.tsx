@@ -1,5 +1,5 @@
-import { Heading1, Heading2 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
+import { Heading1, Heading2 } from '@/components';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
 import { TopTask, TopTaskIconsTypes } from '@/components/Toptask';

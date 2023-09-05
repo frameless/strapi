@@ -1,4 +1,3 @@
-import { ButtonLink, Heading, Heading1, Paragraph, SpotlightSection } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import { cookies, draftMode } from 'next/headers';
 import Image from 'next/image';
@@ -8,6 +7,11 @@ import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
 import {
   AccordionProvider,
+  ButtonLink,
+  Heading,
+  Heading1,
+  Paragraph,
+  SpotlightSection,
   UtrechtDigidLogo,
   UtrechtEherkenningLogo,
   UtrechtEidasLogo,

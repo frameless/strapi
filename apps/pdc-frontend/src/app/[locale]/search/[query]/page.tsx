@@ -1,6 +1,6 @@
-import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { Heading1 } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { useTranslation } from '../../../i18n/index';
 import { getSuggestedSearch } from '../actions';

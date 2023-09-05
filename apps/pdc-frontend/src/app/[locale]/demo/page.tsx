@@ -1,5 +1,5 @@
-import { Heading1, Paragraph } from '@utrecht/component-library-react';
 import { VisualizationSpec } from 'react-vega';
+import { Heading1, Paragraph } from '@/components';
 import { Markdown } from '@/components/Markdown';
 import { VegaVisualisation } from '@/components/VegaVisualisation';
 import { GET_VISUALISATIES } from '@/query';

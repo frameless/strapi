@@ -1,5 +1,11 @@
 'use client';
 
+import isAbsoluteUrl from 'is-absolute-url';
+import Image from 'next/image';
+import NextLink from 'next/link';
+import React from 'react';
+import ReactMarkdown, { Components } from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import {
   Heading1,
   Heading2,
@@ -19,13 +25,7 @@ import {
   TableRow,
   UnorderedList,
   UnorderedListItem,
-} from '@utrecht/component-library-react';
-import isAbsoluteUrl from 'is-absolute-url';
-import Image from 'next/image';
-import NextLink from 'next/link';
-import React from 'react';
-import ReactMarkdown, { Components } from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
+} from '@/components';
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
 

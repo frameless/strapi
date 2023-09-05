@@ -1,9 +1,9 @@
 'use client';
 
-import { Button } from '@utrecht/component-library-react';
 import classNames from 'classnames/bind';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Button } from '@/components';
 import styles from './index.module.scss';
 
 const css = classNames.bind(styles);

@@ -1,6 +1,6 @@
-import { Heading1, HeadingGroup, Paragraph } from '@utrecht/component-library-react';
 import type { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
+import { Heading1, HeadingGroup, Paragraph } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
