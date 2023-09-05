@@ -1,5 +1,5 @@
-import { Alert, ButtonLink, Paragraph } from '@utrecht/component-library-react';
 import React from 'react';
+import { Alert, ButtonLink, Paragraph } from '@/components';
 
 type LinkTypes = {
   href: string;

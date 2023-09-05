@@ -1,8 +1,8 @@
 'use client';
-import { Button, Textbox, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
 import clsx from 'clsx';
 import Downshift, { DownshiftProps } from 'downshift';
 import React from 'react';
+import { Button, Textbox, UnorderedList, UnorderedListItem } from '@/components';
 
 type InputTypes = {
   name?: string;

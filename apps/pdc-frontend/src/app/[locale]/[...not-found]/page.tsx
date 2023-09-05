@@ -1,4 +1,4 @@
-import { Heading1 } from '@utrecht/component-library-react/dist/css-module';
+import { Heading1 } from '@/components';
 import { Markdown } from '@/components/Markdown';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';

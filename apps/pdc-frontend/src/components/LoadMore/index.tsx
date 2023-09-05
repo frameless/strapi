@@ -1,8 +1,9 @@
 'use client';
-import { Button } from '@utrecht/component-library-react/dist/css-module';
+
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 import { useTranslation } from '@/app/i18n/client';
+import { Button } from '@/components';
 import styles from './index.module.scss';
 interface LoadMoreProps {
   disabled?: boolean;

@@ -1,5 +1,5 @@
-import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
+import { Heading1 } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
