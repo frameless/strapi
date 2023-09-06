@@ -41,6 +41,9 @@
       "relation": "manyToOne",
       "target": "api::thema-content.thema-content",
       "inversedBy": "parents"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

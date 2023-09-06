@@ -28,6 +28,9 @@
       "relation": "oneToMany",
       "target": "api::thema.thema",
       "mappedBy": "child_contents"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
