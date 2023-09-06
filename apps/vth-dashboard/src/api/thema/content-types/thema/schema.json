@@ -24,10 +24,23 @@
       "unique": true,
       "required": true
     },
-    "parent": {
+    "parents": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::thema.thema"
+      "relation": "oneToMany",
+      "target": "api::thema.thema",
+      "mappedBy": "child_themas"
+    },
+    "child_themas": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::thema.thema",
+      "inversedBy": "parents"
+    },
+    "child_contents": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::thema-content.thema-content",
+      "inversedBy": "parents"
     }
   }
 }
