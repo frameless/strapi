@@ -23,11 +23,15 @@ query getHomePage {
       }
     }
   }
-  themas {
+  themas(filters: { parents: { id: null } }) {
     data {
+      id
       attributes {
-        title,
-        slug
+        title
+        content
+        parents {
+          data { id }
+        }
       }
     }
   }
