@@ -38,8 +38,8 @@ const Thema = async ({ params: { locale, slug } }: Params) => {
       <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
       <Heading2>Themas</Heading2>
       <UnorderedList>
-        {child_themas &&
-          child_themas.map((thema: any) => {
+        {child_themas.data &&
+          child_themas.data.map((thema: any) => {
             const { title, slug: childSlug } = thema.attributes;
             return (
               <UnorderedListItem key={`thema-${slug}`}>
@@ -47,8 +47,8 @@ const Thema = async ({ params: { locale, slug } }: Params) => {
               </UnorderedListItem>
             );
           })}
-        {child_contents &&
-          child_contents.map((content: any) => {
+        {child_contents.data &&
+          child_contents.data.map((content: any) => {
             const { title, slug: childSlug } = content.attributes;
             return (
               <UnorderedListItem key={`thema-${slug}`}>
