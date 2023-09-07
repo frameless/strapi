@@ -1,9 +1,10 @@
 'use client';
-import clsx from 'clsx';
+
+import classnames from 'classnames/bind';
 import Link from 'next/link';
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
-import './index.style.css';
+import styles from './index.module.scss';
 
 type T = keyof typeof mappedLocales;
 const mappedLocales = { nl: 'Netherlands', en: 'English' };
@@ -16,8 +17,10 @@ interface LanguageSwitcherProps {
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
+const css = classnames.bind(styles);
+
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ items, currentLocale, loading, onClick }) => (
-  <div className="utrecht-language-switcher">
+  <div className={css('utrecht-language-switcher')}>
     {items &&
       items
         .sort((a, b) => a.locale.localeCompare(b.locale))
@@ -25,13 +28,13 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ items, curre
           loading ? (
             <LanguageSwitcherSkeleton key={locale} />
           ) : (
-            <span key={locale} className="utrecht-language-switcher_item">
+            <span key={locale} className={css('utrecht-language-switcher__item')}>
               <Link
                 href={pathname}
                 locale={locale}
                 onClick={onClick}
-                className={clsx('utrecht-link', {
-                  'utrecht-language-switcher_item--current': locale === currentLocale,
+                className={css('utrecht-language-switcher__link', 'utrecht-link', {
+                  'utrecht-language-switcher__link--current': locale === currentLocale,
                 })}
                 hrefLang={locale}
                 lang={locale}
@@ -47,12 +50,12 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ items, curre
 );
 
 export const LanguageSwitcherSkeleton = () => (
-  <div className="utrecht-language-switcher__skeleton">
+  <div className={css('utrecht-language-switcher__skeleton')}>
     <Skeleton
-      containerClassName="utrecht-language-switcher__skeleton-container"
+      containerClassName={css('utrecht-language-switcher__skeleton-container')}
       duration={1000}
       height="100%"
-      className="utrecht-language-switcher__skeleton-body"
+      className={css('utrecht-language-switcher__skeleton-body')}
     />
   </div>
 );
