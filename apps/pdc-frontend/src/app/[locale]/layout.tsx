@@ -3,20 +3,19 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Article, Page, PageContent, PageHeader, Surface } from '@/components';
+import { Page, PageContent, PageHeader, Surface } from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
 import { Footer } from '@/components/Footer';
 import { Logo } from '@/components/Logo';
+import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import { getLiveSuggestions, onSearchSubmitAction } from './search/actions';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from '../i18n/index';
 import { languages } from '../i18n/settings';
-
-const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
 
 const escapeComment = (data: any) => String(data).replace(/--/g, '-\u200B-');
 
@@ -228,9 +227,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 </nav>
               </PageHeader>
               <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
-                <Main>
-                  <Article>{children}</Article>
-                </Main>
+                <Main>{children}</Main>
               </PageContent>
               <Footer data={footerData} />
             </Page>
