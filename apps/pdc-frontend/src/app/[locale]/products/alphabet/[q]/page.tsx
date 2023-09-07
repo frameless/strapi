@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
-import { Heading1, HeadingGroup, Paragraph } from '@/components';
+import { Article, Heading1, HeadingGroup, Paragraph } from '@/components';
+import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
+import { ReactionLink } from '@/components/ReactionLink';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
@@ -66,7 +69,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   };
 }
 const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
-  const { t } = await useTranslation(locale, ['alphabet-page']);
+  const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
   const limit = 10;
   const page = 1;
   const { products: res } = await fetchAllProducts({
@@ -104,23 +107,33 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
 
   return (
     <>
-      <HeadingGroup>
-        <Heading1>{t('h1')}</Heading1>
-        <Paragraph lead>{t('lead-paragraph')}</Paragraph>
-      </HeadingGroup>
-      <ProductNavigation component="button" currentLetter={q.toLocaleUpperCase()} alphabet={alphabetAvailability} />
-      {mappingProducts(res.data) && mappingProducts(res.data).length > 0 ? (
-        <ProductListContainer
-          locale={locale}
-          total={res.meta.pagination.total}
-          initialData={mappingProducts(res.data)}
-          onReadMoreButtonClickHandler={readMoreButtonAction}
-        />
-      ) : (
-        <Paragraph style={{ paddingBlock: '1rem' }}>
-          {t('product-notfound', { letter: q.toLocaleUpperCase() })}
-        </Paragraph> //TODO build a message component
-      )}
+      <Article>
+        <HeadingGroup>
+          <Heading1>{t('h1')}</Heading1>
+          <Paragraph lead>{t('lead-paragraph')}</Paragraph>
+        </HeadingGroup>
+        <ProductNavigation component="button" currentLetter={q.toLocaleUpperCase()} alphabet={alphabetAvailability} />
+        {mappingProducts(res.data) && mappingProducts(res.data).length > 0 ? (
+          <ProductListContainer
+            locale={locale}
+            total={res.meta.pagination.total}
+            initialData={mappingProducts(res.data)}
+            onReadMoreButtonClickHandler={readMoreButtonAction}
+          />
+        ) : (
+          <Paragraph>{t('product-notfound', { letter: q.toLocaleUpperCase() })}</Paragraph>
+        )}
+      </Article>
+      <BottomBar>
+        <BottomBarItem>
+          <ReactionLink href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten">
+            {t('actions.reaction-link')}
+          </ReactionLink>
+        </BottomBarItem>
+        <BottomBarItem>
+          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+        </BottomBarItem>
+      </BottomBar>
     </>
   );
 };

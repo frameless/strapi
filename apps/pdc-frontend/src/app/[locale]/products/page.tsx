@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
-import { Heading1 } from '@/components';
+import { Article, Heading1 } from '@/components';
+import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { ProductListContainer } from '@/components/ProductListContainer';
+import { ReactionLink } from '@/components/ReactionLink';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { GET_ALL_PRODUCTS_SLUG_FETCH } from '../../../query';
@@ -63,7 +66,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const Products = async ({ params: { locale } }: { params: any }) => {
-  const { t } = await useTranslation(locale, 'products-page');
+  const { t } = await useTranslation(locale, ['products-page', 'common']);
   const limit = 10;
   const page = 1;
   const { products: res } = await fetchAllProducts({ locale, page, pageSize: limit });
@@ -84,15 +87,27 @@ const Products = async ({ params: { locale } }: { params: any }) => {
 
   return (
     <>
-      <Heading1>{t('h1')}</Heading1>
-      {mappingProducts(res.data) && mappingProducts(res.data).length > 0 && (
-        <ProductListContainer
-          locale={locale}
-          total={res.meta.pagination.total}
-          initialData={mappingProducts(res.data)}
-          onReadMoreButtonClickHandler={readMoreButtonAction}
-        />
-      )}
+      <Article>
+        <Heading1>{t('h1')}</Heading1>
+        {mappingProducts(res.data) && mappingProducts(res.data).length > 0 && (
+          <ProductListContainer
+            locale={locale}
+            total={res.meta.pagination.total}
+            initialData={mappingProducts(res.data)}
+            onReadMoreButtonClickHandler={readMoreButtonAction}
+          />
+        )}
+      </Article>
+      <BottomBar>
+        <BottomBarItem>
+          <ReactionLink href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten">
+            {t('actions.reaction-link')}
+          </ReactionLink>
+        </BottomBarItem>
+        <BottomBarItem>
+          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+        </BottomBarItem>
+      </BottomBar>
     </>
   );
 };

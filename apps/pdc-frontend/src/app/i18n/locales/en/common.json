@@ -4,7 +4,9 @@
     "button": "Turn off the preview mode"
   },
   "actions": {
-    "try-again": "Try again"
+    "try-again": "Try again",
+    "scroll-to-top": "Back to top",
+    "reaction-link": "What do you think of this page?"
   },
   "components": {
     "alphabetically-products-navigation": "Products by alphabet"
