@@ -11,4 +11,5 @@ export {
   UtrechtIconParkerenBetalen,
   UtrechtIconRijbewijs,
   UtrechtIconGrofvuil,
+  UtrechtIconArrow,
 } from '@utrecht/web-component-library-react';

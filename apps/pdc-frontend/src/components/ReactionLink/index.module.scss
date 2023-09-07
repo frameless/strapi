@@ -1,0 +1,17 @@
+.utrecht-reaction-link {
+  --utrecht-link-active-color: var(--utrecht-color-red-40);
+  --utrecht-link-color: var(--utrecht-color-red-40);
+  --utrecht-link-focus-color: var(--utrecht-color-red-40);
+  --utrecht-link-hover-color: var(--utrecht-color-red-40);
+  --utrecht-link-placeholder-color: var(--utrecht-color-red-40);
+  --utrecht-link-visited-color: var(--utrecht-color-red-40);
+  --utrecht-link-text-decoration: none;
+  --utrecht-link-hover-text-decoration-thickness: 1px;
+
+  align-items: center;
+  display: flex;
+}
+
+.utrecht-reaction-link__icon {
+  margin-inline-end: var(--utrecht-space-inline-xs);
+}
