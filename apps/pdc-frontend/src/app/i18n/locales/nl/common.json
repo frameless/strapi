@@ -4,7 +4,9 @@
     "button": "Schakel de voorbeeldmodus uit"
   },
   "actions": {
-    "try-again": "Probeer opnieuw"
+    "try-again": "Probeer opnieuw",
+    "scroll-to-top": "Naar boven",
+    "reaction-link": "Wat vindt u van deze pagina?"
   },
   "components": {
     "alphabetically-products-navigation": "Producten op alfabet"

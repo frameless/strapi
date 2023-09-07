@@ -7,6 +7,7 @@ import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
 import {
   AccordionProvider,
+  Article,
   ButtonLink,
   Heading,
   Heading1,
@@ -18,9 +19,12 @@ import {
   UtrechtIconArrow,
   UtrechtLogoButton,
 } from '@/components';
+import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { FAQSection } from '@/components/FAQSection';
 import { Markdown } from '@/components/Markdown';
 import { PreviewAlert } from '@/components/PreviewAlert';
+import { ReactionLink } from '@/components/ReactionLink';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
@@ -257,17 +261,29 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
       : null;
   return (
     <>
-      {isCurrentPreviewTokenValid && isEnabled && (
-        <PreviewAlert
-          link={{
-            href: `/api/clear-preview?slug=${locale}${slug}&default_locale=${fallbackLng}`,
-            text: t('preview-alert.button'),
-          }}
-          message={t('preview-alert.message')}
-        />
-      )}
-      <Heading1 style={{ marginBlockStart: '3rem' }}>{product?.attributes.title}</Heading1>
-      <Sections />
+      <Article>
+        {isCurrentPreviewTokenValid && isEnabled && (
+          <PreviewAlert
+            link={{
+              href: `/api/clear-preview?slug=${locale}${slug}&default_locale=${fallbackLng}`,
+              text: t('preview-alert.button'),
+            }}
+            message={t('preview-alert.message')}
+          />
+        )}
+        <Heading1>{product?.attributes.title}</Heading1>
+        <Sections />
+      </Article>
+      <BottomBar>
+        <BottomBarItem>
+          <ReactionLink href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten">
+            {t('actions.reaction-link')}
+          </ReactionLink>
+        </BottomBarItem>
+        <BottomBarItem>
+          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+        </BottomBarItem>
+      </BottomBar>
     </>
   );
 };

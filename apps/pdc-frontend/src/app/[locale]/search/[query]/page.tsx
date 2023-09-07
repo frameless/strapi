@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { Heading1 } from '@/components';
+import { Article, Heading1 } from '@/components';
+import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { ProductListContainer } from '@/components/ProductListContainer';
+import { ReactionLink } from '@/components/ReactionLink';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { useTranslation } from '../../../i18n/index';
 import { getSuggestedSearch } from '../actions';
 
@@ -39,7 +42,7 @@ const mappingResults = (data: any) => {
 };
 
 const Search = async ({ params: { locale, query } }: SearchProps) => {
-  const { t } = await useTranslation(locale, 'search-page');
+  const { t } = await useTranslation(locale, ['search-page', 'common']);
   const searchResults = await getSuggestedSearch(locale, query);
 
   if (searchResults && searchResults.hits && searchResults.hits.length === 0) {
@@ -63,14 +66,25 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
 
   return (
     <>
-      <Heading1 style={{ marginBlockEnd: '3rem' }}>{t('h1', { query })}</Heading1>{' '}
-      {/*TODO: create a pageTitle component*/}
-      <ProductListContainer
-        locale={locale}
-        total={searchResults.total}
-        initialData={results}
-        onReadMoreButtonClickHandler={readMoreButtonAction}
-      />
+      <Article>
+        <Heading1>{t('h1', { query })}</Heading1>
+        <ProductListContainer
+          locale={locale}
+          total={searchResults.total}
+          initialData={results}
+          onReadMoreButtonClickHandler={readMoreButtonAction}
+        />
+      </Article>
+      <BottomBar>
+        <BottomBarItem>
+          <ReactionLink href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten">
+            {t('actions.reaction-link')}
+          </ReactionLink>
+        </BottomBarItem>
+        <BottomBarItem>
+          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+        </BottomBarItem>
+      </BottomBar>
     </>
   );
 };
