@@ -19,6 +19,9 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

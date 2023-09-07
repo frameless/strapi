@@ -24,10 +24,26 @@
       "unique": true,
       "required": true
     },
-    "parent": {
+    "parents": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::thema.thema"
+      "relation": "manyToMany",
+      "target": "api::thema.thema",
+      "mappedBy": "child_themas"
+    },
+    "child_themas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::thema.thema",
+      "inversedBy": "parents"
+    },
+    "child_contents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::thema-content.thema-content",
+      "inversedBy": "parents"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
