@@ -23,14 +23,14 @@
       "required": true,
       "minLength": 2
     },
-    "parents": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::thema.thema",
-      "mappedBy": "child_contents"
-    },
     "description": {
       "type": "text"
+    },
+    "parents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::thema.thema",
+      "mappedBy": "child_contents"
     }
   }
 }

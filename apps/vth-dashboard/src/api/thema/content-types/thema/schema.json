@@ -26,19 +26,19 @@
     },
     "parents": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::thema.thema",
       "mappedBy": "child_themas"
     },
     "child_themas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::thema.thema",
       "inversedBy": "parents"
     },
     "child_contents": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::thema-content.thema-content",
       "inversedBy": "parents"
     },

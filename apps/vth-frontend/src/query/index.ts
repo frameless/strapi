@@ -28,23 +28,28 @@ query getHomePage {
       id
       attributes {
         title
-        content
-        parents {
-          data { id }
-        }
+        slug
       }
     }
   }
 }`);
 
-export const GET_THEMA = gql(`
-query GET_THEMA($slug: String) {
-  themas(filters: { slug: { eq: $slug }}) {
-    data {
-      id
-      attributes {
-        title
-        content
+export const GET_THEMA_BY_SLUG = gql(`
+query GET_THEMA_BY_SLUG($slug: String) {
+  findSlug(modelName:"thema", slug: $slug){
+    ... on ThemaEntityResponse{
+      data{
+        id
+        attributes{
+          title
+          content
+          child_themas {
+            data { attributes { title, slug }}
+          }
+          child_contents {
+            data { attributes { title, slug }}
+          }
+        }
       }
     }
   }
