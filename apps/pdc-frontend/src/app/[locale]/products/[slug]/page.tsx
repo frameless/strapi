@@ -10,6 +10,7 @@ import {
   Article,
   ButtonLink,
   Heading,
+  PageTitle,
   Paragraph,
   SpotlightSection,
   UtrechtDigidLogo,
@@ -22,7 +23,6 @@ import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
 import { Markdown } from '@/components/Markdown';
-import { PageTitle } from '@/components/PageTitle';
 import { PreviewAlert } from '@/components/PreviewAlert';
 import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';

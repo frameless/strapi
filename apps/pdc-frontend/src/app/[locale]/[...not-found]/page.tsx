@@ -1,7 +1,7 @@
 import { useTranslation } from '@/app/i18n';
+import { PageTitle } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { Markdown } from '@/components/Markdown';
-import { PageTitle } from '@/components/PageTitle';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';

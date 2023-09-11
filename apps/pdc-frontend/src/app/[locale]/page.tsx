@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
-import { Heading2 } from '@/components';
+import { Heading2, PageTitle } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
-import { PageTitle } from '@/components/PageTitle';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
 import { ReactionLink } from '@/components/ReactionLink';

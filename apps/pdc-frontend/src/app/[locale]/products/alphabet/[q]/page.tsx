@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
-import { Article, Paragraph } from '@/components';
+import { Article, PageTitle, Paragraph } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
-import { PageTitle } from '@/components/PageTitle';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
