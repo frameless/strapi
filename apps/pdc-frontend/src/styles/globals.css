@@ -53,10 +53,6 @@ a {
   width: 100%;
 }
 
-.utrecht-topnav {
-  margin-block-start: 20px;
-}
-
 .utrecht-spotlight-section > :first-child {
   --utrecht-space-around: 0;
 }
