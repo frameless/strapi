@@ -10,7 +10,7 @@ import {
   Article,
   ButtonLink,
   Heading,
-  Heading1,
+  PageTitle,
   Paragraph,
   SpotlightSection,
   UtrechtDigidLogo,
@@ -291,7 +291,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
             message={t('preview-alert.message')}
           />
         )}
-        <Heading1>{product?.attributes.title}</Heading1>
+        <PageTitle>{product?.attributes.title}</PageTitle>
         <Sections />
       </Article>
       <BottomBar>

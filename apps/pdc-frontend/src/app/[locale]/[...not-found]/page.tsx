@@ -1,5 +1,5 @@
 import { useTranslation } from '@/app/i18n';
-import { Heading1 } from '@/components';
+import { PageTitle } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { Markdown } from '@/components/Markdown';
 import { GET_NOT_FOUND_PAGE } from '@/query';
@@ -25,7 +25,7 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
           },
         ]}
       />
-      <Heading1>{data?.notFoundPage?.data?.attributes?.title}</Heading1>
+      <PageTitle>{data?.notFoundPage?.data?.attributes?.title}</PageTitle>
       <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
     </div>
   );

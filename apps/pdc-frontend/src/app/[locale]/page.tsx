@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Heading1, Heading2 } from '@/components';
+import { Heading2, PageTitle } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductNavigation } from '@/components/ProductNavigation';
@@ -101,7 +101,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           },
         ]}
       />
-      <Heading1>{t('h1')}</Heading1>
+      <PageTitle>{t('h1')}</PageTitle>
       {/* TODO: Create a responsive layout component*/}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', boxSizing: 'border-box' }}>
         <div style={{ width: '75%' }}>

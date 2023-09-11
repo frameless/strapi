@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Article, Heading1 } from '@/components';
+import { Article, PageTitle } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
@@ -107,7 +107,7 @@ const Products = async ({ params: { locale } }: { params: any }) => {
         ]}
       />
       <Article>
-        <Heading1>{t('h1')}</Heading1>
+        <PageTitle>{t('h1')}</PageTitle>
         {mappingProducts(res.data) && mappingProducts(res.data).length > 0 && (
           <ProductListContainer
             locale={locale}
