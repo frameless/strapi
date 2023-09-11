@@ -20,6 +20,7 @@ import {
   UtrechtLogoButton,
 } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
+import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
 import { Markdown } from '@/components/Markdown';
 import { PreviewAlert } from '@/components/PreviewAlert';
@@ -261,6 +262,25 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
       : null;
   return (
     <>
+      <Breadcrumbs
+        links={[
+          {
+            href: 'https://www.utrecht.nl/',
+            label: t('components.breadcrumbs.label.home'),
+            current: false,
+          },
+          {
+            href: '/',
+            label: t('components.breadcrumbs.label.online-loket'),
+            current: false,
+          },
+          {
+            href: '/products',
+            label: t('components.breadcrumbs.label.products'),
+            current: true,
+          },
+        ]}
+      />
       <Article>
         {isCurrentPreviewTokenValid && isEnabled && (
           <PreviewAlert

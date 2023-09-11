@@ -9,7 +9,17 @@
     "reaction-link": "What do you think of this page?"
   },
   "components": {
-    "alphabetically-products-navigation": "Products by alphabet"
+    "alphabetically-products-navigation": "Products by alphabet",
+    "breadcrumbs": {
+      "label": {
+        "home": "Home",
+        "online-loket": "Online portal",
+        "products": "Products",
+        "alphabet": "Alphabet",
+        "search": "Search",
+        "search-tips": "Search tips"
+      }
+    }
   },
   "website-setting": {
     "website-name": "Municipality of Utrecht"

@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { useTranslation } from '@/app/i18n';
 import { Heading1 } from '@/components';
+import { Breadcrumbs } from '@/components/Breadcrumb';
 import { Markdown } from '@/components/Markdown';
 import { GET_SEARCH_TIP_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
@@ -34,7 +36,7 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
 
 const SearchTips = async ({ params: { locale, query } }: any) => {
   const data = await getSearchTipsPage(locale);
-
+  const { t } = await useTranslation(locale, ['common']);
   if (!data?.searchTip?.data || data?.searchTip?.data === null) {
     notFound();
   }
@@ -43,6 +45,20 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
   const body = data?.searchTip?.data?.attributes?.body;
   return (
     <>
+      <Breadcrumbs
+        links={[
+          {
+            href: 'https://www.utrecht.nl/',
+            label: t('components.breadcrumbs.label.home'),
+            current: false,
+          },
+          {
+            href: `/search/tips/${query}`,
+            label: t('components.breadcrumbs.label.search-tips'),
+            current: true,
+          },
+        ]}
+      />
       <Heading1>{`${title} "${query}"`}</Heading1>
       <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{body}</Markdown>
     </>

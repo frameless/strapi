@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { Article, Heading1 } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
+import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
@@ -66,6 +67,20 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
 
   return (
     <>
+      <Breadcrumbs
+        links={[
+          {
+            href: 'https://www.utrecht.nl/',
+            label: t('components.breadcrumbs.label.home'),
+            current: false,
+          },
+          {
+            href: `/search/${query}`,
+            label: t('components.breadcrumbs.label.search'),
+            current: true,
+          },
+        ]}
+      />
       <Article>
         <Heading1>{t('h1', { query })}</Heading1>
         <ProductListContainer

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Article, Heading1 } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
+import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
@@ -8,7 +9,6 @@ import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { GET_ALL_PRODUCTS_SLUG_FETCH } from '../../../query';
 import { useTranslation } from '../../i18n';
-
 export interface Fields {
   title: string;
   body: string;
@@ -87,6 +87,25 @@ const Products = async ({ params: { locale } }: { params: any }) => {
 
   return (
     <>
+      <Breadcrumbs
+        links={[
+          {
+            href: 'https://www.utrecht.nl/',
+            label: t('components.breadcrumbs.label.home'),
+            current: false,
+          },
+          {
+            href: '/',
+            label: t('components.breadcrumbs.label.online-loket'),
+            current: false,
+          },
+          {
+            href: '/products',
+            label: t('components.breadcrumbs.label.products'),
+            current: true,
+          },
+        ]}
+      />
       <Article>
         <Heading1>{t('h1')}</Heading1>
         {mappingProducts(res.data) && mappingProducts(res.data).length > 0 && (
