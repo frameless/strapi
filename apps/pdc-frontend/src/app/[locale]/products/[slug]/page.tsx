@@ -10,7 +10,6 @@ import {
   Article,
   ButtonLink,
   Heading,
-  Heading1,
   Paragraph,
   SpotlightSection,
   UtrechtDigidLogo,
@@ -23,6 +22,7 @@ import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
 import { Markdown } from '@/components/Markdown';
+import { PageTitle } from '@/components/PageTitle';
 import { PreviewAlert } from '@/components/PreviewAlert';
 import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
@@ -291,7 +291,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
             message={t('preview-alert.message')}
           />
         )}
-        <Heading1>{product?.attributes.title}</Heading1>
+        <PageTitle>{product?.attributes.title}</PageTitle>
         <Sections />
       </Article>
       <BottomBar>

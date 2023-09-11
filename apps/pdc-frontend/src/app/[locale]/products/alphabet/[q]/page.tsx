@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
-import { Article, Heading1, HeadingGroup, Paragraph } from '@/components';
+import { Article, Paragraph } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
+import { PageTitle } from '@/components/PageTitle';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
@@ -133,10 +134,8 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         ]}
       />
       <Article>
-        <HeadingGroup>
-          <Heading1>{t('h1')}</Heading1>
-          <Paragraph lead>{t('lead-paragraph')}</Paragraph>
-        </HeadingGroup>
+        <PageTitle>{t('h1')}</PageTitle>
+        <Paragraph lead>{t('lead-paragraph')}</Paragraph>
         <ProductNavigation component="button" currentLetter={q.toLocaleUpperCase()} alphabet={alphabetAvailability} />
         {mappingProducts(res.data) && mappingProducts(res.data).length > 0 ? (
           <ProductListContainer

@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { Article, Heading1 } from '@/components';
+import { Article } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
+import { PageTitle } from '@/components/PageTitle';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
@@ -82,7 +83,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
         ]}
       />
       <Article>
-        <Heading1>{t('h1', { query })}</Heading1>
+        <PageTitle>{t('h1', { query })}</PageTitle>
         <ProductListContainer
           locale={locale}
           total={searchResults.total}
