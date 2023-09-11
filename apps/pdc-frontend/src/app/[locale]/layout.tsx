@@ -196,36 +196,36 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                     />
                   </div>
                 </div>
-                <nav className="utrecht-topnav">
-                  <ul className="utrecht-topnav__list">
-                    <li className="utrecht-topnav__item">
-                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/wonen-en-leven">
-                        Wonen en leven
-                      </a>
-                    </li>
-                    <li className="utrecht-topnav__item">
-                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/zorg-en-onderwijs">
-                        Zorg en onderwijs
-                      </a>
-                    </li>
-                    <li className="utrecht-topnav__item">
-                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/werk-en-inkomen">
-                        Werk en inkomen
-                      </a>
-                    </li>
-                    <li className="utrecht-topnav__item">
-                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/ondernemen">
-                        Ondernemen
-                      </a>
-                    </li>
-                    <li className="utrecht-topnav__item">
-                      <a className="utrecht-topnav__link" href="https://www.utrecht.nl/bestuur-en-organisatie">
-                        Bestuur en organisatie
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
               </PageHeader>
+              <nav className="utrecht-topnav">
+                <ul className="utrecht-topnav__list">
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/wonen-en-leven">
+                      Wonen en leven
+                    </a>
+                  </li>
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/zorg-en-onderwijs">
+                      Zorg en onderwijs
+                    </a>
+                  </li>
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/werk-en-inkomen">
+                      Werk en inkomen
+                    </a>
+                  </li>
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/ondernemen">
+                      Ondernemen
+                    </a>
+                  </li>
+                  <li className="utrecht-topnav__item">
+                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/bestuur-en-organisatie">
+                      Bestuur en organisatie
+                    </a>
+                  </li>
+                </ul>
+              </nav>
               <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
                 <Main>{children}</Main>
               </PageContent>
