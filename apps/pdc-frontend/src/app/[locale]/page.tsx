@@ -1,14 +1,7 @@
 import { Metadata } from 'next';
-import {
-  ButtonLink,
-  Heading1,
-  Heading2,
-  UtrechtDigidLogo,
-  UtrechtEherkenningLogo,
-  UtrechtIconArrow,
-  UtrechtLogoButton,
-} from '@/components';
+import { Heading1, Heading2 } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
+import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
 import { ReactionLink } from '@/components/ReactionLink';
@@ -94,47 +87,30 @@ const Home = async ({ params: { locale } }: { params: any }) => {
 
   return (
     <>
+      <Breadcrumbs
+        links={[
+          {
+            href: 'https://www.utrecht.nl/',
+            label: t('components.breadcrumbs.label.home'),
+            current: false,
+          },
+          {
+            href: '/',
+            label: t('components.breadcrumbs.label.online-loket'),
+            current: true,
+          },
+        ]}
+      />
       <Heading1>{t('h1')}</Heading1>
       {/* TODO: Create a responsive layout component*/}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', boxSizing: 'border-box' }}>
-        <div style={{ width: '71%' }}>
+        <div style={{ width: '75%' }}>
           <section>
             <TopTask data={toptask} />
           </section>
           <section>
             <Heading2>{t('components.alphabetically-products-navigation')}</Heading2>
             <ProductNavigation alphabet={alphabetAvailability} component="link" pathname="products/alphabet" />
-          </section>
-        </div>
-        <div style={{ width: '28%' }}>
-          <section>
-            <Heading2>MIJN LOKET</Heading2>
-            <p>
-              <UtrechtLogoButton>
-                <UtrechtDigidLogo />
-                <ButtonLink
-                  appearance="primary-action-button"
-                  href="https://pki.utrecht.nl/Loket/login/initLoginAction.do?forward=%2Flogin%2FloginForwardDAction.do&failedForward=%2Flogin%2FloginForwardFailedDAction.do&ltype=1"
-                  aria-label="Inloggen DigiD"
-                >
-                  Inloggen DigiD <UtrechtIconArrow />
-                </ButtonLink>
-              </UtrechtLogoButton>
-            </p>
-            <p>
-              <UtrechtLogoButton>
-                <UtrechtEherkenningLogo />
-                <ButtonLink
-                  appearance="primary-action-button"
-                  href="https://pki.utrecht.nl/Loket/login/initLoginAction.do?forward=%2Flogin%2FloginForwardEAction.do&failedForward=%2Flogin%2FloginForwardFailedEAction.do&ltype=2"
-                  aria-label="Inloggen eHerkenning"
-                  className="utrecht-button-link--eherkenning"
-                >
-                  Inloggen eHerkenning
-                  <UtrechtIconArrow />
-                </ButtonLink>
-              </UtrechtLogoButton>
-            </p>
           </section>
         </div>
       </div>

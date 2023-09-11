@@ -9,7 +9,17 @@
     "reaction-link": "Wat vindt u van deze pagina?"
   },
   "components": {
-    "alphabetically-products-navigation": "Producten op alfabet"
+    "alphabetically-products-navigation": "Producten op alfabet",
+    "breadcrumbs": {
+      "label": {
+        "home": "Home",
+        "online-loket": "Online loket",
+        "products": "Producten",
+        "alphabet": "Alfabet",
+        "search": "Zoek",
+        "search-tips": "Zoektips"
+      }
+    }
   },
   "website-setting": {
     "website-name": "Gemeente Utrecht"

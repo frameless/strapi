@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
 import { Article, Heading1, HeadingGroup, Paragraph } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
+import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
@@ -107,6 +108,30 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
 
   return (
     <>
+      <Breadcrumbs
+        links={[
+          {
+            href: 'https://www.utrecht.nl/',
+            label: t('components.breadcrumbs.label.home'),
+            current: false,
+          },
+          {
+            href: '/',
+            label: t('components.breadcrumbs.label.online-loket'),
+            current: false,
+          },
+          {
+            href: '/products',
+            label: t('components.breadcrumbs.label.products'),
+            current: false,
+          },
+          {
+            href: `/products/alphabet/${q}`,
+            label: t('components.breadcrumbs.label.alphabet'),
+            current: true,
+          },
+        ]}
+      />
       <Article>
         <HeadingGroup>
           <Heading1>{t('h1')}</Heading1>
