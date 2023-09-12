@@ -88,6 +88,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           onChange={onChange}
           items={optimisticSearchValue.value}
           input={{
+            id: 'search-input',
             ariaLabel: inputAriaLabel,
             name: 'search',
             required: true,
