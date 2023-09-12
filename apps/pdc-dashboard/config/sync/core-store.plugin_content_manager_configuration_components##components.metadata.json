@@ -1,0 +1,132 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.metadata",
+  "value": {
+    "uid": "components.metadata",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "id",
+      "defaultSortBy": "id",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "singleDigitalGateway": {
+        "edit": {
+          "label": "Het product is ook opgenomen in de Single Digital Gateway",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "singleDigitalGateway",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "attachementAdded": {
+        "edit": {
+          "label": "Product heeft een bestand als bijlage",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "attachementAdded",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contact": {
+        "edit": {
+          "label": "Contactpersoon beheer",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contact",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "identificationMethod": {
+        "edit": {
+          "label": "Identificatiemethode",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "identificationMethod",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "eForm": {
+        "edit": {
+          "label": "eForm",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "eForm",
+          "searchable": false,
+          "sortable": false
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "singleDigitalGateway", "attachementAdded"],
+      "edit": [
+        [
+          {
+            "name": "singleDigitalGateway",
+            "size": 6
+          },
+          {
+            "name": "attachementAdded",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "contact",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "identificationMethod",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "eForm",
+            "size": 12
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

@@ -1,0 +1,256 @@
+{
+  "name": "Editor",
+  "code": "strapi-editor",
+  "description": "Editors can manage and publish contents including those of other users.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::faq.faq",
+      "properties": {
+        "fields": ["faq.accordion.title", "faq.accordion.body", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::faq.faq",
+      "properties": {
+        "fields": ["faq.accordion.title", "faq.accordion.body", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::faq.faq",
+      "properties": {
+        "fields": ["faq.accordion.title", "faq.accordion.body", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::not-found-page.not-found-page",
+      "properties": {
+        "fields": ["title", "body"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::not-found-page.not-found-page",
+      "properties": {
+        "fields": ["title", "body"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::not-found-page.not-found-page",
+      "properties": {
+        "fields": ["title", "body"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::price.price",
+      "properties": {
+        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::price.price",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::price.price",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::price.price",
+      "properties": {
+        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::price.price",
+      "properties": {
+        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::product.product",
+      "properties": {
+        "fields": [
+          "title",
+          "sections",
+          "metaTags.keymatch",
+          "metaTags.title",
+          "metaTags.description",
+          "catalogiMeta.spatial.resourceIdentifier",
+          "catalogiMeta.spatial.scheme",
+          "catalogiMeta.authority.resourceIdentifier",
+          "catalogiMeta.authority.scheme",
+          "catalogiMeta.audience.type",
+          "catalogiMeta.onlineRequest.type",
+          "catalogiMeta.uniformProductName",
+          "catalogiMeta.description",
+          "slug"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::product.product",
+      "properties": {
+        "fields": [
+          "title",
+          "sections",
+          "metaTags.keymatch",
+          "metaTags.title",
+          "metaTags.description",
+          "catalogiMeta.spatial.resourceIdentifier",
+          "catalogiMeta.spatial.scheme",
+          "catalogiMeta.authority.resourceIdentifier",
+          "catalogiMeta.authority.scheme",
+          "catalogiMeta.audience.type",
+          "catalogiMeta.onlineRequest.type",
+          "catalogiMeta.uniformProductName",
+          "catalogiMeta.description",
+          "slug"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::product.product",
+      "properties": {
+        "fields": [
+          "title",
+          "sections",
+          "metaTags.keymatch",
+          "metaTags.title",
+          "metaTags.description",
+          "catalogiMeta.spatial.resourceIdentifier",
+          "catalogiMeta.spatial.scheme",
+          "catalogiMeta.authority.resourceIdentifier",
+          "catalogiMeta.authority.scheme",
+          "catalogiMeta.audience.type",
+          "catalogiMeta.onlineRequest.type",
+          "catalogiMeta.uniformProductName",
+          "catalogiMeta.description",
+          "slug"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::search-tip.search-tip",
+      "properties": {
+        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::search-tip.search-tip",
+      "properties": {
+        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::search-tip.search-tip",
+      "properties": {
+        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::visualisatie.visualisatie",
+      "properties": {
+        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::visualisatie.visualisatie",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::visualisatie.visualisatie",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::visualisatie.visualisatie",
+      "properties": {
+        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::visualisatie.visualisatie",
+      "properties": {
+        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.copy-link",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.create",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.download",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.configure-view",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    }
+  ]
+}
