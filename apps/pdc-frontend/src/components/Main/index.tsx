@@ -1,9 +1,13 @@
 import classnames from 'classnames/bind';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styles from './index.module.scss';
 
 const css = classnames.bind(styles);
 
-export const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <main className={css('utrecht-main')}>{children}</main>
+interface MainProps extends React.HTMLAttributes<HTMLElement> {}
+
+export const Main = ({ children, ...restProps }: PropsWithChildren<MainProps>) => (
+  <main className={css('utrecht-main')} {...restProps}>
+    {children}
+  </main>
 );
