@@ -19,6 +19,11 @@
         "search": "Search",
         "search-tips": "Search tips"
       }
+    },
+    "skip-link": {
+      "main": "To content",
+      "menu": "To menu",
+      "search-input": "To search field"
     }
   },
   "website-setting": {

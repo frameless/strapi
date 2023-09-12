@@ -3,7 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Page, PageContent, PageHeader, Surface } from '@/components';
+import { Page, PageContent, PageHeader, SkipLink, Surface } from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
@@ -85,7 +85,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
-  const { t } = await useTranslation(locale, 'layout');
+  const { t } = await useTranslation(locale, ['layout', 'common']);
 
   const footerData = {
     title: t('footer.title'),
@@ -181,6 +181,9 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
           <Surface>
             <Page className="utrecht-main-wrapper">
               <PageHeader>
+                <SkipLink href="#main">{t('components.skip-link.main')}</SkipLink>
+                <SkipLink href="#menu">{t('components.skip-link.menu')}</SkipLink>
+                <SkipLink href="#search-input">{t('components.skip-link.search-input')}</SkipLink>
                 <div className="utrecht-header">
                   <Logo locale={locale} />
                   <div className="utrecht-nav__content">
@@ -197,7 +200,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   </div>
                 </div>
               </PageHeader>
-              <nav className="utrecht-topnav">
+              <nav className="utrecht-topnav" id="menu">
                 <ul className="utrecht-topnav__list">
                   <li className="utrecht-topnav__item">
                     <a className="utrecht-topnav__link" href="https://www.utrecht.nl/wonen-en-leven">
@@ -227,7 +230,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 </ul>
               </nav>
               <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
-                <Main>{children}</Main>
+                <Main id="main">{children}</Main>
               </PageContent>
               <Footer data={footerData} />
             </Page>
