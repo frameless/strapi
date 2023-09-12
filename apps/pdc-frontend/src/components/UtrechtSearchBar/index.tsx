@@ -10,6 +10,7 @@ type InputTypes = {
   ariaLabel?: string;
   required?: boolean;
   spellCheck?: boolean;
+  id?: string;
 };
 
 type ButtonTypes = {
@@ -128,6 +129,7 @@ export const UtrechtSearchBar: React.FC<SearchBarProps> = ({
               {...getInputProps()}
               placeholder={input?.placeholder}
               required={input?.required}
+              id={input?.id}
               name={input?.name}
               type="search"
               aria-label={input?.ariaLabel}
