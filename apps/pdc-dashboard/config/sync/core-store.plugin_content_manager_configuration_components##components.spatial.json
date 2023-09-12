@@ -1,0 +1,72 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.spatial",
+  "value": {
+    "uid": "components.spatial",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "resourceIdentifier",
+      "defaultSortBy": "resourceIdentifier",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "resourceIdentifier": {
+        "edit": {
+          "label": "Spatial Type",
+          "description": "Lijst van gemeentenamen",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "resourceIdentifier",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "scheme": {
+        "edit": {
+          "label": "Scheme",
+          "description": "Waarden: Gemeente, Waterschap, Provincie, GGD, Koninkrijksdeel (met hoofdletter)",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "scheme",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "resourceIdentifier", "scheme"],
+      "edit": [
+        [
+          {
+            "name": "resourceIdentifier",
+            "size": 6
+          },
+          {
+            "name": "scheme",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

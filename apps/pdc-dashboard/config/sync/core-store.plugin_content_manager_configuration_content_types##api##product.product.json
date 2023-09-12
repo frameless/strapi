@@ -1,0 +1,221 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::product.product",
+  "value": {
+    "uid": "api::product.product",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "title",
+      "defaultSortBy": "title",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Pagina titel",
+          "description": "Voer de hoofdtitel in voor de inhoud van de webpagina.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "title",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "sections": {
+        "edit": {
+          "label": "sections",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "sections",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "price": {
+        "edit": {
+          "label": "kosten",
+          "description": "Een relationeel veld waarin je de kosten van de producten kunt definiëren.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "price",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "metaTags": {
+        "edit": {
+          "label": "Voeg essentiële pagina-metadata toe voor verbeterde SEO en betere deling op sociale media",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "metaTags",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "catalogiMeta": {
+        "edit": {
+          "label": "Informatie Publicatie Model Samenwerkende Catalogi 4.0",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "catalogiMeta",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "metadata": {
+        "edit": {
+          "label": "Metadata",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "metadata",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "Slug",
+          "description": "Een automatisch gegenereerde URL-vriendelijke versie van de titel voor een betere SEO en leesbaarheid.",
+          "placeholder": "",
+          "visible": true,
+          "editable": false
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "subcategories": {
+        "edit": {
+          "label": "Subcategorieën",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "subcategories",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "edit": [
+        [
+          {
+            "name": "title",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "sections",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "price",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "metaTags",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "catalogiMeta",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "metadata",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "subcategories",
+            "size": 6
+          },
+          {
+            "name": "slug",
+            "size": 6
+          }
+        ]
+      ],
+      "list": ["title", "metaTags", "price", "subcategories"]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

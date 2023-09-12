@@ -1,0 +1,72 @@
+{
+  "key": "plugin_content_manager_configuration_components::sections.passport-and-id-card-costs",
+  "value": {
+    "uid": "sections.passport-and-id-card-costs",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "application",
+      "defaultSortBy": "application",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "application": {
+        "edit": {
+          "label": "application",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "application",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "cost": {
+        "edit": {
+          "label": "cost",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "cost",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "application", "cost"],
+      "edit": [
+        [
+          {
+            "name": "application",
+            "size": 6
+          },
+          {
+            "name": "cost",
+            "size": 4
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

@@ -1,0 +1,92 @@
+{
+  "key": "plugin_content_manager_configuration_components::seo.meta",
+  "value": {
+    "uid": "seo.meta",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "title",
+      "defaultSortBy": "keymatch",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "keymatch": {
+        "edit": {
+          "label": "Meta Keywords",
+          "description": "Het richten op specifieke zoekwoorden voor een betere zichtbaarheid in zoekmachines en hogere rangschikkingen. Bijvoorbeeld, om een keymatch toe te voegen, kun je gerichte zoekwoorden opnemen in de metatags, koppen en inhoud van je webpagina's. Scheid de zoekwoorden met komma's, zoals dit: 'zoekwoord1, zoekwoord2, zoekwoord3'",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "keymatch",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Meta Title",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "title",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Meta description",
+          "description": "Korte samenvatting voor zoekvoorbeelden en delen op sociale media.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "keymatch", "title", "description"],
+      "edit": [
+        [
+          {
+            "name": "keymatch",
+            "size": 6
+          },
+          {
+            "name": "title",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "description",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
