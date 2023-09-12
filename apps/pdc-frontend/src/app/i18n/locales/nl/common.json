@@ -19,6 +19,11 @@
         "search": "Zoek",
         "search-tips": "Zoektips"
       }
+    },
+    "skip-link": {
+      "main": "Naar inhoud",
+      "menu": "Naar menu",
+      "search-input": "Naar zoekveld"
     }
   },
   "website-setting": {
