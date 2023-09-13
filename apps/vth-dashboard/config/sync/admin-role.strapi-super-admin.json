@@ -5,9 +5,73 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::global.global",
+      "properties": {
+        "fields": [
+          "navigation.list.title",
+          "navigation.list.link.label",
+          "navigation.list.link.href",
+          "navigation.list.link.external",
+          "navigation.list.subLink.label",
+          "navigation.list.subLink.href",
+          "navigation.list.subLink.external"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::global.global",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::global.global",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::global.global",
+      "properties": {
+        "fields": [
+          "navigation.list.title",
+          "navigation.list.link.label",
+          "navigation.list.link.href",
+          "navigation.list.link.external",
+          "navigation.list.subLink.label",
+          "navigation.list.subLink.href",
+          "navigation.list.subLink.external"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::global.global",
+      "properties": {
+        "fields": [
+          "navigation.list.title",
+          "navigation.list.link.label",
+          "navigation.list.link.href",
+          "navigation.list.link.external",
+          "navigation.list.subLink.label",
+          "navigation.list.subLink.href",
+          "navigation.list.subLink.external"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": ["title", "content", "description"]
+        "fields": [
+          "title",
+          "content",
+          "description"
+        ]
       },
       "conditions": []
     },
@@ -27,7 +91,11 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": ["title", "content", "description"]
+        "fields": [
+          "title",
+          "content",
+          "description"
+        ]
       },
       "conditions": []
     },
@@ -35,7 +103,11 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": ["title", "content", "description"]
+        "fields": [
+          "title",
+          "content",
+          "description"
+        ]
       },
       "conditions": []
     },
@@ -43,8 +115,13 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"],
-        "locales": ["en"]
+        "fields": [
+          "title",
+          "body"
+        ],
+        "locales": [
+          "en"
+        ]
       },
       "conditions": []
     },
@@ -52,7 +129,9 @@
       "action": "plugin::content-manager.explorer.delete",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": ["en"]
+        "locales": [
+          "en"
+        ]
       },
       "conditions": []
     },
@@ -60,7 +139,9 @@
       "action": "plugin::content-manager.explorer.publish",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": ["en"]
+        "locales": [
+          "en"
+        ]
       },
       "conditions": []
     },
@@ -68,8 +149,13 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"],
-        "locales": ["en"]
+        "fields": [
+          "title",
+          "body"
+        ],
+        "locales": [
+          "en"
+        ]
       },
       "conditions": []
     },
@@ -77,8 +163,13 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"],
-        "locales": ["en"]
+        "fields": [
+          "title",
+          "body"
+        ],
+        "locales": [
+          "en"
+        ]
       },
       "conditions": []
     },
@@ -86,7 +177,13 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::thema-content.thema-content",
       "properties": {
-        "fields": ["title", "content", "slug", "description", "parents"]
+        "fields": [
+          "title",
+          "content",
+          "slug",
+          "description",
+          "parents"
+        ]
       },
       "conditions": []
     },
@@ -106,7 +203,13 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::thema-content.thema-content",
       "properties": {
-        "fields": ["title", "content", "slug", "description", "parents"]
+        "fields": [
+          "title",
+          "content",
+          "slug",
+          "description",
+          "parents"
+        ]
       },
       "conditions": []
     },
@@ -114,7 +217,13 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::thema-content.thema-content",
       "properties": {
-        "fields": ["title", "content", "slug", "description", "parents"]
+        "fields": [
+          "title",
+          "content",
+          "slug",
+          "description",
+          "parents"
+        ]
       },
       "conditions": []
     },
@@ -122,7 +231,15 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::thema.thema",
       "properties": {
-        "fields": ["title", "content", "slug", "parents", "child_themas", "child_contents", "description"]
+        "fields": [
+          "title",
+          "content",
+          "slug",
+          "parents",
+          "child_themas",
+          "child_contents",
+          "description"
+        ]
       },
       "conditions": []
     },
@@ -142,7 +259,15 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::thema.thema",
       "properties": {
-        "fields": ["title", "content", "slug", "parents", "child_themas", "child_contents", "description"]
+        "fields": [
+          "title",
+          "content",
+          "slug",
+          "parents",
+          "child_themas",
+          "child_contents",
+          "description"
+        ]
       },
       "conditions": []
     },
@@ -150,7 +275,15 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::thema.thema",
       "properties": {
-        "fields": ["title", "content", "slug", "parents", "child_themas", "child_contents", "description"]
+        "fields": [
+          "title",
+          "content",
+          "slug",
+          "parents",
+          "child_themas",
+          "child_contents",
+          "description"
+        ]
       },
       "conditions": []
     },
