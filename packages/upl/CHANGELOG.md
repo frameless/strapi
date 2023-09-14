@@ -1,3 +1,10 @@
+## @frameless/upl [1.1.1](https://github.com/frameless/strapi/compare/@frameless/upl@1.1.0...@frameless/upl@1.1.1) (2023-09-14)
+
+
+### Bug Fixes
+
+* **vth:** navigation ([#219](https://github.com/frameless/strapi/issues/219)) ([8cf3550](https://github.com/frameless/strapi/commit/8cf3550dd72f6bbc54bd52b922bcc48bb40f0c63))
+
 # @frameless/upl [1.1.0](https://github.com/frameless/strapi/compare/@frameless/upl@1.0.2...@frameless/upl@1.1.0) (2023-08-22)
 
 
