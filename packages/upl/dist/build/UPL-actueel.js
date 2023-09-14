@@ -1014,6 +1014,33 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "aed-apparaat"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/AEDapparaat"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Bedrijf": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "affectieschade"
                 },
                 "URI": {
@@ -1092,46 +1119,6 @@ exports.uplActueel = {
                 "SDG": {
                     "type": "literal",
                     "value": ""
-                }
-            },
-            {
-                "UniformeProductnaam": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "aflosbedrag inburgeringslening verlaging"
-                },
-                "URI": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/aflosbedrInburglenVerlag"
-                },
-                "Grondslag": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/BI_art_4_9"
-                },
-                "Grondslaglabel": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "Artikel 4.9 Besluit inburgering"
-                },
-                "Grondslaglink": {
-                    "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0020674&hoofdstuk=4&Paragraaf=2&artikel=4.9"
-                },
-                "Rijk": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Burger": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Aanvraag": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "SDG": {
-                    "type": "literal",
-                    "value": "D4"
                 }
             },
             {
@@ -2794,46 +2781,6 @@ exports.uplActueel = {
                 "SDG": {
                     "type": "literal",
                     "value": ""
-                }
-            },
-            {
-                "UniformeProductnaam": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "arbeidsplaatsvoorziening"
-                },
-                "URI": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/arbeidsplaatsvoorziening"
-                },
-                "Grondslag": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/WIA_art_35"
-                },
-                "Grondslaglabel": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "Artikel 35 Wet werk en inkomen naar arbeidsvermogen"
-                },
-                "Grondslaglink": {
-                    "type": "uri",
-                    "value": "http://wetten.overheid.nl/jci1.3:c:BWBR0019057&hoofdstuk=4&Paragraaf=4.2&artikel=35"
-                },
-                "Rijk": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Burger": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Aanvraag": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "SDG": {
-                    "type": "literal",
-                    "value": "F4;B6"
                 }
             },
             {
@@ -4798,6 +4745,50 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "beheersverordening"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/beheersverordening"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/Wro_art_3_38"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 3.38 Wet ruimtelijke ordening"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0020449&hoofdstuk=3A&artikel=3.38"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Bedrijf": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "beklag over niet-vervolgen strafbaar feit"
                 },
                 "URI": {
@@ -5640,16 +5631,16 @@ exports.uplActueel = {
                 },
                 "Grondslag": {
                     "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/WEB_art_7_4_8a"
+                    "value": "http://standaarden.overheid.nl/owms/terms/WEB_art_7_5_2"
                 },
                 "Grondslaglabel": {
                     "xml:lang": "nl",
                     "type": "literal",
-                    "value": "Artikel 7.4.8a Wet educatie en beroepsonderwijs"
+                    "value": "Artikel 7.5.2 Wet educatie en beroepsonderwijs"
                 },
                 "Grondslaglink": {
                     "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0007625&hoofdstuk=7&titeldeel=4&Paragraaf=1&artikel=7.4.8a"
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0007625&hoofdstuk=7&titeldeel=5&artikel=7.5.2"
                 },
                 "Rijk": {
                     "type": "literal",
@@ -6038,6 +6029,66 @@ exports.uplActueel = {
                 "SDG": {
                     "type": "literal",
                     "value": "N1"
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "bestuurlijke boete"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/bestuurlijke_boete"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/Awb_art_5_40"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 5:40 Algemene wet bestuursrecht"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0005537&hoofdstuk=5&titeldeel=5.4&afdeling=5.4.1&artikel=5:40"
+                },
+                "Rijk": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Provincie": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Waterschap": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Bedrijf": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Autonomie": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
                 }
             },
             {
@@ -9799,6 +9850,50 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "buurtsubsidie"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/buurtsubsidie"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/gem_vo"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "gemeentelijke verordening"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Autonomie": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Aanvraag": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Subsidie": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "calamiteitenbestrijding"
                 },
                 "URI": {
@@ -10661,6 +10756,49 @@ exports.uplActueel = {
                     "value": "X"
                 },
                 "Aanvraag": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "contactgegevens aanpassing"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/contactgegAanpass"
+                },
+                "Rijk": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Provincie": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Waterschap": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Bedrijf": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Autonomie": {
                     "type": "literal",
                     "value": "X"
                 },
@@ -12449,16 +12587,16 @@ exports.uplActueel = {
                 },
                 "Grondslag": {
                     "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/Reg_voorz_GDI_art_3"
+                    "value": "http://standaarden.overheid.nl/owms/terms/Reg_voorz_Wdo_art_3"
                 },
                 "Grondslaglabel": {
                     "xml:lang": "nl",
                     "type": "literal",
-                    "value": "Artikel 3 Regeling voorzieningen GDI"
+                    "value": "Artikel 3 Regeling voorzieningen Wdo"
                 },
                 "Grondslaglink": {
                     "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0037124&hoofdstuk=3&artikel=3"
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0048167&hoofdstuk=2&artikel=3"
                 },
                 "Burger": {
                     "type": "literal",
@@ -12485,16 +12623,16 @@ exports.uplActueel = {
                 },
                 "Grondslag": {
                     "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/Reg_voorz_GDI_art_5"
+                    "value": "http://standaarden.overheid.nl/owms/terms/Reg_voorz_Wdo_art_4"
                 },
                 "Grondslaglabel": {
                     "xml:lang": "nl",
                     "type": "literal",
-                    "value": "Artikel 5 Regeling voorzieningen GDI"
+                    "value": "Artikel 4 Regeling voorzieningen Wdo"
                 },
                 "Grondslaglink": {
                     "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0037124&hoofdstuk=4&artikel=5"
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0048167&hoofdstuk=3&artikel=4"
                 },
                 "Rijk": {
                     "type": "literal",
@@ -12772,6 +12910,50 @@ exports.uplActueel = {
                     "value": "X"
                 },
                 "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "doelgroepverklaring"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/doelgroepverklaring"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/Wtl_art_2_3"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 2.3 Wet tegemoetkomingen loondomein"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0037522&hoofdstuk=II&Paragraaf=2.2&artikel=2.3"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Aanvraag": {
                     "type": "literal",
                     "value": "X"
                 },
@@ -15480,6 +15662,46 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "geboorteakte levenloos kind"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/geboorteakteLevenlsKnd"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/BW_Boek_1_art_19i"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 19i Burgerlijk Wetboek Boek 1"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0002656&boek=1&titeldeel=4&afdeling=4&artikel=19i"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "geboorteverlof"
                 },
                 "URI": {
@@ -16391,10 +16613,6 @@ exports.uplActueel = {
                     "type": "literal",
                     "value": "X"
                 },
-                "Burger": {
-                    "type": "literal",
-                    "value": "X"
-                },
                 "Bedrijf": {
                     "type": "literal",
                     "value": "X"
@@ -16409,7 +16627,7 @@ exports.uplActueel = {
                 },
                 "SDG": {
                     "type": "literal",
-                    "value": "N1;B8"
+                    "value": "N1"
                 }
             },
             {
@@ -20269,24 +20487,24 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
-                    "value": "inburgeringsexamen"
+                    "value": "inburgeringscertificaat"
                 },
                 "URI": {
                     "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/inburgeringsexamen"
+                    "value": "http://standaarden.overheid.nl/owms/terms/inburgeringscertificaat"
                 },
                 "Grondslag": {
                     "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/Wib_2021_art_7"
+                    "value": "http://standaarden.overheid.nl/owms/terms/Wib_2021_art_6"
                 },
                 "Grondslaglabel": {
                     "xml:lang": "nl",
                     "type": "literal",
-                    "value": "Artikel 7 Wet inburgering 2021"
+                    "value": "Artikel 6 Wet inburgering 2021"
                 },
                 "Grondslaglink": {
                     "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0044770&hoofdstuk=3&artikel=7"
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0044770&hoofdstuk=3&artikel=6"
                 },
                 "Gemeente": {
                     "type": "literal",
@@ -20300,7 +20518,7 @@ exports.uplActueel = {
                     "type": "literal",
                     "value": "X"
                 },
-                "Verplichting": {
+                "Aanvraag": {
                     "type": "literal",
                     "value": "X"
                 },
@@ -20321,16 +20539,16 @@ exports.uplActueel = {
                 },
                 "Grondslag": {
                     "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/Wib_art_7"
+                    "value": "http://standaarden.overheid.nl/owms/terms/Wib_2021_art_7"
                 },
                 "Grondslaglabel": {
                     "xml:lang": "nl",
                     "type": "literal",
-                    "value": "Artikel 7 Wet inburgering"
+                    "value": "Artikel 7 Wet inburgering 2021"
                 },
                 "Grondslaglink": {
                     "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0020611&hoofdstuk=2&artikel=7"
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0044770&hoofdstuk=3&artikel=7"
                 },
                 "Gemeente": {
                     "type": "literal",
@@ -20445,42 +20663,6 @@ exports.uplActueel = {
                 },
                 "Grondslag": {
                     "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/BI_art_2_3"
-                },
-                "Grondslaglabel": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "Artikel 2.3 Besluit inburgering"
-                },
-                "Grondslaglink": {
-                    "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0020674&hoofdstuk=2&afdeling=2&artikel=2.3"
-                },
-                "Rijk": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Burger": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "SDG": {
-                    "type": "literal",
-                    "value": ""
-                }
-            },
-            {
-                "UniformeProductnaam": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "inburgeringsexamen vrijstelling"
-                },
-                "URI": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/inbExamVrijst"
-                },
-                "Grondslag": {
-                    "type": "uri",
                     "value": "http://standaarden.overheid.nl/owms/terms/Besluit_inb_2021_art_2_3"
                 },
                 "Grondslaglabel": {
@@ -20549,46 +20731,6 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
-                    "value": "inburgeringslening"
-                },
-                "URI": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/inburgeringslening"
-                },
-                "Grondslag": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/Wib_art_16"
-                },
-                "Grondslaglabel": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "Artikel 16 Wet inburgering"
-                },
-                "Grondslaglink": {
-                    "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0020611&hoofdstuk=5&artikel=16"
-                },
-                "Rijk": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Burger": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Aanvraag": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "SDG": {
-                    "type": "literal",
-                    "value": "D4"
-                }
-            },
-            {
-                "UniformeProductnaam": {
-                    "xml:lang": "nl",
-                    "type": "literal",
                     "value": "inburgeringsplicht ontheffing"
                 },
                 "URI": {
@@ -20607,46 +20749,6 @@ exports.uplActueel = {
                 "Grondslaglink": {
                     "type": "uri",
                     "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0044770&hoofdstuk=2&artikel=5"
-                },
-                "Rijk": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Burger": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Aanvraag": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "SDG": {
-                    "type": "literal",
-                    "value": "D4"
-                }
-            },
-            {
-                "UniformeProductnaam": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "inburgeringsplicht ontheffing"
-                },
-                "URI": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/inburgPlOnth"
-                },
-                "Grondslag": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/Wib_art_6"
-                },
-                "Grondslaglabel": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "Artikel 6 Wet inburgering"
-                },
-                "Grondslaglink": {
-                    "type": "uri",
-                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0020611&hoofdstuk=2&artikel=6"
                 },
                 "Rijk": {
                     "type": "literal",
@@ -23580,6 +23682,25 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "kringloopwinkel"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/kringloopwinkel"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "kunstkoopregeling"
                 },
                 "URI": {
@@ -25061,6 +25182,46 @@ exports.uplActueel = {
                     "value": "X"
                 },
                 "Aanvraag": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "lokale bibliotheek"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/lokale_bibliotheek"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/WetStelsOpenbBiblvz_art_1"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 1 Wet stelsel openbare bibliotheekvoorzieningen"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0035878&hoofdstuk=1&artikel=1"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
                     "type": "literal",
                     "value": "X"
                 },
@@ -33546,6 +33707,46 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "pandakte"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/pandakte"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/BW_Boek_3_art_236"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 236 Burgerlijk Wetboek Boek 3"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0005291&boek=3&titeldeel=9&afdeling=2&artikel=236"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Autonomie": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "parkeerbelasting"
                 },
                 "URI": {
@@ -33890,6 +34091,46 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "participatieverklaring"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/participatieverklaring"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/Wib_2021_art_6"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 6 Wet inburgering 2021"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0044770&hoofdstuk=3&artikel=6"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "particuliere elektrische personenauto subsidie"
                 },
                 "URI": {
@@ -34208,6 +34449,50 @@ exports.uplActueel = {
                 "SDG": {
                     "type": "literal",
                     "value": "P1"
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "persoonlijk plan inburgering en participatie"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/persPlanInburgEnPart"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/Wib_2021_art_15"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 15 Wet inburgering 2021"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0044770&hoofdstuk=5&artikel=15"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Aanvraag": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
                 }
             },
             {
@@ -36368,50 +36653,6 @@ exports.uplActueel = {
                 "Grondslaglink": {
                     "type": "uri",
                     "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0015703&hoofdstuk=1&Paragraaf=1.2&artikel=7"
-                },
-                "Gemeente": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Burger": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Medebewind": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "Aanvraag": {
-                    "type": "literal",
-                    "value": "X"
-                },
-                "SDG": {
-                    "type": "literal",
-                    "value": "F4;B6"
-                }
-            },
-            {
-                "UniformeProductnaam": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "re-integratie"
-                },
-                "URI": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/re-integratie"
-                },
-                "Grondslag": {
-                    "type": "uri",
-                    "value": "http://standaarden.overheid.nl/owms/terms/WIA_art_35"
-                },
-                "Grondslaglabel": {
-                    "xml:lang": "nl",
-                    "type": "literal",
-                    "value": "Artikel 35 Wet werk en inkomen naar arbeidsvermogen"
-                },
-                "Grondslaglink": {
-                    "type": "uri",
-                    "value": "http://wetten.overheid.nl/jci1.3:c:BWBR0019057&hoofdstuk=4&Paragraaf=4.2&artikel=35"
                 },
                 "Gemeente": {
                     "type": "literal",
@@ -39880,6 +40121,54 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "softdrugsbeleid"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/softdrugsbeleid"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/AanwOpw"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Aanwijzing Opiumwet"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0036356"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Bedrijf": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Dienstenwet": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Autonomie": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "sollicitatieplichtontheffing"
                 },
                 "URI": {
@@ -40946,6 +41235,50 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "stemmen identificatieplicht"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/stemmen_identificatieplicht"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/KW_art_J_24"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel J24 Kieswet"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0004627&afdeling=II&hoofdstuk=J&Paragraaf=6&artikel=J_24"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Verplichting": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "stemmen per brief"
                 },
                 "URI": {
@@ -41270,6 +41603,46 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "stoffengerelateerde beroepsziekten tegemoetkoming"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/stoffengerBeroepszktTegemoetk"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/Reg_teg_stof_beroepsz_art_4"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 4 Regeling tegemoetkoming stoffengerelateerde beroepsziekten"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0047535&hoofdstuk=2&artikel=4"
+                },
+                "Rijk": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Aanvraag": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": "B8;B6"
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "stookontheffing"
                 },
                 "URI": {
@@ -41559,7 +41932,7 @@ exports.uplActueel = {
                 },
                 "SDG": {
                     "type": "literal",
-                    "value": "I1"
+                    "value": ""
                 }
             },
             {
@@ -41603,7 +41976,7 @@ exports.uplActueel = {
                 },
                 "SDG": {
                     "type": "literal",
-                    "value": "I1"
+                    "value": ""
                 }
             },
             {
@@ -41647,7 +42020,7 @@ exports.uplActueel = {
                 },
                 "SDG": {
                     "type": "literal",
-                    "value": "I1"
+                    "value": ""
                 }
             },
             {
@@ -45270,6 +45643,46 @@ exports.uplActueel = {
                     "value": "X"
                 },
                 "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "verjaringsverklaring"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/verjaringsverklaring"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/Kadw_art_34"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 34 Kadasterwet"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0004541&hoofdstuk=2&titeldeel=2&afdeling=2&artikel=34"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Autonomie": {
                     "type": "literal",
                     "value": "X"
                 },
@@ -50458,6 +50871,50 @@ exports.uplActueel = {
                 "UniformeProductnaam": {
                     "xml:lang": "nl",
                     "type": "literal",
+                    "value": "werkplekbegeleiding"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/werkplekbegeleiding"
+                },
+                "Grondslag": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/Pw_art_10da"
+                },
+                "Grondslaglabel": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "Artikel 10da Participatiewet"
+                },
+                "Grondslaglink": {
+                    "type": "uri",
+                    "value": "https://wetten.overheid.nl/jci1.3:c:BWBR0015703&hoofdstuk=2&Paragraaf=2.1&artikel=10da"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Medebewind": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Aanvraag": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
                     "value": "werktijden aanpassingsverzoek"
                 },
                 "URI": {
@@ -53545,6 +54002,33 @@ exports.uplActueel = {
                 "SDG": {
                     "type": "literal",
                     "value": "B9;B6;K1"
+                }
+            },
+            {
+                "UniformeProductnaam": {
+                    "xml:lang": "nl",
+                    "type": "literal",
+                    "value": "zwembadpas"
+                },
+                "URI": {
+                    "type": "uri",
+                    "value": "http://standaarden.overheid.nl/owms/terms/zwembadpas"
+                },
+                "Gemeente": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Burger": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "Autonomie": {
+                    "type": "literal",
+                    "value": "X"
+                },
+                "SDG": {
+                    "type": "literal",
+                    "value": ""
                 }
             },
             {

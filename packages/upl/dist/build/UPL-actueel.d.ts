@@ -938,6 +938,46 @@ export declare const uplActueel: {
                 type: string;
                 value: string;
             };
+            Gemeente: {
+                type: string;
+                value: string;
+            };
+            Burger: {
+                type: string;
+                value: string;
+            };
+            Bedrijf: {
+                type: string;
+                value: string;
+            };
+            SDG: {
+                type: string;
+                value: string;
+            };
+            Rijk?: undefined;
+            Provincie?: undefined;
+            Waterschap?: undefined;
+            Grondslag?: undefined;
+            Grondslaglabel?: undefined;
+            Grondslaglink?: undefined;
+            Medebewind?: undefined;
+            Verplichting?: undefined;
+            Melding?: undefined;
+            Autonomie?: undefined;
+            Aanvraag?: undefined;
+            Dienstenwet?: undefined;
+            Subsidie?: undefined;
+            DigiDMacht?: undefined;
+        } | {
+            UniformeProductnaam: {
+                "xml:lang": string;
+                type: string;
+                value: string;
+            };
+            URI: {
+                type: string;
+                value: string;
+            };
             Grondslag: {
                 type: string;
                 value: string;
@@ -8660,6 +8700,40 @@ export declare const uplActueel: {
                 type: string;
                 value: string;
             };
+            Gemeente: {
+                type: string;
+                value: string;
+            };
+            SDG: {
+                type: string;
+                value: string;
+            };
+            Rijk?: undefined;
+            Provincie?: undefined;
+            Waterschap?: undefined;
+            Grondslag?: undefined;
+            Grondslaglabel?: undefined;
+            Grondslaglink?: undefined;
+            Burger?: undefined;
+            Medebewind?: undefined;
+            Verplichting?: undefined;
+            Melding?: undefined;
+            Bedrijf?: undefined;
+            Autonomie?: undefined;
+            Aanvraag?: undefined;
+            Dienstenwet?: undefined;
+            Subsidie?: undefined;
+            DigiDMacht?: undefined;
+        } | {
+            UniformeProductnaam: {
+                "xml:lang": string;
+                type: string;
+                value: string;
+            };
+            URI: {
+                type: string;
+                value: string;
+            };
             Grondslag: {
                 type: string;
                 value: string;
@@ -11517,6 +11591,62 @@ export declare const uplActueel: {
                 type: string;
                 value: string;
             };
+            Grondslag: {
+                type: string;
+                value: string;
+            };
+            Grondslaglabel: {
+                "xml:lang": string;
+                type: string;
+                value: string;
+            };
+            Grondslaglink: {
+                type: string;
+                value: string;
+            };
+            Gemeente: {
+                type: string;
+                value: string;
+            };
+            Burger: {
+                type: string;
+                value: string;
+            };
+            Bedrijf: {
+                type: string;
+                value: string;
+            };
+            Dienstenwet: {
+                type: string;
+                value: string;
+            };
+            Autonomie: {
+                type: string;
+                value: string;
+            };
+            SDG: {
+                type: string;
+                value: string;
+            };
+            Rijk?: undefined;
+            Provincie?: undefined;
+            Waterschap?: undefined;
+            Medebewind?: undefined;
+            Verplichting?: undefined;
+            Melding?: undefined;
+            Aanvraag?: undefined;
+            Subsidie?: undefined;
+            DigiDMacht?: undefined;
+        } | {
+            UniformeProductnaam: {
+                "xml:lang": string;
+                type: string;
+                value: string;
+            };
+            URI: {
+                type: string;
+                value: string;
+            };
             Rijk: {
                 type: string;
                 value: string;
@@ -12419,46 +12549,6 @@ export declare const uplActueel: {
                 type: string;
                 value: string;
             };
-            Gemeente: {
-                type: string;
-                value: string;
-            };
-            Burger: {
-                type: string;
-                value: string;
-            };
-            Bedrijf: {
-                type: string;
-                value: string;
-            };
-            SDG: {
-                type: string;
-                value: string;
-            };
-            Rijk?: undefined;
-            Provincie?: undefined;
-            Waterschap?: undefined;
-            Grondslag?: undefined;
-            Grondslaglabel?: undefined;
-            Grondslaglink?: undefined;
-            Medebewind?: undefined;
-            Verplichting?: undefined;
-            Melding?: undefined;
-            Autonomie?: undefined;
-            Aanvraag?: undefined;
-            Dienstenwet?: undefined;
-            Subsidie?: undefined;
-            DigiDMacht?: undefined;
-        } | {
-            UniformeProductnaam: {
-                "xml:lang": string;
-                type: string;
-                value: string;
-            };
-            URI: {
-                type: string;
-                value: string;
-            };
             Grondslag: {
                 type: string;
                 value: string;
@@ -13855,6 +13945,46 @@ export declare const uplActueel: {
             Medebewind?: undefined;
             Melding?: undefined;
             Autonomie?: undefined;
+            Dienstenwet?: undefined;
+            Subsidie?: undefined;
+            DigiDMacht?: undefined;
+        } | {
+            UniformeProductnaam: {
+                "xml:lang": string;
+                type: string;
+                value: string;
+            };
+            URI: {
+                type: string;
+                value: string;
+            };
+            Gemeente: {
+                type: string;
+                value: string;
+            };
+            Burger: {
+                type: string;
+                value: string;
+            };
+            Autonomie: {
+                type: string;
+                value: string;
+            };
+            SDG: {
+                type: string;
+                value: string;
+            };
+            Rijk?: undefined;
+            Provincie?: undefined;
+            Waterschap?: undefined;
+            Grondslag?: undefined;
+            Grondslaglabel?: undefined;
+            Grondslaglink?: undefined;
+            Medebewind?: undefined;
+            Verplichting?: undefined;
+            Melding?: undefined;
+            Bedrijf?: undefined;
+            Aanvraag?: undefined;
             Dienstenwet?: undefined;
             Subsidie?: undefined;
             DigiDMacht?: undefined;

@@ -43,11 +43,32 @@ query GET_THEMA_BY_SLUG($slug: String) {
         attributes{
           title
           content
+          parents {
+            data { attributes { title, slug } }
+          }
           child_themas {
-            data { attributes { title, slug }}
+            data { attributes { title, slug } }
           }
           child_contents {
-            data { attributes { title, slug }}
+            data { attributes { title, slug } }
+          }
+        }
+      }
+    }
+  }
+}`);
+
+export const GET_CONTENT_BY_SLUG = gql(`
+query GET_CONTENT_BY_SLUG($slug: String) {
+  findSlug(modelName:"thema-content", slug: $slug){
+    ... on ThemaContentEntityResponse{
+      data{
+        id
+        attributes{
+          title
+          content
+          parents {
+            data { attributes { title, slug } }
           }
         }
       }
