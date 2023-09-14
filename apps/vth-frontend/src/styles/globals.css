@@ -2,6 +2,12 @@ html,
 body {
   --utrecht-space-around: 1;
   --utrecht-list-social-margin-block-start: 24px;
+  --utrecht-page-header-background-color: var(--utrecht-color-white);
+  --utrecht-page-header-max-width: 70rem;
+  --utrecht-page-content-background-color: var(--utrecht-color-white);
+  --utrecht-page-content-max-width: 70rem;
+  --utrecht-page-marin-inline-end: 0;
+  --utrecht-page-margin-inline-start: 0;
 
   /* --- navigation tokens start --- */
 
@@ -90,4 +96,34 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* Overrides for Utrecht components */
+
+.utrecht-page--full-width {
+  --utrecht-page-margin-inline-start: 0;
+  --utrecht-page-margin-inline-end: 0;
+}
+
+.utrecht-page-header {
+  --utrecht-page-header-padding-block-start: 0;
+  --utrecht-page-header-padding-block-end: 0;
+  --utrecht-page-padding-inline-start: 0;
+  --utrecht-page-padding-inline-end: 0;
+
+  container-type: inline-size;
+  max-width: var(--utrecht-page-header-max-width);
+  margin-inline: auto;
+}
+
+.utrecht-page-content {
+  --utrecht-page-content-padding-block-start: 0;
+  --utrecht-page-content-padding-block-end: 0;
+  --utrecht-page-padding-inline-start: 0;
+  --utrecht-page-padding-inline-end: 0;
+
+  background-color: var(--utrecht-page-content-background-color);
+  container-type: inline-size;
+  max-width: var(--utrecht-page-content-max-width);
+  margin-inline: auto;
 }
