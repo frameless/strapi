@@ -64,12 +64,7 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "link",
-        "subLink",
-        "title"
-      ],
+      "list": ["id", "link", "subLink", "title"],
       "edit": [
         [
           {

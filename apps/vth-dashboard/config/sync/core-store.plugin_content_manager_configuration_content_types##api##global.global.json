@@ -64,12 +64,7 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "navigation",
-        "createdAt",
-        "updatedAt"
-      ],
+      "list": ["id", "navigation", "createdAt", "updatedAt"],
       "edit": [
         [
           {
