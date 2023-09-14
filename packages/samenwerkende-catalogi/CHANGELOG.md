@@ -1,3 +1,13 @@
+## @frameless/samenwerkende-catalogi [2.1.1](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@2.1.0...@frameless/samenwerkende-catalogi@2.1.1) (2023-09-14)
+
+
+
+
+
+### Dependencies
+
+* **@frameless/upl:** upgraded to 1.1.1
+
 # @frameless/samenwerkende-catalogi [2.1.0](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@2.0.0...@frameless/samenwerkende-catalogi@2.1.0) (2023-08-22)
 
 
