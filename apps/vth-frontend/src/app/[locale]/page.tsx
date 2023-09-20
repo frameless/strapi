@@ -3,6 +3,7 @@ import { fetchData } from '@frameless/pdc-frontend/src/util/fetchData';
 import { Heading1, Heading2, Link, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import React from 'react';
+import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { GET_HOME_PAGE } from '@/query';
 import { useTranslation } from '../i18n';
@@ -38,22 +39,26 @@ const Home = async ({ params: { locale } }: { params: any }) => {
   const themas = data?.themas?.data;
 
   return (
-    <>
-      <Heading1>{title}</Heading1>
-      <Markdown>{content}</Markdown>
-      <Heading2>Themas</Heading2>
-      <UnorderedList>
-        {themas &&
-          themas.map((thema: any) => {
-            const { title, slug } = thema.attributes;
-            return (
-              <UnorderedListItem key={`thema-${slug}`}>
-                <Link href={`/themas/${slug}`}>{title}</Link>
-              </UnorderedListItem>
-            );
-          })}
-      </UnorderedList>
-    </>
+    <Grid>
+      <div className={'two-thirds'}>
+        <Heading1>{title}</Heading1>
+        <Markdown>{content}</Markdown>
+      </div>
+      <div className={'two-thirds'}>
+        <Heading2>Themas</Heading2>
+        <UnorderedList>
+          {themas &&
+            themas.map((thema: any) => {
+              const { title, slug } = thema.attributes;
+              return (
+                <UnorderedListItem key={`thema-${slug}`}>
+                  <Link href={`/themas/${slug}`}>{title}</Link>
+                </UnorderedListItem>
+              );
+            })}
+        </UnorderedList>
+      </div>
+    </Grid>
   );
 };
 

@@ -118,7 +118,6 @@ a {
 
 .utrecht-page-content {
   --utrecht-page-content-padding-block-start: 0;
-  --utrecht-page-content-padding-block-end: 0;
   --utrecht-page-padding-inline-start: 0;
   --utrecht-page-padding-inline-end: 0;
 
@@ -126,4 +125,8 @@ a {
   container-type: inline-size;
   max-width: var(--utrecht-page-content-max-width);
   margin-inline: auto;
+}
+
+.utrecht-link-social {
+  border-style: none !important;
 }

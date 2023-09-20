@@ -5,6261 +5,6261 @@ exports.uplKeyValues = [
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/UPL-naam_nog_niet_beschikbaar",
         "value": "UPL-naam nog niet beschikbaar",
-        "uuid": "8cc86896-929c-4846-878a-a6f5bee2deeb"
+        "uuid": "a25509fb-42ef-45be-a52e-c1b288f2af35"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/AangifteVertrekBuitenland",
         "value": "aangifte vertrek buitenland",
-        "uuid": "4783bcff-4818-4ec7-b5c7-07a145f5d6ee"
+        "uuid": "4fd9890e-8814-45fe-8e1b-5c866a9dd200"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanleunwoning",
         "value": "aanleunwoning",
-        "uuid": "a9017aa7-3f1c-4110-a85e-462315a9132c"
+        "uuid": "9f862d03-89b4-43e4-85c4-3467d00dcb0f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanpZelfbVliegtMeld",
         "value": "aanpassing zelfgebouwd vliegtuig melding",
-        "uuid": "bc267f2a-e039-4eda-8ecf-320dda0597ef"
+        "uuid": "8b095327-0077-4690-91cc-678fcb6051bf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanschrijving",
         "value": "aanschrijving",
-        "uuid": "7fd54819-9f6c-4eec-a370-335837c971e3"
+        "uuid": "4fa58dd1-173f-4621-8448-da01f2454e4b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanschrijving",
         "value": "aanschrijving",
-        "uuid": "93c08a0c-6f07-4bc1-9eb8-68eff636bd07"
+        "uuid": "206c30ef-b673-47c9-b665-0f43c260bf9f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanschrijving",
         "value": "aanschrijving",
-        "uuid": "95cbb5e5-c669-43f2-8934-806917a65e15"
+        "uuid": "45856566-f3ff-460c-8ebc-d0655f293bfc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aansprStOverh",
         "value": "aansprakelijkstelling overheid",
-        "uuid": "25c6a06f-0ba4-4a7f-a9eb-b737d2a8df2b"
+        "uuid": "5ddeaca7-4660-4d64-bedc-d0703f1db08e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanvBeursKwijtsch",
         "value": "aanvullende beurs kwijtschelding",
-        "uuid": "3e7a6608-86ab-433e-8572-d40c4f6d7c7d"
+        "uuid": "f617421d-6470-423b-a220-a4da31aed7a3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanvInkVzOuder",
         "value": "aanvullende inkomensvoorziening ouderen",
-        "uuid": "b9eef561-90f1-4f3a-a1aa-dcceb1de17f1"
+        "uuid": "0e2b6ea5-0d2a-448c-a60a-db620fabe4c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanwInzam",
         "value": "aanwijzing inzamelaar",
-        "uuid": "990b9c2c-de16-4d83-ae38-7230123dbef4"
+        "uuid": "05922746-d1a7-435a-90b6-0e09090dbad7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aanzegtermijn",
         "value": "aanzegtermijn",
-        "uuid": "357825a9-fa0e-4928-9af0-818aba330b8d"
+        "uuid": "1ede7d6f-505f-475b-920f-469726ad7d3e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aardbevb_nwbw_gron_vergoeding",
         "value": "aardbevingsbestendige nieuwbouw groningen vergoeding",
-        "uuid": "631712f5-969f-4fdf-a637-e24b7c693da2"
+        "uuid": "a313cbce-566b-4c68-bc7c-25303a65c6bc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aardgasvrijeHuurwSubsidie",
         "value": "aardgasvrije huurwoning subsidie",
-        "uuid": "646e6f57-c417-4cf1-923a-6894b46a21ab"
+        "uuid": "7135fde6-4596-4854-922f-3e0bf5c2e3bf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/accijns",
         "value": "accijns",
-        "uuid": "0a1f1832-7571-435d-9819-941417512e67"
+        "uuid": "96d78979-107a-43c1-8372-03718d76e812"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/achternGebrBeeind",
         "value": "achternaam gebruiksbeëindiging",
-        "uuid": "08841b29-f322-435b-9dbc-2422f72d3b68"
+        "uuid": "cf3741ae-d4ce-4360-ab90-d5cf1bd6ffb3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/achternaamwijziging",
         "value": "achternaamwijziging",
-        "uuid": "6789c797-0dc6-4090-a190-2b4645552618"
+        "uuid": "21c1e2aa-989f-4651-b5e1-79b3befda9e6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/adoptie",
         "value": "adoptie",
-        "uuid": "3b95428f-7284-4b69-9ef3-be58c3aaf152"
+        "uuid": "c2f7a94e-a5c9-4bb5-972b-0235ec1548af"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/adoptie_aangifte",
         "value": "adoptie aangifte",
-        "uuid": "c7f57878-9bae-4f42-9c42-b5395e3f6865"
+        "uuid": "4bcdf780-8ae7-467f-a46d-5463a5ff7265"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/adoptiePleegzUitk",
         "value": "adoptie- of pleegzorguitkering",
-        "uuid": "8a283f07-0db5-451c-8908-c89410bfbb7c"
+        "uuid": "b91e28b3-6290-47b8-9f5f-6f2942b8e591"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/adoptieherroeping",
         "value": "adoptieherroeping",
-        "uuid": "8a77a757-39ac-4eec-ac61-584e87611a77"
+        "uuid": "dc9c7b0a-a9fa-404a-9b9a-3b7f583cb655"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/adrbestcert",
         "value": "adr bestuurderscertificaat",
-        "uuid": "57a113d7-6eec-4dbd-9801-afde66f82a72"
+        "uuid": "5a809c50-59cf-4c82-9c87-56d5494eef13"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/adresonderzoek",
         "value": "adresonderzoek",
-        "uuid": "59920c72-9eec-432d-8a25-051b19d23473"
+        "uuid": "4520dacb-769a-4bc8-b56a-7c58fc8161f9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/AEDapparaat",
         "value": "aed-apparaat",
-        "uuid": "62379afd-5fc7-4a0b-b257-1bc94e40fa68"
+        "uuid": "ad1bd7bf-70eb-4508-8c08-7a2f9a1256e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/affectieschade",
         "value": "affectieschade",
-        "uuid": "c9903afa-5691-4f1a-8d4f-a6699d9b582d"
+        "uuid": "69b32a54-5738-4f54-9b97-f3c988b8e26b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afgezette_gebieden_betreden_ontheffing",
         "value": "afgezette gebieden betreden ontheffing",
-        "uuid": "f824c20d-9875-453d-8f79-71888b30c2e1"
+        "uuid": "a7965b17-3cac-4908-9b45-62f22ec253b1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aflosbedrInburglenVerlag",
         "value": "aflosbedrag inburgeringslening verlaging",
-        "uuid": "14764702-4ce2-4903-885d-aa1067f9f970"
+        "uuid": "380fbdc1-e38c-460e-b809-30748ca92b9c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aflosbedrStuSchldVerlag",
         "value": "aflosbedrag studieschuld verlaging",
-        "uuid": "5da32b36-027a-4dd1-a490-bfa25e5aa4ea"
+        "uuid": "4c0fe445-bd6c-4546-b868-dadb2e8f307a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvbehbijdr",
         "value": "afvalbeheersbijdrage",
-        "uuid": "e3dbfcbe-7f15-4878-9504-5cd9960c9a90"
+        "uuid": "02ca662c-2f93-4a9e-a82c-9578580e430f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvbehbijdrvlhgl",
         "value": "afvalbeheersbijdrage vlakglas",
-        "uuid": "be895cd7-b861-4e74-9a24-953c6eb7665e"
+        "uuid": "14ae5f23-d283-43a9-8f5c-17cf4f506330"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalcontainer",
         "value": "afvalcontainer",
-        "uuid": "43d78736-1a28-49f6-89e0-dd4ca20cbcfb"
+        "uuid": "469ee3a0-30bc-4a3d-b658-8980d7652d69"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzlst",
         "value": "afvalinzamelaarslijst",
-        "uuid": "281df3cd-25b5-448a-9201-82db4de70321"
+        "uuid": "fb39e205-e0ef-4113-82a9-95b6d3a1d33b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzBlik",
         "value": "afvalinzameling blik",
-        "uuid": "de993780-7f57-4a72-9722-5f59af32da93"
+        "uuid": "ae4c8882-5d97-4a41-b85b-2e2306d1d924"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzameling_chemisch_afval",
         "value": "afvalinzameling chemisch afval",
-        "uuid": "ce2f1091-929b-4786-ab8d-710a8c70583a"
+        "uuid": "91857c91-0174-4fcc-aaa8-f4efa0996a1b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzameling_glas",
         "value": "afvalinzameling glas",
-        "uuid": "82c22972-cf6b-420f-bb1c-9015bef54fd9"
+        "uuid": "8fad8241-02a1-4712-82eb-3c6ae8c716e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzameling_grofvuil",
         "value": "afvalinzameling grofvuil",
-        "uuid": "3d98cda4-43b6-4e5b-b076-886200acad43"
+        "uuid": "a1f4b907-433a-4e65-a1a4-f5bc820fdc20"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzameling_oud_papier",
         "value": "afvalinzameling oud papier",
-        "uuid": "a7071048-bbe6-4f45-bdb0-22aae7cd6984"
+        "uuid": "15addbb2-ab0e-4a68-926b-a3859530fd5c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzameling_plastic",
         "value": "afvalinzameling plastic",
-        "uuid": "9e01c4f7-828d-4cfa-9297-3ed33adf7da7"
+        "uuid": "ca23219a-3b95-4697-af01-e46affa51e42"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalInzPMDK",
         "value": "afvalinzameling plastic metaal drankenkartons",
-        "uuid": "10544eb8-1554-4f94-88a6-7fe18232c3fa"
+        "uuid": "993f1ceb-40a1-4c67-a22f-98e0e6f67658"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzameling_textiel",
         "value": "afvalinzameling textiel",
-        "uuid": "9e7db0bc-b05b-4deb-aaef-4deead3a54c9"
+        "uuid": "2a56f55b-c607-44c1-ad5b-069c1090e925"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalinzamelstation",
         "value": "afvalinzamelstation",
-        "uuid": "55424670-7da5-4ddf-bfd4-a0cfb614c17d"
+        "uuid": "b42890d2-6cbe-49c9-867d-8c2a8b626a65"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalkalender",
         "value": "afvalkalender",
-        "uuid": "01231dc0-686e-4378-8efb-27f653692e59"
+        "uuid": "18822793-7655-4c3a-b3b0-a715e07911be"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalpas",
         "value": "afvalpas",
-        "uuid": "e2d6c7b7-fc2b-4893-8cb6-e17c4070c146"
+        "uuid": "acc6586c-56e8-4a59-879d-caeb1c20ba75"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalstbel",
         "value": "afvalstoffenbelasting",
-        "uuid": "4a425a62-1094-48ef-95f1-dee1cbd198af"
+        "uuid": "513e5e54-24f1-4f8d-9fd6-c5ba8dbab331"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalstoffenheffing",
         "value": "afvalstoffenheffing",
-        "uuid": "3e8d7948-2ea6-4a86-9e21-28a6a804d1bb"
+        "uuid": "0b8980ff-e589-4123-b2e4-510a843f159b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvalstortontheffing",
         "value": "afvalstortontheffing",
-        "uuid": "41ca5fb7-06de-4a00-8fbd-e76fdf3cbed4"
+        "uuid": "31123551-f2de-4915-9bde-8f710296e50a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/afvvervkg",
         "value": "afvalvervoerskennisgeving",
-        "uuid": "baf84694-60e6-4c4a-9bb4-96fb630c7289"
+        "uuid": "928bf6d8-89ca-4503-9491-fbf88fa79020"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/akte_van_de_burgerlijke_stand",
         "value": "akte van de burgerlijke stand",
-        "uuid": "228f5e2e-9914-46d9-a8d1-8e1fa6df798e"
+        "uuid": "95c6aa0b-dfaf-45eb-8446-85a84cb2b07d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/alarmsirene",
         "value": "alarmsirene",
-        "uuid": "bb5cfc47-bffd-4a5d-a933-f857f5960d4c"
+        "uuid": "4339fe12-64b8-4b2c-9211-447cfe823daf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/alcoholvergunning",
         "value": "alcoholvergunning",
-        "uuid": "287f29f8-f123-44b7-9129-1bed29f68724"
+        "uuid": "34fca1cb-9580-48e1-bd60-94a362a496dd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/apk",
         "value": "algemene periodieke keuring",
-        "uuid": "b233d93b-f92a-4b49-b1fa-c6ca3a71dba9"
+        "uuid": "88f66339-3803-4954-bafd-cb88c6a2aabf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/apkBezw",
         "value": "algemene periodieke keuring bezwaar",
-        "uuid": "22a010f1-f49d-4601-a25d-58e3161f2da1"
+        "uuid": "bafb1251-64eb-488d-935c-172189bdf065"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/apkBezw",
         "value": "algemene periodieke keuring bezwaar",
-        "uuid": "afaa077f-e9b7-49a3-8401-17b2bb2e4506"
+        "uuid": "7953e777-201a-4153-a630-6196498a2c5f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/alimentatieInning",
         "value": "alimentatie inning",
-        "uuid": "2cd53196-5f26-43ea-a163-f32cafab7155"
+        "uuid": "2cee436b-a9e9-4be1-956e-3b0ca56d8b21"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/amateurkunstsubsidie",
         "value": "amateurkunstsubsidie",
-        "uuid": "24bcb028-26ae-46fb-a692-5803288ec233"
+        "uuid": "8909720e-6fa3-4f67-a61e-a7fde1d1422f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/amateurkunstsubsidie",
         "value": "amateurkunstsubsidie",
-        "uuid": "8ce77faf-168e-4b30-a7e3-1de1172cb174"
+        "uuid": "263ff08d-45d0-4b41-a516-ff49e29b378c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ambtBurgStnd",
         "value": "ambtenaar burgerlijke stand",
-        "uuid": "55594387-592b-43d6-9db1-a0a30f364932"
+        "uuid": "f60b6beb-b58f-4745-93d4-82eeb7849ddd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ambtshVermBelAansl",
         "value": "ambtshalve vermindering belastingaanslag",
-        "uuid": "10ade0ad-ec90-4149-a746-f15e90fcc523"
+        "uuid": "9857427f-1231-40b3-aa7f-fbb7c2ed58ff"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/antenneregInz",
         "value": "antenneregister inzage",
-        "uuid": "4a61d094-20af-4944-964c-1edfffc7b950"
+        "uuid": "fe2a1899-b650-4415-b7f1-deb5586a14f9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/antenneregRegistr",
         "value": "antenneregister registratie",
-        "uuid": "a64302d0-6427-41d6-b048-c30637bc3025"
+        "uuid": "97c284c0-c51f-4412-b134-30a22707f160"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/antireclamesticker",
         "value": "antireclamesticker",
-        "uuid": "4e0f088c-5180-44c9-9ac4-943ba4028fbb"
+        "uuid": "67fa5f28-37d4-4bd3-b44c-ebeb3722bfc3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/antispeculatiebeding",
         "value": "antispeculatiebeding",
-        "uuid": "6c1be12b-1e6f-4517-ad9e-7b854debd6b2"
+        "uuid": "a70b1aea-c6a7-4898-af87-61733556a27d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/anw-uitkering",
         "value": "anw-uitkering",
-        "uuid": "2942e918-ca3e-41ad-a51d-be5051f9fc89"
+        "uuid": "27420bb3-54ae-4bd5-9246-fb1ada4c5fe9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aorFinOnd",
         "value": "aor financiële ondersteuning",
-        "uuid": "1cc2998f-f5b1-4087-ae3c-e6a59f770f1a"
+        "uuid": "235a0d3f-2943-4b12-9e9a-83d6ad380c8b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/aow-uitkering",
         "value": "aow-uitkering",
-        "uuid": "198550c7-a5be-4679-85ab-37c63d35c893"
+        "uuid": "d2c9fdd9-22b4-45ae-a859-36e5689a251e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/arbdeskinsch",
         "value": "arbeidsdeskundige-inschakeling",
-        "uuid": "54e674c2-9f88-49cd-b4b6-a18fed484c3d"
+        "uuid": "48f535de-a4ff-4e21-9d09-75adc14cf1ed"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/arbmiddkeur",
         "value": "arbeidsmiddelenkeuring",
-        "uuid": "3a96bb00-ccdd-4ef0-96d1-6a969f8d714b"
+        "uuid": "9e721b5a-61be-455a-a61b-dd6d2eb1856d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/arbeidsplaatsvoorziening",
         "value": "arbeidsplaatsvoorziening",
-        "uuid": "90429f81-7632-4258-b824-1452af61962d"
+        "uuid": "2f1b9170-87b3-4c63-ac70-9f9c5cdc7ea4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/archvndstmld",
         "value": "archeologische-vondstmelding",
-        "uuid": "0df5db4e-3bd2-4ab9-8e18-6ad504256534"
+        "uuid": "80c27914-3b28-4a72-8323-f4bf8c41080f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/archiefInzage",
         "value": "archief inzage",
-        "uuid": "75cc141a-a679-419e-8b8c-31a1fed967ad"
+        "uuid": "3fa2ca96-ac82-4033-8758-2192ae98cb84"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/archiefbescheiden_behoud_voor_raadpleging",
         "value": "archiefbescheiden behoud voor raadpleging",
-        "uuid": "2b13e2cd-a51a-4e07-b9d8-a15eae24e79a"
+        "uuid": "0f67fa7c-e03a-4572-84ed-a0252dd9d39a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/architRegInz",
         "value": "architectenregister inzage",
-        "uuid": "032c8436-3aae-4396-a23d-f522dfbb6e6e"
+        "uuid": "544ea6f3-e856-45f6-b005-52cc1a4ef1e9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/asbestWegMelding",
         "value": "asbestbevattende weg melding",
-        "uuid": "30be8710-e1da-4c49-9c91-effa72436532"
+        "uuid": "985215b9-ec7b-4a76-bdd7-99adf3e14eb1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/asbestsloTgmk",
         "value": "asbestslachtoffer tegemoetkoming",
-        "uuid": "1c8509e2-b1c2-4ac1-bc2f-33db6edc8cf6"
+        "uuid": "ebc81e92-dd62-44ca-8158-b1196161dbd7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/asbestsloTgmk",
         "value": "asbestslachtoffer tegemoetkoming",
-        "uuid": "211dff07-b47f-4e06-bf8b-04d7938be26a"
+        "uuid": "dca4e2f4-5967-4a36-a04d-92cb97dd9e2a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/asbestverwijdering",
         "value": "asbestverwijdering",
-        "uuid": "9b6b9564-ba4b-4cd9-be87-d8dbbc27c2eb"
+        "uuid": "2b71b353-13d1-401c-b516-91f97f34832a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/assurbel",
         "value": "assurantiebelasting",
-        "uuid": "0cd337e3-3121-4665-baf7-600b12ef5c38"
+        "uuid": "a2243b65-2d3d-4232-82a6-8640a18ffaea"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/asverstrooiing",
         "value": "asverstrooiing",
-        "uuid": "b8856f9f-c0c1-493e-9d68-3309f9b14bb7"
+        "uuid": "0834dd8b-ff78-4902-9239-1491aae082a4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/auto-aanpassing",
         "value": "auto-aanpassing",
-        "uuid": "e91ebc88-9a83-4486-964d-770469411a4c"
+        "uuid": "8fad80c3-e150-4f0a-ae45-eb7acb3ee827"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/autobndinnverpl",
         "value": "autobandeninnameverplichting",
-        "uuid": "56e9818d-0916-4c8e-816a-66b202a4a452"
+        "uuid": "c8562b59-d104-40b0-848d-851a80685931"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/autohuur",
         "value": "autohuur",
-        "uuid": "6ca5cd31-dec4-4002-b7b0-568055e26373"
+        "uuid": "51a6b909-a8e7-43b2-a687-99b6d4127774"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/autokinderzitje",
         "value": "autokinderzitje",
-        "uuid": "a9742322-1691-4bf8-b2b5-31d224e185d8"
+        "uuid": "ba9214e8-ea60-4bad-884f-e9a451b723d0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/automatische_incasso_of_machtiging",
         "value": "automatische incasso of machtiging",
-        "uuid": "be1e73fd-f9d2-4e00-93ea-8495c975d18b"
+        "uuid": "0a7c0593-6023-4c76-9d8b-4e59cc245851"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/baatbelasting",
         "value": "baatbelasting",
-        "uuid": "1f10fa65-50ca-4f3f-8ca7-57f13ea5471b"
+        "uuid": "cf14ac16-a04b-4397-a507-b9bc0029070c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/backpayUitk",
         "value": "backpay-uitkering",
-        "uuid": "77450b7f-3a87-4b7c-9980-c5f3a9fe329b"
+        "uuid": "11588af9-356c-4e71-85a6-de8a64aa478c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/badinrichting",
         "value": "badinrichting",
-        "uuid": "2606792c-d4c3-4511-b036-8895dfa959f8"
+        "uuid": "d5d21c16-400a-4d0d-bc31-f906f427f403"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/badinrichting_legionellapreventie",
         "value": "badinrichting legionellapreventie",
-        "uuid": "ad790050-97e6-490c-8ef9-d80d1e2f35ee"
+        "uuid": "48c8ad9a-a020-485b-b295-689b5a6ac400"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/badinrichting_ontheffing",
         "value": "badinrichting ontheffing",
-        "uuid": "854f9067-dc68-48d9-8b5b-c18c276c58fc"
+        "uuid": "b71c16d6-fe2e-47ae-9bd6-0dd81524a22d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bagInz",
         "value": "bag inzage",
-        "uuid": "67692f9e-b142-4ab1-83f0-e32d65fce5db"
+        "uuid": "85a78195-3e8f-4080-be20-3453c2589b2a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ballonOplVliegvToest",
         "value": "ballon oplaten bij vliegveld toestemming",
-        "uuid": "6de584f0-6f32-43bf-8a2b-fa0bae050006"
+        "uuid": "81426608-684f-4a54-b547-d06f5f9204b5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ballonOplVliegvToest",
         "value": "ballon oplaten bij vliegveld toestemming",
-        "uuid": "a559e0bf-ddb3-4f02-b532-e5561729a039"
+        "uuid": "f555dce4-7c15-4490-a6d5-55630a9e48ac"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bankierseed",
         "value": "bankierseed",
-        "uuid": "c8d279ac-9132-4354-a05f-cb18516180e3"
+        "uuid": "07f466a1-456c-4a8d-9c9e-108c17e2a9a1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/basisschKlacht",
         "value": "basisschool klacht",
-        "uuid": "d69f023f-5367-45f8-be7b-7f166724687f"
+        "uuid": "be825664-2323-4e6d-bd6a-45c93bc99d64"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/battaccuinzplicht",
         "value": "batterijen en accu's-inzamelverplichting",
-        "uuid": "f0916d10-702d-4f71-a2cf-566c908939d2"
+        "uuid": "7d17b99e-6ad9-4e17-8ba2-a162326633a7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bebouwde_kom_vaststelling",
         "value": "bebouwde kom vaststelling",
-        "uuid": "2ee82042-c62f-422a-9b92-92aae78d069a"
+        "uuid": "59b8ecb1-5e72-40ae-af90-252bd14b8bf2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedieningstijden",
         "value": "bedieningstijden",
-        "uuid": "235cca2a-a35b-4399-b471-9d843fe5939c"
+        "uuid": "6129e47c-1d58-4324-9b69-a3ee75f293cb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrijf_aan_huis_melding",
         "value": "bedrijf aan huis melding",
-        "uuid": "54172793-ef3d-43c1-8548-a080fe08d263"
+        "uuid": "b171cab0-e517-4594-a479-d53bdee62ce9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrijfsafvalinzameling",
         "value": "bedrijfsafvalinzameling",
-        "uuid": "4926192b-72b5-4c9f-8b33-e4067a9f0260"
+        "uuid": "0b6b43cb-126b-45b0-a112-a60f8ecf837d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrafvmld",
         "value": "bedrijfsafvalstoffenmelding",
-        "uuid": "d125a4a4-9790-49d1-bef2-e4a28b51214d"
+        "uuid": "a2e1f499-023e-4782-a078-4ff0b389e080"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrafvreg",
         "value": "bedrijfsafvalstoffenregistratie",
-        "uuid": "ddfe606b-e9d9-41c3-87f9-249a9e5e796c"
+        "uuid": "064a65e4-934b-4b94-8fd8-440fdc3c6de6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrijfsafvalwater_en_slibverwerking",
         "value": "bedrijfsafvalwater en -slibverwerking",
-        "uuid": "8ddf0178-d0e5-4135-8599-7078f41050fc"
+        "uuid": "735e35b2-b26c-4311-a9ab-d13ac8a7f0b0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrijfsafvalwaterlozingontheffing",
         "value": "bedrijfsafvalwaterlozingontheffing",
-        "uuid": "a2302403-2535-4735-b0d2-e2d71402bb07"
+        "uuid": "1a6c4ffd-9e6b-450f-8d5d-ba34cae68873"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrijfsafvalwatermelding",
         "value": "bedrijfsafvalwatermelding",
-        "uuid": "e027238e-cdce-4bbe-9de2-34a5eaa00dde"
+        "uuid": "57c0f6dc-19b0-4b75-a37b-a48dc736b59e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrHulpverlAanw",
         "value": "bedrijfshulpverleners aanwijzing",
-        "uuid": "cce1b96b-e1fe-472c-90c8-af4a926b03a7"
+        "uuid": "5bacd8c8-e66d-4e82-96f6-77e5205c397a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrijfsterrein_huren_of_kopen",
         "value": "bedrijfsterrein huren of kopen",
-        "uuid": "9f3cf473-8156-4424-88e7-ffa60c7871a7"
+        "uuid": "79cda31b-21cc-465e-b32d-fe6e2a30d720"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrijfsterreinuitgifte",
         "value": "bedrijfsterreinuitgifte",
-        "uuid": "d1473615-33cd-44fb-9c94-31b7600c9bff"
+        "uuid": "36a5b860-7ba2-4f4e-a13f-54555f656419"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bedrijfsverzamelgebouw_toewijzing_en_beheer",
         "value": "bedrijfsverzamelgebouw toewijzing en beheer",
-        "uuid": "5030c747-03a9-4ae4-a853-2e5aba430ec3"
+        "uuid": "12c969f0-8ca2-40ad-ae59-129df6a55250"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beeldende_kunstsubsidie",
         "value": "beeldende kunstsubsidie",
-        "uuid": "985fe5b7-1b0b-46de-81fc-073dd2d60789"
+        "uuid": "4fc25645-01ba-4150-aa8b-17361c2492f4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/begWerk",
         "value": "begeleid werken",
-        "uuid": "2da6edf0-fbf2-4fb4-8848-58834c6d5a47"
+        "uuid": "d4900596-ea56-4f0e-8e6f-0f3f93a613d6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/begSchoolverl",
         "value": "begeleiding schoolverlater",
-        "uuid": "7f4d4a91-e364-40f6-a821-961e6a168519"
+        "uuid": "12bde46a-5e1e-4893-a4a8-ec9793767dfe"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beginseltoestAdoptBuitKnd",
         "value": "beginseltoestemming adoptie buitenlands kind",
-        "uuid": "add9a757-e31d-483a-be75-9feb865b17b4"
+        "uuid": "1927dd94-be96-4555-b7b2-0cd13f721b14"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/begraafplaatsregister",
         "value": "begraafplaatsregister",
-        "uuid": "64d6f049-f8fc-4725-9788-c38e1cb0c0f9"
+        "uuid": "14f03098-06b6-4ce0-8e4c-fd7d5dab8bce"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beheersverordening",
         "value": "beheersverordening",
-        "uuid": "d44d99e2-07ab-4a6c-9c90-cce920b273fd"
+        "uuid": "dbdb0e81-61a2-4a60-bc63-d906e707315a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beklagNtVervStrFeit",
         "value": "beklag over niet-vervolgen strafbaar feit",
-        "uuid": "c15974e4-22a2-43b3-b035-b2bb6282a291"
+        "uuid": "cbb7697a-6d6c-483c-afc1-04ee1be4dcb3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bekwLeraarVOErk",
         "value": "bekwaamheid leraar vo erkenning",
-        "uuid": "462e0991-dfa0-42dc-9e61-fd866137b58d"
+        "uuid": "9e92a7af-a29d-4d7b-8d48-7111ba9ffbdd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastHardhClVerz",
         "value": "belasting hardheidsclausuleverzoek",
-        "uuid": "8efa7f10-d064-4f85-a1a4-684785fc196a"
+        "uuid": "b6fb44ab-0897-4a77-95df-d9408ff72183"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belleidwater",
         "value": "belasting op leidingwater",
-        "uuid": "9bdc4899-f471-4b92-beca-97b4dcca97b9"
+        "uuid": "5133b447-07b9-4fee-a43e-72a55ac06135"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belzwmotrijt",
         "value": "belasting zware motorrijtuigen",
-        "uuid": "fac94d09-9927-4b35-b7c5-9a2b500a1782"
+        "uuid": "d083dc23-55a2-4102-bf3b-5a649102f07a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastingaangifte",
         "value": "belastingaangifte",
-        "uuid": "066be870-fbcf-4db2-a6dc-270dbc5ac4d4"
+        "uuid": "8d6d81a5-567d-44f1-96db-ab9bbf84f15a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastingaanslag_bezwaar",
         "value": "belastingaanslag bezwaar",
-        "uuid": "fe54cd42-91a3-485d-a395-486630f08846"
+        "uuid": "ba2ed6e5-2039-4e28-82d4-1c2d06ea3b93"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastingaanslag_kopie",
         "value": "belastingaanslag kopie",
-        "uuid": "f3fd1253-0839-4a60-9c31-c0ae61a74890"
+        "uuid": "602d41c3-85e2-4517-9854-8781f8528327"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastingbetUitst",
         "value": "belastingbetaling uitstel",
-        "uuid": "87e09611-27e9-4025-9261-43f5a00d23e2"
+        "uuid": "e41a2217-97f6-4f9b-8c5f-0a89baae6099"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastingbetalingsregeling",
         "value": "belastingbetalingsregeling",
-        "uuid": "a8401e6d-c660-4e26-9128-8a4b35f0263b"
+        "uuid": "15425733-7a90-41b6-a3e1-7caa59707241"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastingkwijtschelding",
         "value": "belastingkwijtschelding",
-        "uuid": "edc3e9db-3a85-46b4-b286-195111d84e8b"
+        "uuid": "38077db7-64ea-4694-a126-868ad18c1dc9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastingrente",
         "value": "belastingrente",
-        "uuid": "df5c8195-5022-4b6a-a2eb-c33432c2a454"
+        "uuid": "560e12fc-06af-409f-871a-1fa4b231e65c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/belastingteruggave",
         "value": "belastingteruggave",
-        "uuid": "4363fd4d-6f87-4c78-a828-c8dfe8bf6b22"
+        "uuid": "d2bdd1d2-4067-454a-87d3-e0e11480bc23"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beperkte_milieutoets",
         "value": "beperkte milieutoets",
-        "uuid": "225deaf3-b147-4514-ada7-fd6d17d5d22e"
+        "uuid": "3ffa0990-512d-4013-bdf0-1cc28aab85df"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/berichtenbox",
         "value": "berichtenbox",
-        "uuid": "27d37c92-ac95-48bb-b6b6-0188ea8802df"
+        "uuid": "a33b9d46-1466-4d09-a238-ed742c41dbfc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beroep",
         "value": "beroep",
-        "uuid": "68ba78ba-e325-497e-bf4c-4edcad26af0f"
+        "uuid": "878f0b63-40cd-47da-a2fb-e071dbc4e506"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/berkrkndrat",
         "value": "beroepskracht-kindratio",
-        "uuid": "269a5de7-2f82-4ead-aac1-e9f3f10c6391"
+        "uuid": "d9082537-d9dd-45f7-85fe-e31d1450f443"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beroepskwalErk",
         "value": "beroepskwalificatie erkenning",
-        "uuid": "cba8d655-b8f3-4d15-87b7-57ab012ec2cb"
+        "uuid": "fb61ed26-20a9-46e8-aa28-d0b23178364c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/berOndVolwEdKlacht",
         "value": "beroepsonderwijs en volwasseneneducatie klacht",
-        "uuid": "dc1904a6-5790-42c7-848a-073b80b46e9c"
+        "uuid": "0f8c2664-8cc8-441e-9a5e-fab1a3e47efa"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/berOndAanm",
         "value": "beroepsopleiding aanmelding",
-        "uuid": "e3073113-b8b4-433d-84cf-937e242d51d4"
+        "uuid": "3e3df6a6-860d-4c92-8d0e-9cd4a99c475e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beschermde_dieren_ontheffing",
         "value": "beschermde dieren ontheffing",
-        "uuid": "b7d1cfc3-4ef0-4217-a4d0-ad1eb74ac1c4"
+        "uuid": "c72994d9-3676-4628-bc91-1be74e05ca94"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beschermde_leefomgeving_aanwijzing",
         "value": "beschermde leefomgeving aanwijzing",
-        "uuid": "2a29f5c3-51f1-44d2-9316-45790792c808"
+        "uuid": "28d2d010-1aa3-466d-a638-f5634a228e5d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beschermde_leefomgeving_schadevergoeding",
         "value": "beschermde leefomgeving schadevergoeding",
-        "uuid": "a34a3aaa-fe28-4c25-9474-215eaaeaf823"
+        "uuid": "0c60bc57-d3b1-4619-a43f-512578cc07dc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beschWerk",
         "value": "beschut werk",
-        "uuid": "d26cbdd0-10e9-4298-8763-02f152fb7604"
+        "uuid": "7b3ce982-3d56-496b-92b7-57d8c76cd4ed"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/besmettelijke_dierziektemeldingsplicht",
         "value": "besmettelijke dierziektemeldingsplicht",
-        "uuid": "e65f7404-9763-41fb-aeee-c93975698f44"
+        "uuid": "20f79740-d82a-441a-a967-ca9f6d90e7bf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bestAutGehMrb",
         "value": "bestelautotarief gehandicapten motorrijtuigenbelasting",
-        "uuid": "bda9222d-c8d4-47e7-87ef-e8c6a5890e54"
+        "uuid": "71e543fc-5a5b-4e8f-abc1-20048cdf7319"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bestemmingsplan_inzage",
         "value": "bestemmingsplan inzage",
-        "uuid": "6e574dcd-77c1-4090-b30c-54d5650b71ef"
+        "uuid": "a7e9e45a-ebc1-475c-bb4f-39f1730d56ca"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bestuurlijke_boete",
         "value": "bestuurlijke boete",
-        "uuid": "c3a80f88-b8f5-48b8-bad9-10218f310adc"
+        "uuid": "fff9257c-f31d-4478-80bb-170c7f7f4ddb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/betogDemonsMld",
         "value": "betogings- of demonstratiemelding",
-        "uuid": "8263e6ed-c398-417a-ad60-6ff05676b59f"
+        "uuid": "1620785c-59ff-46fb-b11c-511a4f49af21"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beveilMaatrOvervSubs",
         "value": "beveiligingsmaatregelen na overval subsidie",
-        "uuid": "0a03cebe-571e-4b3a-864c-6cfe1cbf1d96"
+        "uuid": "bc85daae-0a78-4cbf-9781-42f75fa3d0e1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bevoegdBewLuchtbPiloot",
         "value": "bevoegdheidsbewijs luchtballonpiloot",
-        "uuid": "a602a8ac-5bf3-4e30-bdf1-d5f73bceb9d3"
+        "uuid": "952c3364-ba58-4401-8415-e4b4556d3fc9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bevoegdBewRecrVlieger",
         "value": "bevoegdheidsbewijs recreatief vlieger",
-        "uuid": "6bf72d53-fc15-4069-8619-e795c8b58960"
+        "uuid": "26b07052-d350-4d88-865d-87d90216e11d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bevoegdBewZwVlPiloot",
         "value": "bevoegdheidsbewijs zweefvliegtuigpiloot",
-        "uuid": "f92740a8-ad60-48f8-8492-cc836ba64d41"
+        "uuid": "2025ff71-5adc-475c-90e4-5de14a76ada1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bewTermAsbusOnth",
         "value": "bewaartermijn asbus ontheffing",
-        "uuid": "97ad5d7b-6885-49de-be4f-2bb96541961c"
+        "uuid": "74c0fde3-ae4d-4dda-aa4b-16b1d237d5e1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bewijs_van_in_leven_zijn_(attestatie_de_vita)",
         "value": "bewijs van in leven zijn (attestatie de vita)",
-        "uuid": "03ea9de9-b65b-441e-a871-03f72781d6ca"
+        "uuid": "d62d17a2-75f6-4ae1-9e36-b75bcabf3d94"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bewijs_van_nederlanderschap",
         "value": "bewijs van nederlanderschap",
-        "uuid": "9300aa20-b638-4283-9727-3116a1a6b6d2"
+        "uuid": "7d8e03a4-727f-4c3c-a150-a39dbdac5103"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bewind",
         "value": "bewind",
-        "uuid": "0828d469-ac4f-49f3-8441-0411b626cc41"
+        "uuid": "05aa4333-b856-4e07-a774-33452d206987"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bezitBeschDierenOntheffing",
         "value": "bezit beschermde dieren ontheffing",
-        "uuid": "69c44b8a-249b-460c-885b-892182e0fe66"
+        "uuid": "0ec6e4c2-a575-4767-9314-2e65f82b29b6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bezitBeschDierenOntheffing",
         "value": "bezit beschermde dieren ontheffing",
-        "uuid": "0d0d4de8-bfe3-4932-bfde-e0552dec4bcb"
+        "uuid": "31a16a87-596a-4ad6-8d40-532236ff2b32"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bezafspr",
         "value": "bezoekafspraak",
-        "uuid": "9123519a-f033-4ed2-a6f5-61c9e0a737bb"
+        "uuid": "58af491b-d343-4e0a-ab7b-af0dc8efd59c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bezwaar",
         "value": "bezwaar",
-        "uuid": "1d14d9b1-a3db-4023-9530-2a4e5940b1ce"
+        "uuid": "01ef942a-b966-4978-b48e-23bd909cfbe7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beeindRegistrKentekUitvoer",
         "value": "beëindiging registratie kenteken bij uitvoer",
-        "uuid": "0aba7e48-96cf-4ef1-b15f-95e0fdc61d88"
+        "uuid": "186242bf-bbec-45a3-a1a1-f52e4da9d8c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bigRegBuitDiplErk",
         "value": "big-register buitenlands diploma-erkenning",
-        "uuid": "22d37756-1be9-4139-bdaa-68e01be05aed"
+        "uuid": "61749def-9818-428b-943f-7c8d652ece4f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bigRegHerinschr",
         "value": "big-register herinschrijving",
-        "uuid": "ff95f5ee-0cb9-47fa-9eaf-293e5d132400"
+        "uuid": "751370d5-d6bc-4bb6-8dff-ce6e0356f891"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bigRegInschr",
         "value": "big-register inschrijving",
-        "uuid": "fe004e08-7961-4538-b391-a2205a7735c4"
+        "uuid": "72652619-5ed8-455e-9920-0e9f7cdc35f6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bigRegInz",
         "value": "big-register inzage",
-        "uuid": "5e76d9c7-8b32-4c9b-bc66-9fdc81f91559"
+        "uuid": "f12a8229-6e7d-4580-9bdc-50247f4b2383"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijenhoudonth",
         "value": "bijenhoudontheffing",
-        "uuid": "bb61ddba-ec2f-464e-b6cf-f0d3646c2ee4"
+        "uuid": "c1598161-519d-46a9-b5e7-5f0779d31a9e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijstand",
         "value": "bijstand",
-        "uuid": "f5e7ac81-d88a-472e-87d2-595a79419e53"
+        "uuid": "089a2aa7-b263-4319-a768-00e93f64789e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijstandTegenpr",
         "value": "bijstand tegenprestatie",
-        "uuid": "348169ac-1141-470a-8ace-95c21514adb5"
+        "uuid": "01378ec9-a780-4890-b039-adb3aeebe485"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijstandZst",
         "value": "bijstand zelfstandigen",
-        "uuid": "37472b2c-cf1e-44bd-8dd2-77e33682c13a"
+        "uuid": "94fe9933-14c3-4cf1-980e-1a8bb5b57270"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijstandsverh",
         "value": "bijstandsverhaal",
-        "uuid": "2acde31c-7cb5-4210-9357-876342e0ba5e"
+        "uuid": "b82280a0-2a98-4096-9820-8aad0feced3f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijvoeren_wild_ontheffing",
         "value": "bijvoeren wild ontheffing",
-        "uuid": "c751225a-5592-4e60-a0af-ea56b78d16bd"
+        "uuid": "3eb1d9fa-3367-4ee2-9b51-3d1ba49c8879"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijzettingenregister",
         "value": "bijzettingenregister",
-        "uuid": "40e52ba0-9dbe-4097-970a-fde131bc6e8e"
+        "uuid": "8065a62a-38c0-496d-8151-77f311dbcf5a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijzonder_transportontheffing",
         "value": "bijzonder transportontheffing",
-        "uuid": "6b54d735-6654-4e19-84bc-b79f80e83459"
+        "uuid": "931ddaad-a553-4b56-a851-e8ef813af243"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijzondere_begraafplaats_toestemming",
         "value": "bijzondere begraafplaats toestemming",
-        "uuid": "b3aac9bd-c9e6-415c-9c29-4ebf92eaef5d"
+        "uuid": "766c9487-c4d6-4f8e-8131-531aa91a5609"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijzondere_begraafplaats_toestemming",
         "value": "bijzondere begraafplaats toestemming",
-        "uuid": "ab117cb5-6dde-4349-8f94-c5c9983bafb2"
+        "uuid": "0cd089e1-7723-464e-8728-b9cf7d9ae3db"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijzCurator",
         "value": "bijzondere curator",
-        "uuid": "0d3893eb-3cee-4643-98c4-975ccbcb0589"
+        "uuid": "f8f3e8fa-89e7-4334-845e-9545cdc1bd73"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijzCurator",
         "value": "bijzondere curator",
-        "uuid": "afeab3a6-2e72-4230-bc1c-7fd663b010a4"
+        "uuid": "23f3afee-beee-47af-a759-d786f1122bb3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijzOpspoDnstKlacht",
         "value": "bijzondere opsporingsdiensten klacht",
-        "uuid": "fe69024c-1db8-4da9-8943-28d6ffddbcf1"
+        "uuid": "ce028321-4835-4574-8e46-fa90b7f844e6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bijzBijstUitk",
         "value": "bijzonderebijstandsuitkering",
-        "uuid": "0494bde3-3dd1-4e73-b383-c9206791084f"
+        "uuid": "2e151e39-35db-48cd-82ba-8b94578a6093"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bindStudadvBeroep",
         "value": "bindend studieadvies beroep",
-        "uuid": "9099a052-a65d-416e-94d7-11e2cccaacee"
+        "uuid": "d7d44886-3c7f-4989-b058-8c5cfbec8e33"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/binSchipCert",
         "value": "binnenschipcertificaat",
-        "uuid": "1f0c4be1-66c0-49cb-b25f-86ebc5ab8434"
+        "uuid": "980e9c60-7f47-4266-bdc5-6dd03ee4e1d5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/biz-bijdrage",
         "value": "biz-bijdrage",
-        "uuid": "2ccb6e29-76b8-46ff-a27c-8ec214ae3026"
+        "uuid": "3c5e48f2-ea12-418d-8544-615b1829d46d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bladkorf",
         "value": "bladkorf",
-        "uuid": "471d8913-4775-4e04-9cfe-06174949bf67"
+        "uuid": "1679c7cd-cd18-4705-93c9-78cccadc8495"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/blijverslening",
         "value": "blijverslening",
-        "uuid": "bc28795f-537f-4a2d-94b6-06d8c8a4d9d4"
+        "uuid": "3a119090-2f73-42b1-a4d0-b6a9312aba0f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/blindengeleidehond",
         "value": "blindengeleidehond",
-        "uuid": "34137c65-3620-4d12-a0ae-74825219c812"
+        "uuid": "bf17abb5-e973-4b08-b58f-79cd82ea3acc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bloedprodinuitvverg",
         "value": "bloedproductenin- en uitvoervergunning",
-        "uuid": "641d70d6-9bf5-4c99-aef9-9ce82664ff92"
+        "uuid": "0dd579de-edcf-4461-87dd-1d07e5466bd9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bloembteelteis",
         "value": "bloembollenteelteisen",
-        "uuid": "8a060e2e-6eb2-4c44-912b-3c0265f07710"
+        "uuid": "f9547fb1-a86a-40ce-b6e9-ccdaf1fb2de6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bodembeschermingsvergunning",
         "value": "bodembeschermingsvergunning",
-        "uuid": "139ebb26-7be3-49d9-8f14-cc6c7b399b31"
+        "uuid": "3570b5a0-f6e4-49b7-b798-6761f5a34ace"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bodemonderzoek",
         "value": "bodemonderzoek",
-        "uuid": "ccc3751e-4df1-4880-96e7-e776b6686e82"
+        "uuid": "c6684411-d4eb-4304-b776-095b0801a10b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bodemonderzoek_schadevergoeding",
         "value": "bodemonderzoek schadevergoeding",
-        "uuid": "7a1e9b6e-1069-4957-ab6f-47972c8626b0"
+        "uuid": "bc0723b4-d780-4a24-a615-337687a5c06b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bodemopslagvergunning",
         "value": "bodemopslagvergunning",
-        "uuid": "4c73efbe-e8c6-4a44-b0a6-c625903176d1"
+        "uuid": "1274a633-c7c8-4c43-a482-045132c5720b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bodemsanering_instemming_saneringsplan",
         "value": "bodemsanering instemming saneringsplan",
-        "uuid": "d2fef2fb-4a08-43f8-b36e-0092f4e05e0d"
+        "uuid": "9d10c8b8-655c-42e1-8ecb-231d612ea270"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bodemsanering_melding_voornemen",
         "value": "bodemsanering melding voornemen",
-        "uuid": "611c9a57-d268-41c6-8a95-a0c229ce269d"
+        "uuid": "75bbf4ce-4571-4959-b19b-52ecaf96464d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bodemsanering_verkennend_onderzoek",
         "value": "bodemsanering verkennend onderzoek",
-        "uuid": "c8c5e2ba-4368-4038-8d96-f8d6c14a9229"
+        "uuid": "3c0f38ac-541a-4259-806b-db40f1b47baa"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bodemverontreiniging_melding",
         "value": "bodemverontreiniging melding",
-        "uuid": "1a1d4afe-4a98-438c-9b37-dfec47950879"
+        "uuid": "675c15f1-0067-453b-bc2f-69b07a7999a6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/boedelregInz",
         "value": "boedelregister inzage",
-        "uuid": "8db7566f-1289-4494-9967-ad05c2734532"
+        "uuid": "3044f13c-c6a7-490e-8d91-7295b2895091"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/boete",
         "value": "boete",
-        "uuid": "4425633b-715a-4a84-ab34-6503edbf1260"
+        "uuid": "5c0174de-c242-4ae1-beba-03ae2daf2e71"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brstprttranssub",
         "value": "borstprothesen transvrouwen subsidie",
-        "uuid": "71c0dc82-aa76-43db-9bd2-fd28a103ff91"
+        "uuid": "34eb7642-8105-4131-980f-61c19ce57107"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bouwgronduitgifte",
         "value": "bouwgronduitgifte",
-        "uuid": "e24ae776-2fe6-4ff5-aa74-e0e25f381ebf"
+        "uuid": "bc03a0f7-dd97-499c-97b2-fe686880a692"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bouwplaninzage",
         "value": "bouwplaninzage",
-        "uuid": "cf6cbd0a-105b-4740-9de9-166b81741ae4"
+        "uuid": "199e2c11-e6d6-4c40-904f-9702dcef54a4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bouwstoffenmelding",
         "value": "bouwstoffenmelding",
-        "uuid": "2a317540-3d50-4697-9610-608767fa497d"
+        "uuid": "5c93fe7f-2015-473e-9724-bd7a23795c7d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bouwwerk_voltooiingsverklaring",
         "value": "bouwwerk voltooiingsverklaring",
-        "uuid": "f70c513d-5bd9-4227-85da-ac0746aa109d"
+        "uuid": "ccb11362-06a0-49a1-a003-0d5d9af437ea"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bouwwrkzhmld",
         "value": "bouwwerk werkzaamhedenmelding",
-        "uuid": "cf6307ee-7586-4611-8842-66437fb444ea"
+        "uuid": "c5ccbf2a-b51f-4b15-9ce2-c9884784b95e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bpmvrijst",
         "value": "bpm vrijstelling",
-        "uuid": "e932a620-4ed0-4840-823b-19b8ff84d7ae"
+        "uuid": "47483345-837f-462d-a996-d68b307d8b20"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bpmAangifte",
         "value": "bpm-aangifte",
-        "uuid": "e5da92d4-7e65-4d41-b08e-315c4dbd3bd0"
+        "uuid": "f47a9739-6100-4beb-8338-c2c847025b05"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bpmTeruggaaf",
         "value": "bpm-teruggaaf",
-        "uuid": "87bb9201-00c3-4e34-bbc1-6c566577a331"
+        "uuid": "d5a44fbb-4499-4e33-8eec-750fc0d09e02"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/bpmTeruggaaf",
         "value": "bpm-teruggaaf",
-        "uuid": "1cf674e3-4703-43de-9eb8-089be34f9cf3"
+        "uuid": "5b1ef943-87d9-48f6-b202-aef927cd3bc7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brandbeheersing_aanvalsplan",
         "value": "brandbeheersing aanvalsplan",
-        "uuid": "e7550be4-c9e7-4096-becb-398a8c9d3568"
+        "uuid": "8232ce16-d7d1-47ca-8511-dd3076aced95"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brandveiligheidadvies",
         "value": "brandveiligheidadvies",
-        "uuid": "a07ff672-cd97-4c15-98c0-b188955e921a"
+        "uuid": "889966b8-567f-4f84-b1c7-098794a1f04d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/briefadres",
         "value": "briefadres",
-        "uuid": "c37349dd-291f-4a15-8390-1f553a1f096f"
+        "uuid": "6dd13e83-907c-4888-a96d-e4e6fba06d4c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpAdoptUitschr",
         "value": "brp-adoptie-uitschrijving",
-        "uuid": "fb3a3b62-b612-404d-8b98-13f5ca4b17cf"
+        "uuid": "7c5095c4-e6a1-4c59-905d-75099c6ad264"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpGehhVzk",
         "value": "brp-geheimhoudingsverzoek",
-        "uuid": "1586564f-c69d-433e-9d71-24f269b83aec"
+        "uuid": "1683168b-d8e0-4270-8259-a70575f99e45"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpInschr",
         "value": "brp-inschrijving",
-        "uuid": "b425e4ff-5d1a-4998-ade5-705dbcf8d4cc"
+        "uuid": "9a4bea00-a3a7-4226-94a2-12fd999f928f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpInschrBuitAkte",
         "value": "brp-inschrijving buitenlandse akte",
-        "uuid": "bfb0a987-255d-40e9-976f-8f31ad4332a3"
+        "uuid": "9f0d4dba-f73f-4563-a47e-d8e343c8558b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpInschrOverlKind",
         "value": "brp-inschrijving niet in leven zijnd kind",
-        "uuid": "66fda9f2-6752-4d19-9d2d-af0ecf90438d"
+        "uuid": "62b29fa2-3342-4856-a37d-94159fdba599"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpInzRecht",
         "value": "brp-inzagerecht",
-        "uuid": "e3483a8e-cfcd-4b72-9d92-ec5e4306cf3a"
+        "uuid": "0bf5a465-75e3-4a74-86ea-2bcacbef900e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpInzRechtGeg",
         "value": "brp-inzagerecht gegevensverstrekking",
-        "uuid": "398c240e-5613-4098-848f-7b1d0a301299"
+        "uuid": "f4abe3ff-ae34-424c-9b41-f09b12b882a2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpUittr",
         "value": "brp-uittreksel",
-        "uuid": "203a250f-cfa1-4bad-8ddb-dcf47fa99433"
+        "uuid": "ee131ced-3e6e-40aa-b467-7e3ed5db0fc8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpUittrGezag",
         "value": "brp-uittreksel met gezag",
-        "uuid": "af4dc9f8-20d8-48ae-a8bf-fd82530c2279"
+        "uuid": "18026d46-68ec-47f0-913d-b2d77c502a9f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/brpWijzVzk",
         "value": "brp-wijzigingsverzoek",
-        "uuid": "4370d751-20ed-46a5-9c7f-8fa57afaae4f"
+        "uuid": "c2ea8524-7faa-4f9e-891d-34949ef3c2db"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/btwnrverm",
         "value": "btw-nummervermelding",
-        "uuid": "a8dec787-67b6-4f4f-8e28-1bc700bc3c94"
+        "uuid": "bc644e6d-96db-47c3-a931-f3ddedc46761"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/buitGewPens4045",
         "value": "buitengewoon pensioen 1940-1945",
-        "uuid": "2cd24dec-f294-401e-bae7-96247009e896"
+        "uuid": "4e1619d8-25a5-4cba-ba6e-0be2e4e0ff9f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/buitGewPensIndischVerzet",
         "value": "buitengewoon pensioen indisch verzet",
-        "uuid": "50917b04-281e-48a7-860d-033ad9292794"
+        "uuid": "2f6fc4c9-07bb-43fc-ba7b-7976cd3c1684"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/buitGewPensZeelOorlSlachtWO2",
         "value": "buitengewoon pensioen zeelieden-oorlogsslachtoffers tweede wereldoorlog",
-        "uuid": "457f3e13-c252-4f4a-96cc-859038baac67"
+        "uuid": "40cb0713-a493-4833-a6ab-a316d42804b2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/buitenlVermAang",
         "value": "buitenlands vermogen aangifte",
-        "uuid": "c2992896-b6b8-43ae-9ec3-19bbf886509f"
+        "uuid": "b74c3c9e-4d85-410b-a68d-76b4bc070418"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/buitenlOnderwBevErk",
         "value": "buitenlandse onderwijsbevoegdheid erkenning",
-        "uuid": "80bd7b5d-8be6-490e-aeae-d98f6390b1e0"
+        "uuid": "0550999d-f75a-46b1-98d6-f39a6fea0f98"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/burgOorlSlacht4045Uitkering",
         "value": "burger-oorlogsslachtoffers 1940 -1945 uitkering",
-        "uuid": "5e9bf517-1ac7-490a-b3c5-8277eecfbf11"
+        "uuid": "ffdfee1d-6df6-4ff4-bac6-7a495f296471"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/burgerinitiatief",
         "value": "burgerinitiatief",
-        "uuid": "c28bf435-a984-442d-98c9-1485bafc8d0a"
+        "uuid": "9d81d50a-54fe-4023-8edf-9fba9f23f48e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/burgerinitiatief",
         "value": "burgerinitiatief",
-        "uuid": "2a22dcaf-8459-48f8-8056-45eb8dfbb67a"
+        "uuid": "674a1d6d-11c6-4021-b1dc-771a8285cc0f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/burgerinitiatief",
         "value": "burgerinitiatief",
-        "uuid": "b4237c47-324c-4333-9f3e-f05a82f2d9f0"
+        "uuid": "d048783c-cc8c-49b2-994a-9dc482e71505"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/burgerinitiatief",
         "value": "burgerinitiatief",
-        "uuid": "62ec0df2-e8dd-4852-bcc1-7632883babd2"
+        "uuid": "872c4453-0b8d-451b-88af-467240603531"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/burgerservicenummer_(bsn)",
         "value": "burgerservicenummer (bsn)",
-        "uuid": "a4551c67-e069-4d57-b639-e9285ff041d0"
+        "uuid": "fe49fa67-a61e-4afb-a302-489b188ef635"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/buurtsubsidie",
         "value": "buurtsubsidie",
-        "uuid": "47d26731-aa3d-4a2b-a65a-252e7bcb03a2"
+        "uuid": "3b7d53a8-82fa-4a3a-8c01-127d31a21e70"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/calamiteitenbestrijding",
         "value": "calamiteitenbestrijding",
-        "uuid": "c7ead3b8-2405-4bb8-8c11-0936458c36d8"
+        "uuid": "3220928c-46a2-4f25-aea7-fb8488997718"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/calamiteitenbestrijding",
         "value": "calamiteitenbestrijding",
-        "uuid": "ced44569-0a57-47f9-b184-12c928294132"
+        "uuid": "26b9e282-c187-46d2-abbe-34be675770de"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/caravParkOnth",
         "value": "caravanparkeerontheffing",
-        "uuid": "137e59a5-9145-4758-93be-fa7fba3deba1"
+        "uuid": "11154bcd-3922-44d4-ac54-86615dd9576f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/carbidschietenmelding",
         "value": "carbidschietenmelding",
-        "uuid": "5cb109da-5037-4d3b-a32c-e7affdc92912"
+        "uuid": "84e7a31f-4af9-426f-af7e-74676c351291"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/centrArchOverlInz",
         "value": "centraal archief overledenen inzage",
-        "uuid": "9cefe081-a46b-43c6-82ac-980d7a08129b"
+        "uuid": "f2cd45b5-30ee-489a-ad1d-2f69e3248b05"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/centrInsolvRegInz",
         "value": "centraal insolventieregister inzage",
-        "uuid": "577d7e73-5203-4f34-9dd0-4073d2f67b42"
+        "uuid": "e333bb40-aefb-4855-b4b3-fd65d623117e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cruks",
         "value": "centraal register uitsluiting kansspelen",
-        "uuid": "63d321a6-8535-4880-93d4-fc86e6e83f4c"
+        "uuid": "74c0d658-fecb-47e3-b626-730323a4f9e9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/centrTestamRegInz",
         "value": "centraal testamentenregister inzage",
-        "uuid": "bf65cbf9-71c0-4c4b-be46-a8ed77fe3d5b"
+        "uuid": "9d5c42d1-760d-42ab-8f8e-a0e485938b6b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/certificaat",
         "value": "certificaat",
-        "uuid": "f0e6101e-61db-4396-9c0e-cdd2e6084e09"
+        "uuid": "ed2a9c49-41d8-4a86-85b1-c970f9ecf4a1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/citesverg",
         "value": "cites-vergunning",
-        "uuid": "68d0208f-db2c-4801-af65-a45fd9ca60d1"
+        "uuid": "7585ab88-bca5-4f92-89c0-d4a4ac7b144a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/clntonderz",
         "value": "cliëntenonderzoek",
-        "uuid": "a76f70e6-2591-4e3b-8542-544d3639839b"
+        "uuid": "28920e83-6b49-472a-9516-c1c40d540cbb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/collectevergunning",
         "value": "collectevergunning",
-        "uuid": "1f4b3375-8207-4a37-a003-dfefc4664103"
+        "uuid": "2b2cc8d2-a06f-49b1-bca1-caffffd5ffe5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/collontslmld",
         "value": "collectief ontslagmelding",
-        "uuid": "245d4906-f313-42bc-a736-8b6342d6c203"
+        "uuid": "eb925e64-85cd-4be4-a334-9527314764f0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cao",
         "value": "collectieve arbeidsovereenkomst",
-        "uuid": "75a170eb-b9ea-483f-bf85-d48cf27bbc7c"
+        "uuid": "7cb107f4-a49b-4063-b04d-1498378fa63e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/collIncFest",
         "value": "collectieve en incidentele festiviteiten",
-        "uuid": "9ef34147-920c-4d02-9405-4f68b9c72eab"
+        "uuid": "143152dc-ddab-475b-a820-1e2c618c92f4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/collegegeld",
         "value": "collegegeld",
-        "uuid": "9aa34073-bf43-4f86-b2a2-456def4ccc46"
+        "uuid": "d29d8b3f-077e-4ce5-b2af-6a3f633be30a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/commzndverg",
         "value": "commenciële zendvergunning",
-        "uuid": "ec4b74e4-09b2-42d9-8f2d-9a1a2704d9a4"
+        "uuid": "a243ef52-2f7b-48cc-8fc1-c6914d3c6644"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/commomrtoest",
         "value": "commerciële-omroeptoestemming",
-        "uuid": "f3b6c7b9-39a1-4cb8-8f24-11486ad9ab16"
+        "uuid": "78e02d1f-8789-44fe-8c02-46abcd23102f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/compostvat",
         "value": "compostvat",
-        "uuid": "f108ada3-8120-44eb-8ad8-240123e8f193"
+        "uuid": "89da4e0c-e219-4695-92b3-a7f399d44f02"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/confverkl",
         "value": "conformiteitsverklaring",
-        "uuid": "0f895852-04b4-4534-9541-08d218d9266c"
+        "uuid": "4835c4b4-562a-4e69-92ae-2c5744b0005f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/consignKasUitk",
         "value": "consignatiekas-uitkering",
-        "uuid": "8fd78a93-c8b8-4845-9ea4-fb3949941c5b"
+        "uuid": "205f51b9-e5f4-41bc-8875-6b66fb48a30d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/contactgegAanpass",
         "value": "contactgegevens aanpassing",
-        "uuid": "497996e5-a2df-4cc0-9980-1221c6b2937c"
+        "uuid": "417f9588-f4ba-49ba-adff-44e55f3b7315"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cosmprdvrschr",
         "value": "cosmetische-productenvoorschriften",
-        "uuid": "1e5bb939-c84d-4e52-ab9c-24d05df10509"
+        "uuid": "77d93205-6134-49b8-8c1c-c1f5076a4db9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/covid19Tegm",
         "value": "covid-19 tegemoetkoming",
-        "uuid": "52ba82a2-3d23-4c63-97d2-ceb5616beca2"
+        "uuid": "c28cffd0-269b-4d29-a85a-5aae7ba68495"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/covid19WerkgSubs",
         "value": "covid-19 werkgelegenheidssubsidie",
-        "uuid": "2ecbd010-e0f8-435c-bec3-f406dc8d06fb"
+        "uuid": "e332c356-069d-456e-bd1a-9414c5690463"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/crematoriumregister",
         "value": "crematoriumregister",
-        "uuid": "04ce7ed3-1f01-46da-b74c-a2fe85a14c38"
+        "uuid": "da79fd14-cc10-483b-af21-ec14169b9d20"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/crisismtrgl",
         "value": "crisismaatregel",
-        "uuid": "5379b136-d70e-4fe4-b9e7-adba7a9065da"
+        "uuid": "7e17a512-bd59-4fbc-816f-388e79e1613d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/crisisopvang",
         "value": "crisisopvang",
-        "uuid": "cb22b8b2-8242-46b1-9a85-3fd854cac71c"
+        "uuid": "eaba76bc-efe5-4892-9911-5cf66592cae4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/crisisopvang",
         "value": "crisisopvang",
-        "uuid": "342b1ed8-b79e-405b-b693-d81e29f3a640"
+        "uuid": "3e77a693-8643-45b7-8acd-36f1888e828f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/crisisopvang",
         "value": "crisisopvang",
-        "uuid": "f6e8f3b1-ecb1-4d37-9bfb-7b094a0c2206"
+        "uuid": "dfd6200d-1624-4108-b20b-e4a6060a56d7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/crisisopvang",
         "value": "crisisopvang",
-        "uuid": "8b5bb941-c95d-4542-8cf8-061edce5f6c5"
+        "uuid": "270bf208-66c8-4646-ae11-ca198efdfb77"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/crisisplan",
         "value": "crisisplan",
-        "uuid": "e401133a-f070-4391-bcb1-c516bae0a468"
+        "uuid": "ec2777b1-7fb0-49e0-845e-1431da79d3b2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cultinvverb",
         "value": "cultuur invoerverbod",
-        "uuid": "b19a743e-20b2-4eef-842f-df3a7ff7e4d0"
+        "uuid": "a5be165b-7c69-4a4c-86a7-b16168da4122"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cultuurgoedaanw",
         "value": "cultuurgoedaanwijzing",
-        "uuid": "891d8f88-ea24-4d0e-99a7-4d0a3309a0b5"
+        "uuid": "9e6ba03a-4bcf-48e0-ba60-872a4a524408"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cultGoedUitvVerg",
         "value": "cultuurgoederen uitvoervergunning",
-        "uuid": "89981cac-d400-4dfd-a0bc-949d30d651c5"
+        "uuid": "35903ac0-480c-46eb-bc64-ff3618f5e747"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cultuursubsidie",
         "value": "cultuursubsidie",
-        "uuid": "d9036ac1-79a7-414a-8096-147c3f451321"
+        "uuid": "84bfb9bf-bc72-47ff-a5dd-bcf16d6982f7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/curatele",
         "value": "curatele",
-        "uuid": "0b9b61bd-b817-480a-9e7e-502026b29547"
+        "uuid": "51c23b00-05dc-4358-8a0c-3fd8586cc2dc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/curateleBewReg",
         "value": "curatele- en bewindregister",
-        "uuid": "809bf519-937a-4e99-b797-93b761c2f74c"
+        "uuid": "ce2f5f54-fe11-461e-a86c-20b937b7c983"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cursusgeld",
         "value": "cursusgeld",
-        "uuid": "35b6c8ad-f753-4210-a7c7-2ab39341ac70"
+        "uuid": "634f8a64-e4aa-4245-9f96-be644f011630"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/cursusgeldTerugbet",
         "value": "cursusgeld terugbetaling",
-        "uuid": "ed54a4e0-3147-4463-ad64-ebe4e40e3ddd"
+        "uuid": "bd9479a6-a76f-40af-9bf4-600e906d4d54"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dagbestOuderen",
         "value": "dagbesteding ouderen",
-        "uuid": "1d5aa5d7-9dcc-4a84-baa5-81883817217f"
+        "uuid": "1bc64fb1-bdfc-437f-ae56-e50464ce8927"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dagverzorging_ouderen",
         "value": "dagverzorging ouderen",
-        "uuid": "82c77b01-ce0f-484b-af88-bd2b5cf51d84"
+        "uuid": "744f0281-a7fc-4271-845d-a374dc2a3334"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/damu-llReisksub",
         "value": "damu-leerling reiskostensubsidie",
-        "uuid": "bc5ec683-e95d-4759-b48f-e320aae88d8f"
+        "uuid": "7c3b54d1-eb7d-4501-bb07-da72f3f5693e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/damu-llReisksub",
         "value": "damu-leerling reiskostensubsidie",
-        "uuid": "9c6821a2-d912-482e-8000-766b1eccd798"
+        "uuid": "5a4cd4dc-1760-46c7-b515-358378ca2fec"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/deelOnderwProgrVOOnth",
         "value": "deel onderwijsprogramma vo ontheffing",
-        "uuid": "f32e7550-83b8-46f4-9e83-6c1d24c853eb"
+        "uuid": "0bbb2c05-6ce6-48e7-8911-a22fe32623eb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/deelOnderwProgrVOOnth",
         "value": "deel onderwijsprogramma vo ontheffing",
-        "uuid": "ac3840ec-669f-407d-a7bd-bcd722e739fb"
+        "uuid": "5c97ef50-242e-46d9-95f7-d165952f83e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/delfstverg",
         "value": "delfstoffenvergunning",
-        "uuid": "242ad6f9-5816-486d-a5d7-c888d6f67aaf"
+        "uuid": "01594b3a-aed9-4d27-b69d-141c39ef432c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/depositogarantiestelsel",
         "value": "depositogarantiestelsel",
-        "uuid": "cfa7c64f-50c2-4515-b6ed-4c2a405f0baa"
+        "uuid": "eacdcadd-e468-4829-9878-fbb310da273b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/detentieMeldZorgVerz",
         "value": "detentie melding zorgverzekeraar",
-        "uuid": "cefa4d36-33a9-49a7-a831-65f1f3482c35"
+        "uuid": "b1c9ac38-3be0-4317-826f-734ed1d3a104"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/deurwben",
         "value": "deurwaardersbenoeming",
-        "uuid": "156d2f11-2ee8-4f3e-b8d9-a701dfa5c5c6"
+        "uuid": "ba80e10c-5e63-4a9a-a945-6a0b22311f96"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dienstplOnth",
         "value": "dienstplicht ontheffing",
-        "uuid": "afa741a2-0b70-4f24-9938-c0d8a2077e09"
+        "uuid": "fd7f8bf7-5879-413b-b24f-2d5bcd724d05"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dienstplUitst",
         "value": "dienstplicht uitstel",
-        "uuid": "98ec029a-274f-4aca-9c0a-c81cb07cadec"
+        "uuid": "dda125e7-baec-4885-bb75-79172041b0bf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dienstverlening_op_of_aan_de_openbare_weg_vergunning",
         "value": "dienstverlening op of aan de openbare weg vergunning",
-        "uuid": "c6890654-70ce-4368-8627-5814e4d65e68"
+        "uuid": "e58de67d-f101-444e-8667-d0fbafa9db10"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dierenhOnth",
         "value": "dierenhoudenontheffing",
-        "uuid": "99ecfa15-bd1e-4a9b-aaac-902b28ff2af5"
+        "uuid": "369162b9-894b-4d5f-84fc-a9cf95a7edcb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dierenopvang",
         "value": "dierenopvang",
-        "uuid": "949ed91f-63e2-4e07-b10f-45f592de5b22"
+        "uuid": "0e603f33-d9b2-4494-b9d8-6c1eaa7c62ab"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dierenregDoc",
         "value": "dierenregistratiedocument",
-        "uuid": "dc3befad-0a0f-43ad-b4d9-697c79747d30"
+        "uuid": "aeb7fa88-2283-43c3-aa9e-ec5315d6e366"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/diertentmld",
         "value": "dierententoonstellingsmelding",
-        "uuid": "cf9c1d03-6e83-43b1-a16c-7402a48e52ae"
+        "uuid": "23a90282-10c9-4d81-a48e-ffbf6dcde605"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dierentuinvergunning",
         "value": "dierentuinvergunning",
-        "uuid": "a5af8df0-5c1d-4772-ad07-085209efceab"
+        "uuid": "9ea9288a-23f0-4298-bb3f-cbe4dc25a9dd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dierenvervDoc",
         "value": "dierenvervoersdocument",
-        "uuid": "deec0f32-13e7-44bf-a0c2-94a57c8d8481"
+        "uuid": "23b6b6bd-4f9a-4db8-8103-0f450ac974ae"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dierenvervVerg",
         "value": "dierenvervoersvergunning",
-        "uuid": "8f163c81-6d38-4e08-b422-104d44e29950"
+        "uuid": "eb9297e8-6984-49fb-8d06-7a9f621a57ff"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dierenvervVoertCert",
         "value": "dierenvervoersvoertuigcertificaat",
-        "uuid": "6dc78b71-eec3-4a07-97bc-ed600b8ae9bf"
+        "uuid": "e35d04dd-d6fd-452f-ab33-7a9a672e34e7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/diergenRegister",
         "value": "diergeneeskunderegister",
-        "uuid": "a08f8243-bb70-4258-bd41-de8acb28a154"
+        "uuid": "fa01fd5d-5851-4913-83b7-917d1a88aff9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dierprinstverg",
         "value": "dierproeven instellingsvergunning",
-        "uuid": "a2cce506-94b7-48f1-9d2b-93eef5eb10a6"
+        "uuid": "8e0fab2a-faec-44a9-950c-8c1881d3ef20"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/digid",
         "value": "digid",
-        "uuid": "24c53a25-0e24-44b6-a39e-28b5a9bff69d"
+        "uuid": "8472f070-db07-4143-a8d5-0647395262ec"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/digid_machtiging",
         "value": "digid-machtiging",
-        "uuid": "3a73b215-b8ef-4f2c-8c0c-cea43d378981"
+        "uuid": "9ebf374a-55fe-4022-b081-76fc100cc04b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/diplomabeschr",
         "value": "diplomabeschrijving",
-        "uuid": "f98ffdbb-80da-478c-b69a-59c079d308bd"
+        "uuid": "1e164985-40e4-4fd0-b5af-47a22924c567"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/diplomaregister",
         "value": "diplomaregister",
-        "uuid": "625b3992-8304-4154-a9ed-ed096589df6f"
+        "uuid": "d0907529-515d-45f8-9273-e96680e3cda4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/diplRegGegVerstr",
         "value": "diplomaregister gegevensverstrekking",
-        "uuid": "78e96c20-776d-4512-bbb8-eb5a9551a47e"
+        "uuid": "1309da01-b3b7-4041-b51b-d6259442de4c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/discrKlacht",
         "value": "discriminatie klacht",
-        "uuid": "64a13abe-6222-4b72-a362-1d2f4b87f164"
+        "uuid": "1577fe8e-271c-4b8e-9a93-d1841ce9c34a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/divbrbelverm",
         "value": "dividend bronbelastingvermindering",
-        "uuid": "396f148c-e0bf-434f-87d2-bea3252c5823"
+        "uuid": "49c9af2f-5746-4349-b2da-ce105c962657"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dividendbel",
         "value": "dividendbelasting",
-        "uuid": "bc7887c1-21db-4a40-9da9-3ad7d39f03a7"
+        "uuid": "21d399c3-4749-4abe-bae4-064ca282556b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dodeGezelschDierenOpr",
         "value": "dode-gezelschapsdierenopruiming",
-        "uuid": "9c33ec2b-5769-4caf-8c26-2dfe0d2cf339"
+        "uuid": "f0f72a06-800c-487b-9469-83db1639b783"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/doelgroepverklaring",
         "value": "doelgroepverklaring",
-        "uuid": "9b2d7fcf-3dbd-4ceb-826d-1a69162d2d78"
+        "uuid": "492da918-0c9d-4699-92f4-5bd8111b13a1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/donorgegKunstmBevrInfoVerz",
         "value": "donorgegevens kunstmatige bevruchting informatieverzoek",
-        "uuid": "f966d1bc-d249-449a-9ee2-b76b3cde7488"
+        "uuid": "175998d7-147a-4475-8166-9a4b8a28d902"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/doodgeboren_kind_aangifte",
         "value": "doodgeboren kind aangifte",
-        "uuid": "da754ce3-4154-42ac-a7b5-ecf5d74676aa"
+        "uuid": "865bf4f4-e090-4225-ab99-bd20dffa32dc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/drwatAanslVerzoek",
         "value": "drinkwateraansluitingsverzoek",
-        "uuid": "1fe55eb6-0d20-4899-b83c-946d9fdbd5e4"
+        "uuid": "b1d52994-8340-4a82-9c90-e11e1e210ed5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/duurPrestBeursVerl",
         "value": "duur prestatiebeurs verlenging",
-        "uuid": "d4fcd9cc-7aea-416f-8554-c1dae389f4c5"
+        "uuid": "85cb5f75-9337-4402-863f-3974e7dfb31b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/duurPrestBeursVerl",
         "value": "duur prestatiebeurs verlenging",
-        "uuid": "19b09081-0104-4248-a9d2-402b10f2f26e"
+        "uuid": "7719accf-1f69-4def-95cc-f479daf8dd27"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/duurzhLening",
         "value": "duurzaamheidslening",
-        "uuid": "afd6855f-39bc-4585-b78f-759aca825fe0"
+        "uuid": "d2018ead-42dc-4a83-ac24-a2a798b0ad87"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dwangsomNietTijdBesl",
         "value": "dwangsom bij niet tijdig beslissen",
-        "uuid": "ab72d0ed-393e-4fab-8f0f-f49bf409d67d"
+        "uuid": "d29191e7-e3bb-4e3a-a5c1-8c89de1c80dc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dyslexieverklaring",
         "value": "dyslexieverklaring",
-        "uuid": "8de6a478-0830-45e4-92a0-b2f7244dab1b"
+        "uuid": "d1340903-acb5-41f9-9548-b6042baa47e5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/dyslexiezorg",
         "value": "dyslexiezorg",
-        "uuid": "f7b6cded-cd5f-42f6-b0a2-5edbacb01cf2"
+        "uuid": "1bbbd147-4797-4935-915a-af2c1817fb9b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/echtscheiding_inschrijving",
         "value": "echtscheiding inschrijving",
-        "uuid": "32c7032f-e76e-4049-b6af-fbed094ad897"
+        "uuid": "a412a6ad-a970-4534-943e-4adb0b8cdb9d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/echtschVerz",
         "value": "echtscheiding verzoek",
-        "uuid": "492eaf80-ea62-4d37-9342-a93ad6210def"
+        "uuid": "4617ecef-3e9f-4b68-9f2b-45d7cc9fdb99"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/echtschCert",
         "value": "echtscheidingscertificaat",
-        "uuid": "e9e008e2-cf65-4b48-8525-78ab6ffc9046"
+        "uuid": "d7d5870f-1f32-4c21-81dd-97fa129789e7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/economische_ontwikkelingssubsidie",
         "value": "economische ontwikkelingssubsidie",
-        "uuid": "9287577b-ccb7-4d52-9fae-118660e5b8d6"
+        "uuid": "5ea965a7-fdfb-4ae6-ad36-169d0e146f3a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/eedEnergieAudit",
         "value": "eed-energieaudit",
-        "uuid": "e747a25c-dbb1-4344-9c50-4fa1563b3a9f"
+        "uuid": "2607862f-9ea1-4063-8c59-32b8afe994a3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/eenhoofdigGezag",
         "value": "eenhoofdig gezag",
-        "uuid": "1bc0c4b2-6861-4a39-8639-6d184c1480ea"
+        "uuid": "cb3e98e6-522d-4318-8e6b-73d8cd42da89"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/eenmUitkVet",
         "value": "eenmalige uitkering veteranen",
-        "uuid": "f8405248-f378-4694-892b-b6e9e9588059"
+        "uuid": "20adc91e-9fbd-4114-8a99-0342c3112492"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/egBerKwalErk",
         "value": "eg-beroepskwalificaties erkenning",
-        "uuid": "fdd89494-2d5e-4e5b-b509-8a7d145a254d"
+        "uuid": "fe851d00-9c26-43c4-9c68-316615ff7afc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/eHerkenning",
         "value": "eherkenning",
-        "uuid": "7622fb7f-ae90-4351-ad93-1b66d8891a9e"
+        "uuid": "b5f04909-9369-4c27-8dd8-1915cc120230"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/eindexVOAanp",
         "value": "eindexamen vo aanpassing",
-        "uuid": "085c6a4b-cb6a-4c66-993c-914558303daa"
+        "uuid": "0adb761c-9647-4091-97c0-e1c20bc2ea8d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/elecprogverantw",
         "value": "elektriciteit programmaverantwoordelijkheid",
-        "uuid": "a7e5ad11-c11a-49a5-ae9e-e16f8af2bcc6"
+        "uuid": "a8a3688d-3d5a-46af-b62d-559f8fb3c03d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/elektrAanslVerzoek",
         "value": "elektriciteitsaansluitingsverzoek",
-        "uuid": "d47dfec5-831b-4e87-9671-27348ce70b76"
+        "uuid": "f17ede58-8a5f-4679-b658-c30c7aa5b307"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/emancipatiesubsidie",
         "value": "emancipatiesubsidie",
-        "uuid": "7714a267-4124-484e-8591-87908cbe492d"
+        "uuid": "63284394-5fa0-46d2-acc5-e1c8865df2f0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/emancipatiesubsidie",
         "value": "emancipatiesubsidie",
-        "uuid": "0a64d02c-7b5c-46a0-a674-d56d407bc1cf"
+        "uuid": "d23f6d20-82d5-405b-8dfc-6b97c4f2f425"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/energBespEigenHuisSubs",
         "value": "energiebesparing eigen huis subsidie",
-        "uuid": "c3f9872c-b748-4f7d-b694-a631470ff049"
+        "uuid": "537acab1-a685-40c6-ba10-48761549feab"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/energielabel",
         "value": "energielabel",
-        "uuid": "611e1a8d-b4cc-4cd8-85aa-305d8ce72be6"
+        "uuid": "14bf325b-7ca8-4b93-abeb-1f97ccbd6713"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/energiesubsidie",
         "value": "energiesubsidie",
-        "uuid": "74649f83-7bf9-44e5-9109-a4b5a13a91ae"
+        "uuid": "26319af8-d658-4377-bb60-d024a206e1a8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/epidemiologie",
         "value": "epidemiologie",
-        "uuid": "457b10b3-9773-43ba-aaf3-e653292a3788"
+        "uuid": "7e028428-5605-4b51-8c44-3302aec1bbb1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/erfbelasting",
         "value": "erfbelasting",
-        "uuid": "80e73854-36f2-4ab1-ab90-0db753585795"
+        "uuid": "cbcbe76a-300e-490b-832c-df140443cb96"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/erfpacht",
         "value": "erfpacht",
-        "uuid": "d2f6d3b5-8140-4795-907a-61d3231a91b6"
+        "uuid": "e56d6492-760c-47a7-b83a-0582863d0ce3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/erkenning_kind",
         "value": "erkenning kind",
-        "uuid": "ea2adf88-8a7a-4134-becf-36950f7d2ecf"
+        "uuid": "11e4a596-0a11-4914-88ce-2782fc6b859c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/erkenKindVern",
         "value": "erkenning kind vernietiging",
-        "uuid": "6e9a39d1-ed2c-4c24-ba31-b0e3d255e482"
+        "uuid": "7a0eb0bb-6296-41b7-a04f-0541ee6e529e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/erkenKindVern",
         "value": "erkenning kind vernietiging",
-        "uuid": "dd5c8112-6e9a-40ad-9c4e-665071978336"
+        "uuid": "4a1f8778-9ae7-4440-b8dc-000531d56ed7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/erkenKindVervToest",
         "value": "erkenning kind vervangende toestemming",
-        "uuid": "07eb96c8-14e1-434f-aa56-8a89030a99b5"
+        "uuid": "082a07d3-bccb-4c7f-a853-4dcb7efac0c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/eurErfrechtVerklaring",
         "value": "europese erfrechtverklaring",
-        "uuid": "559e6f59-6990-4868-839e-09021feebf7e"
+        "uuid": "79c38abc-4542-413b-acc7-9987e5a71c36"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/eusoczekverkl",
         "value": "europese sociale zekerheidsverklaring",
-        "uuid": "496d3dd9-f0a1-4691-a4fd-785ffa74bc1d"
+        "uuid": "6da7924d-bf98-495c-b42e-8f87cb8352fd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/eu_vuurwapenpas",
         "value": "europese vuurwapenpas",
-        "uuid": "fae01bbf-1f81-4588-a733-a101fe978562"
+        "uuid": "c6343730-c4ab-41c4-816e-89734221c897"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/euziekteverzkrt",
         "value": "europese ziekteverzekeringskaart",
-        "uuid": "bc7b1a64-5f3d-40d9-b2c6-9f96f173c22b"
+        "uuid": "42e880ad-7cb4-4e0e-a1ca-6ce24ff0adb0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/evcErkenning",
         "value": "evc erkenning",
-        "uuid": "bccc208a-216e-4737-b503-02b87c0f2963"
+        "uuid": "79d5d271-8e48-4201-b8ce-d897a02f5860"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/evenementenmelding",
         "value": "evenementenmelding",
-        "uuid": "2a96c6fb-090b-4b51-931d-9405d332ece0"
+        "uuid": "a7fdd48e-1828-4629-9980-c651c4aa72f2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/evenementenvergunning",
         "value": "evenementenvergunning",
-        "uuid": "66bcfaad-7a7c-4f3e-b85c-671f39d7c237"
+        "uuid": "7c40b298-10b3-42b7-a1fd-90638f3201fc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/evenementenvergunning",
         "value": "evenementenvergunning",
-        "uuid": "8e1df5c5-bb57-4a1e-bc7b-9908f780a1c2"
+        "uuid": "a87fc2e1-fa42-4e09-b1f3-5e34475f4b3c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/examenondBerOndVrijst",
         "value": "examenonderdeel beroepsonderwijs vrijstelling",
-        "uuid": "ae9b738b-5c6e-4138-afe1-a80eae0791d5"
+        "uuid": "c890fc81-4979-4db5-a58d-f0100d7330dc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/examenvakVavoOnth",
         "value": "examenvak vavo ontheffing",
-        "uuid": "617331d4-bc4f-49a6-96d7-9f76d81f91be"
+        "uuid": "d1825c59-91ae-4f32-b27e-36122d53e30f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/experiment_gebruik_meststoffen_ontheffing",
         "value": "experiment gebruik meststoffen ontheffing",
-        "uuid": "fcf5f9f7-a994-49ad-8f6c-ef68d1c14c89"
+        "uuid": "49551384-a9f5-46b7-85d4-e7ab303625f2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/expertisecentra_onderwijsplan",
         "value": "expertisecentra onderwijsplan",
-        "uuid": "1248baae-0bd4-4f42-ba13-b38a23529581"
+        "uuid": "dfa7bb72-c2f1-4bd6-b8d3-6140f53bd38f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/extrOnderwActBasisschVrijst",
         "value": "extra onderwijsactiviteit basisschool vrijstelling",
-        "uuid": "672f0d06-d725-491c-a80f-1abf24dd6a61"
+        "uuid": "3c05e5c5-637a-48ea-9fe0-6017d513d4e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/faillismt",
         "value": "faillissement",
-        "uuid": "dfa8c746-a5b1-4543-be02-60692797c4a1"
+        "uuid": "c725bcea-3635-43e2-9729-ee3e7d5e131b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/faunabeheereenheid",
         "value": "faunabeheereenheid",
-        "uuid": "f73646af-11dc-4bf8-88b4-8700767eba72"
+        "uuid": "816e9440-f377-43d2-8cd7-48cd8153b0cf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/faunabeheerplan",
         "value": "faunabeheerplan",
-        "uuid": "669e5554-e57f-48dc-aa83-b4faf8593f25"
+        "uuid": "26baee4b-8be3-4379-96c8-f34353197586"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/fietsenregister",
         "value": "fietsenregister",
-        "uuid": "05f32dc7-415d-44ba-856f-076ea1ded828"
+        "uuid": "2c2f2db8-f2de-47d2-9af3-c8710fde9ddf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/financiële_hulp",
         "value": "financiële hulp",
-        "uuid": "8ba26e97-e146-4b76-96f9-5a8c9e2abe33"
+        "uuid": "ceb5921e-21cc-445a-bf3a-5ef80e5971c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/finOnderstStudBijzOmst",
         "value": "financiële ondersteuning student bij bijzondere omstandigheden",
-        "uuid": "eb2543a5-16b0-4f7f-8bea-f0b69e7c0928"
+        "uuid": "cbca31a5-780e-4407-9b16-12d53b064f8a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/forensenbelasting",
         "value": "forensenbelasting",
-        "uuid": "99a3b5e5-226b-4cd3-8fbd-44af83143f2b"
+        "uuid": "4568ec21-501b-454f-ac52-fd23e6f73a91"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/frequentiegebrReg",
         "value": "frequentiegebruik registratie",
-        "uuid": "58d29682-4507-4dd3-87a1-d61dc9702e5d"
+        "uuid": "51d02d5b-705a-496b-aa42-d2db3145c8f4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/funderingsherstelsubsidie",
         "value": "funderingsherstelsubsidie",
-        "uuid": "64ae2c3b-72be-4896-89f8-2cbd1d36c1d7"
+        "uuid": "f54b6ae5-f31f-4706-942c-258cd5ae6474"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/fytsanexpcert",
         "value": "fytosanitair exportcertificaat",
-        "uuid": "b4192237-d688-433b-9d7d-1e1f2bc166f9"
+        "uuid": "550f63e6-7adb-41cc-82f4-6112a1dab3d9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/garVerklVerblNL",
         "value": "garantverklaring verblijf in nederland",
-        "uuid": "736e77e5-5633-41a8-afe2-beb8f45f7210"
+        "uuid": "6915bafc-b71b-4784-a8f9-c7cf31e6a36a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gasAanslVerzoek",
         "value": "gasaansluitingsverzoek",
-        "uuid": "528c6132-c412-48ec-b205-7a785e90ed3c"
+        "uuid": "dd9704b0-27a7-4fd7-9b22-92bb74e5480b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gastoudburkwaleis",
         "value": "gastouderbureaus kwaliteitseisen",
-        "uuid": "beab890f-2d8c-4140-a2e4-82a2ed3f257e"
+        "uuid": "ff513751-4d63-4f2e-923f-db8d82f5cb7f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gastoudopvinrseis",
         "value": "gastouderopvang inrichtingseisen",
-        "uuid": "4f3d9ac3-08cc-4e56-bd54-569906ed382f"
+        "uuid": "2b6db44a-9fd7-49d5-a070-372e1f5ecb39"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gaswgrschverg",
         "value": "gaswinning groningen schadevergoeding",
-        "uuid": "8f234957-9ddc-4c1e-aa81-e87328111c24"
+        "uuid": "858b6411-6ec5-489a-bbf8-c806ab30d6cd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gebiedsverbod",
         "value": "gebiedsverbod",
-        "uuid": "7dec527b-b52f-46d8-bfb3-dfae221f2908"
+        "uuid": "c28f3bfd-832e-42c6-a8fc-7e4eb1809422"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geboorteaangifte",
         "value": "geboorteaangifte",
-        "uuid": "a9bb38ba-21c8-48a4-a699-1751b83f53bb"
+        "uuid": "4194b5ce-9510-432c-8f58-c2e158df06b1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geboorteakte",
         "value": "geboorteakte",
-        "uuid": "7ee6fb7c-19c0-4882-86e7-22ac9f9a83ae"
+        "uuid": "7da79b1e-c75e-487d-ae61-7e76dd8f61ba"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geboorteakteLevenlsKnd",
         "value": "geboorteakte levenloos kind",
-        "uuid": "59800dd5-ab09-4737-822b-334537f52af4"
+        "uuid": "e9419867-1f28-484d-9280-ae476eaaedfb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geboorteverlof",
         "value": "geboorteverlof",
-        "uuid": "a16a6bf6-1bec-4b7e-b3f9-63271f18f7b8"
+        "uuid": "de50aaf2-15b0-4b86-9a96-10e30b001918"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gebtijdverhverg",
         "value": "gebouw tijdelijkeverhuurvergunning",
-        "uuid": "5a057dc5-2027-4d42-b8ab-8bb9608929c3"
+        "uuid": "bae4dbea-ab97-493f-b4c6-96710f20b42d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gebrAutogordelKinderzOnth",
         "value": "gebruik autogordel en autokinderzitje ontheffing",
-        "uuid": "b116f616-f348-46e0-9f4d-7b9b3c7fe222"
+        "uuid": "68de8103-de9f-4e48-906d-caf5236ad329"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gebruik_gemeentelijke_panden",
         "value": "gebruik gemeentelijke panden",
-        "uuid": "c66d2a50-ff41-4d6d-9939-c0896f7532cd"
+        "uuid": "f36c0f8f-3606-4aee-9b42-e52dc545579c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gebruiksmelding",
         "value": "gebruiksmelding",
-        "uuid": "9c3a9586-9e15-47e7-bb3f-4b1eb08d548e"
+        "uuid": "0975d0d7-0153-4f66-8d11-6d442bef0992"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gebruiksmelding",
         "value": "gebruiksmelding",
-        "uuid": "8a98832f-5c07-4814-99a1-c402d281da56"
+        "uuid": "2526cc4a-934e-4857-82cf-cd41086e8aec"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gedenktekOpenbWeg",
         "value": "gedenkteken openbare weg",
-        "uuid": "265b9055-dae7-444e-8c47-bffc85b8b35b"
+        "uuid": "188ee551-c2ac-4361-81f1-23b830552bfb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gedenkteken_plaatsingsvergunning",
         "value": "gedenkteken plaatsingsvergunning",
-        "uuid": "750ffb9e-0271-4aed-88dc-8052ed18a6bf"
+        "uuid": "9a7a0b17-d6ee-462d-b3d7-b1313b83aeb5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gedoogbeslissing",
         "value": "gedoogbeslissing",
-        "uuid": "24032f83-bff1-42ae-895c-0afe58d7d28c"
+        "uuid": "f4439d78-3864-4260-8525-72dd307366e7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gedoogbeslissing",
         "value": "gedoogbeslissing",
-        "uuid": "0eef1d3d-c07d-48c6-a954-a936c9a61e88"
+        "uuid": "7e4cb242-e581-4e16-b6b5-690e02f5c39a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gedrcdnatbes",
         "value": "gedragscode natuurbescherming",
-        "uuid": "a0e7e7c9-cdc0-4312-990f-fc8169f8cbbb"
+        "uuid": "225a18a4-325d-4939-a3ea-8f30ffa7dbfd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gedwOpnPsychInstKlacht",
         "value": "gedwongen opname psychiatrische instelling klacht",
-        "uuid": "ce886973-fed2-4f47-b984-beb4b06776e6"
+        "uuid": "3033648d-5124-46ef-b44b-3b3a7b0c802c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gedwOpnPsychInstKlacht",
         "value": "gedwongen opname psychiatrische instelling klacht",
-        "uuid": "2ef4bbbb-87f4-4b15-8634-6d5803926b64"
+        "uuid": "f9827dc8-a67f-43ea-ada9-60bb3243831e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geenPrivGebrAutoVerkl",
         "value": "geen privégebruik auto verklaring",
-        "uuid": "9b33ec72-750c-4256-8cbc-0d2c0f8513c6"
+        "uuid": "db2df5de-accb-4457-ac25-44bd28ce9008"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gehandicaptenparkeerkaart",
         "value": "gehandicaptenparkeerkaart",
-        "uuid": "9d45f13b-3361-4f47-a2f3-cbc76567f901"
+        "uuid": "e1af3ca4-48ac-4ef8-863d-b994617b3b07"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gehandicaptenparkeerkaart_bestuurder",
         "value": "gehandicaptenparkeerkaart bestuurder",
-        "uuid": "3f2382ea-bf9e-428d-86de-a491d8b3a3fc"
+        "uuid": "96b7cb34-ffca-46d2-8fb3-dc9ba91668c4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gehandicaptenparkeerkaart_instellingen",
         "value": "gehandicaptenparkeerkaart instellingen",
-        "uuid": "790ac46c-af4a-4dab-bf54-f93d1f96b214"
+        "uuid": "3c101e78-20af-4af3-aa79-f01f4e6a09ce"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gehandicaptenparkeerkaart_passagier",
         "value": "gehandicaptenparkeerkaart passagier",
-        "uuid": "8a68b910-ae57-4043-aa79-a6363386b034"
+        "uuid": "02e2176b-dbd8-4ecc-96dd-f116f882ccaf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gehandicaptenparkeerplaats",
         "value": "gehandicaptenparkeerplaats",
-        "uuid": "eed29f0c-724a-4860-8b10-47c87578d15b"
+        "uuid": "f47026a3-23b7-48ec-b17a-8d2929ecad90"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gehandicaptenparkeerplaats_op_kenteken",
         "value": "gehandicaptenparkeerplaats op kenteken",
-        "uuid": "70754057-6bbc-4de0-a864-4ec92821c13f"
+        "uuid": "a0c488c8-b0cf-42c2-b2ec-2a20f0be7803"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geluidsbelasting_grenswaarde",
         "value": "geluidsbelasting grenswaarde",
-        "uuid": "073dfbbf-e30c-4370-81f1-1d30f04dc79f"
+        "uuid": "bda18945-2489-4c1a-b83d-04df57388136"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geluidsontheffing",
         "value": "geluidsontheffing",
-        "uuid": "097a57be-f202-49d3-bdf1-3a63f914cf31"
+        "uuid": "3e9ec704-b6fa-4c68-8a18-7b2242b88bd2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geluidsruimteinformatie",
         "value": "geluidsruimteinformatie",
-        "uuid": "93471cd5-1e0c-4e37-b61c-59b3d25dd52f"
+        "uuid": "36d69512-161d-4965-81ce-28981fe1e7f1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gemeenschappelijke_regelingen",
         "value": "gemeenschappelijke regelingen",
-        "uuid": "e5126dfc-b32a-4e3e-9e60-472040ca69d5"
+        "uuid": "d2e8d5f5-2c71-45ad-a518-8d2970f3dcc8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gemeenschappelijke_regelingen_geschilbeslechting",
         "value": "gemeenschappelijke regelingen geschilbeslechting",
-        "uuid": "88aaf976-f8c0-45bb-976c-a24f97d1b68a"
+        "uuid": "eadbe0be-26a6-42f5-97d5-c6129b3bd417"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gemeentefinancien",
         "value": "gemeentefinanciën",
-        "uuid": "f3c3906a-22e1-4e20-bd8a-c6add3a3651d"
+        "uuid": "c9e65063-1dcc-408e-89e0-7d8c1ae80f93"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gemeentegids",
         "value": "gemeentegids",
-        "uuid": "63e071b8-ced9-447f-bdc7-9fefe2226720"
+        "uuid": "ef746a85-b420-4819-88c1-85f3b0abeb8a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gemeentegrenscorrectie",
         "value": "gemeentegrenscorrectie",
-        "uuid": "56693afe-5aa1-40cb-809b-7bf1ed3e7770"
+        "uuid": "48e76801-89e0-47ab-b11f-aeb823513330"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gemeentelijke_onderscheiding_voordracht",
         "value": "gemeentelijke onderscheiding voordracht",
-        "uuid": "913458a1-4814-4e5a-85e6-2a863dd10717"
+        "uuid": "9bb67d1e-2158-4085-a335-b98c52d48ef7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geneeskbehover",
         "value": "geneeskundige behandelingsovereenkomst",
-        "uuid": "b86db8be-932a-43e6-a3ca-f79a8233964f"
+        "uuid": "d4324d5b-a0ef-4faa-be18-bfebeb54f427"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/genbijwnreg",
         "value": "geneesmiddelen bijwerkingenregistratie",
-        "uuid": "fe7ab72b-65ab-4567-a132-9235d544f9cd"
+        "uuid": "00771e05-fd53-44a9-bec9-f4c0eb6250f7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/genbijwnmld",
         "value": "geneesmiddelen-bijwerkingenmelding",
-        "uuid": "71283d99-e325-4a39-94db-1ee3db12ccbf"
+        "uuid": "aa2d69d2-bbc6-4727-b4c4-42a295793ec0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/genmidbergrhverg",
         "value": "geneesmiddelenbereidings- of -groothandelsvergunning",
-        "uuid": "8ecd51a3-8a27-4311-a84a-b7ab4c7330e8"
+        "uuid": "3c08d7c2-a0c1-46d1-9d47-5c2bbec9eba9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geneesmInfoBankInz",
         "value": "geneesmiddeleninformatiebank inzage",
-        "uuid": "d5a87057-065b-4d54-8d70-dc7406dde2dd"
+        "uuid": "5ae97fb6-4e54-48f5-ba48-3ae1a599981f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geneesmiddelenrecept",
         "value": "geneesmiddelenrecept",
-        "uuid": "43038fba-ceaa-48c2-be20-74980fc5e1fd"
+        "uuid": "66c4ae37-354b-4cf8-ac1e-fc2cfe2108fe"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gerechtsdeurwaardersregister",
         "value": "gerechtsdeurwaardersregister",
-        "uuid": "11899c5f-1022-4ce1-b4b5-4a0a610a117a"
+        "uuid": "5ef74576-8bee-4a82-9d10-411b6847bf23"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geregistreerd_partnerschap_omzetting_in_huwelijk",
         "value": "geregistreerd partnerschap omzetting in huwelijk",
-        "uuid": "75738808-65aa-47bd-9058-011f41d54271"
+        "uuid": "9c820689-0db8-4d46-94c5-db0819eae4db"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geregistreerd_partnerschap_ontbinding",
         "value": "geregistreerd partnerschap ontbinding",
-        "uuid": "cc4c3409-97c4-4107-8c27-27dac958c687"
+        "uuid": "44232349-c1c7-413e-879d-0b1388ca4952"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geregistreerd_partnerschapaangifte",
         "value": "geregistreerd partnerschapaangifte",
-        "uuid": "63914bba-25d3-456b-af65-259acb94c99e"
+        "uuid": "0fe9126b-199b-4018-990a-e3e131e454dd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/geslachtswijzigingsaangifte",
         "value": "geslachtswijzigingsaangifte",
-        "uuid": "55980612-ccfd-4911-baea-bea7cc867654"
+        "uuid": "0ce5a495-0480-4de0-901b-f99b7ab3464b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gesubsRechtsbijstMed",
         "value": "gesubsidieerde rechtsbijstand en mediation",
-        "uuid": "b05a7971-1aff-46bb-bdfb-4b44b194df89"
+        "uuid": "88b99e27-a651-4329-85c5-15add10bc751"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/getuige_strafz_onkvergoeding",
         "value": "getuige strafzaak onkostenvergoeding",
-        "uuid": "268737a7-c530-4d48-b1bb-11db0cd1efb0"
+        "uuid": "e50f1d1e-d1af-4097-805e-806b8d37fc7e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gevVerlVoorwerp",
         "value": "gevonden of verloren voorwerp",
-        "uuid": "10e5e6eb-e9ab-444f-bfc3-3d2d9dc22ac7"
+        "uuid": "72b43649-186e-4609-ab0f-8c829ad2ca95"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gewBezwDPlErk",
         "value": "gewetensbezwaren militaire dienst erkenning",
-        "uuid": "2b35387b-a2c2-43f3-8272-ff249d440c80"
+        "uuid": "2cd76767-4948-4965-ae46-5351828d994d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gewVerdSchVerg",
         "value": "gewezen verdachte schadevergoeding",
-        "uuid": "8332633e-5c8c-4e42-b907-34daf14beaa1"
+        "uuid": "8142b020-d9cb-4226-99e5-2788e3a7304e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gezagsregUittr",
         "value": "gezagsregister uittreksel",
-        "uuid": "54886c34-f9ae-4ab8-aac4-0025be77a4fd"
+        "uuid": "53a163dc-22f9-4a8b-8e76-fbbd3d7601be"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gezGezag",
         "value": "gezamenlijk gezag",
-        "uuid": "910a80f2-a7e7-4e53-a88c-a841e65112cc"
+        "uuid": "577ef9dc-cf9d-4b9b-934d-6f7826be7fcc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gezGezag",
         "value": "gezamenlijk gezag",
-        "uuid": "b5e33d05-765c-4b5e-b8b8-c69a5396e354"
+        "uuid": "7f4e0e46-0716-45ea-ac9c-bbac044f5303"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gezondheidsdienst",
         "value": "gezondheidsdienst",
-        "uuid": "621ebd0c-6c9b-4212-abf3-17dd86764b0b"
+        "uuid": "c7c763ee-4190-426a-bc39-7ccf4a84f72b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gezondheidsopvoeding",
         "value": "gezondheidsopvoeding",
-        "uuid": "85b71b4b-5180-4c5a-a610-97ef27d5f562"
+        "uuid": "cde5d80c-cdaa-4eaf-8483-2b549a255fa5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ggovergingepgebr",
         "value": "ggo-vergunning ingeperkt gebruik",
-        "uuid": "f85858ae-8da5-46fa-a475-88cfb00023e6"
+        "uuid": "d5793e67-7702-4b35-8036-d379a9e78ec4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ggovergintrmil",
         "value": "ggo-vergunning introductie in milieu",
-        "uuid": "07138863-2a54-4fc9-9575-ba9b82d0ed2a"
+        "uuid": "3df00648-4b80-489f-bf65-d28edb351536"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ggovergvoeddierv",
         "value": "ggo-vergunning voeding en diervoeder",
-        "uuid": "5c30b37b-404d-4261-bf84-d5f794e95a3e"
+        "uuid": "3736395f-0bd5-4328-8de6-c6561d65e269"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gladheidbestrijding",
         "value": "gladheidbestrijding",
-        "uuid": "a0e25ee5-5a3f-4cae-baa6-bfe547ccbd02"
+        "uuid": "64e98061-c577-413c-a368-7a8d7d801998"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/graafmelding",
         "value": "graafmelding",
-        "uuid": "fb048576-3899-4db2-9c53-9e1e98bfb910"
+        "uuid": "ca74cf36-b9af-41cd-9be9-cee0876208ca"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grafonderhoud",
         "value": "grafonderhoud",
-        "uuid": "62a28c21-dfcd-456e-827c-5a2a3c4bc983"
+        "uuid": "4e2c4423-1d45-474f-ae58-3e3b746dc2d1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grafonderhoud",
         "value": "grafonderhoud",
-        "uuid": "cf15dbdd-2463-4812-9d32-46c5db56e753"
+        "uuid": "877e7a5e-61bf-49af-9ebd-b407b2b9ada0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grafrechten",
         "value": "grafrechten",
-        "uuid": "a69c2b56-97ae-4a2f-8732-d2995317ca4f"
+        "uuid": "008b89bd-5773-4eb3-81e7-17e23471b7e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grafuitgifte",
         "value": "grafuitgifte",
-        "uuid": "4f88c7fd-e67f-444d-b7a2-019bac300ed9"
+        "uuid": "522d14ba-5910-4534-b09b-bfea0b977b61"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gratie",
         "value": "gratie",
-        "uuid": "a35d2f7e-d7bc-4412-998e-09bb0cf05788"
+        "uuid": "7998a94c-9e91-4d78-8b30-504e3cf1b9c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/groenstroken_en_restgronden_kopen_of_huren",
         "value": "groenstroken en restgronden kopen of huren",
-        "uuid": "0032ddcc-8348-4127-881b-6239a2d9fdb1"
+        "uuid": "b139015d-bc7b-49e2-9db8-93df58467ced"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grondexplOvereen",
         "value": "grondexploitatieovereenkomst",
-        "uuid": "d6713dfb-1de6-4ac6-9796-4fca96a8f7bd"
+        "uuid": "bf2e075c-6ad8-4779-b8c1-d1e50c0e0a1a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grondwaterheffing",
         "value": "grondwaterheffing",
-        "uuid": "7a1c0f95-586d-49b1-a404-f590f6980c94"
+        "uuid": "0627a92b-1e2d-4ef0-8de8-59929a5b5468"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grondwateronttr_schadevergoeding",
         "value": "grondwateronttrekking schadevergoeding",
-        "uuid": "564d44bb-b73d-4395-86de-28f54b09359d"
+        "uuid": "5d650552-16cd-470c-a1a9-aa73460b883d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grondwateronttrekkingsvergunning",
         "value": "grondwateronttrekkingsvergunning",
-        "uuid": "0895b93a-d9b8-4956-a908-749869fb1453"
+        "uuid": "80600735-9adc-41db-8b59-f7ff220b796d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grondwateronttr_registratie",
         "value": "grondwateronttrekkingsvergunning registratie",
-        "uuid": "6b676615-4d21-4498-a117-69cb8e7dd271"
+        "uuid": "4652a293-799c-4aa1-9027-2ddb62a1ec4b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/gronWrdVermSubs",
         "value": "groningen waardevermeerderingssubsidie",
-        "uuid": "e40fdb77-0177-4bfd-87fd-b549e9eae5e2"
+        "uuid": "ad187392-2c49-4f79-aff3-f98210de5604"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grPlezVaartbew",
         "value": "groot pleziervaartbewijs",
-        "uuid": "83997d36-5812-4569-8ba5-9195a2792109"
+        "uuid": "3f479902-bcab-444f-8fa9-be0ddf5646de"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/grootVaarbew",
         "value": "groot vaarbewijs",
-        "uuid": "da201c64-9dc6-4f4a-9509-dc6a555b52f1"
+        "uuid": "8a4ff2df-f00c-44f0-89dd-1417ea3b57fc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/handelingen_gemeentefunctionaris_ontheffing",
         "value": "handelingen gemeentefunctionaris ontheffing",
-        "uuid": "57e4489e-8424-4a7a-96b0-0365536ea3a2"
+        "uuid": "e307c86e-6950-4eb5-88cc-0b0c72e1822a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/handRegGegVerstr",
         "value": "handelsregister gegevensverstrekking",
-        "uuid": "29df4401-63b3-47ca-8042-9a31f4af273a"
+        "uuid": "60a701aa-6ec0-43b2-bb66-1069a73f97ea"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/handRegInschr",
         "value": "handelsregister inschrijving",
-        "uuid": "7379b1d5-b46d-401b-b8c9-ccc52756a523"
+        "uuid": "51506937-d03a-4994-9549-2ba88c71466b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/handhavingsverzoek",
         "value": "handhavingsverzoek",
-        "uuid": "9984a40d-322e-4874-9bc5-29891ef9843f"
+        "uuid": "b9d26311-844f-4757-9f86-127a608e0c6e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/handhavingsverzoek",
         "value": "handhavingsverzoek",
-        "uuid": "65d9ed1d-c205-4985-b912-51965834c69a"
+        "uuid": "4d6388c3-06db-4f94-a6fa-ac4ebce97a6b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/handhavingsverzoek",
         "value": "handhavingsverzoek",
-        "uuid": "b5f98bec-c812-4f2e-a94b-5e98adf4a9d7"
+        "uuid": "10203d54-6448-4263-bf35-52e2490210be"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/havenverordening",
         "value": "havenverordening",
-        "uuid": "1213dde6-2a8d-4301-82a4-8faebb788a2f"
+        "uuid": "c8cf39ca-ef96-48d3-91dd-e56768fdd26f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hefKortUitbet",
         "value": "heffingskorting uitbetaling",
-        "uuid": "d77784e4-f604-455f-8ec1-89e2401c910f"
+        "uuid": "29ee9e5d-8154-47df-92d2-5ab0681356c6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/herbegraven_of_alsnog_cremeren",
         "value": "herbegraven of alsnog cremeren",
-        "uuid": "ff29cf84-e371-4dbd-a023-c62c8ef6622a"
+        "uuid": "e8d19f0a-72f6-4c6a-abe8-379aef5e618a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/herbestMonSubs",
         "value": "herbestemming monument subsidie",
-        "uuid": "c6b9812b-c3c6-4bb1-bd94-7ee27373ddc8"
+        "uuid": "cdb6c657-2f07-4403-9068-87837794e842"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hergebOvInfo",
         "value": "hergebruik overheidsinformatie verzoek",
-        "uuid": "a0170df3-82d6-415d-8bc8-c136f9a6d90d"
+        "uuid": "eac69f2b-f3ee-4477-9bdd-258da667431f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hofleverancieraanvraag",
         "value": "hofleverancieraanvraag",
-        "uuid": "48c0f449-429a-48cb-834a-76578a7b4539"
+        "uuid": "eab8e3a6-2d76-4ced-9479-c8d5b8509f5d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/HogBerUitsprBestRecht",
         "value": "hoger beroep tegen uitspraak bestuursrechter",
-        "uuid": "95f5eb48-21c4-47ee-bc0b-41ff028cefcd"
+        "uuid": "30be0957-f268-4532-9ed2-6e1e942cac53"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hogOndAanm",
         "value": "hoger onderwijs aanmelding",
-        "uuid": "8e0f45f4-7183-4cc2-86c9-d7e3c3b05dab"
+        "uuid": "6227fd1c-cd62-4179-a3bf-17499e08ad11"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hondenbelasting",
         "value": "hondenbelasting",
-        "uuid": "c25b61b7-efe4-4e7a-a98f-3ecdc53b90a3"
+        "uuid": "279ebd4b-fac0-4494-8cb6-975f95439279"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hondenbesluit",
         "value": "hondenbesluit",
-        "uuid": "b283c2e8-974d-4c7e-9e13-f83021568aa4"
+        "uuid": "0f15a045-1500-46e9-82c2-fa9b0f6c5bb7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/honderhoudersregistratie",
         "value": "hondenhoudersregistratie",
-        "uuid": "7330ca72-6624-42ad-8223-817723163d31"
+        "uuid": "119b61ff-bcf7-4de4-8206-2bf270cc992d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hoogspanningslijn_objecten_plaatsen_onder",
         "value": "hoogspanningslijn objecten plaatsen onder",
-        "uuid": "b848d6d3-9c89-4d52-b912-3bdae16916af"
+        "uuid": "f78742b7-35bb-4705-86ee-03fd3e24dca6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hoorhulpm",
         "value": "hoorhulpmiddel",
-        "uuid": "acb257a6-6df9-46b4-a904-0450feca7b2e"
+        "uuid": "72a0893a-b4e8-4092-a9a1-8815c57f9649"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/horecaExplVrg",
         "value": "horecabedrijf exploitatievergunning",
-        "uuid": "e1ae2f46-6f4d-44ef-b0b7-4c0547d6f3c1"
+        "uuid": "7c5d4e0d-29ad-4121-97a9-b4b9393c87bd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hobedrinreis",
         "value": "horecabedrijf inrichtingseisen",
-        "uuid": "822ff528-7fc3-4bf3-92dc-4f34aa877bf5"
+        "uuid": "7484f58a-bcdc-4a3b-9601-6503025d4438"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/horecatijdenontheffing",
         "value": "horecatijdenontheffing",
-        "uuid": "6cbe6e9b-2765-4d63-9b60-8cfb6ef0ea8a"
+        "uuid": "68dc942b-4f78-4c38-9b25-27240e9587d1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/houthandverpl",
         "value": "houthandelsverplichtingen",
-        "uuid": "a95a6cf5-2d0c-4b75-a4b0-5284d32dd098"
+        "uuid": "4d3d869b-d4d1-4de8-bb91-1b9e71636d94"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hslZdA16A4SchVerg",
         "value": "hsl-zuid a-16 a-4 schadevergoeding",
-        "uuid": "e9ba6b69-c316-4438-8494-db90af3a7ce9"
+        "uuid": "5d2b71b5-1fcf-4c33-aa23-77a129c2e839"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huisdierenpaspoort",
         "value": "huisdierenpaspoort",
-        "uuid": "38e836db-72db-4336-9e14-981db7bda938"
+        "uuid": "1d1d9777-4464-4a99-8e6d-cee5e3f35eeb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huishoudelijk_afvalinzameling",
         "value": "huishoudelijk afvalinzameling",
-        "uuid": "914a9ab1-e0f2-4b33-aab4-eaf59ddf2cb3"
+        "uuid": "80b678dd-f2cc-4f19-b785-2884f590ecea"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huishoudelijk_afvalwatermelding",
         "value": "huishoudelijk afvalwatermelding",
-        "uuid": "a8aa745e-0b3e-424f-9e44-76f5f110e4c6"
+        "uuid": "d23e7c2a-3d7d-4e67-a45e-8f08947ab868"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huishHulp",
         "value": "huishoudelijke hulp",
-        "uuid": "e9778f23-cbb0-4b17-a2c4-4654d5120fce"
+        "uuid": "a2445be1-2f61-4237-a143-9de132e7ef68"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huisnummertoekenning",
         "value": "huisnummertoekenning",
-        "uuid": "c8375b6b-4642-4a74-a90e-dfd6d2c23617"
+        "uuid": "1bb2ca50-c682-4ff4-9e29-d40bfc87e800"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huisvVerblGer",
         "value": "huisvesting verblijfsgerechtigden",
-        "uuid": "95d5e33e-e7c7-4a54-96a4-62ea80615b6a"
+        "uuid": "edea6864-a8dd-45d9-bfae-3478d50d1028"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huisvestingsvergunning",
         "value": "huisvestingsvergunning",
-        "uuid": "8444603d-e545-402e-8d8c-ff13984d99f7"
+        "uuid": "8ac90419-47b3-413b-8de5-de97818ac76c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/hulpmTrapl",
         "value": "hulpmiddel voor traplopen",
-        "uuid": "e45c3bc9-ecc8-48e0-af68-a49cbfa3b31f"
+        "uuid": "9df0affd-434d-4911-8d9c-e7d3bef445eb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huurders_gron_tegemoetk",
         "value": "huurders groningen tegemoetkoming",
-        "uuid": "b772ffc4-47e1-4d6c-ac4a-774f21151473"
+        "uuid": "28c3c177-0281-423e-b4c3-83cdc71f61cc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huurtoeslag",
         "value": "huurtoeslag",
-        "uuid": "381bbf04-9e66-463c-a12c-80d7dd993e65"
+        "uuid": "c4e9462b-9d15-4e70-88fa-bbf564513fb5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huwelijk",
         "value": "huwelijk",
-        "uuid": "24a255af-9441-4fcd-9cf5-2ad2ed8df4e7"
+        "uuid": "5737b8f6-5350-48e9-b3c2-bd2d6b93a25e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huwelijkBijVolm",
         "value": "huwelijk bij volmacht",
-        "uuid": "9e9c7c16-d0f9-43af-b0f5-ac920d401312"
+        "uuid": "e1b47e39-0513-4c9a-82e3-a56448ca4473"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huwelijksaangifte",
         "value": "huwelijksaangifte",
-        "uuid": "d484626e-3ce2-4959-a063-19d8b62ae834"
+        "uuid": "572d3d5d-e01c-4bec-8322-dc9de847cf6a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huwelijksdispensatie",
         "value": "huwelijksdispensatie",
-        "uuid": "cb47d943-e726-477c-8550-6f1ce2eea23f"
+        "uuid": "c08a9f04-7dda-4b91-bee6-708dd1d6742d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huwGoedRegInsHuwPartVw",
         "value": "huwelijksgoederenregister inschrijving huwelijkse voorwaarden of partnerschapsvoorwaarden",
-        "uuid": "4c36ab37-73e2-4982-b266-b815537ba006"
+        "uuid": "9dc69362-64d1-45a0-a896-8e492c35e430"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/huwGoedRegInz",
         "value": "huwelijksgoederenregister inzage",
-        "uuid": "253c6fa1-c87b-41f3-9490-1fb64a00ff26"
+        "uuid": "e06ec4c1-15fb-4ed2-b57b-c268d9944fb8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/identiteitsfraudemelding",
         "value": "identiteitsfraudemelding",
-        "uuid": "127312dd-f239-4763-b37b-c948e9c5e7f0"
+        "uuid": "b972944c-e47f-42ab-9336-956b9de4b711"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/identiteitskaart",
         "value": "identiteitskaart",
-        "uuid": "2664638f-32ac-432a-a1b8-f7a9b00e53cb"
+        "uuid": "89cfd83d-af57-4f0b-abd3-a6aaa8b55fa7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ImplantaatInfoVerstr",
         "value": "implantaat informatieverstrekking",
-        "uuid": "16b41d19-198e-4d06-bfa3-c9f7b06a7168"
+        "uuid": "54b4d60f-e211-4273-93a7-58819c3b1ffa"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inbewaringst",
         "value": "inbewaringstelling",
-        "uuid": "13292668-b8c1-4ef3-856f-83d8bebdc4b4"
+        "uuid": "61b192c6-4792-426e-809a-1910f63560bf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inburgeringscertificaat",
         "value": "inburgeringscertificaat",
-        "uuid": "32677ad2-a6ba-4bee-9f59-ea90c04f11ab"
+        "uuid": "df13a6c1-e04c-4d5e-9f90-e37fc35135b9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inburgeringsexamen",
         "value": "inburgeringsexamen",
-        "uuid": "9c3d15bc-4e6e-466c-810c-bc9e6e7043ab"
+        "uuid": "7a766249-41fc-4fb5-ba10-8b8b5662c43c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inbExamAanmeld",
         "value": "inburgeringsexamen aanmelding",
-        "uuid": "2a313cac-9b8c-46ae-8746-7029e6d0bd81"
+        "uuid": "4bfd4efc-da6e-4561-8dbd-8449d7767637"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inbExamAanpas",
         "value": "inburgeringsexamen aanpassing",
-        "uuid": "74f3b2a9-af3b-4c4c-aa2d-4b1ac88dd93e"
+        "uuid": "949ad020-a24d-4762-b20e-94d5474179b4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inbExamVrijst",
         "value": "inburgeringsexamen vrijstelling",
-        "uuid": "6aa4f665-3f9c-4ed3-ae21-226f1b15cac1"
+        "uuid": "ee5364d1-90a1-4ab2-9354-93572cdbfba9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inburgeringslening",
         "value": "inburgeringslening",
-        "uuid": "de1bb303-c9c6-47f1-b23b-a8c557e7a779"
+        "uuid": "6762ce16-3863-49d5-9825-83b4cb23119e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inburgPlOnth",
         "value": "inburgeringsplicht ontheffing",
-        "uuid": "ade2fa76-b112-4f01-be3f-e1717d235a73"
+        "uuid": "c2fff11e-4a53-415c-b5f3-4a234a24a874"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inburgPlVrijst",
         "value": "inburgeringsplicht vrijstelling",
-        "uuid": "f4070ecf-01fc-4108-a184-c2daee8650f5"
+        "uuid": "e7d83e4a-cbf8-4525-bdfc-1fa4611777f0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inbTermVerl",
         "value": "inburgeringstermijn verlenging",
-        "uuid": "682236bc-4839-49c6-ba9a-1e520290bc20"
+        "uuid": "f21bfbb4-e115-4b87-b6fa-d9a3d98254f4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/increginschr",
         "value": "incassoregisterinschrijving",
-        "uuid": "6ce420fb-f8b3-4ea9-a6b7-5fb65c6cc8ac"
+        "uuid": "2a3f50ba-6f8d-449e-950d-743e925f2c1b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/indGoedkVoert",
         "value": "individuele goedkeuring voertuig",
-        "uuid": "5a825174-0856-4d4e-bca5-8355443be5d0"
+        "uuid": "ed97d42c-bef1-4e5d-8067-c187dda6ed11"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/indInkToesl",
         "value": "individuele inkomenstoeslag",
-        "uuid": "49a06aca-07db-4012-9ca1-c1e7be4ff883"
+        "uuid": "d6e00c0f-21d9-4a53-9bbf-2159a78fdcd2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/indStudToesl",
         "value": "individuele studietoeslag",
-        "uuid": "92426a76-8954-4ad6-a1be-418c81f37a5e"
+        "uuid": "0fd77875-7858-410f-9655-a6ca0f08464f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inkoop",
         "value": "inkoop",
-        "uuid": "2ba27d37-6582-43b3-a797-b7a0994d8f6f"
+        "uuid": "5e1293e6-79d9-4d69-ba00-bc67c414e0da"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/inreisverbodOph",
         "value": "inreisverbod opheffing",
-        "uuid": "a9f48500-19d3-4fb7-aa11-b48c3eeee1c0"
+        "uuid": "423b11b3-506d-4395-b7b7-e9128818a1e3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/instHoudMonSubs",
         "value": "instandhouding monument subsidie",
-        "uuid": "bfd9e164-1c5c-4e11-b78d-9df9f1f4d982"
+        "uuid": "d3dcac56-92f1-4bea-ae6c-322bcc67849d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/integratiesubsidie",
         "value": "integratiesubsidie",
-        "uuid": "c35f765d-9eec-4a0e-962f-624381ad35ed"
+        "uuid": "f0976073-0323-4093-b495-e167f67fe8e7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/integriteitsbeoordeling",
         "value": "integriteitsbeoordeling",
-        "uuid": "5b912b86-5178-49e1-ba9e-81e9307b3b19"
+        "uuid": "62c56636-a2bf-4a1f-a205-81558ade69f9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/internatDiplWaard",
         "value": "internationale diplomawaardering",
-        "uuid": "ef5d3de9-2526-4fda-a93f-d47b4c3732c0"
+        "uuid": "68c2d54c-77e7-46d2-842d-aec7bbdd50e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/intKindOntvMelding",
         "value": "internationale-kinderontvoeringsmelding",
-        "uuid": "e1fa4151-3aed-4495-92ea-153bca0f2063"
+        "uuid": "924aaa9e-e940-4c78-9306-3b590c6575c0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/investSubsDuurzEner",
         "value": "investeringssubsidie duurzame energie",
-        "uuid": "095f8868-2b25-420b-bbd2-ef1a3a2c82f0"
+        "uuid": "87e40569-0069-4ab6-98d1-d69e026fd11f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/invoerrecht",
         "value": "invoerrecht",
-        "uuid": "7099c4b0-b922-4562-a923-928ee1383056"
+        "uuid": "817f704f-cd32-4b20-9b91-a80e84497579"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/invoerrechten_vrijstelling",
         "value": "invoerrechten vrijstelling",
-        "uuid": "dd79a318-82e4-410a-ac14-7de75596c136"
+        "uuid": "18e5936f-2024-44f7-886b-f8be0e3f51a7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/invorderingsrente",
         "value": "invorderingsrente",
-        "uuid": "b47e2e64-8e5f-4116-b2df-89445f8050b6"
+        "uuid": "fc38e139-3094-46a8-9b83-08f3a32ae735"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ioaw-uitkering",
         "value": "ioaw-uitkering",
-        "uuid": "c0adbded-e2d4-438f-9911-5c18b6798621"
+        "uuid": "67a53b1a-3e1f-48e3-9621-bde228b9bc5d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ioaz-uitkering",
         "value": "ioaz-uitkering",
-        "uuid": "c970746a-d78e-4b13-9834-1514fcacecd5"
+        "uuid": "e422236d-7e87-42cd-845a-b0c4682b95d1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/iowUitkering",
         "value": "iow-uitkering",
-        "uuid": "cc433410-9664-4cab-8a10-40ef9dbaa62c"
+        "uuid": "df5ac2ad-b9ab-4afd-95ea-a5e4655e6ece"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/jachtakte",
         "value": "jachtakte",
-        "uuid": "eb7e20c5-5483-4dba-96ab-93c31779fed8"
+        "uuid": "7368ddaf-dde3-40d7-a121-db450a70146c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/jeugdgezondheidszorg",
         "value": "jeugdgezondheidszorg",
-        "uuid": "89df9646-f8f0-4202-97b5-a6d6a745b045"
+        "uuid": "11c7fd98-a408-4b76-a1a6-f1a39867d84a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/jeugdhulp",
         "value": "jeugdhulp",
-        "uuid": "c48a3057-0bb0-4b35-b6b5-bc46cb41b0d0"
+        "uuid": "fd54cac0-fab4-4d58-827e-126649f40475"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/jeugdhulpKlacht",
         "value": "jeugdhulp klacht",
-        "uuid": "78a74726-4196-4076-aed5-442d796bb8f4"
+        "uuid": "eb83e7cf-cbee-4609-9fd1-13ca0efe7e40"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/jeugdhulpdossier",
         "value": "jeugdhulpdossier",
-        "uuid": "316a0371-d383-495b-97ed-8ad4fe20c633"
+        "uuid": "4352cdaf-aca3-42a7-8bd9-c4c5f8d154c0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/jeugdBijrVrAutoVerkl",
         "value": "jeugdige bijrijder vrachtauto verklaring",
-        "uuid": "4731edc4-6eee-42e4-80f1-ce01a26cc533"
+        "uuid": "6e5edbc4-2f62-446e-801c-c2253b846b59"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/jeugdsportsubsidie",
         "value": "jeugdsportsubsidie",
-        "uuid": "e6781dde-0b38-42b5-bf28-174b8c10896e"
+        "uuid": "d405e7b1-aaf9-4ec6-b37f-efa859e29496"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/jongHandicOndVoorz",
         "value": "jongeren met een handicap onderwijsvoorziening",
-        "uuid": "40918df0-b01d-4bd1-a9d0-0f9ab77a8033"
+        "uuid": "fafd0d58-48fc-4023-b763-e68859b74b8c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kabels-_en_leidingenvergunning",
         "value": "kabels- en leidingenvergunning",
-        "uuid": "c3694df5-6b3e-40f5-96b9-5b967b525718"
+        "uuid": "351db757-ff93-43cb-b399-94e06b2b762d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kabels-_en_leidingenvergunning",
         "value": "kabels- en leidingenvergunning",
-        "uuid": "1509d700-4794-4869-8ef5-f818bd596706"
+        "uuid": "b04e2dae-b15b-43a1-9b8f-839493bce8fc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kadastrale_gegevens_kopie",
         "value": "kadastrale gegevens kopie",
-        "uuid": "2366339c-05c8-4259-af39-6fab290d1b34"
+        "uuid": "c30c1062-9447-49b0-9f96-36c00a8d5e4d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kalkstwinverg",
         "value": "kalksteenwinningsvergunning",
-        "uuid": "02ec7252-8b93-4b0f-9ca8-81a02aae512a"
+        "uuid": "63d9bad8-086b-47cf-89a7-084c7b9ccd3a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kampAutTatMrb",
         "value": "kampeerautotarief motorrijtuigenbelasting",
-        "uuid": "9abdb6dd-d26b-4a86-8cd4-f2f84e38080e"
+        "uuid": "30aecbef-e22f-47cf-b66d-5f90ff293d11"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kampeeronth",
         "value": "kampeerontheffing",
-        "uuid": "312e8a6c-fa88-482a-8339-32293ad470e8"
+        "uuid": "3a1ea7b1-a270-4206-9c48-9d202025a128"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kansspelautomaatvergunning",
         "value": "kansspelautomaatvergunning",
-        "uuid": "69b4e388-c7d7-4764-b05a-530b9b1e400d"
+        "uuid": "24eb09ba-76dd-4ebe-a8d5-5f100e42a190"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kansspelvergunning",
         "value": "kansspelvergunning",
-        "uuid": "35adaa61-72d2-4890-b715-34c8f5fd7a11"
+        "uuid": "3789be5a-9fb0-44e0-9b50-48c70bf5e778"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kentekenbewijs",
         "value": "kentekenbewijs",
-        "uuid": "a473e46e-2b5d-4755-bc5b-8428a076b0ea"
+        "uuid": "d11c3fe1-b9b3-4b52-8b3b-0e3f71175a05"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kentekOverschOverdrPart",
         "value": "kentekenoverschrijving bij overdracht particulieren",
-        "uuid": "cbe77f94-856f-4ec3-abf3-a609c32f77da"
+        "uuid": "c5ac0403-01d9-44f8-88c9-8f172b180c3d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kentekOverschOverl",
         "value": "kentekenoverschrijving bij overlijden",
-        "uuid": "e0371540-e908-40f0-b961-cc92ab24783a"
+        "uuid": "9438c366-ae7b-423d-a935-9bb859276f6b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kentekRegInz",
         "value": "kentekenregister inzage",
-        "uuid": "61290213-4544-4495-b662-ae5faf2da4f7"
+        "uuid": "8bf4d2b8-9d4d-4a87-a99c-c2efd37cc507"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kentekenschorsing",
         "value": "kentekenschorsing",
-        "uuid": "ca1fa243-005e-437a-bda2-446fe9d08105"
+        "uuid": "e2f8d945-ecba-4005-a22a-b56551b20ebf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/keur",
         "value": "keur",
-        "uuid": "4be3fd7a-2ba5-426f-a7d7-6a86fc4176d2"
+        "uuid": "f825d6bd-3e41-4418-acde-7cda80957ad3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/keurmerk",
         "value": "keurmerk",
-        "uuid": "2c44061d-1556-4103-9cc1-8f2fa99c34d4"
+        "uuid": "3be5021a-b352-47c9-b82f-90bbc5cfa0ac"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kiezerspas",
         "value": "kiezerspas",
-        "uuid": "0cb9874c-3120-4204-9705-dfb05ddc27cc"
+        "uuid": "8cd2be7c-9d71-4717-8cc1-64fed41e9f8f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kinderbijslag",
         "value": "kinderbijslag",
-        "uuid": "224ec3f6-1e26-44d7-bb2a-0032f9da0c61"
+        "uuid": "4721772a-07a8-4450-9a18-405717201b1a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kindercentrum",
         "value": "kindercentrum",
-        "uuid": "5d0e6b38-f805-43fe-9d8c-bd8ba09c4217"
+        "uuid": "7d6665a5-dca8-4596-90d1-21c21310b330"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kindopvinreis",
         "value": "kinderdagopvang inrichtingseisen",
-        "uuid": "6a4b4dfa-0e08-4ae6-8353-0e0a852cdcd9"
+        "uuid": "46630b5d-91c9-46e0-afa4-6d1a24fa18be"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kinderdagverblijf_medisch",
         "value": "kinderdagverblijf medisch",
-        "uuid": "eb658efe-36da-48f2-b52e-e3a3b866b867"
+        "uuid": "e47e6515-4f65-4bf9-ac92-80ae65b51ac3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kinderopvangtoeslag",
         "value": "kinderopvangtoeslag",
-        "uuid": "4ba08c29-bf8b-425a-b9b4-bc35f625b1e0"
+        "uuid": "2f107d58-c2ee-43aa-8816-766b2af1ed1d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/KinderOpvToeslagTegemoetk",
         "value": "kinderopvangtoeslag tegemoetkoming",
-        "uuid": "35a153bc-139e-40d8-b1b0-7875b76cd243"
+        "uuid": "762c0af5-94c7-4fe9-b92d-9e98a0d19844"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kindGebBud",
         "value": "kindgebonden budget",
-        "uuid": "170af48b-5ce7-4c8b-a4d5-f99677e71253"
+        "uuid": "d4685c08-e105-4fdf-b911-2672ed95c255"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/klacht",
         "value": "klacht",
-        "uuid": "511625c6-085b-49bf-9657-b4194a1156c7"
+        "uuid": "0d765af4-f864-453c-ba04-1a75d683fe48"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/klacht_ombudsman",
         "value": "klacht ombudsman",
-        "uuid": "3f35fe0e-f0e9-4ac9-9798-fe2cee3acd0c"
+        "uuid": "af25a73b-2d07-4f10-a986-c77c0a128535"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/klachtVerghInterlAdopt",
         "value": "klacht vergunninghouder interlandelijke adoptie",
-        "uuid": "5d6c2fee-d4b2-429c-8fdb-6970a6e3559c"
+        "uuid": "c8f79bc8-575b-4433-a76b-85c484066728"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/klachtZorgaanbieder",
         "value": "klacht zorgaanbieder",
-        "uuid": "bbe52ab1-1179-4b7a-899b-e5afb5a53129"
+        "uuid": "3d27a8ba-88b3-48ea-87b7-4b57a2981404"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/klachtZorgaanbieder",
         "value": "klacht zorgaanbieder",
-        "uuid": "ba47503f-14f3-49c2-86fd-8496a12f0e3d"
+        "uuid": "3bac4a7b-142c-4bc1-b433-317aaa456018"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/klachtZorgverlener",
         "value": "klacht zorgverlener",
-        "uuid": "d526066f-5216-461b-85ad-f9b336a670e4"
+        "uuid": "91a29284-9141-490b-b88a-d2d096e1d509"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/klVaarbew",
         "value": "klein vaarbewijs",
-        "uuid": "d46b6e28-3306-4e4d-9be2-a066b1e88a3a"
+        "uuid": "0b474180-d158-46bd-8297-bdfb50fa131f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kleine_landschapselementensubsidie",
         "value": "kleine landschapselementensubsidie",
-        "uuid": "8f924285-2b15-469e-8df3-8ef765be3b57"
+        "uuid": "62334b13-ca41-4920-80c0-52d1afb66b28"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kleine_landschapselementensubsidie",
         "value": "kleine landschapselementensubsidie",
-        "uuid": "105a2071-0f14-4b7c-b30e-9605d7e2c0a9"
+        "uuid": "959bdfd0-4ec0-4628-94c6-1898775bd54a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/koninklijk_predicaataanvraag",
         "value": "koninklijk predicaataanvraag",
-        "uuid": "bcbf9f76-1353-43b3-96c3-dd14f5df862e"
+        "uuid": "90a29f18-119a-484b-b740-6518b8375c56"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/koninklijke_onderscheiding_voordracht",
         "value": "koninklijke onderscheiding voordracht",
-        "uuid": "3002b067-a330-4e98-82e6-5e8dcc1d4a18"
+        "uuid": "d3fcb36d-6cb3-4d6b-aea9-8d8f44c7edf8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/koolwaterstoffenwinning_afdracht",
         "value": "koolwaterstoffenwinning-afdracht",
-        "uuid": "d048c4f2-f1e3-43f3-869a-cb852645dfa4"
+        "uuid": "d27ae490-9ec9-44c9-bd5d-b05d200409e0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/koopRegGdInschr",
         "value": "koop registergoed inschrijving",
-        "uuid": "2173655b-e97f-487b-aecc-cd762fd48ecc"
+        "uuid": "6bc1b92f-b84f-4f6a-be46-0fcc7a500466"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/koopzondageninformatie",
         "value": "koopzondageninformatie",
-        "uuid": "3fb835c5-55d1-4a50-8bff-6d2a617a17b2"
+        "uuid": "e58bb841-6182-43a6-a888-dc3c0cbe18e0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kostentoedeling",
         "value": "kostentoedeling",
-        "uuid": "ebb0b686-f514-4f16-a71e-24f8df2cbd64"
+        "uuid": "fa7d3ef8-0310-4704-bc1d-ad7f7a8c52ba"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kringloopwinkel",
         "value": "kringloopwinkel",
-        "uuid": "327404c9-355b-4a3b-93a0-084975ff5aec"
+        "uuid": "9cb7286f-ab13-40ea-9e3b-ddc639ff3eb4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kunstkoopreg",
         "value": "kunstkoopregeling",
-        "uuid": "63518df1-dbfa-4cd2-a688-2c5afc660bcc"
+        "uuid": "812a20cf-34fb-4e8a-9720-2a4bd7d7b401"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/kunstzinnige_vormingsubsidie",
         "value": "kunstzinnige vormingsubsidie",
-        "uuid": "3f12274a-099f-4ae1-bafc-e1a2a1a8835c"
+        "uuid": "e8ecf41c-19c5-47c3-99f3-eb5f69674b9c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/laadpaalverzoek",
         "value": "laadpaalverzoek",
-        "uuid": "8d5bb7fe-0776-4cda-898c-b95991bee195"
+        "uuid": "ef98cc61-9d8d-441f-bf27-2d49056adde3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/landgoedAanmerking",
         "value": "landgoed-aanmerking",
-        "uuid": "88822402-b1e1-4c66-a07e-15549117826f"
+        "uuid": "bafe7aad-9be8-49d0-a716-b857454e1533"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/landinrichtingsplan",
         "value": "landinrichtingsplan",
-        "uuid": "f6cf0e8d-a313-4ce4-8175-33ce810941bd"
+        "uuid": "84b59104-a193-4929-8329-262bff57cd26"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/langduurvakpr",
         "value": "lange duur vakantieproduct",
-        "uuid": "e488de46-519e-400f-8628-b7ee3d3071b0"
+        "uuid": "25772a8b-31e8-4be3-8006-1c4674d5621c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leeftijdsgrSpecOndOnth",
         "value": "leeftijdsgrenzen speciaal onderwijs ontheffing",
-        "uuid": "49c9141b-6cf9-48e9-b589-642c0501add6"
+        "uuid": "6a6eb1f0-6908-46b6-94b8-01d4bcd9221b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leerlingenvervoer",
         "value": "leerlingenvervoer",
-        "uuid": "b6d0749c-7314-4086-a411-928cf4bcb4c6"
+        "uuid": "fcf8f86b-d462-45fc-aed8-f9ae12008033"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leerlingenvervoer",
         "value": "leerlingenvervoer",
-        "uuid": "1b6a8762-524f-41f9-b01f-fda3f7af22b0"
+        "uuid": "5f8bcc0c-8d8a-41ef-b62e-9b4f79fe983a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leerlingenvervoer",
         "value": "leerlingenvervoer",
-        "uuid": "01f8c5e9-223f-4c6a-90e5-463a2b3c471c"
+        "uuid": "704a2716-eb23-4e28-b9d3-a63e4893b0f3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leerlinggebonden_financiering",
         "value": "leerlinggebonden financiering",
-        "uuid": "ff391a81-94bd-46f2-af7d-bf85925b36cc"
+        "uuid": "eccfc7d8-38e1-4d89-8fa5-ff36538345c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leerplichtverzuimmelding",
         "value": "leerplichtverzuimmelding",
-        "uuid": "64d40435-7828-4acd-8989-1118f77d4635"
+        "uuid": "841958d3-2dca-4434-9ec9-0f93153301e6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leerplichtvrijstelling",
         "value": "leerplichtvrijstelling",
-        "uuid": "6bb97514-0a4c-47fe-a940-0fdd3673bfee"
+        "uuid": "45c75273-0a1b-4c88-b38f-abb9cebe526c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leerwegonderstOndToel",
         "value": "leerwegondersteunend onderwijs toelating",
-        "uuid": "5e93ebdb-a3a4-437a-af5e-546ee3b59ec4"
+        "uuid": "4ffd0f2b-ad36-4880-b952-47289869316d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/legalisatie_document",
         "value": "legalisatie document",
-        "uuid": "2614a698-efe8-41e5-ba4d-6521cd7adc86"
+        "uuid": "7b2a47b6-64dd-4ee2-8c0d-a814108d414b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/legalisatie_document",
         "value": "legalisatie document",
-        "uuid": "bad8da7c-8aaf-4a42-9fc9-8c6e8951de12"
+        "uuid": "0ecc67f2-4597-4914-8bdc-838ce603f090"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/legalisatie_handtekening",
         "value": "legalisatie handtekening",
-        "uuid": "01a257cf-181a-44e7-8ac2-7c482ed1be04"
+        "uuid": "f2a397be-0931-469f-ab09-b5e53b18dfd9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leges",
         "value": "leges",
-        "uuid": "ccec423a-be58-42df-ac9f-0d5750742ffc"
+        "uuid": "07f48350-8ba6-401c-98dc-4d0a19f0e755"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leges",
         "value": "leges",
-        "uuid": "723c8427-e661-4b5c-8631-908dc74b6b2d"
+        "uuid": "1d8cc518-3aa9-4b66-a352-00bad949f245"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/leges",
         "value": "leges",
-        "uuid": "936e566c-6e35-492f-bbfa-d8147095505d"
+        "uuid": "60986319-c24e-47d1-825c-09bdf0a29cc9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lerarenPromBeurs",
         "value": "leraren promotiebeurs",
-        "uuid": "29868444-93a6-4ca3-b3a6-13dc80d6d620"
+        "uuid": "ef9cebc0-43d0-40ab-9e32-5d0fc6e38be4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lerarenbeurs",
         "value": "lerarenbeurs",
-        "uuid": "a2695b4f-8285-4405-bd3b-58ad1e8ced24"
+        "uuid": "0b29b542-6c36-4191-bb67-2d494cdcf8c1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lerarenbeurs",
         "value": "lerarenbeurs",
-        "uuid": "77f4519a-7b69-4d72-a50e-c3df0f076119"
+        "uuid": "df01b3fc-2348-4363-8cc6-8acd47b275d8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lesgeld",
         "value": "lesgeld",
-        "uuid": "9e267758-8c87-41c3-ab05-7e123ef14ce7"
+        "uuid": "04a7e140-50dd-4504-ad66-537ac40d202f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lesgeldBuitInvSt",
         "value": "lesgeld buiteninvorderingstelling",
-        "uuid": "d2b599f8-0de5-40b3-b046-44f48cd10724"
+        "uuid": "d5750f81-bbd9-4602-b545-476c01c7eef2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lesgeldTerBet",
         "value": "lesgeld terugbetaling",
-        "uuid": "3e2cadad-4f4c-4a4f-96f7-89c678be266f"
+        "uuid": "93cfbdc3-fda7-4a5e-8e3d-30a4a9a4426b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/levenlanglerenkrediet",
         "value": "levenlanglerenkrediet",
-        "uuid": "0c765f43-2df4-49b2-ae8a-83e74b47f904"
+        "uuid": "9eabbf16-3689-4d45-b4cd-866e623a778a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/levmiddbedrerk",
         "value": "levensmiddelenbedrijferkenning",
-        "uuid": "496779b0-def3-4577-9942-98cab7b48e05"
+        "uuid": "6ed4b0ec-a712-4405-8cc6-17096296c1a7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/levmiddbedrreg",
         "value": "levensmiddelenbedrijfregistratie",
-        "uuid": "113bba12-196b-45e4-89d2-8a2e0d1fd1bc"
+        "uuid": "ad72e5be-5a06-4451-ade8-971081ac6b24"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lichmatdontstverg",
         "value": "lichaamsmateriaaldonortestvergunning",
-        "uuid": "3544ab12-8eec-4d40-91fb-35ae370c5539"
+        "uuid": "857f01b7-1196-4017-8d95-2a05700537a2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lichmaterk",
         "value": "lichaamsmateriaalerkenning",
-        "uuid": "3d22eed4-e75d-4591-a39b-9f34b423ba77"
+        "uuid": "b13bcb58-d055-4ab4-a263-b40caf3d1128"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ligplaatsvergunning",
         "value": "ligplaatsvergunning",
-        "uuid": "05954fef-1aa4-4108-bd45-5b5b06ec275d"
+        "uuid": "fc955ecc-7a6e-4fb1-a29f-f218e0d5a6cd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/liqMiddAangBinnenkVerlEU",
         "value": "liquide middelen aangifte bij binnenkomst of verlaten EU",
-        "uuid": "490bb869-7946-44c2-83f8-17d6fe5f47c0"
+        "uuid": "9e276991-b8d0-4b09-a00e-f129430ff58e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/logeerhuis",
         "value": "logeerhuis",
-        "uuid": "f74445e8-baf8-4ecb-9be4-07b7c60e9e65"
+        "uuid": "accb3fd9-1a1c-4cc5-8a6a-c1b89babe5e9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lokale_bibliotheek",
         "value": "lokale bibliotheek",
-        "uuid": "61356c77-0444-4873-8c90-1782b08574bd"
+        "uuid": "e4c0512b-7507-4c7e-a6ec-b5dd17b9bdbc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/lokale_omroepsubsidie",
         "value": "lokale omroepsubsidie",
-        "uuid": "4cb96148-278a-427c-ae59-14872219bb7c"
+        "uuid": "7ea485d3-edd4-492b-ae42-7845af48c2c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/loonpvvinh",
         "value": "loon premie volksverzekering inhouding",
-        "uuid": "49c04292-3901-44d8-b5ad-6f4b35912de1"
+        "uuid": "c8879f43-e410-4cad-aa25-d972b493caa1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/loonpwvinh",
         "value": "loon premie werknemersverzekering inhouding",
-        "uuid": "afb983d3-bed7-4f75-a34d-40b03bae1ca7"
+        "uuid": "5fd39ba5-926e-4777-acbc-d03bf6f8c641"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/loonbelasting",
         "value": "loonbelasting",
-        "uuid": "5c897982-cf98-451b-8869-c549ee06aa11"
+        "uuid": "439a21ce-4d44-4ab9-803d-5589664f3a57"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/loonkostSub",
         "value": "loonkostensubsidie",
-        "uuid": "ae79b577-79ee-4e79-952f-1bb8db46a7c2"
+        "uuid": "6b60a73c-573f-49d9-ae43-745774c5c4ee"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/loonsuppl",
         "value": "loonsuppletie",
-        "uuid": "dda1dc82-8a8c-4147-b688-b152ce504c70"
+        "uuid": "d75c4838-7cf4-4540-a73d-8c72016cedde"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/loophulpmiddel",
         "value": "loophulpmiddel",
-        "uuid": "7931a3dc-8e65-4c55-8916-bb278621cd8d"
+        "uuid": "d3e05b1d-00f1-4efd-a6e9-c9310a37d767"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/luchtkwaliteit",
         "value": "luchtkwaliteit",
-        "uuid": "720e4818-3477-4853-a404-fc5fccf1895b"
+        "uuid": "37439d15-2e89-4a4e-96cc-3869d2add994"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/luchtvGeluidscert",
         "value": "luchtvaart geluidscertificaat",
-        "uuid": "8540c02e-9c5d-4db2-b00d-d89ada5b3fce"
+        "uuid": "f6c4c22f-46cc-47d2-a6b9-9ee63106d995"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/luchtvGeluidsverklaring",
         "value": "luchtvaart geluidsverklaring",
-        "uuid": "5c4579a9-08d0-4ca2-9167-dfdfa924e7e2"
+        "uuid": "07f0398a-dfc2-4f9a-b31c-0b6d59d6a561"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/luchtvVoorvalMelding",
         "value": "luchtvaart voorvalmelding",
-        "uuid": "1ab53ef6-55e4-4f5c-8e14-7eed760982b7"
+        "uuid": "d88de4fa-0e27-48b4-8447-bdc4be4e09fb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/luchtvVoorvalMelding",
         "value": "luchtvaart voorvalmelding",
-        "uuid": "7033e7bc-3962-4145-a5ef-0e08131ada3a"
+        "uuid": "1d451ec4-8973-457e-a846-812f3c73687e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/luchtvaartregister",
         "value": "luchtvaartregister",
-        "uuid": "372750be-0a60-475c-bdb4-91bd6802c19b"
+        "uuid": "3cf83eab-d7a1-4d06-968a-3709139f9ac0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/luchtvaartuig_teboekstelling",
         "value": "luchtvaartuig teboekstelling",
-        "uuid": "19b95aee-6698-4ad0-8aaa-af0bf9f72e4e"
+        "uuid": "4bb749c1-f618-4477-92fa-166a36fdb68f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/maaltijdservice",
         "value": "maaltijdservice",
-        "uuid": "7f7e757d-c2f4-4e70-ae9b-b41a40317799"
+        "uuid": "02e8a082-09d4-4d53-9bf5-d6eab4e2493c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/maatrEindexBer",
         "value": "maatregel eindexamen beroep",
-        "uuid": "83f3701a-85a6-4280-916e-39e88e0baa27"
+        "uuid": "711def00-94ef-4615-84b1-a6a4ed49610e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/maatschappelijke_dienstverleningsubsidie",
         "value": "maatschappelijke dienstverleningsubsidie",
-        "uuid": "14b18372-90a2-484c-ae7f-18123d0b6835"
+        "uuid": "a0b60230-8c1d-47e5-a01c-6ef8b045a091"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/maatschappelijke_zorgsubsidie",
         "value": "maatschappelijke zorgsubsidie",
-        "uuid": "fffa0562-8b8c-4454-962e-69f4c0acdf29"
+        "uuid": "69f777d6-9ab8-4af2-adb9-a7b832c120d2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/machtVoorlVerbl",
         "value": "machtiging voorlopig verblijf",
-        "uuid": "e027620f-4a65-44bb-9885-571bbcd304f8"
+        "uuid": "6444562f-7428-472f-9fad-41dde738170c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mantelzorgcompliment",
         "value": "mantelzorgcompliment",
-        "uuid": "6bb96738-3d8f-4949-8ceb-11dec4c3404e"
+        "uuid": "ff994bdc-fa97-4e7f-be5c-13f24abb4fe9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mantelzorgondersteuning",
         "value": "mantelzorgondersteuning",
-        "uuid": "dc3b4cde-a9bb-491f-ade1-45a2e298ac68"
+        "uuid": "f1676e72-274a-4ef5-87d8-2686185f882c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/marktgelden",
         "value": "marktgelden",
-        "uuid": "4ad1fba1-0a75-47bd-8942-40107e708fb7"
+        "uuid": "12eedcd7-08fb-4db4-ad05-2fb141f7bd11"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mrktmanhandvwsmld",
         "value": "marktmanipulatie of handel met voorwetenschap melding",
-        "uuid": "8127c452-8061-4528-8931-772b68e0441c"
+        "uuid": "75b7a36d-2bc5-464e-b8a1-8737c6acf4de"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/marktvergunning",
         "value": "marktvergunning",
-        "uuid": "7d955afd-45ce-495f-ba4c-eb28b27381c0"
+        "uuid": "822b8c73-2970-4c4b-8843-14687495715f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mboStudFonds",
         "value": "mbo-studentenfonds",
-        "uuid": "8df3269c-b139-43ad-a343-5c99fba28d10"
+        "uuid": "029f0fee-4b86-427c-87a1-84acea17bae6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mboVerklaring",
         "value": "mbo-verklaring",
-        "uuid": "e168ad5f-f51d-43a7-a726-18dd1c8cb261"
+        "uuid": "b692eaa3-f09a-4d8f-b54a-9739e617054e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mededelingen",
         "value": "mededelingen",
-        "uuid": "984584e3-b378-4f91-9cf0-66d0d47eff57"
+        "uuid": "5c49888d-e35d-425c-b6ef-e5f8cca37faf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/medicOpReisVerkl",
         "value": "medicijnen mee op reis verklaring",
-        "uuid": "216eb07d-76a2-4372-8eb9-0a488c59dcf2"
+        "uuid": "45563924-7e8e-4773-b7f3-a88b017be46f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/medischDossier",
         "value": "medisch dossier",
-        "uuid": "46fdbec6-adfb-4db1-b7ed-7511b7c27b8f"
+        "uuid": "a6bd56c8-b7c3-409c-9670-4d7bbfff21f3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/medischHaalbOndLetSchSubs",
         "value": "medisch haalbaarheidsonderzoek letselschade subsidie",
-        "uuid": "57383b32-0e48-47c0-af75-0ace21b2b6a1"
+        "uuid": "22772719-d0ba-4797-9803-7fad3b9a482e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/medspectitel",
         "value": "medisch specialistentitel",
-        "uuid": "68d22fcb-2bec-410c-b6a2-a40b91d51bd8"
+        "uuid": "a7976c73-caa1-4f03-b59e-9c0eaf570545"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/medVervoer",
         "value": "medisch vervoer",
-        "uuid": "783afe15-6b0d-41d5-9515-8d1442164168"
+        "uuid": "24b4a610-e26d-4392-9164-95e3ebaa3271"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/medhlpmiddeis",
         "value": "medische hulpmiddelen eisen",
-        "uuid": "52e62273-aa36-4be0-bbaf-2ed46d2ae6a1"
+        "uuid": "89fee2bc-3322-4435-b315-615816e56daa"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/medKeur",
         "value": "medische keuring",
-        "uuid": "7fff20ac-0cad-4b74-8f1b-5cd70afc7713"
+        "uuid": "29c81b02-a198-47fb-9097-fb94cd2b1102"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/meerderjarigheidsverklaring",
         "value": "meerderjarigheidsverklaring",
-        "uuid": "ce334eb2-e240-4d88-9ced-180e0be935af"
+        "uuid": "d314832f-1afb-4dd4-97aa-882c520f1e0c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mldcdhuisgewkndmis",
         "value": "meldcode huiselijk geweld en kindermishandeling",
-        "uuid": "d41f8fa2-8068-40d9-8014-c3263d2501c6"
+        "uuid": "2da36dec-81dc-40c8-8346-b9967f238f96"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/discrMeldGemVoorz",
         "value": "melding gemeentelijke antidiscriminatievoorziening",
-        "uuid": "862aacac-fa3a-49f7-98f5-d129756266f2"
+        "uuid": "c62af9ba-ce2b-46ff-9984-1bb0572da6a5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/melding_openbare_ruimte_(algemeen)",
         "value": "melding openbare ruimte (algemeen)",
-        "uuid": "7045a7c8-b3f0-4d96-8e8a-4f4dacc5077f"
+        "uuid": "5803a1ad-a362-4f52-a249-71f850ed834b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/melding_openbare_ruimte_(groenvoorziening)",
         "value": "melding openbare ruimte (groenvoorziening)",
-        "uuid": "cf3c482c-586c-4927-ba82-21763eec5448"
+        "uuid": "4baa6892-7a93-4827-add7-3dec5e97d573"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/melding_openbare_ruimte_(straatmeubilair)",
         "value": "melding openbare ruimte (straatmeubilair)",
-        "uuid": "a6f50550-cea9-4621-88b4-22e3ee93e6fe"
+        "uuid": "d6ee395c-23fc-48b5-ae39-0aef9e8a4bd4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/melding_openbare_ruimte_(straatverlichting)",
         "value": "melding openbare ruimte (straatverlichting)",
-        "uuid": "9fc66d36-f740-47db-86ca-a228eaf6032c"
+        "uuid": "a88ce197-10af-4d38-a2c9-a2531860c2b2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/meldpuntAlg",
         "value": "meldpunt algemeen",
-        "uuid": "e3262119-ea78-4f7e-8178-80a3716cf360"
+        "uuid": "d2983e0b-39b5-4403-bcb5-977b6ab4eedf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/meldpuntZorgfraude",
         "value": "meldpunt zorgfraude",
-        "uuid": "c428f25c-d1ae-42bd-ad0b-e4b3cd709a0b"
+        "uuid": "19d64075-cd1a-4d71-9eb0-187dd5f4bb98"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mentorschap",
         "value": "mentorschap",
-        "uuid": "c5b62d94-ea56-40df-96b6-41e7ea06fefc"
+        "uuid": "40dbcd41-e4e0-4376-9bbc-9ca857c580a9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/meubelaanp",
         "value": "meubelaanpassing",
-        "uuid": "f9ff842b-c54b-4647-a7b5-e07b47420797"
+        "uuid": "c2f799c1-b5c5-4b35-ba91-69b1656ceb9f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/middSchKlacht",
         "value": "middelbare school klacht",
-        "uuid": "e613cc19-560b-4208-b2fb-25820e9d3cd4"
+        "uuid": "5ca9956d-cca4-4757-b09e-f0b79223772e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/middeling",
         "value": "middeling",
-        "uuid": "d7278669-1252-46b4-8223-8358273c04fd"
+        "uuid": "f205ccfe-37c8-4b71-9337-1f74b772fea9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mijnbSchVerg",
         "value": "mijnbouw schadevergoeding",
-        "uuid": "0fb7ed85-c26a-4175-8c9b-ce11d08ee190"
+        "uuid": "8d2beee2-4a6d-4f3e-ab1d-eb185a5cf94c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/milieu_provinciale_subsidie",
         "value": "milieu provinciale subsidie",
-        "uuid": "bf2f909d-fde6-4664-a6aa-01edce9fe751"
+        "uuid": "70dc9ddf-b0d9-4ccf-b0c4-9ddbc34c807d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/milieuinformatie",
         "value": "milieuinformatie",
-        "uuid": "777e4104-ad9d-4d13-9d51-3b57d5d69d31"
+        "uuid": "8512e4b7-8541-4150-b773-c902369d6de3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/milieuontheffing",
         "value": "milieuontheffing",
-        "uuid": "2e538f86-ea2e-4d53-900c-407d07ec42cb"
+        "uuid": "8e3e4584-eb03-451f-b8a5-cb4d5e70e5e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/milieuverslag_bedrijf",
         "value": "milieuverslag bedrijf",
-        "uuid": "a75e4cd2-14ff-4679-98b2-46241f0f3855"
+        "uuid": "037388fb-8809-4741-bc15-2dbd4f0f6db4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/milieuvriendelijk_bouwsubsidie",
         "value": "milieuvriendelijk bouwsubsidie",
-        "uuid": "11b37b4c-4d3a-4b86-8fc4-c9526e135a03"
+        "uuid": "9501cff7-0f1e-463d-aa3e-1aeb06a2c62e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/militInvalPens",
         "value": "militair invaliditeitspensioen",
-        "uuid": "84182b36-8aa7-49d2-9e7f-55f455a91ede"
+        "uuid": "6ad0c0a2-0018-4546-ae5e-4c5220dad1c3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/minderhedensubsidie",
         "value": "minderhedensubsidie",
-        "uuid": "a3176907-9a09-4ec8-9f8c-d719d4434458"
+        "uuid": "9cd2ea25-6e90-46ac-88b3-d492f4e092f4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/minimumloon",
         "value": "minimumloon",
-        "uuid": "fd4eeabe-0e0a-4123-a337-e5f95978fc06"
+        "uuid": "7f507fb0-4b01-4c8f-a496-f7ddfd3da2cd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mobPuinbrGebr",
         "value": "mobiele puinbreker gebruiksmelding",
-        "uuid": "95f7b85f-fa3b-47e7-82b3-e1c433dc981a"
+        "uuid": "178056f6-5378-4d73-89d9-875316d410c7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mobCommVerg",
         "value": "mobiele-communicatievergunning",
-        "uuid": "44d13645-b751-437a-ac62-bc14e71619a4"
+        "uuid": "f587f4ce-ea21-4501-a0c1-462de9f8889b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/modOvereenkArbRel",
         "value": "modelovereenkomst arbeidsrelatie",
-        "uuid": "9f0a4106-8b19-4da1-9a34-84b8006f7022"
+        "uuid": "90a1a2b7-c239-4e29-a4ad-65b302b7fe63"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/moederschOntkVerkl",
         "value": "moederschapsontkenning verklaring",
-        "uuid": "a8e14b01-06f3-496d-b182-854882fa13d9"
+        "uuid": "9e6c3005-73da-482d-8791-86cae8553154"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/monumentaanwijzing",
         "value": "monumentaanwijzing",
-        "uuid": "3f97b6b2-5db0-411a-aacb-ad4d992d5355"
+        "uuid": "100c8429-960c-469c-8690-f8d82b8b7e11"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/monumentensubsidie",
         "value": "monumentensubsidie",
-        "uuid": "f7fbe963-1731-4a56-b4a5-204c5d3d365b"
+        "uuid": "63b77024-4fc3-49c2-bfb2-af0ebf1b8b8a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/monumentensubsidie",
         "value": "monumentensubsidie",
-        "uuid": "3b3e33eb-6c8e-4352-8b53-95109ce6a20d"
+        "uuid": "1ec94d2d-5bf8-460e-aa10-5e8adefdde98"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/motorrijtuigenbel",
         "value": "motorrijtuigenbelasting",
-        "uuid": "9a898a8b-d2f4-41ef-b494-1fab94458b2f"
+        "uuid": "4f083771-ce41-4c95-9b10-ca3f121def56"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/MRBelOvergRegOudereVtgn",
         "value": "motorrijtuigenbelasting overgangsregeling oudere voertuigen",
-        "uuid": "34c07f10-ab46-474b-b776-14790f540b71"
+        "uuid": "22d60d09-cce0-419b-a6a3-61f730c12380"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/MRBelVrijstBuitKent",
         "value": "motorrijtuigenbelasting vrijstelling buitenlands kenteken",
-        "uuid": "592c4576-21aa-4baa-929d-55e92b0becd1"
+        "uuid": "0156895d-e2a9-4003-8ab6-8ef7a843e775"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/MRBelVrijstInvaliditeit",
         "value": "motorrijtuigenbelasting vrijstelling invaliditeit",
-        "uuid": "d040b0b7-11d3-4f8e-8080-7308c9d3b512"
+        "uuid": "19a145e7-10e9-4aeb-acee-232d2eba25d3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/MRBelVrijstOldtimer",
         "value": "motorrijtuigenbelasting vrijstelling oldtimer",
-        "uuid": "e488aefd-e5b3-4715-b043-ef228cdb47df"
+        "uuid": "52682747-d660-4b1c-9b04-6fa6075e37e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/MRBelVrijstRolstoelinst",
         "value": "motorrijtuigenbelasting vrijstelling rolstoelinstallatie",
-        "uuid": "03f63728-7f4b-4676-80ac-2f1c89068316"
+        "uuid": "8e27a4f8-88a4-4125-9003-ca5e77e4d979"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/mrbVrijstTVNL",
         "value": "motorrijtuigenbelasting vrijstelling tijdelijk verblijf nederland",
-        "uuid": "bbdddefd-ae8c-4ad8-a71d-4867f914d171"
+        "uuid": "e55f0e30-e01f-43f9-9f98-a2f9c003db2c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/museumsubsidie",
         "value": "museumsubsidie",
-        "uuid": "fa02b3a8-a0c7-4d1b-8e32-61f535549f2d"
+        "uuid": "d12d9a87-b174-403d-bfc9-6891cb61db62"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/naamgebruik_verzoek_aanduiding",
         "value": "naamgebruik verzoek aanduiding",
-        "uuid": "73ed89a0-58d7-4bec-af99-0e1c969be579"
+        "uuid": "4a58bd2e-acc6-4da1-9805-d8c87c10c953"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/naamskeuzeverklaring",
         "value": "naamskeuzeverklaring",
-        "uuid": "a8f54989-b2eb-4657-8a3b-1c8197a9fec9"
+        "uuid": "af6c4e97-01b7-45d1-8181-c071710c5876"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/nachtregpl",
         "value": "nachtregisterplicht",
-        "uuid": "9b5371f7-5151-4e8d-b21f-4a3924a39a70"
+        "uuid": "25daf9a0-4fc6-4b3b-bb48-50f525a88f38"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/nadeelcompensatie",
         "value": "nadeelcompensatie",
-        "uuid": "f53ffa9f-a092-491d-b96f-61f6b4b6b128"
+        "uuid": "8b55e429-f9aa-42ce-a111-01d35f3632fb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/nalatenschVerkl",
         "value": "nalatenschap verklaring",
-        "uuid": "7f3c2dd1-3b5f-46c3-a05a-8c1acdb0e15a"
+        "uuid": "7a1b2710-4791-4b7f-8fe4-e44d14ad1026"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/natAccInst",
         "value": "nationale accreditatie-instantie",
-        "uuid": "75b0b3cc-258c-44e1-bf05-3861e44d770b"
+        "uuid": "371a18bd-cf34-4b8f-8873-94866aec114d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/naturalisatieceremonie",
         "value": "naturalisatieceremonie",
-        "uuid": "341072dd-8bc2-4896-9fed-1c3af73c3060"
+        "uuid": "ef7c8320-a194-49c5-bd0a-3b7bf32f629f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/naturalOptie",
         "value": "naturalisatieoptie",
-        "uuid": "07534d9f-5abd-4601-9552-1189f78bcd56"
+        "uuid": "75c1bf50-6d4d-4c30-85d6-0857461bf4b5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/naturalisatieverzoek",
         "value": "naturalisatieverzoek",
-        "uuid": "559dfe55-241f-42be-84a9-8f2ab4aaf3c1"
+        "uuid": "b406faec-f580-4ae1-aa16-4c2def93c6de"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/natuur-_en_landschapsbeheer_subsidiestelsel",
         "value": "natuur- en landschapsbeheer subsidiestelsel",
-        "uuid": "adcf412c-1657-4239-a868-6c548cccaf3d"
+        "uuid": "c0879445-0790-47c3-9884-632e34e98ae1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/natuurbeheer_provinciale_subsidie",
         "value": "natuurbeheer provinciale subsidie",
-        "uuid": "215fa3a6-6cd4-4181-a62a-1e029923f6fe"
+        "uuid": "91026eec-4721-4c15-b9ca-7c9e51d56a29"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/natuurgebied_aanwijzing",
         "value": "natuurgebied aanwijzing",
-        "uuid": "eb97218c-6a06-4333-a708-1ebe6fc3eda6"
+        "uuid": "7560c0d6-6142-49c9-97d5-bc7fe7c31790"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/natuurgebied_vergunning",
         "value": "natuurgebied vergunning",
-        "uuid": "6354766a-152f-4132-b00f-72abb8e3bfdc"
+        "uuid": "59be65c4-aacc-43f0-8ceb-4a083e474e2a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/naziRoofkunstRestVerz",
         "value": "nazi-roofkunst restitutieverzoek",
-        "uuid": "c78af40e-8e96-4d67-b552-379c14caf61e"
+        "uuid": "f8472a7e-19d8-459f-a70e-31ea6bc4b9d2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/nederlTitelAanvraag",
         "value": "nederlandse titel aanvraag",
-        "uuid": "e7183520-36be-4e42-97cd-114c61dc8c4a"
+        "uuid": "0b02f074-682d-4ca9-b3db-5d5ffb4ef1f6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/nietigverklHuw",
         "value": "nietigverklaring huwelijk",
-        "uuid": "b14f0ab4-cd69-4db1-b19f-41848cec4bb6"
+        "uuid": "37f56536-12be-4527-be3e-45d611cd6857"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/nietigverklHuw",
         "value": "nietigverklaring huwelijk",
-        "uuid": "210561ea-0b27-4d8f-b19f-ad3f5a4dbdc4"
+        "uuid": "b48b2088-d140-48c9-a8bf-b5182ad82da8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/nietigverklHuw",
         "value": "nietigverklaring huwelijk",
-        "uuid": "a58553d9-a831-4802-85a1-b6c2c9a5bee6"
+        "uuid": "0e42a1d4-bec2-43d9-ae64-b9826b6907f8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/noRiskPolis",
         "value": "no-riskpolis",
-        "uuid": "75502b65-d0a3-45ef-ac44-75e521cf45a7"
+        "uuid": "fdb8d0fc-0221-4c32-8368-f6e9579ed95d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/noodreisdocument",
         "value": "noodreisdocument",
-        "uuid": "686ec3ed-6438-48ca-b0ed-a882ba01bc73"
+        "uuid": "41112863-3783-4058-9dcc-bd930fd0c939"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/notarisben",
         "value": "notarisbenoeming",
-        "uuid": "dd4c155d-0c04-47b7-bc99-2b10e7111514"
+        "uuid": "1e47c29c-a56c-44f9-aaa6-b22313e3c780"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/objectvergunning",
         "value": "objectvergunning",
-        "uuid": "ecf3ffd5-4ffa-4df0-9285-7f8dcfa1fde5"
+        "uuid": "c9d2f36a-87af-4815-881c-a7eea912765d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/objectvergunning",
         "value": "objectvergunning",
-        "uuid": "cc57c9f3-2250-41d9-b011-2eb84ea3ddd9"
+        "uuid": "478b28cf-50ef-4702-be7a-ed656cc14989"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/objectvergunning",
         "value": "objectvergunning",
-        "uuid": "985b1382-cd08-4b86-8937-9f65faf64810"
+        "uuid": "a1f3b4c4-e865-4df9-a508-8bc3d52fd23d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/octrooi",
         "value": "octrooi",
-        "uuid": "bd47de88-c192-4346-b6d6-5be9875421d5"
+        "uuid": "7bbaab09-d635-4cd4-962c-652636ba7196"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/octrooiregister",
         "value": "octrooiregister",
-        "uuid": "ce3e127b-dbad-4633-b5c3-c67c28596900"
+        "uuid": "30235bf6-d373-41b2-81f1-5471f486be65"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/olietankMld",
         "value": "olietank melding",
-        "uuid": "3324fa92-ac10-4cac-9c97-dccf89f13329"
+        "uuid": "0bc4c636-04f2-405f-89fb-9998465fd74c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning",
         "value": "omgevingsvergunning",
-        "uuid": "43931c4e-1a08-4ae0-85e0-e80e67970ee4"
+        "uuid": "66359757-5f74-4108-be57-1d06e209dd4e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_aanleg",
         "value": "omgevingsvergunning aanleg",
-        "uuid": "e3da1bf4-aaea-4015-a83d-5a51967bdaee"
+        "uuid": "e682b21d-bb14-482f-9c35-0b961c46c6cc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_aanleg",
         "value": "omgevingsvergunning aanleg",
-        "uuid": "83ad2c96-b325-4edd-8f4a-9f7858b52428"
+        "uuid": "7ba98f0b-c9a9-4bc2-9549-51804cc4fda1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_afwijking",
         "value": "omgevingsvergunning afwijking",
-        "uuid": "eda389ba-58f8-4844-a48f-9c80bdae17eb"
+        "uuid": "fdf0ede2-1aaf-4978-9b12-f1f7ca59f131"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_alarminstallatie",
         "value": "omgevingsvergunning alarminstallatie",
-        "uuid": "243b5d39-b0f3-425e-a8b4-af03cad29791"
+        "uuid": "98d28fea-6971-4ae6-a014-7919a8a15a4d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_bouw",
         "value": "omgevingsvergunning bouw",
-        "uuid": "9bfdd541-242a-42eb-abd8-4e5f6d22acb2"
+        "uuid": "ade9706c-d277-40e3-a9a7-0754e93df383"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgVgBrvGebr",
         "value": "omgevingsvergunning brandveilig gebruik",
-        "uuid": "425bb169-c09d-4e52-8fdf-512ae8a60ca4"
+        "uuid": "7e52cc84-d9e0-40d3-b2d2-c9b59121d381"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_kap",
         "value": "omgevingsvergunning kap",
-        "uuid": "3f141b70-0585-43e1-b5f8-715a96f28989"
+        "uuid": "fb7b6009-f3f8-43af-93a9-c0ed45af4078"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_milieu",
         "value": "omgevingsvergunning milieu",
-        "uuid": "68798ef2-92ac-4b69-8f79-9ae7820f7703"
+        "uuid": "686998f5-8058-472e-b136-6ab6c946ec50"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_milieu_revisie",
         "value": "omgevingsvergunning milieu revisie",
-        "uuid": "bfa6799f-4828-48bd-92ae-3f6916290cd6"
+        "uuid": "49bec2fa-5185-4e13-924a-eab8a439abc5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_milieu_verandering",
         "value": "omgevingsvergunning milieu verandering",
-        "uuid": "654f21a8-666b-4a86-8117-6bc383f30df7"
+        "uuid": "e0e9ed3b-5928-4397-a20c-9ab7a9f83c69"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_monument",
         "value": "omgevingsvergunning monument",
-        "uuid": "805dff36-65ff-4b57-939f-fa248a07a981"
+        "uuid": "ed4037ae-14f6-4172-9cc5-af64a66f2c56"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_monument",
         "value": "omgevingsvergunning monument",
-        "uuid": "ec5026e5-d33c-4dba-a01a-07be95cb4585"
+        "uuid": "2f1ec0ae-c744-4a87-8ef9-3f1388930e21"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgVergNat",
         "value": "omgevingsvergunning natuur",
-        "uuid": "68149115-ae49-4f99-a8a7-b99a54087573"
+        "uuid": "26c67bea-e365-41b0-bc16-9aeb2a368326"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_opslag",
         "value": "omgevingsvergunning opslag",
-        "uuid": "5f73a548-d602-406f-a031-00b8daa90e6a"
+        "uuid": "6e995ab0-7a5d-4756-801f-37dab17daa51"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_reclame",
         "value": "omgevingsvergunning reclame",
-        "uuid": "751180a6-c42f-4bf2-ab04-4084cda07779"
+        "uuid": "e0dd0030-b07b-43bb-b35d-b8db907c177a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_ruimtelijke_ordening",
         "value": "omgevingsvergunning ruimtelijke ordening",
-        "uuid": "e89d2301-b746-4909-a463-c75100b4757f"
+        "uuid": "a34e504b-a4ee-42c6-b319-31891862958a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgevingsvergunning_sloop",
         "value": "omgevingsvergunning sloop",
-        "uuid": "d1092cfe-9007-4875-a255-4cc1e4e806c8"
+        "uuid": "c4b45513-220d-439c-8710-52f612702c6e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgVgUitweg",
         "value": "omgevingsvergunning uitweg",
-        "uuid": "fff55281-af34-4ee4-a568-370590d039cf"
+        "uuid": "45500475-4b82-4280-b564-e7310dc8ec02"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omgVgUitweg",
         "value": "omgevingsvergunning uitweg",
-        "uuid": "2bbfe1d7-3a89-4906-9f9e-11abf33b9cbf"
+        "uuid": "647c5a36-bdfa-4665-aa7a-52ac3558fe83"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omzetbel",
         "value": "omzetbelasting",
-        "uuid": "d0e1a06c-1491-4598-b386-74c82527382d"
+        "uuid": "c6d0e3fc-3521-4509-8dc7-d7cfcf060aa7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/omzetbelKOR",
         "value": "omzetbelasting kleine ondernemersregeling",
-        "uuid": "d4070acc-a19c-4e68-80f4-28461bcb4c4c"
+        "uuid": "00a7c5ff-f333-482c-8cc4-83e1f5c22cba"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onbemFreqGebrVerg",
         "value": "onbemand frequentiegebruik vergunning",
-        "uuid": "c9c0a906-9fac-443e-b69b-0603933ff7fd"
+        "uuid": "de848ac7-db37-4a01-8456-4344970bbb22"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onbLuchtvSysExplReg",
         "value": "onbemand-luchtvaartuigsysteem exploitantregistratie",
-        "uuid": "7252d0ac-d9c2-425f-9d94-b5b0e158202b"
+        "uuid": "b7cfd275-656c-4809-9bb5-a68d25bddf4d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onbLuchtvSysExplReg",
         "value": "onbemand-luchtvaartuigsysteem exploitantregistratie",
-        "uuid": "d81317ab-ff7a-4a62-95ce-7698c68ae280"
+        "uuid": "4975d35b-7af7-4226-900d-fd586a4befe7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onbLuchtvSysVaardigheidsb",
         "value": "onbemand-luchtvaartuigsysteem vaardigheidsbewijs",
-        "uuid": "a669cbb9-f2a5-48dc-9260-b6fe0b3d1502"
+        "uuid": "ecee33dc-1bbd-4e8d-85cd-37719778ac75"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onderhoud_infrastructuur",
         "value": "onderhoud infrastructuur",
-        "uuid": "9482587b-e0fc-4489-944d-7588cb7c1442"
+        "uuid": "3b739e89-cac6-4c0a-a5b7-08059d9143f8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onderhRijksmonLen",
         "value": "onderhoud rijksmonument lening",
-        "uuid": "334776e7-f82c-4328-9020-8f333810804e"
+        "uuid": "d51ced72-32b5-4db6-a48a-613c6c991a50"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ondhPlVve",
         "value": "onderhoudsplan vve",
-        "uuid": "59ae6c7f-7fd1-4e8f-9ed6-54b32b972b52"
+        "uuid": "a6945452-fd55-437b-a7ae-71949877d03a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ondrstverkl",
         "value": "ondersteuningsverklaring",
-        "uuid": "003b7604-1864-4611-af16-a467ae3520a1"
+        "uuid": "06c48395-18bf-4779-981b-f13b6da5acc9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ondrstverkl",
         "value": "ondersteuningsverklaring",
-        "uuid": "956bbc67-870c-4330-8dea-674bfff54325"
+        "uuid": "f17233da-d2c1-4f23-8460-eca9d8ec523d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onderwActSpecOndVrijst",
         "value": "onderwijsactiviteit speciaal onderwijs vrijstelling",
-        "uuid": "603f46a3-4d00-40c7-8f32-55d4ab4275b3"
+        "uuid": "65d2ce4b-71ff-4082-a315-00a6a22346f7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onderwBijdSchKstDtVoVavoTgk",
         "value": "onderwijsbijdrage en schoolkosten deeltijders vo en vavo tegemoetkoming",
-        "uuid": "61761e6c-3449-4594-bbd6-872c62f6af87"
+        "uuid": "f7336322-610d-4d5f-a4d2-230d24eefd5e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onderwBijdSchKstVoTgk",
         "value": "onderwijsbijdrage en schoolkosten vo tegemoetkoming",
-        "uuid": "f07cb746-2f3c-4b9c-8ec3-5044c95fb3c6"
+        "uuid": "b3b05441-c30c-427a-8fbe-d7fd2c903162"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ondHuisvVerord",
         "value": "onderwijshuisvestingsverordening",
-        "uuid": "bd0dd60f-2eeb-4391-be6b-f0271f3182a2"
+        "uuid": "7d443e6c-b8fd-4445-80c9-f9b27f4c7777"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ondHuisvVerord",
         "value": "onderwijshuisvestingsverordening",
-        "uuid": "9b1af771-04c4-487e-bfc2-652ff9b3ef54"
+        "uuid": "dd7cf994-7397-417f-bf52-b2b43bdc6e61"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ondHuisvVerord",
         "value": "onderwijshuisvestingsverordening",
-        "uuid": "55723f68-027a-4212-850c-98c903149890"
+        "uuid": "8c468270-247e-4af9-8a48-035539cd79bf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onderwMastTgk",
         "value": "onderwijsmaster tegemoetkoming",
-        "uuid": "ccb9ea84-8f7e-40c0-a540-ebb39623ae2d"
+        "uuid": "c71b1d62-5829-4cbb-b5cb-eb4a0eb47235"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onderwijssubsidie",
         "value": "onderwijssubsidie",
-        "uuid": "1701dacb-48b2-4ba8-9a71-4831718348f8"
+        "uuid": "00a5c60e-bfb7-41ff-93cf-83f5c87f6662"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/oneerlHandPrakVerb",
         "value": "oneerlijke handelspraktijkenverbod",
-        "uuid": "79d9acb3-7466-4696-bfb0-0f5f9f1666ed"
+        "uuid": "8f995b58-5045-498d-8742-537aa83a3e7e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ongebrtransmld",
         "value": "ongebruikelijke-transactiemelding",
-        "uuid": "390534e4-c069-4257-bb20-947f6e14cfe5"
+        "uuid": "31d35538-31b3-4435-8f69-cca8e570dc41"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ongediertebestrijding",
         "value": "ongediertebestrijding",
-        "uuid": "34e088ea-2e13-4ba4-9c6e-64076bf10d40"
+        "uuid": "f991e429-b704-4b3f-81ce-e58e0619f01c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ongewVerklOph",
         "value": "ongewenstverklaring opheffing",
-        "uuid": "a211681d-57ea-491e-b473-9b065fdbba50"
+        "uuid": "5d207681-0042-4ef0-bf1e-f460ca0c8651"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ongewVoorvalmeld",
         "value": "ongewoon voorvalmelding",
-        "uuid": "898a555b-f045-478e-8a06-0fe9cea5d532"
+        "uuid": "a6976b2b-fbfa-451c-b536-b0e5b03a8d7a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onkruidbestrijding",
         "value": "onkruidbestrijding",
-        "uuid": "3f004c71-ed65-4177-ae3d-9dc6e6320af2"
+        "uuid": "3af58017-ad21-4ac0-a952-f7d3ff7441b2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onrmBeslSchadeverg",
         "value": "onrechtmatig besluit schadevergoeding",
-        "uuid": "3022409d-3501-4d6f-99de-05b5378d11a5"
+        "uuid": "7864aea9-1bc8-4e9d-be5e-372d1e197c1e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onrmOpnPsInstSchVerg",
         "value": "onrechtmatige opname psychiatrische instelling schadevergoeding",
-        "uuid": "125fcc9a-d4e7-4acc-9303-295ea17e7a85"
+        "uuid": "d75b871d-32f6-41d2-af8b-b3185f4a7806"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onrmOpnPsInstSchVerg",
         "value": "onrechtmatige opname psychiatrische instelling schadevergoeding",
-        "uuid": "75e04bd9-70e8-449e-b0ed-eceb13882ac8"
+        "uuid": "b6f3e9ef-cc4e-4274-be00-c44d92e89ee1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onroerendezaak_gebruiksbeperking",
         "value": "onroerendezaak gebruiksbeperking",
-        "uuid": "2ae5f8cf-557b-471a-aefb-da3a93a938a7"
+        "uuid": "023c705d-2652-4555-b0ab-b45fff6ad194"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onroerendezaak_huur_pacht_koop",
         "value": "onroerendezaak huur pacht koop",
-        "uuid": "b02281df-aa41-48c3-80ec-29cfdd9ba76b"
+        "uuid": "77e85776-d6c0-41af-a822-8573c0646dba"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onroerendezaak_huur_pacht_koop",
         "value": "onroerendezaak huur pacht koop",
-        "uuid": "2c46d196-bad9-4a66-acd3-23187f16d6b2"
+        "uuid": "6942681f-55d1-404a-9dcf-fa44182d299b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onroerendezaak_huur_pacht_koop",
         "value": "onroerendezaak huur pacht koop",
-        "uuid": "461c541f-980a-4885-97c1-05e2bc30b432"
+        "uuid": "ae6042a5-8614-4693-aecc-bcaee1c32629"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onroerendezaakbelasting_(ozb)",
         "value": "onroerendezaakbelasting (ozb)",
-        "uuid": "a2023454-fee1-4b02-aff3-1d2aea8718bc"
+        "uuid": "a58d96e3-b554-4045-9dcf-efe19092b2e3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onroerendezaakbelasting_(ozb)_kopie_aanslag",
         "value": "onroerendezaakbelasting (ozb) kopie aanslag",
-        "uuid": "8b0a6319-fc1f-46a1-9485-37720750e06c"
+        "uuid": "5db97729-ec95-4e81-837b-264bbac64ed6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ontgronding",
         "value": "ontgronding",
-        "uuid": "3b7748ce-a0a7-41cf-8ab3-79a3a0572d2b"
+        "uuid": "f2547051-e554-4bf9-849b-55753b3f50b0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ontgrondingsvergunning",
         "value": "ontgrondingsvergunning",
-        "uuid": "b868f211-8831-462f-b401-7cf646b8205d"
+        "uuid": "6ba9567a-2cef-4974-9a98-1c3881e739ff"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ontgrondingsvergunning_schadevergoeding",
         "value": "ontgrondingsvergunning schadevergoeding",
-        "uuid": "9e7df46f-6179-4184-a380-881e7a00b82b"
+        "uuid": "73349ca8-1645-479c-b038-9849e109e5fc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onthefIntSanctie",
         "value": "ontheffing internationale sanctie",
-        "uuid": "d65d7fba-7342-4ee1-9d1b-deba75d07e2a"
+        "uuid": "ed320235-c1fd-49da-8aae-275f4bb5c575"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onthVerbBalseming",
         "value": "ontheffing verbod balseming",
-        "uuid": "9dcb19a8-1aa8-4d5a-b7eb-11201a821d86"
+        "uuid": "1f7dd3a5-6994-4cf2-b473-84995389d26f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ontleding_stoffelijk_overschot_toestemming",
         "value": "ontleding stoffelijk overschot toestemming",
-        "uuid": "b9a2c6f2-93ed-42ee-ac6a-b023ad88e8cd"
+        "uuid": "57295fa8-3005-4d59-94fe-3df62bdab756"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ontmoetingsrOuderenhuisvSubsidie",
         "value": "ontmoetingsruimte ouderenhuisvesting subsidie",
-        "uuid": "687a0f82-3cd0-44f6-bc08-a43441467c26"
+        "uuid": "a6082008-3137-4a47-8dcf-ab24d674bd47"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ontslagreg",
         "value": "ontslagregeling",
-        "uuid": "11a81e15-692b-4cbe-ba1b-031e5aa3c374"
+        "uuid": "a92d51b9-d328-445b-8f5b-f0fd4d43712c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onttrekking_weg_aan_het_verkeer",
         "value": "onttrekking weg aan het verkeer",
-        "uuid": "32e0c1a9-25d3-4bd1-b1dc-88f45914698e"
+        "uuid": "af478925-044f-4a01-99f9-62e33ed2e9c1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ontw_advies_stap_subsidie",
         "value": "ontwikkeladvies stap subsidie",
-        "uuid": "4215a95e-bf00-40e4-8e56-f8de2bd8090e"
+        "uuid": "d6f021b2-1c34-4c78-a916-91638397d75f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onvprodmld",
         "value": "onveilig productmelding",
-        "uuid": "e19c6fd4-ea11-45f4-a0b5-5480f462f274"
+        "uuid": "4cd8f01f-b9d7-4c75-ac7f-30a4b04299b4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onvvoeddiervmld",
         "value": "onveilig voedingsmiddel of diervoedermelding",
-        "uuid": "924d124d-1874-4150-98d0-1bb45e764729"
+        "uuid": "07d7d3e9-960a-404e-9ed6-80e97bda62b6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/onverwBijstVrz",
         "value": "onverwijldebijstandvoorziening",
-        "uuid": "d9cdf894-5b79-460f-97e1-b2572c16e04c"
+        "uuid": "a25d7085-689c-4585-9ed5-d64731a0e06c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/oorlGetrMrBelVerg",
         "value": "oorlogsgetroffenen motorrijtuigenbelasting vergoeding",
-        "uuid": "dab62a0d-c043-425d-944c-37ff7ab1d803"
+        "uuid": "2cb6e6ab-c6d8-4c2b-83c3-62b33e2fbc7f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/openbare_geestelijke_gezondheidszorg_(oggz)",
         "value": "openbare geestelijke gezondheidszorg (oggz)",
-        "uuid": "cdf87640-0cc3-4fb3-9a06-6624ea3de217"
+        "uuid": "fd094748-b551-4b16-a8ef-d323e71d0fa8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/opgravingscert",
         "value": "opgravingscertificaat",
-        "uuid": "8dcec839-10d3-481e-a120-83fde6d502bf"
+        "uuid": "cb7219ae-14c1-44a2-a972-3cebc1705b9f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/opheffing_school_expertisecentra_melding",
         "value": "opheffing school expertisecentra melding",
-        "uuid": "cc3c6c28-bc88-4069-a8fc-fc648f01e753"
+        "uuid": "8992221d-7595-4336-8e69-7a2241f6ad6f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/opheffing_school_voortgezet_onderwijs_melding",
         "value": "opheffing school voortgezet onderwijs melding",
-        "uuid": "279129f2-3aba-442e-aeed-58b1955b6abe"
+        "uuid": "b1d4db4b-a8ed-40dc-8a3f-6f2de3faad7b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/opiumontheffing",
         "value": "opiumontheffing",
-        "uuid": "fe5ee740-423a-4082-bdff-300f19c00958"
+        "uuid": "ab700a39-4217-4c9c-8278-fbf75074feb4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/opkoperreg",
         "value": "opkopersregister",
-        "uuid": "755099d7-9640-48b3-b25a-fbb93fe46246"
+        "uuid": "81b61915-8f06-4898-adaf-9663f59013fb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/opleidingsvergoeding_werklozen",
         "value": "opleidingsvergoeding werklozen",
-        "uuid": "2ef6365d-6b4b-473e-bea7-f19292ab2edd"
+        "uuid": "8b033680-e8a0-4245-98e9-6a8f33134882"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/opvoedingsondersteuning",
         "value": "opvoedingsondersteuning",
-        "uuid": "05bd6eb2-0fa2-43a8-8663-d53d285a2e6d"
+        "uuid": "9c65dd03-1f29-4684-bb77-b2273417f3c4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/orgaandonLevenOnkVerg",
         "value": "orgaandonatie bij leven onkostenvergoeding",
-        "uuid": "d0e29208-e6a9-4a4e-8598-41570e5c7f92"
+        "uuid": "73eb15d9-59ec-4346-9419-71299338786c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/orgaandonReg",
         "value": "orgaandonor registratie",
-        "uuid": "d0e7a6aa-a133-4365-9cbf-06a02d2102a0"
+        "uuid": "a3cd5ea5-a88d-4a2c-b723-6eb1de1ddb5e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ouderschapsvaststelling",
         "value": "ouderschapsvaststelling",
-        "uuid": "415059df-111b-4337-8b59-ae2f469adf92"
+        "uuid": "6245b0df-437b-432b-a468-9ed433dc6c75"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ouderschapsverlof",
         "value": "ouderschapsverlof",
-        "uuid": "cab1a3e2-f003-4489-a49d-2c2974da92d9"
+        "uuid": "8eff24ad-d594-4591-9526-8a56d7e8196d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ov-begeleiderskaart",
         "value": "ov-begeleiderskaart",
-        "uuid": "b58c5993-f49d-476b-8037-21448ab8e9a2"
+        "uuid": "3b35713d-15fc-4aa7-b4b3-0870c3c8a49d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overbrugUitkAow",
         "value": "overbruggingsuitkering aow",
-        "uuid": "2c7b4b10-7ca7-48c8-af22-59bee01ebcd6"
+        "uuid": "5d8341a5-11d1-499f-a8d6-59b2442c08de"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overdrachtsbelasting",
         "value": "overdrachtsbelasting",
-        "uuid": "c48852d8-14a7-47e9-be52-430a5ab21322"
+        "uuid": "5c057612-9af5-47f2-ae55-af15ecd1a156"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overhEigSchMld",
         "value": "overheidseigendom schademelding",
-        "uuid": "bdb37cad-f726-412a-a66e-5df8e1d451fa"
+        "uuid": "468e33ca-94f3-4e60-868b-31bbb04efdfa"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overlVermPersVerkl",
         "value": "overlijden vermist persoon verklaring",
-        "uuid": "5e1e5e6a-df25-4c1a-a56b-a4e5c21bf68e"
+        "uuid": "61f9dc9c-19b4-401f-94f5-83621c7602d5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overlijdensaangifte",
         "value": "overlijdensaangifte",
-        "uuid": "18ae13d3-ad41-4cf2-9ee8-3fbc375b590f"
+        "uuid": "fb84a4db-ef78-42bf-a152-004b38e9307c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overlijdensakte",
         "value": "overlijdensakte",
-        "uuid": "7ca0c101-708f-45cb-ba4a-282daa2d30bb"
+        "uuid": "424f18fd-f490-4867-9a4a-3a4be7fdf668"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overlijdensuitkering",
         "value": "overlijdensuitkering",
-        "uuid": "07d12fed-d16c-4ee8-83fe-83bba27390b8"
+        "uuid": "bf55e688-1ca4-4292-a570-4591c94cc02a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overlUitkAnw",
         "value": "overlijdensuitkering anw",
-        "uuid": "95196137-815a-4857-831e-548636786abe"
+        "uuid": "39d2e459-2534-4f3c-8a25-45880b6dc9a1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overlUitkAow",
         "value": "overlijdensuitkering aow",
-        "uuid": "350ec1be-1e1c-4b38-a81d-00f528682ab3"
+        "uuid": "8c373c75-76c8-467d-948c-355574e0dc4b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overlUitkWajong",
         "value": "overlijdensuitkering wajong",
-        "uuid": "3ea95d6e-05fe-4158-9abe-765f0ca8283d"
+        "uuid": "c076bc7a-f8d2-4bf5-bdd9-87ae61ef2974"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/overlUitkWia",
         "value": "overlijdensuitkering wia",
-        "uuid": "8c673818-7660-4f09-831c-616229b9d805"
+        "uuid": "d2ae68c3-f525-4ea1-b9e5-23920d57b52c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/paardachtIdentRegistr",
         "value": "paardachtigen identificatie en registratie",
-        "uuid": "da3dde81-926b-48ae-8d57-0c8d54ef1194"
+        "uuid": "cc9f4f36-c2d1-413a-8a48-9dbdcfc7411e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/paardachtIdentRegistr",
         "value": "paardachtigen identificatie en registratie",
-        "uuid": "cf44fa13-be25-4884-aba4-9ca8bb995321"
+        "uuid": "d3be5dcf-cee2-4938-ad03-bf16de6f77d5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/paardachtIdentDocument",
         "value": "paardachtigen identificatiedocument",
-        "uuid": "9ba2b660-f77d-4486-ba16-ab722b7ec20b"
+        "uuid": "c8e333ed-873a-4d1a-9164-8a0561972bf0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/pakketreis",
         "value": "pakketreis",
-        "uuid": "c3e85766-d81a-42fb-9506-c2f9a7205c31"
+        "uuid": "20d56449-31a5-4d31-a503-61205963e133"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/palliatieve_zorg",
         "value": "palliatieve zorg",
-        "uuid": "9aeca35d-c45e-4b9a-a868-4a4dc0c7212e"
+        "uuid": "abbdae82-ae2f-4915-b0ed-1d27b7be4979"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/pandakte",
         "value": "pandakte",
-        "uuid": "e207fcc8-6cff-4b1c-a492-568b9326998f"
+        "uuid": "119a959a-8967-48d2-b8e1-f9f39f701b68"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/parkeerbelasting",
         "value": "parkeerbelasting",
-        "uuid": "05513bbd-0070-41f6-8b5b-04f0ee54eb18"
+        "uuid": "95653d30-5194-45ee-a983-a15392396330"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/parkeerontheffing",
         "value": "parkeerontheffing",
-        "uuid": "4db4379b-8e77-46b5-8cf8-84ae2cedd916"
+        "uuid": "71d5729f-ad44-4d86-96f0-b073c438354d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/parkeerontheffing_autobedrijven",
         "value": "parkeerontheffing autobedrijven",
-        "uuid": "c804e537-2cd1-4a98-be63-a4c1b0bc9191"
+        "uuid": "7e1356d3-8b05-42a5-99d0-182783277666"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/parkeerontheffing_blauwe_zone",
         "value": "parkeerontheffing blauwe zone",
-        "uuid": "a453443b-1938-4151-ad45-ece2a0f43c32"
+        "uuid": "f37f530f-5de4-4538-9c5c-bbc56b03a4dd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/parkeerontheffing_grote_voertuigen",
         "value": "parkeerontheffing grote voertuigen",
-        "uuid": "5abd4c69-bac8-4bef-b3e9-7dbc0f70574d"
+        "uuid": "fcb6d28e-c244-43e5-b2f9-deff0d365a00"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/parkeerontheffing_reclamevoertuig",
         "value": "parkeerontheffing reclamevoertuig",
-        "uuid": "a9ac140d-5792-43f7-930d-29b5a5341636"
+        "uuid": "4565e274-39b8-48c9-9af1-a78753da9ff6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/parkeervergunning",
         "value": "parkeervergunning",
-        "uuid": "37e53ab0-aca1-4f13-ab42-1cad4822f23e"
+        "uuid": "3e4fdb41-8b60-422e-bc6b-e7b55a799385"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/participatieverklaring",
         "value": "participatieverklaring",
-        "uuid": "7011025f-801b-4b2b-af76-9e261e14300a"
+        "uuid": "aacc947e-e204-40e3-984b-5723caf8fec1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/partElPersauSubsidie",
         "value": "particuliere elektrische personenauto subsidie",
-        "uuid": "568205c1-e1b6-44f7-8aed-d32071dae585"
+        "uuid": "9bcdba9f-85e6-4955-b453-d0536e20a078"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/paspoort",
         "value": "paspoort",
-        "uuid": "91188009-0163-4228-93ef-dda9592856d3"
+        "uuid": "d4b8d932-a126-4624-a49b-58c170add54b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/paspTweede",
         "value": "paspoort tweede",
-        "uuid": "65e1886a-efaf-4771-9a67-39a44d3b60b0"
+        "uuid": "b8ea8a66-2e4d-449c-888f-367f2a8dca62"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/peilbesluit",
         "value": "peilbesluit",
-        "uuid": "acc0aef7-010a-423d-aa69-46191c144eeb"
+        "uuid": "91e83376-e997-49b1-8873-4f3290341a15"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/pensRegInz",
         "value": "pensioenregister inzage",
-        "uuid": "46dae9e2-395a-4c70-bb74-ac5596a6c367"
+        "uuid": "c243a7be-e1cd-414d-af15-decf694d0b37"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/personenalarmering",
         "value": "personenalarmering",
-        "uuid": "a964c276-5911-4376-9dc8-1d1655206aa9"
+        "uuid": "aaa8f65a-b490-4217-820a-1c4557d327d7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/personenvervoerconcessie",
         "value": "personenvervoerconcessie",
-        "uuid": "13298b3a-beb7-4aa4-8565-6422c639cfe2"
+        "uuid": "fa403b28-ea82-471f-adc5-74c41175ee4a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/persPlanInburgEnPart",
         "value": "persoonlijk plan inburgering en participatie",
-        "uuid": "66b1bb58-1a08-42c6-9876-2ef0e61c24f4"
+        "uuid": "02ce9adc-158e-4471-bc83-893e0e69e630"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/persoonsgebonden_budget",
         "value": "persoonsgebonden budget",
-        "uuid": "b665ce82-bcf5-4aab-b226-6d0f89b4079d"
+        "uuid": "e4352b33-2881-4356-b302-5d8a0d9c2269"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/persoonsgebonden_budget",
         "value": "persoonsgebonden budget",
-        "uuid": "538d7871-41bc-4581-a922-3b3cb1dee55a"
+        "uuid": "0b9e8aac-8e32-4d0b-beba-9a28bfbcae1a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/persoonsgebonden_budget",
         "value": "persoonsgebonden budget",
-        "uuid": "3b6a6d77-a9eb-4f65-b102-fe9a4ab28f15"
+        "uuid": "16528075-1cf4-4412-8224-6ee1dd237512"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/persoonsgebonden_budget",
         "value": "persoonsgebonden budget",
-        "uuid": "2acd51a6-d73e-442e-a3d6-8b8c8ccbb7a6"
+        "uuid": "93a729d4-9b28-48a6-8a89-e055f9944c0b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/pgbJeugdwet",
         "value": "persoonsgebonden budget jeugdwet",
-        "uuid": "80e06ff4-78ab-4de3-9f90-067a70db3672"
+        "uuid": "cbf1b37b-084b-4c78-8410-bfa9695be838"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/pgbWlz",
         "value": "persoonsgebonden budget wlz",
-        "uuid": "1e52f78f-2545-413b-8486-b49cdda050df"
+        "uuid": "a25e6349-0319-45d1-a0a3-38a9915a7624"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/pgbWmo",
         "value": "persoonsgebonden budget wmo",
-        "uuid": "ffe6679b-fff1-486e-ba5d-faa9e475d3e0"
+        "uuid": "2ac15582-71d7-438c-8c96-184cb3ebabd3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/pgbZorgverz",
         "value": "persoonsgebonden budget zorgverzekering",
-        "uuid": "b71ac647-9444-421a-9405-dc1ebce34462"
+        "uuid": "3440148d-a564-4d63-8006-22b672e99c99"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/persGegIVDInz",
         "value": "persoonsgegevens inlichtingen- en veiligheidsdiensten inzage",
-        "uuid": "6384b001-554f-4a3d-81df-a8a761848142"
+        "uuid": "71434125-10cc-48d6-a709-dc5aec89556e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/persoonsgegevens_verklaring_onder_eed_of_belofte",
         "value": "persoonsgegevens verklaring onder eed of belofte",
-        "uuid": "a53cdb1e-df64-4d25-9b3b-bc723140ed89"
+        "uuid": "6501df11-0182-4ba0-bda1-29598092baf9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/persgegverw",
         "value": "persoonsgegevensverwerking",
-        "uuid": "25bb0257-299e-47fa-a229-c238b8b2a8cd"
+        "uuid": "6789cd15-86c3-4e5f-9a3b-796eac9ecf6e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/planschade",
         "value": "planschade",
-        "uuid": "38687e1b-38a7-4220-9574-cb398c08c962"
+        "uuid": "a299f905-3301-4c26-a3af-630e0e15afea"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/plantenpaspoort",
         "value": "plantenpaspoort",
-        "uuid": "7d1156a4-ea9e-42ce-a258-1b10d9363bf8"
+        "uuid": "7f6c679c-f4bc-489a-8806-8b5080698859"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/plantsnBetrOnth",
         "value": "plantsoenen betreden ontheffing",
-        "uuid": "36d8d56c-b9da-45bc-b3c5-4ff3f9d10914"
+        "uuid": "dfcbbea9-8da3-4c06-8e95-157684cc167f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/pleegvergoeding",
         "value": "pleegvergoeding",
-        "uuid": "5248fa3f-a896-4d0e-a2ce-e906a73cab08"
+        "uuid": "2d475f14-5b40-4679-a583-bb07be505534"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/plezierVaartCertificaat",
         "value": "pleziervaartuigcertificaat",
-        "uuid": "418a61f2-31ce-443c-9f1d-7e49c67f6546"
+        "uuid": "667fb092-3ab0-4a53-a7d3-8a9bd7da5bf0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/podiumkunstensubsidie",
         "value": "podiumkunstensubsidie",
-        "uuid": "86da2692-59cb-439e-93da-cc583c4931fa"
+        "uuid": "62d80136-6907-4d69-83e5-55b0ca47000b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/podiumkunstensubsidie",
         "value": "podiumkunstensubsidie",
-        "uuid": "2e86fce0-fe75-4107-8d67-7451e78de6b0"
+        "uuid": "70b4d7aa-9962-4e26-9d98-980b8262851a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/politieKlacht",
         "value": "politie klacht",
-        "uuid": "9115047d-e4c5-4014-bd85-7e29b4572eb0"
+        "uuid": "503534a8-2c41-4b33-9a73-3fcc3a620aae"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/politiegegInz",
         "value": "politiegegevens inzage",
-        "uuid": "7b9487d5-4e51-4d20-be6a-2a4d5e0422ad"
+        "uuid": "d1a0d711-a8f3-414a-be31-af2261bb1236"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/polgrpreg",
         "value": "politiekegroeperingsregistratie",
-        "uuid": "8997463e-0f02-42dd-8b15-5bc7bc71c81f"
+        "uuid": "95ec5a0b-b99e-41c3-9da9-cc53bd18e11c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/polgrpreg",
         "value": "politiekegroeperingsregistratie",
-        "uuid": "f1e35782-4ebd-4945-9b8d-58689fc645c7"
+        "uuid": "a1981051-2169-4e9c-9a17-1a5b9fb5ee7b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/polgrpreg",
         "value": "politiekegroeperingsregistratie",
-        "uuid": "d223fbe8-b1f3-4542-9826-d40addb27b25"
+        "uuid": "4077f171-e325-480a-be3d-d18748ee57d7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/polgrpreg",
         "value": "politiekegroeperingsregistratie",
-        "uuid": "9fced3a5-95cf-4391-94a1-89e23afb40b2"
+        "uuid": "98d953b1-8f41-4cd9-a233-817ac52079a7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/postdnstAanspr",
         "value": "postdienst aansprakelijkheid",
-        "uuid": "17f4b7b1-f9e1-422c-95aa-c484ff30bcc5"
+        "uuid": "9a49e543-7e70-4330-b993-fa8184c49bec"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/praktOndToel",
         "value": "praktijkonderwijs toelating",
-        "uuid": "47627225-8592-4ebf-93c1-a591512591be"
+        "uuid": "56235094-cc86-4a05-9662-10b4f9884e62"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/precariobelasting",
         "value": "precariobelasting",
-        "uuid": "9bb8b991-1df5-42ee-8a4a-fe7afbc02b42"
+        "uuid": "1c814ecc-daa7-4507-8636-7dae4bc386ad"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/prestBeursGiftOmz",
         "value": "prestatiebeurs in gift omzetting",
-        "uuid": "b232749d-aed0-4a16-a1d3-1356cb4632b5"
+        "uuid": "41c43382-20d8-4f26-8860-0fec11453c46"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/prestBeursGiftOmz",
         "value": "prestatiebeurs in gift omzetting",
-        "uuid": "7fbeb185-d231-414c-9b8a-217bdcb7fd69"
+        "uuid": "9dc58029-606c-4c39-9d47-0d74dcbb7dcf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/prestBeursVoorz",
         "value": "prestatiebeurs voorziening",
-        "uuid": "6a2c1bc6-1666-47fe-942e-9b889787e97e"
+        "uuid": "2686d072-dee5-4b19-b63f-74ff75c72390"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/prestBeursVoorz",
         "value": "prestatiebeurs voorziening",
-        "uuid": "036d040b-f2b8-4c59-834a-14f547431352"
+        "uuid": "78f8ee94-9a86-4bc4-9a53-d8bba823c644"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/prestBeursVoorz",
         "value": "prestatiebeurs voorziening",
-        "uuid": "1eb01dd0-d84b-4b96-b17f-4507a5387176"
+        "uuid": "0d42fd71-71d7-49cd-b7ec-61c761b3a546"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/prestBeursVoorz",
         "value": "prestatiebeurs voorziening",
-        "uuid": "24a867c5-be69-4963-a962-c2f2098f1494"
+        "uuid": "ef5458f6-c6e4-4b72-a235-4e43ba9837bc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/poAanm",
         "value": "primair onderwijs aanmelding",
-        "uuid": "6e54d486-5ab2-4371-ab61-85815f96b46a"
+        "uuid": "afd65999-1afe-4c72-bc3f-e3ef847d29dc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/processtInzBenPartStrafz",
         "value": "processtukken inzage benadeelde partij strafzaak",
-        "uuid": "94f162f2-c587-4518-9b00-83e4f4261f7e"
+        "uuid": "3400a91f-4a36-431f-a573-d4365caa6c60"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/proefplWw",
         "value": "proefplaatsing ww",
-        "uuid": "85e5fc9e-18f2-442d-a2b6-c21fd7a62083"
+        "uuid": "04bffe73-3b3e-498b-9ea2-50bbbef363a7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/project_waterstaatswerk",
         "value": "project waterstaatswerk",
-        "uuid": "fbef1143-a398-4bf5-b824-c6ec015edf3b"
+        "uuid": "613945e7-7993-486b-b477-7cce19daa28b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/provinciaal_inpassingsplan",
         "value": "provinciaal inpassingsplan",
-        "uuid": "cd558a1d-399b-4db3-8b25-ab8167e731b2"
+        "uuid": "1b1d93b0-fab1-459e-b7fa-7465a3deafb9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/provinciale_financien",
         "value": "provinciale financiën",
-        "uuid": "9c3dfd95-9db2-48d9-b7d3-60c2dcfa44fd"
+        "uuid": "e6a63d2a-b17a-4238-bd6c-91e08b3a074f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/provRuimVerordOnt",
         "value": "provinciale ruimtelijke verordeningontheffing",
-        "uuid": "87d9da26-9a5f-4f30-b33f-ae02a451ec9b"
+        "uuid": "dd311e32-4ef7-4aa0-9f5b-261461d2387e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/psychotherNaoorlGenVerg",
         "value": "psychotherapie voor naoorlogse generatie vergoeding",
-        "uuid": "c366d07c-a4da-41e1-8aa3-85a841b493fe"
+        "uuid": "4e5c23c3-961a-40ab-924c-ffe44c935394"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/qkoortstegem",
         "value": "q-koortstegemoetkoming",
-        "uuid": "cf01f58b-ca3e-4173-881d-f205defc8d22"
+        "uuid": "16c46d72-5548-44b7-a025-fe00b79a2f3e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/raadKindBesKlacht",
         "value": "raad voor de kinderbescherming klacht",
-        "uuid": "013fb038-3907-4b52-9d35-743642eca091"
+        "uuid": "f8c87bc8-c06e-4406-b723-f1aefb15c0f1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/raadsstuk",
         "value": "raadsstukken",
-        "uuid": "d46e8b9b-7cc6-48af-b3eb-56cd8f196bdc"
+        "uuid": "2ef049b9-0caa-4432-8152-9188f9bb2d57"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rampbestrNabestUitk",
         "value": "rampbestrijder nabestaandenuitkering",
-        "uuid": "86e99d91-0135-4d43-964e-a4b3bca4896b"
+        "uuid": "6e0d7a20-998d-441b-b1f8-4e1791c42563"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rampbestrNabestUitk",
         "value": "rampbestrijder nabestaandenuitkering",
-        "uuid": "f18b6fdd-c4c1-4ced-8393-9d7ae8e6eea7"
+        "uuid": "14c98f80-be57-4a78-ba48-750805893027"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rampbestrUitkZiekInva",
         "value": "rampbestrijder uitkering ziekte of invaliditeit",
-        "uuid": "2a655df6-f5cc-4371-a015-c63f7c9c514d"
+        "uuid": "018b7875-3556-45e9-a640-6609368243ba"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rampbestrPlan",
         "value": "rampbestrijdingsplan",
-        "uuid": "44571e8f-c9af-4731-af1e-d6ab37d959fd"
+        "uuid": "55df7515-ba78-46d4-8ab0-48ac7475476f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rampen_en_zware_ongevallen_informatieplicht",
         "value": "rampen en zware ongevallen informatieplicht",
-        "uuid": "68e655cf-76dc-47f6-8736-60f16c8e5346"
+        "uuid": "6a55f9d1-6929-4f54-98d9-ed5b4ca0f701"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/re-integratie",
         "value": "re-integratie",
-        "uuid": "72559487-b067-4f8b-b911-6cfd126451fc"
+        "uuid": "b1010fdf-f2ec-4974-a126-997e78e1f037"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/re-integratie",
         "value": "re-integratie",
-        "uuid": "af8c8ae1-8f6a-4a28-94d1-d257997feca8"
+        "uuid": "481c5668-643d-469f-bedf-1c2f87b50846"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rechtOrgKlacht",
         "value": "rechterlijke organisatie klacht",
-        "uuid": "be651a21-6820-4b37-8f95-2c3f321e0e9c"
+        "uuid": "d642c2b9-c0ca-49ce-84ef-7c2a71cca23f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rechtOrgKlacht",
         "value": "rechterlijke organisatie klacht",
-        "uuid": "c7a61a07-5602-41b0-8f39-556bed78727b"
+        "uuid": "3ad72ecb-b0e9-4504-8f59-74f63d984f9c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rechtmatigheidsformulier",
         "value": "rechtmatigheidsformulier",
-        "uuid": "f602cc08-f456-4c4a-b940-d23d21ddaa6e"
+        "uuid": "c01e427e-5fd1-43c0-a771-2ae0114967e0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rechtshulp",
         "value": "rechtshulp",
-        "uuid": "99ef37c2-12ad-4cc7-b80a-0c3c7b0f3024"
+        "uuid": "2e32e396-f87e-4d65-825f-0725930e384d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rechtstrBeroep",
         "value": "rechtstreeks beroep",
-        "uuid": "43968056-f118-4f3f-ad55-39ac858d5f94"
+        "uuid": "5262dac0-e299-4a35-875e-92e23efdc85d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reclamebelasting",
         "value": "reclamebelasting",
-        "uuid": "f4326115-ae01-4777-b95f-ee19fd020bfe"
+        "uuid": "465ef0a9-d1b3-4a95-863d-c54178479936"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reclamemateriaalverspreiding_ontheffing",
         "value": "reclamemateriaalverspreiding ontheffing",
-        "uuid": "8399287f-6f1e-4ab5-aea8-ecad38e36eb2"
+        "uuid": "889e0cfe-5f5f-444c-8b09-2ef616c563d6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reclassKlacht",
         "value": "reclassering klacht",
-        "uuid": "758f756d-933f-4986-8965-954d8203fbc3"
+        "uuid": "bddc6c2e-9e3a-4af2-a4f9-6167ff99f931"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/recreatiesubsidie",
         "value": "recreatiesubsidie",
-        "uuid": "5d8b963a-f8c2-442f-9bf7-792b88d88e05"
+        "uuid": "fc3017e0-4838-474e-8c3a-5787ad306d7e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rectificatie",
         "value": "rectificatie",
-        "uuid": "7d94d38f-f9f4-41b0-9af5-4b4746c32776"
+        "uuid": "0aae3903-b7b0-4cbb-b0a4-5f572b49365f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/referendum",
         "value": "referendum",
-        "uuid": "af06d551-8d77-4a00-b24f-d2ec7bcbc49f"
+        "uuid": "2f6b93b1-e675-4eb5-ae95-49b39310c52e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/regiotaxi",
         "value": "regiotaxi",
-        "uuid": "415cb793-176e-423a-8075-38df7f09919d"
+        "uuid": "d54cab75-7400-4234-bc24-853c0b01e4d5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/regArbBepIns",
         "value": "register arbeidsbeperkten inschrijving",
-        "uuid": "77fd16a1-d8d1-4803-979e-c3379e5778c7"
+        "uuid": "e172439f-c812-4f33-b28b-25885a02be68"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/register_gemeenschappelijke_regelingen",
         "value": "register gemeenschappelijke regelingen",
-        "uuid": "8f5d5259-9b64-4bf6-b250-1587ec6adee8"
+        "uuid": "45088c43-cc71-4055-b22c-d6d104921baf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/regKindOpvPeutSpZlInz",
         "value": "register kinderopvang en peuterspeelzalen inzage",
-        "uuid": "d7060591-f4e4-4884-9c66-b98da2ebe005"
+        "uuid": "5e85e696-07d4-4a18-a2e2-0479584d4545"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/register_kinderopvang_inschrijving",
         "value": "register kinderopvang inschrijving",
-        "uuid": "6dd9cd9c-7d9b-446f-8501-d82105e6a4f3"
+        "uuid": "1e6f544c-4e25-4235-8bfb-18515d665d90"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/regNietBekostEducatie",
         "value": "register niet-bekostigde educatie",
-        "uuid": "1bb79409-209c-49cb-b211-3a9b19751a77"
+        "uuid": "e09798eb-c96d-44d5-98e2-39ffaa68a3c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/regInstEnOpl",
         "value": "registratie instellingen en opleidingen",
-        "uuid": "9f9e030a-ecdf-4cf6-8f3f-e24a1053cd71"
+        "uuid": "a1c1f8bb-57b3-4bc7-ba3d-19280df153c8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/regInstEnOpl",
         "value": "registratie instellingen en opleidingen",
-        "uuid": "bb2ee739-9b6f-4e88-bdf8-05d51eb3209a"
+        "uuid": "dffad772-b438-4912-b7e0-100cd158bda0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/regnr_toer_woonruimteverhuur",
         "value": "registratienummer toeristische woonruimteverhuur",
-        "uuid": "41eb169a-2d91-4043-9baf-3f750482c764"
+        "uuid": "66e56336-67bf-49c0-849f-d88f74314ed8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reinigingsrecht",
         "value": "reinigingsrecht",
-        "uuid": "ec5d840f-0d41-4bf3-a48f-9c8eff12e043"
+        "uuid": "ea97ad57-764c-4d63-a90e-638c5cd23900"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reisdocument",
         "value": "reisdocument",
-        "uuid": "3b0a6ae5-d3cc-480e-957f-84e34df72600"
+        "uuid": "43580eff-4999-4b50-9806-7ecb05eb2f1b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reiskostenvergoeding_ziekenbezoek",
         "value": "reiskostenvergoeding ziekenbezoek",
-        "uuid": "ec6cdb2d-098c-42b0-8deb-12417c614ab6"
+        "uuid": "715deef7-0a33-4cd5-ab9c-80a1f91bf7f0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reisSrvValys",
         "value": "reisservice van valys",
-        "uuid": "de1eb678-651d-467b-98c2-577332b00d74"
+        "uuid": "c7ced4f0-9102-4545-b8b2-9ca46caa2391"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reizMJToest",
         "value": "reizen met minderjarige toestemming",
-        "uuid": "544d6287-867d-4a49-b39b-4f4d949fdc59"
+        "uuid": "c92a4f9c-8ab8-4df1-8fb4-6d9b4241c965"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/remigrUitk",
         "value": "remigratie-uitkering",
-        "uuid": "9267f1fa-c5e5-448f-81b7-c54afc4a0ce8"
+        "uuid": "4839259d-3ace-45e6-b066-e9576ac43042"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/reprorecht",
         "value": "reprorecht",
-        "uuid": "0ba53c9d-07a1-4fd0-ad16-6c0f1a5169fd"
+        "uuid": "bb5c7a98-828d-46c0-b42f-1c68d517204f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/restRijkmonSubs",
         "value": "restauratie rijksmonument subsidie",
-        "uuid": "a8c52950-a5ff-4110-a18f-f085e96e67ab"
+        "uuid": "e1304385-f414-4e20-ad1a-101948361d78"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewijs",
         "value": "rijbewijs",
-        "uuid": "a51741b4-ee12-455e-aa83-b2ff64be0f61"
+        "uuid": "7b6c05c4-0ec1-44e2-a35e-69b74e9de3a1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbAanvraag",
         "value": "rijbewijs aanvragen",
-        "uuid": "76f08c67-4b04-4b8e-9f49-fc13e6bd74af"
+        "uuid": "4129755a-88a7-4b6e-b9fc-9ba6b5b0c35f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewijs_buitenlands_omwisseling",
         "value": "rijbewijs buitenlands omwisseling",
-        "uuid": "296ee013-c3e1-467a-a533-b8117a19c9b4"
+        "uuid": "78560325-0096-46d5-aef4-aadbd8d1595d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewEchthVerkl",
         "value": "rijbewijs echtheidsverklaring",
-        "uuid": "c3457342-c4b1-46e2-a410-67803e20632a"
+        "uuid": "7b5e31c4-333e-44a9-a287-06ae04b9e09e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewEchthVerkl",
         "value": "rijbewijs echtheidsverklaring",
-        "uuid": "1acdd0b4-ed7d-4a9b-a24a-63646088870d"
+        "uuid": "15e5032f-268d-4644-824e-6539a01e35b5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbGezVerkl",
         "value": "rijbewijs gezondheidsverklaring",
-        "uuid": "cf1ce33e-b484-4206-b095-457bfa44b6a3"
+        "uuid": "78d0c341-b3b6-4545-a7f2-d48306000f2d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewijs_internationaal",
         "value": "rijbewijs internationaal",
-        "uuid": "b1730282-856b-44b8-a1b6-b04b6c5df0e1"
+        "uuid": "eb009f4e-731f-4f59-857b-7ac60ca197c9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbTerugVerz",
         "value": "rijbewijs teruggaveverzoek",
-        "uuid": "d2708159-3a90-4d89-ac09-26b2ee0fe7d0"
+        "uuid": "7fc6a79b-a69d-4067-b924-b46d53ee9d4f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewijs_verklaring_van_geschiktheid",
         "value": "rijbewijs verklaring van geschiktheid",
-        "uuid": "5d2b8bb8-13e3-4b1b-8709-347bc466c278"
+        "uuid": "8635554d-5bce-4ad3-a88c-e6630764d47a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbverklrijv",
         "value": "rijbewijs verklaring van rijvaardigheid",
-        "uuid": "52150074-5e8d-40ed-b5ed-ea3bc52ae4a9"
+        "uuid": "1efc4700-2aa4-46d2-912c-17eb12f66742"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbVerlengen",
         "value": "rijbewijs verlengen",
-        "uuid": "2a612339-fbb0-4c3f-848c-4a9076982e64"
+        "uuid": "137acdd1-0204-4428-8887-16d8e01418df"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewAanvrNaOngVerkl",
         "value": "rijbewijsaanvraag na ongeldigverklaring",
-        "uuid": "4af1dc06-b38b-4278-8c61-51e00e73c9b3"
+        "uuid": "0134bb90-c5e9-4cb2-8e84-2c52f6b84f99"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewRegUittr",
         "value": "rijbewijsregister uittreksel",
-        "uuid": "bc7018e3-eb2f-4794-ac63-b8cc5bb416a3"
+        "uuid": "1978dff1-4e19-4d6c-9c8e-3176dc0097f4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijbewRegUittr",
         "value": "rijbewijsregister uittreksel",
-        "uuid": "007a2f59-36e4-4410-a7b1-cfc814b74360"
+        "uuid": "2e2aaf7c-4bd3-40cb-af45-f03e031c2167"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijdNatuurOnth",
         "value": "rijden in natuurgebied ontheffing",
-        "uuid": "1a4ff73f-b808-44b8-b213-d56b583262ce"
+        "uuid": "babd12e7-1a63-4de6-a7a9-8035a0c09dac"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijksMonumReg",
         "value": "rijksmonumentenregister",
-        "uuid": "d74d995e-99c0-4ba4-92b6-467f6a3031f8"
+        "uuid": "5abcde1b-edc3-4589-b734-d271b9e60bf2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rijksvisum",
         "value": "rijksvisum",
-        "uuid": "c2227777-f48a-4e4e-9bcd-dd4d4e180a48"
+        "uuid": "bf6c7fd5-2664-467a-ac77-191146533580"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rioolaansluitingsvergunning",
         "value": "rioolaansluitingsvergunning",
-        "uuid": "dccf9ee0-b06e-40c8-9208-5816e6d407cc"
+        "uuid": "4fb57b43-10f9-4778-a6dc-1d715f3acdbb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rioolheffing",
         "value": "rioolheffing",
-        "uuid": "e0cdccb3-6f49-4ca1-a51f-66cc6af935ea"
+        "uuid": "4a72df18-e7ba-425a-af37-5ee5eb665c39"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rioolonderhoud",
         "value": "rioolonderhoud",
-        "uuid": "4c9d9323-87c2-4a52-9f64-79330df9ff51"
+        "uuid": "57eb8577-a5aa-4898-b413-9cc3118d5607"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rioolwaterzuivering",
         "value": "rioolwaterzuivering",
-        "uuid": "72a702bc-452d-44a4-ab30-2c73a5d33294"
+        "uuid": "05151844-ee93-4a88-9f01-b8ba75d6c22f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/risicokaart",
         "value": "risicokaart",
-        "uuid": "c7e2de1e-27b8-49ff-95a6-c33acfe71c23"
+        "uuid": "ad56de26-ee7d-47cd-aede-474e3086e99e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rniInschr",
         "value": "rni inschrijving",
-        "uuid": "b59ea276-9db1-4569-9b80-44c83102eda9"
+        "uuid": "686942d9-2f48-4513-90bb-2b86b6938d8b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/roerenderuimtebelasting",
         "value": "roerenderuimtebelasting",
-        "uuid": "ff266bb7-7a3e-487e-b3e9-1b63dcd30fa7"
+        "uuid": "1c268592-f99c-4d58-826e-4a8470415862"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/rolstSctMob",
         "value": "rolstoel en scootmobiel",
-        "uuid": "ba96b71c-5eee-40b4-a4cd-d6763afe390b"
+        "uuid": "de8b473f-8104-4928-a5b3-c8067b23b1df"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/routeplichtontheffing_vervoer_gevaarlijke_stoffen",
         "value": "routeplichtontheffing vervoer gevaarlijke stoffen",
-        "uuid": "f461b1b3-617c-43b9-981d-0b71c3a239f5"
+        "uuid": "fc428bb6-459e-4540-aa5a-34d2fca96433"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schadeBijRampenTegemoetkoming",
         "value": "schade bij rampen tegemoetkoming",
-        "uuid": "e830e637-7adf-44ca-a427-8f8ee7ea0cd2"
+        "uuid": "962b4263-80e1-414f-bd9b-7d4a98fba049"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schadefGewMisdrUitk",
         "value": "schadefonds geweldsmisdrijven uitkering",
-        "uuid": "13b84fcf-df8b-4bc6-8320-717f5b6ebe49"
+        "uuid": "62b6e1a4-bbdf-45a1-bc77-960355a20660"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schadevergBenPartStrZk",
         "value": "schadevergoeding benadeelde partij strafzaak",
-        "uuid": "a1449897-f503-41e1-95b3-a6dd6a21eae4"
+        "uuid": "1c9adaca-acd3-433d-94f2-75178e164fbd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/scheidTafelBedInschr",
         "value": "scheiding van tafel en bed inschrijving",
-        "uuid": "8ba7c208-08c8-4b20-a924-3a5f6313937c"
+        "uuid": "2b27599e-ecbb-4a10-a873-1bb3df54b52a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/scheidTafelBedVerz",
         "value": "scheiding van tafel en bed verzoek",
-        "uuid": "e7061109-0986-4934-8b06-34d1efe347bb"
+        "uuid": "50717b74-4ead-4f34-ad7a-08d48672acda"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/scheidMeldPensFnds",
         "value": "scheidingsmelding pensioenfonds",
-        "uuid": "9769d399-7c8c-4ad2-ba52-0db2dff5925a"
+        "uuid": "8204e46e-d186-40aa-acb6-7212c71f645e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schengenvisum",
         "value": "schengenvisum",
-        "uuid": "bfbda2d1-61e4-4840-bffd-b825f9ee6db6"
+        "uuid": "1868fd3d-27d3-4d8a-9f0d-1f0cc1a7b78a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schenkbelasting",
         "value": "schenkbelasting",
-        "uuid": "f8528784-5c92-4e0d-bcb0-55102baa10f6"
+        "uuid": "44d6cc63-6d67-4598-8c2c-7d3a270ed741"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schenkbelKwijtsch",
         "value": "schenkbelasting kwijtschelding",
-        "uuid": "700610ce-fb52-4cc9-917a-00d0e7b351d4"
+        "uuid": "33b7854f-1086-4f45-8a8e-25b5683112fc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schenking",
         "value": "schenking",
-        "uuid": "28a3a6bf-5bdf-400a-8e84-2ea4b616f540"
+        "uuid": "cf395502-934b-4e14-8c14-23ae2353177b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schipTeboekstel",
         "value": "schip teboekstelling",
-        "uuid": "581124e1-bf30-411e-9c0c-c86ec221c5c5"
+        "uuid": "6cb7b329-31c7-49b1-97fa-55c9532452c8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/scholingsvouchWw",
         "value": "scholingsvoucher ww",
-        "uuid": "eee7c9fb-96a4-4ea9-966b-c9e3cb2b6b69"
+        "uuid": "29a8614c-9950-4889-a6c4-f23ad5b4216a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schoolzwemmensubsidie",
         "value": "schoolzwemmensubsidie",
-        "uuid": "c45221dc-f9d9-4c8a-9283-61bc32dee695"
+        "uuid": "5ed2ada3-9dc5-4e6a-88c5-f6e84a5b4e1f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schuldhulpverlening",
         "value": "schuldhulpverlening",
-        "uuid": "5c4239f9-1e1d-4b6f-bc5e-060604ca103d"
+        "uuid": "caaeea65-9650-4134-89d8-bad26817fb7a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schKwijtsWajong",
         "value": "schuldkwijtschelding wajong",
-        "uuid": "b924a09f-9151-43f7-98ca-c049fa169d3d"
+        "uuid": "8f7b3e96-5ffc-4063-8c77-756c1e3da743"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schKwijtsWia",
         "value": "schuldkwijtschelding wia",
-        "uuid": "d1c5d7df-b4be-47d6-ac5e-56332b93e15d"
+        "uuid": "681da133-3750-4c98-8192-24d55cec214c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schKwijtsWw",
         "value": "schuldkwijtschelding ww",
-        "uuid": "c1d1f571-addf-4ab2-9c8a-832350fecf43"
+        "uuid": "be6d9ab9-dd7d-43ac-bf5d-768ebae97ed0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schKwijtsZw",
         "value": "schuldkwijtschelding ziektewet",
-        "uuid": "fce510f0-3038-4eda-913d-79724ec31ee8"
+        "uuid": "58c6cd0e-df60-4392-ae30-0d0483b44a60"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/schuldsan",
         "value": "schuldsanering",
-        "uuid": "a8844b02-b8f7-466a-9670-87b5488f54c6"
+        "uuid": "c934ecac-e24f-4091-b4fa-444732f0189c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/seksbedrijf_exploitatievergunning",
         "value": "seksbedrijf exploitatievergunning",
-        "uuid": "86550105-e454-4195-b075-eef64711b47d"
+        "uuid": "b8ccefb1-9b94-445f-a640-a554e89dd286"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/senWonBijdBwkst",
         "value": "seniorenwoning bijdrage bouwkosten",
-        "uuid": "82177f19-6eed-418e-afd8-df48b2cf5bd1"
+        "uuid": "a3135386-eb63-4be4-9ca5-63b5a611ffe1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/finTegSlachtoffJeugdz",
         "value": "slachtoffer geweld jeugdzorg tegemoetkoming",
-        "uuid": "4a93dce4-4317-4743-a5d6-e4b901a3b64c"
+        "uuid": "81f5dbbf-52e4-46cf-8458-ae738f6eef81"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/snelhbegr",
         "value": "snelheidsbegrenzer",
-        "uuid": "c7e93d61-d90a-46f9-8cc9-6667dd8df730"
+        "uuid": "0c195ddd-62a0-4ab3-8f15-2727a2408f8b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/snelMbootReg",
         "value": "snelle motorboot registratie",
-        "uuid": "30082716-359e-4c1b-acfb-cd33974fe00d"
+        "uuid": "aa25c448-f414-41ed-a9c2-de2ec8f9ea8b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/snuffelmarktvergunning",
         "value": "snuffelmarktvergunning",
-        "uuid": "667d358a-305e-4444-9016-7e30313d24af"
+        "uuid": "f9e8454b-7a52-43bc-b564-039003498d98"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/sociaal-cultureel_werksubsidie",
         "value": "sociaal-cultureel werksubsidie",
-        "uuid": "100c814b-03d2-467d-a24e-42f6a56fc10e"
+        "uuid": "72f9a7fd-e783-49ea-8db1-1b85a7014102"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/sociale_werkvoorziening",
         "value": "sociale werkvoorziening",
-        "uuid": "ea8587dd-a117-4156-ae29-46b345291c8c"
+        "uuid": "b5e7ef41-eec0-451d-9dc5-2f2cab3f15fe"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/softdrugsbeleid",
         "value": "softdrugsbeleid",
-        "uuid": "ff89b626-f681-4b9f-ac6c-404517166ac6"
+        "uuid": "f774727f-8917-4662-a834-02c1c5b4217f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/sollicitatieplichtontheffing",
         "value": "sollicitatieplichtontheffing",
-        "uuid": "af12559d-f111-4634-b704-22a3a7b7c4ac"
+        "uuid": "7da3e897-e8fa-44f7-ab81-b57fc62cd726"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/solliPlOnthWw",
         "value": "sollicitatieplichtontheffing ww",
-        "uuid": "25d40296-7ab4-4596-87bb-5656e3cd670a"
+        "uuid": "3642e60a-9c8f-4bfc-8093-ba139e76bfc3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/specBewLuchtwZelfgebVliegt",
         "value": "speciaal bewijs van luchtwaardigheid zelfgebouwd vliegtuig",
-        "uuid": "16b20d18-e79a-40f2-af19-056e9b1b60e6"
+        "uuid": "bb2db5b5-9874-4ef3-a546-6b8d4ca6d81a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/specOndKlacht",
         "value": "speciaal onderwijs klacht",
-        "uuid": "af4b2a2a-509f-4eaf-8c67-fb4009da7521"
+        "uuid": "0648fd8d-b21a-4bed-907a-c1cd85278080"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/specOndToel",
         "value": "speciaal onderwijs toelating",
-        "uuid": "cac7521d-1c9b-4023-900a-dc06823a06ba"
+        "uuid": "c8aae86a-1092-4146-b781-dd8f15454225"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/speelautomaat_exploitatievergunning",
         "value": "speelautomaat exploitatievergunning",
-        "uuid": "d1ec552e-1f19-49bb-8b1e-e5acdc97dc74"
+        "uuid": "67281a37-9d1f-4e20-a063-b64ac74fe97a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/speelautomatenhal_exploitatievergunning",
         "value": "speelautomatenhal exploitatievergunning",
-        "uuid": "363e31c8-3cc8-4cce-8fa5-fca5863a04bf"
+        "uuid": "8ac55883-f74b-4d68-a6d0-cbc5453bc486"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/speelvoorziening_kinderen",
         "value": "speelvoorziening kinderen",
-        "uuid": "69e2dc4f-3f74-4b8a-b859-434e1d7d89c6"
+        "uuid": "146ce488-ed80-4d79-a599-a3527dac271e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/sportaccommodatieverhuur",
         "value": "sportaccommodatieverhuur",
-        "uuid": "c679ef05-00d0-4dfc-9156-f5d383a47d88"
+        "uuid": "5fe472d1-6a6b-4fd0-86d8-84b6732244da"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/sportactiviteitensubsidie",
         "value": "sportactiviteitensubsidie",
-        "uuid": "5b647f22-0897-4ab6-be7d-e6f661c44d7a"
+        "uuid": "fe005f8f-1c61-417e-bdec-ddfad6e42f29"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/sportactiviteitensubsidie",
         "value": "sportactiviteitensubsidie",
-        "uuid": "6985313a-79dd-42f5-9e78-508e547ad8ce"
+        "uuid": "e2db06a6-6585-461e-bf1c-9e848c7d9351"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/sportmotoren_geluidsontheffing",
         "value": "sportmotoren geluidsontheffing",
-        "uuid": "8f328e22-98e2-4da5-8c8b-5fa4d6ca50d9"
+        "uuid": "1dc5aaeb-dd76-4626-904d-9a132ccc7959"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/sportpatent",
         "value": "sportpatent",
-        "uuid": "9ea54a14-3ff3-443a-a310-4f24ca93b3f8"
+        "uuid": "6912ad52-c616-4d34-8245-7dc81b79db37"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/staatsexamenNt2Aanp",
         "value": "staatsexamen nt2 aanpassing",
-        "uuid": "e1f0ae8c-71e2-4dfb-813f-8b14e6c04385"
+        "uuid": "982de134-0c98-4b7c-bc84-69d582a6c0ab"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/staatsexamenToel",
         "value": "staatsexamen toelating",
-        "uuid": "b0045ad4-2453-4bdc-a980-28957cd882b9"
+        "uuid": "436f11f5-550c-4050-800f-9f64c4a96745"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/staatsexamenVoAanp",
         "value": "staatsexamen vo aanpassing",
-        "uuid": "373bee23-bb35-42c0-98f2-4cad3a7339a2"
+        "uuid": "c04cff11-c79e-4d77-a23d-50335e0feeca"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stadspas",
         "value": "stadspas",
-        "uuid": "1437d6b1-b011-4bcc-91f1-16e3a471697a"
+        "uuid": "8e522fef-12b6-4843-9795-80abee426ec8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/standplaatsvergunning",
         "value": "standplaatsvergunning",
-        "uuid": "fa3731a1-e793-4dfc-b3ab-bc6dd31ce88d"
+        "uuid": "1876179e-8428-4ce8-93f0-fd0f027efe94"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/STAPbudget",
         "value": "stap-budget",
-        "uuid": "23769bcf-ecd9-4b73-a099-6aec0317f4bc"
+        "uuid": "c846efe2-0940-4963-8eac-1e91fc18017c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strtpartbaschlmld",
         "value": "starten particuliere basisschool melding",
-        "uuid": "d2540241-45ea-4a8e-a2b6-3bf237f15339"
+        "uuid": "025098a9-f477-4240-a7f5-8ae81524ee43"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strtpartschvomld",
         "value": "starten particuliere school voortgezet onderwijs melding",
-        "uuid": "f2423b3c-c700-475e-a03a-5d48e88e7c7a"
+        "uuid": "ffb53253-6c47-4246-922f-75e23401ae67"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/startend_ondernemerschapsubsidie",
         "value": "startend ondernemerschapsubsidie",
-        "uuid": "b025e7e1-3478-4e56-95b8-918e8a62f2e8"
+        "uuid": "08006b38-13b9-4dd1-b49e-cf0bafddd254"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/starterskrediet_ondernemer",
         "value": "starterskrediet ondernemer",
-        "uuid": "f7f69436-43af-4b73-9afb-0d302b448d08"
+        "uuid": "cf5b2b71-66ac-4e3a-9d83-555b44727f0a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/starterslening",
         "value": "starterslening",
-        "uuid": "c09c3b07-c099-4d36-aadc-e496491617cb"
+        "uuid": "6a355c56-891a-44f2-bd74-06b3c34fd28c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/startkwalPlicht",
         "value": "startkwalificatieplicht",
-        "uuid": "d679a492-b37a-4333-8d73-f214a061856f"
+        "uuid": "a8e48f16-ed18-4e4e-b8ef-7d82e0c47ad5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stemmen_identificatieplicht",
         "value": "stemmen identificatieplicht",
-        "uuid": "b0a14ddf-7bd5-42ab-99a6-e99e14759d45"
+        "uuid": "e54c9559-7637-40b3-8751-ad06c281e2b5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stemmen_per_brief",
         "value": "stemmen per brief",
-        "uuid": "dbfae7d1-6081-4fda-98f6-cef64c1fb642"
+        "uuid": "32488137-b4f2-4ffb-8ae2-e728e55c39a0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stempas",
         "value": "stempas",
-        "uuid": "5e385fb1-e658-42b2-9444-5ca154a54884"
+        "uuid": "905bd492-b482-4233-8d22-d34f1cddc26d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stemrecht",
         "value": "stemrecht",
-        "uuid": "ca343cc7-8366-4b8a-9c00-c2e0d33158b3"
+        "uuid": "031095d0-42df-4c34-907d-32b06cb05c32"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stemrecht",
         "value": "stemrecht",
-        "uuid": "a8840623-7b76-4f00-a2f1-8c808902e283"
+        "uuid": "baa2278f-a93f-4873-ace2-50d448a2a37e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stemrecht",
         "value": "stemrecht",
-        "uuid": "d5627a0b-6f95-4dcb-b2ca-c66af2a7799b"
+        "uuid": "1217c2ef-4090-422d-88c4-f638a85aa573"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stemrecht",
         "value": "stemrecht",
-        "uuid": "0c024435-f6a7-4561-a6a2-0d53f4fcdf6d"
+        "uuid": "64e7130b-86dc-4d58-af05-5ac100939546"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stemrecht",
         "value": "stemrecht",
-        "uuid": "b867a467-0184-4403-9a58-f62122524203"
+        "uuid": "a9ddab74-b816-4910-9c06-2cbf0a4fe2cd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stiltegebiedontheffing",
         "value": "stiltegebiedontheffing",
-        "uuid": "c5ed0ab6-fec2-4113-af03-ce80634e8036"
+        "uuid": "9056fefb-33e5-4352-9917-174349eb60cf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stoffengerBeroepszktTegemoetk",
         "value": "stoffengerelateerde beroepsziekten tegemoetkoming",
-        "uuid": "d9abfba2-c6c4-4ccf-818d-b006e2982048"
+        "uuid": "be2b918d-5e0c-41a0-b088-c2c2fa1b8eb8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stookonth",
         "value": "stookontheffing",
-        "uuid": "9a4dc4e8-9dba-41ea-8926-15aae8ed7de6"
+        "uuid": "184b9b76-a97b-4d40-b140-2f8b960c38f7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/storDraadlAppMeld",
         "value": "storing draadloze apparatuur melding",
-        "uuid": "181034be-1ff2-449c-bcc5-f9b5fbb26fca"
+        "uuid": "0411c07c-2ee5-4fa5-a896-b1bef268b848"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strArtOptrOnth",
         "value": "straatartiestoptreden ontheffing",
-        "uuid": "768aed6a-e274-447a-aa65-e65361869931"
+        "uuid": "814d5ba9-f580-46f9-9c0a-6f59c612f178"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/straatnaamgeving",
         "value": "straatnaamgeving",
-        "uuid": "32252903-6a77-47b0-99be-bb0f0c9b43e2"
+        "uuid": "2fdd73eb-d3c5-493a-b2f0-0e931a0d4f3e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strafbFeitAang",
         "value": "strafbaar feit aangifte",
-        "uuid": "f982f351-51f7-4338-a55e-8bdb8d8fe875"
+        "uuid": "25b242d1-4dfa-4200-a46a-42492c3956bc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strafbesVerz",
         "value": "strafbeschikking verzet",
-        "uuid": "4e9f13ce-0c3d-4116-9926-66e08e5810f0"
+        "uuid": "32443b5e-3b86-4349-9b54-f5611a76e5e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strafbladInz",
         "value": "strafblad inzage",
-        "uuid": "41145670-212a-4f9e-84ce-ba8d7b4ac0c5"
+        "uuid": "a195d819-a161-4e49-b0ce-d90cafd15dc0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strafbladInz",
         "value": "strafblad inzage",
-        "uuid": "d84530ba-1070-43f7-b83b-5b4170ddeae2"
+        "uuid": "0903ff60-61be-4391-a9d2-b21d771be35b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strafbladInz",
         "value": "strafblad inzage",
-        "uuid": "c92f2510-5958-4505-898e-7f504ccd4d11"
+        "uuid": "ff121ae5-f04f-4d59-8d50-94c0c421e00b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/strafzHerzVerz",
         "value": "strafzaak herzieningsverzoek",
-        "uuid": "94b1ffc2-9209-4fbf-9be7-4f9f37d2595b"
+        "uuid": "0e8a357d-ba76-4388-95d8-ff37c3815b5d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/stralingsartsDeskReg",
         "value": "stralingsartsen en deskundigen registratie",
-        "uuid": "7a431439-145f-4e9f-84e7-205f949fe0d7"
+        "uuid": "256abc28-5cdb-4ae8-ac05-d3863f0e3a64"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/structuurvisie",
         "value": "structuurvisie",
-        "uuid": "f8ec695d-ee81-4a58-b3d6-ed51b81a814a"
+        "uuid": "e8a1e914-4b32-4fb4-8d14-bb4cf5e27608"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/studOvVerg",
         "value": "studenten ov-vergoeding",
-        "uuid": "2ef33da2-da7a-463d-916c-368fd27ea749"
+        "uuid": "943916db-abb4-4384-8407-763446175c86"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/studReisprodSchVerg",
         "value": "studentenreisproduct schadevergoeding",
-        "uuid": "f14d5905-f223-4062-92b5-0369b1047653"
+        "uuid": "21918bc4-4e5c-4bd5-96ac-d12475412d39"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/studiefinanciering",
         "value": "studiefinanciering",
-        "uuid": "0e2d46e1-461b-40b6-996e-ac68f1947cea"
+        "uuid": "cfcc287f-0484-4f21-a84f-65496284b903"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/studiefinanciering",
         "value": "studiefinanciering",
-        "uuid": "1a97126b-358f-47c3-8ba5-dba069cbae38"
+        "uuid": "e097a7b1-680e-48b3-81b2-e4fd46f32487"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/studiefinanciering",
         "value": "studiefinanciering",
-        "uuid": "4c1a6f13-684f-4178-9eff-1b847d93730c"
+        "uuid": "7a6a873e-2b47-4e1a-a1e5-336170a740fb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/studiefinanciering",
         "value": "studiefinanciering",
-        "uuid": "01ca97dd-b9ad-4699-9907-07f760bbd804"
+        "uuid": "cbf1143e-e88f-49c2-85ac-217175fd7339"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/studiekstLerTeg",
         "value": "studiekosten leraren tegemoetkoming",
-        "uuid": "b5543211-5948-4282-aefe-e684222b4f97"
+        "uuid": "34fc4724-9fb7-4c84-bb3a-7e83ee70cbbc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/subsidie",
         "value": "subsidie",
-        "uuid": "15552742-989b-45aa-9cf1-a1e6ab4cea63"
+        "uuid": "e94c17e5-b3ae-40a1-aff2-456b41bb7604"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/subsidie",
         "value": "subsidie",
-        "uuid": "8e92b40b-0753-4361-8efa-22c2eb58d547"
+        "uuid": "d38bd22a-1cd6-413b-883d-4dd75321d588"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/subsidie",
         "value": "subsidie",
-        "uuid": "d5417070-3148-48e1-9f69-7bd94e407a84"
+        "uuid": "f7b7942b-948a-4960-a2bf-f1ebd7efeeff"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/surcbet",
         "value": "surceance van betaling",
-        "uuid": "0136ced4-ad6f-4818-a2fe-89af34e74376"
+        "uuid": "735cff97-02fc-4b9a-8243-941c5e4387c1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/t100busgoedk",
         "value": "t100-bus goedkeuring",
-        "uuid": "fb179c7f-e031-4a61-b4b3-c03a6b606c4b"
+        "uuid": "60b57c13-9f73-4d80-8b90-79a1be0d7dfd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tapontheffing",
         "value": "tapontheffing",
-        "uuid": "df61d4bf-6dd6-430c-bdfc-74591e75baf1"
+        "uuid": "4013b5ab-8736-4079-9fe7-9906882a7708"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tatoeagevergunning",
         "value": "tatoeage- of piercingsvergunning",
-        "uuid": "c6ec7a48-513d-47d1-ad05-ed71f10735b0"
+        "uuid": "8dfda7df-bcd8-4ca2-811c-b304057f16fb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/taxichkrt",
         "value": "taxi chauffeurskaart",
-        "uuid": "0b2fa341-953a-40b5-8530-610186879b25"
+        "uuid": "4a0bd923-f356-442f-a030-13fa9908a3ff"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/taxgk",
         "value": "taxi goedkeuring",
-        "uuid": "026c799c-337a-465c-9afe-351c0a33be94"
+        "uuid": "47ff5ff7-627c-4af1-a5b9-63906c9b8a2f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/taxiondkrt",
         "value": "taxi ondernemerskaart",
-        "uuid": "0403ec7e-2ee4-4d87-8c21-fe34bc90bc41"
+        "uuid": "ed119417-182e-4cef-9b87-9ef8bfcac47e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/taxiInfokaart",
         "value": "taxi-informatiekaart",
-        "uuid": "20ff221e-9d51-49b4-bf36-33e93a16cab6"
+        "uuid": "d5a6a51d-4534-4ee5-98ab-e9fedc501d26"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/taxichgetschr",
         "value": "taxichauffeur getuigschrift",
-        "uuid": "2de59003-494b-4f92-8ea9-163614e0e7ab"
+        "uuid": "544e50ef-ecb3-426d-b364-09b37d20e2e2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/taxivergoeding",
         "value": "taxivergoeding",
-        "uuid": "05240986-a82f-4d00-a55b-2f871b5d880c"
+        "uuid": "6e67c1a2-ea08-4f5d-98f1-c618931d0c0f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/taxivervoerKlacht",
         "value": "taxivervoer klacht",
-        "uuid": "24d27b11-e0d4-495b-b53a-8b6b98eabe78"
+        "uuid": "78e24568-ba51-4b2c-93c4-a4dd7d0079be"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/taxivervoersvergunning",
         "value": "taxivervoersvergunning",
-        "uuid": "23ae4161-d955-4837-85ad-41e349ea5bc8"
+        "uuid": "7afab9a3-155d-41ad-89cb-6db5bc3532ed"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/telecomWetGeschBesl",
         "value": "telecommunicatiewet geschilbeslechting",
-        "uuid": "9ad3a15d-a429-4f49-9a63-d42f896174e3"
+        "uuid": "c168ded8-0374-40fd-b2c5-b66e824678fe"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/terrasvergunning",
         "value": "terrasvergunning",
-        "uuid": "078c6799-8971-413c-a60a-f3a3fee73cd0"
+        "uuid": "7d80c20a-fb58-46f4-bd7c-d3433e6df119"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/terugbetStuFiOpsch",
         "value": "terugbetaling studiefinanciering opschorting",
-        "uuid": "2d449ef2-966f-4e87-8aad-4e6779991c46"
+        "uuid": "4f1deb0c-6ba4-4361-89bf-9934b1d1b3c5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/terugkeervisum",
         "value": "terugkeervisum",
-        "uuid": "9e82275d-6375-44b3-baad-2c4f8e893ebc"
+        "uuid": "9bc35f25-15ff-4b3f-8ba9-3611e0e061a3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tewerkstverg",
         "value": "tewerkstellingsvergunning",
-        "uuid": "2301a5fe-6066-4362-8533-51b831515178"
+        "uuid": "31cf6c7a-ffe6-4355-b117-7411035a9d75"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tewerkstverg",
         "value": "tewerkstellingsvergunning",
-        "uuid": "59539afe-bbcf-4236-9c4a-9526d848d816"
+        "uuid": "d302fd9c-6516-4cb8-a3ee-c84b3b2b76c0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tewerkstverg",
         "value": "tewerkstellingsvergunning",
-        "uuid": "f5eb1b9b-3235-4430-8506-9ca25aa0108f"
+        "uuid": "de4d1ba0-b7f0-409b-a37e-6782d4c036f1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/thuiswerkvergoeding",
         "value": "thuiswerkvergoeding",
-        "uuid": "4944efa8-a06c-47a3-9bc1-ebf052550c98"
+        "uuid": "88d3dbe0-e82a-4f74-8f65-dbaa280e6a26"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/thuiszorg",
         "value": "thuiszorg",
-        "uuid": "69736033-c826-4f20-b8fc-e4331a55f1c2"
+        "uuid": "8cec9f7a-b264-42b2-9d2e-ff9c79027fc6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tijdIncWerkGeregBerMeld",
         "value": "tijdelijk en incidenteel werken in gereglementeerd beroep melding",
-        "uuid": "164e68c3-9e27-4001-a088-8dde413d7534"
+        "uuid": "caa7ecbf-b8db-475e-a2c2-37422fec6e5c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tijdHuisverbod",
         "value": "tijdelijk huisverbod",
-        "uuid": "d2d30c76-b612-484a-aaf6-394e219c2512"
+        "uuid": "20cf03b6-b325-44b4-9ac9-a678b5711f03"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tijdelijk_luchtvaartterrein_ontheffing",
         "value": "tijdelijk luchtvaartterrein ontheffing",
-        "uuid": "9c0413b6-a02c-47ca-b10a-9a6f16a94387"
+        "uuid": "e624af57-77a5-4fe6-8433-66cf906a2ec2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tijdOphGeschKent",
         "value": "tijdelijke opheffing geschorst kenteken",
-        "uuid": "ff36f278-fdca-4fc0-b6ea-7103c98c4e30"
+        "uuid": "732a1249-78dc-4d73-9ff9-9620e3979508"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tijdOphGeschKentEven",
         "value": "tijdelijke opheffing geschorst kenteken bij evenement",
-        "uuid": "9ac8be68-c018-4067-9e35-7ef50536873b"
+        "uuid": "1aa97efb-0a47-40c4-be94-9ce8d42d4010"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tillift",
         "value": "tillift",
-        "uuid": "c2822171-875c-4f01-a402-778d1028de62"
+        "uuid": "7ba03b11-1a4a-4e0b-9bb6-00748841008d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/toerismesubsidie",
         "value": "toerismesubsidie",
-        "uuid": "084d49d3-e20c-44e9-8bd0-49fb1c2b5ee5"
+        "uuid": "62223939-3c6f-40ff-b1e6-626eb26424d7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/toeristenbelasting",
         "value": "toeristenbelasting",
-        "uuid": "1c728127-3238-4f64-b5b6-b1644974ba58"
+        "uuid": "5429a3ec-2172-4593-b62c-5be9d6969773"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/toeristenvisum",
         "value": "toeristenvisum",
-        "uuid": "fe7c041d-440e-4187-ad92-1e3b5328c838"
+        "uuid": "0400d14b-5c38-4919-b999-6b9a0767b9f7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/toeslagToeslagenwet",
         "value": "toeslag toeslagenwet",
-        "uuid": "136d2e21-8436-48e4-97ea-f9d620cef983"
+        "uuid": "9ee59410-f686-45e9-81ad-b9016a0045ab"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tolk",
         "value": "tolk",
-        "uuid": "35c0239f-166e-48a5-8b44-3d8d48e5afab"
+        "uuid": "3cf9e9d7-c898-40b8-9457-ebe8f4295bc9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tolkvoorz",
         "value": "tolkvoorziening bij auditieve beperking",
-        "uuid": "a6930c21-c038-46e0-91dc-54f7b6918849"
+        "uuid": "a46f581a-d30b-4145-b187-f75531288dca"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/transitokent",
         "value": "transitokentekenbewijs",
-        "uuid": "60430397-ea09-47c9-885e-81f381306074"
+        "uuid": "17ea813f-0d93-40a6-956b-fd6d9616d857"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/trekhondenverbod_ontheffing",
         "value": "trekhondenverbod ontheffing",
-        "uuid": "5d31af57-2ba6-48e1-b03f-2c3e8f3eb29f"
+        "uuid": "11c9fb1b-8b0d-44e3-953f-eb52fe2a5247"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/trekhondenverbod_ontheffing",
         "value": "trekhondenverbod ontheffing",
-        "uuid": "f0b48d8d-d6b8-490a-8220-065250078be7"
+        "uuid": "045d31af-0433-45a4-a95a-b26a5270482b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/trouwlocatie",
         "value": "trouwlocatie",
-        "uuid": "bc5c83a7-6355-43be-ad70-0ea207a21615"
+        "uuid": "50593eb0-73d8-4d65-8aa8-078006572ecf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/tweedeLerarenOplSubs",
         "value": "tweede lerarenopleiding subsidie",
-        "uuid": "9f96b6b0-ab3b-4fb8-bd9b-f739f914b8db"
+        "uuid": "21a25ff7-7cf5-409f-85d8-5ddcd9b89685"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uitkVervSlchtoff4045",
         "value": "uitkering vervolgingsslachtoffers 1940-1945",
-        "uuid": "443c120c-a814-48c3-a647-d959ebaed70f"
+        "uuid": "96166f6c-a960-499f-b0ea-3473b0e71776"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uitlening_gemeentelijke_materialen",
         "value": "uitlening gemeentelijke materialen",
-        "uuid": "2170b26d-c1c8-4472-8e76-d956b1371bf8"
+        "uuid": "5888167d-31db-4782-8fb8-968edb95b07f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uitsprBestRechtHerzVerz",
         "value": "uitspraak bestuursrechter herzieningsverzoek",
-        "uuid": "a2dfdf1b-239b-4bcf-9653-1582e353dab7"
+        "uuid": "65ca173c-c1ff-4c76-9dd5-72661de80e5c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uitsprHuurcommVerz",
         "value": "uitspraak huurcommissie verzoek",
-        "uuid": "83ca7da2-f64b-477d-9acc-f362f94a5709"
+        "uuid": "4d9fef49-33de-4e86-ba4f-a4449d501b07"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uitsprHuurcommVerz",
         "value": "uitspraak huurcommissie verzoek",
-        "uuid": "46541ae1-ca29-46dc-acb8-2e14579526c9"
+        "uuid": "f1b19d27-14bd-4562-bf60-70ec38a584ac"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uitsprhuurcommInz",
         "value": "uitspraken huurcommisie inzage",
-        "uuid": "64dadf17-033e-438e-b254-55b077cb3838"
+        "uuid": "c40d3e16-15e2-45a2-89a2-5b2127c04bed"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uitvlOntheffing",
         "value": "uitvliegontheffing",
-        "uuid": "c7541546-0bce-446b-88a5-ed3407336187"
+        "uuid": "fe40f373-4100-45a8-9342-2baf08de2791"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/urgBewWoning",
         "value": "urgentiebewijs woning",
-        "uuid": "d1beac1d-2f15-42b0-8121-44479b89a149"
+        "uuid": "f32bb25f-12cf-47f6-ba0f-021be0fc8172"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uwvReiskVerg",
         "value": "uwv reiskostenvergoeding",
-        "uuid": "28397c69-67e2-490c-9970-5b704b532540"
+        "uuid": "ee2bb8dc-87a2-4d72-9809-58a466ce7672"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/uwvInzRechtCorrVerz",
         "value": "uwv-inzagerecht en correctieverzoek",
-        "uuid": "3a057b37-b718-46fa-af29-dc980ee17e99"
+        "uuid": "ac0697b9-69b8-4bab-9521-97f14ec67a0b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vaarvergunning",
         "value": "vaarvergunning",
-        "uuid": "08a4b8b7-638a-4da4-990a-b52e58858303"
+        "uuid": "47d87f08-3e0e-4d6b-89a1-8884b7f8c179"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vaarweggebruik",
         "value": "vaarweggebruik",
-        "uuid": "a0e18fe8-ec2e-4761-b1a0-04903c6d8a39"
+        "uuid": "ca4ea0e4-c57b-4732-83f8-dac45a631d56"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vacature",
         "value": "vacature",
-        "uuid": "720cbb1b-5bd6-4f39-af29-aad6c40bcdc2"
+        "uuid": "9a6c680e-b5bb-4733-8495-3e53d504b228"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vaderschapsontkenning_verklaring",
         "value": "vaderschapsontkenning verklaring",
-        "uuid": "a30fe4c7-799b-440b-9bad-0933db63a51a"
+        "uuid": "6fdc7a96-1860-4074-9546-4dee10059541"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vakMldWw",
         "value": "vakantiemelding ww",
-        "uuid": "f362a342-72ff-4cea-9006-e393fad62505"
+        "uuid": "268c685d-48fb-4cf0-8f3b-5e6313ae7c9e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vakantierecht",
         "value": "vakantierecht",
-        "uuid": "49a9f7f3-d513-4088-add8-2c4a034a7f64"
+        "uuid": "9b1a4dda-30e9-4a3a-8173-4cf8f85eae61"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vakbekwCert",
         "value": "vakbekwaamheid certificaat",
-        "uuid": "2c427444-e95d-4477-90a5-e85909cf7d4b"
+        "uuid": "ee16ee42-4751-4aac-8eab-047f0e9173bb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vakbekwEis",
         "value": "vakbekwaamheidseis",
-        "uuid": "8a2e0395-579f-4482-8c74-7c698783406d"
+        "uuid": "f86185d2-e13c-4cce-a404-465d94fcb698"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/valkeniersakte",
         "value": "valkeniersakte",
-        "uuid": "d7664a08-24c0-4fc6-ba90-8a5c259fd400"
+        "uuid": "97116a49-6aa7-411f-9da1-908fcd075414"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vennootschapsbel",
         "value": "vennootschapsbelasting",
-        "uuid": "721144ca-c008-4476-9e34-bc845d1cc77a"
+        "uuid": "64d2482a-60ee-4b3f-b654-37d8cbc37e5c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ventonth",
         "value": "ventontheffing",
-        "uuid": "1b1cf654-61a9-4a2e-9cc7-478fa3767f16"
+        "uuid": "656ac3c0-ef50-499c-9282-c686304718ab"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ventvergunning",
         "value": "ventvergunning",
-        "uuid": "81b465e1-eb79-4f56-a528-dd7b1b59f6ef"
+        "uuid": "0b76093a-4552-4a70-8af1-fc3cb5aa99c4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/veranderen_weg_vergunning",
         "value": "veranderen weg vergunning",
-        "uuid": "9f0f5a10-f1d3-427e-919a-3c6e5adcfe6d"
+        "uuid": "1b1963d1-2110-4b92-9208-c2ad18718d60"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verblijfsvergunning",
         "value": "verblijfsvergunning",
-        "uuid": "eeaa1db6-e442-4c4f-81ba-8819c43f06d5"
+        "uuid": "0b7091e8-5597-4729-b809-7198489243fd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verblvergregbeptijd",
         "value": "verblijfsvergunning regulier voor bepaalde tijd",
-        "uuid": "4b8f53d5-3ab2-4764-a7ea-694e044c22c1"
+        "uuid": "afa095cc-b7bf-49af-99eb-aaf858ecaef8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verbodPermNachtarbOnth",
         "value": "verbod op permanente nachtarbeid ontheffing",
-        "uuid": "66b5d5e2-6282-4110-a07f-a40c2514170c"
+        "uuid": "96378fc9-7afa-40a0-ba6e-084c16729e77"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verbruiksbel",
         "value": "verbruiksbelasting",
-        "uuid": "6b7e9c2b-abef-4ec9-a556-ffcfc7eccdd9"
+        "uuid": "5bc1508b-7a53-4cbd-8cc3-72ba9480ba65"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verduurzOnderhoudHuurwSubsidie",
         "value": "verduurzaming en onderhoud huurwoning subsidie",
-        "uuid": "0e931035-181e-4353-8029-dcda575d18cd"
+        "uuid": "af51f080-3770-4388-aa77-a7df7fa7725c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verduurzVveSubs",
         "value": "verduurzaming verenigingen van eigenaars subsidie",
-        "uuid": "cc1a1f54-3e1f-49e2-ac3a-3ef696502118"
+        "uuid": "6a3b4739-9a2c-4370-90d0-1902cea5568a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vereisBenLerVoOnth",
         "value": "vereisten benoeming leraar vo ontheffing",
-        "uuid": "2f47b816-0817-4f79-8c72-23f4250142cc"
+        "uuid": "f263e99e-2f86-4433-9bdd-c35f7c6a5306"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verstamverk",
         "value": "vereniging stamboekvee erkenning",
-        "uuid": "8d55134d-4a0d-4ae6-ab92-2aa79bf32a5d"
+        "uuid": "da580e78-97d6-4c41-a33b-2dfefdb2d3ab"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verhuismelding",
         "value": "verhuismelding",
-        "uuid": "41efc955-e1cb-4475-a28e-45fccfe18805"
+        "uuid": "12eea38c-7e71-42d9-8076-213023892001"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verhuurdersverklaring",
         "value": "verhuurdersverklaring",
-        "uuid": "feeb3cdc-6bc5-4f99-9a90-baba89c77404"
+        "uuid": "6cf3244a-2a1a-4c05-89a3-724f0c9a9f7b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verjaringsverklaring",
         "value": "verjaringsverklaring",
-        "uuid": "9c813291-aa38-47a6-877f-d93c4faf9bb9"
+        "uuid": "6ae75381-6241-4075-83ab-b1f8f13c5994"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verkeersbesluit",
         "value": "verkeersbesluit",
-        "uuid": "78a88a15-6b62-4e83-a336-2005330167e1"
+        "uuid": "1184c050-f62e-4fe3-af23-3ebdc4846a86"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verkeersbesluitMilieuzone",
         "value": "verkeersbesluit milieuzone",
-        "uuid": "0bc5da1e-e106-4067-9e8d-351caa2d683c"
+        "uuid": "3c4a3fbb-798f-4bdc-ac4a-699c7a06a84e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verkeersboete",
         "value": "verkeersboete",
-        "uuid": "9acb9bfc-e78c-4010-a913-63b52dc897b2"
+        "uuid": "3742f412-42b1-46b3-a97f-a3e3a6c3d217"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verkeersbrigadier",
         "value": "verkeersbrigadier",
-        "uuid": "092eb596-ed36-4771-93b1-92457255431f"
+        "uuid": "420e90df-2a6e-4b86-ac95-b5f13f7af491"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verkeerscirculatie",
         "value": "verkeerscirculatie",
-        "uuid": "c6a5632c-5ede-4f3f-acce-0bc3fb899562"
+        "uuid": "ece966bd-d825-4cba-a327-cbc1147e4b6b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verkeersregelaar",
         "value": "verkeersregelaar",
-        "uuid": "457522c3-d4f8-425e-bfaa-52e535945e2b"
+        "uuid": "52397d11-7e16-462a-9331-550fd944277c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verklAfgelExamen",
         "value": "verklaring afgelegd examen",
-        "uuid": "c819839c-d66b-4963-89b5-3d521ea4840e"
+        "uuid": "e3089c7d-2906-4714-8b26-a84d20077055"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verklAfgelExamen",
         "value": "verklaring afgelegd examen",
-        "uuid": "9a845d80-4084-4f85-874e-2933392aacc9"
+        "uuid": "02e01658-9ce9-4d67-a233-81e553676d7c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verklaring_omtrent_gedrag_(vog)",
         "value": "verklaring omtrent gedrag (vog)",
-        "uuid": "ef5a7cda-4f18-4900-8f5a-98cccc1d79d8"
+        "uuid": "15d6e9e9-1f79-4cf9-b252-6c37cfee58ec"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verklaring_positie_molukkers",
         "value": "verklaring positie molukkers",
-        "uuid": "b2b2fc03-fdd8-4df4-ba85-67a589fbfbc6"
+        "uuid": "c787c6ad-56ff-4bc1-8aa5-4eadf72dbc74"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verklaring_van_afstand_nederlandse_nationaliteit",
         "value": "verklaring van afstand nederlandse nationaliteit",
-        "uuid": "60c74394-0086-4267-92d4-8059338137da"
+        "uuid": "ac5b62c3-57ae-47dd-a764-5da1db840009"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verklaring_van_huwelijksbevoegdheid",
         "value": "verklaring van huwelijksbevoegdheid",
-        "uuid": "0c6673da-abdf-46e8-9a99-84548b17633f"
+        "uuid": "1014c9bd-364e-4551-89a0-6574e99d2ac4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verlBegraven",
         "value": "verlof tot begraven",
-        "uuid": "11571f6e-8d2e-47c1-8322-c3249f4d5720"
+        "uuid": "c01b652e-7dcb-4155-a13a-ab90caad984a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vermoeden_van_besmetting_melding",
         "value": "vermoeden van besmetting melding",
-        "uuid": "9fe4191d-2480-4662-8a6b-40f189453cea"
+        "uuid": "4d9ba715-6283-4dcf-93d6-dad0b4570055"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verontreinigingsheffing",
         "value": "verontreinigingsheffing",
-        "uuid": "24ec1b85-7ced-4024-bf5e-31eaca73db35"
+        "uuid": "f52a562b-970b-4dcf-ad2b-7864d778e308"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verordening_gemeentefunctionaris_goedkeuring",
         "value": "verordening gemeentefunctionaris goedkeuring",
-        "uuid": "1e67ff36-0c7b-49db-a61e-45f79352b65f"
+        "uuid": "af371f34-769d-4dcb-a9e3-296478f6f546"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verslavingszorg",
         "value": "verslavingszorg",
-        "uuid": "0fd4a97b-eeb8-4f03-b493-0a526cebe638"
+        "uuid": "06afd612-e06b-4881-a043-5c213dd1a3a0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verst_geb_gron_subsidie",
         "value": "versterking gebouwen groningen subsidie",
-        "uuid": "56fd2c06-fc51-4a65-a7b2-8dede8ce19b0"
+        "uuid": "8d99c277-8133-4ee3-972e-c7b7b93fef2b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verstrekking_overheidsinformatie",
         "value": "verstrekking overheidsinformatie",
-        "uuid": "ca3e67a7-56c9-4f63-aa2d-e43ed6511352"
+        "uuid": "4e132cc5-45db-4e0d-9d99-3a72a762f2ea"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vervKentBewTenStCode",
         "value": "vervangend kentekenbewijs of tenaamstellingscode",
-        "uuid": "f2d160f0-a91b-4a56-83eb-8c350766c57d"
+        "uuid": "4df14a1b-7edf-487c-8c17-682160a07bd1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vervOplDoc",
         "value": "vervangend opleidingsdocument",
-        "uuid": "5443f122-4a41-4035-8939-8bd1b202c4b7"
+        "uuid": "eadff3df-e7bf-46b5-9e19-e87f46657a7a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vervangende_leerplicht",
         "value": "vervangende leerplicht",
-        "uuid": "e9616be8-bf5a-47cf-a9d6-d78dbc6b80fe"
+        "uuid": "0ab8acab-2b75-443c-a7af-c25889d5192f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vervoersdocumenten_stoffelijk_overschot",
         "value": "vervoersdocumenten stoffelijk overschot",
-        "uuid": "45072de1-8864-449f-b66e-9371761d53b9"
+        "uuid": "c9ef567a-aead-4877-8478-299a0da257e2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vervrErfgoedZiensw",
         "value": "vervreemding erfgoed zienswijze",
-        "uuid": "6941e233-9147-44bc-9232-6f56a7dcc9ca"
+        "uuid": "3caf0161-ea52-4f28-9c4d-f55c1bdfe00d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verwdierlbijproderk",
         "value": "verwerking dierlijke bijproducten erkenning",
-        "uuid": "38e4f5f5-72ae-4274-8554-111af703174c"
+        "uuid": "2da70ba7-ae63-472a-8e05-1e11c0ecc9ca"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verwdierlbijprodmld",
         "value": "verwerking dierlijke bijproducten melding",
-        "uuid": "10cc21b1-2f60-4d21-8337-32275adda0b8"
+        "uuid": "31ae937d-450c-46b5-901a-ff12c53d6981"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verwpersgegverantwpl",
         "value": "verwerking persoonsgegevens verantwoordingsplicht",
-        "uuid": "e568de4b-1b61-42fb-94cb-9bdc7863bfaf"
+        "uuid": "98c173ab-6201-4617-bcd4-60076013c16e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verwAsbestdakSubs",
         "value": "verwijdering asbestdaken subsidie",
-        "uuid": "b8b599cd-e6d4-41ac-ac37-85bbc0fe548f"
+        "uuid": "e40e96ec-5438-4202-8fcc-29a3166bec0d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzekPlSocVerzOnth",
         "value": "verzekeringsplicht sociale verzekeringen ontheffing",
-        "uuid": "cbeab2f1-f702-44eb-bc63-d9137412bd80"
+        "uuid": "c917f690-960b-48a2-a699-e409927ce4f0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzekPlVolksverzOnth",
         "value": "verzekeringsplicht volksverzekeringen ontheffing",
-        "uuid": "206ad8a1-b564-4051-b8be-c4ca6a2cdf8d"
+        "uuid": "f33af631-2273-4e9c-9fe1-06ed5cbfb638"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzekPlVolksverzOnth",
         "value": "verzekeringsplicht volksverzekeringen ontheffing",
-        "uuid": "a90deeff-73ba-4cf5-8fb5-8a057b33a2cb"
+        "uuid": "487753b7-3be1-4695-82cf-3d86b651b8c2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzekPlVolksverzOnth",
         "value": "verzekeringsplicht volksverzekeringen ontheffing",
-        "uuid": "a35aeec0-145f-4408-b5c0-cc7ab885944c"
+        "uuid": "f25f21af-f6ef-4392-90b7-aab2b90413ec"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzekPlVolksverzOnth",
         "value": "verzekeringsplicht volksverzekeringen ontheffing",
-        "uuid": "9b329d9e-9b22-4274-bbb2-58a5e2a2eba5"
+        "uuid": "6f2ba5f2-a873-45e6-9dbe-8001b64c9bda"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzetUitsprBestRecht",
         "value": "verzet tegen uitspraak bestuursrechter",
-        "uuid": "edc5117d-3f5b-4fef-8790-0b97eb2f810e"
+        "uuid": "c061d2f0-f9ff-475a-b44b-5a6ee6db7df3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzoek_overheidsinformatie",
         "value": "verzoek overheidsinformatie",
-        "uuid": "70367ede-bc96-4bdc-8942-f80f52618bab"
+        "uuid": "75c8ee7c-d06f-4a9a-8923-7f2552224a7b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzoek_overheidsinformatie_IenVD",
         "value": "verzoek overheidsinformatie inlichtingen- en veiligheidsdiensten",
-        "uuid": "39a8ea9b-5931-4a54-b01b-90fb7ce4a26e"
+        "uuid": "c24a875a-5168-4def-8804-a9667873a5af"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/verzoekschrift",
         "value": "verzoekschrift",
-        "uuid": "849c59f5-2ce6-4f8f-9f0b-ecbdf2dddd0f"
+        "uuid": "83988989-7919-476b-9504-d704e029e702"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vetexpcert",
         "value": "veterinair exportcertificaat",
-        "uuid": "96ae05bf-6568-45a6-9bea-8ff0cc8862ba"
+        "uuid": "4388046f-25ef-4d87-ac27-3d757af10e9e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vetexpcert",
         "value": "veterinair exportcertificaat",
-        "uuid": "7ef53f8f-b0ab-4f39-af0f-b63da541ed36"
+        "uuid": "6fcde71a-8197-4035-9490-87ae4f1322ee"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vetlaberk",
         "value": "veterinair laboratorium erkenning",
-        "uuid": "d3794d57-87c4-4de9-9f5f-e90736fd0c75"
+        "uuid": "c2986c52-f28a-440d-bfb1-5f3db67cd45b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vijfenveerPlusOntwAdv",
         "value": "vijfenveertigplusser ontwikkeladvies",
-        "uuid": "b2a06ca5-cf4a-47c7-9461-1d293413584a"
+        "uuid": "aa644635-322c-4583-9932-b552c68db02a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/visvergunning",
         "value": "visvergunning",
-        "uuid": "a9ed90fb-c776-4888-bc84-ea541a3237c3"
+        "uuid": "1e2b41b0-d5b0-4535-92e5-f5b0a3247a72"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vluchtelingenpaspoort",
         "value": "vluchtelingenpaspoort",
-        "uuid": "c56245ea-b390-4e97-9141-b497b4adb521"
+        "uuid": "547d35db-cee2-4513-9927-fdd7f4fbb894"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voedselbank",
         "value": "voedselbank",
-        "uuid": "b1228139-9c67-4330-8f4d-acc36a399f00"
+        "uuid": "e55b3d5e-7696-4303-85c1-e8118b8337d6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voertuig_te_koop_aanbieden_op_openbare_weg_ontheffing",
         "value": "voertuig te koop aanbieden op openbare weg ontheffing",
-        "uuid": "ef2670e1-bca1-408e-b602-0c54097ea401"
+        "uuid": "6ef8d3ba-4496-4366-af67-69695437eb77"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voertbedrvoorrerk",
         "value": "voertuigen bedrijfsvoorraaderkenning",
-        "uuid": "d5e69d6a-8b09-4179-9fa5-2a90591d4657"
+        "uuid": "072cad66-a3a0-4f07-b1ba-c883d09c9a9e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/luchtvVogelPrepMelding",
         "value": "vogel preparatiemelding",
-        "uuid": "37d1387a-7f38-4d07-ba8e-5c8164cc3df6"
+        "uuid": "924ba4fc-523d-4180-bb8d-ff76c0dfaf5e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/volkstuinverhuur",
         "value": "volkstuinverhuur",
-        "uuid": "beab6a84-f56a-43c4-a323-15f1d59956d1"
+        "uuid": "70a418e5-e617-40df-a0c9-4d5ddbcdf3c2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/volmachtbewijs_verkiezingen",
         "value": "volmachtbewijs verkiezingen",
-        "uuid": "48f03ee2-d24c-4728-bfe1-01584f65054a"
+        "uuid": "99d945a9-2449-4b36-8812-babb034582a4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/volmachtbewijs_verkiezingen",
         "value": "volmachtbewijs verkiezingen",
-        "uuid": "6416f89e-a7c5-450c-b819-21616f60e540"
+        "uuid": "42bd8cd1-065a-4e8a-9d9a-783b1f0c2b10"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/volwasseneneducatiesubsidie",
         "value": "volwasseneneducatiesubsidie",
-        "uuid": "48993e0d-ba4f-405e-acdd-73edf6fde010"
+        "uuid": "84012445-cd2c-4e37-ae35-24ef69441d0a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voogdbenVerz",
         "value": "voogdbenoeming verzoek",
-        "uuid": "e17771dc-d3c8-458d-bfd5-b733ecef7bae"
+        "uuid": "43a7ae43-7cbc-4c06-84f8-15bd684f9c60"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voogdAantGezReg",
         "value": "voogdij aantekening gezagsregister",
-        "uuid": "dca3da24-f261-4ae2-82c0-7c319446df94"
+        "uuid": "6bf6e4be-d2a4-4ea7-a02e-421500c2cc66"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voorVrSchEducatie",
         "value": "voor- en vroegschoolse educatie",
-        "uuid": "e7579945-b4d9-4f8a-98ec-ad6e147eeda7"
+        "uuid": "2dec473f-2f35-4d4a-9df9-0cf3462447bf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voorbereidingsbesluit",
         "value": "voorbereidingsbesluit",
-        "uuid": "6734bcc2-182f-4027-bbc7-d3b64c2a5d37"
+        "uuid": "99a196b1-4eeb-4aa3-b49b-449d23e01396"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voorkRechtAanw",
         "value": "voorkeursrechtaanwijzing",
-        "uuid": "b775517a-1f46-4b09-9ad5-7ef8c256054f"
+        "uuid": "49f6f0f6-bf9a-4380-bd1c-0a540a7b0bc0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voorkRechtAanw",
         "value": "voorkeursrechtaanwijzing",
-        "uuid": "deb1f011-fb1e-41e1-b5d1-da4c5027c108"
+        "uuid": "0e0673fd-316f-4356-bbaa-6b0246e1c9ff"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voorlVoorkRechtAanw",
         "value": "voorlopige voorkeursrechtaanwijzing",
-        "uuid": "039739a9-6dc6-4b6f-a588-8219c2598e4e"
+        "uuid": "89ee144c-b240-4fd0-a533-9482afdfab52"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voorlVoorz",
         "value": "voorlopige voorziening",
-        "uuid": "35615631-d95c-40d1-9461-90d4f1da4fb0"
+        "uuid": "49ed2206-96a1-4260-abe6-e6512536beff"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voornaamwijziging",
         "value": "voornaamwijziging",
-        "uuid": "c3fc453c-c1c3-4aa1-b7b3-18b33711a79b"
+        "uuid": "7b830110-1897-4c97-ba8a-077d77414bab"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vooroplEisHoVrijst",
         "value": "vooropleidingseisen hoger onderwijs vrijstelling",
-        "uuid": "ed799e33-b77c-4b4d-b4c2-cd14d6d14355"
+        "uuid": "0f56cd28-ca27-4c0a-97ae-cb2ee178393e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vooroplEisHoVrijst",
         "value": "vooropleidingseisen hoger onderwijs vrijstelling",
-        "uuid": "fb0c62fc-8393-409f-b6c9-99d96ada9d65"
+        "uuid": "62565a2b-5aa3-4f2a-a8c1-da598ad18c0c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voorovrlg",
         "value": "vooroverleg",
-        "uuid": "b58fa356-3663-4732-a8f4-a6704f631e72"
+        "uuid": "1029e3e5-131f-4338-9a1c-908da18029c8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/voAanm",
         "value": "voortgezet onderwijs aanmelding",
-        "uuid": "5af11baa-c749-4a24-84ad-b0a1b61b928e"
+        "uuid": "6cba19e0-872a-4619-ad02-408661adbfae"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vordRijbewKlaagschr",
         "value": "vordering rijbewijs klaagschrift",
-        "uuid": "0598c742-ee24-48f2-9f2d-c2b8cb9ed3b8"
+        "uuid": "a9063f3d-2f05-4438-8ac0-d4011ffca422"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vos-inrichting_gegevenslevering",
         "value": "vos-inrichting gegevenslevering",
-        "uuid": "1ae78f41-c059-45a4-b747-72d3641d52c0"
+        "uuid": "74a88582-d9eb-4263-92ad-0e7608a276c7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vreemdVerhMld",
         "value": "vreemdeling verhuismelding",
-        "uuid": "d67bba9a-5665-4da0-b433-7fbb71d07079"
+        "uuid": "cb9761cf-d7ec-4fe2-a90d-dd712a77ead7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vreemdelingenpaspoort",
         "value": "vreemdelingenpaspoort",
-        "uuid": "32caeb3a-abf7-48e3-a6c5-71df41920505"
+        "uuid": "00b19e16-4974-4a13-b76e-6d51c39c3a79"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vrijkomen_woonruimtemelding",
         "value": "vrijkomen woonruimtemelding",
-        "uuid": "3538708a-1202-4c42-8b55-dde4efc7ff04"
+        "uuid": "b0afecb1-5062-485b-9793-4da1efeb3cc2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/VrijwInkAow",
         "value": "vrijwillige inkoop aow",
-        "uuid": "5bd0b149-8665-4c4a-8dc6-8facb39fdeb6"
+        "uuid": "911293e0-019b-4615-935d-add69baee20d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/VrijwVerzAnw",
         "value": "vrijwillige verzekering anw",
-        "uuid": "37e5caee-b739-46e1-b70e-cf0a29cf9db6"
+        "uuid": "610fbe89-9d6c-4e68-a0a6-a05f852aeb82"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/VrijwVerzAow",
         "value": "vrijwillige verzekering aow",
-        "uuid": "232b86f7-8703-4815-b53b-4775ba563ccf"
+        "uuid": "3ff0b7fa-84ec-427f-9244-33e282e2f300"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/VrijwVerzWao",
         "value": "vrijwillige verzekering wao",
-        "uuid": "e79b3dcd-7616-4f3a-bfc1-d8563c42634b"
+        "uuid": "d9ef30a7-9144-414d-ae44-bd9a48f4645d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/VrijwVerzWia",
         "value": "vrijwillige verzekering wia",
-        "uuid": "e046e668-e6d7-4ccc-ae26-d519d1404d0a"
+        "uuid": "ad71d812-b409-4532-8de0-f60adb0e5e97"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/VrijwVerzWw",
         "value": "vrijwillige verzekering ww",
-        "uuid": "a2a9395f-fc35-44a4-9746-5a5a157feeee"
+        "uuid": "18f06eef-9436-4fe4-b0c6-fd0ae3184b33"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/VrijwVerzZw",
         "value": "vrijwillige verzekering ziektewet",
-        "uuid": "b56b5d80-5414-45ef-a7ee-fed4bdc58c0a"
+        "uuid": "5ff5e6c0-6cb9-4d2e-93e6-8d0f14e88679"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vrijwilligersverzekering",
         "value": "vrijwilligersverzekering",
-        "uuid": "d311f50f-d530-4f78-a352-5787e5d0ae6b"
+        "uuid": "8d28a32b-49af-419c-8935-0fafcaef89da"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vrijwilligerswerksubsidie",
         "value": "vrijwilligerswerksubsidie",
-        "uuid": "39d835b0-7a83-4e65-b197-d6ff63c50322"
+        "uuid": "3a1af90d-04f6-447a-b892-cbcffb90eccc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vrouwenopvang",
         "value": "vrouwenopvang",
-        "uuid": "6b8230f1-75bb-425c-bb0c-b74e9db79fc3"
+        "uuid": "78aa174d-f2a9-44b7-8adb-632399040401"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vuurwapen_uitvoerverg",
         "value": "vuurwapen uitvoervergunning",
-        "uuid": "532ecc0c-afc5-4692-a502-7c3c6a285604"
+        "uuid": "3f50f25a-2961-4b59-8b64-1afa8c33ad74"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vuurwerk_ontbrandingsmelding",
         "value": "vuurwerk ontbrandingsmelding",
-        "uuid": "dab4331a-9fe4-4242-a5f5-73c9e28cf17f"
+        "uuid": "b75f77e2-d5bc-4692-ad1c-b681dd45dcd7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vuurwerk_ontbrandingstoestemming",
         "value": "vuurwerk ontbrandingstoestemming",
-        "uuid": "9081b372-af63-4a04-8f41-e7d1857c9ce8"
+        "uuid": "de22cc84-4e28-4af2-8735-013f8379ae23"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vuurwerk_toepassingsvergunning",
         "value": "vuurwerk toepassingsvergunning",
-        "uuid": "dcd5e778-4840-4b55-a1cf-bb8820ca7f3c"
+        "uuid": "4da545d3-58a0-489f-a87d-55db455ccb29"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vuurwerk_verkoop_opslag",
         "value": "vuurwerk verkoop en opslag",
-        "uuid": "5c4bfe66-cc89-4d0e-abc3-8e5991aa992d"
+        "uuid": "87fcb37c-4ee3-49de-9c41-8417de0d2c14"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/vuurwerkverkoopvergunning",
         "value": "vuurwerkverkoopvergunning",
-        "uuid": "c65304bf-6faa-4e8c-b9bf-a47b70a2c321"
+        "uuid": "48b71c73-8ffb-4312-9e5f-07dcc3864c26"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waVerzPl",
         "value": "wa-verzekeringsplicht",
-        "uuid": "35eff7cb-5ba1-4bc8-b030-a3cdf5cc86ae"
+        "uuid": "2b8aaac6-6457-453d-be80-550380829712"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waVerzPlVrijst",
         "value": "wa-verzekeringsplicht vrijstelling",
-        "uuid": "e018dfd4-915e-49f5-886e-a1ef24f54f24"
+        "uuid": "2fdac4cf-808b-47c4-b55e-9b442189b068"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wbFndsMotVerkSchVerg",
         "value": "waarborgfonds motorverkeer schadevergoeding",
-        "uuid": "9f7eaeea-3507-4e75-bbca-518ea4b2b2ee"
+        "uuid": "73977efa-b722-4f5c-a913-b4fee46b0822"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wajong-uitkering",
         "value": "wajong-uitkering",
-        "uuid": "fa80b308-57a7-4903-957c-e288f0565162"
+        "uuid": "fde48ab8-0d31-416f-815a-d446a078d439"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wapenvergunning",
         "value": "wapenvergunning",
-        "uuid": "6154bb67-ffda-408e-aa2b-1de51f675a40"
+        "uuid": "fdd09bab-4e7c-409e-98a5-2d97066a65ed"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wapenvergunning",
         "value": "wapenvergunning",
-        "uuid": "aaabdcc6-3b59-4f62-9e49-25b0839a0f26"
+        "uuid": "f31f0e45-4b27-41c9-8db1-636950ab6200"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wapenvergunning",
         "value": "wapenvergunning",
-        "uuid": "450b9504-09b1-44f5-8c16-b15afd49b3ef"
+        "uuid": "11f7d919-27a4-44b8-abf3-b9e08230eaa7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waterbeheer_schadevergoeding",
         "value": "waterbeheer schadevergoeding",
-        "uuid": "6208a988-d998-4064-ab7a-19b9ecd8ac62"
+        "uuid": "550446db-8957-4dba-bbd9-3f01f1b76053"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waterbeheerplan",
         "value": "waterbeheerplan",
-        "uuid": "49dd4fda-8c65-4b65-8f3f-fcbc905d3761"
+        "uuid": "75cc0fe5-f7b1-4ec7-80ff-94bce5be4fc5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waterbeheerprogramma",
         "value": "waterbeheerprogramma",
-        "uuid": "dffa82f8-755b-47ca-8659-e451d8398eb9"
+        "uuid": "1ab1a78b-20fb-4a4c-8898-aa559ff584f5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waterbeschermingszone-ontheffing",
         "value": "waterbeschermingszone-ontheffing",
-        "uuid": "b78e1d0c-9d5a-4939-8700-adc8ea83111e"
+        "uuid": "56ebd9ac-6c19-4f30-bfa3-3e333292a7ce"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waterbodem_verontreiniging_melding",
         "value": "waterbodem verontreiniging melding",
-        "uuid": "778f7fc9-ae3a-4c6c-ad0e-083c7e9ae3b3"
+        "uuid": "eda89ffe-9e92-4af3-8ecf-6a4c5a45ae9d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/watergangonderhoud",
         "value": "watergangonderhoud",
-        "uuid": "3c701b6d-1716-43f7-8d45-d2ba4070b5c5"
+        "uuid": "b649062a-db65-450d-a318-a60f9203bbef"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waterlegger",
         "value": "waterlegger",
-        "uuid": "9183ad09-6b81-4a55-98cc-76182fc9b014"
+        "uuid": "a7a84be1-c417-41a8-a84a-b3109dd570c9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/watermelding",
         "value": "watermelding",
-        "uuid": "3dfb0e0a-bbcc-467d-8e25-a86641583995"
+        "uuid": "97698821-e412-4bf3-94ba-4489980bbd26"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waterschapsbelasting",
         "value": "waterschapsbelasting",
-        "uuid": "e2dffb51-99e3-4a5b-b259-da659b975782"
+        "uuid": "6e0aa863-a35a-4b2f-98dc-f569a0345771"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/watersysteemheffing",
         "value": "watersysteemheffing",
-        "uuid": "25177840-0850-4018-826c-3b3eb6f6209d"
+        "uuid": "cfa4aaf8-ecf2-48cd-ad9e-26dea466c3d1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/watertoets",
         "value": "watertoets",
-        "uuid": "2767de1c-2d62-4285-8151-c3483c6867dd"
+        "uuid": "a844d0a6-c0af-4270-98ff-68439da8d82a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/watervergunning",
         "value": "watervergunning",
-        "uuid": "850cee51-3ea8-451f-b1c8-c33e674633a1"
+        "uuid": "6006ceac-027c-4b21-87c8-0b07118f32e4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/watervergunning_registratie",
         "value": "watervergunning registratie",
-        "uuid": "f47422c6-7c0b-474a-8763-fde6f9f3d9b3"
+        "uuid": "786dd98b-4de8-4b94-90f7-d2f9135fe075"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/watervergunning_schadevergoeding",
         "value": "watervergunning schadevergoeding",
-        "uuid": "52dd19e9-f108-4673-b7a7-d23c24cadfa1"
+        "uuid": "dd090878-c38a-4f00-9c6a-9cc6cb825bb6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/waterverkeersbesluit",
         "value": "waterverkeersbesluit",
-        "uuid": "c8a50b21-45d0-436f-adaa-164746d68684"
+        "uuid": "fa46215e-04ab-405f-9180-51d6e05a0247"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wedstrijd_op_de_weg",
         "value": "wedstrijd op de weg",
-        "uuid": "13e38956-54d0-47a2-afb8-ff409dd921fc"
+        "uuid": "e2fd69d0-9c49-4aaf-b913-ae301da98f32"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wegenheffing",
         "value": "wegenheffing",
-        "uuid": "cdf4a3d9-85f9-41aa-8656-e71c7096c813"
+        "uuid": "0775911f-46b9-420f-9f31-0e99ce47067d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wegenverkeerswetontheffing",
         "value": "wegenverkeerswetontheffing",
-        "uuid": "41075338-4e3c-459c-a02e-278c540bc25c"
+        "uuid": "66fbd952-22b1-4b08-a34a-5951e9cc15a8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wegsleepreg",
         "value": "wegsleepregeling",
-        "uuid": "266587cc-1937-40b9-8960-722cb9b691b6"
+        "uuid": "5a876264-1d69-493a-b43b-ebb6c7a07420"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/welstandsadvies",
         "value": "welstandsadvies",
-        "uuid": "03ee233c-6aee-4a61-ac28-c1bc47eaba91"
+        "uuid": "499e6ff8-870a-4a1d-bea9-0e20678cb2df"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/welzijnswerksubsidie",
         "value": "welzijnswerksubsidie",
-        "uuid": "22a78d84-6e7b-4aee-9c33-ea04e954c537"
+        "uuid": "dc35e097-d4ea-469f-a19a-471f363b069b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/werkbegeleiding_werkzoekenden",
         "value": "werkbegeleiding werkzoekenden",
-        "uuid": "c7298caa-c8e6-45f3-8063-d9c35fcfbb71"
+        "uuid": "d7fd7c94-87c9-4ce0-90dc-b909d47c3841"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/werkplekaanpassing",
         "value": "werkplekaanpassing",
-        "uuid": "3c33f488-2455-47dd-99f3-0e84c58c0e26"
+        "uuid": "3e34cd9c-1295-49cb-a961-86d24ef6825b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/werkplekbegeleiding",
         "value": "werkplekbegeleiding",
-        "uuid": "5732dbe3-6a82-443e-99ba-bafa396cd855"
+        "uuid": "2204e45b-c82a-4e0f-ad9a-f38d1a4d20e0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/werktijdenAanpVerz",
         "value": "werktijden aanpassingsverzoek",
-        "uuid": "6a770ddd-1cdb-4408-ad26-daaeeafb8501"
+        "uuid": "1a39322f-82a3-4531-9db5-9ba8828c1884"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/werktijdreg",
         "value": "werktijdenregeling",
-        "uuid": "033285c9-b9e0-44c3-93e2-10f4be373465"
+        "uuid": "7fb543d2-81a1-4874-9cfc-08f27d146bd9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/werkzInschr",
         "value": "werkzoekende inschrijving",
-        "uuid": "0a927459-383e-4c65-b086-c85487a25871"
+        "uuid": "7d7885a7-0270-4922-b6b8-911c0b266fcf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wet_milieubeheermelding",
         "value": "wet milieubeheermelding",
-        "uuid": "9224fbac-7c7c-43f3-8531-aa7371a26564"
+        "uuid": "294f7f16-2ef7-47ae-9f07-135d43de470e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/beleid_tegemoetk_wijz_gesl_registratie",
         "value": "wet wijziging geregistreerd geslacht tegemoetkoming",
-        "uuid": "87907270-7b20-4666-bc81-f1ae93e10558"
+        "uuid": "c7291fa3-a8c5-47ae-8df5-5d8ef9ad9dc9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wezenuitkering",
         "value": "wezenuitkering",
-        "uuid": "1046c9e9-518f-42d5-8875-df2e1881dbf0"
+        "uuid": "f86a04c8-e633-448e-81e9-062a73a1f521"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wia-uitkering",
         "value": "wia-uitkering",
-        "uuid": "ca2dc8f5-bf5c-414c-9245-384a4909cddb"
+        "uuid": "53e4a6a1-8a2a-4308-a465-69a28b38df4f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wijnprodreg",
         "value": "wijnproducentenregistratie",
-        "uuid": "eb80a024-71c4-4ca7-886b-e3753a651c48"
+        "uuid": "82cc2299-8271-48ac-bccc-93da7f5196c4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wijzVoertGegMelding",
         "value": "wijziging voertuiggegevens melding",
-        "uuid": "238f3f10-28a3-4039-a1ff-830cff17b5b9"
+        "uuid": "210ea897-13e5-4be3-b660-9ec6390b69bd"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wildschade",
         "value": "wildschade",
-        "uuid": "2ada1250-629a-4ca7-a2b5-67421da26c44"
+        "uuid": "01588c8d-6459-4f44-b1bb-8ca97f1b53bf"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/winkeltijdeninformatie",
         "value": "winkeltijdeninformatie",
-        "uuid": "06588cf6-4d39-46d3-a2a2-3fee211e8c8b"
+        "uuid": "62b14bec-ba79-4c13-96e6-94798b0813df"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/winkeltijdenontheffing",
         "value": "winkeltijdenontheffing",
-        "uuid": "5dab6989-e7f1-4434-80fa-1cfe4ac48869"
+        "uuid": "6a0d280a-4dc9-4ae1-9b92-cde85948b61f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wlzIindicatie",
         "value": "wlz-indicatie",
-        "uuid": "8265b16a-6294-4101-a561-f27282fb3a91"
+        "uuid": "fbead83a-1f80-4db2-9e6e-c721f901e875"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wlzZorgBuitVerg",
         "value": "wlz-zorg in buitenland vergoeding",
-        "uuid": "fd5df8e4-85e2-4c98-a5c1-63f941865a1e"
+        "uuid": "5d5aeba9-0bad-4e3e-ac65-4a1337706ee7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wmo-voorziening",
         "value": "wmo-voorziening",
-        "uuid": "2a1dbc26-56c4-47dd-8f26-bde1a8182e1a"
+        "uuid": "4a26cf66-fbbd-4b5e-8dfb-fd0d9dd81040"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wmo-voorziening",
         "value": "wmo-voorziening",
-        "uuid": "98d94110-afdd-4700-9535-5700fe380b5b"
+        "uuid": "29eb843f-a857-44b7-a254-3a28f091ea4b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wnZkIns",
         "value": "woning zoeken inschrijving",
-        "uuid": "a07a5631-1888-4707-8e0d-13efdcabae28"
+        "uuid": "b676b508-dcb1-4c3d-940c-41726829cd2d"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woningaanpassing",
         "value": "woningaanpassing",
-        "uuid": "84f6a1a6-9dfc-46f4-b344-b577b92026d2"
+        "uuid": "767ccb21-63fe-49cf-86b8-ea2ff6199aa2"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wonBemVerg",
         "value": "woningbemiddelingsvergunning",
-        "uuid": "9487832e-e5f0-44de-817e-5b7004b4ed1b"
+        "uuid": "81a1f6ab-657f-4891-b22f-08f26f184a31"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woningen_samenvoegsubsidie",
         "value": "woningen samenvoegsubsidie",
-        "uuid": "a2249306-a76d-4457-a49f-d66b2c378bc9"
+        "uuid": "89dad000-a9b8-4d33-b42d-d0ba4ce05373"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woningsluiting",
         "value": "woningsluiting",
-        "uuid": "07b884fd-4778-4e72-99fe-bba64b6dcc79"
+        "uuid": "cebd2f0c-9767-49ee-a979-72281493b42c"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonconsumentenorganisatie_subsidie",
         "value": "woonconsumentenorganisatie subsidie",
-        "uuid": "ad02c8ce-e538-401a-9117-f5c5cd30e13f"
+        "uuid": "e93488ca-2716-4daf-9e70-f529e6d00f78"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonkostentoeslag",
         "value": "woonkostentoeslag",
-        "uuid": "c39e24ca-2074-486c-9445-dd681d748045"
+        "uuid": "8d4d286c-df87-465f-80b8-a6ce4b3183be"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonomgeving_inrichting",
         "value": "woonomgeving inrichting",
-        "uuid": "bfa7f4be-eafc-4019-858e-be0337031676"
+        "uuid": "ab343607-36c5-41ec-b20c-4a17b33e357a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonruimte_omzettingsvergunning",
         "value": "woonruimte omzettingsvergunning",
-        "uuid": "c1168b1e-585b-4cba-998c-3af943f41792"
+        "uuid": "23cd45b7-0cf1-4a36-9e31-cd7f572fb5cb"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonruimte_splitsingsvergunning",
         "value": "woonruimte splitsingsvergunning",
-        "uuid": "390381f7-e643-4d8b-b578-4e4118495e1c"
+        "uuid": "0f5cebe5-95d4-428d-ab10-ce5c2762b102"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonsubsidie_ouderen",
         "value": "woonsubsidie ouderen",
-        "uuid": "740278cd-5eff-476a-ae3f-ebf15a38fec2"
+        "uuid": "8ce5eab1-5c2a-4011-bc18-a3527d52b4be"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonvoorziening_gehandicapten_en_ouderen",
         "value": "woonvoorziening gehandicapten en ouderen",
-        "uuid": "af3e7632-3198-4f49-9b7b-cf7d07ba4754"
+        "uuid": "acbc6035-8dc7-4f98-a5f5-1bf25f769cd9"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonwagenstandplaats",
         "value": "woonwagenstandplaats",
-        "uuid": "a0de5038-73c9-4f56-982a-05e1062cf67a"
+        "uuid": "7144744d-6b34-4bd6-858a-b4f453944128"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woonzorgarrSubsidie",
         "value": "woonzorgarrangement subsidie",
-        "uuid": "e7367cb5-1972-4fc1-bbc3-ed151e0b0696"
+        "uuid": "c056865c-7326-4e2a-83cb-1ef620058a09"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wnzCntSrvFlat",
         "value": "woonzorgcentrum of serviceflat",
-        "uuid": "9d1d38f9-ce97-4a66-b7b1-99f3a0148f05"
+        "uuid": "db170896-7c99-4d5e-ab60-f2979e412b87"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woz-beschikking",
         "value": "woz-beschikking",
-        "uuid": "0e22d8c1-ed0a-434d-8bdf-f32ebbd79418"
+        "uuid": "89daad51-efd9-445a-8574-27536a7e6ae5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woz-taxatieverslag",
         "value": "woz-taxatieverslag",
-        "uuid": "da9d5066-e1a9-4df6-bad5-f0db687297a9"
+        "uuid": "eaf34356-9676-492f-af2d-6aaefbc7d5f8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woz-taxatieverslag_kopie",
         "value": "woz-taxatieverslag kopie",
-        "uuid": "df31aadd-3bca-4352-b7fa-799294504c60"
+        "uuid": "db7440c3-6f37-4493-9c86-08ac6a5045b6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/woz-taxatieverslag_kopie",
         "value": "woz-taxatieverslag kopie",
-        "uuid": "cfc3a7ad-4afa-406f-bc11-a43dbb397949"
+        "uuid": "55bb5595-7bd5-491f-8534-e3590aeccf98"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wraking",
         "value": "wraking",
-        "uuid": "c41ef037-3681-4eeb-b435-1485848375b0"
+        "uuid": "ca4e7023-657e-4b92-976d-8405aba02c2a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wsnp-verklaring",
         "value": "wsnp-verklaring",
-        "uuid": "01d79afa-712d-468f-93fb-c49c0b3a0ee8"
+        "uuid": "cfefae53-b1c2-4b7e-8134-3417f08732f0"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wwUitkering",
         "value": "ww-uitkering",
-        "uuid": "899109ae-3001-4c59-b937-715d9eaf7620"
+        "uuid": "cd16c12b-b8d0-4436-b8a5-abca728aaf20"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/wwUitkBetOnmWG",
         "value": "ww-uitkering bij betalingsonmacht werkgever",
-        "uuid": "98758f51-bc56-45d6-b979-4aebc6585fb3"
+        "uuid": "e0769c73-8f9d-4091-a643-e9001c3e1b19"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zakenpaspoort",
         "value": "zakenpaspoort",
-        "uuid": "fe698c2b-f9a7-4f17-acae-09feb298b5a5"
+        "uuid": "1cf3cef8-272a-436e-ad8a-93020b64bdd7"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zeebrief",
         "value": "zeebrief",
-        "uuid": "3fdf9fdd-73dd-49c8-bcb3-570dc88b60f6"
+        "uuid": "b6786429-6b0f-4c80-8ec6-612e85f31062"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zelf_aangebr_voorz_tegemoetkoming",
         "value": "zelf aangebrachte voorziening tegemoetkoming",
-        "uuid": "c43b5025-2e0d-42ee-aca5-f88e13d7ec25"
+        "uuid": "ada0d17a-eae1-4d26-8cc8-be72ff379538"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zhuisafvverw",
         "value": "ziekenhuisafvalverwerking",
-        "uuid": "6db67ec8-25af-4657-abe3-a383d1b99f96"
+        "uuid": "0ee8961c-bbd9-4e35-9345-feb157af8f6a"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ziekenvervoer",
         "value": "ziekenvervoer",
-        "uuid": "f87d9e72-91bc-4941-b2ea-4168d11337e6"
+        "uuid": "fc527ade-16e8-41b7-a132-68d6058d50b1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zkKstVerzCol",
         "value": "ziektekostenverzekering collectief",
-        "uuid": "b12f45a7-041c-4f70-a744-aee5fe759de1"
+        "uuid": "f98eec95-d324-43d9-915d-ee75dd1f545f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/ziektewetuitkering",
         "value": "ziektewetuitkering",
-        "uuid": "bc29bd37-e36d-4f3a-86ed-eba791df4021"
+        "uuid": "4099945e-0929-485b-b2a6-3ff0386c1ff1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zienswijze",
         "value": "zienswijze",
-        "uuid": "a3056a71-bac9-4f3b-9191-41bf98439fce"
+        "uuid": "dffce3be-7eca-4cc3-be97-11629c0bf570"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zijInstrOndBekwOnderz",
         "value": "zij-instromer onderwijs bekwaamheidsonderzoek",
-        "uuid": "5162ea14-4c61-4574-91d4-c5e9b89a1bf4"
+        "uuid": "b4bd24ad-df18-4756-b30b-18ab58e85c10"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zijInstrOndBekwOnderz",
         "value": "zij-instromer onderwijs bekwaamheidsonderzoek",
-        "uuid": "7fbfc82d-7a6a-4ebe-97dc-f73b495eca46"
+        "uuid": "d55f8d0b-d3f9-49da-b866-dc9e42c87d60"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zijInstrOndBekwOnderz",
         "value": "zij-instromer onderwijs bekwaamheidsonderzoek",
-        "uuid": "76b3df26-6014-4f5c-b616-c9732a7a8080"
+        "uuid": "25e887d0-5f93-4218-8cf6-41bc8647c566"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zijInstrOndGeschOnderz",
         "value": "zij-instromer onderwijs geschiktheidsonderzoek",
-        "uuid": "3dacf3e9-fc5b-44c4-b514-07c9b84324c6"
+        "uuid": "0788ce04-c247-4945-a534-29d19e56b67f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zijInstrOndGeschOnderz",
         "value": "zij-instromer onderwijs geschiktheidsonderzoek",
-        "uuid": "8fc5c8ab-7973-49e2-976f-3b72b96a0554"
+        "uuid": "4701c77c-bd40-4bfa-870a-23c5b5739200"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zijInstrOndGeschOnderz",
         "value": "zij-instromer onderwijs geschiktheidsonderzoek",
-        "uuid": "b533465c-37c8-4f1d-8099-04a1e51d2653"
+        "uuid": "9b061a05-6dce-4da1-bc90-f017d2f183d4"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zijInstrOndGeschOnderz",
         "value": "zij-instromer onderwijs geschiktheidsonderzoek",
-        "uuid": "a413a165-c87f-4143-9673-eab658850448"
+        "uuid": "de6f4b25-cd2f-411e-b1e7-e94f83376bcc"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zijInstrOndGeschOnderz",
         "value": "zij-instromer onderwijs geschiktheidsonderzoek",
-        "uuid": "528915ee-31b8-4b44-8b49-0cd50198ee9e"
+        "uuid": "18e59188-dcb1-47b0-9dd8-dae26f59aae1"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zondagsrustverstoring_ontheffing",
         "value": "zondagsrustverstoring ontheffing",
-        "uuid": "21e0dc8c-4a88-4a4e-87cc-67f718c02ba4"
+        "uuid": "c9e0ce21-bc84-4b2d-937c-6b9899623744"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zondagsrustverstoring_ontheffing",
         "value": "zondagsrustverstoring ontheffing",
-        "uuid": "04da1b3f-749b-4760-bc9f-86c9afddaa55"
+        "uuid": "568708eb-e756-4d84-9628-347bf15deff3"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgaanbiedersmelding",
         "value": "zorgaanbiedersmelding",
-        "uuid": "f76916fe-0380-4473-9011-0a1668d3f99a"
+        "uuid": "e5a30a7f-23da-4aff-b4b1-263727fc604b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorginstellingtoelatingsvergunning",
         "value": "zorginstellingtoelatingsvergunning",
-        "uuid": "a58a4b02-fdf3-4afb-b4db-7f011d155b64"
+        "uuid": "4da957d1-96b9-4e63-8279-9dc6a568748f"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgplicht_riolering_ontheffing",
         "value": "zorgplicht riolering ontheffing",
-        "uuid": "4c637046-aa30-46c0-b79b-b404027de488"
+        "uuid": "6645dda6-8edf-43eb-82a8-13cd69001067"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgtoeslag",
         "value": "zorgtoeslag",
-        "uuid": "71059646-5301-417d-a1f4-ca033bbcfb4b"
+        "uuid": "4535f2a2-79bb-4c96-b825-d247731aa5b6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgverlof",
         "value": "zorgverlof",
-        "uuid": "f776c495-2762-4a19-8f80-89510e75c3ea"
+        "uuid": "c695c4f5-4cce-4164-97d9-36bec4d9ac09"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgverlof",
         "value": "zorgverlof",
-        "uuid": "ec3f0be8-da47-47a0-bcd4-03cf056105ae"
+        "uuid": "0e9d0f5b-b943-4c05-a92d-ba2d2946ca65"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgverlof",
         "value": "zorgverlof",
-        "uuid": "76d74fa5-f5fe-4e25-b7dd-375349df98ec"
+        "uuid": "600e920b-d3c7-440a-8988-466bc323e69e"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgverzPl",
         "value": "zorgverzekeringsplicht",
-        "uuid": "4c8ff01b-5595-43d4-8d3c-29c2f7fe40db"
+        "uuid": "eef7bdf9-fd54-4fa3-b652-8ec2aac81f37"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgverzPlVrijst",
         "value": "zorgverzekeringsplicht vrijstelling",
-        "uuid": "86ecc3a4-054a-4455-92c8-4c94f54dc122"
+        "uuid": "e4e8a482-30d5-4560-a748-105c72c42bd8"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zorgvoorzieningensubsidie",
         "value": "zorgvoorzieningensubsidie",
-        "uuid": "c8a7cc50-4250-4425-93d4-a3baf9cb0009"
+        "uuid": "3b426a03-d8ee-46a3-9198-9bb3d53d50b6"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zuiveringsheffing",
         "value": "zuiveringsheffing",
-        "uuid": "4e3abf66-7c9f-4502-847c-5038d3059984"
+        "uuid": "97cecf6f-f90e-46fd-8998-3a230689c3b5"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zwAlcDrankVerk",
         "value": "zwakalcoholhoudende-drankverkoop",
-        "uuid": "b9bbc271-703f-4006-9b57-c9d4b837bcc6"
+        "uuid": "9e4d1500-ba42-4846-97fb-31bef0ae7398"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zwangerschBevalUitk",
         "value": "zwangerschaps- en bevallingsuitkering",
-        "uuid": "d534d16b-4e32-4fc5-ac85-a5fd69935343"
+        "uuid": "2a1001d9-a321-4aa4-a85b-9ccfc2028e01"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zwangerschBevalUitk",
         "value": "zwangerschaps- en bevallingsuitkering",
-        "uuid": "6a142948-31c3-45c5-8edb-3f92a2c54663"
+        "uuid": "227b10df-0566-4cf5-846b-cbc1347ade5b"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zwangerschBevalVerl",
         "value": "zwangerschaps- en bevallingsverlof",
-        "uuid": "cfc45191-43a4-47ce-8610-06e8d5b990a4"
+        "uuid": "d7a03018-f41d-4781-8e9a-a8da3e5be621"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zwembadpas",
         "value": "zwembadpas",
-        "uuid": "d5cc3038-5f28-4a17-9743-c55441cb1312"
+        "uuid": "8ff94e1d-480f-4efb-96e2-f0dd992fb928"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zwemwater",
         "value": "zwemwater",
-        "uuid": "357179fb-7f53-4617-ad7d-433e32b76802"
+        "uuid": "623c75ea-d514-4e9e-923e-d523f071b740"
     },
     {
         "uri": "http://standaarden.overheid.nl/owms/terms/zwemwater_aanwijzing_inzage",
         "value": "zwemwater aanwijzing inzage",
-        "uuid": "f592f904-a0b6-465b-9f8e-9dde989650d4"
+        "uuid": "d122fb70-d17d-4397-af50-989764243c72"
     }
 ];
