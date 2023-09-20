@@ -29,6 +29,7 @@ query getHomePage {
       attributes {
         title
         slug
+        description
       }
     }
   }

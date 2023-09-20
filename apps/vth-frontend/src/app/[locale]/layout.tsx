@@ -65,6 +65,7 @@ const getNavListData = (t: (text: string) => string) => [
 ];
 
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
   return {
     title: {
@@ -170,7 +171,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <QueryClientProvider>
           <Page className="utrecht-page--full-width">
             <PageHeader>
-              <Grid>
+              <Grid className={'utrecht-grid--content-padding'}>
                 <Logo locale={locale} />
               </Grid>
             </PageHeader>

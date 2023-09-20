@@ -112,8 +112,8 @@ a {
   --utrecht-page-padding-inline-end: 0;
 
   container-type: inline-size;
-  max-width: var(--utrecht-page-header-max-width);
   margin-inline: auto;
+  max-width: var(--utrecht-page-header-max-width);
 }
 
 .utrecht-page-content {
@@ -123,8 +123,8 @@ a {
 
   background-color: var(--utrecht-page-content-background-color);
   container-type: inline-size;
-  max-width: var(--utrecht-page-content-max-width);
   margin-inline: auto;
+  max-width: var(--utrecht-page-content-max-width);
 }
 
 .utrecht-link-social {

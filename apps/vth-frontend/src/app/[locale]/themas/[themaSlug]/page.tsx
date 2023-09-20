@@ -1,13 +1,6 @@
 import { createStrapiURL } from '@frameless/pdc-frontend/src/util/createStrapiURL';
 import { fetchData } from '@frameless/pdc-frontend/src/util/fetchData';
-import {
-  Heading1,
-  Heading2,
-  Link,
-  Paragraph,
-  UnorderedList,
-  UnorderedListItem,
-} from '@utrecht/component-library-react';
+import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
@@ -22,9 +15,6 @@ type Params = {
     themaSlug: string;
   };
 };
-
-const cardBody =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam aliquam, nunc nisl aliquam nisl, nec aliquam nisl nisl nec nisl.';
 
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -42,82 +32,45 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
     variables: { slug: themaSlug, locale: locale },
   });
 
-  const { title, content, parents, child_themas, child_contents } = data.findSlug.data.attributes;
+  const { title, content, child_themas, child_contents } = data.findSlug.data.attributes;
 
   return (
-    <Grid>
-      <div className={'two-thirds'}>
+    <Grid className={'utrecht-grid--content-padding'}>
+      <div className={'utrecht-grid__two-third'}>
         <Heading1>{title}</Heading1>
         <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
       </div>
-      <div className={'two-thirds'}>
-        <Card
-          alt={''}
-          body={cardBody}
-          href={'/themas/afval'}
-          imgSrc={'https://omgevingsvisie.utrecht.nl/fileadmin/_processed_/2/6/csm_bouwprojecten-header_b14a8b7229.jpg'}
-          title={'Afval'}
-        />
-      </div>
-      <div className={'two-thirds'}>
-        <Heading2>Hoofd-themas</Heading2>
-        {parents.data[0] ? (
-          <UnorderedList>
-            {parents.data &&
-              parents.data.map((content: any) => {
-                const { title, slug: parentSlug } = content.attributes;
-                return (
-                  <UnorderedListItem key={`thema-${parentSlug}`}>
-                    <Link href={`/themas/${parentSlug}`}>{title}</Link>
-                  </UnorderedListItem>
-                );
-              })}
-          </UnorderedList>
-        ) : (
-          <>
-            <Paragraph>Geen content paginas verbonden.</Paragraph>
-          </>
-        )}
-      </div>
-      <div className={'two-thirds'}>
-        <Heading2>Sub-themas</Heading2>
-        {child_themas.data[0] ? (
-          <UnorderedList>
-            {child_themas.data.map((thema: any) => {
-              const { title, slug: childSlug } = thema.attributes;
-              return (
-                <UnorderedListItem key={`thema-${childSlug}`}>
-                  <Link href={`/themas/${childSlug}`}>{title}</Link>
-                </UnorderedListItem>
-              );
-            })}
-          </UnorderedList>
-        ) : (
-          <>
-            <Paragraph>Geen sub-themas verbonden.</Paragraph>
-          </>
-        )}
-      </div>
-      <div className={'two-thirds'}>
-        <Heading2>Content paginas</Heading2>
-        {child_contents.data[0] ? (
-          <UnorderedList>
-            {child_contents.data &&
-              child_contents.data.map((content: any) => {
-                const { title, slug: contentSlug } = content.attributes;
-                return (
-                  <UnorderedListItem key={`thema-${contentSlug}`}>
-                    <Link href={`/themas/${themaSlug}/content/${contentSlug}`}>{title}</Link>
-                  </UnorderedListItem>
-                );
-              })}
-          </UnorderedList>
-        ) : (
-          <>
-            <Paragraph>Geen content paginas verbonden.</Paragraph>
-          </>
-        )}
-      </div>
+      <Grid className={'utrecht-grid__full-width'}>
+        {child_themas.data[0] &&
+          child_themas.data.map((thema: any) => {
+            const { title, description, slug: childSlug } = thema.attributes;
+            return (
+              <Card
+                className={'utrecht-grid__one-third'}
+                image={{ url: '', alt: '' }}
+                title={title}
+                description={description}
+                key={`thema-${childSlug}`}
+                link={{ href: `/themas/${childSlug}` }}
+              />
+            );
+          })}
+        {child_contents.data[0] &&
+          child_contents.data &&
+          child_contents.data.map((content: any) => {
+            const { title, description, slug: contentSlug } = content.attributes;
+            return (
+              <Card
+                className={'utrecht-grid__one-third'}
+                title={title}
+                description={description}
+                key={`thema-${contentSlug}`}
+                image={{ url: '', alt: '' }}
+                link={{ href: `/themas/${themaSlug}/content/${contentSlug}` }}
+              />
+            );
+          })}
+      </Grid>
     </Grid>
   );
 };

@@ -4,5 +4,8 @@
 }
 
 .utrecht-card__content {
-  padding: 0 1rem 1rem 1rem;
+  padding-block-end: 1rem;
+  padding-block-start: 0;
+  padding-inline-end: 1rem;
+  padding-inline-start: 1rem;
 }

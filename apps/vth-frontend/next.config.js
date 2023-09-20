@@ -9,9 +9,6 @@ const nextConfig = {
         hostname: hostname,
         port: port,
       },
-      {
-        hostname: 'omgevingsvisie.utrecht.nl',
-      },
     ],
   },
   experimental: {
