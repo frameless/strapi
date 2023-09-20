@@ -1,60 +1,20 @@
 import classnames from 'classnames';
-import {dir} from 'i18next';
-import type {Metadata} from 'next';
+import { dir } from 'i18next';
+import type { Metadata } from 'next';
 import React from 'react';
-import {QueryClientProvider} from '@/client';
-import {Article, Page, PageContent, PageHeader} from '@/components';
+import { QueryClientProvider } from '@/client';
+import { Navigation, Page, PageContent, PageHeader } from '@/components';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
-import {Footer} from '@/components/Footer';
-import {Grid} from '@/components/Grid';
-import {Logo} from '@/components/Logo';
+import { Footer } from '@/components/Footer';
+import { Grid } from '@/components/Grid';
+import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
-import {useTranslation} from '../i18n/index';
+import { useTranslation } from '../i18n/index';
 import '@frameless/ui/dist/bundle.css';
 
-<
-<
-<
-<
-<
-<< HEAD
-  import {Article, Navigation, Page, PageContent, PageHeader} from '@/components';
-
-======
-=
-
->>>>>>>
-f63dd0e(feat(vth)
-:
-add
-page
-layout
-components
-)
-
-<
-<
-<
-<
-<
-<
-<
-HEAD
-
-======
-=
-
->>>>>>>
-f63dd0e(feat(vth)
-:
-add
-page
-layout
-components
-)
-const Main: React.FC<{ children: React.ReactNode }> = ({children}) => <main>{children}</main>;
+const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -104,8 +64,8 @@ const getNavListData = (t: (text: string) => string) => [
   },
 ];
 
-export async function generateMetadata({params: {locale}}: Params): Promise<Metadata> {
-  const {t} = await useTranslation(locale, 'common');
+export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+  const { t } = await useTranslation(locale, 'common');
   return {
     title: {
       template: `%s | ${t('website-setting.website-name')}`,
@@ -114,8 +74,8 @@ export async function generateMetadata({params: {locale}}: Params): Promise<Meta
   };
 }
 
-const RootLayout = async ({children, params: {locale}}: LayoutProps) => {
-  const {t} = await useTranslation(locale, ['layout']);
+const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
+  const { t } = await useTranslation(locale, ['layout']);
 
   const footerData = {
     title: t('footer.title'),
@@ -203,36 +163,32 @@ const RootLayout = async ({children, params: {locale}}: LayoutProps) => {
   };
   return (
     <html lang={locale} dir={dir(locale)}>
-    <body
-      className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-surface')}
-      suppressHydrationWarning={true}
-    >
-    <QueryClientProvider>
-      <Page className="utrecht-page--full-width">
-        <PageHeader>
-          <Grid>
-            <Logo locale={locale}/>
-          </Grid>
-        </PageHeader>
-        <Navigation
-          list={getNavListData(t)}
-          mobileBreakpoint={998}
-          toggleButton={{
-            openText: 'Menu',
-            closeText: 'Sluiten',
-          }}
-        />
-        <PageContent>
-          <Grid>
-            <Main>
-              <Article>{children}</Article>
-            </Main>
-          </Grid>
-        </PageContent>
-        <Footer data={footerData}/>
-      </Page>
-    </QueryClientProvider>
-    </body>
+      <body
+        className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-surface')}
+        suppressHydrationWarning={true}
+      >
+        <QueryClientProvider>
+          <Page className="utrecht-page--full-width">
+            <PageHeader>
+              <Grid>
+                <Logo locale={locale} />
+              </Grid>
+            </PageHeader>
+            <Navigation
+              list={getNavListData(t)}
+              mobileBreakpoint={998}
+              toggleButton={{
+                openText: 'Menu',
+                closeText: 'Sluiten',
+              }}
+            />
+            <PageContent>
+              <Main>{children}</Main>
+            </PageContent>
+            <Footer data={footerData} />
+          </Page>
+        </QueryClientProvider>
+      </body>
     </html>
   );
 };
