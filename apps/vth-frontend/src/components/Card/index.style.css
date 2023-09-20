@@ -1,0 +1,8 @@
+.utrecht-card {
+  background-color: var(--utrecht-color-blue-90);
+  max-width: 312px;
+}
+
+.utrecht-card__content {
+  padding: 0 1rem 1rem 1rem;
+}

@@ -11,6 +11,7 @@ import {
 import { Metadata } from 'next';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
+import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { GET_THEMA_BY_SLUG } from '@/query';
@@ -21,6 +22,9 @@ type Params = {
     themaSlug: string;
   };
 };
+
+const cardBody =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam aliquam, nunc nisl aliquam nisl, nec aliquam nisl nisl nec nisl.';
 
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -45,6 +49,15 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
       <div className={'two-thirds'}>
         <Heading1>{title}</Heading1>
         <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
+      </div>
+      <div className={'two-thirds'}>
+        <Card
+          alt={''}
+          body={cardBody}
+          href={'/themas/afval'}
+          imgSrc={'https://omgevingsvisie.utrecht.nl/fileadmin/_processed_/2/6/csm_bouwprojecten-header_b14a8b7229.jpg'}
+          title={'Afval'}
+        />
       </div>
       <div className={'two-thirds'}>
         <Heading2>Hoofd-themas</Heading2>
