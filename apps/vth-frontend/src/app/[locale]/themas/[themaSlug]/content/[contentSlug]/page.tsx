@@ -41,8 +41,8 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
   const { title, content, parents } = data.findSlug.data.attributes;
 
   return (
-    <Grid>
-      <div className={'two-thirds'}>
+    <Grid className={'utrecht-grid--content-padding'}>
+      <div className={'utrecht-grid__two-third'}>
         <Heading1>{title}</Heading1>
         <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
         <Heading2>Themas</Heading2>

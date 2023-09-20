@@ -1,8 +1,9 @@
 import { createStrapiURL } from '@frameless/pdc-frontend/src/util/createStrapiURL';
 import { fetchData } from '@frameless/pdc-frontend/src/util/fetchData';
-import { Heading1, Heading2, Link, UnorderedList, UnorderedListItem } from '@utrecht/component-library-react';
+import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import React from 'react';
+import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { GET_HOME_PAGE } from '@/query';
@@ -39,25 +40,27 @@ const Home = async ({ params: { locale } }: { params: any }) => {
   const themas = data?.themas?.data;
 
   return (
-    <Grid>
-      <div className={'two-thirds'}>
+    <Grid className={'utrecht-grid--content-padding'}>
+      <div className={'utrecht-grid__two-third'}>
         <Heading1>{title}</Heading1>
         <Markdown>{content}</Markdown>
       </div>
-      <div className={'two-thirds'}>
-        <Heading2>Themas</Heading2>
-        <UnorderedList>
-          {themas &&
-            themas.map((thema: any) => {
-              const { title, slug } = thema.attributes;
-              return (
-                <UnorderedListItem key={`thema-${slug}`}>
-                  <Link href={`/themas/${slug}`}>{title}</Link>
-                </UnorderedListItem>
-              );
-            })}
-        </UnorderedList>
-      </div>
+      <Grid className={'utrecht-grid__full-width'}>
+        {themas &&
+          themas.map((thema: any) => {
+            const { title, description, slug } = thema.attributes;
+            return (
+              <Card
+                className={'utrecht-grid__one-third'}
+                key={`thema-${slug}`}
+                title={title}
+                description={description}
+                image={{ url: '', alt: '' }}
+                link={{ href: `/themas/${slug}` }}
+              />
+            );
+          })}
+      </Grid>
     </Grid>
   );
 };
