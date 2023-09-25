@@ -9,8 +9,9 @@
     "packages/strapi-tiptap-editor",
     "packages/catalogi-data",
     "packages/samenwerkende-catalogi",
-    "apps/*",
-    "packages/*"
+    "packages/provider-upload-vercel",
+    "packages/*",
+    "apps/*"
   ],
   "repository": {
     "type": "git+ssh",
