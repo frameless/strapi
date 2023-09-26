@@ -15,6 +15,9 @@ COPY ./ .
 # Build target dependencies #
 #############################
 FROM build AS dependencies
+
+RUN yarn global add node-gyp
+
 # Install patch-package globally
 RUN yarn global add patch-package
 COPY ./patches /opt/app/patches
