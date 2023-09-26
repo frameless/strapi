@@ -29,7 +29,7 @@ const NotFoundPage = async () => {
         ]}
       />
       <PageTitle>{data?.notFoundPage?.data?.attributes?.title}</PageTitle>
-      <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+      <Markdown>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
     </div>
   );
 };

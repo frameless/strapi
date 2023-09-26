@@ -60,7 +60,7 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
         ]}
       />
       <PageTitle>{`${title} "${query}"`}</PageTitle>
-      <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{body}</Markdown>
+      <Markdown>{body}</Markdown>
     </>
   );
 };

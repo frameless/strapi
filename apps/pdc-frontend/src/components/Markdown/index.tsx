@@ -1,7 +1,4 @@
-'use client';
-
 import isAbsoluteUrl from 'is-absolute-url';
-import Image from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
@@ -26,8 +23,10 @@ import {
   UnorderedList,
   UnorderedListItem,
 } from '@/components';
-import { useTranslation } from '../../app/i18n/client';
+import { buildImgURL } from '@/util/buildImgURL';
+import { useTranslation } from '../../app/i18n';
 import { fallbackLng } from '../../app/i18n/settings';
+import { Img } from '../Img';
 
 type PriceTypes = {
   value: string;
@@ -36,17 +35,7 @@ type PriceTypes = {
   id: string;
 };
 
-const components = ({
-  strapiBackendURL,
-  priceData,
-  locale,
-  freeProductLabel,
-}: {
-  strapiBackendURL: string;
-  priceData: PriceTypes[];
-  locale: string;
-  freeProductLabel: string;
-}) =>
+const components = ({ priceData, locale }: { priceData: PriceTypes[]; locale: string }) =>
   ({
     h1: ({ children, node }) => {
       delete node.properties?.style;
@@ -137,33 +126,15 @@ const components = ({
       delete node.properties?.style;
       return <TableCaption {...node.properties}>{children}</TableCaption>;
     },
-    img: ({ width, height, src, alt }) => {
-      if (width && height && src && alt) {
-        return (
-          <Image
-            src={`${strapiBackendURL}${src}`}
-            alt={alt || ''}
-            sizes="(max-width: 768px) 100vw,
-      (max-width: 1200px) 50vw,
-      33vw"
-            width={width as number}
-            height={height as number}
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-            }}
-          />
-        );
-      } else {
-        return null;
-      }
-    },
-    'react-widget': ({ node }: any) => {
+    img: (props) => props.src && <Img {...props} src={buildImgURL(props.src)} />,
+    'react-widget': async ({ node }: any) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const { t } = await useTranslation(locale ?? fallbackLng, 'common');
       if (node.properties?.id && priceData && priceData.length > 0) {
         const product = priceData.find(({ id }) => id === node.properties?.id);
         const price =
           Number(product?.value) === 0
-            ? freeProductLabel
+            ? t('text.free-product')
             : new Intl.NumberFormat(locale, {
                 style: 'currency',
                 currency: product?.currency,
@@ -180,23 +151,16 @@ interface MarkdownProps {
   children: any;
   priceData?: any;
   locale?: string;
-  strapiBackendURL?: string;
 }
 
-export const Markdown: React.FC<MarkdownProps> = ({ children, priceData, locale, strapiBackendURL }) => {
-  const url = strapiBackendURL ? new URL(strapiBackendURL) : null;
-  const { t } = useTranslation(locale ?? fallbackLng, 'common');
-  return (
-    <ReactMarkdown
-      components={components({
-        priceData,
-        locale: locale ?? fallbackLng,
-        strapiBackendURL: url?.origin ?? '',
-        freeProductLabel: t('text.free-product'),
-      })}
-      rehypePlugins={[rehypeRaw]}
-    >
-      {children}
-    </ReactMarkdown>
-  );
-};
+export const Markdown: React.FC<MarkdownProps> = ({ children, priceData, locale }) => (
+  <ReactMarkdown
+    components={components({
+      priceData,
+      locale: locale ?? fallbackLng,
+    })}
+    rehypePlugins={[rehypeRaw]}
+  >
+    {children}
+  </ReactMarkdown>
+);

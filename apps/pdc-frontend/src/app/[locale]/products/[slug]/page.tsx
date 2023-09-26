@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { cookies, draftMode } from 'next/headers';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
@@ -22,11 +21,13 @@ import {
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
+import { Img } from '@/components/Img';
 import { Markdown } from '@/components/Markdown';
 import { PreviewAlert } from '@/components/PreviewAlert';
 import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
+import { buildImgURL } from '@/util/buildImgURL';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
@@ -135,7 +136,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
   const { product } = await getAllProducts(locale, slug);
 
   const priceData = product?.attributes.price && product?.attributes.price?.data?.attributes.price;
-  const strapiImageURL = process.env.STRAPI_PUBLIC_URL;
+
   const { t } = await useTranslation(locale, 'common');
   const Sections = () =>
     product?.attributes && product?.attributes.sections.length > 0
@@ -143,7 +144,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
           switch (component.__typename) {
             case 'ComponentComponentsBlockContent':
               return component.content ? (
-                <Markdown strapiBackendURL={strapiImageURL} locale={locale} key={index} priceData={priceData}>
+                <Markdown locale={locale} key={index} priceData={priceData}>
                   {component.content}
                 </Markdown>
               ) : null;
@@ -170,7 +171,6 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                     accordion={component.faq.data.attributes.faq.accordion}
                     sectionTitle={component.faq.data.attributes.title}
                     priceData={priceData}
-                    strapiBackendURL={strapiImageURL}
                   />
                 );
               }
@@ -183,7 +183,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                     label: title,
                     headingLevel: 3, // TODO add this property from CMS
                     body: (
-                      <Markdown priceData={priceData} locale={locale} strapiBackendURL={strapiImageURL}>
+                      <Markdown priceData={priceData} locale={locale}>
                         {body}
                       </Markdown>
                     ),
@@ -191,35 +191,20 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                 />
               );
             case 'ComponentComponentsImage':
-              if (
-                component.imageData &&
-                component.imageData.data.attributes &&
-                component.imageData.data.attributes.url
-              ) {
-                return (
-                  <Image
-                    src={`${strapiImageURL}${component.imageData.data.attributes.url}`}
-                    alt={component.imageData.data.attributes.alternativeText || ''}
-                    sizes="(max-width: 768px) 100vw,
-                              (max-width: 1200px) 50vw,
-                              33vw"
-                    width={component.imageData.data.attributes.width}
-                    height={component.imageData.data.attributes.height}
-                    style={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                    }}
-                  />
-                );
-              } else {
-                return null;
-              }
+              return (
+                <Img
+                  src={buildImgURL(component?.imageData?.data?.attributes?.url)}
+                  width={component?.imageData?.data?.attributes?.width}
+                  height={component?.imageData?.data?.attributes?.height}
+                  alt={component?.imageData?.data?.attributes?.alternativeText}
+                  data-figcaption={component?.imageData?.data?.attributes?.caption}
+                />
+              );
+
             case 'ComponentComponentsSpotlight':
               return component.content ? (
                 <SpotlightSection type={component.type} aside={component?.aside}>
-                  <Markdown strapiBackendURL={strapiImageURL} priceData={priceData}>
-                    {component.content}
-                  </Markdown>
+                  <Markdown priceData={priceData}>{component.content}</Markdown>
                 </SpotlightSection>
               ) : null;
             case 'ComponentComponentsButtonLink':
