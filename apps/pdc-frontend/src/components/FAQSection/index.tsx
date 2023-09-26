@@ -13,16 +13,9 @@ export interface FAQSectionProps {
   accordion?: AccordionType[];
   locale?: string;
   priceData?: any;
-  strapiBackendURL?: any;
 }
 
-export const FAQSection: React.FC<FAQSectionProps> = ({
-  sectionTitle,
-  accordion,
-  locale,
-  priceData,
-  strapiBackendURL,
-}) => (
+export const FAQSection: React.FC<FAQSectionProps> = ({ sectionTitle, accordion, locale, priceData }) => (
   <section>
     <Heading2>{sectionTitle}</Heading2>
     {accordion && accordion.length > 0 && (
@@ -32,7 +25,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
           label: title,
           headingLevel: 3, // TODO add this property from CMS
           body: (
-            <Markdown priceData={priceData} locale={locale} strapiBackendURL={strapiBackendURL}>
+            <Markdown priceData={priceData} locale={locale}>
               {body}
             </Markdown>
           ),

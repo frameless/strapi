@@ -26,7 +26,7 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
         ]}
       />
       <PageTitle>{data?.notFoundPage?.data?.attributes?.title}</PageTitle>
-      <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+      <Markdown>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
     </div>
   );
 };
