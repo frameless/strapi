@@ -36,7 +36,11 @@ RUN yarn install
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN  yarn build
+RUN  npm run build --workspace @frameless/upl && \
+    npm run build --workspace @frameless/strapi-plugin-uniform-product-name && \
+    npm run build --workspace @frameless/strapi-tiptap-editor && \
+    npm run build --workspace @frameless/catalogi-data && \
+    npm run build --workspace @frameless/samenwerkende-catalogi
 
 # Build target production #
 ###########################
