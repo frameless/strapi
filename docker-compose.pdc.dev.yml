@@ -17,7 +17,7 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        npm run start:pdc-dashboard
+        npm run dev --workspace @frameless/pdc-dashboard
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
