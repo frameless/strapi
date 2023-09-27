@@ -174,10 +174,12 @@ const WysiwygContent = ({
               width: { default: null },
               height: { default: null },
               loading: { default: null },
+              'data-figcaption': { default: null },
               renderHTML: (attributes: any) => {
                 return {
                   width: attributes.width,
                   height: attributes.height,
+                  'data-figcaption': attributes?.caption,
                   loading: attributes.loading,
                 };
               },

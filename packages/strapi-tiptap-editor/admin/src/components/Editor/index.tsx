@@ -29,13 +29,16 @@ const Editor = ({ editor, settings, productPrice }: EditorProps) => {
   const [mediaLibVisible, setMediaLibVisible] = useState(false);
   const [forceInsert, setForceInsert] = useState(false);
   const handleToggleMediaLib = () => setMediaLibVisible((prev) => !prev);
-  const getUpdatedImage = (asset: any) => ({
-    src: asset.url,
-    alt: asset.alt,
-    ...(asset.width && { width: asset.width }),
-    ...(asset.height && { height: asset.height }),
-    ...(asset.url?.includes('lazy') || (asset.caption === 'lazy' && { loading: 'lazy' })),
-  });
+  const getUpdatedImage = (asset: any) => {
+    return {
+      src: asset.url,
+      alt: asset.alt,
+      'data-figcaption': asset?.caption,
+      ...(asset.width && { width: asset.width }),
+      ...(asset.height && { height: asset.height }),
+      ...(asset.url?.includes('lazy') || (asset.caption === 'lazy' && { loading: 'lazy' })),
+    };
+  };
 
   const handleChangeAssets = (assets: any[]) => {
     if (!forceInsert && editor.isActive('image')) {
