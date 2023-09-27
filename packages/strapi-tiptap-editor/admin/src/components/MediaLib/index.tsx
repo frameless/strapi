@@ -51,9 +51,10 @@ const MediaLib: React.FC<MediaLibProps> = ({ isOpen, onChange, onToggle }) => {
   const handleSelectAssets = (images: Image[]) => {
     const formattedImages = images.map((image) => ({
       ...image,
-      alt: image.alternativeText || image.name,
+      alt: image.alternativeText,
       url: prefixFileUrlWithBackendUrl(image.url),
       mime: image.mime,
+      'data-figcaption': image?.caption,
     }));
 
     onChange(formattedImages);
