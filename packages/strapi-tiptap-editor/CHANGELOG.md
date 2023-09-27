@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.5.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.4.0...@frameless/strapi-tiptap-editor@1.5.0) (2023-09-27)
+
+
+### Features
+
+* **strapi-tiptap-editor:** enable `figcaption` as property ([4402c42](https://github.com/frameless/strapi/commit/4402c420d1b22597c62786becc7358d4e589b237))
+
 # @frameless/strapi-tiptap-editor [1.4.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.3.1...@frameless/strapi-tiptap-editor@1.4.0) (2023-08-30)
 
 
