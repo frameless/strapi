@@ -3,7 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Page, PageContent, PageHeader, SkipLink, Surface } from '@/components';
+import { Navigation, Page, PageContent, PageHeader, SkipLink, Surface } from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
@@ -12,10 +12,13 @@ import { Footer } from '@/components/Footer';
 import { Logo } from '@/components/Logo';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
+import { getNavListData } from '@/data';
 import { getLiveSuggestions, onSearchSubmitAction } from './search/actions';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from '../i18n/index';
 import { languages } from '../i18n/settings';
+
+import '@frameless/ui/dist/bundle.css';
 
 const escapeComment = (data: any) => String(data).replace(/--/g, '-\u200B-');
 
@@ -200,35 +203,14 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   </div>
                 </div>
               </PageHeader>
-              <nav className="utrecht-topnav" id="menu">
-                <ul className="utrecht-topnav__list">
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/wonen-en-leven">
-                      Wonen en leven
-                    </a>
-                  </li>
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/zorg-en-onderwijs">
-                      Zorg en onderwijs
-                    </a>
-                  </li>
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/werk-en-inkomen">
-                      Werk en inkomen
-                    </a>
-                  </li>
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/ondernemen">
-                      Ondernemen
-                    </a>
-                  </li>
-                  <li className="utrecht-topnav__item">
-                    <a className="utrecht-topnav__link" href="https://www.utrecht.nl/bestuur-en-organisatie">
-                      Bestuur en organisatie
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <Navigation
+                list={getNavListData(t)}
+                mobileBreakpoint={1400}
+                toggleButton={{
+                  openText: 'Menu',
+                  closeText: 'Sluiten',
+                }}
+              />
               <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
                 <Main id="main">{children}</Main>
               </PageContent>

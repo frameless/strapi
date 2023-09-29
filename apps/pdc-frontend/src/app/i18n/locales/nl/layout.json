@@ -88,5 +88,29 @@
         "title": "Neem contact op via WhatsApp"
       }
     ]
+  },
+  "navigation": {
+    "list": [
+      {
+        "title": "Wonen en leven",
+        "link": "https://www.utrecht.nl/wonen-en-leven"
+      },
+      {
+        "title": "Zorg en onderwijs",
+        "link": "https://www.utrecht.nl/zorg-en-onderwijs"
+      },
+      {
+        "title": "Werk en inkomen",
+        "link": "https://www.utrecht.nl/werk-en-inkomen"
+      },
+      {
+        "title": "Ondernemen",
+        "link": "https://www.utrecht.nl/ondernemen"
+      },
+      {
+        "title": "Bestuur en organisatie",
+        "link": "https://www.utrecht.nl/bestuur-en-organisatie"
+      }
+    ]
   }
 }

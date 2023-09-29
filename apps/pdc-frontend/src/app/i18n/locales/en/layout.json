@@ -88,5 +88,29 @@
         "title": "Contact us via WhatsApp"
       }
     ]
+  },
+  "navigation": {
+    "list": [
+      {
+        "title": "Living and Life",
+        "link": "https://www.utrecht.nl/wonen-en-leven"
+      },
+      {
+        "title": "Health and Education",
+        "link": "https://www.utrecht.nl/zorg-en-onderwijs"
+      },
+      {
+        "title": "Work and Income",
+        "link": "https://www.utrecht.nl/werk-en-inkomen"
+      },
+      {
+        "title": "Business",
+        "link": "https://www.utrecht.nl/ondernemen"
+      },
+      {
+        "title": "Government and Organization",
+        "link": "https://www.utrecht.nl/bestuur-en-organisatie"
+      }
+    ]
   }
 }
