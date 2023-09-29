@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@frameless/samenwerkende-catalogi": "0.0.0-semantically-released",
+    "@frameless/ui": "0.0.0-semantically-released",
     "@tanstack/react-query": "4.29.12",
     "@utrecht/component-library-css": "1.0.0-alpha.539",
     "@utrecht/component-library-react": "1.0.0-alpha.348",
