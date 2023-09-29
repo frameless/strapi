@@ -1,0 +1,17 @@
+.utrecht-navigation {
+  border-block-start-color: var(--utrecht-navigation-border-block-start-color);
+  border-block-start-style: solid;
+  border-block-start-width: var(--utrecht-navigation-border-block-start-width);
+}
+
+.utrecht-navigation--mobile {
+  --utrecht-navigation-border-block-start-color: transparent;
+  --utrecht-navigation-border-block-start-width: 0;
+
+  align-items: flex-end;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  justify-content: flex-end;
+}

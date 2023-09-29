@@ -51,7 +51,7 @@ module.exports = {
       },
     },
     {
-      extends: ['plugin:react/recommended', 'eslint-config-prettier', './.eslintrc.js.json'],
+      extends: ['plugin:react/recommended', 'eslint-config-prettier', './.eslintrc.js.json', './.eslintrc.react.json'],
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
@@ -63,6 +63,7 @@ module.exports = {
           './apps/vth-dashboard/tsconfig.json',
           './apps/vth-dashboard/src/admin/tsconfig.json',
           './packages/catalogi-data/tsconfig.json',
+          './packages/ui/tsconfig.json',
           './packages/upl/tsconfig.json',
           './packages/samenwerkende-catalogi/tsconfig.json',
           './packages/strapi-plugin-uniform-product-name/tsconfig.json',
