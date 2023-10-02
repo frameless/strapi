@@ -82,5 +82,41 @@
         "title": "Neem contact op via WhatsApp"
       }
     ]
+  },
+  "navigation": {
+    "list": [
+      {
+        "title": "Huisvesting",
+        "link": "#"
+      },
+      {
+        "title": "Nieuw bouw",
+        "link": "#"
+      },
+      {
+        "title": "Bestaande bouw",
+        "link": "#"
+      },
+      {
+        "title": "Verkeer",
+        "link": "#"
+      },
+      {
+        "title": "Veiligheid",
+        "link": "#"
+      },
+      {
+        "title": "Leefbaarheid",
+        "link": "#"
+      },
+      {
+        "title": "Milieu en energie",
+        "link": "#"
+      },
+      {
+        "title": "Uitgaan en vermaak",
+        "link": "#"
+      }
+    ]
   }
 }

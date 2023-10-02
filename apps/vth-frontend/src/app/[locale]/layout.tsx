@@ -3,7 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Article, Page, PageContent, PageHeader } from '@/components';
+import { Article, Navigation, Page, PageContent, PageHeader } from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
@@ -13,7 +13,7 @@ import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from '../i18n/index';
 import { languages } from '../i18n/settings';
-
+import '@frameless/ui/dist/bundle.css';
 const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
 
 interface LayoutProps {
@@ -28,6 +28,41 @@ type Params = {
     locale: string;
   };
 };
+// eslint-disable-next-line no-unused-vars
+const getNavListData = (t: (text: string) => string) => [
+  {
+    title: t('navigation.list.0.title'),
+    link: t('navigation.list.0.link'),
+  },
+  {
+    title: t('navigation.list.1.title'),
+    link: t('navigation.list.1.link'),
+  },
+  {
+    title: t('navigation.list.2.title'),
+    link: t('navigation.list.2.link'),
+  },
+  {
+    title: t('navigation.list.3.title'),
+    link: t('navigation.list.3.link'),
+  },
+  {
+    title: t('navigation.list.4.title'),
+    link: t('navigation.list.4.link'),
+  },
+  {
+    title: t('navigation.list.5.title'),
+    link: t('navigation.list.5.link'),
+  },
+  {
+    title: t('navigation.list.6.title'),
+    link: t('navigation.list.6.link'),
+  },
+  {
+    title: t('navigation.list.7.title'),
+    link: t('navigation.list.7.link'),
+  },
+];
 
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -41,7 +76,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
-  const { t } = await useTranslation(locale, 'layout');
+  const { t } = await useTranslation(locale, ['layout']);
 
   const footerData = {
     title: t('footer.title'),
@@ -140,6 +175,14 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 </div>
               </div>
             </PageHeader>
+            <Navigation
+              list={getNavListData(t)}
+              mobileBreakpoint={998}
+              toggleButton={{
+                openText: 'Menu',
+                closeText: 'Sluiten',
+              }}
+            />
             <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
               <Main>
                 <Article>{children}</Article>
