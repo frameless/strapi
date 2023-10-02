@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "4.29.12",
+    "@frameless/ui": "0.0.0-semantically-released",
     "@utrecht/component-library-css": "1.0.0-alpha.543",
     "@utrecht/component-library-react": "1.0.0-alpha.352",
     "@utrecht/design-tokens": "1.0.0-alpha.536",
