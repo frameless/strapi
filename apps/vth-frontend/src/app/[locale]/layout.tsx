@@ -175,15 +175,15 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <Logo locale={locale} />
               </Grid>
             </PageHeader>
-            <Navigation
-              list={getNavListData(t)}
-              mobileBreakpoint={998}
-              toggleButton={{
-                openText: 'Menu',
-                closeText: 'Sluiten',
-              }}
-            />
             <PageContent>
+              <Navigation
+                list={getNavListData(t)}
+                mobileBreakpoint={998}
+                toggleButton={{
+                  openText: 'Menu',
+                  closeText: 'Sluiten',
+                }}
+              />
               <Main>{children}</Main>
             </PageContent>
             <Footer data={footerData} />

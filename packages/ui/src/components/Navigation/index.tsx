@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import { ForwardedRef, forwardRef, PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { NavigationList } from './NavigationList';
 import { NavToggleButton } from './NavigationToggleButton';
 import styles from './index.module.scss';
@@ -13,7 +13,7 @@ type NavigationListType = {
   link: string;
 };
 
-interface NavigationProps {
+interface NavigationProps extends HTMLAttributes<HTMLElement> {
   list: NavigationListType[];
   mobileBreakpoint: number;
   toggleButton?: {
@@ -65,9 +65,13 @@ export const Navigation = forwardRef(
     return (
       <>
         <nav
-          className={css('utrecht-navigation', {
-            'utrecht-navigation--mobile': visible,
-          })}
+          className={css(
+            'utrecht-navigation',
+            {
+              'utrecht-navigation--mobile': visible,
+            },
+            restProps.className,
+          )}
           id="menu"
           ref={ref}
           {...restProps}
