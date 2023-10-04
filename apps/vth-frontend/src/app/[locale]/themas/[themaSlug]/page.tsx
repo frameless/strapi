@@ -44,11 +44,12 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
       <Grid className={'utrecht-grid__full-width'}>
         {child_themas.data[0] &&
           child_themas.data.map((thema: any) => {
-            const { title, description, slug: childSlug, previewImage } = thema.attributes;
+            const { title, description, slug: childSlug, previewImage: imageData } = thema.attributes;
+            const imageUrl = imageData?.data?.attributes?.url;
             return (
               <Card
                 className={'utrecht-grid__one-third'}
-                image={{ url: previewImage && buildImgURL(previewImage), alt: '' }}
+                image={{ url: imageUrl && buildImgURL(imageUrl), alt: '' }}
                 title={title}
                 description={description}
                 key={`thema-${childSlug}`}
@@ -59,14 +60,15 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
         {child_contents.data[0] &&
           child_contents.data &&
           child_contents.data.map((content: any) => {
-            const { title, description, slug: contentSlug, previewImage } = content.attributes;
+            const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
+            const imageUrl = imageData?.data?.attributes?.url;
             return (
               <Card
                 className={'utrecht-grid__one-third'}
                 title={title}
                 description={description}
                 key={`thema-${contentSlug}`}
-                image={{ url: previewImage && buildImgURL(previewImage), alt: '' }}
+                image={{ url: imageUrl && buildImgURL(imageUrl), alt: '' }}
                 link={{ href: `/themas/${themaSlug}/content/${contentSlug}` }}
               />
             );

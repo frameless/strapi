@@ -50,14 +50,14 @@ const Home = async ({ params: { locale } }: { params: any }) => {
         {themas &&
           themas.map((thema: any) => {
             const { title, description, slug, previewImage: imageData } = thema.attributes;
-            const previewImage = imageData?.data?.attributes?.url;
+            const imageUrl = imageData?.data?.attributes?.url;
             return (
               <Card
                 className={'utrecht-grid__one-third'}
                 key={`thema-${slug}`}
                 title={title}
                 description={description}
-                image={{ url: previewImage && buildImgURL(previewImage), alt: '' }}
+                image={{ url: imageUrl && buildImgURL(imageUrl), alt: '' }}
                 link={{ href: `/themas/${slug}` }}
               />
             );
