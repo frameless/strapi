@@ -1,5 +1,5 @@
-import { createStrapiURL } from '@frameless/pdc-frontend/src/util/createStrapiURL';
-import { fetchData } from '@frameless/pdc-frontend/src/util/fetchData';
+import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
+import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import {
   Heading1,
   Heading2,

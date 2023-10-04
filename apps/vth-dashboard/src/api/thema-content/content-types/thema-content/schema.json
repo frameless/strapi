@@ -31,6 +31,16 @@
       "relation": "manyToMany",
       "target": "api::thema.thema",
       "mappedBy": "child_contents"
+    },
+    "previewImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
