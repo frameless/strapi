@@ -12,6 +12,16 @@ body {
   --utrecht-link-list-marker-background-image: url("https://pki.utrecht.nl/Loket/base/files/getImageAction.do?key=kl_pijltje-wit-SVG");
   --utrecht-list-social-margin-block-start: 24px;
 
+  /* image & caption tokens */
+
+  --utrecht-figure-margin-inline-start: 0;
+  --utrecht-figure-margin-inline-end: 0;
+  --utrecht-figure-margin-block-start: var(--utrecht-space-block-md);
+  --utrecht-figure-margin-block-end: var(--utrecht-space-block-md);
+  --utrecht-figure--figcaption-color: var(--utrecht-color-grey-40);
+  --utrecht-figure--figcaption-font-size: var(--utrecht-typography-scale-sm-font-size);
+  --utrecht-figure-figcaption-margin-block-start: var(--utrecht-space-block-2xs);
+
   /* --- navigation tokens start --- */
 
   /* nav */

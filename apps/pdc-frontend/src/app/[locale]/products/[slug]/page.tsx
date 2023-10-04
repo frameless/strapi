@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { cookies, draftMode } from 'next/headers';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
@@ -9,6 +10,7 @@ import {
   Article,
   ButtonLink,
   Heading,
+  Img,
   PageTitle,
   Paragraph,
   SpotlightSection,
@@ -21,7 +23,6 @@ import {
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
-import { Img } from '@/components/Img';
 import { Markdown } from '@/components/Markdown';
 import { PreviewAlert } from '@/components/PreviewAlert';
 import { ReactionLink } from '@/components/ReactionLink';
@@ -193,11 +194,13 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
             case 'ComponentComponentsImage':
               return (
                 <Img
+                  Image={Image}
                   src={buildImgURL(component?.imageData?.data?.attributes?.url)}
                   width={component?.imageData?.data?.attributes?.width}
                   height={component?.imageData?.data?.attributes?.height}
                   alt={component?.imageData?.data?.attributes?.alternativeText}
-                  data-figcaption={component?.imageData?.data?.attributes?.caption}
+                  figure={component?.imageData?.data?.attributes?.caption}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               );
 
