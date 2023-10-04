@@ -64,6 +64,7 @@ query GET_THEMA_BY_SLUG($slug: String) {
               attributes {
                 title,
                 slug,
+                description,
                 previewImage {
                   data {
                     attributes {
@@ -79,6 +80,7 @@ query GET_THEMA_BY_SLUG($slug: String) {
               attributes {
                 title,
                 slug,
+                description,
                 previewImage {
                   data {
                     attributes {
@@ -94,6 +96,7 @@ query GET_THEMA_BY_SLUG($slug: String) {
               attributes {
                 title,
                 slug,
+                description,
                 previewImage {
                   data {
                     attributes {

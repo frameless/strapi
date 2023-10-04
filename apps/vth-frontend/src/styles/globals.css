@@ -14,6 +14,8 @@ body {
   /* nav */
   --utrecht-navigation-border-block-start-width: 1px;
   --utrecht-navigation-border-block-start-color: var(--utrecht-color-grey-80);
+  --utrecht-navigation-border-block-end-width: 1px;
+  --utrecht-navigation-border-block-end-color: var(--utrecht-color-grey-80);
 
   /* nav-list */
 
@@ -107,7 +109,7 @@ a {
 
 .utrecht-page-header {
   --utrecht-page-header-padding-block-start: 0;
-  --utrecht-page-header-padding-block-end: 0;
+  --utrecht-page-header-padding-block-end: 1rem;
   --utrecht-page-padding-inline-start: 0;
   --utrecht-page-padding-inline-end: 0;
 
@@ -140,4 +142,10 @@ a {
 .utrecht-navigation__toggle-button {
   float: right;
   position: absolute;
+}
+
+.utrecht-navigation {
+  border-block-end-color: var(--utrecht-navigation-border-block-start-color);
+  border-block-end-style: solid;
+  border-block-end-width: var(--utrecht-navigation-border-block-start-width);
 }
