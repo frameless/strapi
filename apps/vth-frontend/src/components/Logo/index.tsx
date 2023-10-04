@@ -5,7 +5,7 @@ interface LogoProps {
   locale: string;
 }
 export const Logo = ({ locale }: LogoProps) => (
-  <Link href={`/${locale}`} className="utrecht-link" prefetch={false} aria-label="Gemeente Utrecht Logo">
+  <Link href={`/${locale}`} className="utrecht-link" prefetch={true} aria-label="Gemeente Utrecht Logo">
     <svg width="188" height="101" viewBox="0 0 188 101" fill="none">
       <g clipPath="url(#clip0_908_6411)">
         <path

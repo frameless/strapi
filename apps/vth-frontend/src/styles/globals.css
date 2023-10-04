@@ -130,3 +130,14 @@ a {
 .utrecht-link-social {
   border-style: none !important;
 }
+
+.utrecht-image--banner {
+  border-top: 5px solid var(--utrecht-color-red-40);
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.utrecht-navigation__toggle-button {
+  float: right;
+  position: absolute;
+}
