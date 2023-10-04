@@ -1,0 +1,17 @@
+.utrecht-image {
+  block-size: auto;
+  max-inline-size: 100%;
+}
+
+.utrecht-figure {
+  margin-block-end: var(--utrecht-figure-margin-block-end);
+  margin-block-start: var(--utrecht-figure-margin-block-start);
+  margin-inline-end: var(--utrecht-figure-margin-inline-end, 0);
+  margin-inline-start: var(--utrecht-figure-margin-inline-start, 0);
+}
+
+.utrecht-figure__figcaption {
+  color: var(--utrecht-figure--figcaption-color);
+  font-size: var(--utrecht-figure--figcaption-font-size);
+  margin-block-start: var(--utrecht-figure-figcaption-margin-block-start);
+}
