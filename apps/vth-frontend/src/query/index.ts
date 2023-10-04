@@ -30,6 +30,13 @@ query getHomePage {
         title
         slug
         description
+        previewImage {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
       }
     }
   }
@@ -45,13 +52,49 @@ query GET_THEMA_BY_SLUG($slug: String) {
           title
           content
           parents {
-            data { attributes { title, slug } }
+            data {
+              attributes {
+                title,
+                slug,
+                previewImage {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
           }
           child_themas {
-            data { attributes { title, slug } }
+            data {
+              attributes {
+                title,
+                slug,
+                previewImage {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
           }
           child_contents {
-            data { attributes { title, slug } }
+            data {
+              attributes {
+                title,
+                slug,
+                previewImage {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -69,7 +112,19 @@ query GET_CONTENT_BY_SLUG($slug: String) {
           title
           content
           parents {
-            data { attributes { title, slug } }
+            data {
+              attributes {
+                title,
+                slug
+                previewImage {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -49,7 +49,8 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       <Grid className={'utrecht-grid__full-width'}>
         {themas &&
           themas.map((thema: any) => {
-            const { title, description, slug, previewImage } = thema.attributes;
+            const { title, description, slug, previewImage: imageData } = thema.attributes;
+            const previewImage = imageData?.data?.attributes?.url;
             return (
               <Card
                 className={'utrecht-grid__one-third'}
