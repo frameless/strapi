@@ -1,5 +1,5 @@
-import { createStrapiURL } from '@frameless/pdc-frontend/src/util/createStrapiURL';
-import { fetchData } from '@frameless/pdc-frontend/src/util/fetchData';
+import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
+import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import React from 'react';
@@ -7,6 +7,7 @@ import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { GET_HOME_PAGE } from '@/query';
+import { buildImgURL } from '@/util/buildImgURL';
 import { useTranslation } from '../i18n';
 
 export interface Fields {
@@ -43,19 +44,19 @@ const Home = async ({ params: { locale } }: { params: any }) => {
     <Grid className={'utrecht-grid--content-padding'}>
       <div className={'utrecht-grid__two-third'}>
         <Heading1>{title}</Heading1>
-        <Markdown>{content}</Markdown>
+        <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
       </div>
       <Grid className={'utrecht-grid__full-width'}>
         {themas &&
           themas.map((thema: any) => {
-            const { title, description, slug } = thema.attributes;
+            const { title, description, slug, previewImage } = thema.attributes;
             return (
               <Card
                 className={'utrecht-grid__one-third'}
                 key={`thema-${slug}`}
                 title={title}
                 description={description}
-                image={{ url: '', alt: '' }}
+                image={{ url: previewImage && buildImgURL(previewImage), alt: '' }}
                 link={{ href: `/themas/${slug}` }}
               />
             );
