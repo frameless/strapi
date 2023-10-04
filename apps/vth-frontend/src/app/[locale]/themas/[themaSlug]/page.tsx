@@ -8,7 +8,7 @@ import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { GET_THEMA_BY_SLUG } from '@/query';
-import {buildImgURL} from "@/util/buildImgURL";
+import { buildImgURL } from '@/util/buildImgURL';
 
 type Params = {
   params: {
