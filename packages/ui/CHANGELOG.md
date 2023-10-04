@@ -1,3 +1,10 @@
+# @frameless/ui [1.2.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.1.0...@frameless/ui@1.2.0) (2023-10-04)
+
+
+### Features
+
+* **ui:** move image component to ui package ([5984d53](https://github.com/frameless/strapi/commit/5984d53f1e4c52376b48f254e02b28174e19298c))
+
 # @frameless/ui [1.1.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.0.0...@frameless/ui@1.1.0) (2023-10-04)
 
 
