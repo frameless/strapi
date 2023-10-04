@@ -1,3 +1,11 @@
+# @frameless/upl [1.2.0](https://github.com/frameless/strapi/compare/@frameless/upl@1.1.1...@frameless/upl@1.2.0) (2023-10-04)
+
+
+### Features
+
+* **vth:** add grid ([8a52585](https://github.com/frameless/strapi/commit/8a525854ae8292deb612bbf87df30420403c3616))
+* **vth:** render themas with card ([81252b2](https://github.com/frameless/strapi/commit/81252b22670389e186695ac5c20c66849c578212))
+
 ## @frameless/upl [1.1.1](https://github.com/frameless/strapi/compare/@frameless/upl@1.1.0...@frameless/upl@1.1.1) (2023-09-14)
 
 
