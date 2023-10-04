@@ -1,3 +1,18 @@
+# @frameless/samenwerkende-catalogi [2.2.0](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@2.1.1...@frameless/samenwerkende-catalogi@2.2.0) (2023-10-04)
+
+
+### Features
+
+* **vth:** render themas with card ([81252b2](https://github.com/frameless/strapi/commit/81252b22670389e186695ac5c20c66849c578212))
+
+
+
+
+
+### Dependencies
+
+* **@frameless/upl:** upgraded to 1.2.0
+
 ## @frameless/samenwerkende-catalogi [2.1.1](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@2.1.0...@frameless/samenwerkende-catalogi@2.1.1) (2023-09-14)
 
 
