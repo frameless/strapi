@@ -3,6 +3,10 @@
   max-width: 312px;
 }
 
+.utrecht-card__image {
+  object-fit: cover;
+}
+
 .utrecht-card__content {
   padding-block-end: 1rem;
   padding-block-start: 0;
