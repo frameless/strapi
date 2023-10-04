@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.6.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.5.0...@frameless/strapi-tiptap-editor@1.6.0) (2023-10-04)
+
+
+### Features
+
+* **vth:** render themas with card ([81252b2](https://github.com/frameless/strapi/commit/81252b22670389e186695ac5c20c66849c578212))
+
 # @frameless/strapi-tiptap-editor [1.5.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.4.0...@frameless/strapi-tiptap-editor@1.5.0) (2023-09-27)
 
 
