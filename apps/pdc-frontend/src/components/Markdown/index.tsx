@@ -1,7 +1,9 @@
 import isAbsoluteUrl from 'is-absolute-url';
+import Image from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
+import type { ReactMarkdownProps } from 'react-markdown/lib/complex-types';
 import rehypeRaw from 'rehype-raw';
 import {
   Heading1,
@@ -10,6 +12,7 @@ import {
   Heading4,
   Heading5,
   Heading6,
+  Img,
   Link,
   Paragraph,
   Table,
@@ -26,7 +29,6 @@ import {
 import { buildImgURL } from '@/util/buildImgURL';
 import { useTranslation } from '../../app/i18n';
 import { fallbackLng } from '../../app/i18n/settings';
-import { Img } from '../Img';
 
 type PriceTypes = {
   value: string;
@@ -126,7 +128,24 @@ const components = ({ priceData, locale }: { priceData: PriceTypes[]; locale: st
       delete node.properties?.style;
       return <TableCaption {...node.properties}>{children}</TableCaption>;
     },
-    img: (props) => props.src && <Img {...props} src={buildImgURL(props.src)} />,
+    img: (
+      props: Omit<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'ref'> &
+        ReactMarkdownProps & { 'data-figcaption'?: string },
+    ) => {
+      return (
+        props.src && (
+          <Img
+            Image={Image}
+            src={buildImgURL(props.src)}
+            alt={props.alt}
+            width={Number(props.width)}
+            height={Number(props.height)}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            figure={props['data-figcaption']}
+          />
+        )
+      );
+    },
     'react-widget': async ({ node }: any) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const { t } = await useTranslation(locale ?? fallbackLng, 'common');
