@@ -20,6 +20,14 @@ query getHomePage {
       attributes {
         title
         content
+        bannerImage {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
       }
     }
   }

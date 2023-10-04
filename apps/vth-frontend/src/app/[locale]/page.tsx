@@ -2,6 +2,7 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import React from 'react';
 import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
@@ -37,33 +38,46 @@ const Home = async ({ params: { locale } }: { params: any }) => {
     variables: { locale: locale },
   });
 
-  const { title, content } = data?.homepage?.data?.attributes;
+  const { title, content, bannerImage } = data?.homepage?.data?.attributes;
   const themas = data?.themas?.data;
+  const bannerAttributes = bannerImage?.data?.attributes;
 
   return (
-    <Grid className={'utrecht-grid--content-padding'}>
-      <div className={'utrecht-grid__two-third'}>
-        <Heading1>{title}</Heading1>
-        <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
-      </div>
-      <Grid className={'utrecht-grid__full-width'}>
-        {themas &&
-          themas.map((thema: any) => {
-            const { title, description, slug, previewImage: imageData } = thema.attributes;
-            const imageUrl = imageData?.data?.attributes?.url;
-            return (
-              <Card
-                className={'utrecht-grid__one-third'}
-                key={`thema-${slug}`}
-                title={title}
-                description={description}
-                image={{ url: imageUrl && buildImgURL(imageUrl), alt: '' }}
-                link={{ href: `/themas/${slug}` }}
-              />
-            );
-          })}
+    <div>
+      {bannerAttributes?.url && (
+        <Image
+          width={1200}
+          height={400}
+          src={buildImgURL(bannerAttributes.url)}
+          alt={bannerAttributes.alternativeText || ''}
+          priority
+          className={'utrecht-image utrecht-image--banner'}
+        />
+      )}
+      <Grid className={'utrecht-grid--content-padding'}>
+        <div className={'utrecht-grid__two-third'}>
+          <Heading1>{title}</Heading1>
+          <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
+        </div>
+        <Grid className={'utrecht-grid__full-width'}>
+          {themas &&
+            themas.map((thema: any) => {
+              const { title, description, slug, previewImage: imageData } = thema.attributes;
+              const imageUrl = imageData?.data?.attributes?.url;
+              return (
+                <Card
+                  className={'utrecht-grid__one-third'}
+                  key={`thema-${slug}`}
+                  title={title}
+                  description={description}
+                  image={{ url: imageUrl && buildImgURL(imageUrl), alt: '' }}
+                  link={{ href: `/themas/${slug}` }}
+                />
+              );
+            })}
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 };
 
