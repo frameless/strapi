@@ -138,13 +138,16 @@ a {
   object-fit: cover;
 }
 
-.utrecht-navigation__toggle-button {
-  float: right;
-  position: absolute;
-}
-
 .utrecht-navigation {
   border-block-end-color: var(--utrecht-navigation-border-block-start-color);
   border-block-end-style: solid;
   border-block-end-width: var(--utrecht-navigation-border-block-start-width);
+}
+
+.utrecht-sidenav {
+  border-block-end: none;
+}
+
+.utrecht-sidenav__item {
+  border-block-end: 1px solid var(--utrecht-color-grey-80);
 }

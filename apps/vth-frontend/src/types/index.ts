@@ -42,24 +42,9 @@ export interface Timing {
   request: number;
 }
 
-export interface SearchResult {
-  total: number;
-  hits: Hit[];
-  request: Request;
-  received: Received;
-  pagination: Pagination;
-  timing: Timing;
-}
-
-export interface SuggestedResult {
-  suggestedHits: SuggestedHits;
-  suggestions: Suggestions;
-}
-
-export type SuggestedHits = {
-  titleRaw: string;
-  url: string;
-};
-export type Suggestions = {
-  text: string;
+export type SiblingData = {
+  attributes: {
+    slug: string;
+    title: string;
+  };
 };
