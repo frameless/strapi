@@ -134,7 +134,6 @@ a {
 }
 
 .utrecht-image--banner {
-  border-top: 5px solid var(--utrecht-color-red-40);
   max-height: 300px;
   object-fit: cover;
 }
