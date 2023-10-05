@@ -1,8 +1,8 @@
 import { useTranslation } from '@/app/i18n';
-import { PageTitle } from '@/components';
+import { Markdown, PageTitle } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
-import { Markdown } from '@/components/Markdown';
 import { GET_NOT_FOUND_PAGE } from '@/query';
+import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
@@ -11,7 +11,7 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_NOT_FOUND_PAGE,
-    variables: { locale: locale },
+    variables: { locale },
   });
 
   return (
@@ -26,7 +26,9 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
         ]}
       />
       <PageTitle>{data?.notFoundPage?.data?.attributes?.title}</PageTitle>
-      <Markdown>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+      <Markdown imageUrl={getImageBaseUrl()} locale={locale}>
+        {data?.notFoundPage?.data?.attributes?.body}
+      </Markdown>
     </div>
   );
 };

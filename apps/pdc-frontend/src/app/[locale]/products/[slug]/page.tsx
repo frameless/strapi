@@ -11,6 +11,7 @@ import {
   ButtonLink,
   Heading,
   Img,
+  Markdown,
   PageTitle,
   Paragraph,
   SpotlightSection,
@@ -23,12 +24,11 @@ import {
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
-import { Markdown } from '@/components/Markdown';
 import { PreviewAlert } from '@/components/PreviewAlert';
 import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
-import { buildImgURL } from '@/util/buildImgURL';
+import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
@@ -38,8 +38,8 @@ const getAllProducts = async (locale: string, slug: string) => {
     url: createStrapiURL(),
     query: GET_PRODUCT_BY_SLUG_FETCH,
     variables: {
-      slug: slug,
-      locale: locale,
+      slug,
+      locale,
       pageMode: isEnabled ? 'PREVIEW' : 'LIVE',
     },
   });
@@ -145,7 +145,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
           switch (component.__typename) {
             case 'ComponentComponentsBlockContent':
               return component.content ? (
-                <Markdown locale={locale} key={index} priceData={priceData}>
+                <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale} key={index}>
                   {component.content}
                 </Markdown>
               ) : null;
@@ -168,6 +168,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                 return (
                   <FAQSection
                     key={index}
+                    imageUrl={getImageBaseUrl()}
                     locale={locale}
                     accordion={component.faq.data.attributes.faq.accordion}
                     sectionTitle={component.faq.data.attributes.title}
@@ -182,9 +183,9 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                   sections={component.item.map(({ id, title, body }: any) => ({
                     id,
                     label: title,
-                    headingLevel: 3, // TODO add this property from CMS
+                    headingLevel: 3,
                     body: (
-                      <Markdown priceData={priceData} locale={locale}>
+                      <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
                         {body}
                       </Markdown>
                     ),
@@ -195,7 +196,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
               return (
                 <Img
                   Image={Image}
-                  src={buildImgURL(component?.imageData?.data?.attributes?.url)}
+                  src={`${getImageBaseUrl()}${component?.imageData?.data?.attributes?.url}`}
                   width={component?.imageData?.data?.attributes?.width}
                   height={component?.imageData?.data?.attributes?.height}
                   alt={component?.imageData?.data?.attributes?.alternativeText}
@@ -207,7 +208,9 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
             case 'ComponentComponentsSpotlight':
               return component.content ? (
                 <SpotlightSection type={component.type} aside={component?.aside}>
-                  <Markdown priceData={priceData}>{component.content}</Markdown>
+                  <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                    {component.content}
+                  </Markdown>
                 </SpotlightSection>
               ) : null;
             case 'ComponentComponentsButtonLink':

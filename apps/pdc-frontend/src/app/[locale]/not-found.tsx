@@ -1,8 +1,8 @@
 import { cookies } from 'next/headers';
-import { PageTitle } from '@/components';
+import { Markdown, PageTitle } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
-import { Markdown } from '@/components/Markdown';
 import { GET_NOT_FOUND_PAGE } from '@/query';
+import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n';
@@ -29,7 +29,7 @@ const NotFoundPage = async () => {
         ]}
       />
       <PageTitle>{data?.notFoundPage?.data?.attributes?.title}</PageTitle>
-      <Markdown>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+      <Markdown imageUrl={getImageBaseUrl()}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
     </div>
   );
 };
