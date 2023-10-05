@@ -211,9 +211,13 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <SkipLink href="#menu">{t('components.skip-link.menu')}</SkipLink>
                 <SkipLink href="#search-input">{t('components.skip-link.search-input')}</SkipLink>
                 <div className="utrecht-header">
-                  <Logo locale={locale} />
-                  <div className="utrecht-nav__content">
+                  <div className="utrecht-grid--col-6">
+                    <Logo locale={locale} />
+                  </div>
+                  <div className="utrecht-grid--col-6">
                     <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
+                  </div>
+                  <div className="utrecht-grid--col-12">
                     <SearchBar
                       locale={locale}
                       onSearchSubmit={onSearchSubmitAction}
