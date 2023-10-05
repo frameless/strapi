@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import styles from './index.module.scss';
-import { Markdown } from '../Markdown';
+import { Markdown } from '../index';
 
 const cx = classNames.bind(styles);
 
@@ -41,7 +41,7 @@ export const ProductListItem = ({
   return (
     <li className={cx('utrecht-product-list__item')}>
       <Link className="utrecht-link" href={href} locale={locale} dangerouslySetInnerHTML={{ __html: text }} />
-      <Markdown>{body}</Markdown>
+      {body && <Markdown>{body}</Markdown>}
     </li>
   );
 };

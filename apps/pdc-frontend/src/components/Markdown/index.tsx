@@ -1,185 +1,88 @@
+'use client';
+import { Markdown as BaseMarkdown, Img, PriceWidget } from '@frameless/ui';
+import { Link } from '@utrecht/component-library-react/dist/css-module';
 import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import React from 'react';
-import ReactMarkdown, { Components } from 'react-markdown';
-import type { ReactMarkdownProps } from 'react-markdown/lib/complex-types';
-import rehypeRaw from 'rehype-raw';
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Heading5,
-  Heading6,
-  Img,
-  Link,
-  Paragraph,
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHeader,
-  TableHeaderCell,
-  TableRow,
-  UnorderedList,
-  UnorderedListItem,
-} from '@/components';
-import { buildImgURL } from '@/util/buildImgURL';
-import { useTranslation } from '../../app/i18n';
+export { PageTitle } from '../Page-title';
+import { ReactMarkdownProps } from 'react-markdown/lib/complex-types';
+import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
 
 type PriceTypes = {
-  value: string;
-  label: string;
-  currency: string;
   id: string;
+  price: number;
+  currency: string;
+  label: string;
+  value: string;
 };
 
-const components = ({ priceData, locale }: { priceData: PriceTypes[]; locale: string }) =>
-  ({
-    h1: ({ children, node }) => {
-      delete node.properties?.style;
-      return <Heading1 {...node.properties}>{children}</Heading1>;
-    },
-    h2: ({ children, node }) => {
-      delete node.properties?.style;
-      return <Heading2 {...node.properties}>{children}</Heading2>;
-    },
-    h3: ({ children, node }) => {
-      delete node.properties?.style;
-      return <Heading3 {...node.properties}>{children}</Heading3>;
-    },
-    h4: ({ children, node }) => {
-      delete node.properties?.style;
-      return <Heading4 {...node.properties}>{children}</Heading4>;
-    },
-    h5: ({ children, node }) => {
-      delete node.properties?.style;
-      return <Heading5 {...node.properties}>{children}</Heading5>;
-    },
-    h6: ({ children, node }) => {
-      delete node.properties?.style;
-      return <Heading6 {...node.properties}>{children}</Heading6>;
-    },
-    p: ({ children, node }) => {
-      delete node.properties?.style;
-      if (node.properties?.dataLead) {
-        delete node.properties?.dataLead;
-        return (
-          <Paragraph {...node.properties} lead>
-            {children}
-          </Paragraph>
-        );
-      }
+type ImageProperties = {
+  src: string;
+  alt: string;
+  width: string;
+  height: string;
+  dataFigcaption?: string;
+};
 
-      return <Paragraph {...node.properties}>{children}</Paragraph>;
-    },
-    ul: ({ children, node }) => {
-      delete node.properties?.style;
-      return <UnorderedList {...node.properties}>{children}</UnorderedList>;
-    },
-    li: ({ children, node }) => {
-      delete node.properties?.style;
-      return <UnorderedListItem {...node.properties}>{children}</UnorderedListItem>;
-    },
-    a: ({ children, node }) => {
-      const external = typeof node.properties?.href === 'string' && isAbsoluteUrl(node.properties?.href);
-      return external ? (
-        <Link href={node.properties?.href as string} rel="external noopener noreferrer" external={external}>
-          {children}
-        </Link>
-      ) : (
-        <NextLink className="utrecht-link" href={node.properties?.href as string} locale={locale}>
-          {children}
-        </NextLink>
-      );
-    },
-    table: ({ children, node }) => {
-      delete node.properties?.style;
-      return <Table {...node.properties}>{children}</Table>;
-    },
-    tbody: ({ children, node }) => {
-      delete node.properties?.style;
-      return <TableBody {...node.properties}>{children}</TableBody>;
-    },
-    td: ({ children, node }) => {
-      delete node.properties?.style;
-      return <TableCell {...node.properties}>{children}</TableCell>;
-    },
-    thead: ({ children, node }) => {
-      delete node.properties?.style;
-      return <TableHeader {...node.properties}>{children}</TableHeader>;
-    },
-    tfoot: ({ children, node }) => {
-      delete node.properties?.style;
-      return <TableFooter {...node.properties}>{children}</TableFooter>;
-    },
-    th: ({ children, node }) => {
-      delete node.properties?.style;
-      return <TableHeaderCell {...node.properties}>{children}</TableHeaderCell>;
-    },
-    tr: ({ children, node }) => {
-      delete node.properties?.style;
-      return <TableRow {...node.properties}>{children}</TableRow>;
-    },
-    caption: ({ children, node }) => {
-      delete node.properties?.style;
-      return <TableCaption {...node.properties}>{children}</TableCaption>;
-    },
-    img: (
-      props: Omit<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'ref'> &
-        ReactMarkdownProps & { 'data-figcaption'?: string },
-    ) => {
-      return (
-        props.src && (
-          <Img
-            Image={Image}
-            src={buildImgURL(props.src)}
-            alt={props.alt}
-            width={Number(props.width)}
-            height={Number(props.height)}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            figure={props['data-figcaption']}
-          />
-        )
-      );
-    },
-    'react-widget': async ({ node }: any) => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const { t } = await useTranslation(locale ?? fallbackLng, 'common');
-      if (node.properties?.id && priceData && priceData.length > 0) {
-        const product = priceData.find(({ id }) => id === node.properties?.id);
-        const price =
-          Number(product?.value) === 0
-            ? t('text.free-product')
-            : new Intl.NumberFormat(locale, {
-                style: 'currency',
-                currency: product?.currency,
-              }).format(Number(product?.value));
-
-        return <data value={price}>{price}</data>;
-      } else {
-        return null;
-      }
-    },
-  }) as Components;
-
-interface MarkdownProps {
-  children: any;
-  priceData?: any;
+export const createMarkdownComponents = ({
+  priceData,
+  locale = fallbackLng,
+  imageUrl,
+}: {
+  priceData?: PriceTypes[];
   locale?: string;
-}
+  imageUrl?: string;
+}) => ({
+  'react-widget': ({ node }: ReactMarkdownProps) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { t } = useTranslation(locale || fallbackLng, ['common']);
+    return (
+      <PriceWidget
+        freeProductText={t('text.free-product') as string}
+        priceData={priceData}
+        locale={locale}
+        id={node.properties?.id as string}
+      />
+    );
+  },
+  img: ({ node }: ReactMarkdownProps) => {
+    const { src, alt, width, height, dataFigcaption } = node.properties as ImageProperties;
 
-export const Markdown: React.FC<MarkdownProps> = ({ children, priceData, locale }) => (
-  <ReactMarkdown
-    components={components({
-      priceData,
-      locale: locale ?? fallbackLng,
-    })}
-    rehypePlugins={[rehypeRaw]}
-  >
-    {children}
-  </ReactMarkdown>
-);
+    return imageUrl ? (
+      <Img
+        Image={Image}
+        src={`${imageUrl}${src}`}
+        alt={alt || ''}
+        width={Number(width)}
+        height={Number(height)}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        figure={dataFigcaption}
+      />
+    ) : null;
+  },
+  a: ({ children, node }: ReactMarkdownProps) => {
+    const external = typeof node.properties?.href === 'string' && isAbsoluteUrl(node.properties?.href);
+    return external ? (
+      <Link href={node.properties?.href as string} rel="external noopener noreferrer" external={external}>
+        {children}
+      </Link>
+    ) : (
+      <NextLink className="utrecht-link" href={node.properties?.href as string}>
+        {children}
+      </NextLink>
+    );
+  },
+});
+
+export const Markdown = ({
+  children,
+  locale,
+  priceData,
+  imageUrl,
+}: {
+  children: string;
+  imageUrl?: string;
+  priceData?: PriceTypes[];
+  locale?: string;
+}) => <BaseMarkdown components={createMarkdownComponents({ priceData, locale, imageUrl })}>{children}</BaseMarkdown>;

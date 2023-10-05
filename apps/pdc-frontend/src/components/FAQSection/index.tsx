@@ -1,6 +1,5 @@
 import React from 'react';
-import { AccordionProvider, Heading2 } from '@/components';
-import { Markdown } from '../Markdown';
+import { AccordionProvider, Heading2, Markdown } from '@/components';
 
 type AccordionType = {
   id: string;
@@ -13,9 +12,16 @@ export interface FAQSectionProps {
   accordion?: AccordionType[];
   locale?: string;
   priceData?: any;
+  imageUrl: string;
 }
 
-export const FAQSection: React.FC<FAQSectionProps> = ({ sectionTitle, accordion, locale, priceData }) => (
+export const FAQSection: React.FC<FAQSectionProps> = ({
+  sectionTitle,
+  accordion,
+  imageUrl,
+  locale = 'nl',
+  priceData,
+}) => (
   <section>
     <Heading2>{sectionTitle}</Heading2>
     {accordion && accordion.length > 0 && (
@@ -23,9 +29,9 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ sectionTitle, accordion,
         sections={accordion.map(({ id, title, body }: any) => ({
           id,
           label: title,
-          headingLevel: 3, // TODO add this property from CMS
+          headingLevel: 3,
           body: (
-            <Markdown priceData={priceData} locale={locale}>
+            <Markdown priceData={priceData} imageUrl={imageUrl} locale={locale}>
               {body}
             </Markdown>
           ),
