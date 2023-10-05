@@ -1,3 +1,10 @@
+# @frameless/ui [1.3.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.2.0...@frameless/ui@1.3.0) (2023-10-05)
+
+
+### Features
+
+* **ui:** add markdown & price-widget components ([54ead50](https://github.com/frameless/strapi/commit/54ead505ba249b7edb0c2b154f4d5df1ac202829))
+
 # @frameless/ui [1.2.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.1.0...@frameless/ui@1.2.0) (2023-10-04)
 
 
