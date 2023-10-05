@@ -8,6 +8,10 @@
   padding-block-end: 0;
 }
 
+.utrecht-grid-mobile-hidden {
+  display: none;
+}
+
 .utrecht-grid--content-padding {
   padding-block-start: 1rem;
   padding-inline-end: 1rem;
@@ -61,6 +65,10 @@
 @container (min-width: 60rem) {
   .utrecht-grid {
     grid-template-columns: repeat(12, 1fr);
+  }
+
+  .utrecht-grid-mobile-hidden {
+    display: unset;
   }
 
   .utrecht-grid__half-width {

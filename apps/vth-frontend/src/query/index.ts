@@ -62,13 +62,21 @@ query GET_THEMA_BY_SLUG($slug: String) {
           parents {
             data {
               attributes {
-                title,
-                slug,
-                description,
-                previewImage {
+                title
+                slug
+                child_themas {
                   data {
                     attributes {
-                      url
+                      title
+                      slug
+                    }
+                  }
+                }
+                child_contents {
+                  data {
+                    attributes {
+                      title
+                      slug
                     }
                   }
                 }
@@ -125,12 +133,21 @@ query GET_CONTENT_BY_SLUG($slug: String) {
           parents {
             data {
               attributes {
-                title,
+                title
                 slug
-                previewImage {
+                child_themas {
                   data {
                     attributes {
-                      url
+                      title
+                      slug
+                    }
+                  }
+                }
+                child_contents {
+                  data {
+                    attributes {
+                      title
+                      slug
                     }
                   }
                 }
