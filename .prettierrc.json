@@ -37,9 +37,17 @@
       }
     },
     {
-      "files": ["*.css", "*.scss"],
+      "files": ["*.css"],
       "options": {
         "parser": "css",
+        "tabWidth": 2,
+        "htmlWhitespaceSensitivity": "css"
+      }
+    },
+    {
+      "files": ["*.scss"],
+      "options": {
+        "parser": "scss",
         "tabWidth": 2,
         "htmlWhitespaceSensitivity": "css"
       }
