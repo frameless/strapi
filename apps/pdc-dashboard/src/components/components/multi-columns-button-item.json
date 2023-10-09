@@ -13,13 +13,6 @@
       "type": "component",
       "repeatable": true,
       "component": "components.logo-button"
-    },
-    "headingLevel": {
-      "type": "integer",
-      "max": 6,
-      "min": 1,
-      "required": false,
-      "default": 3
     }
   }
 }
