@@ -9,17 +9,13 @@ import {
   AccordionProvider,
   Article,
   ButtonLink,
-  Heading,
   Img,
+  LogoButton,
   Markdown,
+  MultiColumnsButton,
   PageTitle,
   Paragraph,
   SpotlightSection,
-  UtrechtDigidLogo,
-  UtrechtEherkenningLogo,
-  UtrechtEidasLogo,
-  UtrechtIconArrow,
-  UtrechtLogoButton,
 } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
@@ -51,59 +47,6 @@ const getAllProducts = async (locale: string, slug: string) => {
   return {
     product: data?.products?.data[0],
   };
-};
-
-const LogoButton = ({ logo, appearance, href, text, label }: any) => {
-  switch (logo) {
-    case 'digid':
-      return (
-        <p>
-          <UtrechtLogoButton>
-            <UtrechtDigidLogo />
-            <ButtonLink appearance={`${appearance}-action-button`} href={href} aria-label={label}>
-              {text} <UtrechtIconArrow />
-            </ButtonLink>
-          </UtrechtLogoButton>
-        </p>
-      );
-    case 'eherkenning':
-      return (
-        <p>
-          <UtrechtLogoButton>
-            <UtrechtEherkenningLogo />
-            <ButtonLink
-              appearance="primary-action-button"
-              href={href}
-              aria-label={label}
-              className="utrecht-button-link--eherkenning"
-            >
-              {text} <UtrechtIconArrow />
-            </ButtonLink>
-          </UtrechtLogoButton>
-        </p>
-      );
-    case 'eidas':
-      return (
-        <p>
-          <UtrechtLogoButton>
-            <UtrechtEidasLogo />
-            <ButtonLink appearance={`${appearance}-action-button`} href={href} aria-label={label}>
-              {text} <UtrechtIconArrow />
-            </ButtonLink>
-          </UtrechtLogoButton>
-        </p>
-      );
-    case 'without_logo':
-      return (
-        <p>
-          <ButtonLink appearance={`${appearance}-action-button`} href={href} aria-label={label}>
-            {text} <UtrechtIconArrow />
-          </ButtonLink>
-        </p>
-      );
-    default:
-      return null;
-  }
 };
 
 type ParamsType = {
@@ -204,7 +147,6 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               );
-
             case 'ComponentComponentsSpotlight':
               return component.content ? (
                 <SpotlightSection type={component.type} aside={component?.aside}>
@@ -223,29 +165,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                 </div>
               ) : null;
             case 'ComponentComponentsMultiColumnsButton':
-              return (
-                <div className="utrecht-multi-columns-button">
-                  {component.column.map(({ logoButton, title, headingLevel }: any, index: number) => {
-                    return (
-                      <div key={index} className="utrecht-multi-columns-button__item">
-                        <Heading level={headingLevel || 3}>{title}</Heading>
-                        {logoButton &&
-                          logoButton.length > 0 &&
-                          logoButton.map((item: any, index: number) => (
-                            <LogoButton
-                              key={index}
-                              href={item.href}
-                              text={item.text}
-                              appearance={item.logo_button_appearance}
-                              label={item.label}
-                              logo={item.logo}
-                            />
-                          ))}
-                      </div>
-                    );
-                  })}
-                </div>
-              );
+              return <MultiColumnsButton columns={component.column} />;
             default:
               return <></>;
           }
