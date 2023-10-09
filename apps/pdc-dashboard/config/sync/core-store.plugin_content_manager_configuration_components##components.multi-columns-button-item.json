@@ -47,24 +47,10 @@
           "searchable": false,
           "sortable": false
         }
-      },
-      "headingLevel": {
-        "edit": {
-          "label": "headingLevel",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "headingLevel",
-          "searchable": true,
-          "sortable": true
-        }
       }
     },
     "layouts": {
-      "list": ["id", "title", "logoButton", "headingLevel"],
+      "list": ["id", "title", "logoButton"],
       "edit": [
         [
           {
@@ -76,12 +62,6 @@
           {
             "name": "logoButton",
             "size": 12
-          }
-        ],
-        [
-          {
-            "name": "headingLevel",
-            "size": 4
           }
         ]
       ]
