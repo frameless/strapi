@@ -1,3 +1,10 @@
+# @frameless/ui [1.4.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.3.0...@frameless/ui@1.4.0) (2023-10-09)
+
+
+### Features
+
+* **ui:** create `LogoButton` & `MultiColumnsLogoButton` components ([6f1adc0](https://github.com/frameless/strapi/commit/6f1adc0eb88eb4801840c1b585c21e01d0bd8573))
+
 # @frameless/ui [1.3.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.2.0...@frameless/ui@1.3.0) (2023-10-05)
 
 
