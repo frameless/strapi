@@ -7,7 +7,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
+      "mainField": "type",
       "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
@@ -22,7 +22,7 @@
       },
       "content": {
         "edit": {
-          "label": "content",
+          "label": "Inhoud",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -36,8 +36,8 @@
       },
       "type": {
         "edit": {
-          "label": "type",
-          "description": "",
+          "label": "Type",
+          "description": "De eigenschap 'type' bepaalt de stijl van de inhoud. Gebruik 'info' voor informatieve inhoud, 'warning' voor belangrijke berichten en 'default' voor reguliere inhoud.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -48,23 +48,23 @@
           "sortable": true
         }
       },
-      "aside": {
+      "contentRole": {
         "edit": {
-          "label": "aside",
-          "description": "",
+          "label": "Selecteer de rol van de inhoud",
+          "description": "Wanneer ingesteld op 'aside', wordt de inhoud weergegeven als een '<aside>' element, dat meestal wordt gebruikt voor aanvullende inhoud. Wanneer ingesteld op 'section', wordt de inhoud weergegeven als een '<section>' element, dat meestal wordt gebruikt voor de hoofdinhoud",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "aside",
+          "label": "contentRole",
           "searchable": true,
           "sortable": true
         }
       }
     },
     "layouts": {
-      "list": ["id", "type", "aside"],
+      "list": ["id", "type", "contentRole"],
       "edit": [
         [
           {
@@ -78,8 +78,8 @@
             "size": 6
           },
           {
-            "name": "aside",
-            "size": 4
+            "name": "contentRole",
+            "size": 6
           }
         ]
       ]

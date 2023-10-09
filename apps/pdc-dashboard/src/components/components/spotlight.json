@@ -15,8 +15,10 @@
       "enum": ["default", "info", "warning"],
       "default": "default"
     },
-    "aside": {
-      "type": "boolean"
+    "contentRole": {
+      "type": "enumeration",
+      "enum": ["aside", "section"],
+      "default": "section"
     }
   }
 }
