@@ -10,10 +10,12 @@
       "type": "string"
     },
     "href": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "text": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "logo": {
       "type": "enumeration",
