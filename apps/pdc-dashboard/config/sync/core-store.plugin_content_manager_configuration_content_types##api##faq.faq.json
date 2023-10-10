@@ -36,8 +36,8 @@
       },
       "title": {
         "edit": {
-          "label": "title",
-          "description": "",
+          "label": "Title",
+          "description": "Hoofdtitel voor de FAQ-collectie",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -81,14 +81,14 @@
       "edit": [
         [
           {
-            "name": "faq",
-            "size": 12
+            "name": "title",
+            "size": 6
           }
         ],
         [
           {
-            "name": "title",
-            "size": 6
+            "name": "faq",
+            "size": 12
           }
         ]
       ],

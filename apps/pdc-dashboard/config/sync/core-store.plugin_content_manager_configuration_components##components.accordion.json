@@ -23,7 +23,7 @@
       "title": {
         "edit": {
           "label": "Titel",
-          "description": "",
+          "description": "Titel of vraag van de FAQ",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -37,7 +37,7 @@
       "body": {
         "edit": {
           "label": "Inhoud",
-          "description": "",
+          "description": "Inhoud of antwoord voor de FAQ",
           "placeholder": "",
           "visible": true,
           "editable": true

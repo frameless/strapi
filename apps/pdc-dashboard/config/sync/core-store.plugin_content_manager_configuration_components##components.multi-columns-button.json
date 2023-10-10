@@ -22,7 +22,7 @@
       },
       "column": {
         "edit": {
-          "label": "column",
+          "label": "Column",
           "description": "",
           "placeholder": "",
           "visible": true,

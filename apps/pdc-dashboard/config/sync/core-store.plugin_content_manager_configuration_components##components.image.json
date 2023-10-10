@@ -22,7 +22,7 @@
       },
       "imageData": {
         "edit": {
-          "label": "imageData",
+          "label": "Afbeelding",
           "description": "",
           "placeholder": "",
           "visible": true,
