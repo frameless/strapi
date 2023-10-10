@@ -14,11 +14,6 @@
       "type": "enumeration",
       "enum": ["default", "info", "warning"],
       "default": "default"
-    },
-    "contentRole": {
-      "type": "enumeration",
-      "enum": ["aside", "section"],
-      "default": "section"
     }
   }
 }
