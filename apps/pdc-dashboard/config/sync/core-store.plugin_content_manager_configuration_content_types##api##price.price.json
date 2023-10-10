@@ -37,7 +37,7 @@
       "title": {
         "edit": {
           "label": "Titel ",
-          "description": "",
+          "description": "Hoofdtitel voor de Prijs-collectie",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -96,15 +96,17 @@
       "edit": [
         [
           {
+            "name": "title",
+            "size": 6
+          }
+        ],
+        [
+          {
             "name": "price",
             "size": 12
           }
         ],
         [
-          {
-            "name": "title",
-            "size": 6
-          },
           {
             "name": "products",
             "size": 6

@@ -22,8 +22,8 @@
       },
       "text": {
         "edit": {
-          "label": "text",
-          "description": "",
+          "label": "Text",
+          "description": "Specificeert de weergegeven tekst",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -36,8 +36,8 @@
       },
       "href": {
         "edit": {
-          "label": "href",
-          "description": "",
+          "label": "Href",
+          "description": "Geeft de koppelingbestemming aan wanneer er op de knop wordt geklikt",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -50,8 +50,8 @@
       },
       "icon": {
         "edit": {
-          "label": "icon",
-          "description": "",
+          "label": "Icon",
+          "description": "Hiermee kunt u een pijl icoon naast de knop opnemen.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -64,8 +64,8 @@
       },
       "label": {
         "edit": {
-          "label": "label",
-          "description": "",
+          "label": "Label",
+          "description": "Voegt een titel of beschrijving boven de knop toe.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -78,8 +78,8 @@
       },
       "button_link_appearance": {
         "edit": {
-          "label": "button_link_appearance",
-          "description": "",
+          "label": "Appearance",
+          "description": "Beheert de visuele stijl",
           "placeholder": "",
           "visible": true,
           "editable": true

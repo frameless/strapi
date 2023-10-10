@@ -22,8 +22,8 @@
       },
       "title": {
         "edit": {
-          "label": "title",
-          "description": "",
+          "label": "Title",
+          "description": "De titel weergegeven aan de bovenkant van elke kolom, indien opgegeven. Deze titel helpt bij het organiseren en labelen van de inhoud binnen de kolom.",
           "placeholder": "",
           "visible": true,
           "editable": true
