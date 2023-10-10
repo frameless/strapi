@@ -47,24 +47,10 @@
           "searchable": true,
           "sortable": true
         }
-      },
-      "contentRole": {
-        "edit": {
-          "label": "Selecteer de rol van de inhoud",
-          "description": "Wanneer ingesteld op 'aside', wordt de inhoud weergegeven als een '<aside>' element, dat meestal wordt gebruikt voor aanvullende inhoud. Wanneer ingesteld op 'section', wordt de inhoud weergegeven als een '<section>' element, dat meestal wordt gebruikt voor de hoofdinhoud",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "contentRole",
-          "searchable": true,
-          "sortable": true
-        }
       }
     },
     "layouts": {
-      "list": ["id", "type", "contentRole"],
+      "list": ["id", "type"],
       "edit": [
         [
           {
@@ -75,10 +61,6 @@
         [
           {
             "name": "type",
-            "size": 6
-          },
-          {
-            "name": "contentRole",
             "size": 6
           }
         ]
