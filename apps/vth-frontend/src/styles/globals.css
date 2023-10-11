@@ -151,3 +151,7 @@ a {
 .utrecht-sidenav__item {
   border-block-end: 1px solid var(--utrecht-color-grey-80);
 }
+
+.utrecht-breadcrumb-nav__link--disabled {
+  text-decoration-line: none !important;
+}
