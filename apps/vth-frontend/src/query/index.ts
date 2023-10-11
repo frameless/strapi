@@ -50,6 +50,19 @@ query getHomePage {
   }
 }`);
 
+export const GET_HOOFD_THEMAS = gql(`
+query getHoofdThemas {
+  themas(filters: { parents: { id: null } }) {
+    data {
+      id
+      attributes {
+        title
+        slug
+      }
+    }
+  }
+}`);
+
 export const GET_THEMA_BY_SLUG = gql(`
 query GET_THEMA_BY_SLUG($slug: String) {
   findSlug(modelName:"thema", slug: $slug){
