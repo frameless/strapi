@@ -34,7 +34,7 @@ export const Drawer = forwardRef(
     } as any;
     return (
       <FocusTrap active={open} focusTrapOptions={focusTrapOptions}>
-        <div className={css('utrecht-drawer', restProps.className)} ref={ref} {...restProps}>
+        <div className={css('utrecht-drawer-custom', restProps.className)} ref={ref} {...restProps}>
           {children}
         </div>
       </FocusTrap>
