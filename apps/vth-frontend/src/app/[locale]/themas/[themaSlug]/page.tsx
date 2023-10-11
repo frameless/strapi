@@ -4,7 +4,7 @@ import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
-import {BreadcrumbNavigation, BreadcrumbNavigationElement} from '@/components/BreadcrumbNavigation';
+import { BreadcrumbNavigation, BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
 import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
@@ -59,8 +59,27 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
 
   const sideNavigationLinks: LinkData[] = [...themasLinks, ...contentLinks];
 
+  const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
+
+  // if the theme is a sub-theme, add its direct parent theme to the breadcrumb
+  if (parents?.data[0]) {
+    breadcrumbNavigationElements.push({
+      title: parents?.data[0]?.attributes?.title,
+      href: `/themas/${parentSlug}`,
+    });
+  }
+
+  breadcrumbNavigationElements.push({
+    title: title,
+    href: `/themas/${themaSlug}`,
+    isCurrent: true,
+  });
+
   return (
     <Grid className={'utrecht-grid--content-padding'}>
+      <div className={'utrecht-grid__full-width'}>
+        <BreadcrumbNavigation navigationElements={breadcrumbNavigationElements} />
+      </div>
       <Grid className={'utrecht-grid__two-third'}>
         <div className={'utrecht-grid__full-width'}>
           <Heading1>{title}</Heading1>
