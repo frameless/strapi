@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.7.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.6.0...@frameless/strapi-tiptap-editor@1.7.0) (2023-10-11)
+
+
+### Features
+
+* **deps:** update @utrecht/* packages ([768213e](https://github.com/frameless/strapi/commit/768213e60dbc9e4803fb2ff7ba3090fe24cd8ee7))
+
 # @frameless/strapi-tiptap-editor [1.6.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.5.0...@frameless/strapi-tiptap-editor@1.6.0) (2023-10-04)
 
 
