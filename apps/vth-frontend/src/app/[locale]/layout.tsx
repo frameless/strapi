@@ -7,11 +7,13 @@ import { Navigation, Page, PageContent, PageHeader } from '@/components';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
-import { BreadcrumbNavigation } from '@/components/BreadcrumbNavigation';
 import { Footer } from '@/components/Footer';
 import { Grid } from '@/components/Grid';
 import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { GET_HOOFD_THEMAS } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
+import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n/index';
 import '@frameless/ui/dist/bundle.css';
 
@@ -29,41 +31,6 @@ type Params = {
     locale: string;
   };
 };
-// eslint-disable-next-line no-unused-vars
-const getNavListData = (t: (text: string) => string) => [
-  {
-    title: t('navigation.list.0.title'),
-    link: t('navigation.list.0.link'),
-  },
-  {
-    title: t('navigation.list.1.title'),
-    link: t('navigation.list.1.link'),
-  },
-  {
-    title: t('navigation.list.2.title'),
-    link: t('navigation.list.2.link'),
-  },
-  {
-    title: t('navigation.list.3.title'),
-    link: t('navigation.list.3.link'),
-  },
-  {
-    title: t('navigation.list.4.title'),
-    link: t('navigation.list.4.link'),
-  },
-  {
-    title: t('navigation.list.5.title'),
-    link: t('navigation.list.5.link'),
-  },
-  {
-    title: t('navigation.list.6.title'),
-    link: t('navigation.list.6.link'),
-  },
-  {
-    title: t('navigation.list.7.title'),
-    link: t('navigation.list.7.link'),
-  },
-];
 
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -78,6 +45,20 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout']);
+  const { data } = await fetchData({
+    url: createStrapiURL(),
+    query: GET_HOOFD_THEMAS,
+    variables: { locale: locale },
+  });
+
+  const hoofdThemas = data?.themas?.data;
+
+  const navListData = hoofdThemas?.map((thema) => {
+    return {
+      title: thema.attributes.title,
+      link: `/themas/${thema.attributes.slug}`,
+    };
+  });
 
   const footerData = {
     title: t('footer.title'),
@@ -178,7 +159,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
             </PageHeader>
             <PageContent>
               <Navigation
-                list={getNavListData(t)}
+                list={navListData}
                 mobileBreakpoint={998}
                 toggleButton={{
                   openText: 'Menu',
