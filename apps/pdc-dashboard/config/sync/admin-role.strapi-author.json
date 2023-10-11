@@ -175,36 +175,6 @@
       "conditions": ["admin::is-creator"]
     },
     {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {
-        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
-      },
-      "conditions": ["admin::is-creator"]
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {},
-      "conditions": ["admin::is-creator"]
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {
-        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
-      },
-      "conditions": ["admin::is-creator"]
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {
-        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
-      },
-      "conditions": ["admin::is-creator"]
-    },
-    {
       "action": "plugin::upload.assets.copy-link",
       "subject": null,
       "properties": {},

@@ -181,42 +181,6 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {
-        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {
-        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::visualisatie.visualisatie",
-      "properties": {
-        "fields": ["body", "visualisatie.specification", "visualisatie.title", "title"]
-      },
-      "conditions": []
-    },
-    {
       "action": "plugin::upload.assets.copy-link",
       "subject": null,
       "properties": {},

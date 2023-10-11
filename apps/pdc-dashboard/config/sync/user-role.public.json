@@ -40,9 +40,6 @@
       "action": "api::subcategory.subcategory.findOne"
     },
     {
-      "action": "api::visualisatie.visualisatie.find"
-    },
-    {
       "action": "plugin::i18n.locales.listLocales"
     },
     {
