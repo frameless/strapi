@@ -51,7 +51,7 @@
       "products": {
         "edit": {
           "label": "Producten",
-          "description": "",
+          "description": "Dit veld stelt u in staat om producten aan deze inhoud te koppelen. U kunt producten selecteren uit een lijst om hun relatie met deze inhoud aan te geven.",
           "placeholder": "",
           "visible": true,
           "editable": true,
