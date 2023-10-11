@@ -23,7 +23,7 @@
       "label": {
         "edit": {
           "label": "Label",
-          "description": "",
+          "description": "Korte naam of beschrijving voor elk item",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -37,7 +37,7 @@
       "currency": {
         "edit": {
           "label": "Currency",
-          "description": "",
+          "description": "Hier kiest u de valuta die hoort bij het bedrag in dit veld",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -51,7 +51,7 @@
       "value": {
         "edit": {
           "label": "Waarde",
-          "description": "",
+          "description": "Numerieke waarde die wordt geassocieerd met elk item.",
           "placeholder": "",
           "visible": true,
           "editable": true
