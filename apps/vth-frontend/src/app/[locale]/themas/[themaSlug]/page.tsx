@@ -9,8 +9,8 @@ import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_THEMA_BY_SLUG } from '@/query';
-import { buildImgURL } from '@/util/buildImgURL';
 import { SiblingData } from '@/types';
+import { buildImgURL } from '@/util/buildImgURL';
 
 type Params = {
   params: {
