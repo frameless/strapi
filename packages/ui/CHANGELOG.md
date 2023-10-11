@@ -1,3 +1,15 @@
+# @frameless/ui [1.5.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.4.0...@frameless/ui@1.5.0) (2023-10-11)
+
+
+### Bug Fixes
+
+* **ui:** rename the drawer css class to `utrecht-drawer-custom` ([3a45fb5](https://github.com/frameless/strapi/commit/3a45fb52b104c72ba10653ee2162c979d2aaf140))
+
+
+### Features
+
+* **deps:** update @utrecht/* packages ([768213e](https://github.com/frameless/strapi/commit/768213e60dbc9e4803fb2ff7ba3090fe24cd8ee7))
+
 # @frameless/ui [1.4.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.3.0...@frameless/ui@1.4.0) (2023-10-09)
 
 
