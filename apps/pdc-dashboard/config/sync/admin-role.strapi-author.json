@@ -5,17 +5,71 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": ["subcategories", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::category.category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::category.category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": ["subcategories", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": ["subcategories", "title"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::faq.faq",
       "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"]
+        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::faq.faq",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::faq.faq",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::faq.faq",
       "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"]
+        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
     },
@@ -23,7 +77,8 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::faq.faq",
       "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"]
+        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
     },
@@ -31,15 +86,33 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"]
+        "fields": ["title", "body"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::not-found-page.not-found-page",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::not-found-page.not-found-page",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"]
+        "fields": ["title", "body"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
     },
@@ -47,7 +120,8 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"]
+        "fields": ["title", "body"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
     },
@@ -66,6 +140,12 @@
       "conditions": ["admin::is-creator"]
     },
     {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::price.price",
+      "properties": {},
+      "conditions": []
+    },
+    {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::price.price",
       "properties": {
@@ -88,6 +168,7 @@
         "fields": [
           "title",
           "sections",
+          "price",
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
@@ -99,10 +180,35 @@
           "catalogiMeta.onlineRequest.type",
           "catalogiMeta.uniformProductName",
           "catalogiMeta.description",
-          "slug"
-        ]
+          "metadata.singleDigitalGateway",
+          "metadata.attachementAdded",
+          "metadata.contact.name",
+          "metadata.contact.email",
+          "metadata.identificationMethod.method",
+          "metadata.eForm.linkedEForm",
+          "metadata.eForm.eFormURL.value",
+          "slug",
+          "subcategories"
+        ],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::product.product",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::product.product",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -111,6 +217,7 @@
         "fields": [
           "title",
           "sections",
+          "price",
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
@@ -122,8 +229,17 @@
           "catalogiMeta.onlineRequest.type",
           "catalogiMeta.uniformProductName",
           "catalogiMeta.description",
-          "slug"
-        ]
+          "metadata.singleDigitalGateway",
+          "metadata.attachementAdded",
+          "metadata.contact.name",
+          "metadata.contact.email",
+          "metadata.identificationMethod.method",
+          "metadata.eForm.linkedEForm",
+          "metadata.eForm.eFormURL.value",
+          "slug",
+          "subcategories"
+        ],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
     },
@@ -134,6 +250,7 @@
         "fields": [
           "title",
           "sections",
+          "price",
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
@@ -145,8 +262,17 @@
           "catalogiMeta.onlineRequest.type",
           "catalogiMeta.uniformProductName",
           "catalogiMeta.description",
-          "slug"
-        ]
+          "metadata.singleDigitalGateway",
+          "metadata.attachementAdded",
+          "metadata.contact.name",
+          "metadata.contact.email",
+          "metadata.identificationMethod.method",
+          "metadata.eForm.linkedEForm",
+          "metadata.eForm.eFormURL.value",
+          "slug",
+          "subcategories"
+        ],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
     },
@@ -154,15 +280,33 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::search-tip.search-tip",
       "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"]
+        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::search-tip.search-tip",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::search-tip.search-tip",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::search-tip.search-tip",
       "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"]
+        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
     },
@@ -170,9 +314,53 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::search-tip.search-tip",
       "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"]
+        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
+        "locales": ["en", "nl"]
       },
       "conditions": ["admin::is-creator"]
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::subcategory.subcategory",
+      "properties": {
+        "fields": ["category", "title", "products"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::subcategory.subcategory",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::subcategory.subcategory",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::subcategory.subcategory",
+      "properties": {
+        "fields": ["category", "title", "products"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::subcategory.subcategory",
+      "properties": {
+        "fields": ["category", "title", "products"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
     },
     {
       "action": "plugin::upload.assets.copy-link",
