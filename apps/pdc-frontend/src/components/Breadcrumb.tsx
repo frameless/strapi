@@ -1,6 +1,6 @@
 'use client';
-// import Link from 'next/link';
-import { BreadcrumbLink, BreadcrumbNav } from '@/components';
+import Link from 'next/link';
+import { BreadcrumbNav, BreadcrumbNavLink } from '@/components';
 
 type BreadcrumbLinkType = {
   href: string;
@@ -18,9 +18,16 @@ export const Breadcrumbs = ({ links }: BreadcrumbProps) => {
         links.length > 0 &&
         links.map(({ href, label, current }: any, index: number) =>
           label ? (
-            <BreadcrumbLink href={href} key={href} rel={href === '/' ? 'home' : 'up'} index={index} current={current}>
+            <BreadcrumbNavLink
+              href={href}
+              key={href}
+              rel={href === '/' ? 'home' : 'up'}
+              index={index}
+              current={current}
+              Link={Link}
+            >
               {label}
-            </BreadcrumbLink>
+            </BreadcrumbNavLink>
           ) : null,
         )}
     </BreadcrumbNav>
