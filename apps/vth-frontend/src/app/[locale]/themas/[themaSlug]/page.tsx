@@ -4,6 +4,7 @@ import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
+import {BreadcrumbNavigation, BreadcrumbNavigationElement} from '@/components/BreadcrumbNavigation';
 import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';

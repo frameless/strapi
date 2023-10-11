@@ -7,6 +7,7 @@ import { Navigation, Page, PageContent, PageHeader } from '@/components';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
+import { BreadcrumbNavigation } from '@/components/BreadcrumbNavigation';
 import { Footer } from '@/components/Footer';
 import { Grid } from '@/components/Grid';
 import { Logo } from '@/components/Logo';

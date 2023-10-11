@@ -4,6 +4,7 @@ import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
+import { BreadcrumbNavigation, BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
@@ -56,8 +57,31 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
 
   const sideNavigationLinks: LinkData[] = [...themasLinks, ...contentLinks];
 
+  const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
+
+  if (parents?.data[0]?.attributes?.parents?.data[0]) {
+    breadcrumbNavigationElements.push({
+      title: parents?.data[0]?.attributes?.parents?.data[0]?.attributes?.title,
+      href: `/themas/${parents?.data[0]?.attributes?.parents?.data[0]?.attributes?.slug}`,
+    });
+  }
+
+  breadcrumbNavigationElements.push({
+    title: parents?.data[0]?.attributes?.title,
+    href: `/themas/${parentSlug}`,
+  });
+
+  breadcrumbNavigationElements.push({
+    title: title,
+    href: `/themas/${parentSlug}/content/${contentSlug}`,
+    isCurrent: true,
+  });
+
   return (
     <Grid className={'utrecht-grid--content-padding'}>
+      <div className={'utrecht-grid__full-width'}>
+        <BreadcrumbNavigation navigationElements={breadcrumbNavigationElements} />
+      </div>
       <div className={'utrecht-grid__two-third'}>
         <Heading1>{title}</Heading1>
         <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>

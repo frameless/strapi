@@ -135,6 +135,14 @@ query GET_CONTENT_BY_SLUG($slug: String) {
               attributes {
                 title
                 slug
+                parents {
+                  data {
+                    attributes {
+                      title
+                      slug
+                    }
+                  }
+                }
                 child_themas {
                   data {
                     attributes {
