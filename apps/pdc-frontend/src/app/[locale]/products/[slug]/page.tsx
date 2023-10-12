@@ -87,7 +87,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
   const Sections = () =>
     product?.attributes && product?.attributes.sections.length > 0
       ? product?.attributes.sections.map((component: any, index: number) => {
-          switch (component.__typename) {
+          switch (component?.__typename) {
             case 'ComponentComponentsBlockContent':
               return component.content ? (
                 <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale} key={index}>
@@ -158,16 +158,16 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                 </SpotlightSection>
               ) : null;
             case 'ComponentComponentsButtonLink':
-              return component.text && component.href ? (
+              return component?.text && component?.href ? (
                 <div>
                   {component?.label && <Heading3>{component?.label}</Heading3>}
                   <ButtonLink
                     appearance={`${component?.button_link_appearance}-action-button`}
                     href={component.href}
-                    external={isAbsoluteUrl(component.href)}
-                    rel={isAbsoluteUrl(component.href) ? 'noopener noreferrer' : undefined}
+                    external={isAbsoluteUrl(component?.href)}
+                    rel={isAbsoluteUrl(component?.href) ? 'noopener noreferrer' : undefined}
                   >
-                    {component.text} {component?.icon === 'arrow' && <UtrechtIconArrow />}
+                    {component?.text} {component?.icon === 'arrow' && <UtrechtIconArrow />}
                   </ButtonLink>
                 </div>
               ) : null;
@@ -175,8 +175,12 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
               return <MultiColumnsButton columns={component.column} />;
             case 'ComponentComponentsLink':
               return component?.href && component?.text ? (
-                <AdvancedLink href={component.href} external={isAbsoluteUrl(component.href)} icon={component.iconList}>
-                  {component.text}
+                <AdvancedLink
+                  href={component?.href}
+                  external={isAbsoluteUrl(component?.href)}
+                  icon={component?.iconList}
+                >
+                  {component?.text}
                 </AdvancedLink>
               ) : null;
             default:
