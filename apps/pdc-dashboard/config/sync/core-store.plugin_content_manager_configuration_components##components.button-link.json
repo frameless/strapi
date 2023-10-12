@@ -37,27 +37,13 @@
       "href": {
         "edit": {
           "label": "Href",
-          "description": "Geeft de koppelingbestemming aan wanneer er op de knop wordt geklikt",
+          "description": "De website-adres waarnaar je wilt linken.",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
           "label": "href",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "icon": {
-        "edit": {
-          "label": "Icon",
-          "description": "Hiermee kunt u een pijl icoon naast de knop opnemen.",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "icon",
           "searchable": true,
           "sortable": true
         }
@@ -89,10 +75,24 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "icon": {
+        "edit": {
+          "label": "Icon",
+          "description": "Kies een icoon om na de tekst weer te geven.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "icon",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "text", "href", "icon"],
+      "list": ["id", "text", "href"],
       "edit": [
         [
           {
@@ -106,17 +106,17 @@
         ],
         [
           {
-            "name": "icon",
-            "size": 4
+            "name": "label",
+            "size": 6
           },
           {
-            "name": "label",
+            "name": "button_link_appearance",
             "size": 6
           }
         ],
         [
           {
-            "name": "button_link_appearance",
+            "name": "icon",
             "size": 6
           }
         ]
