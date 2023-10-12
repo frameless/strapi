@@ -2,18 +2,22 @@
   "collectionName": "components_components_links",
   "info": {
     "displayName": "Link",
-    "icon": "link"
+    "icon": "link",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "label": {
-      "type": "string"
+    "text": {
+      "type": "string",
+      "required": true
     },
     "href": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "external": {
-      "type": "boolean"
+    "icon": {
+      "type": "enumeration",
+      "enum": ["arrow"]
     }
   }
 }
