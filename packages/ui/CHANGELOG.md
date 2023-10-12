@@ -1,3 +1,10 @@
+# @frameless/ui [1.6.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.5.0...@frameless/ui@1.6.0) (2023-10-12)
+
+
+### Features
+
+* **ui:** create `AdvancedLink` component ([c90e20e](https://github.com/frameless/strapi/commit/c90e20ef3d80ad7b871b634b712435176a04e786))
+
 # @frameless/ui [1.5.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.4.0...@frameless/ui@1.5.0) (2023-10-11)
 
 
