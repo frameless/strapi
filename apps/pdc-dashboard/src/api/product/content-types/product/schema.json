@@ -41,7 +41,8 @@
         "components.multi-columns-button",
         "components.button-link",
         "components.accordion-section",
-        "components.image"
+        "components.image",
+        "components.link"
       ],
       "required": true,
       "min": 1
