@@ -61,7 +61,6 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
 
   const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
 
-  // if the theme is a sub-theme, add its direct parent theme to the breadcrumb
   if (parents?.data[0]) {
     breadcrumbNavigationElements.push({
       title: parents?.data[0]?.attributes?.title,

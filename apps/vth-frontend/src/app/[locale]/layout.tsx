@@ -32,6 +32,13 @@ type Params = {
   };
 };
 
+type ThemaData = {
+  attributes: {
+    title: string;
+    slug: string;
+  };
+};
+
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
@@ -51,7 +58,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
     variables: { locale: locale },
   });
 
-  const hoofdThemas = data?.themas?.data;
+  const hoofdThemas: ThemaData[] = data?.themas?.data;
 
   const navListData = hoofdThemas?.map((thema) => {
     return {
