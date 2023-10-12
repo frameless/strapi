@@ -167,7 +167,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                     external={isAbsoluteUrl(component.href)}
                     rel={isAbsoluteUrl(component.href) ? 'noopener noreferrer' : undefined}
                   >
-                    {component.text} {component?.icon && <UtrechtIconArrow />}
+                    {component.text} {component?.icon === 'arrow' && <UtrechtIconArrow />}
                   </ButtonLink>
                 </div>
               ) : null;
