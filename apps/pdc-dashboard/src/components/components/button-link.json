@@ -14,15 +14,16 @@
       "type": "string",
       "required": true
     },
-    "icon": {
-      "type": "boolean"
-    },
     "label": {
       "type": "string"
     },
     "button_link_appearance": {
       "type": "enumeration",
       "enum": ["primary", "secondary"]
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": ["arrow"]
     }
   }
 }
