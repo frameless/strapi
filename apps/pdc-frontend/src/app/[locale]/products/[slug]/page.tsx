@@ -64,7 +64,7 @@ interface ProductProps {
 export async function generateMetadata({ slug, locale }: any): Promise<Metadata> {
   const { product } = await getAllProducts(locale, slug);
   return {
-    title: product?.attributes.metaTags.title,
+    title: product?.attributes?.metaTags?.title,
     description: product?.attributes?.metaTags?.description,
     other: {
       keymatch: product?.attributes?.metaTags?.keymatch,
