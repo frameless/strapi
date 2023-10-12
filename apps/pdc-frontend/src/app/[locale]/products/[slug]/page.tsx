@@ -7,6 +7,7 @@ import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
 import {
   AccordionProvider,
+  AdvancedLink,
   Article,
   ButtonLink,
   Img,
@@ -21,7 +22,6 @@ import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
 import { PreviewAlert } from '@/components/PreviewAlert';
-import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
 import { getImageBaseUrl } from '@/util';
@@ -207,9 +207,15 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
       </Article>
       <BottomBar>
         <BottomBarItem>
-          <ReactionLink href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten">
+          <AdvancedLink
+            rel="noopener noreferrer"
+            external
+            icon="arrow"
+            hint="danger"
+            href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
+          >
             {t('actions.reaction-link')}
-          </ReactionLink>
+          </AdvancedLink>
         </BottomBarItem>
         <BottomBarItem>
           <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
