@@ -1,4 +1,3 @@
-import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
 import { cookies, draftMode } from 'next/headers';
 import Image from 'next/image';
@@ -164,8 +163,8 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
                   <ButtonLink
                     appearance={`${component?.button_link_appearance}-action-button`}
                     href={component.href}
-                    external={isAbsoluteUrl(component?.href)}
-                    rel={isAbsoluteUrl(component?.href) ? 'noopener noreferrer' : undefined}
+                    external
+                    rel={'noopener noreferrer'}
                   >
                     {component?.text} {component?.icon === 'arrow' && <UtrechtIconArrow />}
                   </ButtonLink>
@@ -175,11 +174,7 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
               return <MultiColumnsButton columns={component.column} />;
             case 'ComponentComponentsLink':
               return component?.href && component?.text ? (
-                <AdvancedLink
-                  href={component?.href}
-                  external={isAbsoluteUrl(component?.href)}
-                  icon={component?.iconList}
-                >
+                <AdvancedLink href={component?.href} external icon={component?.iconList}>
                   {component?.text}
                 </AdvancedLink>
               ) : null;
