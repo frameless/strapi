@@ -1,10 +1,9 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { Article, PageTitle } from '@/components';
+import { AdvancedLink, Article, PageTitle } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { useTranslation } from '../../../i18n/index';
 import { getSuggestedSearch } from '../actions';
@@ -92,9 +91,15 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
       </Article>
       <BottomBar>
         <BottomBarItem>
-          <ReactionLink href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten">
+          <AdvancedLink
+            rel="noopener noreferrer"
+            external
+            icon="arrow"
+            hint="danger"
+            href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
+          >
             {t('actions.reaction-link')}
-          </ReactionLink>
+          </AdvancedLink>
         </BottomBarItem>
         <BottomBarItem>
           <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>

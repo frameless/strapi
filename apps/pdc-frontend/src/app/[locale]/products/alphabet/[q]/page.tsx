@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
-import { Article, PageTitle, Paragraph } from '@/components';
+import { AdvancedLink, Article, PageTitle, Paragraph } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ProductNavigation } from '@/components/ProductNavigation';
 import { alphabet } from '@/components/ProductNavigation/alphabet';
-import { ReactionLink } from '@/components/ReactionLink';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
@@ -149,9 +148,15 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       </Article>
       <BottomBar>
         <BottomBarItem>
-          <ReactionLink href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten">
+          <AdvancedLink
+            rel="noopener noreferrer"
+            external
+            icon="arrow"
+            hint="danger"
+            href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
+          >
             {t('actions.reaction-link')}
-          </ReactionLink>
+          </AdvancedLink>
         </BottomBarItem>
         <BottomBarItem>
           <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
