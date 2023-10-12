@@ -1,3 +1,4 @@
+import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
 import { cookies, draftMode } from 'next/headers';
 import Image from 'next/image';
@@ -10,13 +11,14 @@ import {
   AdvancedLink,
   Article,
   ButtonLink,
+  Heading3,
   Img,
   LogoButton,
   Markdown,
   MultiColumnsButton,
   PageTitle,
-  Paragraph,
   SpotlightSection,
+  UtrechtIconArrow,
 } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
@@ -158,9 +160,14 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
             case 'ComponentComponentsButtonLink':
               return component.text && component.href ? (
                 <div>
-                  <Paragraph>{component?.label}</Paragraph>
-                  <ButtonLink appearance={`${component?.button_link_appearance}-action-button`} href={component.href}>
-                    {component.text}
+                  {component?.label && <Heading3>{component?.label}</Heading3>}
+                  <ButtonLink
+                    appearance={`${component?.button_link_appearance}-action-button`}
+                    href={component.href}
+                    external={isAbsoluteUrl(component.href)}
+                    rel={isAbsoluteUrl(component.href) ? 'noopener noreferrer' : undefined}
+                  >
+                    {component.text} {component?.icon && <UtrechtIconArrow />}
                   </ButtonLink>
                 </div>
               ) : null;
