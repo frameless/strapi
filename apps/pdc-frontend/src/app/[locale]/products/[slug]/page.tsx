@@ -173,6 +173,12 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
               ) : null;
             case 'ComponentComponentsMultiColumnsButton':
               return <MultiColumnsButton columns={component.column} />;
+            case 'ComponentComponentsLink':
+              return component?.href && component?.text ? (
+                <AdvancedLink href={component.href} external={isAbsoluteUrl(component.href)} icon={component.iconList}>
+                  {component.text}
+                </AdvancedLink>
+              ) : null;
             default:
               return <></>;
           }

@@ -169,6 +169,12 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
               icon
               button_link_appearance
             }
+            ... on ComponentComponentsLink {
+              __typename
+              href
+              text
+              iconList:icon
+            }
             ... on ComponentComponentsFaq {
               __typename
               faq {
@@ -186,7 +192,6 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
                 }
               }
             }
-
             ... on ComponentComponentsAccordionSection {
               __typename
               item {
