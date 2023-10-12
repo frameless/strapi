@@ -1,0 +1,24 @@
+.utrecht-advanced-link {
+  --utrecht-link-icon-size: var(--utrecht-advanced-link-icon-size, var(--utrecht-document-font-size));
+}
+
+.utrecht-advanced-link--with-icon {
+  --utrecht-link-text-decoration: var(--utrecht-advanced-link-with-icon-text-decoration);
+  --utrecht-link-hover-text-decoration-thickness: var(--utrecht-advanced-link-with-icon-text-decoration-thickness);
+
+  align-items: center;
+  display: flex;
+  width: fit-content;
+}
+
+.utrecht-advanced-link--hint-danger {
+  --utrecht-link-active-color: var(--utrecht-advanced-link-hint-active-color-danger);
+  --utrecht-link-color: var(--utrecht-advanced-link-hint-color-danger);
+  --utrecht-link-focus-color: var(--utrecht-advanced-link-hint-focus-color-danger);
+  --utrecht-link-hover-color: var(--utrecht-advanced-link-hint-hover-color-danger);
+  --utrecht-link-visited-color: var(--utrecht-advanced-link-hint-visited-color-danger);
+}
+
+.utrecht-reaction-link__icon {
+  margin-inline-end: var(--utrecht-reaction-link-icon-margin-inline-end);
+}

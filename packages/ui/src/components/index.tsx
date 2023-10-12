@@ -1,3 +1,4 @@
+export * from './AdvancedLink';
 export * from './Navigation';
 export * from './Img';
 export * from './LogoButton';
