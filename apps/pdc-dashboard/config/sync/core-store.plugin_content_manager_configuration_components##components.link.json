@@ -7,8 +7,8 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "label",
-      "defaultSortBy": "label",
+      "mainField": "text",
+      "defaultSortBy": "text",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,24 +20,24 @@
           "sortable": false
         }
       },
-      "label": {
+      "text": {
         "edit": {
-          "label": "label",
-          "description": "",
+          "label": "Text",
+          "description": "Specificeert de weergegeven tekst",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "label",
+          "label": "text",
           "searchable": true,
           "sortable": true
         }
       },
       "href": {
         "edit": {
-          "label": "href",
-          "description": "",
+          "label": "Href",
+          "description": "De website-adres waarnaar je wilt linken.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -48,38 +48,38 @@
           "sortable": true
         }
       },
-      "external": {
+      "icon": {
         "edit": {
-          "label": "external",
-          "description": "",
+          "label": "Icon",
+          "description": "Kies een icoon om vóór de tekst weer te geven.",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "external",
+          "label": "icon",
           "searchable": true,
           "sortable": true
         }
       }
     },
     "layouts": {
-      "list": ["id", "label", "href", "external"],
+      "list": ["id", "href", "text", "icon"],
       "edit": [
         [
           {
-            "name": "label",
+            "name": "href",
             "size": 6
           },
           {
-            "name": "href",
+            "name": "text",
             "size": 6
           }
         ],
         [
           {
-            "name": "external",
-            "size": 4
+            "name": "icon",
+            "size": 6
           }
         ]
       ]
