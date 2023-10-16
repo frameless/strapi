@@ -24,6 +24,7 @@
     "@frameless/strapi-plugin-uniform-product-name": "0.0.0-semantically-released",
     "@frameless/strapi-tiptap-editor": "0.0.0-semantically-released",
     "@strapi/plugin-graphql": "4.10.5",
+    "strapi-content-type-explorer": "0.1.1",
     "@strapi/plugin-i18n": "4.10.5",
     "@strapi/plugin-users-permissions": "4.10.5",
     "@strapi/strapi": "4.10.5",
