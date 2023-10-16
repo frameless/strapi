@@ -61,8 +61,8 @@ interface ProductProps {
   searchParams: { [key: string]: string | undefined };
 }
 
-export async function generateMetadata({ slug, locale }: any): Promise<Metadata> {
-  const { product } = await getAllProducts(locale, slug);
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { product } = await getAllProducts(params?.locale, params?.slug);
   return {
     title: product?.attributes?.metaTags?.title,
     description: product?.attributes?.metaTags?.description,
