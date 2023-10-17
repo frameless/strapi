@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.7.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.7.0...@frameless/strapi-tiptap-editor@1.7.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* build error for experimental feature ([6d53cc7](https://github.com/frameless/strapi/commit/6d53cc710398d64233b638bce91e165b217adcc5))
+
 # @frameless/strapi-tiptap-editor [1.7.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.6.0...@frameless/strapi-tiptap-editor@1.7.0) (2023-10-11)
 
 
