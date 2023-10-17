@@ -9,35 +9,40 @@
       "properties": {
         "fields": ["subcategories", "title"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "subject": "api::category.category",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "subject": "api::category.category",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::category.category",
-      "properties": {
-        "fields": ["subcategories", "title"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
       "subject": "api::category.category",
       "properties": {
         "fields": ["subcategories", "title"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": ["subcategories", "title"]
+      },
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -46,7 +51,8 @@
         "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
@@ -54,7 +60,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -62,7 +69,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -71,7 +79,8 @@
         "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -80,7 +89,8 @@
         "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -89,7 +99,8 @@
         "fields": ["title", "body"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
@@ -97,7 +108,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -105,7 +117,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -114,7 +127,8 @@
         "fields": ["title", "body"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -123,7 +137,8 @@
         "fields": ["title", "body"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -131,19 +146,22 @@
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "title", "products"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "subject": "api::price.price",
       "properties": {},
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "subject": "api::price.price",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -151,7 +169,8 @@
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "title", "products"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -159,7 +178,8 @@
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "title", "products"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -192,7 +212,8 @@
         ],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
@@ -200,7 +221,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -208,7 +230,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -241,7 +264,8 @@
         ],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -274,7 +298,8 @@
         ],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -283,7 +308,8 @@
         "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
@@ -291,7 +317,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -299,7 +326,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -308,7 +336,8 @@
         "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -317,7 +346,8 @@
         "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
         "locales": ["en", "nl"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -326,7 +356,8 @@
         "fields": ["category", "title", "products"],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
@@ -334,7 +365,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -342,7 +374,8 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -351,7 +384,8 @@
         "fields": ["category", "title", "products"],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -360,43 +394,50 @@
         "fields": ["category", "title", "products"],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.assets.copy-link",
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.assets.create",
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.assets.download",
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.assets.update",
       "subject": null,
       "properties": {},
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.configure-view",
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.read",
       "subject": null,
       "properties": {},
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     }
   ]
 }
