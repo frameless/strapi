@@ -28,7 +28,7 @@
     "node": "18.x.x"
   },
   "dependencies": {
-    "@strapi/design-system": "1.6.5",
-    "@strapi/icons": "1.6.5"
+    "@strapi/design-system": "1.12.2",
+    "@strapi/icons": "1.12.2"
   }
 }

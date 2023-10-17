@@ -116,6 +116,7 @@ build
 .strapi-updater.json
 dist/*
 tsconfig.tsbuildinfo
+generated
 ############################
 # samenwerkende-catalogi
 ############################
