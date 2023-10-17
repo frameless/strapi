@@ -1,7 +1,7 @@
+import clsx from 'clsx';
 import Link from 'next/link';
 import { FC, useId } from 'react';
 import { UtrechtIconChevronRight } from '../Icons';
-import clsx from 'clsx';
 
 export type BreadcrumbNavigationElement = {
   title: string;
