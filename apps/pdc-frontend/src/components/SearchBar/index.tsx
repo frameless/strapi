@@ -3,7 +3,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useOptimistic } from 'react';
+import { experimental_useOptimistic as useOptimistic } from 'react';
 import React from 'react';
 import { Link as UtrechtLink } from '@/components';
 import { SuggestedHits, Suggestions } from '@/types';
