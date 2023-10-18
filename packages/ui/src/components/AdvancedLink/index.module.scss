@@ -11,14 +11,14 @@
   width: fit-content;
 }
 
-.utrecht-advanced-link--hint-danger {
-  --utrecht-link-active-color: var(--utrecht-advanced-link-hint-active-color-danger);
-  --utrecht-link-color: var(--utrecht-advanced-link-hint-color-danger);
-  --utrecht-link-focus-color: var(--utrecht-advanced-link-hint-focus-color-danger);
-  --utrecht-link-hover-color: var(--utrecht-advanced-link-hint-hover-color-danger);
-  --utrecht-link-visited-color: var(--utrecht-advanced-link-hint-visited-color-danger);
+.utrecht-advanced-link--color-red {
+  --utrecht-link-active-color: var(--utrecht-advanced-link-color-active-color-red);
+  --utrecht-link-color: var(--utrecht-advanced-link-color-color-red);
+  --utrecht-link-focus-color: var(--utrecht-advanced-link-color-focus-color-red);
+  --utrecht-link-hover-color: var(--utrecht-advanced-link-color-hover-color-red);
+  --utrecht-link-visited-color: var(--utrecht-advanced-link-color-visited-color-red);
 }
 
-.utrecht-reaction-link__icon {
-  margin-inline-end: var(--utrecht-reaction-link-icon-margin-inline-end);
+.utrecht-advanced-link__icon {
+  margin-inline-end: var(--utrecht-advanced-link-icon-margin-inline-end);
 }
