@@ -15,7 +15,7 @@
     "title": {
       "type": "string",
       "maxLength": 70,
-      "unique": true,
+      "unique": false,
       "required": true
     },
     "description": {
