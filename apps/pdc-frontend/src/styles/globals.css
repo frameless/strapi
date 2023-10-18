@@ -15,12 +15,13 @@ body {
   /* Advanced Link tokens */
   --utrecht-advanced-link-with-icon-text-decoration: none;
   --utrecht-advanced-link-with-icon-text-decoration-thickness: 1px;
-  --utrecht-advanced-link-hint-active-color-danger: var(--utrecht-color-red-40);
-  --utrecht-advanced-link-hint-focus-color-danger: var(--utrecht-color-red-40);
-  --utrecht-advanced-link-hint-hover-color-danger: var(--utrecht-color-red-40);
-  --utrecht-advanced-link-hint-visited-color-danger: var(--utrecht-color-red-40);
-  --utrecht-advanced-link-hint-color-danger: var(--utrecht-color-red-40);
-  --utrecht-reaction-link-icon-margin-inline-end: var(--utrecht-space-inline-xs);
+  --utrecht-advanced-link-color-active-color-red: var(--utrecht-color-red-40);
+  --utrecht-advanced-link-color-focus-color-red: var(--utrecht-color-red-40);
+  --utrecht-advanced-link-color-hover-color-red: var(--utrecht-color-red-40);
+  --utrecht-advanced-link-color-visited-color-red: var(--utrecht-color-red-40);
+  --utrecht-advanced-link-color-color-red: var(--utrecht-color-red-40);
+  --utrecht-advanced-link-icon-margin-inline-end: var(--utrecht-space-inline-xs);
+  --utrecht-advanced-link-icon-size: 14px;
 
   /* Multi columns button tokens */
   --utrecht-multi-columns-button-item-inline-size: 50%;

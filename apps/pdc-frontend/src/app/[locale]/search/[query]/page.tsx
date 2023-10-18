@@ -95,7 +95,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
             rel="noopener noreferrer"
             external
             icon="arrow"
-            hint="danger"
+            color="red"
             href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
           >
             {t('actions.reaction-link')}
