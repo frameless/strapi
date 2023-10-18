@@ -138,6 +138,12 @@ body {
 
   /* --- navigation tokens end --- */
 
+  /* Logo button token */
+  --utrecht-logo-without-logo-padding-block-start: var(--utrecht-space-block-xs);
+  --utrecht-logo-without-logo-padding-block-end: var(--utrecht-space-block-xs);
+  --utrecht-logo-logo-padding-block-start: var(--utrecht-space-block-2xs);
+  --utrecht-logo-logo-padding-block-end: var(--utrecht-space-block-2xs);
+
   margin-block: 0;
   margin-inline: 0;
   padding-block: 0;
