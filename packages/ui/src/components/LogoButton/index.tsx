@@ -23,7 +23,7 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
   switch (logo) {
     case 'digid':
       return (
-        <div>
+        <div className={css('utrecht-logo-button', 'utrecht-logo-button--logo')}>
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <UtrechtLogoButton>
             <UtrechtDigidLogo />
@@ -35,7 +35,7 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
       );
     case 'eherkenning':
       return (
-        <div>
+        <div className={css('utrecht-logo-button', 'utrecht-logo-button--logo')}>
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <UtrechtLogoButton>
             <UtrechtEherkenningLogo />
@@ -47,7 +47,7 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
       );
     case 'eidas':
       return (
-        <div>
+        <div className={css('utrecht-logo-button', 'utrecht-logo-button--logo')}>
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <UtrechtLogoButton>
             <UtrechtEidasLogo />
@@ -59,7 +59,7 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
       );
     case 'without_logo':
       return (
-        <div>
+        <div className={css('utrecht-logo-button', 'utrecht-logo-button--without-logo')}>
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <ButtonLink appearance={`${appearance}-action-button`} href={href}>
             {text} <UtrechtIconArrow />
