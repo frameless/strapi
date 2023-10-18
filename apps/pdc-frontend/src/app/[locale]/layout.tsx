@@ -3,7 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Navigation, Page, PageContent, PageHeader, SkipLink, Surface } from '@/components';
+import { Grid, GridCell, Navigation, Page, PageContent, PageHeader, SkipLink, Surface } from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
@@ -210,14 +210,14 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <SkipLink href="#main">{t('components.skip-link.main')}</SkipLink>
                 <SkipLink href="#menu">{t('components.skip-link.menu')}</SkipLink>
                 <SkipLink href="#search-input">{t('components.skip-link.search-input')}</SkipLink>
-                <div className="utrecht-header">
-                  <div className="utrecht-grid--col-6">
+                <Grid spacing="sm">
+                  <GridCell xs={6}>
                     <Logo locale={locale} />
-                  </div>
-                  <div className="utrecht-grid--col-6">
+                  </GridCell>
+                  <GridCell xs={6}>
                     <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
-                  </div>
-                  <div className="utrecht-grid--col-12">
+                  </GridCell>
+                  <GridCell sm={12} justifyContent="flex-end">
                     <SearchBar
                       locale={locale}
                       onSearchSubmit={onSearchSubmitAction}
@@ -227,8 +227,8 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                       suggestionsTitle={t('search-bar.suggestions-title')}
                       hitsTitle={t('search-bar.hits-title')}
                     />
-                  </div>
-                </div>
+                  </GridCell>
+                </Grid>
               </PageHeader>
               <Navigation
                 list={getNavListData(t)}
