@@ -10,6 +10,7 @@ import {
   UtrechtIconRijbewijs,
   UtrechtIconVerhuizen,
 } from '../icons';
+import { Grid, GridCell } from '../index';
 
 const topTaskIcons = {
   paspoort: UtrechtIconPaspoort,
@@ -36,19 +37,19 @@ interface TopTaskProps {
 const css = classnames.bind(styles);
 
 export const TopTask = ({ data }: TopTaskProps) => (
-  <div className={css('utrecht-toptask')}>
+  <Grid className={css('utrecht-toptask')} spacing="sm">
     {data &&
       data.length > 0 &&
       data.map(({ icon, id, title, href }) => {
         const Icon = topTaskIcons[icon];
         return (
-          <div key={id} className={css('utrecht-toptask__item')}>
+          <GridCell key={id} md={4} sm={6} lg={4}>
             <a href={href} className={css('utrecht-toptask-link')}>
               <Icon />
               <span className={css('utrecht-toptask-link__title')}>{title}</span>
             </a>
-          </div>
+          </GridCell>
         );
       })}
-  </div>
+  </Grid>
 );
