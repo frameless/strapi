@@ -1,3 +1,15 @@
+# @frameless/ui [2.0.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.6.0...@frameless/ui@2.0.0) (2023-10-18)
+
+
+### Bug Fixes
+
+* **ui:** correct icon css class in the `AdvancedLink` ([8d38931](https://github.com/frameless/strapi/commit/8d38931fe4114ea5c6a19efb4b9b84973960a003))
+
+
+### BREAKING CHANGES
+
+* **ui:** rename `hint` to `color`
+
 # @frameless/ui [1.6.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.5.0...@frameless/ui@1.6.0) (2023-10-12)
 
 
