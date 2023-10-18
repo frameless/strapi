@@ -1,3 +1,10 @@
+# @frameless/ui [2.2.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.1.0...@frameless/ui@2.2.0) (2023-10-18)
+
+
+### Features
+
+* **ui:** add spacing to the logo button ([a93db9c](https://github.com/frameless/strapi/commit/a93db9cac92aecf5be6259000f2f31d51c9ac57e))
+
 # @frameless/ui [2.1.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.0.0...@frameless/ui@2.1.0) (2023-10-18)
 
 

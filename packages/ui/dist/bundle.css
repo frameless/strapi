@@ -23,6 +23,29 @@
   margin-inline-end: var(--utrecht-advanced-link-icon-margin-inline-end);
 }
 
+.utrecht-navigation {
+  border-block-start-color: var(--utrecht-navigation-border-block-start-color);
+  border-block-start-style: solid;
+  border-block-start-width: var(--utrecht-navigation-border-block-start-width);
+}
+
+.utrecht-navigation--mobile {
+  --utrecht-navigation-border-block-start-color: transparent;
+  --utrecht-navigation-border-block-start-width: 0;
+  align-items: flex-end;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  justify-content: flex-end;
+}
+
+.utrecht-navigation__toggle-button {
+  display: flex;
+  inline-size: 100%;
+  justify-content: flex-end;
+}
+
 .utrecht-navigation__list {
   --utrecht-navigation-list-display: flex;
   --utrecht-navigation-list-mobile-inline-size: 100%;
@@ -51,12 +74,6 @@
   .utrecht-navigation__list--mobile {
     inline-size: 50%;
   }
-}
-
-.utrecht-navigation__toggle-button {
-  display: flex;
-  inline-size: 100%;
-  justify-content: flex-end;
 }
 
 .utrecht-drawer-custom {
@@ -152,23 +169,6 @@
   margin-inline-end: var(--utrecht-navigation-item-icon-margin-inline-end);
 }
 
-.utrecht-navigation {
-  border-block-start-color: var(--utrecht-navigation-border-block-start-color);
-  border-block-start-style: solid;
-  border-block-start-width: var(--utrecht-navigation-border-block-start-width);
-}
-
-.utrecht-navigation--mobile {
-  --utrecht-navigation-border-block-start-color: transparent;
-  --utrecht-navigation-border-block-start-width: 0;
-  align-items: flex-end;
-  block-size: 100%;
-  display: flex;
-  flex-direction: column;
-  inline-size: 100%;
-  justify-content: flex-end;
-}
-
 .utrecht-image {
   block-size: auto;
   max-inline-size: 100%;
@@ -196,6 +196,22 @@
   --utrecht-button-primary-action-hover-background-color: var(--utrecht-button-link-magenta-hover-background-color);
   --utrecht-button-primary-action-focus-background-color: var(--utrecht-button-link-magenta-focus-background-color);
   --utrecht-button-primary-action-pressed-background-color: var(--utrecht-button-link-magenta-pressed-background-color);
+}
+
+.utrecht-logo-button--without-logo {
+  margin-block-end: var(--utrecht-logo-without-logo-padding-block-end);
+  margin-block-start: var(--utrecht-logo-without-logo-padding-block-start);
+}
+
+.utrecht-logo-button {
+  display: flex;
+  flex-direction: column;
+  inline-size: fit-content;
+}
+
+.utrecht-logo-button--logo {
+  margin-block-end: var(--utrecht-logo-logo-padding-block-end);
+  margin-block-start: var(--utrecht-logo-logo-padding-block-start);
 }
 
 .utrecht-multi-columns-button {
