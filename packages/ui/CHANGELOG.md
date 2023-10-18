@@ -1,3 +1,10 @@
+# @frameless/ui [2.1.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.0.0...@frameless/ui@2.1.0) (2023-10-18)
+
+
+### Features
+
+* **ui:** create grid component ([d3648f9](https://github.com/frameless/strapi/commit/d3648f9f311b1bf53ac3074b129cd395d9c75d5d))
+
 # @frameless/ui [2.0.0](https://github.com/frameless/strapi/compare/@frameless/ui@1.6.0...@frameless/ui@2.0.0) (2023-10-18)
 
 
