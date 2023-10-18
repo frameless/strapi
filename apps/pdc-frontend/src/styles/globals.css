@@ -163,22 +163,6 @@ a {
   padding-inline: 0 !important;
 }
 
-.utrecht-header {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 5px;
-}
-
-/* TODO: replace the following css classes with the grid component */
-.utrecht-grid--col-6 {
-  inline-size: 50%;
-}
-.utrecht-grid--col-12 {
-  display: flex;
-  inline-size: 100%;
-  justify-content: flex-end;
-}
-
 .utrecht-spotlight-section > :first-child {
   --utrecht-space-around: 0;
 }
