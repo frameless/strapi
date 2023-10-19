@@ -1,8 +1,8 @@
 const { apolloPrometheusPlugin } = require('strapi-prometheus');
 
 export default ({ env }) => ({
-  ckeditor5: {
-    enabled: false,
+  'entity-notes': {
+    enabled: true,
   },
   'strapi-tiptap-editor': {
     enabled: true,
