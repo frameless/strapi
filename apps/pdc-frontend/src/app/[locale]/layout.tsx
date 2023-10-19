@@ -238,7 +238,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   closeText: 'Sluiten',
                 }}
               />
-              <PageContent className="utrecht-page-content--modifier" style={{ position: 'relative' }}>
+              <PageContent className="utrecht-page-content--modifier">
                 <Main id="main">{children}</Main>
               </PageContent>
               <Footer data={footerData} />

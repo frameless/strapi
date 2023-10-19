@@ -1,7 +1,7 @@
 {
   "preview-alert": {
-    "message": "Waarschuwing: voorbeeldmodus is ingeschakeld",
-    "button": "Schakel de voorbeeldmodus uit"
+    "message": "Testmodus: Ingeschakeld ",
+    "link": "(U kunt deze uitschakelen in de instellingen)"
   },
   "actions": {
     "try-again": "Probeer opnieuw",

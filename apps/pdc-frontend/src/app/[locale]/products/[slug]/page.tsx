@@ -1,6 +1,6 @@
 import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
-import { cookies, draftMode } from 'next/headers';
+import { draftMode } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
@@ -42,9 +42,7 @@ const getAllProducts = async (locale: string, slug: string) => {
     },
   });
 
-  if (!data || data?.products?.data?.length === 0) {
-    notFound();
-  }
+  if (!data || data?.products?.data?.length === 0) notFound();
 
   return {
     product: data?.products?.data[0],
@@ -72,13 +70,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   };
 }
 
-const Product = async ({ params: { locale, slug }, searchParams }: ProductProps) => {
-  const currentToken = cookies().has('secret') && cookies().get('secret')?.value;
-  const isCurrentPreviewTokenValid = searchParams.secret === currentToken;
+const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const { isEnabled } = draftMode();
-  if (!isCurrentPreviewTokenValid) {
-    draftMode().disable();
-  }
   const { product } = await getAllProducts(locale, slug);
 
   const priceData = product?.attributes.price && product?.attributes.price?.data?.attributes.price;
@@ -190,6 +183,15 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
       : null;
   return (
     <>
+      {isEnabled && (
+        <PreviewAlert
+          link={{
+            href: `/api/clear-preview?slug=${locale}${slug}&default_locale=${fallbackLng}`,
+            text: t('preview-alert.link'),
+          }}
+          message={t('preview-alert.message')}
+        />
+      )}
       <Breadcrumbs
         links={[
           {
@@ -210,15 +212,6 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
         ]}
       />
       <Article>
-        {isCurrentPreviewTokenValid && isEnabled && (
-          <PreviewAlert
-            link={{
-              href: `/api/clear-preview?slug=${locale}${slug}&default_locale=${fallbackLng}`,
-              text: t('preview-alert.button'),
-            }}
-            message={t('preview-alert.message')}
-          />
-        )}
         <PageTitle>{product?.attributes.title}</PageTitle>
         {product?.attributes?.content && (
           <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>

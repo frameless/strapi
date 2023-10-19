@@ -1,7 +1,7 @@
 {
   "preview-alert": {
-    "message": "Warning: Preview mode is on",
-    "button": "Turn off the preview mode"
+    "message": "Preview Mode: Enabled",
+    "link": "(You can disable it in settings)"
   },
   "actions": {
     "try-again": "Try again",
