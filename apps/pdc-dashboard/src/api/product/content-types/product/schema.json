@@ -26,6 +26,15 @@
         }
       }
     },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "required": false
+    },
     "sections": {
       "pluginOptions": {
         "i18n": {
@@ -44,8 +53,7 @@
         "components.image",
         "components.link"
       ],
-      "required": true,
-      "min": 1
+      "required": false
     },
     "price": {
       "type": "relation",
