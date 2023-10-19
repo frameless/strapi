@@ -8,18 +8,3 @@
   --utrecht-button-primary-action-focus-background-color: var(--utrecht-button-link-magenta-focus-background-color);
   --utrecht-button-primary-action-pressed-background-color: var(--utrecht-button-link-magenta-pressed-background-color);
 }
-
-.utrecht-logo-button--without-logo {
-  margin-block-end: var(--utrecht-logo-without-logo-padding-block-end);
-  margin-block-start: var(--utrecht-logo-without-logo-padding-block-start);
-}
-.utrecht-logo-button {
-  display: flex;
-  flex-direction: column;
-  inline-size: fit-content;
-}
-
-.utrecht-logo-button--logo {
-  margin-block-end: var(--utrecht-logo-logo-padding-block-end);
-  margin-block-start: var(--utrecht-logo-logo-padding-block-start);
-}
