@@ -23,29 +23,6 @@
   margin-inline-end: var(--utrecht-advanced-link-icon-margin-inline-end);
 }
 
-.utrecht-navigation {
-  border-block-start-color: var(--utrecht-navigation-border-block-start-color);
-  border-block-start-style: solid;
-  border-block-start-width: var(--utrecht-navigation-border-block-start-width);
-}
-
-.utrecht-navigation--mobile {
-  --utrecht-navigation-border-block-start-color: transparent;
-  --utrecht-navigation-border-block-start-width: 0;
-  align-items: flex-end;
-  block-size: 100%;
-  display: flex;
-  flex-direction: column;
-  inline-size: 100%;
-  justify-content: flex-end;
-}
-
-.utrecht-navigation__toggle-button {
-  display: flex;
-  inline-size: 100%;
-  justify-content: flex-end;
-}
-
 .utrecht-navigation__list {
   --utrecht-navigation-list-display: flex;
   --utrecht-navigation-list-mobile-inline-size: 100%;
@@ -76,15 +53,35 @@
   }
 }
 
-.utrecht-drawer-custom {
-  background-color: rgba(0, 0, 0, 0.25);
-  display: block;
-  inset-block-end: 0;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  inset-inline-start: 0;
-  position: absolute;
-  z-index: 1000;
+.utrecht-navigation__toggle-button {
+  display: flex;
+  inline-size: 100%;
+  justify-content: flex-end;
+}
+
+.utrecht-navigation__item {
+  flex: 1 1 auto;
+  padding-block-end: var(--utrecht-navigation-item-padding-block-end);
+  padding-block-start: var(--utrecht-navigation-item-padding-block-start);
+  padding-inline-end: var(--utrecht-navigation-item-padding-inline-end);
+  padding-inline-start: var(--utrecht-navigation-item-padding-inline-start);
+}
+
+.utrecht-navigation__item--mobile {
+  --utrecht-navigation-item-padding-block-start: var(--utrecht-navigation-item-mobile-padding-block-start);
+  --utrecht-navigation-item-padding-block-end: var(--utrecht-navigation-item-mobile-padding-block-end);
+  --utrecht-navigation-item-padding-inline-start: var(--utrecht-navigation-item-mobile-padding-inline-start);
+  --utrecht-navigation-item-padding-inline-end: var(--utrecht-navigation-item-mobile-padding-inline-end);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.utrecht-navigation__item-icon::before {
+  color: var(--utrecht-navigation-item-icon-color);
+  content: "•";
+  font-size: inherit;
+  margin-inline-end: var(--utrecht-navigation-item-icon-margin-inline-end);
 }
 
 .utrecht-navigation__link {
@@ -144,29 +141,32 @@
   --utrecht-navigation-link-font-weight: var(--utrecht-navigation-mobile-hover-link-font-weight);
 }
 
-.utrecht-navigation__item {
-  flex: 1 1 auto;
-  padding-block-end: var(--utrecht-navigation-item-padding-block-end);
-  padding-block-start: var(--utrecht-navigation-item-padding-block-start);
-  padding-inline-end: var(--utrecht-navigation-item-padding-inline-end);
-  padding-inline-start: var(--utrecht-navigation-item-padding-inline-start);
+.utrecht-drawer-custom {
+  background-color: rgba(0, 0, 0, 0.25);
+  display: block;
+  inset-block-end: 0;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  inset-inline-start: 0;
+  position: absolute;
+  z-index: 1000;
 }
 
-.utrecht-navigation__item--mobile {
-  --utrecht-navigation-item-padding-block-start: var(--utrecht-navigation-item-mobile-padding-block-start);
-  --utrecht-navigation-item-padding-block-end: var(--utrecht-navigation-item-mobile-padding-block-end);
-  --utrecht-navigation-item-padding-inline-start: var(--utrecht-navigation-item-mobile-padding-inline-start);
-  --utrecht-navigation-item-padding-inline-end: var(--utrecht-navigation-item-mobile-padding-inline-end);
-  align-items: center;
+.utrecht-navigation {
+  border-block-start-color: var(--utrecht-navigation-border-block-start-color);
+  border-block-start-style: solid;
+  border-block-start-width: var(--utrecht-navigation-border-block-start-width);
+}
+
+.utrecht-navigation--mobile {
+  --utrecht-navigation-border-block-start-color: transparent;
+  --utrecht-navigation-border-block-start-width: 0;
+  align-items: flex-end;
+  block-size: 100%;
   display: flex;
-  justify-content: center;
-}
-
-.utrecht-navigation__item-icon::before {
-  color: var(--utrecht-navigation-item-icon-color);
-  content: "•";
-  font-size: inherit;
-  margin-inline-end: var(--utrecht-navigation-item-icon-margin-inline-end);
+  flex-direction: column;
+  inline-size: 100%;
+  justify-content: flex-end;
 }
 
 .utrecht-image {
@@ -196,22 +196,6 @@
   --utrecht-button-primary-action-hover-background-color: var(--utrecht-button-link-magenta-hover-background-color);
   --utrecht-button-primary-action-focus-background-color: var(--utrecht-button-link-magenta-focus-background-color);
   --utrecht-button-primary-action-pressed-background-color: var(--utrecht-button-link-magenta-pressed-background-color);
-}
-
-.utrecht-logo-button--without-logo {
-  margin-block-end: var(--utrecht-logo-without-logo-padding-block-end);
-  margin-block-start: var(--utrecht-logo-without-logo-padding-block-start);
-}
-
-.utrecht-logo-button {
-  display: flex;
-  flex-direction: column;
-  inline-size: fit-content;
-}
-
-.utrecht-logo-button--logo {
-  margin-block-end: var(--utrecht-logo-logo-padding-block-end);
-  margin-block-start: var(--utrecht-logo-logo-padding-block-start);
 }
 
 .utrecht-multi-columns-button {

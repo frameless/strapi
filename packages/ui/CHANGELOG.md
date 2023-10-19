@@ -1,3 +1,10 @@
+## @frameless/ui [2.2.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.2.0...@frameless/ui@2.2.1) (2023-10-19)
+
+
+### Bug Fixes
+
+* **ui:** wrap `LogoButton` with `ButtonGroup` ([9d12d74](https://github.com/frameless/strapi/commit/9d12d7415b4ad58429028b6394f1e40ba6498bb2))
+
 # @frameless/ui [2.2.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.1.0...@frameless/ui@2.2.0) (2023-10-18)
 
 
