@@ -112,6 +112,7 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
             description
             keymatch
           }
+          content
           sections {
             ... on ComponentComponentsImage {
               __typename
