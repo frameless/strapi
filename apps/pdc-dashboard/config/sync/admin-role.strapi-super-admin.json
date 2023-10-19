@@ -187,6 +187,7 @@
       "properties": {
         "fields": [
           "title",
+          "content",
           "sections",
           "price",
           "metaTags.keymatch",
@@ -239,6 +240,7 @@
       "properties": {
         "fields": [
           "title",
+          "content",
           "sections",
           "price",
           "metaTags.keymatch",
@@ -273,6 +275,7 @@
       "properties": {
         "fields": [
           "title",
+          "content",
           "sections",
           "price",
           "metaTags.keymatch",
