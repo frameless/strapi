@@ -1,4 +1,4 @@
-import { ButtonLink, Heading } from '@utrecht/component-library-react/dist/css-module';
+import { ButtonGroup, ButtonLink, Heading } from '@utrecht/component-library-react/dist/css-module';
 import {
   UtrechtDigidLogo,
   UtrechtEherkenningLogo,
@@ -23,48 +23,60 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
   switch (logo) {
     case 'digid':
       return (
-        <div className={css('utrecht-logo-button', 'utrecht-logo-button--logo')}>
+        <>
           {label && <Heading level={headingLevel}>{label}</Heading>}
-          <UtrechtLogoButton>
-            <UtrechtDigidLogo />
-            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
-              {text} <UtrechtIconArrow />
-            </ButtonLink>
-          </UtrechtLogoButton>
-        </div>
+          <ButtonGroup>
+            <UtrechtLogoButton>
+              <UtrechtDigidLogo />
+              <ButtonLink appearance={`${appearance}-action-button`} href={href}>
+                {text} <UtrechtIconArrow />
+              </ButtonLink>
+            </UtrechtLogoButton>
+          </ButtonGroup>
+        </>
       );
     case 'eherkenning':
       return (
-        <div className={css('utrecht-logo-button', 'utrecht-logo-button--logo')}>
+        <>
           {label && <Heading level={headingLevel}>{label}</Heading>}
-          <UtrechtLogoButton>
-            <UtrechtEherkenningLogo />
-            <ButtonLink appearance="primary-action-button" href={href} className={css('utrecht-button-link--magenta')}>
-              {text} <UtrechtIconArrow />
-            </ButtonLink>
-          </UtrechtLogoButton>
-        </div>
+          <ButtonGroup>
+            <UtrechtLogoButton>
+              <UtrechtEherkenningLogo />
+              <ButtonLink
+                appearance="primary-action-button"
+                href={href}
+                className={css('utrecht-button-link--magenta')}
+              >
+                {text} <UtrechtIconArrow />
+              </ButtonLink>
+            </UtrechtLogoButton>
+          </ButtonGroup>
+        </>
       );
     case 'eidas':
       return (
-        <div className={css('utrecht-logo-button', 'utrecht-logo-button--logo')}>
+        <>
           {label && <Heading level={headingLevel}>{label}</Heading>}
-          <UtrechtLogoButton>
-            <UtrechtEidasLogo />
-            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
-              {text} <UtrechtIconArrow />
-            </ButtonLink>
-          </UtrechtLogoButton>
-        </div>
+          <ButtonGroup>
+            <UtrechtLogoButton>
+              <UtrechtEidasLogo />
+              <ButtonLink appearance={`${appearance}-action-button`} href={href}>
+                {text} <UtrechtIconArrow />
+              </ButtonLink>
+            </UtrechtLogoButton>
+          </ButtonGroup>
+        </>
       );
     case 'without_logo':
       return (
-        <div className={css('utrecht-logo-button', 'utrecht-logo-button--without-logo')}>
+        <>
           {label && <Heading level={headingLevel}>{label}</Heading>}
-          <ButtonLink appearance={`${appearance}-action-button`} href={href}>
-            {text} <UtrechtIconArrow />
-          </ButtonLink>
-        </div>
+          <ButtonGroup>
+            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
+              {text} <UtrechtIconArrow />
+            </ButtonLink>
+          </ButtonGroup>
+        </>
       );
     default:
       return null;
