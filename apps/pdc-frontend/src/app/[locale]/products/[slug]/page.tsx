@@ -220,6 +220,11 @@ const Product = async ({ params: { locale, slug }, searchParams }: ProductProps)
           />
         )}
         <PageTitle>{product?.attributes.title}</PageTitle>
+        {product?.attributes?.content && (
+          <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+            {product?.attributes?.content}
+          </Markdown>
+        )}
         <Sections />
       </Article>
       <BottomBar>
