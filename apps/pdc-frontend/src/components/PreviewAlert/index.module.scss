@@ -1,0 +1,13 @@
+.utrecht-preview-mode {
+  // TODO: move this component to ui package
+  --utrecht-space-around: 0;
+  --utrecht-alert-padding-block-start: 10px;
+  --utrecht-alert-padding-block-end: 10px;
+
+  inline-size: 100%;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  z-index: 100;
+}
