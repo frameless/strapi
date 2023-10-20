@@ -4,7 +4,6 @@ import { Heading2, Paragraph } from '@utrecht/component-library-react';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React, { FC, HTMLAttributes } from 'react';
 import './index.style.css';
 
