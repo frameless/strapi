@@ -57,7 +57,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       <Grid className={'utrecht-grid--content-padding'}>
         <div className={'utrecht-grid__two-third'}>
           <Heading1>{title}</Heading1>
-          <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
+          <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
         </div>
         <Grid className={'utrecht-grid__full-width'}>
           {themas &&
