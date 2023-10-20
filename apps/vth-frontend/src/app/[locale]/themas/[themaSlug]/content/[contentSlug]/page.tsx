@@ -84,7 +84,7 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
       </div>
       <div className={'utrecht-grid__two-third'}>
         <Heading1>{title}</Heading1>
-        <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
+        <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
       </div>
       {sideNavigationLinks.length > 0 && (
         <div className={'utrecht-grid-mobile-hidden utrecht-grid__one-third'}>

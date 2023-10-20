@@ -82,7 +82,7 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
       <Grid className={'utrecht-grid__two-third'}>
         <div className={'utrecht-grid__full-width'}>
           <Heading1>{title}</Heading1>
-          <Markdown strapiBackendURL={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
+          <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
         </div>
         <Grid className={'utrecht-grid__full-width'}>
           {child_themas.data[0] &&
