@@ -47,6 +47,6 @@ export async function GET() {
 
     return getServerSideSitemap(fields);
   } catch (error) {
-    return false;
+    throw new Error('Something went wrong!');
   }
 }

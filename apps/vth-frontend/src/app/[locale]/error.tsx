@@ -4,6 +4,7 @@ import { Button, Heading1, Paragraph } from '@utrecht/component-library-react/di
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useTranslation } from '../i18n/client';
+import { fallbackLng } from '../i18n/settings';
 interface ErrorPageProps {
   error: Error;
   reset: () => void;
@@ -16,7 +17,7 @@ export default function Error({ error, reset }: ErrorPageProps) {
     setErrorMessage(error);
   }, [error]);
   const { locale } = useParams();
-  const { t } = useTranslation(locale, 'server-error');
+  const { t } = useTranslation((locale as string) || fallbackLng, 'server-error');
   return (
     <>
       <Heading1>{t('common.title')}</Heading1>
