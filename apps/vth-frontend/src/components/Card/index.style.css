@@ -1,6 +1,14 @@
 .utrecht-card {
+  --utrecht-link-text-decoration: none;
+
   background-color: var(--utrecht-color-blue-90);
   max-width: 312px;
+}
+
+.utrecht-card:hover {
+  --utrecht-link-text-decoration: underline;
+
+  cursor: pointer;
 }
 
 .utrecht-card__image {
