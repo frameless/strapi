@@ -38,7 +38,7 @@
         "edit": {
           "label": "Page Content",
           "description": "",
-          "placeholder": "",
+          "placeholder": "Voeg de pagina inhoud",
           "visible": true,
           "editable": true
         },
