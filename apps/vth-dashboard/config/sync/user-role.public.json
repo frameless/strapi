@@ -25,7 +25,25 @@
       "action": "api::thema.thema.findOne"
     },
     {
+      "action": "plugin::i18n.locales.listLocales"
+    },
+    {
+      "action": "plugin::publisher.actionController.find"
+    },
+    {
       "action": "plugin::slugify.slugController.findSlug"
+    },
+    {
+      "action": "plugin::strapi-prometheus.prometheus.find"
+    },
+    {
+      "action": "plugin::strapi-prometheus.prometheus.findOne"
+    },
+    {
+      "action": "plugin::upload.content-api.find"
+    },
+    {
+      "action": "plugin::upload.content-api.findOne"
     },
     {
       "action": "plugin::users-permissions.auth.callback"
