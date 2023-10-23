@@ -5,11 +5,101 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::global.global",
+      "properties": {
+        "fields": [
+          "navigation.list.link.label",
+          "navigation.list.link.href",
+          "navigation.list.link.external",
+          "navigation.list.subLink.label",
+          "navigation.list.subLink.href",
+          "navigation.list.subLink.external"
+        ]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::global.global",
+      "properties": {},
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::global.global",
+      "properties": {
+        "fields": [
+          "navigation.list.link.label",
+          "navigation.list.link.href",
+          "navigation.list.link.external",
+          "navigation.list.subLink.label",
+          "navigation.list.subLink.href",
+          "navigation.list.subLink.external"
+        ]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::global.global",
+      "properties": {
+        "fields": [
+          "navigation.list.link.label",
+          "navigation.list.link.href",
+          "navigation.list.link.external",
+          "navigation.list.subLink.label",
+          "navigation.list.subLink.href",
+          "navigation.list.subLink.external"
+        ]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::homepage.homepage",
+      "properties": {
+        "fields": ["title", "content", "description"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::homepage.homepage",
+      "properties": {},
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::homepage.homepage",
+      "properties": {
+        "fields": ["title", "content", "description"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::homepage.homepage",
+      "properties": {
+        "fields": ["title", "content", "description"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -17,7 +107,8 @@
       "properties": {
         "fields": ["title", "body"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -25,43 +116,118 @@
       "properties": {
         "fields": ["title", "body"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::thema-content.thema-content",
+      "properties": {
+        "fields": ["title", "content", "slug", "description", "parents"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::thema-content.thema-content",
+      "properties": {},
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::thema-content.thema-content",
+      "properties": {
+        "fields": ["title", "content", "slug", "description", "parents"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::thema-content.thema-content",
+      "properties": {
+        "fields": ["title", "content", "slug", "description", "parents"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::thema.thema",
+      "properties": {
+        "fields": ["title", "content", "slug", "parents", "child_themas", "child_contents", "description"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::thema.thema",
+      "properties": {},
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::thema.thema",
+      "properties": {
+        "fields": ["title", "content", "slug", "parents", "child_themas", "child_contents", "description"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::thema.thema",
+      "properties": {
+        "fields": ["title", "content", "slug", "parents", "child_themas", "child_contents", "description"]
+      },
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.assets.copy-link",
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.assets.create",
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.assets.download",
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.assets.update",
       "subject": null,
       "properties": {},
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.configure-view",
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "actionParameters": null
     },
     {
       "action": "plugin::upload.read",
       "subject": null,
       "properties": {},
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "actionParameters": null
     }
   ]
 }
