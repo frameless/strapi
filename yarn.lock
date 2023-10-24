@@ -17909,7 +17909,7 @@ react-cool-inview@3.0.1:
   resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-3.0.1.tgz#345b0a36d124d9da4d8dfc354397d54c40bfd165"
   integrity sha512-ly6i3Pv5p0fvm12NmJGfKS34eOhA+iU43Th+gZ6t3G6UwsxQsWoITHTHzA9pdkOc/3VmnReqvC/hJkQUDGhQFA==
 
-react-diff-viewer-continued@^3.2.3:
+react-diff-viewer-continued@3.2.6:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/react-diff-viewer-continued/-/react-diff-viewer-continued-3.2.6.tgz#96382463b5de6838d95323c407442349b1c3a26e"
   integrity sha512-GrzyqQnjIMoej+jMjWvtVSsQqhXgzEGqpXlJ2dAGfOk7Q26qcm8Gu6xtI430PBUyZsERe8BJSQf+7VZZo8IBNQ==
@@ -19864,10 +19864,10 @@ strapi-content-type-explorer@0.1.1:
     prop-types "^15.7.2"
     reactflow "^11.7.4"
 
-strapi-plugin-config-sync@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/strapi-plugin-config-sync/-/strapi-plugin-config-sync-1.2.0.tgz#19b8f6ae319ba1d4af90a8b6acb637b8dd015945"
-  integrity sha512-cK8jDA7IfKz6I9BIqxis4AAG8AzOuQWrc4IiHtR1SsTERcGU5sIYDE7ATv8IVsp7iOoV7D/6soIy3hmrz9Fztg==
+strapi-plugin-config-sync@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-config-sync/-/strapi-plugin-config-sync-1.2.2.tgz#a2938a36b31b1e6e893276ad9d82d038b520fe70"
+  integrity sha512-hAxePqrW7baDsPeFNebkwpBxy5835VtnKriPIZGTni0kffXQCO1RiQbUZDI9BPXkoC+Zf1OMsggXKZsY0wK3Hw==
   dependencies:
     chalk "^4.1.2"
     cli-table "^0.3.6"
@@ -19875,7 +19875,7 @@ strapi-plugin-config-sync@1.2.0:
     git-diff "^2.0.6"
     immutable "^3.8.2"
     inquirer "^8.2.0"
-    react-diff-viewer-continued "^3.2.3"
+    react-diff-viewer-continued "3.2.6"
     redux-immutable "^4.0.0"
     redux-thunk "^2.3.0"
 
