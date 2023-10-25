@@ -71,7 +71,20 @@ query GET_THEMA_BY_SLUG($slug: String) {
         id
         attributes{
           title
-          content
+          content {
+            ... on ComponentComponentsBlockContent {
+              __typename
+              content
+            }
+            ... on ComponentComponentsAccordionSection {
+              __typename
+              item {
+                id
+                title
+                body
+              }
+            }
+          }
           parents {
             data {
               attributes {
@@ -142,7 +155,20 @@ query GET_CONTENT_BY_SLUG($slug: String) {
         id
         attributes{
           title
-          content
+          content {
+            ... on ComponentComponentsBlockContent {
+              __typename
+              content
+            }
+            ... on ComponentComponentsAccordionSection {
+              __typename
+              item {
+                id
+                title
+                body
+              }
+            }
+          }
           parents {
             data {
               attributes {

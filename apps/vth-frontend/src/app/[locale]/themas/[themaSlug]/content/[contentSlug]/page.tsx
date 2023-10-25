@@ -1,9 +1,9 @@
 import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
-import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
+import { AccordionProvider, Heading1 } from '@/components';
 import { BreadcrumbNavigation, BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
@@ -77,6 +77,33 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
     isCurrent: true,
   });
 
+  const DynamicContent = () =>
+    content &&
+    content.length > 0 &&
+    content?.map((component: any, index: number) => {
+      switch (component?.__typename) {
+        case 'ComponentComponentsBlockContent':
+          return component.content ? (
+            <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL} key={index}>
+              {component.content}
+            </Markdown>
+          ) : null;
+        case 'ComponentComponentsAccordionSection':
+          return (
+            <AccordionProvider
+              sections={component.item.map(({ id, title, body }: any) => ({
+                id,
+                label: title,
+                headingLevel: 3,
+                body: <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{body}</Markdown>,
+              }))}
+            />
+          );
+        default:
+          return null;
+      }
+    });
+
   return (
     <Grid className={'utrecht-grid--content-padding'}>
       <div className={'utrecht-grid__full-width'}>
@@ -84,7 +111,7 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
       </div>
       <div className={'utrecht-grid__two-third'}>
         <Heading1>{title}</Heading1>
-        <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
+        <DynamicContent />
       </div>
       {sideNavigationLinks.length > 0 && (
         <div className={'utrecht-grid-mobile-hidden utrecht-grid__one-third'}>
