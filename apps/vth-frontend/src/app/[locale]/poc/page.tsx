@@ -1,11 +1,9 @@
 import { Emphasis, Heading1, Heading2 } from '@utrecht/component-library-react';
-import Image from 'next/image';
 import React from 'react';
 import { AccordionProvider, Markdown } from '@/components';
 import { Grid } from '@/components/Grid';
 import { PrintButton } from '@/components/PrintButton';
 import { GET_PRINT_PAGE } from '@/query';
-import { buildImgURL } from '@/util/buildImgURL';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
@@ -98,16 +96,6 @@ const Page = async ({ params: { locale } }: { params: { locale: string } }) => {
   return (
     <div>
       <PrintButton />
-      {homepageData.bannerImage?.data?.attributes?.url && (
-        <Image
-          width={1200}
-          height={400}
-          src={buildImgURL(homepageData.bannerImage.data.attributes.url)}
-          alt={''}
-          priority
-          className={'utrecht-image utrecht-image--banner'}
-        />
-      )}
       <Grid className={'utrecht-grid--content-padding'}>
         <div className={'utrecht-grid__full-width'}>
           <Heading1>{homepageData.title}</Heading1>
