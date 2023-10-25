@@ -1,40 +1,32 @@
-import {
-  Button,
-  Dialog,
-  DialogBody,
-  DialogFooter,
-  Flex,
-  IconButton,
-  IconButtonGroup,
-  Typography,
-} from '@strapi/design-system';
-import { Grid, GridItem } from '@strapi/design-system/Grid';
-import { Option, Select } from '@strapi/design-system/Select';
+import { Button, Dialog, DialogBody, DialogFooter, Flex, Grid, GridItem, Typography } from '@strapi/design-system';
 import type { Editor as EditorTypes } from '@tiptap/react';
-import React, { Fragment, useState } from 'react';
+import { Document, FormField, FormLabel, Select, SelectOption } from '@utrecht/component-library-react';
+import React, { ChangeEvent, useState } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { ImWarning } from 'react-icons/im';
-import { RiInsertRowBottom, RiLayoutColumnLine, RiMergeCellsHorizontal, RiToggleLine } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
+import { getTrad } from '../../utils';
+
+type TableEventTypes =
+  | 'addRowAfter'
+  | 'addRowBefore'
+  | 'deleteRow'
+  | 'addColumnAfter'
+  | 'addColumnBefore'
+  | 'deleteColumn'
+  | 'toggleHeaderRow'
+  | 'toggleHeaderColumn'
+  | 'toggleHeaderCell'
+  | 'mergeCells'
+  | 'splitCell'
+  | 'mergeOrSplit';
 
 export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
   const [isVisibleDeleteTable, setIsVisibleDeleteTable] = useState({ visible: false, type: '' });
+  const { formatMessage } = useIntl();
 
-  type TableEventTypes =
-    | 'addRowAfter'
-    | 'addRowBefore'
-    | 'deleteRow'
-    | 'addColumnAfter'
-    | 'addColumnBefore'
-    | 'deleteColumn'
-    | 'toggleHeaderRow'
-    | 'toggleHeaderColumn'
-    | 'toggleHeaderCell'
-    | 'mergeCells'
-    | 'splitCell'
-    | 'mergeOrSplit';
-
-  const onTableMenubarChange = (event: TableEventTypes) => {
-    switch (event) {
+  const onTableMenubarChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    switch (event.target.value as TableEventTypes) {
       case 'addRowAfter':
         editor.chain().focus().addRowAfter().run();
         break;
@@ -73,91 +65,209 @@ export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
         break;
     }
   };
-
+  const isCapturedTable = editor.can().deleteNode('capturedTable');
+  const deleteButtonText = isCapturedTable
+    ? formatMessage({
+        id: getTrad('components.tableMenuBar.deleteButtonTableWithCaption'),
+        defaultMessage: 'Delete table with caption',
+      })
+    : formatMessage({
+        id: getTrad('components.tableMenuBar.deleteButtonTable'),
+        defaultMessage: 'Delete table',
+      });
+  const dialogDescription = isCapturedTable
+    ? formatMessage({
+        id: getTrad('components.tableMenuBar.dialog.descriptionTableWithCaption'),
+        defaultMessage: 'Are you sure you want to delete the table with the caption?',
+      })
+    : formatMessage({
+        id: getTrad('components.tableMenuBar.dialog.descriptionTable'),
+        defaultMessage: 'Are you sure you want to delete the table?',
+      });
   return (
-    <Fragment key="tableMenubar">
+    <Document className="utrecht-theme">
       <Grid gap={2}>
         <GridItem col={3}>
-          <Select
-            onChange={onTableMenubarChange}
-            startIcon={<RiInsertRowBottom color="black" />}
-            label="Table Row"
-            placeholder="Select"
-          >
-            <Option value="addRowAfter">Insert row below</Option>
-            <Option value="addRowBefore">Insert row above</Option>
-            <Option value="deleteRow">Delete row</Option>
-          </Select>
+          <FormField>
+            <FormLabel htmlFor="tableRow">
+              {formatMessage({
+                id: getTrad('components.tableMenuBar.select.row.label'),
+                defaultMessage: 'Row',
+              })}
+            </FormLabel>
+            <Select id="tableRow" onChange={onTableMenubarChange}>
+              <SelectOption>
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.placeholder'),
+                  defaultMessage: 'Select',
+                })}
+              </SelectOption>
+              <SelectOption value="addRowAfter">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.row.options.below'),
+                  defaultMessage: 'Insert row below',
+                })}
+              </SelectOption>
+              <SelectOption value="addRowBefore">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.row.options.above'),
+                  defaultMessage: 'Insert row above',
+                })}
+              </SelectOption>
+              <SelectOption value="deleteRow">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.row.options.delete'),
+                  defaultMessage: 'Delete row',
+                })}
+              </SelectOption>
+            </Select>
+          </FormField>
         </GridItem>
         <GridItem col={3}>
-          <Select
-            onChange={onTableMenubarChange}
-            startIcon={<RiLayoutColumnLine color="black" />}
-            label="Table Column"
-            placeholder="Select"
-          >
-            <Option value="addColumnAfter">Insert column after</Option>
-            <Option value="addColumnBefore">Insert column before</Option>
-            <Option value="deleteColumn">Delete column</Option>
-          </Select>
+          <FormField>
+            <FormLabel htmlFor="tableColumn">
+              {formatMessage({
+                id: getTrad('components.tableMenuBar.select.column.label'),
+                defaultMessage: 'Column',
+              })}
+            </FormLabel>
+            <Select id="tableColumn" onChange={onTableMenubarChange}>
+              <SelectOption>
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.placeholder'),
+                  defaultMessage: 'Select',
+                })}
+              </SelectOption>
+              <SelectOption value="addColumnAfter">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.column.options.right'),
+                  defaultMessage: 'Insert column after',
+                })}
+              </SelectOption>
+              <SelectOption value="addColumnBefore">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.column.options.left'),
+                  defaultMessage: 'Insert column before',
+                })}
+              </SelectOption>
+              <SelectOption value="deleteColumn">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.column.options.delete'),
+                  defaultMessage: 'Delete column',
+                })}
+              </SelectOption>
+            </Select>
+          </FormField>
         </GridItem>
         <GridItem col={3}>
-          <Select
-            onChange={onTableMenubarChange}
-            startIcon={<RiToggleLine color="black" />}
-            label="Toggle header"
-            placeholder="Select"
-          >
-            <Option value="toggleHeaderRow">Toggle header row</Option>
-            <Option value="toggleHeaderColumn">Toggle header column</Option>
-            <Option value="toggleHeaderCell">Toggle header cell</Option>
-          </Select>
+          <FormField>
+            <FormLabel htmlFor="toggleHeader">
+              {formatMessage({
+                id: getTrad('components.tableMenuBar.select.header.label'),
+                defaultMessage: 'Header',
+              })}
+            </FormLabel>
+            <Select id="toggleHeader" onChange={onTableMenubarChange}>
+              <SelectOption>
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.placeholder'),
+                  defaultMessage: 'Select',
+                })}
+              </SelectOption>
+              <SelectOption value="toggleHeaderRow">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.header.options.toggle.header.row'),
+                  defaultMessage: 'Toggle header row',
+                })}
+              </SelectOption>
+              <SelectOption value="toggleHeaderColumn">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.header.options.toggle.header.column'),
+                  defaultMessage: 'Toggle header column',
+                })}
+              </SelectOption>
+              <SelectOption value="toggleHeaderCell">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.header.options.toggle.header.cell'),
+                  defaultMessage: 'Toggle header cell',
+                })}
+              </SelectOption>
+            </Select>
+          </FormField>
         </GridItem>
         <GridItem col={3}>
-          <Select
-            onChange={onTableMenubarChange}
-            startIcon={<RiMergeCellsHorizontal color="black" />}
-            label="Table cell"
-            placeholder="Select"
-          >
-            <Option value="mergeCells">Merge cells</Option>
-            <Option value="splitCell">Split cell</Option>
-            <Option value="mergeOrSplit">Merge or split cell</Option>
-          </Select>
+          <FormField>
+            <FormLabel htmlFor="tableCell">
+              {formatMessage({
+                id: getTrad('components.tableMenuBar.select.cell.label'),
+                defaultMessage: 'Cell',
+              })}
+            </FormLabel>
+            <Select id="tableCell" onChange={onTableMenubarChange}>
+              <SelectOption>
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.placeholder'),
+                  defaultMessage: 'Select',
+                })}
+              </SelectOption>
+              <SelectOption value="mergeCells">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.cell.options.merge'),
+                  defaultMessage: 'Merge cells',
+                })}
+              </SelectOption>
+              <SelectOption value="splitCell">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.cell.options.split'),
+                  defaultMessage: 'Split cell',
+                })}
+              </SelectOption>
+              <SelectOption value="mergeOrSplit">
+                {formatMessage({
+                  id: getTrad('components.tableMenuBar.select.cell.options.merge.or.split'),
+                  defaultMessage: 'Merge or split',
+                })}
+              </SelectOption>
+            </Select>
+          </FormField>
         </GridItem>
-      </Grid>
-      <Grid>
-        <IconButtonGroup className="button-group">
-          <IconButton
-            icon={<AiOutlineDelete />}
-            label={editor.can().deleteNode('capturedTable') ? 'Delete table with caption' : 'Delete table'}
+        <GridItem col={6}>
+          <Button
+            variant="danger-light"
+            startIcon={<AiOutlineDelete />}
             onClick={() =>
               setIsVisibleDeleteTable({
-                visible: true,
-                type: editor.can().deleteNode('capturedTable') ? 'capturedTable' : 'table',
+                visible: !isVisibleDeleteTable.visible,
+                type: isCapturedTable ? 'capturedTable' : 'table',
               })
             }
-          />
-        </IconButtonGroup>
+          >
+            {deleteButtonText}
+          </Button>
+        </GridItem>
       </Grid>
       <Dialog
-        onClose={() => setIsVisibleDeleteTable({ visible: false, type: '' })}
-        title="Confirmation"
+        onClose={() => setIsVisibleDeleteTable({ visible: !isVisibleDeleteTable.visible, type: '' })}
+        title={formatMessage({
+          id: getTrad('components.tableMenuBar.dialog.title'),
+          defaultMessage: 'Confirmation',
+        })}
         isOpen={isVisibleDeleteTable.visible}
       >
         <DialogBody icon={<ImWarning />}>
           <Flex direction="column" alignItems="center" gap={2}>
             <Flex justifyContent="center">
-              <Typography id="confirm-description">{`Are you sure you want to delete the ${
-                isVisibleDeleteTable.type === 'capturedTable' ? 'table with caption' : 'table'
-              }?`}</Typography>
+              <Typography id="confirm-description">{dialogDescription}</Typography>
             </Flex>
           </Flex>
         </DialogBody>
         <DialogFooter
           startAction={
             <Button onClick={() => setIsVisibleDeleteTable({ visible: false, type: '' })} variant="tertiary">
-              Cancel
+              {formatMessage({
+                id: getTrad('common.action.cancel'),
+                defaultMessage: 'Cancel',
+              })}
             </Button>
           }
           endAction={
@@ -168,10 +278,12 @@ export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
                 switch (isVisibleDeleteTable.type) {
                   case 'table':
                     editor.chain().focus().deleteTable().run();
+                    setIsVisibleDeleteTable({ visible: false, type: '' });
                     break;
 
                   case 'capturedTable':
                     editor.chain().focus().deleteNode('capturedTable').run();
+                    setIsVisibleDeleteTable({ visible: false, type: '' });
                     break;
 
                   default:
@@ -179,11 +291,14 @@ export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
                 }
               }}
             >
-              Confirm
+              {formatMessage({
+                id: getTrad('common.action.confirm'),
+                defaultMessage: 'Confirm',
+              })}
             </Button>
           }
         />
       </Dialog>
-    </Fragment>
+    </Document>
   );
 };

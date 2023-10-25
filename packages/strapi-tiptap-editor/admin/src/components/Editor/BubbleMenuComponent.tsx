@@ -15,9 +15,9 @@ export const BubbleMenuComponent = ({ editor }: BubbleMenuComponentProps) => {
   const menuBars = editor.isActive('table') ? [<TableMenuBar editor={editor} key={1} />] : [];
 
   return (
-    <BubbleMenu editor={editor} tippyOptions={{ zIndex: 2, maxWidth: '500px' }}>
+    <BubbleMenu editor={editor} tippyOptions={{ zIndex: 2, maxWidth: '600px', duration: 20 }}>
       {menuBars.length > 0 && (
-        <Flex padding={2} className="menu-bar floating" style={{ flexWrap: 'wrap' }}>
+        <Flex padding={2} className="menu-bar floating">
           {/* Render menu bars */}
           {menuBars}
         </Flex>
