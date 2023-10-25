@@ -167,6 +167,10 @@ a {
 }
 
 @media print {
+  .utrecht-accordion__panel {
+    display: block;
+  }
+
   .utrecht-button.utrecht-button--print {
     display: none;
   }
