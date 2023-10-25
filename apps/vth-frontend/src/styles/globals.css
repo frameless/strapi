@@ -160,3 +160,22 @@ a {
 .utrecht-breadcrumb-nav__link--disabled {
   text-decoration-line: none !important;
 }
+
+.utrecht-button--print {
+  margin-block: 1rem;
+  margin-inline: 1rem;
+}
+
+@media print {
+  .utrecht-button.utrecht-button--print {
+    display: none;
+  }
+
+  .utrecht-navigation {
+    display: none;
+  }
+
+  .utrecht-page-footer {
+    display: none;
+  }
+}
