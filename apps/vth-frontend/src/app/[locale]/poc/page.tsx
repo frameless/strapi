@@ -1,4 +1,4 @@
-import { Heading1, Heading2 } from '@utrecht/component-library-react';
+import { Emphasis, Heading1, Heading2 } from '@utrecht/component-library-react';
 import Image from 'next/image';
 import React from 'react';
 import { AccordionProvider, Markdown } from '@/components';
@@ -12,18 +12,21 @@ import { fetchData } from '@/util/fetchData';
 type HomepageData = {
   title: string;
   content: string;
+  updatedAt: string;
   bannerImage: { data: { attributes: { url: string } } };
 };
 
 type Thema = {
   title: string;
   content: any[];
+  updatedAt: string;
   child_themas: ThemasResponse;
   child_contents: ContentResponse;
 };
 
 type Content = {
   title: string;
+  updatedAt: string;
   content: any[];
 };
 
@@ -56,6 +59,7 @@ const Page = async ({ params: { locale } }: { params: { locale: string } }) => {
         <Heading1>
           {indexString}. {thema.title}
         </Heading1>
+        <Emphasis>Laatste wijziging: {thema.updatedAt}</Emphasis>
         <DynamicContent content={thema.content} />
         {thema.child_themas?.data[0] && (
           <Grid className={'utrecht-grid--content-padding'}>
@@ -85,6 +89,7 @@ const Page = async ({ params: { locale } }: { params: { locale: string } }) => {
         <Heading2>
           {indexString}. {content.title}
         </Heading2>
+        <Emphasis>Laatste wijziging: {content.updatedAt}</Emphasis>
         <DynamicContent content={content.content} />
       </div>
     );
