@@ -16,9 +16,6 @@
       "type": "string",
       "required": true
     },
-    "content": {
-      "type": "richtext"
-    },
     "slug": {
       "type": "string",
       "unique": true,
@@ -49,7 +46,16 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "components.block-content",
+        "components.accordion-section"
+      ]
     }
   }
 }
