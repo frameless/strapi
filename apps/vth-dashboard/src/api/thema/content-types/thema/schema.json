@@ -46,16 +46,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "content": {
       "type": "dynamiczone",
-      "components": [
-        "components.block-content",
-        "components.accordion-section"
-      ]
+      "components": ["components.block-content", "components.accordion-section"]
     }
   }
 }

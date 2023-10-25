@@ -206,3 +206,108 @@ query GET_CONTENT_BY_SLUG($slug: String) {
     }
   }
 }`);
+
+export const GET_PRINT_PAGE = gql(`
+query GET_PRINT_PAGE {
+  homepage {
+    data {
+      attributes {
+        title
+        bannerImage {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        content
+      }
+    }
+  }
+  themas(filters: { parents: { id: null } }) {
+    data {
+      id
+      attributes {
+        title
+        content {
+          ... on ComponentComponentsBlockContent {
+            __typename
+            content
+          }
+          ... on ComponentComponentsAccordionSection {
+            __typename
+            item {
+              id
+              title
+              body
+            }
+          }
+        }
+        child_themas {
+          data {
+            attributes {
+              title
+              content {
+                ... on ComponentComponentsBlockContent {
+                  __typename
+                  content
+                }
+                ... on ComponentComponentsAccordionSection {
+                  __typename
+                  item {
+                    id
+                    title
+                    body
+                  }
+                }
+              }
+              child_contents {
+                data {
+                  attributes {
+                    title
+                    content {
+                      ... on ComponentComponentsBlockContent {
+                        __typename
+                        content
+                      }
+                      ... on ComponentComponentsAccordionSection {
+                        __typename
+                        item {
+                          id
+                          title
+                          body
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        child_contents {
+          data {
+            attributes {
+              title
+              content {
+                ... on ComponentComponentsBlockContent {
+                  __typename
+                  content
+                }
+                ... on ComponentComponentsAccordionSection {
+                  __typename
+                  item {
+                    id
+                    title
+                    body
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}`);
