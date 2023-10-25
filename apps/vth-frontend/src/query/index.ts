@@ -229,6 +229,7 @@ query GET_PRINT_PAGE {
       id
       attributes {
         title
+        updatedAt
         content {
           ... on ComponentComponentsBlockContent {
             __typename
@@ -247,6 +248,7 @@ query GET_PRINT_PAGE {
           data {
             attributes {
               title
+              updatedAt
               content {
                 ... on ComponentComponentsBlockContent {
                   __typename
@@ -265,6 +267,7 @@ query GET_PRINT_PAGE {
                 data {
                   attributes {
                     title
+                    updatedAt
                     content {
                       ... on ComponentComponentsBlockContent {
                         __typename
@@ -289,6 +292,7 @@ query GET_PRINT_PAGE {
           data {
             attributes {
               title
+              updatedAt
               content {
                 ... on ComponentComponentsBlockContent {
                   __typename
