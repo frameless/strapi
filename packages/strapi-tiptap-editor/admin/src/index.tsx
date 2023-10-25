@@ -4,6 +4,9 @@ import Wysiwyg from './components/Wysiwyg';
 import GetProductPriceState from './context/productPrice/state';
 import pluginId from './pluginId';
 import pluginPkg from '../../package.json';
+import '@utrecht/component-library-css';
+import '@utrecht/component-library-css/dist/html.css';
+import '@utrecht/design-tokens/dist/index.css';
 
 const name = pluginPkg.strapi.name;
 

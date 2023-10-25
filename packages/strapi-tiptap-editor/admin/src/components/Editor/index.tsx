@@ -7,9 +7,6 @@ import { Toolbar } from './Toolbar';
 import Wrapper from './styles';
 import defaultSettings from '../../../../utils/defaults';
 import MediaLib from '../MediaLib';
-import '@utrecht/component-library-css';
-import '@utrecht/component-library-css/dist/html.css';
-import '@utrecht/design-tokens/dist/index.css';
 import { OnChangeParamTypes } from '../Wysiwyg';
 import { PriceListTypes } from '../extensions/Price';
 
@@ -75,13 +72,7 @@ const Editor = ({ editor, settings, productPrice }: EditorProps) => {
         />
         <BubbleMenuComponent editor={editor} />
 
-        <Box
-          padding={2}
-          background="neutral0"
-          maxHeight="600px"
-          style={{ resize: 'vertical', overflow: 'auto' }}
-          className={['utrecht-theme'].join(' ')}
-        >
+        <Box padding={2} background="neutral0" maxHeight="600px" style={{ resize: 'vertical', overflow: 'auto' }}>
           <EditorContent editor={editor} />
         </Box>
       </Box>

@@ -46,7 +46,9 @@ import { Figure } from '../extensions/Figure/index';
 import { Language } from '../extensions/Language';
 import { LeadParagraph } from '../extensions/LeadParagraph/index';
 import { Price } from '../extensions/Price/index';
-
+import '@utrecht/component-library-css';
+import '@utrecht/component-library-css/dist/html.css';
+import '@utrecht/design-tokens/dist/index.css';
 interface Target {
   name: string;
   value: string;
@@ -206,6 +208,11 @@ const WysiwygContent = ({
     autofocus: true,
     editable: true,
     injectCSS: false,
+    editorProps: {
+      attributes: {
+        class: 'utrecht-theme utrecht-html utrecht-document',
+      },
+    },
   });
 
   useEffect(() => {
