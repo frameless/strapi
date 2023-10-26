@@ -35,7 +35,7 @@
       "type": "customField",
       "customField": "plugin::uniform-product-name.uniform-product-name"
     },
-    "description": {
+    "abstract": {
       "type": "text",
       "required": true
     }

@@ -37,7 +37,7 @@ type CatalogiMetaType = {
   audience: AudienceType[];
   onlineRequest: OnlineRequestType;
   uniformProductName?: string;
-  description: string;
+  abstract: string;
 };
 
 type AudienceType = {
@@ -110,7 +110,7 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
         language: attributes.locale,
         modified: attributes.updatedAt,
         productId: id,
-        abstract: attributes.catalogiMeta?.description,
+        abstract: attributes.catalogiMeta?.abstract,
         onlineAanvragen: attributes.catalogiMeta?.onlineRequest.type,
         identifier,
         spatial,
