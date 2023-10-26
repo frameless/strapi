@@ -76,7 +76,7 @@ export const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
           updatedAt
           catalogiMeta {
             uniformProductName
-            description
+            abstract
             spatial {
               scheme
               resourceIdentifier
