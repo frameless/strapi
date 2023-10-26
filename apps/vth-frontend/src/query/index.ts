@@ -149,8 +149,8 @@ query GET_THEMA_BY_SLUG($slug: String) {
 }`);
 
 export const GET_CONTENT_BY_SLUG = gql(`
-query GET_CONTENT_BY_SLUG($slug: String) {
-  findSlug(modelName:"thema-content", slug: $slug){
+query GET_CONTENT_BY_SLUG($slug: String, $pageMode: String) {
+  findSlug(modelName:"thema-content", slug: $slug, publicationState: $pageMode) {
     ... on ThemaContentEntityResponse{
       data{
         id

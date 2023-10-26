@@ -1,9 +1,6 @@
 const { apolloPrometheusPlugin } = require('strapi-prometheus');
 
-export default () => ({
-  ckeditor5: {
-    enabled: false,
-  },
+export default ({ env }) => ({
   'strapi-tiptap-editor': {
     enabled: true,
   },
@@ -33,6 +30,14 @@ export default () => ({
           references: 'title',
         },
       },
+    },
+  },
+  'preview-button': {
+    enabled: true,
+    config: {
+      domain: env('FRONTEND_PUBLIC_URL'),
+      token: env('PREVIEW_SECRET_TOKEN'),
+      slug: 'thema-content',
     },
   },
   upload: {

@@ -1,6 +1,7 @@
 import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import React from 'react';
 import { AccordionProvider, Heading1 } from '@/components';
 import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
@@ -21,10 +22,11 @@ type Params = {
 
 export async function generateMetadata({ params: { locale, contentSlug } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_CONTENT_BY_SLUG,
-    variables: { slug: contentSlug, locale: locale },
+    variables: { slug: contentSlug, pageMode: isEnabled ? 'preview' : 'live', locale: locale },
   });
   return {
     title: data.findSlug.data.attributes.title,
@@ -33,10 +35,11 @@ export async function generateMetadata({ params: { locale, contentSlug } }: Para
 }
 
 const Thema = async ({ params: { locale, contentSlug } }: Params) => {
+  const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_CONTENT_BY_SLUG,
-    variables: { slug: contentSlug, locale: locale },
+    variables: { slug: contentSlug, pageMode: isEnabled ? 'preview' : 'live', locale: locale },
   });
 
   const { title, content, parents } = data.findSlug.data.attributes;
