@@ -1,3 +1,10 @@
+# @frameless/ui [2.3.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.2.2...@frameless/ui@2.3.0) (2023-10-26)
+
+
+### Features
+
+* **ui:** enable ordered-list component on markdown ([8565cf9](https://github.com/frameless/strapi/commit/8565cf947fc58dc7f1c70c470443f18944f7adbd))
+
 ## @frameless/ui [2.2.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.2.1...@frameless/ui@2.2.2) (2023-10-26)
 
 
