@@ -20,6 +20,7 @@ export interface LogoButtonProps {
 const css = classnames.bind(styles);
 
 export const LogoButton = ({ logo, appearance, href, text, label, headingLevel = 3 }: LogoButtonProps) => {
+  const magenta = appearance === 'magenta';
   switch (logo) {
     case 'digid':
       return (
@@ -72,7 +73,11 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
         <>
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <ButtonGroup>
-            <ButtonLink appearance={`${appearance}-action-button`} href={href}>
+            <ButtonLink
+              appearance={magenta ? 'primary-action-button' : `${appearance}-action-button`}
+              href={href}
+              className={magenta ? css('utrecht-button-link--magenta') : undefined}
+            >
               {text} <UtrechtIconArrow />
             </ButtonLink>
           </ButtonGroup>
