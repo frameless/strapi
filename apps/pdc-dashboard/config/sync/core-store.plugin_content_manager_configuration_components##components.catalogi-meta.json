@@ -90,16 +90,16 @@
           "sortable": true
         }
       },
-      "description": {
+      "abstract": {
         "edit": {
-          "label": "Description",
-          "description": "",
+          "label": "Abstract",
+          "description": "Korte beschrijving van het product, ter presentatie in de zoekresultatenlijst van afnemers. Een lengte van ongeveer 300 tekens wordt aangeraden. Let erop dat de tekst leesbaar moet zijn voor een doorsnee eindgebruiker (burger of ondernemer) en bruikbaar voor het bepalen van de relevantie van dit product in een lijst zoekresultaten.",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "description",
+          "label": "abstract",
           "searchable": true,
           "sortable": true
         }
@@ -138,7 +138,7 @@
             "size": 6
           },
           {
-            "name": "description",
+            "name": "abstract",
             "size": 6
           }
         ]
