@@ -1,3 +1,4 @@
+import { OrderedList } from '@utrecht/component-library-react';
 import {
   Heading1,
   Heading2,
@@ -15,7 +16,6 @@ import {
   TableHeaderCell,
   TableRow,
   UnorderedList,
-  UnorderedListItem,
 } from '@utrecht/component-library-react/dist/css-module';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
@@ -62,11 +62,23 @@ const defaultComponents = (config?: Components) => {
     },
     ul: ({ children, node }) => {
       delete node.properties?.style;
-      return <UnorderedList {...node.properties}>{children}</UnorderedList>;
+      return (
+        <UnorderedList className="utrecht-unordered-list--html-content" {...node.properties}>
+          {children}
+        </UnorderedList>
+      );
+    },
+    ol: ({ children, node }) => {
+      delete node.properties?.style;
+      return (
+        <OrderedList className="utrecht-ordered-list--html-content" {...node.properties}>
+          {children}
+        </OrderedList>
+      );
     },
     li: ({ children, node }) => {
       delete node.properties?.style;
-      return <UnorderedListItem {...node.properties}>{children}</UnorderedListItem>;
+      return <li {...node.properties}>{children}</li>;
     },
     table: ({ children, node }) => {
       delete node.properties?.style;
