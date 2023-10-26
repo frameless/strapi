@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.8.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.7.1...@frameless/strapi-tiptap-editor@1.8.0) (2023-10-26)
+
+
+### Features
+
+* **tiptap-editor:** improve the strapi-tiptap ([ecba121](https://github.com/frameless/strapi/commit/ecba1219122bc0790e69a7a6ccd3151c1f7d6c3e))
+
 ## @frameless/strapi-tiptap-editor [1.7.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.7.0...@frameless/strapi-tiptap-editor@1.7.1) (2023-10-17)
 
 
