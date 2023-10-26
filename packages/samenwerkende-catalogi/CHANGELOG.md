@@ -1,3 +1,10 @@
+## @frameless/samenwerkende-catalogi [2.2.1](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@2.2.0...@frameless/samenwerkende-catalogi@2.2.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* **samenwerkende-catalogi:** rename `description` to `abstract` ([a8448c7](https://github.com/frameless/strapi/commit/a8448c7504effd2e1e57932dae1a75e1f0537e75))
+
 # @frameless/samenwerkende-catalogi [2.2.0](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@2.1.1...@frameless/samenwerkende-catalogi@2.2.0) (2023-10-04)
 
 
