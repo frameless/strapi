@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.8.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.8.0...@frameless/strapi-tiptap-editor@1.8.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** fix the ordered-list style ([23c0f22](https://github.com/frameless/strapi/commit/23c0f2273eb8eae42425419c075c0eee4f945161))
+
 # @frameless/strapi-tiptap-editor [1.8.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.7.1...@frameless/strapi-tiptap-editor@1.8.0) (2023-10-26)
 
 
