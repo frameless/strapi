@@ -23,7 +23,7 @@
       "type": {
         "edit": {
           "label": "Type",
-          "description": "Waarden: ja, nee of digid",
+          "description": "Geeft aan of het product online is aan te vragen, en zo ja of hiervoor DigiD wordt gebruikt. Indien niet van toepassing, vult u hier 'nee' in. waardelijst: 'ja', 'nee' of 'digid'",
           "placeholder": "",
           "visible": true,
           "editable": true
