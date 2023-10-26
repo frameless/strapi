@@ -1,3 +1,10 @@
+## @frameless/ui [2.2.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.2.1...@frameless/ui@2.2.2) (2023-10-26)
+
+
+### Bug Fixes
+
+* **ui:** fix magenta button ([07e1ae2](https://github.com/frameless/strapi/commit/07e1ae2abd2e3b2f67a80161d7c524e750d67cc6))
+
 ## @frameless/ui [2.2.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.2.0...@frameless/ui@2.2.1) (2023-10-19)
 
 
