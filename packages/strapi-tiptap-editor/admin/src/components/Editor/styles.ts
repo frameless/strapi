@@ -80,6 +80,10 @@ export default styled(Box)`
       box-sizing: border-box;
     }
 
+    ol {
+      list-style-type: decimal;
+    }
+
     img {
       max-width: 100%;
       height: auto;
