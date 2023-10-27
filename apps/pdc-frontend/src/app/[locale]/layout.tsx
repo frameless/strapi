@@ -16,7 +16,6 @@ import { getLiveSuggestions, onSearchSubmitAction } from './search/actions';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from '../i18n/index';
 import { languages } from '../i18n/settings';
-
 import '@frameless/ui/dist/bundle.css';
 
 // eslint-disable-next-line no-unused-vars
@@ -73,6 +72,7 @@ type Params = {
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
+  const convertLanguagesArrayToObject = languages.reduce((a, v) => ({ ...a, [v]: v }), {});
   return {
     title: {
       template: `%s | ${t('website-setting.website-name')}`,
@@ -107,6 +107,20 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
       apple: [{ url: '/favicon/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }],
     },
     manifest: '/favicon/site.webmanifest',
+    openGraph: {
+      type: 'website',
+      locale,
+      siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
+      countryName: 'NL',
+      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}`,
+    },
+    metadataBase: new URL(process.env.FRONTEND_PUBLIC_URL || ''),
+    alternates: {
+      canonical: '/',
+      languages: {
+        ...convertLanguagesArrayToObject,
+      },
+    },
   };
 }
 
