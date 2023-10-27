@@ -60,12 +60,25 @@ interface ProductProps {
 }
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(params?.locale, 'common');
   const { product } = await getAllProducts(params?.locale, params?.slug);
+  const title = product?.attributes?.metaTags?.title;
+  const description = product?.attributes?.metaTags?.description;
   return {
-    title: product?.attributes?.metaTags?.title,
-    description: product?.attributes?.metaTags?.description,
+    title,
+    description,
     other: {
       keymatch: product?.attributes?.metaTags?.keymatch,
+    },
+    openGraph: {
+      title: `${title} | ${t('website-setting.website-name')}`,
+      description,
+      locale: params?.locale,
+      url: `${process.env.FRONTEND_PUBLIC_URL}/${params?.locale}/products/${params?.slug}`,
+      siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
+      countryName: 'NL',
+      type: 'website',
     },
   };
 }

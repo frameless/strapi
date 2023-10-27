@@ -60,12 +60,23 @@ const fetchAllProducts = async ({ locale, page, pageSize, startsWith }: fetchAll
   return data;
 };
 
-export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+export async function generateMetadata({ params: { locale, q } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = await useTranslation(locale, 'alphabet-page');
+  const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
+  const title = t('seo.title');
+  const description = t('seo.description');
   return {
-    title: t('seo.title'),
-    description: t('seo.description'),
+    title,
+    description,
+    openGraph: {
+      title: `${title} | ${t('website-setting.website-name')}`,
+      description,
+      locale,
+      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}/search/${q}`,
+      siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
+      countryName: 'NL',
+      type: 'website',
+    },
   };
 }
 const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {

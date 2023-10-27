@@ -25,12 +25,24 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { locale, query } }: Params): Promise<Metadata> {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(locale, ['common']);
+
   const data = await getSearchTipsPage(locale);
   const title = `${data?.searchTip?.data?.attributes?.seo?.title} "${query}"`;
   const description = data?.searchTip?.data?.attributes?.seo?.description;
   return {
     title,
     description,
+    openGraph: {
+      title: `${title} | ${t('website-setting.website-name')}`,
+      description,
+      locale,
+      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}/search/tips/${query}`,
+      siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
+      countryName: 'NL',
+      type: 'website',
+    },
   };
 }
 

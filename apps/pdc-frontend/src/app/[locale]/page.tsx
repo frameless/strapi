@@ -25,10 +25,21 @@ type Params = {
 
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = await useTranslation(locale, 'home-page');
+  const { t } = await useTranslation(locale, ['home-page', 'common']);
+  const title = t('seo.title');
+  const description = t('seo.description');
   return {
-    title: t('seo.title'),
-    description: t('seo.description'),
+    title: `${title} | ${t('website-setting.website-name')}`,
+    description,
+    openGraph: {
+      title: `${title} | ${t('website-setting.website-name')} `,
+      description,
+      locale,
+      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}`,
+      siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
+      countryName: 'NL',
+      type: 'website',
+    },
   };
 }
 

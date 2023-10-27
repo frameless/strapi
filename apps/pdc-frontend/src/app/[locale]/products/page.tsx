@@ -57,10 +57,21 @@ const fetchAllProducts = async ({ locale, page, pageSize }: fetchAllProductsType
 
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = await useTranslation(locale, 'products-page');
+  const { t } = await useTranslation(locale, ['products-page', 'common']);
+  const title = t('seo.title');
+  const description = t('seo.description');
   return {
-    title: t('seo.title'),
-    description: t('seo.description'),
+    title,
+    description,
+    openGraph: {
+      title: `${title} | ${t('website-setting.website-name')}`,
+      description,
+      locale,
+      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products`,
+      siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
+      countryName: 'NL',
+      type: 'website',
+    },
   };
 }
 
