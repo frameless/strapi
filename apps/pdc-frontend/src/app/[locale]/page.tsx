@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { AdvancedLink, Grid, GridCell, Heading2, PageTitle } from '@/components';
+import { IndexCharNav } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
-import { ProductNavigation } from '@/components/ProductNavigation';
-import { alphabet } from '@/components/ProductNavigation/alphabet';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { TopTask, TopTaskIconsTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
+import { alphabet } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n';
@@ -40,7 +41,11 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
-    return { letter, availability: data.products.data.length > 0 ? true : false };
+    return {
+      char: letter,
+      disabled: data.products.data.length > 0 ? false : true,
+      href: `products/alphabet/${letter.toLocaleLowerCase()}`,
+    };
   });
 
   const alphabetAvailability = await Promise.all(productsAvailability);
@@ -111,7 +116,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           <GridCell md={10} lg={9}>
             <section>
               <Heading2>{t('components.alphabetically-products-navigation')}</Heading2>
-              <ProductNavigation alphabet={alphabetAvailability} component="link" pathname="products/alphabet" />
+              <IndexCharNav characters={alphabetAvailability} component="link" Link={Link} />
             </section>
           </GridCell>
         </>

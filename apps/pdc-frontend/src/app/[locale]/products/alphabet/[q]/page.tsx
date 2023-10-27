@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { AdvancedLink, Article, PageTitle, Paragraph } from '@/components';
+import { IndexCharNav } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { ProductNavigation } from '@/components/ProductNavigation';
-import { alphabet } from '@/components/ProductNavigation/alphabet';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
+import { alphabet } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-
 type Params = {
   params: {
     locale: string;
@@ -101,7 +101,11 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
-    return { letter, availability: data.products.data.length > 0 ? true : false };
+    return {
+      char: letter,
+      disabled: data.products.data.length > 0 ? false : true,
+      href: `${letter.toLocaleLowerCase()}`,
+    };
   });
   const alphabetAvailability = await Promise.all(productsAvailability);
 
@@ -134,7 +138,12 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       <Article>
         <PageTitle>{t('h1')}</PageTitle>
         <Paragraph lead>{t('lead-paragraph')}</Paragraph>
-        <ProductNavigation component="button" currentLetter={q.toLocaleUpperCase()} alphabet={alphabetAvailability} />
+        <IndexCharNav
+          component="link"
+          currentChar={q.toLocaleUpperCase()}
+          characters={alphabetAvailability}
+          Link={Link}
+        />
         {mappingProducts(res.data) && mappingProducts(res.data).length > 0 ? (
           <ProductListContainer
             locale={locale}
