@@ -31,9 +31,6 @@
       "action": "api::product.product.findOne"
     },
     {
-      "action": "api::search-tip.search-tip.find"
-    },
-    {
       "action": "api::subcategory.subcategory.find"
     },
     {
