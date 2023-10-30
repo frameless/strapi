@@ -65,6 +65,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { product } = await getAllProducts(params?.locale, params?.slug);
   const title = product?.attributes?.metaTags?.title;
   const description = product?.attributes?.metaTags?.description;
+  const openGraphImage = product?.attributes?.metaTags?.ogImage?.data?.attributes?.url;
+
   return {
     title,
     description,
@@ -74,6 +76,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     openGraph: {
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
+      images: openGraphImage && getImageBaseUrl() && `${getImageBaseUrl()}${openGraphImage}`,
       locale: params?.locale,
       url: `${process.env.FRONTEND_PUBLIC_URL}/${params?.locale}/products/${params?.slug}`,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
