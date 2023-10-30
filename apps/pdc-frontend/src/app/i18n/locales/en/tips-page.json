@@ -1,0 +1,17 @@
+{
+  "seo": {
+    "title": "Search results for: '{{query}}'",
+    "description": "Explanation of the various search options within www.utrecht.nl, including different search tips."
+  },
+  "h1": "Search results for: '{{query}}'",
+  "body": {
+    "section": {
+      "title": "Try again:",
+      "unordered-list": [
+        "Make sure all words are spelled correctly.",
+        "Try different search terms.",
+        "Make the search terms more general."
+      ]
+    }
+  }
+}
