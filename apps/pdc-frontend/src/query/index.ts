@@ -111,6 +111,13 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
             title
             description
             keymatch
+            ogImage {
+            data {
+              attributes {
+                url
+               }
+             }
+           }
           }
           content
           sections {
