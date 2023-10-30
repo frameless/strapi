@@ -22,6 +22,11 @@
       "type": "text",
       "maxLength": 160,
       "required": true
+    },
+    "ogImage": {
+      "allowedTypes": ["images", "files", "videos", "audios"],
+      "type": "media",
+      "multiple": false
     }
   }
 }
