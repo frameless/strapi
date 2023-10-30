@@ -61,6 +61,20 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "ogImage": {
+        "edit": {
+          "label": "Open Graph-afbeelding",
+          "description": "De Open Graph-afbeelding is de belangrijkste afbeelding die is gekoppeld aan gedeelde inhoud en verbetert de visuele aantrekkingskracht op sociale media en andere platforms. Deze moet minstens 1200 x 630 pixels zijn voor optimale weergave.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "ogImage",
+          "searchable": false,
+          "sortable": false
+        }
       }
     },
     "layouts": {
@@ -79,6 +93,10 @@
         [
           {
             "name": "description",
+            "size": 6
+          },
+          {
+            "name": "ogImage",
             "size": 6
           }
         ]
