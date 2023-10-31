@@ -47,10 +47,24 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "logoButton": {
+        "edit": {
+          "label": "logoButton",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "logoButton",
+          "searchable": false,
+          "sortable": false
+        }
       }
     },
     "layouts": {
-      "list": ["id", "type"],
+      "list": ["id", "type", "logoButton"],
       "edit": [
         [
           {
@@ -62,6 +76,12 @@
           {
             "name": "type",
             "size": 6
+          }
+        ],
+        [
+          {
+            "name": "logoButton",
+            "size": 12
           }
         ]
       ]

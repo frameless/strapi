@@ -18,6 +18,7 @@ const config = {
   translations: {
     en: {
       'app.components.HomePage.welcome': 'Welcome to the Utrecht PDC dashboard 👋',
+      logoButton: 'Logo Button',
     },
     nl: {
       User: 'Gebruiker',
@@ -30,6 +31,7 @@ const config = {
       'content-manager.popUpWarning.warning.unpublish':
         'Als je deze inhoud niet publiceert, wordt deze automatisch een concept.',
       'content-manager.popUpWarning.warning.updateAllSettings': 'Dit zal al je instellingen wijzigen.',
+      logoButton: 'Logo Button',
     },
   },
 };
