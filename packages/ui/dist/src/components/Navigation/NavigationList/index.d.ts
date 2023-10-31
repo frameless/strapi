@@ -1,8 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
-type NavigationListType = {
-    title: string;
-    link: string;
-};
+import { NavigationListType } from '../index';
 interface NavigationListProps extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {
     list: NavigationListType[];
     mobile?: boolean;

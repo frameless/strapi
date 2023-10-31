@@ -1,3 +1,10 @@
+# @frameless/ui [2.4.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.3.0...@frameless/ui@2.4.0) (2023-10-31)
+
+
+### Features
+
+* **ui:** support sub-nav links in nav ([9adbb13](https://github.com/frameless/strapi/commit/9adbb137590aca3fd675f8eadb00e9a9bc55e6fb))
+
 # @frameless/ui [2.3.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.2.2...@frameless/ui@2.3.0) (2023-10-26)
 
 

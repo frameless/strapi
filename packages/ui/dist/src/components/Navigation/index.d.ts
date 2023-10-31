@@ -1,7 +1,8 @@
 import { HTMLAttributes } from 'react';
-type NavigationListType = {
+export type NavigationListType = {
     title: string;
     link: string;
+    children?: NavigationListType[];
 };
 interface NavigationProps extends HTMLAttributes<HTMLElement> {
     list: NavigationListType[];

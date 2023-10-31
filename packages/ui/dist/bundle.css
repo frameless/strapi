@@ -1,4 +1,30 @@
 @charset "UTF-8";
+.utrecht-navigation__item {
+  flex: 1 1 auto;
+  padding-block-end: var(--utrecht-navigation-item-padding-block-end);
+  padding-block-start: var(--utrecht-navigation-item-padding-block-start);
+  padding-inline-end: var(--utrecht-navigation-item-padding-inline-end);
+  padding-inline-start: var(--utrecht-navigation-item-padding-inline-start);
+}
+
+.utrecht-navigation__item--mobile {
+  --utrecht-navigation-item-padding-block-start: var(--utrecht-navigation-item-mobile-padding-block-start);
+  --utrecht-navigation-item-padding-block-end: var(--utrecht-navigation-item-mobile-padding-block-end);
+  --utrecht-navigation-item-padding-inline-start: var(--utrecht-navigation-item-mobile-padding-inline-start);
+  --utrecht-navigation-item-padding-inline-end: var(--utrecht-navigation-item-mobile-padding-inline-end);
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.utrecht-navigation__item-icon::before {
+  color: var(--utrecht-navigation-item-icon-color);
+  content: "•";
+  font-size: inherit;
+  margin-inline-end: var(--utrecht-navigation-item-icon-margin-inline-end);
+}
+
 .utrecht-advanced-link {
   --utrecht-link-icon-size: var(--utrecht-advanced-link-icon-size, var(--utrecht-document-font-size));
 }
@@ -80,29 +106,10 @@
   --utrecht-navigation-link-font-weight: var(--utrecht-navigation-mobile-hover-link-font-weight);
 }
 
-.utrecht-navigation__item {
-  flex: 1 1 auto;
-  padding-block-end: var(--utrecht-navigation-item-padding-block-end);
-  padding-block-start: var(--utrecht-navigation-item-padding-block-start);
-  padding-inline-end: var(--utrecht-navigation-item-padding-inline-end);
-  padding-inline-start: var(--utrecht-navigation-item-padding-inline-start);
-}
-
-.utrecht-navigation__item--mobile {
-  --utrecht-navigation-item-padding-block-start: var(--utrecht-navigation-item-mobile-padding-block-start);
-  --utrecht-navigation-item-padding-block-end: var(--utrecht-navigation-item-mobile-padding-block-end);
-  --utrecht-navigation-item-padding-inline-start: var(--utrecht-navigation-item-mobile-padding-inline-start);
-  --utrecht-navigation-item-padding-inline-end: var(--utrecht-navigation-item-mobile-padding-inline-end);
-  align-items: center;
+.utrecht-navigation__toggle-button {
   display: flex;
-  justify-content: center;
-}
-
-.utrecht-navigation__item-icon::before {
-  color: var(--utrecht-navigation-item-icon-color);
-  content: "•";
-  font-size: inherit;
-  margin-inline-end: var(--utrecht-navigation-item-icon-margin-inline-end);
+  inline-size: 100%;
+  justify-content: flex-end;
 }
 
 .utrecht-navigation__list {
@@ -135,10 +142,10 @@
   }
 }
 
-.utrecht-navigation__toggle-button {
-  display: flex;
+.utrecht-navigation__list .utrecht-navigation__list {
   inline-size: 100%;
-  justify-content: flex-end;
+  padding-block-end: 0;
+  padding-block-start: 0;
 }
 
 .utrecht-drawer-custom {
@@ -166,7 +173,6 @@
   display: flex;
   flex-direction: column;
   inline-size: 100%;
-  justify-content: flex-end;
 }
 
 .utrecht-image {
