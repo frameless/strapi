@@ -164,6 +164,18 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
                   <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
                     {component.content}
                   </Markdown>
+                  {component?.logoButton &&
+                    component?.logoButton.length > 0 &&
+                    component?.logoButton?.map((button: any) => (
+                      <LogoButton
+                        key={button.id}
+                        href={button.href}
+                        text={button.text}
+                        appearance={button.logo_button_appearance}
+                        label={button.label}
+                        logo={button.logo}
+                      />
+                    ))}
                 </SpotlightSection>
               ) : null;
             case 'ComponentComponentsButtonLink':

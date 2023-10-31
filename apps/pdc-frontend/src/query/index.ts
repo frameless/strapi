@@ -149,6 +149,15 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
               __typename
               content
               type
+              logoButton {
+              id
+              label
+              href
+              text
+              logo
+              logo_button_appearance
+              __typename
+             }
             }
             ... on ComponentComponentsBlockContent {
               __typename
