@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.8.2](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.8.1...@frameless/strapi-tiptap-editor@1.8.2) (2023-10-31)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** return image source only ([70d719f](https://github.com/frameless/strapi/commit/70d719fd64e9df4fe28a6dad4407b6cebc49faac))
+
 ## @frameless/strapi-tiptap-editor [1.8.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.8.0...@frameless/strapi-tiptap-editor@1.8.1) (2023-10-26)
 
 
