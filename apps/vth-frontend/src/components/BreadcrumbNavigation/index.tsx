@@ -9,7 +9,7 @@ export type BreadcrumbNavigationElement = {
   isCurrent?: boolean;
 };
 
-type BreadcrumbNavigationProps = {
+export type BreadcrumbNavigationProps = {
   navigationElements: BreadcrumbNavigationElement[];
 };
 
@@ -22,6 +22,7 @@ export const BreadcrumbNavigation: FC<BreadcrumbNavigationProps> = ({ navigation
         Kruimelpad:
       </h2>
       <ol
+        id={'breadcrumb-list'}
         className="utrecht-breadcrumb-nav__list utrecht-breadcrumb-nav__list--html-ol"
         itemType="https://schema.org/BreadcrumbList"
       >
