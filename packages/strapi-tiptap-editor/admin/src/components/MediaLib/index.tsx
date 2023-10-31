@@ -1,4 +1,4 @@
-import { prefixFileUrlWithBackendUrl, useLibrary } from '@strapi/helper-plugin';
+import { useLibrary } from '@strapi/helper-plugin';
 import React from 'react';
 
 interface Image {
@@ -52,7 +52,7 @@ const MediaLib: React.FC<MediaLibProps> = ({ isOpen, onChange, onToggle }) => {
     const formattedImages = images.map((image) => ({
       ...image,
       alt: image.alternativeText,
-      url: prefixFileUrlWithBackendUrl(image.url),
+      url: image.url,
       mime: image.mime,
       'data-figcaption': image?.caption,
     }));
