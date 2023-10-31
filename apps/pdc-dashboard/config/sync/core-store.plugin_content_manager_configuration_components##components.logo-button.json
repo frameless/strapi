@@ -7,7 +7,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "label",
+      "mainField": "text",
       "defaultSortBy": "label",
       "defaultSortOrder": "ASC"
     },

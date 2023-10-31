@@ -14,6 +14,11 @@
       "type": "enumeration",
       "enum": ["default", "info", "warning"],
       "default": "default"
+    },
+    "logoButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.logo-button"
     }
   }
 }
