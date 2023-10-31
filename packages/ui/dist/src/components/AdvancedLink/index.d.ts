@@ -2,7 +2,7 @@ import { Link as UtrechtLink } from '@utrecht/component-library-react/dist/css-m
 import React, { ComponentType } from 'react';
 interface AdvancedLinkProps extends React.ComponentProps<typeof UtrechtLink> {
     color?: 'red';
-    icon?: 'arrow';
+    icon?: 'arrow' | 'chevronLeft';
     Link?: ComponentType<any>;
 }
 export declare const AdvancedLink: React.ForwardRefExoticComponent<Omit<React.PropsWithChildren<AdvancedLinkProps>, "ref"> & React.RefAttributes<HTMLAnchorElement>>;

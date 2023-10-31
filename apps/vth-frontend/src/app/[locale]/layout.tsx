@@ -3,7 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Navigation, NavigationListType, Page, PageContent, PageHeader } from '@/components';
+import { NavigationListType, Page, PageContent, PageHeader } from '@/components';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
@@ -11,6 +11,8 @@ import { Footer } from '@/components/Footer';
 import { Grid } from '@/components/Grid';
 import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Navigation } from '@/components/Navigation';
+import { NavigationProvider } from '@/context/NavigationContext';
 import { GET_HOOFD_THEMAS } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
@@ -165,15 +167,10 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               </Grid>
             </PageHeader>
             <PageContent>
-              <Navigation
-                list={navListData}
-                mobileBreakpoint={998}
-                toggleButton={{
-                  openText: 'Menu',
-                  closeText: 'Sluiten',
-                }}
-              />
-              <Main>{children}</Main>
+              <NavigationProvider mainNavItems={navListData}>
+                <Navigation />
+                <Main>{children}</Main>
+              </NavigationProvider>
             </PageContent>
             <Footer data={footerData} />
           </Page>

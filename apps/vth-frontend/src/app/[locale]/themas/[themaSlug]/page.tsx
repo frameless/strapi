@@ -8,6 +8,7 @@ import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
 import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
+import { SubNavigationInjector } from '@/components/Navigation';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_THEMA_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
@@ -99,6 +100,7 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
 
   return (
     <Grid className={'utrecht-grid--content-padding'}>
+      <SubNavigationInjector title={parentElement.title} subNavigation={{}} />
       <div className={'utrecht-grid__full-width'}>
         <BreadcrumbWithBacklink
           breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
