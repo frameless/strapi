@@ -6,6 +6,7 @@ import { PrintButton } from '@/components/PrintButton';
 import { GET_PRINT_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
+import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
 type HomepageData = {
   title: string;
@@ -99,7 +100,7 @@ const Page = async ({ params: { locale } }: { params: { locale: string } }) => {
       <Grid className={'utrecht-grid--content-padding'}>
         <div className={'utrecht-grid__full-width'}>
           <Heading1>{homepageData.title}</Heading1>
-          <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{homepageData.content}</Markdown>
+          <Markdown imageUrl={getImageBaseUrl()}>{homepageData.content}</Markdown>
         </div>
       </Grid>
       {themaResponse.data[0] &&
@@ -124,7 +125,7 @@ const DynamicContent: React.FC<{
         switch (component.__typename) {
           case 'ComponentComponentsBlockContent':
             return component.content ? (
-              <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL} key={index}>
+              <Markdown imageUrl={getImageBaseUrl()} key={index}>
                 {component.content}
               </Markdown>
             ) : null;
@@ -136,7 +137,7 @@ const DynamicContent: React.FC<{
                   id,
                   label: title,
                   headingLevel: 3,
-                  body: <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{body}</Markdown>,
+                  body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
                 }))}
               />
             );
