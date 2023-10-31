@@ -4,7 +4,8 @@ import { Metadata } from 'next';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { AccordionProvider, Heading1 } from '@/components';
-import { BreadcrumbNavigation, BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
+import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
+import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
@@ -66,16 +67,12 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
     });
   }
 
-  breadcrumbNavigationElements.push({
+  const parentElement: BreadcrumbNavigationElement = {
     title: parents?.data[0]?.attributes?.title,
     href: `/themas/${parentSlug}`,
-  });
+  };
 
-  breadcrumbNavigationElements.push({
-    title: title,
-    href: `/themas/${parentSlug}/content/${contentSlug}`,
-    isCurrent: true,
-  });
+  breadcrumbNavigationElements.push(parentElement);
 
   const DynamicContent = () =>
     content &&
@@ -107,7 +104,13 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
   return (
     <Grid className={'utrecht-grid--content-padding'}>
       <div className={'utrecht-grid__full-width'}>
-        <BreadcrumbNavigation navigationElements={breadcrumbNavigationElements} />
+        <BreadcrumbWithBacklink
+          breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
+          backlinkProps={{
+            title: parentElement.title,
+            href: parentElement.href,
+          }}
+        />
       </div>
       <div className={'utrecht-grid__two-third'}>
         <Heading1>{title}</Heading1>

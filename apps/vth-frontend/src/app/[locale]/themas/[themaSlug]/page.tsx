@@ -4,7 +4,8 @@ import { Metadata } from 'next';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { AccordionProvider, Heading1, Markdown } from '@/components';
-import { BreadcrumbNavigation, BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
+import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
+import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
@@ -60,18 +61,14 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
 
   const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
 
-  if (parents?.data[0]) {
-    breadcrumbNavigationElements.push({
-      title: parents?.data[0]?.attributes?.title,
-      href: `/themas/${parentSlug}`,
-    });
-  }
+  const parentElement: BreadcrumbNavigationElement = parents?.data[0] && {
+    title: parents?.data[0]?.attributes?.title,
+    href: `/themas/${parentSlug}`,
+  };
 
-  breadcrumbNavigationElements.push({
-    title: title,
-    href: `/themas/${themaSlug}`,
-    isCurrent: true,
-  });
+  if (parentElement) {
+    breadcrumbNavigationElements.push(parentElement);
+  }
 
   const DynamicContent = () =>
     content &&
@@ -103,7 +100,10 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
   return (
     <Grid className={'utrecht-grid--content-padding'}>
       <div className={'utrecht-grid__full-width'}>
-        <BreadcrumbNavigation navigationElements={breadcrumbNavigationElements} />
+        <BreadcrumbWithBacklink
+          breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
+          backlinkProps={{ title: parentElement?.title || 'Home', href: parentElement?.href || '/' }}
+        />
       </div>
       <Grid className={'utrecht-grid__two-third'}>
         <div className={'utrecht-grid__full-width'}>
