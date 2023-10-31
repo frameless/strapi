@@ -1,3 +1,10 @@
+# @frameless/ui [2.5.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.4.0...@frameless/ui@2.5.0) (2023-10-31)
+
+
+### Features
+
+* **vth:** use flexwrap fallback for breadcrumb navigation ([5cd42aa](https://github.com/frameless/strapi/commit/5cd42aa195bb6407ee1219e55a372c7dc9bf3595))
+
 # @frameless/ui [2.4.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.3.0...@frameless/ui@2.4.0) (2023-10-31)
 
 
