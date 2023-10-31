@@ -3,6 +3,7 @@ import { Markdown } from '@/components/Markdown';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
+import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
 const NotFoundPage = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { data } = await fetchData({
@@ -14,7 +15,7 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
   return (
     <div>
       <Heading1>{data?.notFoundPage?.data?.attributes?.title}</Heading1>
-      <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+      <Markdown imageUrl={getImageBaseUrl()}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
     </div>
   );
 };

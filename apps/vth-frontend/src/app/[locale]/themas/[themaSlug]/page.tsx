@@ -11,7 +11,7 @@ import { Grid } from '@/components/Grid';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_THEMA_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
-import { buildImgURL } from '@/util/buildImgURL';
+import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
 type Params = {
   params: {
@@ -77,7 +77,7 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
       switch (component?.__typename) {
         case 'ComponentComponentsBlockContent':
           return component.content ? (
-            <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL} key={index}>
+            <Markdown imageUrl={getImageBaseUrl()} key={index}>
               {component.content}
             </Markdown>
           ) : null;
@@ -88,7 +88,7 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
                 id,
                 label: title,
                 headingLevel: 3,
-                body: <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{body}</Markdown>,
+                body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
               }))}
             />
           );
@@ -118,7 +118,7 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
               return (
                 <Card
                   className={'utrecht-grid__half-width'}
-                  image={{ url: imageUrl && buildImgURL(imageUrl), alt: '' }}
+                  image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
                   title={title}
                   description={description}
                   key={`thema-${childSlug}`}
@@ -137,7 +137,7 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
                   title={title}
                   description={description}
                   key={`thema-${contentSlug}`}
-                  image={{ url: imageUrl && buildImgURL(imageUrl), alt: '' }}
+                  image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
                   link={{ href: `/themas/${themaSlug}/content/${contentSlug}` }}
                 />
               );

@@ -11,6 +11,7 @@ import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_CONTENT_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
+import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
 type Params = {
   params: {
@@ -81,7 +82,7 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
       switch (component?.__typename) {
         case 'ComponentComponentsBlockContent':
           return component.content ? (
-            <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL} key={index}>
+            <Markdown imageUrl={getImageBaseUrl()} key={index}>
               {component.content}
             </Markdown>
           ) : null;
@@ -92,7 +93,7 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
                 id,
                 label: title,
                 headingLevel: 3,
-                body: <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{body}</Markdown>,
+                body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
               }))}
             />
           );

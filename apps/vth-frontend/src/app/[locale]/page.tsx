@@ -8,7 +8,7 @@ import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { GET_HOME_PAGE } from '@/query';
-import { buildImgURL } from '@/util/buildImgURL';
+import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { useTranslation } from '../i18n';
 
 export interface Fields {
@@ -48,7 +48,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
         <Image
           width={1200}
           height={400}
-          src={buildImgURL(bannerAttributes.url)}
+          src={`${getImageBaseUrl()}${bannerAttributes.url}`}
           alt={bannerAttributes.alternativeText || ''}
           priority
           className={'utrecht-image utrecht-image--banner'}
@@ -57,7 +57,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       <Grid className={'utrecht-grid--content-padding'}>
         <div className={'utrecht-grid__two-third'}>
           <Heading1>{title}</Heading1>
-          <Markdown imageUrl={process.env.STRAPI_PUBLIC_URL}>{content}</Markdown>
+          <Markdown imageUrl={getImageBaseUrl()}>{content}</Markdown>
         </div>
         <Grid className={'utrecht-grid__full-width'}>
           {themas &&
@@ -70,7 +70,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
                   key={`thema-${slug}`}
                   title={title}
                   description={description}
-                  image={{ url: imageUrl && buildImgURL(imageUrl), alt: '' }}
+                  image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
                   link={{ href: `/themas/${slug}` }}
                 />
               );
