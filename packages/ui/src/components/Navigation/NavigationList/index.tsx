@@ -3,11 +3,7 @@ import { DetailedHTMLProps, ForwardedRef, forwardRef, HTMLAttributes, PropsWithC
 import styles from './index.module.scss';
 import { NavigationItem } from '../NavigationItem';
 import { NavigationLink } from '../NavigationLink';
-
-type NavigationListType = {
-  title: string;
-  link: string;
-};
+import { NavigationListType } from '../index';
 
 interface NavigationListProps extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {
   list: NavigationListType[];
@@ -37,6 +33,9 @@ export const NavigationList = forwardRef(
             <NavigationLink mobile={mobile} href={item.link}>
               {item.title}
             </NavigationLink>
+            {mobile && item.children && item.children.length > 0 && (
+              <NavigationList list={item.children} mobile={mobile} />
+            )}
           </NavigationItem>
         ))}
     </ul>

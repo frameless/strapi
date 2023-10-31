@@ -14,7 +14,8 @@
 
   align-items: center;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .utrecht-navigation__item-icon::before {

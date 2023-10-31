@@ -8,9 +8,10 @@ import { Drawer } from '../Drawer';
 import { Portal } from '../Portal';
 const css = classnames.bind(styles);
 
-type NavigationListType = {
+export type NavigationListType = {
   title: string;
   link: string;
+  children?: NavigationListType[];
 };
 
 interface NavigationProps extends HTMLAttributes<HTMLElement> {
