@@ -3,7 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Navigation, Page, PageContent, PageHeader } from '@/components';
+import { Navigation, NavigationListType, Page, PageContent, PageHeader } from '@/components';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
@@ -64,7 +64,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
     return {
       title: thema.attributes.title,
       link: `/themas/${thema.attributes.slug}`,
-    };
+    } satisfies NavigationListType;
   });
 
   const footerData = {

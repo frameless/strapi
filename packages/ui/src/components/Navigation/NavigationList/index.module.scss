@@ -28,3 +28,9 @@
     inline-size: 50%;
   }
 }
+
+.utrecht-navigation__list .utrecht-navigation__list {
+  inline-size: 100%;
+  padding-block-end: 0;
+  padding-block-start: 0;
+}
