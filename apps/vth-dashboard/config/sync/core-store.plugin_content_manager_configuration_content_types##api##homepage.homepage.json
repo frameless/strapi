@@ -22,7 +22,7 @@
       },
       "title": {
         "edit": {
-          "label": "title",
+          "label": "Pagina titel",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -36,7 +36,7 @@
       },
       "content": {
         "edit": {
-          "label": "content",
+          "label": "Inhoud",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -50,7 +50,7 @@
       },
       "description": {
         "edit": {
-          "label": "description",
+          "label": "Korte beschrijving",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -64,8 +64,8 @@
       },
       "bannerImage": {
         "edit": {
-          "label": "bannerImage",
-          "description": "",
+          "label": "Banner afbeelding",
+          "description": "De grote bannerafbeelding bovenaan de pagina",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -136,7 +136,6 @@
       }
     },
     "layouts": {
-      "list": ["id", "createdAt", "updatedAt", "title"],
       "edit": [
         [
           {
@@ -160,7 +159,8 @@
             "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["id", "createdAt", "updatedAt", "title"]
     }
   },
   "type": "object",

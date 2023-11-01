@@ -6,7 +6,7 @@
       "bulkable": true,
       "filterable": true,
       "searchable": true,
-      "pageSize": 10,
+      "pageSize": 50,
       "mainField": "title",
       "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
@@ -29,9 +29,66 @@
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Titel",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "URL segment",
+          "description": "Laat dit veld leeg om automatisch te vullen.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "URL segment",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Tegel beschrijving",
+          "description": "Beschrijving op de navigatie tegel zoals deze verschijnt op het thema.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "parents": {
+        "edit": {
+          "label": "Thema(s)",
+          "description": "De content verschijnt als klikbare tegel onder de gekoppelde themas.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "Themas",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "previewImage": {
+        "edit": {
+          "label": "Tegel afbeelding",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "previewImage",
+          "searchable": false,
+          "sortable": false
         }
       },
       "content": {
@@ -48,63 +105,6 @@
           "sortable": false
         }
       },
-      "slug": {
-        "edit": {
-          "label": "URL segment",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "slug",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "description": {
-        "edit": {
-          "label": "description",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "description",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "parents": {
-        "edit": {
-          "label": "parents",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "parents",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "previewImage": {
-        "edit": {
-          "label": "previewImage",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "previewImage",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -114,7 +114,7 @@
           "editable": true
         },
         "list": {
-          "label": "createdAt",
+          "label": "Aangemaakt op",
           "searchable": true,
           "sortable": true
         }
@@ -128,7 +128,7 @@
           "editable": true
         },
         "list": {
-          "label": "updatedAt",
+          "label": "Laatst gewijzigd",
           "searchable": true,
           "sortable": true
         }
@@ -165,7 +165,6 @@
       }
     },
     "layouts": {
-      "list": ["id", "createdAt", "updatedAt", "title"],
       "edit": [
         [
           {
@@ -185,10 +184,6 @@
         ],
         [
           {
-            "name": "description",
-            "size": 6
-          },
-          {
             "name": "parents",
             "size": 6
           }
@@ -197,9 +192,14 @@
           {
             "name": "previewImage",
             "size": 6
+          },
+          {
+            "name": "description",
+            "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["id", "title", "slug", "updatedAt", "createdAt"]
     }
   },
   "type": "object",

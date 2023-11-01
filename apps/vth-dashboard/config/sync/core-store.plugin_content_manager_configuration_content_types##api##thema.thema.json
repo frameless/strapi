@@ -6,7 +6,7 @@
       "bulkable": true,
       "filterable": true,
       "searchable": true,
-      "pageSize": 10,
+      "pageSize": 20,
       "mainField": "title",
       "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
@@ -29,9 +29,96 @@
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Titel",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "URL segment",
+          "description": "Leeg laten om automatisch te genereren",
+          "placeholder": "Automatisch gegenereerd",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "URL Segment",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "parents": {
+        "edit": {
+          "label": "Hoofdthema(s)",
+          "description": "Door hoofdthema's te koppelen verschijnt dit thema als sub-thema tegel op de gekoppelde hoofdthema's..",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "parents",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "child_themas": {
+        "edit": {
+          "label": "Subthema(s)",
+          "description": "Subthema's verschijnen als navigatie tegel op de thema pagina. ",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "child_themas",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "child_contents": {
+        "edit": {
+          "label": "Content(s)",
+          "description": "Contents verschijnen als navigatie tegel op de thema pagina. ",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "child_contents",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Tegel beschrijving",
+          "description": "Beschrijving op de navigatie tegel zoals deze verschijnt op de hoofdthema's of hoofdpagina",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "previewImage": {
+        "edit": {
+          "label": "Tegel afbeelding",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "previewImage",
+          "searchable": false,
+          "sortable": false
         }
       },
       "content": {
@@ -48,93 +135,6 @@
           "sortable": false
         }
       },
-      "slug": {
-        "edit": {
-          "label": "URL segment",
-          "description": "Leeg laten om automatisch te genereren",
-          "placeholder": "Automatisch gegenereerd",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "slug",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "parents": {
-        "edit": {
-          "label": "parents",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "parents",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "child_themas": {
-        "edit": {
-          "label": "child_themas",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "child_themas",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "child_contents": {
-        "edit": {
-          "label": "child_contents",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "child_contents",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "description": {
-        "edit": {
-          "label": "description",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "description",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "previewImage": {
-        "edit": {
-          "label": "previewImage",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "previewImage",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -144,7 +144,7 @@
           "editable": true
         },
         "list": {
-          "label": "createdAt",
+          "label": "Aangemaakt",
           "searchable": true,
           "sortable": true
         }
@@ -158,7 +158,7 @@
           "editable": true
         },
         "list": {
-          "label": "updatedAt",
+          "label": "Laatst gewijzigd",
           "searchable": true,
           "sortable": true
         }
@@ -195,7 +195,6 @@
       }
     },
     "layouts": {
-      "list": ["id", "title", "createdAt", "updatedAt"],
       "edit": [
         [
           {
@@ -227,19 +226,20 @@
           {
             "name": "child_contents",
             "size": 6
-          },
-          {
-            "name": "description",
-            "size": 6
           }
         ],
         [
           {
             "name": "previewImage",
             "size": 6
+          },
+          {
+            "name": "description",
+            "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["id", "title", "slug", "updatedAt", "createdAt"]
     }
   },
   "type": "object",
