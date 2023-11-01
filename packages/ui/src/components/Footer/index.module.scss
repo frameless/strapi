@@ -1,0 +1,10 @@
+.utrecht-footer {
+  --utrecht-link-social-border-color: transparent;
+}
+.utrecht-footer__link {
+  margin-block-end: var(--utrecht-footer-link-margin-block-end, 10px);
+}
+
+.utrecht-footer__list-title {
+  --utrecht-heading-3-margin-block-end: var(--utrecht-footer-list-title-margin-block-end, 14px);
+}
