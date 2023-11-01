@@ -1,3 +1,10 @@
+# @frameless/ui [2.6.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.5.0...@frameless/ui@2.6.0) (2023-11-01)
+
+
+### Features
+
+* **ui:** move footer to ui pkg ([ff4de32](https://github.com/frameless/strapi/commit/ff4de3274366648084e0ca54173615fed9116053))
+
 # @frameless/ui [2.5.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.4.0...@frameless/ui@2.5.0) (2023-10-31)
 
 
