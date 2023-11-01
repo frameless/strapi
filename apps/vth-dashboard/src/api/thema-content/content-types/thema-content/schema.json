@@ -37,7 +37,7 @@
     },
     "content": {
       "type": "dynamiczone",
-      "components": ["components.accordion-section", "components.block-content", "components.image"]
+      "components": ["components.accordion-section", "components.block-content"]
     }
   }
 }
