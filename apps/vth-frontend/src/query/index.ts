@@ -71,6 +71,7 @@ query GET_THEMA_BY_SLUG($slug: String) {
         id
         attributes{
           title
+          description
           content {
             ... on ComponentComponentsBlockContent {
               __typename
@@ -155,6 +156,7 @@ query GET_CONTENT_BY_SLUG($slug: String) {
         id
         attributes{
           title
+          description
           content {
             ... on ComponentComponentsBlockContent {
               __typename
