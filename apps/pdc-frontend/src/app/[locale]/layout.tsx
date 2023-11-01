@@ -3,12 +3,11 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Grid, GridCell, Navigation, Page, PageContent, PageHeader, SkipLink, Surface } from '@/components';
+import { Footer, Grid, GridCell, Navigation, Page, PageContent, PageHeader, SkipLink, Surface } from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
-import { Footer } from '@/components/Footer';
 import { Logo } from '@/components/Logo';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
@@ -198,7 +197,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         title: t('footer.social_media.2.title'),
       },
       {
-        icon: 'twitter',
+        icon: 'x',
         link: 'https://twitter.com/gemeenteutrecht',
         external: true,
         title: t('footer.social_media.3.title'),
@@ -255,8 +254,8 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               <PageContent className="utrecht-page-content--modifier">
                 <Main id="main">{children}</Main>
               </PageContent>
-              <Footer data={footerData} />
             </Page>
+            <Footer data={footerData} />
           </Surface>
         </QueryClientProvider>
       </body>
