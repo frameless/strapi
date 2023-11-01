@@ -2,7 +2,6 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
 import React from 'react';
-import { useTranslation } from '@/app/i18n';
 import { AccordionProvider, Heading1 } from '@/components';
 import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
 import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
@@ -20,12 +19,16 @@ type Params = {
   };
 };
 
-export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+export async function generateMetadata({ params: { locale, contentSlug } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = await useTranslation(locale, 'thema');
+  const { data } = await fetchData({
+    url: createStrapiURL(),
+    query: GET_CONTENT_BY_SLUG,
+    variables: { slug: contentSlug, locale: locale },
+  });
   return {
-    title: t('seo.title'),
-    description: t('seo.description'),
+    title: data.findSlug.data.attributes.title,
+    description: data.findSlug.data.attributes.description,
   };
 }
 
