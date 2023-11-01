@@ -3,7 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Navigation, NavigationListType, Page, PageContent, PageHeader } from '@/components';
+import { Navigation, NavigationListType, Page, PageContent, PageHeader, SkipLink } from '@/components';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
@@ -11,13 +11,12 @@ import { Footer } from '@/components/Footer';
 import { Grid } from '@/components/Grid';
 import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Main } from '@/components/Main';
 import { GET_HOOFD_THEMAS } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n/index';
 import '@frameless/ui/dist/bundle.css';
-
-const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => <main>{children}</main>;
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -160,6 +159,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <QueryClientProvider>
           <Page className="utrecht-page--full-width">
             <PageHeader>
+              <SkipLink href="#main">Ga naar inhoud</SkipLink>
               <Grid className={'utrecht-grid--content-padding'}>
                 <Logo locale={locale} />
               </Grid>
@@ -173,7 +173,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   closeText: 'Sluiten',
                 }}
               />
-              <Main>{children}</Main>
+              <Main id="main">{children}</Main>
             </PageContent>
             <Footer data={footerData} />
           </Page>
