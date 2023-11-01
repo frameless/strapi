@@ -9,7 +9,7 @@ export const Logo = ({ locale }: LogoProps) => (
     href={`/${locale}`}
     className="utrecht-link utrecht-link--html-a utrecht-link--box-content"
     prefetch={false}
-    aria-label="Ga naar home pagina"
+    aria-label="Homepage"
   >
     <svg width="188" height="101" viewBox="0 0 188 101" fill="none">
       <g clipPath="url(#clip0_908_6411)">
