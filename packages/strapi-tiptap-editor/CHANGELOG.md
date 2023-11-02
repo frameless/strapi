@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.8.3](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.8.2...@frameless/strapi-tiptap-editor@1.8.3) (2023-11-02)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** resolve table Menubar option issue ([0f9633a](https://github.com/frameless/strapi/commit/0f9633a8b9453f9e5435f522f64b3fa97f33c2fc))
+
 ## @frameless/strapi-tiptap-editor [1.8.2](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.8.1...@frameless/strapi-tiptap-editor@1.8.2) (2023-10-31)
 
 
