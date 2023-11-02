@@ -40,6 +40,10 @@ export default styled(Box)`
     }
   }
 
+  .tippy-box {
+    background: transparent;
+  }
+
   .ProseMirror {
     outline: none;
     line-height: 1.25rem;

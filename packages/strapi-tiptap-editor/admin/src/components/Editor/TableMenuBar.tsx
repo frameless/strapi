@@ -95,7 +95,7 @@ export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
                 defaultMessage: 'Row',
               })}
             </FormLabel>
-            <Select id="tableRow" onChange={onTableMenubarChange}>
+            <Select id="tableRow" onChange={onTableMenubarChange} value="">
               <SelectOption>
                 {formatMessage({
                   id: getTrad('components.tableMenuBar.select.placeholder'),
@@ -131,7 +131,7 @@ export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
                 defaultMessage: 'Column',
               })}
             </FormLabel>
-            <Select id="tableColumn" onChange={onTableMenubarChange}>
+            <Select id="tableColumn" onChange={onTableMenubarChange} value="">
               <SelectOption>
                 {formatMessage({
                   id: getTrad('components.tableMenuBar.select.placeholder'),
@@ -167,7 +167,7 @@ export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
                 defaultMessage: 'Header',
               })}
             </FormLabel>
-            <Select id="toggleHeader" onChange={onTableMenubarChange}>
+            <Select id="toggleHeader" onChange={onTableMenubarChange} value="">
               <SelectOption>
                 {formatMessage({
                   id: getTrad('components.tableMenuBar.select.placeholder'),
@@ -203,7 +203,7 @@ export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
                 defaultMessage: 'Cell',
               })}
             </FormLabel>
-            <Select id="tableCell" onChange={onTableMenubarChange}>
+            <Select id="tableCell" onChange={onTableMenubarChange} value="">
               <SelectOption>
                 {formatMessage({
                   id: getTrad('components.tableMenuBar.select.placeholder'),
