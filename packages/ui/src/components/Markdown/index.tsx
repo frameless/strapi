@@ -112,6 +112,18 @@ const defaultComponents = (config?: Components) => {
       delete node.properties?.style;
       return <TableCaption {...node.properties}>{children}</TableCaption>;
     },
+    figcaption: ({ children, node }) => {
+      delete node.properties?.style;
+      return (
+        <figcaption
+          // TODO: Replace the class below with `utrecht-table__figcaption` once PR #2005 on @utrecht/component-library-css is merged.
+          className="utrecht-table__caption"
+          {...node?.properties}
+        >
+          {children}
+        </figcaption>
+      );
+    },
   };
 
   // Merge the provided config with the default component mapping
