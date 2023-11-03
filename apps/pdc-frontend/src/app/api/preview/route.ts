@@ -20,26 +20,35 @@ export async function GET(request: Request) {
     return new Response('Missing required parameters', { status: 422 });
   }
 
-  // Fetch the headless CMS to check if the provided `slug` exists
+  const getCurrentPage = (type: string) => {
+    switch (type) {
+      case 'products':
+        return {
+          path: `/${locale}/${type}/${slug}`,
+          query: GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH,
+        };
+      default:
+        return {};
+    }
+  };
+
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH,
+    query: getCurrentPage(type).query,
     variables: {
-      slug: slug,
-      locale,
       pageMode: 'PREVIEW',
     },
   });
 
-  // If the slug doesn't exist prevent draft mode from being enabled
-  if (!data || data.products.data.length === 0) {
+  if (!data) {
     return new Response('Invalid slug', { status: 401 });
   }
 
-  const path = `/${locale}/${type}/${data.products?.data[0]?.attributes.slug}`;
+  const path = getCurrentPage(type).path;
+
   // Enable Draft Mode by setting the cookie
   draftMode().enable();
   // Redirect to the path from the fetched post
   // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
-  redirect(path);
+  redirect(path ? path : '/');
 }
