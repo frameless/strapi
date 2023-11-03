@@ -33,7 +33,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ items, curre
                 href={pathname}
                 locale={locale}
                 onClick={onClick}
-                className={css('utrecht-language-switcher__link', 'utrecht-link', {
+                className={css('utrecht-language-switcher__link', 'utrecht-link', 'utrecht-link--html-a', {
                   'utrecht-language-switcher__link--current': locale === currentLocale,
                 })}
                 hrefLang={locale}
