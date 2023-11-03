@@ -13,7 +13,20 @@ export default ({ env }) => ({
     config: {
       domain: env("FRONTEND_PUBLIC_URL"),
       token: env("PREVIEW_SECRET_TOKEN"),
-      slug: "products",
+      contentTypes: [
+        {
+          uid: "api::homepage.homepage",
+          query: {
+            type: "Homepage",
+          },
+        },
+        {
+          uid: "api::product.product",
+          query: {
+            type: "products",
+          },
+        },
+      ],
     },
   },
 });
@@ -28,7 +41,20 @@ module.exports = ({ env }) => ({
     config: {
       domain: env("FRONTEND_PUBLIC_URL"),
       token: env("PREVIEW_SECRET_TOKEN"),
-      slug: "products",
+      contentTypes: [
+        {
+          uid: "api::homepage.homepage",
+          query: {
+            type: "Homepage",
+          },
+        },
+        {
+          uid: "api::product.product",
+          query: {
+            type: "products",
+          },
+        },
+      ],
     },
   },
 });
