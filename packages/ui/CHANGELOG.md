@@ -1,3 +1,10 @@
+## @frameless/ui [2.6.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.6.0...@frameless/ui@2.6.1) (2023-11-03)
+
+
+### Bug Fixes
+
+* **ui:** add figcaption style ([356f6d5](https://github.com/frameless/strapi/commit/356f6d5344748cdd1928c96dea2a0638b26d996c))
+
 # @frameless/ui [2.6.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.5.0...@frameless/ui@2.6.0) (2023-11-01)
 
 
