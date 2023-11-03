@@ -157,6 +157,10 @@ a {
   box-sizing: border-box;
 }
 
+.utrecht-article {
+  flex: 1 1;
+}
+
 .utrecht-page-content--modifier {
   display: flex;
   flex: 1;
@@ -193,9 +197,4 @@ th {
 
 th > p {
   --utrecht-paragraph-font-weight: var(--utrecht-table-header-font-weight);
-}
-
-/* TODO: remove the css class below when the accordion PR get merged from design system */
-.utrecht-accordion__header {
-  --utrecht-space-around: 0;
 }
