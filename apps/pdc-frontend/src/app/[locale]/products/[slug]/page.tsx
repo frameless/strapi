@@ -160,7 +160,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
               );
             case 'ComponentComponentsSpotlight':
               return component.content ? (
-                <SpotlightSection type={component.type}>
+                <SpotlightSection type={component.type !== 'gray' && component.type}>
                   <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
                     {component.content}
                   </Markdown>
