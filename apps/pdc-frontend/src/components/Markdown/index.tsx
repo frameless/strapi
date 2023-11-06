@@ -5,7 +5,7 @@ import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';
 export { PageTitle } from '../Page-title';
-import { ReactMarkdownProps } from 'react-markdown/lib/complex-types';
+import type { ExtraProps } from 'react-markdown';
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
 
@@ -37,7 +37,7 @@ export const Markdown = ({
   locale?: string;
 }) => {
   const priceWidget = {
-    'react-widget': ({ node }: ReactMarkdownProps) => {
+    'react-widget': ({ node }: ExtraProps) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const { t } = useTranslation(locale || fallbackLng, ['common']);
       return (
