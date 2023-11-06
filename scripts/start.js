@@ -10,18 +10,54 @@ const handleExit = () => {
 };
 
 process.on('SIGINT', handleExit);
+const projects = [
+  {
+    type: 'select',
+    name: 'frontend',
+    message: 'Select Your app name:',
+    choices: ['pdc-frontend', 'vth-frontend'],
+  },
+  {
+    type: 'select',
+    name: 'dashboard',
+    message: 'Select Your Strapi Dashboard app name:',
+    choices: ['pdc-dashboard', 'vth-dashboard'],
+  },
+];
+
+const getAppChoices = (appType) => {
+  switch (appType) {
+    case 'frontend':
+      return ['pdc-frontend', 'vth-frontend'];
+
+    case 'strapi':
+      return ['pdc-dashboard', 'vth-dashboard'];
+
+    default:
+      return [];
+  }
+};
 
 const runApp = async (appType, mode) => {
+  if (getAppChoices(appType).length === 0) throw new Error('Invalid appType provided.');
   const { app } = await prompt({
-    type: 'input',
+    type: 'select',
     name: 'app',
     message: `Enter the ${appType} app name:`,
+    choices: getAppChoices(appType),
   });
-
   const command = `APP=${app} npm run ${mode}:${appType}`;
+
   const childProcess = exec(command);
   childProcess.stdout.pipe(process.stdout); // Pipe standard output to terminal
   childProcess.stderr.pipe(process.stderr); // Pipe standard error to terminal
+};
+
+const getTheCurrentOption = ({ dashboard, frontend, mode }) => {
+  const command = `APP1=${dashboard} APP2=${frontend} npm run ${mode}:both`;
+  const childProcess = exec(command);
+  childProcess.stdout.pipe(process.stdout);
+  childProcess.stderr.pipe(process.stderr);
 };
 
 const runOption = async () => {
@@ -33,63 +69,37 @@ const runOption = async () => {
       choices: ['Build', 'Dev', 'Start'],
     });
 
-    const { appType, mode } = await prompt([
+    const { appType } = await prompt([
       {
         type: 'select',
         name: 'appType',
         message: 'Select an app:',
         choices: ['Frontend', 'Strapi', 'Both'],
       },
-      {
-        type: 'input',
-        name: 'mode',
-        message: 'Enter mode (build, dev, start):',
-      },
     ]);
-
+    const mode = option?.toLowerCase();
     switch (option) {
       case 'Build':
         if (appType === 'Both') {
-          const { strapiApp, frontendApp } = await prompt([
-            {
-              type: 'input',
-              name: 'strapiApp',
-              message: 'Enter the Strapi app name:',
-            },
-            {
-              type: 'input',
-              name: 'frontendApp',
-              message: 'Enter the frontend app name:',
-            },
-          ]);
-          const command = `APP1=${strapiApp} APP2=${frontendApp} npm run ${mode}:both`;
-          const childProcess = exec(command);
-          childProcess.stdout.pipe(process.stdout);
-          childProcess.stderr.pipe(process.stderr);
+          const { frontend, dashboard } = await prompt(projects);
+          getTheCurrentOption({ dashboard, frontend, mode });
         } else {
           runApp(appType.toLowerCase(), mode);
         }
         break;
 
       case 'Dev':
+        if (appType === 'Both') {
+          const { frontend, dashboard } = await prompt(projects);
+          getTheCurrentOption({ dashboard, frontend, mode });
+        } else {
+          runApp(appType.toLowerCase(), mode);
+        }
+        break;
       case 'Start':
         if (appType === 'Both') {
-          const { strapiApp, frontendApp } = await prompt([
-            {
-              type: 'input',
-              name: 'strapiApp',
-              message: 'Enter the Strapi app name:',
-            },
-            {
-              type: 'input',
-              name: 'frontendApp',
-              message: 'Enter the frontend app name:',
-            },
-          ]);
-          const command = `APP1=${strapiApp} APP2=${frontendApp} npm run ${mode}:both`;
-          const childProcess = exec(command);
-          childProcess.stdout.pipe(process.stdout);
-          childProcess.stderr.pipe(process.stderr);
+          const { frontend, dashboard } = await prompt(projects);
+          getTheCurrentOption({ dashboard, frontend, mode });
         } else {
           runApp(appType.toLowerCase(), mode);
         }
