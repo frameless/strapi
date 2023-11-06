@@ -12,8 +12,8 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": ["default", "info", "warning"],
-      "default": "default"
+      "enum": ["gray", "info", "warning"],
+      "default": "gray"
     },
     "logoButton": {
       "type": "component",
