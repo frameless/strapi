@@ -1,14 +1,26 @@
 import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Footer, Grid, GridCell, Navigation, Page, PageContent, PageHeader, SkipLink, Surface } from '@/components';
+import {
+  Footer,
+  Grid,
+  GridCell,
+  Logo,
+  LogoImage,
+  Navigation,
+  Page,
+  PageContent,
+  PageHeader,
+  SkipLink,
+  Surface,
+} from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
-import { Logo } from '@/components/Logo';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import { getLiveSuggestions, onSearchSubmitAction } from './search/actions';
@@ -225,7 +237,16 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <SkipLink href="#search-input">{t('components.skip-link.search-input')}</SkipLink>
                 <Grid spacing="sm">
                   <GridCell xs={6}>
-                    <Logo locale={locale} />
+                    <Link
+                      href={`/${locale}`}
+                      className="utrecht-link utrecht-link--html-a utrecht-link--box-content"
+                      prefetch={false}
+                      aria-label="Ga naar home pagina"
+                    >
+                      <Logo>
+                        <LogoImage />
+                      </Logo>
+                    </Link>
                   </GridCell>
                   <GridCell xs={6}>
                     <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
