@@ -4,7 +4,7 @@
   "info": {
     "singularName": "thema",
     "pluralName": "themas",
-    "displayName": "Thema",
+    "displayName": "Themapagina's",
     "description": ""
   },
   "options": {
@@ -21,23 +21,11 @@
       "unique": true,
       "required": true
     },
-    "parents": {
+    "hoofditems": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::thema.thema",
-      "mappedBy": "child_themas"
-    },
-    "child_themas": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::thema.thema",
-      "inversedBy": "parents"
-    },
-    "child_contents": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::thema-content.thema-content",
-      "inversedBy": "parents"
+      "target": "api::hoofditem.hoofditem",
+      "inversedBy": "themas"
     },
     "description": {
       "type": "text"
@@ -46,11 +34,22 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "content": {
       "type": "dynamiczone",
-      "components": ["components.block-content", "components.accordion-section"]
+      "components": [
+        "components.block-content",
+        "components.accordion-section"
+      ]
+    },
+    "contents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::thema-content.thema-content",
+      "inversedBy": "themas"
     }
   }
 }

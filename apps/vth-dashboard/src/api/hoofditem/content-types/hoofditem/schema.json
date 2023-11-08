@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "thema_contents",
+  "collectionName": "hoofditems",
   "info": {
-    "singularName": "thema-content",
-    "pluralName": "thema-contents",
-    "displayName": "Contentpagina's",
+    "singularName": "hoofditem",
+    "pluralName": "hoofditems",
+    "displayName": "Hoofdpagina's",
     "description": ""
   },
   "options": {
@@ -16,9 +16,14 @@
       "type": "string"
     },
     "slug": {
-      "type": "string",
-      "required": true,
-      "minLength": 2
+      "type": "string"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "components.accordion-section",
+        "components.block-content"
+      ]
     },
     "description": {
       "type": "text"
@@ -31,24 +36,17 @@
         "images"
       ]
     },
-    "content": {
-      "type": "dynamiczone",
-      "components": [
-        "components.accordion-section",
-        "components.block-content"
-      ]
-    },
-    "hoofditems": {
+    "contents": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::hoofditem.hoofditem",
-      "inversedBy": "contents"
+      "target": "api::thema-content.thema-content",
+      "mappedBy": "hoofditems"
     },
     "themas": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::thema.thema",
-      "mappedBy": "contents"
+      "mappedBy": "hoofditems"
     }
   }
 }

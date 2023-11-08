@@ -31,7 +31,7 @@ query getHomePage {
       }
     }
   }
-  themas(filters: { parents: { id: null } }) {
+  hoofditems {
     data {
       id
       attributes {

@@ -39,7 +39,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
   });
 
   const { title, content, bannerImage } = data?.homepage?.data?.attributes;
-  const themas = data?.themas?.data;
+  const hoofditems = data?.hoofditems?.data;
   const bannerAttributes = bannerImage?.data?.attributes;
 
   return (
@@ -60,8 +60,8 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           <Markdown imageUrl={getImageBaseUrl()}>{content}</Markdown>
         </div>
         <Grid className={'utrecht-grid__full-width'}>
-          {themas &&
-            themas.map((thema: any) => {
+          {hoofditems &&
+            hoofditems.map((thema: any) => {
               const { title, description, slug, previewImage: imageData } = thema.attributes;
               const imageUrl = imageData?.data?.attributes?.url;
               return (
