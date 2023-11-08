@@ -8,12 +8,14 @@
   "attributes": {
     "resourceIdentifier": {
       "type": "customField",
-      "customField": "plugin::gemeente-select.gemeente"
+      "customField": "plugin::gemeente-select.gemeente",
+      "default": "http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)"
     },
     "scheme": {
       "type": "customField",
       "customField": "plugin::scheme-select.scheme",
-      "required": true
+      "required": true,
+      "default": "{http://standaarden.overheid.nl/owms/terms/}Gemeente"
     }
   }
 }
