@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useIntl } from 'react-intl';
 
+export const schemeData = [
+  { resourceIdentifier: '{http://standaarden.overheid.nl/owms/terms/}Gemeente', prefLabel: 'Gemeente' },
+];
 function CustomCombobox({
   value,
   onChange,
@@ -19,10 +22,6 @@ function CustomCombobox({
   error,
 }) {
   const { formatMessage } = useIntl();
-
-  const schemeData = [
-    { resourceIdentifier: '{http://standaarden.overheid.nl/owms/terms/}Gemeente', prefLabel: 'Gemeente' },
-  ];
 
   return (
     <Field name={name} id={name} error={error} hint={description && formatMessage(description)}>
