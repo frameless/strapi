@@ -1,7 +1,19 @@
+import gemeente from '@frameless/catalogi-data';
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
 import ComboboxIcon from './components/ComboboxIcon';
 import pluginId from './pluginId';
 import getTrad from './utils/getTrad';
+
+const options = gemeente.cv.value.map(({ prefLabel, resourceIdentifier }) => ({
+  key: resourceIdentifier,
+  value: resourceIdentifier,
+  metadatas: {
+    intlLabel: {
+      id: `components.InputSelect.option.${resourceIdentifier}`,
+      defaultMessage: prefLabel,
+    },
+  },
+}));
 
 export default {
   register(app) {
@@ -40,6 +52,31 @@ export default {
                   id: 'form.attribute.item.requiredField.description',
                   defaultMessage: "You won't be able to create an entry if this field is empty",
                 },
+              },
+              {
+                name: 'default',
+                type: 'select',
+                intlLabel: {
+                  id: 'form.attribute.item.defaultField',
+                  defaultMessage: 'Default Value',
+                },
+                description: {
+                  id: 'form.attribute.item.defaultField.description',
+                  defaultMessage: 'A default value is a preset choice when no other is given',
+                },
+                options: [
+                  {
+                    key: '__null_reset_value__',
+                    value: '',
+                    metadatas: {
+                      intlLabel: {
+                        id: 'components.InputSelect.option.placeholder',
+                        defaultMessage: 'Choose here',
+                      },
+                    },
+                  },
+                  ...options,
+                ],
               },
             ],
           },
