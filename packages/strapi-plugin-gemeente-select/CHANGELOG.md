@@ -1,3 +1,10 @@
+# @frameless/strapi-plugin-gemeente-select [1.1.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-gemeente-select@1.0.0...@frameless/strapi-plugin-gemeente-select@1.1.0) (2023-11-08)
+
+
+### Features
+
+* **gemeente-select-plugin:** add configurable defaults value option ([b5d19cb](https://github.com/frameless/strapi/commit/b5d19cb8ace5cdda453367480514b8a58ae0b914))
+
 # @frameless/strapi-plugin-gemeente-select 1.0.0 (2022-11-23)
 
 
