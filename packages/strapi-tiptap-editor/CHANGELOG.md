@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.9.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.8.3...@frameless/strapi-tiptap-editor@1.9.0) (2023-11-09)
+
+
+### Features
+
+* **strapi-tiptap:** add validation to the lint ([c4c45d3](https://github.com/frameless/strapi/commit/c4c45d33389dfa4ba1aedb8b45497af8b726ea1c))
+
 ## @frameless/strapi-tiptap-editor [1.8.3](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.8.2...@frameless/strapi-tiptap-editor@1.8.3) (2023-11-02)
 
 
