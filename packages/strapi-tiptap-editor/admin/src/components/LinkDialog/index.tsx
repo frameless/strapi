@@ -11,6 +11,8 @@ type TextInputProps = {
   onChange: (_event: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
   ariaLabel: string;
+  hint?: string;
+  error?: string;
 };
 
 type StartActionButtonProps = {
@@ -21,6 +23,7 @@ type StartActionButtonProps = {
 type EndActionButtonProps = {
   onClick: (_event: React.MouseEvent<HTMLButtonElement>) => void;
   text: string;
+  disabled?: boolean;
 };
 
 export interface LinkDialogProps {
@@ -51,6 +54,8 @@ export const LinkDialog = ({
             onChange={textInputProps.onChange}
             value={textInputProps.value}
             aria-label={textInputProps.ariaLabel}
+            hint={textInputProps?.hint}
+            error={textInputProps?.error}
           />
         </Stack>
       </DialogBody>
@@ -61,7 +66,11 @@ export const LinkDialog = ({
           </Button>
         }
         endAction={
-          <Button onClick={endActionButtonProps.onClick} variant="success-light">
+          <Button
+            disabled={endActionButtonProps?.disabled}
+            onClick={endActionButtonProps.onClick}
+            variant="success-light"
+          >
             {endActionButtonProps.text}
           </Button>
         }
