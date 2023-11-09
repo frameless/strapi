@@ -6,3 +6,12 @@ export const addRemoveFromList = (list: any, val: any) => {
   }
   return list;
 };
+
+export const isURLhasProtocol = (url: string) => {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};

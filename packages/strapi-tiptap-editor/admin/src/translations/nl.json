@@ -30,5 +30,12 @@
   "components.tableMenuBar.deleteButtonTable": "Verwijder tabel",
   "components.tableMenuBar.dialog.title": "Bevestiging",
   "components.tableMenuBar.dialog.descriptionTableWithCaption": "Bent u zeker dat u de tabel met het bijschrift wilt verwijderen?",
-  "components.tableMenuBar.dialog.descriptionTable": "Bent u zeker dat u de tabel wilt verwijderen?"
+  "components.tableMenuBar.dialog.descriptionTable": "Bent u zeker dat u de tabel wilt verwijderen?",
+  "components.toolbar.linkDialog.title": "Voeg een URL-koppeling in",
+  "components.toolbar.linkDialog.startActionButtonText": "Annuleren",
+  "components.toolbar.linkDialog.endActionButtonText": "URL invoegen",
+  "components.toolbar.linkDialog.textInput.hint": "URL's moeten beginnen met 'https://' of 'http://', bijvoorbeeld: https://www.example.com of https://example.com",
+  "components.toolbar.linkDialog.textInput.error": "Ongeldige URL. Zorg ervoor dat het begint met 'https://' of 'http://', bijvoorbeeld: https://www.example.com of https://example.com",
+  "components.toolbar.linkDialog.textInput.label": "Voeg een URL-koppeling in",
+  "components.toolbar.linkDialog.textInput.placeholder": "Schrijf of plak de URL hier"
 }

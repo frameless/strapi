@@ -99,8 +99,15 @@ const onHeadingChange = (editor: EditorTypes, type: HeadingEventsTypes) => {
 };
 
 export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: ToolbarProps) => {
-  const { isVisibleLinkDialog, onCloseLinkDialog, linkInput, onLinkUrlInputChange, openLinkDialog, onInsertLink } =
-    useLink(editor);
+  const {
+    isVisibleLinkDialog,
+    onCloseLinkDialog,
+    linkInput,
+    onLinkUrlInputChange,
+    openLinkDialog,
+    onInsertLink,
+    error,
+  } = useLink(editor);
   // YouTube
   const [isVisibleYouTubeDialog, setIsVisibleYouTubeDialog] = useState(false);
   const [youTubeInput, setYouTubeInput] = useState('');
@@ -125,7 +132,6 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
     setYouTubeInput('');
     setIsVisibleYouTubeDialog(false);
   };
-
   // Base64 Image dialog
   const [base64MediaLibVisible, setBase64MediaLibVisible] = useState(false);
   const [base64Input, setBase64Input] = useState('');
@@ -328,22 +334,50 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
               <LinkDialog
                 onDialogClose={onCloseLinkDialog}
                 isDialogOpen={isVisibleLinkDialog}
-                dialogTitle="Insert link"
+                dialogTitle={formatMessage({
+                  id: getTrad('components.toolbar.linkDialog.title'),
+                  defaultMessage: 'Insert a URL link',
+                })}
                 textInputProps={{
-                  label: 'Link URL',
-                  placeholder: 'Write or paste the url here',
+                  label: formatMessage({
+                    id: getTrad('components.toolbar.linkDialog.textInput.label'),
+                    defaultMessage: 'Insert a URL link',
+                  }),
+                  placeholder: formatMessage({
+                    id: getTrad('components.toolbar.linkDialog.textInput.placeholder'),
+                    defaultMessage: 'Write or paste the URL here',
+                  }),
                   name: 'url',
                   onChange: (e) => onLinkUrlInputChange(e.target.value),
                   value: linkInput,
                   ariaLabel: 'URL',
+                  hint: formatMessage({
+                    id: getTrad('components.toolbar.linkDialog.textInput.hint'),
+                    defaultMessage:
+                      "URLs should start with 'https://' or 'http://', for example: https://www.example.com or https://example.com",
+                  }),
+                  error: error
+                    ? formatMessage({
+                        id: getTrad('components.toolbar.linkDialog.textInput.error'),
+                        defaultMessage:
+                          "Invalid URL. Ensure it starts with 'https://' or 'http://', for example: https://www.example.com or https://example.com",
+                      })
+                    : undefined,
                 }}
                 startActionButtonProps={{
                   onClick: onCloseLinkDialog,
-                  text: 'Cancel',
+                  text: formatMessage({
+                    id: getTrad('components.toolbar.linkDialog.startActionButtonText'),
+                    defaultMessage: 'Cancel',
+                  }),
                 }}
                 endActionButtonProps={{
                   onClick: onInsertLink,
-                  text: 'Insert link',
+                  text: formatMessage({
+                    id: getTrad('components.toolbar.linkDialog.endActionButtonText'),
+                    defaultMessage: 'Insert URL',
+                  }),
+                  disabled: Boolean(error),
                 }}
               />
 
