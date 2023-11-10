@@ -159,7 +159,9 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <QueryClientProvider>
           <Page className="utrecht-page--full-width">
             <PageHeader>
-              <SkipLink href="#main">Ga naar inhoud</SkipLink>
+              <div className={'utrecht-skip-link-container'}>
+                <SkipLink href="#main">Ga naar inhoud</SkipLink>
+              </div>
               <Grid className={'utrecht-grid--content-padding'}>
                 <Logo locale={locale} />
               </Grid>
