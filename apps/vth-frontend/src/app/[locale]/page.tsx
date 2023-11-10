@@ -7,7 +7,7 @@ import React from 'react';
 import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
-import { GET_HOME_PAGE } from '@/query';
+import { GET_HOMEPAGE } from '@/query';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { useTranslation } from '../i18n';
 
@@ -34,7 +34,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 const Home = async ({ params: { locale } }: { params: any }) => {
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_HOME_PAGE,
+    query: GET_HOMEPAGE,
     variables: { locale: locale },
   });
 

@@ -12,7 +12,7 @@ import { Grid } from '@/components/Grid';
 import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Main } from '@/components/Main';
-import { GET_HOOFD_THEMAS } from '@/query';
+import { GET_HOOFDITEMS } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n/index';
@@ -53,16 +53,16 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout']);
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_HOOFD_THEMAS,
+    query: GET_HOOFDITEMS,
     variables: { locale: locale },
   });
 
-  const hoofdThemas: ThemaData[] = data?.themas?.data;
+  const hoofditems: ThemaData[] = data?.hoofditems?.data;
 
-  const navListData = hoofdThemas?.map((thema) => {
+  const navListData = hoofditems?.map((hoofditem) => {
     return {
-      title: thema.attributes.title,
-      link: `/themas/${thema.attributes.slug}`,
+      title: hoofditem.attributes.title,
+      link: `/${hoofditem.attributes.slug}`,
     } satisfies NavigationListType;
   });
 
