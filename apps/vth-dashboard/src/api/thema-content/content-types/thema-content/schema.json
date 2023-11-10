@@ -27,16 +27,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "content": {
       "type": "dynamiczone",
-      "components": [
-        "components.accordion-section",
-        "components.block-content"
-      ]
+      "components": ["components.accordion-section", "components.block-content"]
     },
     "hoofditems": {
       "type": "relation",

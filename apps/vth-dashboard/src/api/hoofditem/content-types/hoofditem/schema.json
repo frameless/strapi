@@ -20,10 +20,7 @@
     },
     "content": {
       "type": "dynamiczone",
-      "components": [
-        "components.accordion-section",
-        "components.block-content"
-      ]
+      "components": ["components.accordion-section", "components.block-content"]
     },
     "description": {
       "type": "text"
@@ -32,9 +29,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "contents": {
       "type": "relation",
