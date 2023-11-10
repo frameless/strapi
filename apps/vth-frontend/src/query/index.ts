@@ -216,12 +216,12 @@ query GET_CONTENT_BY_SLUG($slug: String) {
               }
             }
           }
-          parents {
+          themas {
             data {
               attributes {
                 title
                 slug
-                parents {
+                hoofditems {
                   data {
                     attributes {
                       title
@@ -229,7 +229,7 @@ query GET_CONTENT_BY_SLUG($slug: String) {
                     }
                   }
                 }
-                child_themas {
+                contents {
                   data {
                     attributes {
                       title
@@ -237,7 +237,13 @@ query GET_CONTENT_BY_SLUG($slug: String) {
                     }
                   }
                 }
-                child_contents {
+              }
+            }
+          }
+          hoofditems {
+            data {
+              attributes {
+                themas {
                   data {
                     attributes {
                       title

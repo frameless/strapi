@@ -39,16 +39,20 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
     variables: { slug: contentSlug, locale: locale },
   });
 
-  const { title, content, parents } = data.findSlug.data.attributes;
-  const parentSlug = parents?.data[0]?.attributes?.slug;
-  const siblingThemas: SiblingData[] = parents?.data[0]?.attributes?.child_themas?.data || [];
-  const siblingContent: SiblingData[] = parents?.data[0]?.attributes?.child_contents?.data || [];
+  const { title, content, themas, hoofditems } = data.findSlug.data.attributes;
+  const parentThemaSlug = themas?.data[0]?.attributes?.slug;
+  const parentHoofditemSlug = hoofditems?.data[0]?.attributes?.slug;
+
+  const hasNoThemaParent = !parentThemaSlug && parentHoofditemSlug;
+
+  const siblingThemas: SiblingData[] = hasNoThemaParent ? hoofditems?.data[0]?.attributes?.themas?.data : [];
+  const siblingContent: SiblingData[] = themas?.data[0]?.attributes?.contents?.data || [];
 
   const themasLinks =
     siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
       title,
       slug,
-      href: `/themas/${slug}`,
+      href: `/${locale}/themas/${slug}`,
       isCurrent: slug === contentSlug,
     })) || [];
 
@@ -56,7 +60,7 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
     siblingContent?.map(({ attributes: { slug, title } }: SiblingData) => ({
       title,
       slug,
-      href: `/themas/${parentSlug}/content/${slug}`,
+      href: `/${locale}/content/${slug}`,
       isCurrent: slug === contentSlug,
     })) || [];
 
@@ -64,16 +68,16 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
 
   const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
 
-  if (parents?.data[0]?.attributes?.parents?.data[0]) {
+  if (themas?.data[0]?.attributes?.hoofditems?.data[0]) {
     breadcrumbNavigationElements.push({
-      title: parents?.data[0]?.attributes?.parents?.data[0]?.attributes?.title,
-      href: `/themas/${parents?.data[0]?.attributes?.parents?.data[0]?.attributes?.slug}`,
+      title: themas?.data[0]?.attributes?.hoofditems?.data[0]?.attributes?.title,
+      href: `/${locale}/${themas?.data[0]?.attributes?.hoofditems?.data[0]?.attributes?.slug}`,
     });
   }
 
   const parentElement: BreadcrumbNavigationElement = {
-    title: parents?.data[0]?.attributes?.title,
-    href: `/themas/${parentSlug}`,
+    title: themas?.data[0]?.attributes?.title,
+    href: `/themas/${parentThemaSlug}`,
   };
 
   breadcrumbNavigationElements.push(parentElement);
