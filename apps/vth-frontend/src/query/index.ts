@@ -63,6 +63,67 @@ query getHoofditems {
   }
 }`);
 
+export const GET_HOOFDITEM_BY_SLUG = gql(`
+query GET_HOOFDITEM_BY_SLUG($slug: String) {
+  findSlug(modelName:"hoofditem", slug: $slug){
+    ... on HoofditemEntityResponse{
+      data{
+        id
+        attributes{
+          title
+          description
+          content {
+            ... on ComponentComponentsBlockContent {
+              __typename
+              content
+            }
+            ... on ComponentComponentsAccordionSection {
+              __typename
+              item {
+                id
+                title
+                body
+              }
+            }
+          }
+          themas {
+            data {
+              attributes {
+                title,
+                slug,
+                description,
+                previewImage {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+          contents {
+            data {
+              attributes {
+                title,
+                slug,
+                description,
+                previewImage {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`);
+
 export const GET_THEMA_BY_SLUG = gql(`
 query GET_THEMA_BY_SLUG($slug: String) {
   findSlug(modelName:"thema", slug: $slug){

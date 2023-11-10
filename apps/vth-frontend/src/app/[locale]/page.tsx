@@ -61,17 +61,17 @@ const Home = async ({ params: { locale } }: { params: any }) => {
         </div>
         <Grid className={'utrecht-grid__full-width'}>
           {hoofditems &&
-            hoofditems.map((thema: any) => {
-              const { title, description, slug, previewImage: imageData } = thema.attributes;
+            hoofditems.map((hoofditem: any) => {
+              const { title, description, slug, previewImage: imageData } = hoofditem.attributes;
               const imageUrl = imageData?.data?.attributes?.url;
               return (
                 <Card
                   className={'utrecht-grid__one-third'}
-                  key={`thema-${slug}`}
+                  key={`hoofditem-${slug}`}
                   title={title}
                   description={description}
                   image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  link={{ href: `/themas/${slug}` }}
+                  link={{ href: `/${locale}/${slug}` }}
                 />
               );
             })}
