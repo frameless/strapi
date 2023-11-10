@@ -13,8 +13,8 @@ query getNotFoundPage($locale: I18NLocaleCode){
 }
 `);
 
-export const GET_HOME_PAGE = gql(`
-query getHomePage {
+export const GET_HOMEPAGE = gql(`
+query getHomepage {
   homepage {
     data {
       attributes {
@@ -50,9 +50,9 @@ query getHomePage {
   }
 }`);
 
-export const GET_HOOFD_THEMAS = gql(`
-query getHoofdThemas {
-  themas(filters: { parents: { id: null } }) {
+export const GET_HOOFDITEMS = gql(`
+query getHoofditems {
+  hoofditems {
     data {
       id
       attributes {
