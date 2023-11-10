@@ -131,7 +131,7 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
         <Heading1>{title}</Heading1>
         <DynamicContent />
       </div>
-      {sideNavigationLinks.length > 0 && (
+      {sideNavigationLinks.length > 1 && (
         <div className={'utrecht-grid-mobile-hidden utrecht-grid__one-third'}>
           <SideNavigation links={sideNavigationLinks} />
         </div>
