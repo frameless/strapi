@@ -43,16 +43,18 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
   const parentThemaSlug = themas?.data[0]?.attributes?.slug;
   const parentHoofditemSlug = hoofditems?.data[0]?.attributes?.slug;
 
-  const hasNoThemaParent = !parentThemaSlug && parentHoofditemSlug;
+  const hasHoofditemParentOnly = !parentThemaSlug && parentHoofditemSlug;
 
-  const siblingThemas: SiblingData[] = hasNoThemaParent ? hoofditems?.data[0]?.attributes?.themas?.data : [];
-  const siblingContent: SiblingData[] = themas?.data[0]?.attributes?.contents?.data || [];
+  const siblingThemas: SiblingData[] = hasHoofditemParentOnly ? hoofditems?.data[0]?.attributes?.themas?.data : [];
+  const siblingContent: SiblingData[] = hasHoofditemParentOnly
+    ? hoofditems?.data[0]?.attributes?.contents?.data
+    : themas?.data[0]?.attributes?.contents?.data;
 
   const themasLinks =
     siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
       title,
       slug,
-      href: `/${locale}/themas/${slug}`,
+      href: `/${locale}/thema/${slug}`,
       isCurrent: slug === contentSlug,
     })) || [];
 
@@ -75,10 +77,15 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
     });
   }
 
-  const parentElement: BreadcrumbNavigationElement = {
-    title: themas?.data[0]?.attributes?.title,
-    href: `/themas/${parentThemaSlug}`,
-  };
+  const parentElement: BreadcrumbNavigationElement = hasHoofditemParentOnly
+    ? {
+        title: hoofditems?.data[0]?.attributes?.title,
+        href: `/${locale}/${parentHoofditemSlug}`,
+      }
+    : {
+        title: themas?.data[0]?.attributes?.title,
+        href: `/thema/${parentThemaSlug}`,
+      };
 
   breadcrumbNavigationElements.push(parentElement);
 

@@ -243,6 +243,16 @@ query GET_CONTENT_BY_SLUG($slug: String) {
           hoofditems {
             data {
               attributes {
+                title
+                slug
+                contents {
+                  data {
+                    attributes {
+                      title
+                      slug
+                    }
+                  }
+                }
                 themas {
                   data {
                     attributes {
