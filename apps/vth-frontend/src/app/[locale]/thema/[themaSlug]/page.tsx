@@ -39,16 +39,16 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
     variables: { slug: themaSlug, locale: locale },
   });
 
-  const { title, content, parents, child_themas, child_contents } = data.findSlug.data.attributes;
-  const parentSlug = parents?.data[0]?.attributes?.slug;
-  const siblingThemas: SiblingData[] = parents?.data[0]?.attributes?.child_themas?.data || [];
-  const siblingContent: SiblingData[] = parents?.data[0]?.attributes?.child_contents?.data || [];
+  const { title, content, hoofditems, contents } = data.findSlug.data.attributes;
+  const hoofditemSlug = hoofditems?.data[0]?.attributes?.slug;
+  const siblingThemas: SiblingData[] = hoofditems?.data[0]?.attributes?.themas?.data || [];
+  const siblingContent: SiblingData[] = hoofditems?.data[0]?.attributes?.contents?.data || [];
 
   const themasLinks =
     siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
       title,
       slug,
-      href: `/themas/${slug}`,
+      href: `/${locale}/thema/${slug}`,
       isCurrent: slug === themaSlug,
     })) || [];
 
@@ -56,7 +56,7 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
     siblingContent?.map(({ attributes: { slug, title } }: SiblingData) => ({
       title,
       slug,
-      href: `/themas/${parentSlug}/content/${slug}`,
+      href: `/${locale}/content/${slug}`,
       isCurrent: slug === themaSlug,
     })) || [];
 
@@ -64,9 +64,9 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
 
   const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
 
-  const parentElement: BreadcrumbNavigationElement = parents?.data[0] && {
-    title: parents?.data[0]?.attributes?.title,
-    href: `/themas/${parentSlug}`,
+  const parentElement: BreadcrumbNavigationElement = hoofditems?.data[0] && {
+    title: hoofditems?.data[0]?.attributes?.title,
+    href: `/${locale}/${hoofditemSlug}`,
   };
 
   if (parentElement) {
@@ -114,24 +114,9 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
           <DynamicContent />
         </div>
         <Grid className={'utrecht-grid__full-width'}>
-          {child_themas.data[0] &&
-            child_themas.data.map((thema: any) => {
-              const { title, description, slug: childSlug, previewImage: imageData } = thema.attributes;
-              const imageUrl = imageData?.data?.attributes?.url;
-              return (
-                <Card
-                  className={'utrecht-grid__half-width'}
-                  image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  title={title}
-                  description={description}
-                  key={`thema-${childSlug}`}
-                  link={{ href: `/themas/${childSlug}` }}
-                />
-              );
-            })}
-          {child_contents.data[0] &&
-            child_contents.data &&
-            child_contents.data.map((content: any) => {
+          {contents.data &&
+            contents.data[0] &&
+            contents.data.map((content: any) => {
               const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
               const imageUrl = imageData?.data?.attributes?.url;
               return (
@@ -139,15 +124,15 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
                   className={'utrecht-grid__half-width'}
                   title={title}
                   description={description}
-                  key={`thema-${contentSlug}`}
+                  key={`content-${contentSlug}`}
                   image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  link={{ href: `/themas/${themaSlug}/content/${contentSlug}` }}
+                  link={{ href: `/${locale}/content/${contentSlug}` }}
                 />
               );
             })}
         </Grid>
       </Grid>
-      {sideNavigationLinks.length > 0 && (
+      {sideNavigationLinks.length > 1 && (
         <div className={'utrecht-grid-mobile-hidden utrecht-grid__one-third'}>
           <SideNavigation links={sideNavigationLinks} />
         </div>
