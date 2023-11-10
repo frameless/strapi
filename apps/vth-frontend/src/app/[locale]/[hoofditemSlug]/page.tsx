@@ -90,7 +90,7 @@ const Hoofditem = async ({ params: { locale, hoofditemSlug } }: Params) => {
                   title={title}
                   description={description}
                   key={`thema-${childSlug}`}
-                  link={{ href: `${locale}/thema/${childSlug}` }}
+                  link={{ href: `/${locale}/thema/${childSlug}` }}
                 />
               );
             })}
@@ -105,7 +105,7 @@ const Hoofditem = async ({ params: { locale, hoofditemSlug } }: Params) => {
                   description={description}
                   key={`thema-${contentSlug}`}
                   image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  link={{ href: `${locale}/content/${contentSlug}` }}
+                  link={{ href: `/${locale}/content/${contentSlug}` }}
                 />
               );
             })}
