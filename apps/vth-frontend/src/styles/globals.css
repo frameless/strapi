@@ -157,6 +157,10 @@ a {
   position: relative;
 }
 
+.utrecht-breadcrumb-nav {
+  margin-inline-start: calc(var(--utrecht-breadcrumb-nav-item-padding-block-start, 8px) * -1);
+}
+
 .utrecht-breadcrumb-nav__link--disabled {
   text-decoration-line: none !important;
 }
