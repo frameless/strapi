@@ -12,6 +12,7 @@ COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
 COPY ./apps/pdc-dashboard/package.json apps/pdc-dashboard/package.json
 COPY ./apps/pdc-frontend/package.json apps/pdc-frontend/package.json
+COPY ./apps/pdc-sc/package.json apps/pdc-sc/package.json
 COPY ./apps/vth-dashboard/package.json apps/vth-dashboard/package.json
 COPY ./apps/vth-frontend/package.json apps/vth-frontend/package.json
 COPY ./packages/catalogi-data/package.json packages/catalogi-data/package.json
@@ -42,7 +43,8 @@ RUN  npm run build --workspace @frameless/upl && \
     npm run build --workspace @frameless/strapi-tiptap-editor && \
     npm run build --workspace @frameless/ui && \
     npm run build --workspace @frameless/catalogi-data && \
-    npm run build --workspace @frameless/samenwerkende-catalogi
+    npm run build --workspace @frameless/samenwerkende-catalogi && \
+    npm run build --workspace @frameless/pdc-sc
 
 # Build target production #
 ###########################

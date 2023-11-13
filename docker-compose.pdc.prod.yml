@@ -52,6 +52,23 @@ services:
     depends_on:
       - pdc_strapi
       - pdc_strapi_db
+  pdc_samenwerkende-catalogi:
+    container_name: pdc_samenwerkende-catalogi
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    command: npm run start:pdc-sc
+    environment:
+      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
+    ports:
+      - "4000:4000"
+    networks:
+      - pdc_strapi_network
+    depends_on:
+      - pdc_strapi
+      - pdc_strapi_db
   pdc_strapi_db:
     container_name: pdc_strapi_db
     platform: linux/amd64 #for platform error on Apple M1 chips

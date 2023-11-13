@@ -57,6 +57,7 @@ module.exports = {
       parserOptions: {
         project: [
           './apps/pdc-frontend/tsconfig.json',
+          './apps/pdc-sc/tsconfig.json',
           './apps/pdc-dashboard/tsconfig.json',
           './apps/pdc-dashboard/src/admin/tsconfig.json',
           './apps/vth-frontend/tsconfig.json',

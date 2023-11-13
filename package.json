@@ -25,6 +25,7 @@
     "start": "npm run --workspaces start --if-present",
     "start:pdc-frontend": "npm run --workspace @frameless/pdc-frontend start",
     "start:pdc-dashboard": "npm run --workspace @frameless/pdc-dashboard start",
+    "start:pdc-sc": "npm run --workspace @frameless/pdc-sc start",
     "build": "npm run --workspaces build --if-present",
     "build:frontend": "npm run build --workspace @frameless/${APP}",
     "build:strapi": "npm run build --workspace @frameless/${APP}",
