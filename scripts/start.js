@@ -15,23 +15,23 @@ const projects = [
     type: 'select',
     name: 'frontend',
     message: 'Select Your app name:',
-    choices: ['pdc-frontend', 'vth-frontend'],
+    choices: ['pdc-frontend', 'vth-frontend', 'kennisbank-frontend'],
   },
   {
     type: 'select',
     name: 'dashboard',
     message: 'Select Your Strapi Dashboard app name:',
-    choices: ['pdc-dashboard', 'vth-dashboard'],
+    choices: ['pdc-dashboard', 'vth-dashboard', 'kennisbank-dashboard'],
   },
 ];
 
 const getAppChoices = (appType) => {
   switch (appType) {
     case 'frontend':
-      return ['pdc-frontend', 'vth-frontend'];
+      return ['pdc-frontend', 'vth-frontend', 'kennisbank-frontend'];
 
     case 'strapi':
-      return ['pdc-dashboard', 'vth-dashboard'];
+      return ['pdc-dashboard', 'vth-dashboard', 'kennisbank-dashboard'];
 
     default:
       return [];
