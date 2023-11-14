@@ -178,14 +178,6 @@ export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
                 }
               }
             }
-            ... on ComponentComponentsButtonLink {
-              __typename
-              label
-              href
-              text
-              icon
-              button_link_appearance
-            }
             ... on ComponentComponentsLink {
               __typename
               href

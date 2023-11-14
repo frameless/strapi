@@ -10,15 +10,12 @@ import {
   AccordionProvider,
   AdvancedLink,
   Article,
-  ButtonLink,
-  Heading3,
   Img,
   LogoButton,
   Markdown,
   MultiColumnsButton,
   PageTitle,
   SpotlightSection,
-  UtrechtIconArrow,
 } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
@@ -177,20 +174,6 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
                       />
                     ))}
                 </SpotlightSection>
-              ) : null;
-            case 'ComponentComponentsButtonLink':
-              return component?.text && component?.href ? (
-                <div>
-                  {component?.label && <Heading3>{component?.label}</Heading3>}
-                  <ButtonLink
-                    appearance={`${component?.button_link_appearance}-action-button`}
-                    href={component.href}
-                    external={isAbsoluteUrl(component?.href)}
-                    rel={isAbsoluteUrl(component?.href) ? 'noopener noreferrer' : undefined}
-                  >
-                    {component?.text} {component?.icon === 'arrow' && <UtrechtIconArrow />}
-                  </ButtonLink>
-                </div>
               ) : null;
             case 'ComponentComponentsMultiColumnsButton':
               return <MultiColumnsButton columns={component.column} />;
