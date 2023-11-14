@@ -194,6 +194,7 @@
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
+          "metaTags.ogImage",
           "catalogiMeta.spatial.resourceIdentifier",
           "catalogiMeta.spatial.scheme",
           "catalogiMeta.authority.resourceIdentifier",
@@ -247,6 +248,7 @@
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
+          "metaTags.ogImage",
           "catalogiMeta.spatial.resourceIdentifier",
           "catalogiMeta.spatial.scheme",
           "catalogiMeta.authority.resourceIdentifier",
@@ -282,6 +284,7 @@
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
+          "metaTags.ogImage",
           "catalogiMeta.spatial.resourceIdentifier",
           "catalogiMeta.spatial.scheme",
           "catalogiMeta.authority.resourceIdentifier",
@@ -300,54 +303,6 @@
           "slug",
           "subcategories"
         ],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": {},
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": {},
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
         "locales": ["en", "nl"]
       },
       "conditions": []

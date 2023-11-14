@@ -22,8 +22,8 @@
       },
       "keymatch": {
         "edit": {
-          "label": "Meta Keywords",
-          "description": "Het richten op specifieke zoekwoorden voor een betere zichtbaarheid in zoekmachines en hogere rangschikkingen. Bijvoorbeeld, om een keymatch toe te voegen, kun je gerichte zoekwoorden opnemen in de metatags, koppen en inhoud van je webpagina's. Scheid de zoekwoorden met komma's, zoals dit: 'zoekwoord1, zoekwoord2, zoekwoord3'",
+          "label": "Trefwoorden",
+          "description": "Voeg trefwoorden toe voor een betere vindbaarheid. Scheid de trefwoorden met komma's, zoals dit: 'trefwoord1, trefwoord2, trefwoord3'",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -36,7 +36,7 @@
       },
       "title": {
         "edit": {
-          "label": "Meta Title",
+          "label": "Verkorte paginatitel",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -50,7 +50,7 @@
       },
       "description": {
         "edit": {
-          "label": "Meta description",
+          "label": "Korte omschrijving",
           "description": "Korte samenvatting voor zoekvoorbeelden en delen op sociale media.",
           "placeholder": "",
           "visible": true,

@@ -23,7 +23,7 @@
       "text": {
         "edit": {
           "label": "Text",
-          "description": "Specificeert de weergegeven tekst",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -50,8 +50,8 @@
       },
       "icon": {
         "edit": {
-          "label": "Icon",
-          "description": "Kies een icoon om vóór de tekst weer te geven.",
+          "label": "Soort link",
+          "description": "Kies hoe de link eruit ziet.",
           "placeholder": "",
           "visible": true,
           "editable": true

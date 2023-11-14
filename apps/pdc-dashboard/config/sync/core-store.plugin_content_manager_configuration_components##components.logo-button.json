@@ -22,8 +22,8 @@
       },
       "label": {
         "edit": {
-          "label": "Label",
-          "description": "Voegt een titel of beschrijving boven de knop toe.",
+          "label": "Kop",
+          "description": "Voeg een kop toe boven de knop.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -36,8 +36,8 @@
       },
       "href": {
         "edit": {
-          "label": "Href",
-          "description": "De website-adres waarnaar je wilt linken.",
+          "label": "URL",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -51,7 +51,7 @@
       "text": {
         "edit": {
           "label": "Text",
-          "description": "Specificeert de weergegeven tekst",
+          "description": "De tekst op de knop.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -65,7 +65,7 @@
       "logo": {
         "edit": {
           "label": "Logo",
-          "description": "Hiermee kunt u een logo naast de knop opnemen.",
+          "description": "Hiermee kunt u een logo naast de  knop zetten.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -78,8 +78,8 @@
       },
       "logo_button_appearance": {
         "edit": {
-          "label": "Appearance",
-          "description": "Beheert de visuele stijl",
+          "label": "Stijl of Stijl van de knop",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true

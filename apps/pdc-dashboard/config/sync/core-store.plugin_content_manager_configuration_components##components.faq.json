@@ -23,7 +23,7 @@
       "faq": {
         "edit": {
           "label": "FAQ",
-          "description": "Verbindt dit element met een verzameling veelgestelde vragen (FAQ's). U kunt dit element associëren met een specifieke FAQ-collectie, zodat gebruikers toegang hebben tot relevante FAQ's die verband houden met deze inhoud.",
+          "description": "Koppel een FAQ-collectie aan dit product.",
           "placeholder": "",
           "visible": true,
           "editable": true,

@@ -1,7 +1,7 @@
 {
   "collectionName": "components_components_logo_buttons",
   "info": {
-    "displayName": "Logo Button",
+    "displayName": "CTA-knop",
     "description": ""
   },
   "options": {},
@@ -19,11 +19,13 @@
     },
     "logo": {
       "type": "enumeration",
-      "enum": ["digid", "eherkenning", "eidas", "without_logo"]
+      "enum": ["digid", "eherkenning", "eidas", "without_logo"],
+      "default": "without_logo"
     },
     "logo_button_appearance": {
       "type": "enumeration",
-      "enum": ["primary", "secondary", "magenta"]
+      "enum": ["primary", "secondary", "magenta"],
+      "default": "primary"
     }
   }
 }

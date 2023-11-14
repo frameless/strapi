@@ -22,7 +22,7 @@
       },
       "resourceIdentifier": {
         "edit": {
-          "label": "Spatial Type",
+          "label": "Organisatie",
           "description": "Lijst van gemeentenamen",
           "placeholder": "",
           "visible": true,
@@ -36,7 +36,7 @@
       },
       "scheme": {
         "edit": {
-          "label": "Scheme",
+          "label": "Type",
           "description": "Waarden: Gemeente, Waterschap, Provincie, GGD, Koninkrijksdeel (met hoofdletter)",
           "placeholder": "",
           "visible": true,
