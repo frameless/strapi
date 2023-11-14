@@ -22,7 +22,7 @@
       },
       "spatial": {
         "edit": {
-          "label": "Spatial",
+          "label": "Auteur",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -36,7 +36,7 @@
       },
       "authority": {
         "edit": {
-          "label": "Authority",
+          "label": "Publicerende organisatie",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -50,7 +50,7 @@
       },
       "audience": {
         "edit": {
-          "label": "Audience",
+          "label": "Doelgroep",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -92,7 +92,7 @@
       },
       "abstract": {
         "edit": {
-          "label": "Abstract",
+          "label": "Korte omschrijving",
           "description": "Korte beschrijving van het product, ter presentatie in de zoekresultatenlijst van afnemers. Een lengte van ongeveer 300 tekens wordt aangeraden. Let erop dat de tekst leesbaar moet zijn voor een doorsnee eindgebruiker (burger of ondernemer) en bruikbaar voor het bepalen van de relevantie van dit product in een lijst zoekresultaten.",
           "placeholder": "",
           "visible": true,

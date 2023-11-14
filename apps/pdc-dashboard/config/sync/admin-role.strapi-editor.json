@@ -304,54 +304,6 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": null,
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": null,
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": null,
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": null,
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": null,
-      "subject": "api::search-tip.search-tip",
-      "properties": {
-        "fields": ["title", "body", "seo.keymatch", "seo.title", "seo.description"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": null,
       "subject": "api::subcategory.subcategory",
       "properties": {
         "fields": ["category", "title", "products"],

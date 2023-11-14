@@ -22,8 +22,8 @@
       },
       "title": {
         "edit": {
-          "label": "Pagina titel",
-          "description": "Voer de hoofdtitel in voor de inhoud van de webpagina.",
+          "label": "Paginatitel",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -36,7 +36,7 @@
       },
       "content": {
         "edit": {
-          "label": "Page Content",
+          "label": "Contentblok",
           "description": "",
           "placeholder": "Voeg de pagina inhoud",
           "visible": true,
@@ -50,7 +50,7 @@
       },
       "sections": {
         "edit": {
-          "label": "sections",
+          "label": "Sections",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -79,7 +79,7 @@
       },
       "metaTags": {
         "edit": {
-          "label": "Voeg essentiële pagina-metadata toe voor verbeterde SEO en betere deling op sociale media",
+          "label": "Metadata",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -93,7 +93,7 @@
       },
       "catalogiMeta": {
         "edit": {
-          "label": "Samenwerkende Catalogi: metadata voor producten en diensten van de overheid",
+          "label": "Samenwerkende Catalogi",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -107,7 +107,7 @@
       },
       "metadata": {
         "edit": {
-          "label": "Metadata",
+          "label": "Beheerinformatie",
           "description": "",
           "placeholder": "",
           "visible": true,

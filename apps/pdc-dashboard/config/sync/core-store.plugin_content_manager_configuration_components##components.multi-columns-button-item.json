@@ -36,7 +36,7 @@
       },
       "logoButton": {
         "edit": {
-          "label": "logoButton",
+          "label": "CTA-knop",
           "description": "",
           "placeholder": "",
           "visible": true,

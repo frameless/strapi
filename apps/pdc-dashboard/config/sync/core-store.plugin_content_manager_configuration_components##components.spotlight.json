@@ -36,8 +36,8 @@
       },
       "type": {
         "edit": {
-          "label": "Type",
-          "description": "De eigenschap 'type' bepaalt de stijl van de inhoud. Gebruik 'info' voor informatieve inhoud, 'warning' voor belangrijke berichten en 'default' voor reguliere inhoud.",
+          "label": "Soort",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -50,7 +50,7 @@
       },
       "logoButton": {
         "edit": {
-          "label": "logoButton",
+          "label": "CTA-knop",
           "description": "",
           "placeholder": "",
           "visible": true,

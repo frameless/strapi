@@ -22,7 +22,7 @@
       },
       "singleDigitalGateway": {
         "edit": {
-          "label": "Het product is ook opgenomen in de Single Digital Gateway",
+          "label": "Dit product staat ook in de Single Digital Gateway.",
           "description": "",
           "placeholder": "",
           "visible": true,
