@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.9.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.9.0...@frameless/strapi-tiptap-editor@1.9.1) (2023-11-15)
+
+
+### Bug Fixes
+
+* **tiptap:** display price list based on save instead of refresh ([ff4fa47](https://github.com/frameless/strapi/commit/ff4fa47c471a0ddfd7112fb4c8d893901a727551))
+
 # @frameless/strapi-tiptap-editor [1.9.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.8.3...@frameless/strapi-tiptap-editor@1.9.0) (2023-11-09)
 
 
