@@ -18,13 +18,11 @@ export default function Widget(props: Props) {
   const { formatMessage } = useIntl();
 
   if (busy) return null;
-  return (
+  return price ? (
     <NodeViewWrapper className="utrecht-price-widget" as="span" contentEditable={false}>
-      {price && (
-        <span draggable contentEditable={false} data-drag-handle="" id={price?.id}>
-          {formatMessage({ id: getPriceValue(price, 'common.words.freeProduct') })}
-        </span>
-      )}
+      <span draggable contentEditable={false} data-drag-handle="" id={price?.id}>
+        {formatMessage({ id: getPriceValue(price, 'common.words.freeProduct') })}
+      </span>
     </NodeViewWrapper>
-  );
+  ) : null;
 }

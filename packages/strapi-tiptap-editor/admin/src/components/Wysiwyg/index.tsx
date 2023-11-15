@@ -115,11 +115,11 @@ const WysiwygContent = ({
   const { formatMessage } = useIntl();
   const [currentContent, setCurrentContent] = useState('');
   const { busy, getProductPrice, productPrice } = React.useContext(ProductPriceContext);
-  const { initialData } = useCMEditViewDataManager();
+  const data = useCMEditViewDataManager();
 
   useEffect(() => {
-    getProductPrice(initialData.id);
-  }, [initialData.id, getProductPrice]);
+    getProductPrice(data.initialData.id);
+  }, [data, getProductPrice]);
 
   const extensions: Extensions = [
     StarterKit,
@@ -254,7 +254,7 @@ const WysiwygContent = ({
         }
       });
     };
-  }, [editor, name, onChange, settings.other.saveJson, initialData.id]);
+  }, [editor, name, onChange, settings.other.saveJson, data]);
 
   return (
     <Field required={required}>
@@ -271,7 +271,7 @@ const WysiwygContent = ({
             onChange={onChange}
             value={value}
             settings={settings}
-            productPrice={productPrice}
+            productPrice={productPrice && productPrice}
           />
         )}
         {error && (
