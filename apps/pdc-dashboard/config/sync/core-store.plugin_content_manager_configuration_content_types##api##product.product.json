@@ -64,7 +64,7 @@
       },
       "price": {
         "edit": {
-          "label": "kosten",
+          "label": "Gekoppelde kosten",
           "description": "Een relationeel veld waarin je de kosten van de producten kunt definiëren.",
           "placeholder": "",
           "visible": true,
