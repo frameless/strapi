@@ -24,7 +24,8 @@ body {
   --utrecht-advanced-link-icon-size: 14px;
 
   /* Multi columns button tokens */
-  --utrecht-multi-columns-button-item-inline-size: 50%;
+  --utrecht-multi-columns-button-margin-block-start: var(--utrecht-space-block-md);
+  --utrecht-multi-columns-button-margin-block-end: var(--utrecht-space-block-md);
   --utrecht-multi-columns-button-item-padding-inline-start: var(--utrecht-space-inline-lg);
   --utrecht-multi-columns-button-item-padding-inline-end: var(--utrecht-space-inline-lg);
   --utrecht-multi-columns-button-item-padding-block-start: var(--utrecht-space-block-lg);
@@ -35,7 +36,6 @@ body {
   --utrecht-multi-columns-button-item-mobile-padding-inline-end: var(--utrecht-space-inline-xs);
   --utrecht-multi-columns-button-item-mobile-padding-block-start: var(--utrecht-space-block-xs);
   --utrecht-multi-columns-button-item-mobile-padding-block-end: var(--utrecht-space-block-xs);
-  --utrecht-multi-columns-button-item-mobile-inline-size: 100%;
 
   /* Logo button tokens */
   --utrecht-color-magenta: #bc3983;
