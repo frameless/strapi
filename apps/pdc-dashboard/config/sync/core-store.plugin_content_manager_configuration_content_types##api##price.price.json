@@ -22,7 +22,7 @@
       },
       "price": {
         "edit": {
-          "label": "Prijs",
+          "label": "Overzicht toegevoegde kosten",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -123,7 +123,6 @@
       }
     },
     "layouts": {
-      "list": ["id", "price", "title", "products"],
       "edit": [
         [
           {
@@ -143,7 +142,8 @@
             "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["id", "price", "title", "products"]
     }
   },
   "type": "object",

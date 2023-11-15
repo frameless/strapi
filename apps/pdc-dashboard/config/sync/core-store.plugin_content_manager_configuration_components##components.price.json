@@ -22,8 +22,8 @@
       },
       "label": {
         "edit": {
-          "label": "Label",
-          "description": "Korte naam of beschrijving voor elk item",
+          "label": "Omschrijving kosten",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -50,8 +50,8 @@
       },
       "value": {
         "edit": {
-          "label": "Waarde",
-          "description": "Numerieke waarde die wordt geassocieerd met elk item.",
+          "label": "Bedrag",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -72,14 +72,8 @@
             "size": 6
           },
           {
-            "name": "currency",
-            "size": 6
-          }
-        ],
-        [
-          {
             "name": "value",
-            "size": 4
+            "size": 6
           }
         ]
       ]

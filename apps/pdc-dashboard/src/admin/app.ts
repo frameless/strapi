@@ -32,7 +32,7 @@ const config = {
     },
     nl: {
       User: 'Gebruiker',
-      Price: 'Prijs',
+      Price: 'Kosten',
       'Not Found Page': 'Pagina niet gevonden',
       'Search tip': 'Zoektip',
       'app.components.HomePage.welcome': 'Welkom bij het Utrecht PDC dashboard 👋',
