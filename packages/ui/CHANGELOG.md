@@ -1,3 +1,10 @@
+## @frameless/ui [2.6.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.6.1...@frameless/ui@2.6.2) (2023-11-15)
+
+
+### Bug Fixes
+
+* **ui:** improve the `MultiColumnsLogoButton` ([35162b5](https://github.com/frameless/strapi/commit/35162b54a178bd2ccc7c0fb13d90bb0d2413bca5))
+
 ## @frameless/ui [2.6.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.6.0...@frameless/ui@2.6.1) (2023-11-03)
 
 
