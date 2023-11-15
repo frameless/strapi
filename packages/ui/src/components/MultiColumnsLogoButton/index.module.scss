@@ -1,19 +1,16 @@
 .utrecht-multi-columns-button {
-  display: flex;
-  flex-wrap: wrap;
+  margin-block-end: var(--utrecht-multi-columns-button-margin-block-end);
+  margin-block-start: var(--utrecht-multi-columns-button-margin-block-start);
 }
-
 .utrecht-multi-columns-button__item {
-  inline-size: var(--utrecht-multi-columns-button-item-mobile-inline-size);
   padding-block-end: var(--utrecht-multi-columns-button-item-mobile-padding-block-end);
   padding-block-start: var(--utrecht-multi-columns-button-item-mobile-padding-block-start);
   padding-inline-end: var(--utrecht-multi-columns-button-item-mobile-padding-inline-end);
   padding-inline-start: var(--utrecht-multi-columns-button-item-mobile-padding-inline-start);
 }
 
-@media (width >= 768px) {
+@media (width >= 600px) {
   .utrecht-multi-columns-button__item {
-    --utrecht-multi-columns-button-item-mobile-inline-size: var(--utrecht-multi-columns-button-item-inline-size);
     --utrecht-multi-columns-button-item-mobile-padding-inline-start: var(
       --utrecht-multi-columns-button-item-padding-inline-start
     );
