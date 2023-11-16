@@ -10,6 +10,8 @@ import {
   AccordionProvider,
   AdvancedLink,
   Article,
+  Grid,
+  GridCell,
   Heading,
   Img,
   LogoButton,
@@ -17,7 +19,6 @@ import {
   MultiColumnsButton,
   SpotlightSection,
 } from '@/components';
-import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
 import { PreviewAlert } from '@/components/PreviewAlert';
@@ -231,8 +232,8 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         )}
         <Sections />
       </Article>
-      <BottomBar>
-        <BottomBarItem>
+      <Grid justifyContent="space-between">
+        <GridCell xs={8}>
           <AdvancedLink
             rel="noopener noreferrer"
             external
@@ -242,11 +243,11 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
           >
             {t('actions.reaction-link')}
           </AdvancedLink>
-        </BottomBarItem>
-        <BottomBarItem>
+        </GridCell>
+        <GridCell xs={4} justifyContent="flex-end">
           <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
-        </BottomBarItem>
-      </BottomBar>
+        </GridCell>
+      </Grid>
     </>
   );
 };

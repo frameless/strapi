@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
-import { AdvancedLink, Article, Heading, Paragraph } from '@/components';
+import { AdvancedLink, Article, Grid, GridCell, Heading, Paragraph } from '@/components';
 import { IndexCharNav } from '@/components';
-import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
@@ -166,8 +165,8 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
           <Paragraph>{t('product-notfound', { letter: q.toLocaleUpperCase() })}</Paragraph>
         )}
       </Article>
-      <BottomBar>
-        <BottomBarItem>
+      <Grid justifyContent="space-between">
+        <GridCell xs={8}>
           <AdvancedLink
             rel="noopener noreferrer"
             external
@@ -177,11 +176,11 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
           >
             {t('actions.reaction-link')}
           </AdvancedLink>
-        </BottomBarItem>
-        <BottomBarItem>
+        </GridCell>
+        <GridCell xs={4} justifyContent="flex-end">
           <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
-        </BottomBarItem>
-      </BottomBar>
+        </GridCell>
+      </Grid>
     </>
   );
 };

@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { AdvancedLink, Grid, GridCell, Heading, Heading2 } from '@/components';
 import { IndexCharNav } from '@/components';
-import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { TopTask, TopTaskIconsTypes } from '@/components/Toptask';
@@ -132,8 +131,8 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           </GridCell>
         </>
       </Grid>
-      <BottomBar>
-        <BottomBarItem>
+      <Grid justifyContent="space-between">
+        <GridCell xs={8}>
           <AdvancedLink
             rel="noopener noreferrer"
             external
@@ -143,11 +142,11 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           >
             {t('actions.reaction-link')}
           </AdvancedLink>
-        </BottomBarItem>
-        <BottomBarItem>
+        </GridCell>
+        <GridCell xs={4} justifyContent="flex-end">
           <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
-        </BottomBarItem>
-      </BottomBar>
+        </GridCell>
+      </Grid>
     </>
   );
 };
