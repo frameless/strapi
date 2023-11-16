@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Button, PageTitle, Paragraph } from '@/components';
+import { Button, Heading, Paragraph } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { useTranslation } from '../i18n/client';
 import { fallbackLng } from '../i18n/settings';
@@ -30,7 +30,7 @@ export default function Error({ error, reset }: ErrorPageProps) {
           },
         ]}
       />
-      <PageTitle>{t('common.title')}</PageTitle>
+      <Heading level={1}>{t('common.title')}</Heading>
       {process.env.NODE_ENV === 'production' && <Paragraph>{t('common.body')}</Paragraph>}
       <Paragraph>{process.env.NODE_ENV === 'development' && errorMessage?.message}</Paragraph>
       <Paragraph />

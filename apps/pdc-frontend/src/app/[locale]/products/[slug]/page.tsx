@@ -10,11 +10,11 @@ import {
   AccordionProvider,
   AdvancedLink,
   Article,
+  Heading,
   Img,
   LogoButton,
   Markdown,
   MultiColumnsButton,
-  PageTitle,
   SpotlightSection,
 } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
@@ -223,7 +223,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         ]}
       />
       <Article>
-        <PageTitle>{product?.attributes.title}</PageTitle>
+        <Heading level={1}>{product?.attributes.title}</Heading>
         {product?.attributes?.content && (
           <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
             {product?.attributes?.content}

@@ -1,5 +1,5 @@
 import { useTranslation } from '@/app/i18n';
-import { Markdown, PageTitle } from '@/components';
+import { Heading, Markdown } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { getImageBaseUrl } from '@/util';
@@ -25,7 +25,7 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
           },
         ]}
       />
-      <PageTitle>{data?.notFoundPage?.data?.attributes?.title}</PageTitle>
+      <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
       <Markdown imageUrl={getImageBaseUrl()} locale={locale}>
         {data?.notFoundPage?.data?.attributes?.body}
       </Markdown>

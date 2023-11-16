@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { Markdown, PageTitle } from '@/components';
+import { Heading, Markdown } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { getImageBaseUrl } from '@/util';
@@ -28,7 +28,7 @@ const NotFoundPage = async () => {
           },
         ]}
       />
-      <PageTitle>{data?.notFoundPage?.data?.attributes?.title}</PageTitle>
+      <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
       <Markdown imageUrl={getImageBaseUrl()}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
     </div>
   );
