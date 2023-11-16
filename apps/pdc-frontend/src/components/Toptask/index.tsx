@@ -9,7 +9,7 @@ import {
   UtrechtIconPaspoort,
   UtrechtIconRijbewijs,
   UtrechtIconVerhuizen,
-} from '../icons';
+} from '../index';
 import { Grid, GridCell } from '../index';
 
 const topTaskIcons = {
