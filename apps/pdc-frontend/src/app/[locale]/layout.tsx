@@ -19,7 +19,6 @@ import {
 } from '@/components';
 import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
-import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
@@ -28,6 +27,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from '../i18n/index';
 import { languages } from '../i18n/settings';
 import '@frameless/ui/dist/bundle.css';
+import '../../styles/globals.css';
 
 // eslint-disable-next-line no-unused-vars
 const getNavListData = (t: (text: string) => string) => [
@@ -225,7 +225,12 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
-        className={classnames('utrecht-theme', 'utrecht-theme--media-query-color-scheme', 'utrecht-document')}
+        className={classnames(
+          'utrecht-theme',
+          'utrecht-theme--media-query-color-scheme',
+          'utrecht-document',
+          'utrecht-pdc-theme',
+        )}
         suppressHydrationWarning={true}
       >
         <QueryClientProvider>

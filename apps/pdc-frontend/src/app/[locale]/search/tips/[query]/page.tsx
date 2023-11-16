@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
-import { Heading, PageTitle, UnorderedList, UnorderedListItem } from '@/components';
+import { Heading, UnorderedList, UnorderedListItem } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 
 type Params = {
@@ -40,11 +40,11 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
           },
         ]}
       />
-      <PageTitle>
+      <Heading level={1}>
         {t('h1', {
           query,
         })}
-      </PageTitle>
+      </Heading>
       <Heading level={2}>{t('body.section.title')}</Heading>
       <UnorderedList>
         {tipsList &&

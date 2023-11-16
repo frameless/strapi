@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { AdvancedLink, Article, PageTitle } from '@/components';
+import { AdvancedLink, Article, Heading } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
@@ -92,7 +92,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
         ]}
       />
       <Article>
-        <PageTitle>{t('h1', { query })}</PageTitle>
+        <Heading level={1}>{t('h1', { query })}</Heading>
         <ProductListContainer
           locale={locale}
           total={searchResults.total}

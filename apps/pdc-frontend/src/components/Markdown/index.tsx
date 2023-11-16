@@ -4,7 +4,6 @@ import { Link } from '@utrecht/component-library-react/dist/css-module';
 import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';
-export { PageTitle } from '../Page-title';
 import type { ExtraProps } from 'react-markdown';
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';

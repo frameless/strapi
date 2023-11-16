@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { AdvancedLink, Grid, GridCell, Heading2, PageTitle } from '@/components';
+import { AdvancedLink, Grid, GridCell, Heading, Heading2 } from '@/components';
 import { IndexCharNav } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
@@ -116,7 +116,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           },
         ]}
       />
-      <PageTitle>{t('h1')}</PageTitle>
+      <Heading level={1}>{t('h1')}</Heading>
       <Grid>
         <>
           <GridCell md={10} lg={9}>

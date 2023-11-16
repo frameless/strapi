@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
-import { AdvancedLink, Article, PageTitle, Paragraph } from '@/components';
+import { AdvancedLink, Article, Heading, Paragraph } from '@/components';
 import { IndexCharNav } from '@/components';
 import { BottomBar, BottomBarItem } from '@/components/BottomBar';
 import { Breadcrumbs } from '@/components/Breadcrumb';
@@ -147,7 +147,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         ]}
       />
       <Article>
-        <PageTitle>{t('h1')}</PageTitle>
+        <Heading level={1}>{t('h1')}</Heading>
         <Paragraph lead>{t('lead-paragraph')}</Paragraph>
         <IndexCharNav
           component="link"
