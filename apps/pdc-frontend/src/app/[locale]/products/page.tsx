@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import { AdvancedLink, Article, Heading } from '@/components';
-import { BottomBar, BottomBarItem } from '@/components/BottomBar';
+import { AdvancedLink, Article, Grid, GridCell, Heading } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
@@ -127,8 +126,8 @@ const Products = async ({ params: { locale } }: { params: any }) => {
           />
         )}
       </Article>
-      <BottomBar>
-        <BottomBarItem>
+      <Grid justifyContent="space-between">
+        <GridCell xs={8}>
           <AdvancedLink
             rel="noopener noreferrer"
             external
@@ -138,11 +137,11 @@ const Products = async ({ params: { locale } }: { params: any }) => {
           >
             {t('actions.reaction-link')}
           </AdvancedLink>
-        </BottomBarItem>
-        <BottomBarItem>
+        </GridCell>
+        <GridCell xs={4} justifyContent="flex-end">
           <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
-        </BottomBarItem>
-      </BottomBar>
+        </GridCell>
+      </Grid>
     </>
   );
 };
