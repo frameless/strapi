@@ -41,7 +41,7 @@ const config = {
       'content-manager.popUpWarning.warning.unpublish-question': 'Weet je zeker dat je het niet wilt publiceren?',
       'content-manager.popUpWarning.warning.unpublish':
         'Als je deze inhoud niet publiceert, wordt deze automatisch een concept.',
-      'content-manager.components.DynamicZone.add-component': 'Voeg een Onderdelen toe',
+      'content-manager.components.DynamicZone.add-component': 'Voeg een Onderdeel toe',
       'content-manager.popUpWarning.warning.updateAllSettings': 'Dit zal al je instellingen wijzigen.',
       'content-manager.form.Input.hint.character.unit': '{maxValue, plural, one { teken} other { tekens}}',
       without_logo: 'Zonder logo',
@@ -61,7 +61,7 @@ const config = {
       Text: 'Tekst',
       Title: 'Titel',
       Sections: 'Onderdelen',
-      Href: 'URL',
+      Href: 'URL  (internetadres)',
       arrow: 'Pijl',
     },
   },
