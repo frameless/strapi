@@ -1,3 +1,10 @@
+# @frameless/ui [2.7.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.6.2...@frameless/ui@2.7.0) (2023-11-20)
+
+
+### Features
+
+* **ui:** add PreviewAlert to ui ([053985d](https://github.com/frameless/strapi/commit/053985d86520934da50ee368a47f2cfe8dc681ac))
+
 ## @frameless/ui [2.6.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.6.1...@frameless/ui@2.6.2) (2023-11-15)
 
 
