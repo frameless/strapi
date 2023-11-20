@@ -1,6 +1,8 @@
 import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
 import React from 'react';
 import { AccordionProvider, Heading1, Markdown } from '@/components';
 import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
@@ -24,25 +26,29 @@ export async function generateMetadata({ params: { locale, themaSlug } }: Params
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_THEMA_BY_SLUG,
-    variables: { slug: themaSlug, locale: locale },
+    variables: { slug: themaSlug, locale },
   });
   return {
-    title: data.findSlug.data.attributes.title,
-    description: data.findSlug.data.attributes.description,
+    title: data.findSlug.data?.attributes?.title,
+    description: data.findSlug.data?.attributes?.description,
   };
 }
 
 const Thema = async ({ params: { locale, themaSlug } }: Params) => {
+  const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_THEMA_BY_SLUG,
-    variables: { slug: themaSlug, locale: locale },
+    variables: { slug: themaSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
   });
 
-  const { title, content, hoofditems, contents } = data.findSlug.data.attributes;
-  const hoofditemSlug = hoofditems?.data[0]?.attributes?.slug;
-  const siblingThemas: SiblingData[] = hoofditems?.data[0]?.attributes?.themas?.data || [];
-  const siblingContent: SiblingData[] = hoofditems?.data[0]?.attributes?.contents?.data || [];
+  if (!data.findSlug?.data) return notFound();
+
+  const hoofditemSlug = data.findSlug.data?.attributes.hoofditems?.data[0]?.attributes?.slug;
+  const siblingThemas: SiblingData[] =
+    data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.themas?.data || [];
+  const siblingContent: SiblingData[] =
+    data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.contents?.data || [];
 
   const themasLinks =
     siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
@@ -64,8 +70,8 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
 
   const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
 
-  const parentElement: BreadcrumbNavigationElement = hoofditems?.data[0] && {
-    title: hoofditems?.data[0]?.attributes?.title,
+  const parentElement: BreadcrumbNavigationElement = data.findSlug.data?.attributes.hoofditems?.data[0] && {
+    title: data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.title,
     href: `/${locale}/${hoofditemSlug}`,
   };
 
@@ -74,9 +80,9 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
   }
 
   const DynamicContent = () =>
-    content &&
-    content.length > 0 &&
-    content?.map((component: any, index: number) => {
+    data.findSlug.data?.attributes?.content &&
+    data.findSlug.data?.attributes?.content.length > 0 &&
+    data.findSlug.data?.attributes?.content?.map((component: any, index: number) => {
       switch (component?.__typename) {
         case 'ComponentComponentsBlockContent':
           return component.content ? (
@@ -110,13 +116,13 @@ const Thema = async ({ params: { locale, themaSlug } }: Params) => {
       </div>
       <Grid className={'utrecht-grid__two-third'}>
         <div className={'utrecht-grid__full-width'}>
-          <Heading1>{title}</Heading1>
+          <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
           <DynamicContent />
         </div>
         <Grid className={'utrecht-grid__full-width'}>
-          {contents.data &&
-            contents.data[0] &&
-            contents.data.map((content: any) => {
+          {data.findSlug.data?.attributes?.contents.data &&
+            data.findSlug.data?.attributes?.contents.data[0] &&
+            data.findSlug.data?.attributes?.contents.data.map((content: any) => {
               const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
               const imageUrl = imageData?.data?.attributes?.url;
               return (

@@ -2,7 +2,9 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import React from 'react';
 import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
@@ -32,16 +34,16 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const Home = async ({ params: { locale } }: { params: any }) => {
+  const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_HOMEPAGE,
-    variables: { locale: locale },
+    variables: { locale: locale, pageMode: isEnabled ? 'PREVIEW' : 'LIVE' },
   });
 
-  const { title, content, bannerImage } = data?.homepage?.data?.attributes;
   const hoofditems = data?.hoofditems?.data;
-  const bannerAttributes = bannerImage?.data?.attributes;
-
+  const bannerAttributes = data?.homepage?.data?.attributes?.bannerImage?.data?.attributes;
+  if (!data.homepage.data) return notFound();
   return (
     <div>
       {bannerAttributes?.url && (
@@ -56,8 +58,8 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       )}
       <Grid className={'utrecht-grid--content-padding'}>
         <div className={'utrecht-grid__two-third'}>
-          <Heading1>{title}</Heading1>
-          <Markdown imageUrl={getImageBaseUrl()}>{content}</Markdown>
+          <Heading1>{data?.homepage?.data?.attributes?.title}</Heading1>
+          <Markdown imageUrl={getImageBaseUrl()}>{data?.homepage?.data?.attributes?.content}</Markdown>
         </div>
         <Grid className={'utrecht-grid__full-width'}>
           {hoofditems &&

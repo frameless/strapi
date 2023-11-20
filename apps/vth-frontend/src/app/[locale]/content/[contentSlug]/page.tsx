@@ -1,6 +1,8 @@
 import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
 import React from 'react';
 import { AccordionProvider, Heading1 } from '@/components';
 import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
@@ -24,31 +26,35 @@ export async function generateMetadata({ params: { locale, contentSlug } }: Para
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_CONTENT_BY_SLUG,
-    variables: { slug: contentSlug, locale: locale },
+    variables: { slug: contentSlug, locale },
   });
   return {
-    title: data.findSlug.data.attributes.title,
-    description: data.findSlug.data.attributes.description,
+    title: data.findSlug.data?.attributes?.title,
+    description: data.findSlug.data?.attributes?.description,
   };
 }
 
 const Thema = async ({ params: { locale, contentSlug } }: Params) => {
+  const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_CONTENT_BY_SLUG,
-    variables: { slug: contentSlug, locale: locale },
+    variables: { slug: contentSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
   });
 
-  const { title, content, themas, hoofditems } = data.findSlug.data.attributes;
-  const parentThemaSlug = themas?.data[0]?.attributes?.slug;
-  const parentHoofditemSlug = hoofditems?.data[0]?.attributes?.slug;
+  if (!data.findSlug?.data) return notFound();
+
+  const parentThemaSlug = data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.slug;
+  const parentHoofditemSlug = data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.slug;
 
   const hasHoofditemParentOnly = !parentThemaSlug && parentHoofditemSlug;
 
-  const siblingThemas: SiblingData[] = hasHoofditemParentOnly ? hoofditems?.data[0]?.attributes?.themas?.data : [];
+  const siblingThemas: SiblingData[] = hasHoofditemParentOnly
+    ? data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.themas?.data
+    : [];
   const siblingContent: SiblingData[] = hasHoofditemParentOnly
-    ? hoofditems?.data[0]?.attributes?.contents?.data
-    : themas?.data[0]?.attributes?.contents?.data;
+    ? data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.contents?.data
+    : data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.contents?.data;
 
   const themasLinks =
     siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
@@ -70,29 +76,29 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
 
   const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
 
-  if (themas?.data[0]?.attributes?.hoofditems?.data[0]) {
+  if (data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.hoofditems?.data[0]) {
     breadcrumbNavigationElements.push({
-      title: themas?.data[0]?.attributes?.hoofditems?.data[0]?.attributes?.title,
-      href: `/${locale}/${themas?.data[0]?.attributes?.hoofditems?.data[0]?.attributes?.slug}`,
+      title: data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.hoofditems?.data[0]?.attributes?.title,
+      href: `/${locale}/${data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.hoofditems?.data[0]?.attributes?.slug}`,
     });
   }
 
   const parentElement: BreadcrumbNavigationElement = hasHoofditemParentOnly
     ? {
-        title: hoofditems?.data[0]?.attributes?.title,
+        title: data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.title,
         href: `/${locale}/${parentHoofditemSlug}`,
       }
     : {
-        title: themas?.data[0]?.attributes?.title,
+        title: data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.title,
         href: `/thema/${parentThemaSlug}`,
       };
 
   breadcrumbNavigationElements.push(parentElement);
 
   const DynamicContent = () =>
-    content &&
-    content.length > 0 &&
-    content?.map((component: any, index: number) => {
+    data.findSlug.data?.attributes?.content &&
+    data.findSlug.data?.attributes?.content.length > 0 &&
+    data.findSlug.data?.attributes?.content?.map((component: any, index: number) => {
       switch (component?.__typename) {
         case 'ComponentComponentsBlockContent':
           return component.content ? (
@@ -128,7 +134,7 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
         />
       </div>
       <div className={'utrecht-grid__two-third'}>
-        <Heading1>{title}</Heading1>
+        <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
         <DynamicContent />
       </div>
       {sideNavigationLinks.length > 1 && (

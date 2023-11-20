@@ -1,8 +1,8 @@
 const gql = (query: any) => query;
 
 export const GET_NOT_FOUND_PAGE = gql(`
-query getNotFoundPage($locale: I18NLocaleCode){
-  notFoundPage(locale: $locale) {
+query getNotFoundPage{
+  notFoundPage {
     data {
        attributes {
         title
@@ -14,8 +14,8 @@ query getNotFoundPage($locale: I18NLocaleCode){
 `);
 
 export const GET_HOMEPAGE = gql(`
-query getHomepage {
-  homepage {
+query getHomepage($pageMode: PublicationState) {
+  homepage(publicationState: $pageMode) {
     data {
       attributes {
         title
@@ -31,7 +31,7 @@ query getHomepage {
       }
     }
   }
-  hoofditems {
+  hoofditems (publicationState: $pageMode) {
     data {
       id
       attributes {
@@ -51,8 +51,8 @@ query getHomepage {
 }`);
 
 export const GET_HOOFDITEMS = gql(`
-query getHoofditems {
-  hoofditems {
+query getHoofditems($pageMode: PublicationState) {
+  hoofditems(publicationState: $pageMode) {
     data {
       id
       attributes {
@@ -64,14 +64,15 @@ query getHoofditems {
 }`);
 
 export const GET_HOOFDITEM_BY_SLUG = gql(`
-query GET_HOOFDITEM_BY_SLUG($slug: String) {
-  findSlug(modelName:"hoofditem", slug: $slug){
+query GET_HOOFDITEM_BY_SLUG($slug: String, $pageMode: String) {
+  findSlug(modelName:"hoofditem", slug: $slug, publicationState: $pageMode){
     ... on HoofditemEntityResponse{
       data{
         id
         attributes{
           title
           description
+          slug
           content {
             ... on ComponentComponentsBlockContent {
               __typename
@@ -125,8 +126,8 @@ query GET_HOOFDITEM_BY_SLUG($slug: String) {
 }`);
 
 export const GET_THEMA_BY_SLUG = gql(`
-query GET_THEMA_BY_SLUG($slug: String) {
-  findSlug(modelName:"thema", slug: $slug){
+query GET_THEMA_BY_SLUG($slug: String, $pageMode: String) {
+  findSlug(modelName:"thema", slug: $slug, publicationState: $pageMode){
     ... on ThemaEntityResponse{
       data{
         id
@@ -194,8 +195,8 @@ query GET_THEMA_BY_SLUG($slug: String) {
 }`);
 
 export const GET_CONTENT_BY_SLUG = gql(`
-query GET_CONTENT_BY_SLUG($slug: String) {
-  findSlug(modelName:"thema-content", slug: $slug){
+query GET_CONTENT_BY_SLUG($slug: String, $pageMode: String) {
+  findSlug(modelName:"thema-content", slug: $slug, publicationState: $pageMode){
     ... on ThemaContentEntityResponse{
       data{
         id
