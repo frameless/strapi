@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
@@ -14,6 +15,7 @@ import {
   Page,
   PageContent,
   PageHeader,
+  PreviewAlert,
   SkipLink,
   Surface,
 } from '@/components';
@@ -137,7 +139,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout', 'common']);
-
+  const { isEnabled } = draftMode();
   const footerData = {
     title: t('footer.title'),
     list: [
@@ -233,6 +235,15 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         )}
         suppressHydrationWarning={true}
       >
+        {isEnabled && (
+          <PreviewAlert
+            link={{
+              href: '/api/clear-preview',
+              text: t('preview-alert.link'),
+            }}
+            message={t('preview-alert.message')}
+          />
+        )}
         <QueryClientProvider>
           <Surface>
             <Page className="utrecht-main-wrapper">
