@@ -5,13 +5,11 @@ import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
-const NotFoundPage = async ({ params: { locale } }: { params: { locale: string } }) => {
+const NotFoundPage = async () => {
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_NOT_FOUND_PAGE,
-    variables: { locale: locale },
   });
-
   return (
     <div>
       <Heading1>{data?.notFoundPage?.data?.attributes?.title}</Heading1>

@@ -1,6 +1,8 @@
 import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
 import React from 'react';
 import { AccordionProvider, Heading1, Markdown } from '@/components';
 import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
@@ -21,27 +23,32 @@ export async function generateMetadata({ params: { locale, hoofditemSlug } }: Pa
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_HOOFDITEM_BY_SLUG,
-    variables: { slug: hoofditemSlug, locale: locale },
+    variables: { slug: hoofditemSlug, locale },
   });
   return {
-    title: data.findSlug.data.attributes.title,
-    description: data.findSlug.data.attributes.description,
+    title: data.findSlug?.data?.attributes?.title,
+    description: data.findSlug?.data?.attributes?.description,
   };
 }
 
 const Hoofditem = async ({ params: { locale, hoofditemSlug } }: Params) => {
+  const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_HOOFDITEM_BY_SLUG,
-    variables: { slug: hoofditemSlug, locale: locale },
+    variables: { slug: hoofditemSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
   });
-
-  const { title, content, themas, contents } = data.findSlug.data.attributes;
+  const hoofditemData = data.findSlug?.data;
+  if (!hoofditemData) return notFound();
+  const hoofditemContent = hoofditemData?.attributes?.content;
+  const hoofditemContents = hoofditemData?.attributes?.contents?.data;
+  const hoofditemTitle = hoofditemData?.attributes?.title;
+  const hoofditemThemas = hoofditemContent?.attributes?.themas.data;
 
   const DynamicContent = () =>
-    content &&
-    content.length > 0 &&
-    content?.map((component: any, index: number) => {
+    hoofditemContent &&
+    hoofditemContent?.length > 0 &&
+    hoofditemContent?.map((component: any, index: number) => {
       switch (component?.__typename) {
         case 'ComponentComponentsBlockContent':
           return component.content ? (
@@ -75,27 +82,26 @@ const Hoofditem = async ({ params: { locale, hoofditemSlug } }: Params) => {
       </div>
       <Grid className={'utrecht-grid__two-third'}>
         <div className={'utrecht-grid__full-width'}>
-          <Heading1>{title}</Heading1>
+          <Heading1>{hoofditemTitle}</Heading1>
           <DynamicContent />
         </div>
         <Grid className={'utrecht-grid__full-width'}>
-          {themas.data[0] &&
-            themas.data.map((thema: any) => {
-              const { title, description, slug: childSlug, previewImage: imageData } = thema.attributes;
-              const imageUrl = imageData?.data?.attributes?.url;
+          {hoofditemThemas?.length > 0 &&
+            hoofditemThemas.map((thema: any) => {
+              const imageUrl = thema?.attributes?.imageData?.data?.attributes?.url;
               return (
                 <Card
                   className={'utrecht-grid__half-width'}
                   image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  title={title}
-                  description={description}
-                  key={`thema-${childSlug}`}
-                  link={{ href: `/${locale}/thema/${childSlug}` }}
+                  title={hoofditemTitle}
+                  description={thema?.attributes?.description}
+                  key={`thema-${thema?.attributes?.childSlug}`}
+                  link={{ href: `/${locale}/thema/${thema?.attributes?.childSlug}` }}
                 />
               );
             })}
-          {contents.data[0] &&
-            contents.data.map((content: any) => {
+          {hoofditemContents?.length > 0 &&
+            hoofditemContents.map((content: any) => {
               const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
               const imageUrl = imageData?.data?.attributes?.url;
               return (

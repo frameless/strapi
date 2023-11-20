@@ -1,9 +1,10 @@
 import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Navigation, NavigationListType, Page, PageContent, PageHeader, SkipLink } from '@/components';
+import { Navigation, NavigationListType, Page, PageContent, PageHeader, PreviewAlert, SkipLink } from '@/components';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
@@ -50,7 +51,8 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
-  const { t } = await useTranslation(locale, ['layout']);
+  const { t } = await useTranslation(locale, ['layout', 'common']);
+  const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_HOOFDITEMS,
@@ -156,6 +158,15 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-surface')}
         suppressHydrationWarning={true}
       >
+        {isEnabled && (
+          <PreviewAlert
+            link={{
+              href: '/api/clear-preview',
+              text: t('preview-alert.link'),
+            }}
+            message={t('preview-alert.message')}
+          />
+        )}
         <QueryClientProvider>
           <Page className="utrecht-page--full-width">
             <PageHeader>

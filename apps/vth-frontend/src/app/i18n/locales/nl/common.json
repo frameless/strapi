@@ -1,4 +1,8 @@
 {
+  "preview-alert": {
+    "message": "Testmodus: Ingeschakeld ",
+    "link": "(Klik hier om het uit te schakelen)"
+  },
   "actions": {
     "try-again": "Probeer opnieuw"
   },
