@@ -1,0 +1,8 @@
+.utrecht-preview-mode {
+  --utrecht-space-around: 0;
+  --utrecht-alert-padding-block-start: var(--utrecht-preview-mode-padding-block-start, 10px);
+  --utrecht-alert-padding-block-end: var(--utrecht-preview-mode-padding-block-end, 10px);
+
+  inline-size: 100%;
+  text-align: center;
+}

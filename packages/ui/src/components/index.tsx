@@ -6,4 +6,6 @@ export * from './LogoButton';
 export * from './Markdown';
 export * from './MultiColumnsLogoButton';
 export * from './Navigation';
+export { PreviewAlert } from './PreviewAlert';
+export type { PreviewAlertProps } from './PreviewAlert';
 export * from './PriceWidget';
