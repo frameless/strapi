@@ -1,7 +1,7 @@
 {
   "preview-alert": {
     "message": "Testmodus: Ingeschakeld ",
-    "link": "(U kunt deze uitschakelen in de instellingen)"
+    "link": "(Klik hier om het uit te schakelen)"
   },
   "actions": {
     "try-again": "Probeer opnieuw",

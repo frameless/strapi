@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
-import { fallbackLng } from '@/app/i18n/settings';
 import {
   AccordionProvider,
   AdvancedLink,
@@ -21,7 +20,6 @@ import {
 } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
-import { PreviewAlert } from '@/components/PreviewAlert';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
 import { getImageBaseUrl } from '@/util';
@@ -85,7 +83,6 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 const Product = async ({ params: { locale, slug } }: ProductProps) => {
-  const { isEnabled } = draftMode();
   const { product } = await getAllProducts(locale, slug);
 
   const priceData = product?.attributes.price && product?.attributes.price?.data?.attributes.price;
@@ -195,15 +192,6 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
       : null;
   return (
     <>
-      {isEnabled && (
-        <PreviewAlert
-          link={{
-            href: `/api/clear-preview?slug=${locale}${slug}&default_locale=${fallbackLng}`,
-            text: t('preview-alert.link'),
-          }}
-          message={t('preview-alert.message')}
-        />
-      )}
       <Breadcrumbs
         links={[
           {
