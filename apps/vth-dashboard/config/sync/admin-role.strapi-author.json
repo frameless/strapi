@@ -32,7 +32,7 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
-      "subject": "api::hoofditem.hoofditem",
+      "subject": "api::navigation-page.navigation-page",
       "properties": {
         "fields": ["title", "slug", "content", "description", "previewImage", "contents", "themas"]
       },
@@ -41,21 +41,21 @@
     },
     {
       "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::hoofditem.hoofditem",
+      "subject": "api::navigation-page.navigation-page",
       "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::hoofditem.hoofditem",
+      "subject": "api::navigation-page.navigation-page",
       "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::hoofditem.hoofditem",
+      "subject": "api::navigation-page.navigation-page",
       "properties": {
         "fields": ["title", "slug", "content", "description", "previewImage", "contents", "themas"]
       },
@@ -64,7 +64,7 @@
     },
     {
       "action": "plugin::content-manager.explorer.update",
-      "subject": "api::hoofditem.hoofditem",
+      "subject": "api::navigation-page.navigation-page",
       "properties": {
         "fields": ["title", "slug", "content", "description", "previewImage", "contents", "themas"]
       },
@@ -103,7 +103,7 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
-      "subject": "api::thema-content.thema-content",
+      "subject": "api::article-page.article-page",
       "properties": {
         "fields": ["title", "slug", "description", "previewImage", "content"]
       },
@@ -112,21 +112,21 @@
     },
     {
       "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::thema-content.thema-content",
+      "subject": "api::article-page.article-page",
       "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::thema-content.thema-content",
+      "subject": "api::article-page.article-page",
       "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::thema-content.thema-content",
+      "subject": "api::article-page.article-page",
       "properties": {
         "fields": ["title", "slug", "description", "previewImage", "content"]
       },
@@ -135,7 +135,7 @@
     },
     {
       "action": "plugin::content-manager.explorer.update",
-      "subject": "api::thema-content.thema-content",
+      "subject": "api::article-page.article-page",
       "properties": {
         "fields": ["title", "slug", "description", "previewImage", "content"]
       },
@@ -144,7 +144,7 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
-      "subject": "api::thema.thema",
+      "subject": "api::theme-page.theme_page",
       "properties": {
         "fields": ["title", "slug", "description", "previewImage", "content"]
       },
@@ -153,21 +153,21 @@
     },
     {
       "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::thema.thema",
+      "subject": "api::theme_page.theme_page",
       "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::thema.thema",
+      "subject": "api::theme_page.theme_page",
       "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::thema.thema",
+      "subject": "api::theme_page.theme_page",
       "properties": {
         "fields": ["title", "slug", "description", "previewImage", "content"]
       },
@@ -176,7 +176,7 @@
     },
     {
       "action": "plugin::content-manager.explorer.update",
-      "subject": "api::thema.thema",
+      "subject": "api::theme_page.theme_page",
       "properties": {
         "fields": ["title", "slug", "description", "previewImage", "content"]
       },

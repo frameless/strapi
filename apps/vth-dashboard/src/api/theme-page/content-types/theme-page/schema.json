@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "theme_pages",
+  "info": {
+    "singularName": "theme-page",
+    "pluralName": "theme-pages",
+    "displayName": "Thema",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "navigation_pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::navigation-page.navigation-page",
+      "inversedBy": "theme_pages"
+    },
+    "description": {
+      "type": "text"
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": ["components.block-content", "components.accordion-section"]
+    },
+    "article_pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article-page.article-page",
+      "inversedBy": "theme_pages"
+    }
+  }
+}
