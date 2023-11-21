@@ -62,21 +62,6 @@
           "sortable": true
         }
       },
-      "parents": {
-        "edit": {
-          "label": "Thema(s)",
-          "description": "De content verschijnt als klikbare tegel onder de gekoppelde themas.",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "Themas",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "previewImage": {
         "edit": {
           "label": "Tegel afbeelding",
@@ -93,7 +78,7 @@
       },
       "content": {
         "edit": {
-          "label": "Inhoud",
+          "label": "Pagina inhoud",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -101,6 +86,36 @@
         },
         "list": {
           "label": "content",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "hoofditems": {
+        "edit": {
+          "label": "Hoofditems",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "hoofditems",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "themas": {
+        "edit": {
+          "label": "Themas",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "themas",
           "searchable": false,
           "sortable": false
         }
@@ -178,14 +193,18 @@
         ],
         [
           {
-            "name": "content",
-            "size": 12
+            "name": "hoofditems",
+            "size": 6
+          },
+          {
+            "name": "themas",
+            "size": 6
           }
         ],
         [
           {
-            "name": "parents",
-            "size": 6
+            "name": "content",
+            "size": 12
           }
         ],
         [
