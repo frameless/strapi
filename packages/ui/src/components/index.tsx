@@ -2,6 +2,8 @@ export * from './AdvancedLink';
 export * from './Footer';
 export * from './Grid';
 export * from './Img';
+export { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
+export type { LanguageSwitcherProps } from './LanguageSwitcher';
 export * from './LogoButton';
 export * from './Markdown';
 export * from './MultiColumnsLogoButton';
