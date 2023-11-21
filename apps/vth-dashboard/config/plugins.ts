@@ -78,6 +78,9 @@ export default ({ env }) => ({
       },
     },
   },
+  'import-export-entries': {
+    enabled: true,
+  },
   publisher: {
     enabled: true,
   },
