@@ -5,9 +5,79 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::article-page.article-page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "description",
+          "previewImage",
+          "content",
+          "navigation_pages",
+          "theme_pages"
+        ]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::article-page.article-page",
+      "properties": {},
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::article-page.article-page",
+      "properties": {},
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::article-page.article-page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "description",
+          "previewImage",
+          "content",
+          "navigation_pages",
+          "theme_pages"
+        ]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::article-page.article-page",
+      "properties": {
+        "fields": [
+          "title",
+          "slug",
+          "description",
+          "previewImage",
+          "content",
+          "navigation_pages",
+          "theme_pages"
+        ]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": ["title", "content", "description", "bannerImage"]
+        "fields": [
+          "title",
+          "content",
+          "description",
+          "bannerImage"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -30,7 +100,12 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": ["title", "content", "description", "bannerImage"]
+        "fields": [
+          "title",
+          "content",
+          "description",
+          "bannerImage"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -39,7 +114,12 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": ["title", "content", "description", "bannerImage"]
+        "fields": [
+          "title",
+          "content",
+          "description",
+          "bannerImage"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -48,7 +128,15 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::navigation-page.navigation-page",
       "properties": {
-        "fields": ["title", "slug", "content", "description", "previewImage", "contents", "themas"]
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "description",
+          "previewImage",
+          "article_pages",
+          "theme_pages"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -71,7 +159,15 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::navigation-page.navigation-page",
       "properties": {
-        "fields": ["title", "slug", "content", "description", "previewImage", "contents", "themas"]
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "description",
+          "previewImage",
+          "article_pages",
+          "theme_pages"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -80,7 +176,15 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::navigation-page.navigation-page",
       "properties": {
-        "fields": ["title", "slug", "content", "description", "previewImage", "contents", "themas"]
+        "fields": [
+          "title",
+          "slug",
+          "content",
+          "description",
+          "previewImage",
+          "article_pages",
+          "theme_pages"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -89,8 +193,10 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"],
-        "locales": ["en", "nl"]
+        "fields": [
+          "title",
+          "body"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -98,18 +204,14 @@
     {
       "action": "plugin::content-manager.explorer.delete",
       "subject": "api::not-found-page.not-found-page",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
+      "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "subject": "api::not-found-page.not-found-page",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
+      "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
@@ -117,8 +219,10 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"],
-        "locales": ["en", "nl"]
+        "fields": [
+          "title",
+          "body"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -127,90 +231,75 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["title", "body"],
-        "locales": ["en", "nl"]
+        "fields": [
+          "title",
+          "body"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.create",
-      "subject": "api::article-page.article-page",
+      "subject": "api::theme-page.theme-page",
       "properties": {
-        "fields": ["title", "slug", "description", "previewImage", "content", "navigation-pages", "themas"]
+        "fields": [
+          "title",
+          "slug",
+          "navigation_pages",
+          "description",
+          "previewImage",
+          "content",
+          "article_pages"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::article-page.article-page",
+      "subject": "api::theme-page.theme-page",
       "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::article-page.article-page",
+      "subject": "api::theme-page.theme-page",
       "properties": {},
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::article-page.article-page",
+      "subject": "api::theme-page.theme-page",
       "properties": {
-        "fields": ["title", "slug", "description", "previewImage", "content", "navigation-pages", "themas"]
+        "fields": [
+          "title",
+          "slug",
+          "navigation_pages",
+          "description",
+          "previewImage",
+          "content",
+          "article_pages"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
     },
     {
       "action": "plugin::content-manager.explorer.update",
-      "subject": "api::article-page.article-page",
+      "subject": "api::theme-page.theme-page",
       "properties": {
-        "fields": ["title", "slug", "description", "previewImage", "content", "navigation-pages", "themas"]
-      },
-      "conditions": [],
-      "actionParameters": {}
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::theme_page.theme_page",
-      "properties": {
-        "fields": ["title", "slug", "navigation-pages", "description", "previewImage", "content", "contents"]
-      },
-      "conditions": [],
-      "actionParameters": {}
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::theme_page.theme_page",
-      "properties": {},
-      "conditions": [],
-      "actionParameters": {}
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::theme_page.theme_page",
-      "properties": {},
-      "conditions": [],
-      "actionParameters": {}
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::theme_page.theme_page",
-      "properties": {
-        "fields": ["title", "slug", "navigation-pages", "description", "previewImage", "content", "contents"]
-      },
-      "conditions": [],
-      "actionParameters": {}
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::theme_page.theme_page",
-      "properties": {
-        "fields": ["title", "slug", "navigation-pages", "description", "previewImage", "content", "contents"]
+        "fields": [
+          "title",
+          "slug",
+          "navigation_pages",
+          "description",
+          "previewImage",
+          "content",
+          "article_pages"
+        ]
       },
       "conditions": [],
       "actionParameters": {}
@@ -540,6 +629,20 @@
     },
     {
       "action": "plugin::i18n.locale.update",
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::import-export-entries.export",
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::import-export-entries.import",
       "subject": null,
       "properties": {},
       "conditions": [],

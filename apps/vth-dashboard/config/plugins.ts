@@ -12,19 +12,19 @@ export default ({ env }) => ({
           },
         },
         {
-          uid: 'api::hoofditem.hoofditem',
+          uid: 'api::navigation-page.navigation-page',
           query: {
             type: 'Hoofditem',
           },
         },
         {
-          uid: 'api::thema-content.thema-content',
+          uid: 'api::article-page.article-page',
           query: {
             type: 'ThemaContent',
           },
         },
         {
-          uid: 'api::thema.thema',
+          uid: 'api::theme-page.theme-page',
           query: {
             type: 'Thema',
           },

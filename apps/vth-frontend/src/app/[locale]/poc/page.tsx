@@ -49,7 +49,7 @@ const Page = async ({ params: { locale } }: { params: { locale: string } }) => {
   });
 
   const homepageData: HomepageData = data?.homepage?.data?.attributes;
-  const themaResponse: ThemasResponse = data?.themas;
+  const themaResponse: ThemasResponse = data?.theme_pages;
 
   const ThemaDisplay = (thema: Thema, indexString: string) => {
     let levelIndex = 1;

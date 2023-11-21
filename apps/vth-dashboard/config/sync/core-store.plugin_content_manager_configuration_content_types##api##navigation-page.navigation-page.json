@@ -22,7 +22,7 @@
       },
       "title": {
         "edit": {
-          "label": "Titel",
+          "label": "title",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -36,7 +36,7 @@
       },
       "slug": {
         "edit": {
-          "label": "URL segment",
+          "label": "slug",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -50,7 +50,7 @@
       },
       "content": {
         "edit": {
-          "label": "Pagina content",
+          "label": "content",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -64,7 +64,7 @@
       },
       "description": {
         "edit": {
-          "label": "Tegel beschrijving",
+          "label": "description",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -78,7 +78,7 @@
       },
       "previewImage": {
         "edit": {
-          "label": "Tegel afbeelding",
+          "label": "previewImage",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -90,9 +90,9 @@
           "sortable": false
         }
       },
-      "contents": {
+      "article_pages": {
         "edit": {
-          "label": "Contents",
+          "label": "article_pages",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -100,14 +100,14 @@
           "mainField": "title"
         },
         "list": {
-          "label": "contents",
+          "label": "article_pages",
           "searchable": false,
           "sortable": false
         }
       },
-      "themas": {
+      "theme_pages": {
         "edit": {
-          "label": "Themas",
+          "label": "theme_pages",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -115,7 +115,7 @@
           "mainField": "title"
         },
         "list": {
-          "label": "themas",
+          "label": "theme_pages",
           "searchable": false,
           "sortable": false
         }
@@ -180,6 +180,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "title",
+        "slug",
+        "description"
+      ],
       "edit": [
         [
           {
@@ -188,16 +194,6 @@
           },
           {
             "name": "slug",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "contents",
-            "size": 6
-          },
-          {
-            "name": "themas",
             "size": 6
           }
         ],
@@ -216,9 +212,18 @@
             "name": "previewImage",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "article_pages",
+            "size": 6
+          },
+          {
+            "name": "theme_pages",
+            "size": 6
+          }
         ]
-      ],
-      "list": ["id", "title", "slug", "contents"]
+      ]
     }
   },
   "type": "object",

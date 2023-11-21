@@ -13,7 +13,7 @@ import { Grid } from '@/components/Grid';
 import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Main } from '@/components/Main';
-import { GET_HOOFDITEMS } from '@/query';
+import { GET_NAVIGATION_PAGES} from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n/index';
@@ -32,7 +32,7 @@ type Params = {
   };
 };
 
-type ThemaData = {
+type PageData = {
   attributes: {
     title: string;
     slug: string;
@@ -55,16 +55,16 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_HOOFDITEMS,
-    variables: { locale: locale },
+    query: GET_NAVIGATION_PAGES,
+    variables: { pageMode: isEnabled ? 'PREVIEW' : 'LIVE' },
   });
 
-  const hoofditems: ThemaData[] = data?.hoofditems?.data;
+  const navigationPages: PageData[] = data?.navigationPages?.data;
 
-  const navListData = hoofditems?.map((hoofditem) => {
+  const navListData = navigationPages?.map((navigationPage) => {
     return {
-      title: hoofditem.attributes.title,
-      link: `/${hoofditem.attributes.slug}`,
+      title: navigationPage.attributes.title,
+      link: `/${navigationPage.attributes.slug}`,
     } satisfies NavigationListType;
   });
 

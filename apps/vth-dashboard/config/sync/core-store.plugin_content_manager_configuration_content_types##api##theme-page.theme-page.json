@@ -6,9 +6,9 @@
       "bulkable": true,
       "filterable": true,
       "searchable": true,
-      "pageSize": 20,
+      "pageSize": 10,
       "mainField": "title",
-      "defaultSortBy": "id",
+      "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -22,35 +22,35 @@
       },
       "title": {
         "edit": {
-          "label": "Pagina titel",
+          "label": "title",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "Titel",
+          "label": "title",
           "searchable": true,
           "sortable": true
         }
       },
       "slug": {
         "edit": {
-          "label": "URL segment",
-          "description": "Leeg laten om automatisch te genereren",
-          "placeholder": "Automatisch gegenereerd",
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "URL Segment",
+          "label": "slug",
           "searchable": true,
           "sortable": true
         }
       },
-      "navigation-pages": {
+      "navigation_pages": {
         "edit": {
-          "label": "Hoofditems",
+          "label": "navigation_pages",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -58,15 +58,15 @@
           "mainField": "title"
         },
         "list": {
-          "label": "navigation-pages",
+          "label": "navigation_pages",
           "searchable": false,
           "sortable": false
         }
       },
       "description": {
         "edit": {
-          "label": "Tegel beschrijving",
-          "description": "Beschrijving op de navigatie tegel zoals deze verschijnt op de hoofdthema's of hoofdpagina",
+          "label": "description",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -79,7 +79,7 @@
       },
       "previewImage": {
         "edit": {
-          "label": "Tegel afbeelding",
+          "label": "previewImage",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -93,7 +93,7 @@
       },
       "content": {
         "edit": {
-          "label": "Pagina inhoud",
+          "label": "content",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -105,9 +105,9 @@
           "sortable": false
         }
       },
-      "contents": {
+      "article_pages": {
         "edit": {
-          "label": "Contents",
+          "label": "article_pages",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -115,7 +115,7 @@
           "mainField": "title"
         },
         "list": {
-          "label": "contents",
+          "label": "article_pages",
           "searchable": false,
           "sortable": false
         }
@@ -129,7 +129,7 @@
           "editable": true
         },
         "list": {
-          "label": "Aangemaakt",
+          "label": "createdAt",
           "searchable": true,
           "sortable": true
         }
@@ -143,7 +143,7 @@
           "editable": true
         },
         "list": {
-          "label": "Laatst gewijzigd",
+          "label": "updatedAt",
           "searchable": true,
           "sortable": true
         }
@@ -180,6 +180,12 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "title",
+        "slug",
+        "navigation_pages"
+      ],
       "edit": [
         [
           {
@@ -193,11 +199,17 @@
         ],
         [
           {
-            "name": "navigation-pages",
+            "name": "navigation_pages",
             "size": 6
           },
           {
-            "name": "contents",
+            "name": "description",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "previewImage",
             "size": 6
           }
         ],
@@ -209,16 +221,11 @@
         ],
         [
           {
-            "name": "description",
-            "size": 6
-          },
-          {
-            "name": "previewImage",
+            "name": "article_pages",
             "size": 6
           }
         ]
-      ],
-      "list": ["id", "title", "slug", "updatedAt", "createdAt"]
+      ]
     }
   },
   "type": "object",

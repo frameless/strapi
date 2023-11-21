@@ -8,7 +8,7 @@ import { AccordionProvider, Heading1, Markdown } from '@/components';
 import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
-import { GET_HOOFDITEM_BY_SLUG } from '@/query';
+import { GET_NAVIGATION_PAGE_BY_SLUG } from '@/query';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
 type Params = {
@@ -22,7 +22,7 @@ export async function generateMetadata({ params: { locale, hoofditemSlug } }: Pa
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_HOOFDITEM_BY_SLUG,
+    query: GET_NAVIGATION_PAGE_BY_SLUG,
     variables: { slug: hoofditemSlug, locale },
   });
   return {
@@ -35,20 +35,20 @@ const NavigationPage = async ({ params: { locale, hoofditemSlug } }: Params) => 
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_HOOFDITEM_BY_SLUG,
+    query: GET_NAVIGATION_PAGE_BY_SLUG,
     variables: { slug: hoofditemSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
   });
-  const hoofditemData = data.findSlug?.data;
-  if (!hoofditemData) return notFound();
-  const hoofditemContent = hoofditemData?.attributes?.content;
-  const hoofditemContents = hoofditemData?.attributes?.contents?.data;
-  const hoofditemTitle = hoofditemData?.attributes?.title;
-  const hoofditemThemas = hoofditemContent?.attributes?.themas.data;
+  const navigationPage = data.findSlug?.data;
+  if (!navigationPage) return notFound();
+  const content = navigationPage.attributes.content;
+  const title = navigationPage.attributes.title;
+  const articles = navigationPage.attributes.article_pages?.data;
+  const themes = navigationPage.attributes.theme_pages?.data;
 
   const DynamicContent = () =>
-    hoofditemContent &&
-    hoofditemContent?.length > 0 &&
-    hoofditemContent?.map((component: any, index: number) => {
+    content &&
+    content?.length > 0 &&
+    content?.map((component: any, index: number) => {
       switch (component?.__typename) {
         case 'ComponentComponentsBlockContent':
           return component.content ? (
@@ -82,36 +82,37 @@ const NavigationPage = async ({ params: { locale, hoofditemSlug } }: Params) => 
       </div>
       <Grid className={'utrecht-grid__two-third'}>
         <div className={'utrecht-grid__full-width'}>
-          <Heading1>{hoofditemTitle}</Heading1>
+          <Heading1>{title}</Heading1>
           <DynamicContent />
         </div>
         <Grid className={'utrecht-grid__full-width'}>
-          {hoofditemThemas?.length > 0 &&
-            hoofditemThemas.map((thema: any) => {
-              const imageUrl = thema?.attributes?.imageData?.data?.attributes?.url;
+          {themes?.length > 0 &&
+            themes.map((theme: any) => {
+              const { title, description, slug: childSlug, previewImage: imageData } = theme.attributes;
+              const imageUrl = imageData?.data?.attributes?.url;
               return (
                 <Card
                   className={'utrecht-grid__half-width'}
                   image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  title={hoofditemTitle}
-                  description={thema?.attributes?.description}
-                  key={`thema-${thema?.attributes?.childSlug}`}
-                  link={{ href: `/${locale}/thema/${thema?.attributes?.childSlug}` }}
+                  title={title}
+                  description={description}
+                  key={`thema-${childSlug}`}
+                  link={{ href: `/${locale}/thema/${childSlug}` }}
                 />
               );
             })}
-          {hoofditemContents?.length > 0 &&
-            hoofditemContents.map((content: any) => {
-              const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
+          {articles?.length > 0 &&
+            articles.map((article: any) => {
+              const { title, description, slug: articleSlug, previewImage: imageData } = article.attributes;
               const imageUrl = imageData?.data?.attributes?.url;
               return (
                 <Card
                   className={'utrecht-grid__half-width'}
                   title={title}
                   description={description}
-                  key={`thema-${contentSlug}`}
+                  key={`thema-${articleSlug}`}
                   image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  link={{ href: `/${locale}/content/${contentSlug}` }}
+                  link={{ href: `/${locale}/content/${articleSlug}` }}
                 />
               );
             })}

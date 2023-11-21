@@ -31,7 +31,7 @@ query getHomepage($pageMode: PublicationState) {
       }
     }
   }
-  hoofditems (publicationState: $pageMode) {
+  navigationPages(publicationState: $pageMode) {
     data {
       id
       attributes {
@@ -50,9 +50,9 @@ query getHomepage($pageMode: PublicationState) {
   }
 }`);
 
-export const GET_HOOFDITEMS = gql(`
-query getHoofditems($pageMode: PublicationState) {
-  hoofditems(publicationState: $pageMode) {
+export const GET_NAVIGATION_PAGES = gql(`
+query getNavigationPages($pageMode: PublicationState) {
+  navigationPages(publicationState: $pageMode) {
     data {
       id
       attributes {
@@ -63,10 +63,10 @@ query getHoofditems($pageMode: PublicationState) {
   }
 }`);
 
-export const GET_HOOFDITEM_BY_SLUG = gql(`
-query GET_HOOFDITEM_BY_SLUG($slug: String, $pageMode: String) {
-  findSlug(modelName:"hoofditem", slug: $slug, publicationState: $pageMode){
-    ... on HoofditemEntityResponse{
+export const GET_NAVIGATION_PAGE_BY_SLUG = gql(`
+query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
+  findSlug(modelName:"navigation-page", slug: $slug, publicationState: $pageMode){
+    ... on NavigationPageEntityResponse{
       data{
         id
         attributes{
@@ -87,7 +87,7 @@ query GET_HOOFDITEM_BY_SLUG($slug: String, $pageMode: String) {
               }
             }
           }
-          themas {
+          theme_pages {
             data {
               attributes {
                 title,
@@ -103,7 +103,7 @@ query GET_HOOFDITEM_BY_SLUG($slug: String, $pageMode: String) {
               }
             }
           }
-          contents {
+          article_pages {
             data {
               attributes {
                 title,
@@ -125,10 +125,10 @@ query GET_HOOFDITEM_BY_SLUG($slug: String, $pageMode: String) {
   }
 }`);
 
-export const GET_THEMA_BY_SLUG = gql(`
-query GET_THEMA_BY_SLUG($slug: String, $pageMode: String) {
-  findSlug(modelName:"thema", slug: $slug, publicationState: $pageMode){
-    ... on ThemaEntityResponse{
+export const GET_THEME_BY_SLUG = gql(`
+query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
+  findSlug(modelName:"theme-page", slug: $slug, publicationState: $pageMode){
+    ... on ThemePageEntityResponse{
       data{
         id
         attributes{
@@ -148,12 +148,12 @@ query GET_THEMA_BY_SLUG($slug: String, $pageMode: String) {
               }
             }
           }
-          hoofditems {
+          navigation_pages {
             data {
               attributes {
                 title
                 slug
-                themas {
+                theme_pages {
                   data {
                     attributes {
                       title
@@ -161,7 +161,7 @@ query GET_THEMA_BY_SLUG($slug: String, $pageMode: String) {
                     }
                   }
                 }
-                contents {
+                article_pages {
                   data {
                     attributes {
                       title
@@ -172,7 +172,7 @@ query GET_THEMA_BY_SLUG($slug: String, $pageMode: String) {
               }
             }
           }
-          contents {
+          article_pages {
             data {
               attributes {
                 title,
@@ -194,10 +194,10 @@ query GET_THEMA_BY_SLUG($slug: String, $pageMode: String) {
   }
 }`);
 
-export const GET_CONTENT_BY_SLUG = gql(`
-query GET_CONTENT_BY_SLUG($slug: String, $pageMode: String) {
+export const GET_ARTICLE_BY_SLUG = gql(`
+query GET_ARTICLE_BY_SLUG($slug: String, $pageMode: String) {
   findSlug(modelName:"article-page", slug: $slug, publicationState: $pageMode){
-    ... on ThemaContentEntityResponse{
+    ... on ArticlePageEntityResponse{
       data{
         id
         attributes{
@@ -217,12 +217,12 @@ query GET_CONTENT_BY_SLUG($slug: String, $pageMode: String) {
               }
             }
           }
-          themas {
+          theme_pages {
             data {
               attributes {
                 title
                 slug
-                hoofditems {
+                navigation_pages {
                   data {
                     attributes {
                       title
@@ -230,7 +230,7 @@ query GET_CONTENT_BY_SLUG($slug: String, $pageMode: String) {
                     }
                   }
                 }
-                contents {
+                article_pages {
                   data {
                     attributes {
                       title
@@ -241,12 +241,12 @@ query GET_CONTENT_BY_SLUG($slug: String, $pageMode: String) {
               }
             }
           }
-          hoofditems {
+          navigation_pages {
             data {
               attributes {
                 title
                 slug
-                contents {
+                article_pages {
                   data {
                     attributes {
                       title
@@ -254,7 +254,7 @@ query GET_CONTENT_BY_SLUG($slug: String, $pageMode: String) {
                     }
                   }
                 }
-                themas {
+                theme_pages {
                   data {
                     attributes {
                       title

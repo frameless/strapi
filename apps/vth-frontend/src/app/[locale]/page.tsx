@@ -41,7 +41,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
     variables: { locale: locale, pageMode: isEnabled ? 'PREVIEW' : 'LIVE' },
   });
 
-  const hoofditems = data?.hoofditems?.data;
+  const navigationPages = data?.navigationPages?.data;
   const bannerAttributes = data?.homepage?.data?.attributes?.bannerImage?.data?.attributes;
   if (!data.homepage.data) return notFound();
   return (
@@ -62,9 +62,9 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           <Markdown imageUrl={getImageBaseUrl()}>{data?.homepage?.data?.attributes?.content}</Markdown>
         </div>
         <Grid className={'utrecht-grid__full-width'}>
-          {hoofditems &&
-            hoofditems.map((hoofditem: any) => {
-              const { title, description, slug, previewImage: imageData } = hoofditem.attributes;
+          {navigationPages &&
+            navigationPages.map((navigationPage: any) => {
+              const { title, description, slug, previewImage: imageData } = navigationPage.attributes;
               const imageUrl = imageData?.data?.attributes?.url;
               return (
                 <Card

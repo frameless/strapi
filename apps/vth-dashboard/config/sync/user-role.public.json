@@ -4,6 +4,12 @@
   "type": "public",
   "permissions": [
     {
+      "action": "api::article-page.article-page.find"
+    },
+    {
+      "action": "api::article-page.article-page.findOne"
+    },
+    {
       "action": "api::homepage.homepage.find"
     },
     {
@@ -16,16 +22,10 @@
       "action": "api::not-found-page.not-found-page.find"
     },
     {
-      "action": "api::article-page.article-page.find"
+      "action": "api::theme-page.theme-page.find"
     },
     {
-      "action": "api::article-page.article-page.findOne"
-    },
-    {
-      "action": "api::theme_page.theme_page.find"
-    },
-    {
-      "action": "api::theme_page.theme_page.findOne"
+      "action": "api::theme-page.theme-page.findOne"
     },
     {
       "action": "plugin::slugify.slugController.findSlug"
