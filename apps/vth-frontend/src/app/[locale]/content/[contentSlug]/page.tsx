@@ -10,7 +10,7 @@ import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
-import { GET_CONTENT_BY_SLUG } from '@/query';
+import { GET_ARTICLE_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { locale, contentSlug } }: Para
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_CONTENT_BY_SLUG,
+    query: GET_ARTICLE_BY_SLUG,
     variables: { slug: contentSlug, locale },
   });
   return {
@@ -38,23 +38,23 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_CONTENT_BY_SLUG,
+    query: GET_ARTICLE_BY_SLUG,
     variables: { slug: contentSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
   });
 
   if (!data.findSlug?.data) return notFound();
 
-  const parentThemaSlug = data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.slug;
-  const parentHoofditemSlug = data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.slug;
+  const parentThemaSlug = data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.slug;
+  const parentHoofditemSlug = data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.slug;
 
   const hasHoofditemParentOnly = !parentThemaSlug && parentHoofditemSlug;
 
   const siblingThemas: SiblingData[] = hasHoofditemParentOnly
-    ? data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.themas?.data
+    ? data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.theme_pages?.data
     : [];
   const siblingContent: SiblingData[] = hasHoofditemParentOnly
-    ? data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.contents?.data
-    : data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.contents?.data;
+    ? data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.article_pages?.data
+    : data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.article_pages?.data;
 
   const themasLinks =
     siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
@@ -76,20 +76,20 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
 
   const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
 
-  if (data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.hoofditems?.data[0]) {
+  if (data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]) {
     breadcrumbNavigationElements.push({
-      title: data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.hoofditems?.data[0]?.attributes?.title,
-      href: `/${locale}/${data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.hoofditems?.data[0]?.attributes?.slug}`,
+      title: data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]?.attributes?.title,
+      href: `/${locale}/${data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]?.attributes?.slug}`,
     });
   }
 
   const parentElement: BreadcrumbNavigationElement = hasHoofditemParentOnly
     ? {
-        title: data.findSlug.data?.attributes?.hoofditems?.data[0]?.attributes?.title,
+        title: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
         href: `/${locale}/${parentHoofditemSlug}`,
       }
     : {
-        title: data.findSlug.data?.attributes?.themas?.data[0]?.attributes?.title,
+        title: data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.title,
         href: `/thema/${parentThemaSlug}`,
       };
 
