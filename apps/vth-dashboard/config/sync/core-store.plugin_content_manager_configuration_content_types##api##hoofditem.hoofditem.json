@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::thema.thema",
+  "key": "plugin_content_manager_configuration_content_types::api::hoofditem.hoofditem",
   "value": {
-    "uid": "api::thema.thema",
+    "uid": "api::hoofditem.hoofditem",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
-      "pageSize": 20,
+      "pageSize": 10,
       "mainField": "title",
-      "defaultSortBy": "id",
+      "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -22,14 +22,14 @@
       },
       "title": {
         "edit": {
-          "label": "Pagina titel",
+          "label": "Titel",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "Titel",
+          "label": "title",
           "searchable": true,
           "sortable": true
         }
@@ -37,28 +37,27 @@
       "slug": {
         "edit": {
           "label": "URL segment",
-          "description": "Leeg laten om automatisch te genereren",
-          "placeholder": "Automatisch gegenereerd",
+          "description": "",
+          "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "URL Segment",
+          "label": "slug",
           "searchable": true,
           "sortable": true
         }
       },
-      "hoofditems": {
+      "content": {
         "edit": {
-          "label": "Hoofditems",
+          "label": "Pagina content",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true,
-          "mainField": "title"
+          "editable": true
         },
         "list": {
-          "label": "hoofditems",
+          "label": "content",
           "searchable": false,
           "sortable": false
         }
@@ -66,7 +65,7 @@
       "description": {
         "edit": {
           "label": "Tegel beschrijving",
-          "description": "Beschrijving op de navigatie tegel zoals deze verschijnt op de hoofdthema's of hoofdpagina",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -91,20 +90,6 @@
           "sortable": false
         }
       },
-      "content": {
-        "edit": {
-          "label": "Pagina inhoud",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "content",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "contents": {
         "edit": {
           "label": "Contents",
@@ -120,6 +105,21 @@
           "sortable": false
         }
       },
+      "themas": {
+        "edit": {
+          "label": "Themas",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "themas",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -129,7 +129,7 @@
           "editable": true
         },
         "list": {
-          "label": "Aangemaakt",
+          "label": "createdAt",
           "searchable": true,
           "sortable": true
         }
@@ -143,7 +143,7 @@
           "editable": true
         },
         "list": {
-          "label": "Laatst gewijzigd",
+          "label": "updatedAt",
           "searchable": true,
           "sortable": true
         }
@@ -193,11 +193,11 @@
         ],
         [
           {
-            "name": "hoofditems",
+            "name": "contents",
             "size": 6
           },
           {
-            "name": "contents",
+            "name": "themas",
             "size": 6
           }
         ],
@@ -218,7 +218,7 @@
           }
         ]
       ],
-      "list": ["id", "title", "slug", "updatedAt", "createdAt"]
+      "list": ["id", "title", "slug", "contents"]
     }
   },
   "type": "object",

@@ -7,6 +7,12 @@
       "action": "api::homepage.homepage.find"
     },
     {
+      "action": "api::hoofditem.hoofditem.find"
+    },
+    {
+      "action": "api::hoofditem.hoofditem.findOne"
+    },
+    {
       "action": "api::not-found-page.not-found-page.find"
     },
     {
