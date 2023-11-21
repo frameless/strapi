@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "navigation_pages",
+  "info": {
+    "singularName": "navigation-page",
+    "pluralName": "navigation-pages",
+    "displayName": "Hoofditem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": ["components.accordion-section", "components.block-content"]
+    },
+    "description": {
+      "type": "text"
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "article_pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article-page.article-page",
+      "mappedBy": "navigation_pages"
+    },
+    "theme_pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::theme-page.theme-page",
+      "mappedBy": "navigation_pages"
+    }
+  }
+}

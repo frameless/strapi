@@ -31,7 +31,7 @@ export async function generateMetadata({ params: { locale, hoofditemSlug } }: Pa
   };
 }
 
-const Hoofditem = async ({ params: { locale, hoofditemSlug } }: Params) => {
+const NavigationPage = async ({ params: { locale, hoofditemSlug } }: Params) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
@@ -121,4 +121,4 @@ const Hoofditem = async ({ params: { locale, hoofditemSlug } }: Params) => {
   );
 };
 
-export default Hoofditem;
+export default NavigationPage;

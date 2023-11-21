@@ -7,25 +7,25 @@
       "action": "api::homepage.homepage.find"
     },
     {
-      "action": "api::hoofditem.hoofditem.find"
+      "action": "api::navigation-page.navigation-page.find"
     },
     {
-      "action": "api::hoofditem.hoofditem.findOne"
+      "action": "api::navigation-page.navigation-page.findOne"
     },
     {
       "action": "api::not-found-page.not-found-page.find"
     },
     {
-      "action": "api::thema-content.thema-content.find"
+      "action": "api::article-page.article-page.find"
     },
     {
-      "action": "api::thema-content.thema-content.findOne"
+      "action": "api::article-page.article-page.findOne"
     },
     {
-      "action": "api::thema.thema.find"
+      "action": "api::theme_page.theme_page.find"
     },
     {
-      "action": "api::thema.thema.findOne"
+      "action": "api::theme_page.theme_page.findOne"
     },
     {
       "action": "plugin::slugify.slugController.findSlug"

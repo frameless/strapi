@@ -54,15 +54,15 @@ export default ({ env }) => ({
     config: {
       shouldUpdateSlug: true,
       contentTypes: {
-        hoofditem: {
+        'navigation-page': {
           field: 'slug',
           references: 'title',
         },
-        thema: {
+        'theme-page': {
           field: 'slug',
           references: 'title',
         },
-        'thema-content': {
+        'article-page': {
           field: 'slug',
           references: 'title',
         },
