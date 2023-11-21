@@ -1,3 +1,10 @@
+# @frameless/preview-button [1.2.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.1.0...@frameless/preview-button@1.2.0) (2023-11-21)
+
+
+### Features
+
+* **preview-button:** add support to signal type ([6b35a3f](https://github.com/frameless/strapi/commit/6b35a3f37261b0e761675173e3d40e1e304038bf))
+
 # @frameless/preview-button [1.1.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.0.1...@frameless/preview-button@1.1.0) (2023-03-24)
 
 
