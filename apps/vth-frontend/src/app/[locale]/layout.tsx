@@ -13,7 +13,7 @@ import { Grid } from '@/components/Grid';
 import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Main } from '@/components/Main';
-import { GET_NAVIGATION_PAGES} from '@/query';
+import { GET_NAVIGATION_PAGES } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n/index';

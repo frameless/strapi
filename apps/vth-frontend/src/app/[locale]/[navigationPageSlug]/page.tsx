@@ -14,16 +14,16 @@ import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 type Params = {
   params: {
     locale: string;
-    hoofditemSlug: string;
+    navigationPageSlug: string;
   };
 };
 
-export async function generateMetadata({ params: { locale, hoofditemSlug } }: Params): Promise<Metadata> {
+export async function generateMetadata({ params: { locale, navigationPageSlug } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_NAVIGATION_PAGE_BY_SLUG,
-    variables: { slug: hoofditemSlug, locale },
+    variables: { slug: navigationPageSlug, locale },
   });
   return {
     title: data.findSlug?.data?.attributes?.title,
@@ -31,12 +31,12 @@ export async function generateMetadata({ params: { locale, hoofditemSlug } }: Pa
   };
 }
 
-const NavigationPage = async ({ params: { locale, hoofditemSlug } }: Params) => {
+const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_NAVIGATION_PAGE_BY_SLUG,
-    variables: { slug: hoofditemSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
+    variables: { slug: navigationPageSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
   });
   const navigationPage = data.findSlug?.data;
   if (!navigationPage) return notFound();
@@ -96,8 +96,8 @@ const NavigationPage = async ({ params: { locale, hoofditemSlug } }: Params) => 
                   image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
                   title={title}
                   description={description}
-                  key={`thema-${childSlug}`}
-                  link={{ href: `/${locale}/thema/${childSlug}` }}
+                  key={`theme-${childSlug}`}
+                  link={{ href: `/${locale}/theme/${childSlug}` }}
                 />
               );
             })}
@@ -112,7 +112,7 @@ const NavigationPage = async ({ params: { locale, hoofditemSlug } }: Params) => 
                   description={description}
                   key={`thema-${articleSlug}`}
                   image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  link={{ href: `/${locale}/content/${articleSlug}` }}
+                  link={{ href: `/${locale}/article/${articleSlug}` }}
                 />
               );
             })}

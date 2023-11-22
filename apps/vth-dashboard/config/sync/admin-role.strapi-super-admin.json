@@ -7,15 +7,7 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::article-page.article-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "description",
-          "previewImage",
-          "content",
-          "navigation_pages",
-          "theme_pages"
-        ]
+        "fields": ["title", "slug", "description", "previewImage", "content", "navigation_pages", "theme_pages"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -38,15 +30,7 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::article-page.article-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "description",
-          "previewImage",
-          "content",
-          "navigation_pages",
-          "theme_pages"
-        ]
+        "fields": ["title", "slug", "description", "previewImage", "content", "navigation_pages", "theme_pages"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -55,15 +39,7 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::article-page.article-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "description",
-          "previewImage",
-          "content",
-          "navigation_pages",
-          "theme_pages"
-        ]
+        "fields": ["title", "slug", "description", "previewImage", "content", "navigation_pages", "theme_pages"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -72,12 +48,7 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": [
-          "title",
-          "content",
-          "description",
-          "bannerImage"
-        ]
+        "fields": ["title", "content", "description", "bannerImage"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -100,12 +71,7 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": [
-          "title",
-          "content",
-          "description",
-          "bannerImage"
-        ]
+        "fields": ["title", "content", "description", "bannerImage"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -114,12 +80,7 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::homepage.homepage",
       "properties": {
-        "fields": [
-          "title",
-          "content",
-          "description",
-          "bannerImage"
-        ]
+        "fields": ["title", "content", "description", "bannerImage"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -128,15 +89,7 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::navigation-page.navigation-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "content",
-          "description",
-          "previewImage",
-          "article_pages",
-          "theme_pages"
-        ]
+        "fields": ["title", "slug", "content", "description", "previewImage", "article_pages", "theme_pages"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -159,15 +112,7 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::navigation-page.navigation-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "content",
-          "description",
-          "previewImage",
-          "article_pages",
-          "theme_pages"
-        ]
+        "fields": ["title", "slug", "content", "description", "previewImage", "article_pages", "theme_pages"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -176,15 +121,7 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::navigation-page.navigation-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "content",
-          "description",
-          "previewImage",
-          "article_pages",
-          "theme_pages"
-        ]
+        "fields": ["title", "slug", "content", "description", "previewImage", "article_pages", "theme_pages"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -193,10 +130,7 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": [
-          "title",
-          "body"
-        ]
+        "fields": ["title", "body"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -219,10 +153,7 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": [
-          "title",
-          "body"
-        ]
+        "fields": ["title", "body"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -231,10 +162,7 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": [
-          "title",
-          "body"
-        ]
+        "fields": ["title", "body"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -243,15 +171,7 @@
       "action": "plugin::content-manager.explorer.create",
       "subject": "api::theme-page.theme-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "navigation_pages",
-          "description",
-          "previewImage",
-          "content",
-          "article_pages"
-        ]
+        "fields": ["title", "slug", "navigation_pages", "description", "previewImage", "content", "article_pages"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -274,15 +194,7 @@
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::theme-page.theme-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "navigation_pages",
-          "description",
-          "previewImage",
-          "content",
-          "article_pages"
-        ]
+        "fields": ["title", "slug", "navigation_pages", "description", "previewImage", "content", "article_pages"]
       },
       "conditions": [],
       "actionParameters": {}
@@ -291,15 +203,7 @@
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::theme-page.theme-page",
       "properties": {
-        "fields": [
-          "title",
-          "slug",
-          "navigation_pages",
-          "description",
-          "previewImage",
-          "content",
-          "article_pages"
-        ]
+        "fields": ["title", "slug", "navigation_pages", "description", "previewImage", "content", "article_pages"]
       },
       "conditions": [],
       "actionParameters": {}

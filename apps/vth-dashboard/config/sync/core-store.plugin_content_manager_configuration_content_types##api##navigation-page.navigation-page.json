@@ -180,12 +180,7 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "title",
-        "slug",
-        "description"
-      ],
+      "list": ["id", "title", "slug", "description"],
       "edit": [
         [
           {
