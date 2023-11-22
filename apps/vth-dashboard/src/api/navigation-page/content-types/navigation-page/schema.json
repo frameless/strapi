@@ -20,7 +20,7 @@
     },
     "content": {
       "type": "dynamiczone",
-      "components": ["sections.accordion-section", "components.block-content"]
+      "components": ["components.utrecht-accordion", "components.utrecht-rich-text"]
     },
     "description": {
       "type": "text"
