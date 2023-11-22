@@ -65,24 +65,28 @@ query getNavigationPages($pageMode: PublicationState) {
 
 export const GET_NAVIGATION_PAGE_BY_SLUG = gql(`
 query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
-  findSlug(modelName:"navigation-page", slug: $slug, publicationState: $pageMode){
-    ... on NavigationPageEntityResponse{
-      data{
+  findSlug(
+    modelName: "navigation-page"
+    slug: $slug
+    publicationState: $pageMode
+  ) {
+    ... on NavigationPageEntityResponse {
+      data {
         id
-        attributes{
+        attributes {
           title
           description
           slug
           content {
-            ... on ComponentComponentsBlockContent {
+            ... on ComponentComponentsUtrechtRichText {
               __typename
               content
             }
-            ... on ComponentComponentsAccordionSection {
+            ... on ComponentComponentsUtrechtAccordion {
               __typename
               item {
                 id
-                title
+                label
                 body
               }
             }
@@ -90,9 +94,9 @@ query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
           theme_pages {
             data {
               attributes {
-                title,
-                slug,
-                description,
+                title
+                slug
+                description
                 previewImage {
                   data {
                     attributes {
@@ -106,9 +110,9 @@ query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
           article_pages {
             data {
               attributes {
-                title,
-                slug,
-                description,
+                title
+                slug
+                description
                 previewImage {
                   data {
                     attributes {
@@ -123,27 +127,28 @@ query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
       }
     }
   }
-}`);
+}
+`);
 
 export const GET_THEME_BY_SLUG = gql(`
 query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
-  findSlug(modelName:"theme-page", slug: $slug, publicationState: $pageMode){
-    ... on ThemePageEntityResponse{
-      data{
+  findSlug(modelName: "theme-page", slug: $slug, publicationState: $pageMode) {
+    ... on ThemePageEntityResponse {
+      data {
         id
-        attributes{
+        attributes {
           title
           description
           content {
-            ... on ComponentComponentsBlockContent {
+            ... on  ComponentComponentsUtrechtRichText{
               __typename
               content
             }
-            ... on ComponentComponentsAccordionSection {
+            ... on ComponentComponentsUtrechtAccordion {
               __typename
               item {
                 id
-                title
+                label
                 body
               }
             }
@@ -175,9 +180,9 @@ query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
           article_pages {
             data {
               attributes {
-                title,
-                slug,
-                description,
+                title
+                slug
+                description
                 previewImage {
                   data {
                     attributes {
@@ -192,27 +197,32 @@ query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
       }
     }
   }
-}`);
+}
+`);
 
 export const GET_ARTICLE_BY_SLUG = gql(`
 query GET_ARTICLE_BY_SLUG($slug: String, $pageMode: String) {
-  findSlug(modelName:"article-page", slug: $slug, publicationState: $pageMode){
-    ... on ArticlePageEntityResponse{
-      data{
+  findSlug(
+    modelName: "article-page"
+    slug: $slug
+    publicationState: $pageMode
+  ) {
+    ... on ArticlePageEntityResponse {
+      data {
         id
-        attributes{
+        attributes {
           title
           description
           content {
-            ... on ComponentComponentsBlockContent {
+            ... on ComponentComponentsUtrechtRichText {
               __typename
               content
             }
-            ... on ComponentComponentsAccordionSection {
+            ... on ComponentComponentsUtrechtAccordion {
               __typename
               item {
                 id
-                title
+                label
                 body
               }
             }
@@ -269,7 +279,8 @@ query GET_ARTICLE_BY_SLUG($slug: String, $pageMode: String) {
       }
     }
   }
-}`);
+}
+`);
 
 export const GET_PRINT_PAGE = gql(`
 query GET_PRINT_PAGE {
@@ -295,11 +306,11 @@ query GET_PRINT_PAGE {
         title
         updatedAt
         content {
-          ... on ComponentComponentsBlockContent {
+          ... on ComponentComponentsUtrechtRichText {
             __typename
             content
           }
-          ... on ComponentComponentsAccordionSection {
+          ... on ComponentComponentsUtrechtAccordion {
             __typename
             item {
               id
@@ -314,11 +325,11 @@ query GET_PRINT_PAGE {
               title
               updatedAt
               content {
-                ... on ComponentComponentsBlockContent {
+                ... on ComponentComponentsUtrechtRichText {
                   __typename
                   content
                 }
-                ... on ComponentComponentsAccordionSection {
+                ... on ComponentComponentsUtrechtAccordion {
                   __typename
                   item {
                     id
@@ -333,11 +344,11 @@ query GET_PRINT_PAGE {
                     title
                     updatedAt
                     content {
-                      ... on ComponentComponentsBlockContent {
+                      ... on ComponentComponentsUtrechtRichText {
                         __typename
                         content
                       }
-                      ... on ComponentComponentsAccordionSection {
+                      ... on ComponentComponentsUtrechtAccordion {
                         __typename
                         item {
                           id
@@ -358,11 +369,11 @@ query GET_PRINT_PAGE {
               title
               updatedAt
               content {
-                ... on ComponentComponentsBlockContent {
+                ... on ComponentComponentsUtrechtRichText {
                   __typename
                   content
                 }
-                ... on ComponentComponentsAccordionSection {
+                ... on ComponentComponentsUtrechtAccordion {
                   __typename
                   item {
                     id
