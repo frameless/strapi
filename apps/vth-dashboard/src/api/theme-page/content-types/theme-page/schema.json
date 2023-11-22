@@ -38,7 +38,7 @@
     },
     "content": {
       "type": "dynamiczone",
-      "components": ["components.block-content", "sections.accordion-section"]
+      "components": ["components.utrecht-rich-text", "components.utrecht-accordion"]
     },
     "article_pages": {
       "type": "relation",

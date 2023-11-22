@@ -1,13 +1,13 @@
 {
-  "collectionName": "components_components_accordions",
+  "collectionName": "components_components_utrecht_accordion_section",
   "info": {
-    "displayName": "Uitklapper",
+    "displayName": "Uitklapper sectie",
     "icon": "cursor",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
+    "label": {
       "type": "string"
     },
     "body": {

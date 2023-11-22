@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_components::components.accordion",
+  "key": "plugin_content_manager_configuration_components::components.utrecht-accordion-section",
   "value": {
-    "uid": "components.accordion",
+    "uid": "components.utrecht-accordion-section",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "title",
-      "defaultSortBy": "title",
+      "mainField": "label",
+      "defaultSortBy": "label",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -16,20 +16,20 @@
         "edit": {},
         "list": {
           "label": "id",
-          "searchable": false,
-          "sortable": false
+          "searchable": true,
+          "sortable": true
         }
       },
-      "title": {
+      "label": {
         "edit": {
-          "label": "title",
+          "label": "label",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "label",
           "searchable": true,
           "sortable": true
         }
@@ -50,11 +50,11 @@
       }
     },
     "layouts": {
-      "list": ["id", "title"],
+      "list": ["id", "label"],
       "edit": [
         [
           {
-            "name": "title",
+            "name": "label",
             "size": 6
           }
         ],
