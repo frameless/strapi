@@ -123,19 +123,19 @@ const DynamicContent: React.FC<{
       content.length > 0 &&
       content.map((component, index) => {
         switch (component.__typename) {
-          case 'ComponentComponentsBlockContent':
+          case 'ComponentComponentsUtrechtRichText':
             return component.content ? (
               <Markdown imageUrl={getImageBaseUrl()} key={index}>
                 {component.content}
               </Markdown>
             ) : null;
-          case 'ComponentComponentsAccordionSection':
+          case 'ComponentComponentsUtrechtAccordion':
             return (
               <AccordionProvider
                 key={index}
-                sections={component.item?.map(({ id, title, body }: any) => ({
+                sections={component.item?.map(({ id, label, body }: any) => ({
                   id,
-                  label: title,
+                  label,
                   headingLevel: 3,
                   body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
                 }))}

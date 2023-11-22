@@ -101,18 +101,18 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
     data.findSlug.data?.attributes?.content.length > 0 &&
     data.findSlug.data?.attributes?.content?.map((component: any, index: number) => {
       switch (component?.__typename) {
-        case 'ComponentComponentsBlockContent':
+        case 'ComponentComponentsUtrechtRichText':
           return component.content ? (
             <Markdown imageUrl={getImageBaseUrl()} key={index}>
               {component.content}
             </Markdown>
           ) : null;
-        case 'ComponentComponentsAccordionSection':
+        case 'ComponentComponentsUtrechtAccordion':
           return (
             <AccordionProvider
-              sections={component.item.map(({ id, title, body }: any) => ({
+              sections={component.item.map(({ id, label, body }: any) => ({
                 id,
-                label: title,
+                label,
                 headingLevel: 3,
                 body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
               }))}
