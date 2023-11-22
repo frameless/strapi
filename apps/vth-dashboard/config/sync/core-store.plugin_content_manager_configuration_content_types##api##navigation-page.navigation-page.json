@@ -6,7 +6,7 @@
       "bulkable": true,
       "filterable": true,
       "searchable": true,
-      "pageSize": 10,
+      "pageSize": 50,
       "mainField": "title",
       "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
@@ -22,22 +22,22 @@
       },
       "title": {
         "edit": {
-          "label": "title",
-          "description": "",
+          "label": "Paginatitel",
+          "description": "De titel van de pagina zoals deze in de navigatie en linkjes verschijnt.",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Titel",
           "searchable": true,
           "sortable": true
         }
       },
       "slug": {
         "edit": {
-          "label": "slug",
-          "description": "",
+          "label": "URL segment",
+          "description": "Leeg laten om automatisch in te vullen.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -50,8 +50,8 @@
       },
       "content": {
         "edit": {
-          "label": "content",
-          "description": "",
+          "label": "pagina content",
+          "description": "Zelf de pagina content bewerken.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -64,8 +64,8 @@
       },
       "description": {
         "edit": {
-          "label": "description",
-          "description": "",
+          "label": "Tegel beschrijving",
+          "description": "De korte beschrijving van dit hoofditem zoals deze op de navigatie tegel op de homepage verschijnt.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -78,8 +78,8 @@
       },
       "previewImage": {
         "edit": {
-          "label": "previewImage",
-          "description": "",
+          "label": "Tegel afbeelding",
+          "description": "De afbeelding zoals deze op de navigatie tegel voor dit hoofditem verschijnt.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -92,8 +92,8 @@
       },
       "article_pages": {
         "edit": {
-          "label": "article_pages",
-          "description": "",
+          "label": "Content pagina's",
+          "description": "Content pagina's die direct onder dit hoofditem moeten vallen zonder thema pagina er tussen. ",
           "placeholder": "",
           "visible": true,
           "editable": true,
@@ -107,8 +107,8 @@
       },
       "theme_pages": {
         "edit": {
-          "label": "theme_pages",
-          "description": "",
+          "label": "Thema pagina's",
+          "description": "De thema's die onder dit hoofditem vallen. Gekoppelde thema's tonen automatisch in de navigatie tegels op deze hoofditem pagina.",
           "placeholder": "",
           "visible": true,
           "editable": true,
@@ -129,7 +129,7 @@
           "editable": true
         },
         "list": {
-          "label": "createdAt",
+          "label": "Aangemaakt",
           "searchable": true,
           "sortable": true
         }
@@ -143,7 +143,7 @@
           "editable": true
         },
         "list": {
-          "label": "updatedAt",
+          "label": "Laatst gewijzigd",
           "searchable": true,
           "sortable": true
         }
@@ -180,7 +180,6 @@
       }
     },
     "layouts": {
-      "list": ["id", "title", "slug", "description"],
       "edit": [
         [
           {
@@ -190,12 +189,6 @@
           {
             "name": "slug",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "content",
-            "size": 12
           }
         ],
         [
@@ -210,15 +203,22 @@
         ],
         [
           {
-            "name": "article_pages",
+            "name": "theme_pages",
             "size": 6
           },
           {
-            "name": "theme_pages",
+            "name": "article_pages",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "content",
+            "size": 12
+          }
         ]
-      ]
+      ],
+      "list": ["id", "title", "updatedAt", "createdAt"]
     }
   },
   "type": "object",

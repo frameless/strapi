@@ -1,7 +1,9 @@
 {
   "collectionName": "components_components_accordions",
   "info": {
-    "displayName": "accordion"
+    "displayName": "Uitklapper",
+    "icon": "cursor",
+    "description": ""
   },
   "options": {},
   "attributes": {
