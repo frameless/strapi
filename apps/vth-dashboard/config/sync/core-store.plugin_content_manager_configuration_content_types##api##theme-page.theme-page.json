@@ -6,7 +6,7 @@
       "bulkable": true,
       "filterable": true,
       "searchable": true,
-      "pageSize": 10,
+      "pageSize": 50,
       "mainField": "title",
       "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
@@ -22,22 +22,22 @@
       },
       "title": {
         "edit": {
-          "label": "title",
-          "description": "",
+          "label": "Paginatitel",
+          "description": "De titel van de pagina zoals deze in linkjes en op navigatietegels verschijnt.",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Titel",
           "searchable": true,
           "sortable": true
         }
       },
       "slug": {
         "edit": {
-          "label": "slug",
-          "description": "",
+          "label": "URL segment",
+          "description": "Leeg laten om automatisch in te vullen.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -50,8 +50,8 @@
       },
       "navigation_pages": {
         "edit": {
-          "label": "navigation_pages",
-          "description": "",
+          "label": "Hoofditem",
+          "description": "Hoofditem(s) waar dit thema onder valt. Het is mogelijk om meerdere hoofditems te koppelen, maar alleen de eerste kan gebruikt worden voor terug navigatie.",
           "placeholder": "",
           "visible": true,
           "editable": true,
@@ -65,8 +65,8 @@
       },
       "description": {
         "edit": {
-          "label": "description",
-          "description": "",
+          "label": "Tegel beschrijving",
+          "description": "De korte beschrijving van dit thema zoals deze op de navigatie tegel op het hoofditem verschijnt.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -79,8 +79,8 @@
       },
       "previewImage": {
         "edit": {
-          "label": "previewImage",
-          "description": "",
+          "label": "Tegel afbeelding",
+          "description": "De afbeelding zoals deze op de navigatie tegel voor dit thema verschijnt.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -93,7 +93,7 @@
       },
       "content": {
         "edit": {
-          "label": "content",
+          "label": "pagina content",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -107,8 +107,8 @@
       },
       "article_pages": {
         "edit": {
-          "label": "article_pages",
-          "description": "",
+          "label": "Content pagina's",
+          "description": "De content pagina's die onder dit thema vallen. Deze verschijnen na koppelen automatisch als navigatie tegels op deze theme pagina.",
           "placeholder": "",
           "visible": true,
           "editable": true,
@@ -129,7 +129,7 @@
           "editable": true
         },
         "list": {
-          "label": "createdAt",
+          "label": "Aangemaakt",
           "searchable": true,
           "sortable": true
         }
@@ -143,7 +143,7 @@
           "editable": true
         },
         "list": {
-          "label": "updatedAt",
+          "label": "Laatst gewijzigd",
           "searchable": true,
           "sortable": true
         }
@@ -180,7 +180,6 @@
       }
     },
     "layouts": {
-      "list": ["id", "title", "slug", "navigation_pages"],
       "edit": [
         [
           {
@@ -194,17 +193,21 @@
         ],
         [
           {
-            "name": "navigation_pages",
+            "name": "description",
             "size": 6
           },
           {
-            "name": "description",
+            "name": "previewImage",
             "size": 6
           }
         ],
         [
           {
-            "name": "previewImage",
+            "name": "article_pages",
+            "size": 6
+          },
+          {
+            "name": "navigation_pages",
             "size": 6
           }
         ],
@@ -213,14 +216,9 @@
             "name": "content",
             "size": 12
           }
-        ],
-        [
-          {
-            "name": "article_pages",
-            "size": 6
-          }
         ]
-      ]
+      ],
+      "list": ["id", "title", "updatedAt", "createdAt"]
     }
   },
   "type": "object",

@@ -30,7 +30,7 @@
     },
     "content": {
       "type": "dynamiczone",
-      "components": ["components.accordion-section", "components.block-content"]
+      "components": ["sections.accordion-section", "components.block-content"]
     },
     "navigation_pages": {
       "type": "relation",
