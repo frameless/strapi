@@ -1,6 +1,6 @@
 import { draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
-import {GET_ARTICLE_BY_SLUG, GET_HOMEPAGE, GET_NAVIGATION_PAGE_BY_SLUG, GET_THEME_BY_SLUG} from '@/query';
+import { GET_ARTICLE_BY_SLUG, GET_HOMEPAGE, GET_NAVIGATION_PAGE_BY_SLUG, GET_THEME_BY_SLUG } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
@@ -33,12 +33,12 @@ export async function GET(request: Request) {
         };
       case 'ThemaContent':
         return {
-          path: `/content/${slug}`,
+          path: `/article/${slug}`,
           query: GET_ARTICLE_BY_SLUG,
         };
       case 'Thema':
         return {
-          path: `/thema/${slug}`,
+          path: `/theme/${slug}`,
           query: GET_THEME_BY_SLUG,
         };
       default:

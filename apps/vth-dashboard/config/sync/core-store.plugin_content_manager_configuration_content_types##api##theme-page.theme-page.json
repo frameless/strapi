@@ -180,12 +180,7 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "title",
-        "slug",
-        "navigation_pages"
-      ],
+      "list": ["id", "title", "slug", "navigation_pages"],
       "edit": [
         [
           {

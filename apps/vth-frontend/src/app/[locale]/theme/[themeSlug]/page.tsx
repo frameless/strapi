@@ -4,29 +4,29 @@ import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import React from 'react';
-import { AccordionProvider, Heading1 } from '@/components';
+import { AccordionProvider, Heading1, Markdown } from '@/components';
 import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
 import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
+import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
-import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
-import { GET_ARTICLE_BY_SLUG } from '@/query';
+import { GET_THEME_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
 type Params = {
   params: {
     locale: string;
-    contentSlug: string;
+    themeSlug: string;
   };
 };
 
-export async function generateMetadata({ params: { locale, contentSlug } }: Params): Promise<Metadata> {
+export async function generateMetadata({ params: { locale, themeSlug } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_ARTICLE_BY_SLUG,
-    variables: { slug: contentSlug, locale },
+    query: GET_THEME_BY_SLUG,
+    variables: { slug: themeSlug, locale },
   });
   return {
     title: data.findSlug.data?.attributes?.title,
@@ -34,66 +34,50 @@ export async function generateMetadata({ params: { locale, contentSlug } }: Para
   };
 }
 
-const Thema = async ({ params: { locale, contentSlug } }: Params) => {
+const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_ARTICLE_BY_SLUG,
-    variables: { slug: contentSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
+    query: GET_THEME_BY_SLUG,
+    variables: { slug: themeSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
   });
 
   if (!data.findSlug?.data) return notFound();
 
-  const parentThemaSlug = data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.slug;
-  const parentHoofditemSlug = data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.slug;
-
-  const hasHoofditemParentOnly = !parentThemaSlug && parentHoofditemSlug;
-
-  const siblingThemas: SiblingData[] = hasHoofditemParentOnly
-    ? data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.theme_pages?.data
-    : [];
-  const siblingContent: SiblingData[] = hasHoofditemParentOnly
-    ? data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.article_pages?.data
-    : data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.article_pages?.data;
+  const navigationPageSlug = data.findSlug.data?.attributes.navigation_pages?.data[0]?.attributes?.slug;
+  const siblingThemes: SiblingData[] =
+    data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.theme_pages?.data || [];
+  const siblingArticles: SiblingData[] =
+    data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.contents?.data || [];
 
   const themasLinks =
-    siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
+    siblingThemes?.map(({ attributes: { slug, title } }: SiblingData) => ({
       title,
       slug,
-      href: `/${locale}/thema/${slug}`,
-      isCurrent: slug === contentSlug,
+      href: `/${locale}/theme/${slug}`,
+      isCurrent: slug === themeSlug,
     })) || [];
 
   const contentLinks =
-    siblingContent?.map(({ attributes: { slug, title } }: SiblingData) => ({
+    siblingArticles?.map(({ attributes: { slug, title } }: SiblingData) => ({
       title,
       slug,
-      href: `/${locale}/content/${slug}`,
-      isCurrent: slug === contentSlug,
+      href: `/${locale}/article/${slug}`,
+      isCurrent: slug === themeSlug,
     })) || [];
 
   const sideNavigationLinks: LinkData[] = [...themasLinks, ...contentLinks];
 
   const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
 
-  if (data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]) {
-    breadcrumbNavigationElements.push({
-      title: data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]?.attributes?.title,
-      href: `/${locale}/${data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]?.attributes?.slug}`,
-    });
+  const parentElement: BreadcrumbNavigationElement = data.findSlug.data?.attributes.navigation_pages?.data[0] && {
+    title: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
+    href: `/${locale}/${navigationPageSlug}`,
+  };
+
+  if (parentElement) {
+    breadcrumbNavigationElements.push(parentElement);
   }
-
-  const parentElement: BreadcrumbNavigationElement = hasHoofditemParentOnly
-    ? {
-        title: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
-        href: `/${locale}/${parentHoofditemSlug}`,
-      }
-    : {
-        title: data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.title,
-        href: `/thema/${parentThemaSlug}`,
-      };
-
-  breadcrumbNavigationElements.push(parentElement);
 
   const DynamicContent = () =>
     data.findSlug.data?.attributes?.content &&
@@ -127,16 +111,33 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
       <div className={'utrecht-grid__full-width'}>
         <BreadcrumbWithBacklink
           breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
-          backlinkProps={{
-            title: parentElement.title,
-            href: parentElement.href,
-          }}
+          backlinkProps={{ title: parentElement?.title || 'Home', href: parentElement?.href || '/' }}
         />
       </div>
-      <div className={'utrecht-grid__two-third'}>
-        <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
-        <DynamicContent />
-      </div>
+      <Grid className={'utrecht-grid__two-third'}>
+        <div className={'utrecht-grid__full-width'}>
+          <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
+          <DynamicContent />
+        </div>
+        <Grid className={'utrecht-grid__full-width'}>
+          {data.findSlug.data?.attributes?.article_pages.data &&
+            data.findSlug.data?.attributes?.article_pages.data[0] &&
+            data.findSlug.data?.attributes?.article_pages.data.map((content: any) => {
+              const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
+              const imageUrl = imageData?.data?.attributes?.url;
+              return (
+                <Card
+                  className={'utrecht-grid__half-width'}
+                  title={title}
+                  description={description}
+                  key={`content-${contentSlug}`}
+                  image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
+                  link={{ href: `/${locale}/article/${contentSlug}` }}
+                />
+              );
+            })}
+        </Grid>
+      </Grid>
       {sideNavigationLinks.length > 1 && (
         <div className={'utrecht-grid-mobile-hidden utrecht-grid__one-third'}>
           <SideNavigation links={sideNavigationLinks} />
@@ -146,4 +147,4 @@ const Thema = async ({ params: { locale, contentSlug } }: Params) => {
   );
 };
 
-export default Thema;
+export default ThemePage;
