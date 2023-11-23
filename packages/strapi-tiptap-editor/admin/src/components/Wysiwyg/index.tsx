@@ -210,7 +210,7 @@ const WysiwygContent = ({
     injectCSS: false,
     editorProps: {
       attributes: {
-        class: 'utrecht-theme utrecht-html utrecht-document',
+        class: 'utrecht-theme utrecht-theme--media-query-color-scheme utrecht-html utrecht-document',
       },
     },
   });

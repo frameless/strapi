@@ -85,7 +85,7 @@ export const TableMenuBar = ({ editor }: { editor: EditorTypes }) => {
         defaultMessage: 'Are you sure you want to delete the table?',
       });
   return (
-    <Document className="utrecht-theme">
+    <Document className="utrecht-theme utrecht-theme--media-query-color-scheme">
       <Grid gap={2}>
         <GridItem col={3}>
           <FormField>
