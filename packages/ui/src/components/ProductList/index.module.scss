@@ -1,0 +1,42 @@
+@keyframes utrecht-product-list-focus {
+  0% {
+    outline-color: var(--utrecht-product-list-focus-outline-color, #000);
+    outline-style: var(--utrecht-product-list-focus-outline-style, dotted);
+    outline-width: var(--utrecht-product-list-focus-outline-width, 2px);
+  }
+  100% {
+    --utrecht-product-list-focus-outline-color: transparent;
+
+    outline-style: var(--utrecht-product-list-focus-outline-style, dotted);
+    outline-width: var(--utrecht-product-list-focus-outline-width, 2px);
+  }
+}
+
+.utrecht-product-list {
+  list-style: none;
+  padding-inline-end: var(--utrecht-product-list-padding-inline-end, 10px);
+  padding-inline-start: 0;
+}
+
+.utrecht-product-list__item {
+  font-size: var(--utrecht-product-list-item-font-size, 20px);
+  padding-block-end: var(--utrecht-product-list-item-padding-block-end, 12px);
+  padding-block-start: var(--utrecht-product-list-item-padding-block-start, 12px);
+  padding-inline: var(--utrecht-product-list-item-padding-inline, 10px);
+}
+
+.utrecht-product-list__pagination-info {
+  font-size: var(--utrecht-product-list-pagination-info-font-size, 18px);
+  font-weight: var(--utrecht-product-list-pagination-info-font-weight, 700);
+  margin-block-end: var(--utrecht-product-list-pagination-info-margin-block-end, 1rem);
+  margin-block-start: var(--utrecht-product-list-pagination-info-margin-block-start, 1rem);
+
+  &:focus {
+    animation-delay: var(--utrecht-product-list-pagination-info-focus-animation-delay, 0.5s);
+    animation-duration: var(--utrecht-product-list-pagination-info-focus-animation-duration, 1s);
+    animation-name: utrecht-product-list-focus;
+    animation-timing-function: linear;
+    outline-offset: var(--utrecht-product-list-pagination-info-focus-outline-offset, 2px);
+    outline-width: 0;
+  }
+}
