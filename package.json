@@ -60,7 +60,8 @@
   "author": "",
   "license": "",
   "engines": {
-    "node": "18.x.x"
+    "node": "18.x.x",
+    "yarn": "^1.22"
   },
   "devDependencies": {
     "@babel/core": "7.21.8",
