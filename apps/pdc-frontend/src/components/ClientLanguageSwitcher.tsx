@@ -1,11 +1,12 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
+import Link from 'next/link';
 import { useParams, usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import React from 'react';
+import { LanguageSwitcher, LanguageSwitcherSkeleton } from '@/components';
 import { createURL } from '@/util/create-url';
 import { fetchData } from '@/util/fetchData';
-import { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
 import { fallbackLng, languages } from '../app/i18n/settings';
 
 export interface Localizations {
@@ -45,11 +46,11 @@ export const ClientLanguageSwitcher = ({ locales, currentLocale }: ClientLanguag
   });
 
   if (!isFetching && data?.localizations.length > 0) {
-    return <LanguageSwitcher items={data.localizations} currentLocale={currentLocale} />;
+    return <LanguageSwitcher Link={Link} items={data.localizations} currentLocale={currentLocale} />;
   }
 
   return !isFetching ? (
-    <LanguageSwitcher items={defaultLocalizations} currentLocale={currentLocale} />
+    <LanguageSwitcher Link={Link} items={defaultLocalizations} currentLocale={currentLocale} />
   ) : (
     <LanguageSwitcherSkeleton />
   );
