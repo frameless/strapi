@@ -13,4 +13,6 @@ export * from './Navigation';
 export { PreviewAlert } from './PreviewAlert';
 export type { PreviewAlertProps } from './PreviewAlert';
 export * from './PriceWidget';
+export { ProductListItem, ProductListPaginationInfo, ProductsList } from './ProductList';
+export type { ProductListItemProps, ProductListPaginationInfoProps, ProductListProps } from './ProductList';
 export { ScrollToTopButton } from './ScrollToTopButton';
