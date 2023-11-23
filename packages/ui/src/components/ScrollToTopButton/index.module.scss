@@ -1,0 +1,37 @@
+.utrecht-scroll-to-top-button__content:hover {
+  text-decoration: var(--utrecht-scroll-to-top-button-content-hover-text-decoration, underline);
+  text-decoration-thickness: var(--utrecht-scroll-to-top-button-content-hover-text-decoration-thickness, 1px);
+  text-underline-offset: var(--utrecht-scroll-to-top-button-content-hover-text-underline-offset, 3px);
+}
+
+.utrecht-scroll-to-top-button {
+  --utrecht-button-padding-block-start: 0;
+  --utrecht-button-padding-block-end: 0;
+  --utrecht-button-padding-inline-start: 0;
+  --utrecht-button-padding-inline-end: 0;
+  --utrecht-button-subtle-background-color: transparent;
+  --utrecht-button-subtle-border-color: transparent;
+  --utrecht-button-subtle-border-width: 0;
+  --utrecht-button-subtle-color: var(--utrecht-scroll-to-top-button-color, var(--utrecht-color-red-40));
+  --utrecht-button-subtle-font-weight: var(--utrecht-scroll-to-top-button-font-weight, 400);
+  --utrecht-button-subtle-active-background-color: transparent;
+  --utrecht-button-subtle-active-border-color: transparent;
+  --utrecht-button-subtle-active-color: var(--utrecht-scroll-to-top-button-active-color, var(--utrecht-color-red-40));
+  --utrecht-button-subtle-hover-background-color: transparent;
+  --utrecht-button-subtle-hover-border-color: transparent;
+  --utrecht-button-subtle-hover-color: var(--utrecht-scroll-to-top-button-hover-color, var(--utrecht-color-red-40));
+  --utrecht-button-subtle-focus-background-color: transparent;
+  --utrecht-button-subtle-focus-border-color: transparent;
+  --utrecht-button-subtle-focus-color: var(--utrecht-scroll-to-top-button-focus-color, var(--utrecht-color-red-40));
+  --utrecht-button-subtle-pressed-background-color: transparent;
+  --utrecht-button-subtle-pressed-border-color: transparent;
+  --utrecht-button-subtle-pressed-color: var(--utrecht-scroll-to-top-button-pressed-color, var(--utrecht-color-red-40));
+  --utrecht-button-hover-scale: 1;
+  --utrecht-button-focus-scale: 1;
+}
+
+.utrecht-scroll-to-top-button__icon {
+  --utrecht-icon-size: var(--utrecht-scroll-to-top-button-icon-size, 14px);
+
+  margin-inline-start: var(--utrecht-scroll-to-top-button-icon-margin-inline-start, var(--utrecht-space-inline-2xs));
+}
