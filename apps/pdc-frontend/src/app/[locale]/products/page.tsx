@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { AdvancedLink, Article, Grid, GridCell, Heading } from '@/components';
+import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { GET_ALL_PRODUCTS_SLUG_FETCH } from '../../../query';
@@ -139,7 +139,7 @@ const Products = async ({ params: { locale } }: { params: any }) => {
           </AdvancedLink>
         </GridCell>
         <GridCell xs={4} justifyContent="flex-end">
-          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
         </GridCell>
       </Grid>
     </>
