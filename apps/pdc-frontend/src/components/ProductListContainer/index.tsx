@@ -1,8 +1,10 @@
 'use client';
+
+import classnames from 'classnames';
+import Link from 'next/link';
 import { Fragment, useState } from 'react';
 import { useTranslation } from '@/app/i18n/client';
-import { LoadMoreButton } from '@/components';
-import { ProductListItem, ProductListPaginationInfo, ProductsList } from '../ProductList';
+import { LoadMoreButton, Markdown, ProductListItem, ProductListPaginationInfo, ProductsList } from '@/components';
 
 type Product = {
   title: string;
@@ -49,13 +51,23 @@ export const ProductListContainer = ({
           return (
             <Fragment key={index}>
               {paginationInfo?.result && paginationInfo.to && (
-                <ProductListPaginationInfo
-                  paginationTitle={t('pagination-title', { result: paginationInfo?.result, to: paginationInfo?.to })}
-                />
+                <ProductListPaginationInfo>
+                  {t('pagination-title', { result: paginationInfo?.result, to: paginationInfo?.to })}
+                </ProductListPaginationInfo>
               )}
               {products &&
-                products.map(({ title, url, body }) => (
-                  <ProductListItem href={url} text={title} locale={locale} key={url} body={body} />
+                products?.map(({ title, url, body }, index: number) => (
+                  <ProductListItem key={index}>
+                    {url && (
+                      <Link
+                        className={classnames('utrecht-link', 'utrecht-link--html-a')}
+                        href={url}
+                        locale={locale}
+                        dangerouslySetInnerHTML={{ __html: title }}
+                      />
+                    )}
+                    {body && <Markdown>{body}</Markdown>}
+                  </ProductListItem>
                 ))}
             </Fragment>
           );
