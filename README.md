@@ -41,8 +41,13 @@ cd bin/ && bash ./deploy.sh project-name dev up --build # or
 
 # production
 cd bin/ && bash ./deploy.sh project-name prod up --build
-
 ```
+
+Valid project names are:
+
+- `pdc-frontend`
+- `vth-frontend`
+- `kennisbank-frontend`
 
 Go to <http://localhost:1337> and setup an admin account.
 
