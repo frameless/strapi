@@ -1,7 +1,7 @@
 'use client';
 import { Fragment, useState } from 'react';
 import { useTranslation } from '@/app/i18n/client';
-import { LoadMore } from '../LoadMore';
+import { LoadMoreButton } from '@/components';
 import { ProductListItem, ProductListPaginationInfo, ProductsList } from '../ProductList';
 
 type Product = {
@@ -41,7 +41,7 @@ export const ProductListContainer = ({
     total,
   });
   const [totalProducts, setTotalProducts] = useState(initialData);
-  const { t } = useTranslation(locale, ['product-list-container-component']);
+  const { t } = useTranslation(locale, ['product-list-container-component', 'load-more-button']);
   return (
     <>
       <ProductsList>
@@ -62,9 +62,9 @@ export const ProductListContainer = ({
         })}
       </ProductsList>
       {totalProducts.length !== productsList.total && (
-        <LoadMore
+        <LoadMoreButton
           locale={locale}
-          onClick={async (pageIndex) => {
+          onLoadMoreClick={async (pageIndex) => {
             onReadMoreButtonClickHandler(pageIndex).then(({ pagination, data }) => {
               setTotalProducts((prevArray) => {
                 return [...prevArray, ...data];
@@ -88,7 +88,9 @@ export const ProductListContainer = ({
               }
             });
           }}
-        />
+        >
+          {t('load-more')}
+        </LoadMoreButton>
       )}
     </>
   );
