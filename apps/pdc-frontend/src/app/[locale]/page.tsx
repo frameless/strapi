@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { AdvancedLink, Grid, GridCell, Heading, Heading2 } from '@/components';
 import { IndexCharNav } from '@/components';
+import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { TopTask, TopTaskIconsTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
 import { alphabet } from '@/util';
@@ -144,7 +144,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           </AdvancedLink>
         </GridCell>
         <GridCell xs={4} justifyContent="flex-end">
-          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
         </GridCell>
       </Grid>
     </>

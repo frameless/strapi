@@ -18,9 +18,9 @@ import {
   MultiColumnsButton,
   SpotlightSection,
 } from '@/components';
+import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/FAQSection';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
 import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
@@ -233,7 +233,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
           </AdvancedLink>
         </GridCell>
         <GridCell xs={4} justifyContent="flex-end">
-          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
         </GridCell>
       </Grid>
     </>

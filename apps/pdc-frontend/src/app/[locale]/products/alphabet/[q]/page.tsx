@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { AdvancedLink, Article, Grid, GridCell, Heading, Paragraph } from '@/components';
 import { IndexCharNav } from '@/components';
+import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
 import { alphabet } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
@@ -178,7 +178,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
           </AdvancedLink>
         </GridCell>
         <GridCell xs={4} justifyContent="flex-end">
-          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
         </GridCell>
       </Grid>
     </>

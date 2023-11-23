@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { AdvancedLink, Article, Grid, GridCell, Heading } from '@/components';
+import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { useTranslation } from '../../../i18n/index';
 import { getSuggestedSearch } from '../actions';
 
@@ -112,7 +112,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           </AdvancedLink>
         </GridCell>
         <GridCell xs={4} justifyContent="flex-end">
-          <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
         </GridCell>
       </Grid>
     </>
