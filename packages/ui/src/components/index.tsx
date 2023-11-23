@@ -4,6 +4,8 @@ export * from './Grid';
 export * from './Img';
 export { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
 export type { LanguageSwitcherProps } from './LanguageSwitcher';
+export { LoadMoreButton } from './LoadMoreButton';
+export type { LoadMoreButtonProps } from './LoadMoreButton';
 export * from './LogoButton';
 export * from './Markdown';
 export * from './MultiColumnsLogoButton';
