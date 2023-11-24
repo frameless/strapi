@@ -1,3 +1,13 @@
+# @frameless/ui [2.8.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.7.0...@frameless/ui@2.8.0) (2023-11-24)
+
+
+### Features
+
+* **ui:** move `LanguageSwitcher` to ui ([c20ce8c](https://github.com/frameless/strapi/commit/c20ce8c6806ec55c31d4c790c306fd2492068e53))
+* **ui:** move `ScrollToTopButton` to ui ([a497932](https://github.com/frameless/strapi/commit/a4979323d7d4962273df62daa4c4ed4b7991c754))
+* **ui:** move LoadMoreButton to ui ([42f5da0](https://github.com/frameless/strapi/commit/42f5da0d45a96aafca650dee2ad004889e05780b))
+* **ui:** move ProductList to ui ([01d461d](https://github.com/frameless/strapi/commit/01d461dd1c7aa078655fbaead6a49fe99b3ec2df))
+
 # @frameless/ui [2.7.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.6.2...@frameless/ui@2.7.0) (2023-11-20)
 
 
