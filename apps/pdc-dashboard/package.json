@@ -25,6 +25,7 @@
     "@frameless/strapi-tiptap-editor": "0.0.0-semantically-released",
     "@strapi/plugin-graphql": "4.14.4",
     "strapi-content-type-explorer": "0.1.1",
+    "strapi-plugin-import-export-entries": "1.21.1",
     "@strapi/plugin-i18n": "4.14.4",
     "@strapi/plugin-users-permissions": "4.14.4",
     "@strapi/strapi": "4.14.4",
