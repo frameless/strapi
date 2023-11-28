@@ -1,4 +1,4 @@
-import { ButtonGroup, ButtonLink, Heading } from '@utrecht/component-library-react/dist/css-module';
+import { ButtonGroup, ButtonLink, ButtonProps, Heading } from '@utrecht/component-library-react/dist/css-module';
 import {
   UtrechtDigidLogo,
   UtrechtEherkenningLogo,
@@ -7,19 +7,22 @@ import {
   UtrechtLogoButton,
 } from '@utrecht/web-component-library-react';
 import classnames from 'classnames/bind';
+import kebabCase from 'lodash.kebabcase';
+import { ReactNode } from 'react';
 import styles from './index.module.scss';
 
+type Logo = 'digid' | 'eherkenning' | 'eidas' | 'without_logo';
 export interface LogoButtonProps {
-  logo: 'digid' | 'eherkenning' | 'eidas' | 'without_logo';
-  appearance: 'primary' | 'secondary' | 'magenta';
+  logo: Logo;
+  appearance?: ButtonProps['appearance'];
   href: string;
-  text: string;
+  children: ReactNode;
   label: string;
   headingLevel?: number;
 }
 const css = classnames.bind(styles);
 
-export const LogoButton = ({ logo, appearance, href, text, label, headingLevel = 3 }: LogoButtonProps) => {
+export const LogoButton = ({ logo, appearance, href, children, label, headingLevel = 3 }: LogoButtonProps) => {
   const magenta = appearance === 'magenta';
   switch (logo) {
     case 'digid':
@@ -29,8 +32,8 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
           <ButtonGroup>
             <UtrechtLogoButton>
               <UtrechtDigidLogo />
-              <ButtonLink appearance={`${appearance}-action-button`} href={href}>
-                {text} <UtrechtIconArrow />
+              <ButtonLink appearance={kebabCase(appearance)} href={href}>
+                {children} <UtrechtIconArrow />
               </ButtonLink>
             </UtrechtLogoButton>
           </ButtonGroup>
@@ -48,7 +51,7 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
                 href={href}
                 className={css('utrecht-button-link--magenta')}
               >
-                {text} <UtrechtIconArrow />
+                {children} <UtrechtIconArrow />
               </ButtonLink>
             </UtrechtLogoButton>
           </ButtonGroup>
@@ -61,8 +64,8 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
           <ButtonGroup>
             <UtrechtLogoButton>
               <UtrechtEidasLogo />
-              <ButtonLink appearance={`${appearance}-action-button`} href={href}>
-                {text} <UtrechtIconArrow />
+              <ButtonLink appearance={kebabCase(appearance)} href={href}>
+                {children} <UtrechtIconArrow />
               </ButtonLink>
             </UtrechtLogoButton>
           </ButtonGroup>
@@ -74,11 +77,11 @@ export const LogoButton = ({ logo, appearance, href, text, label, headingLevel =
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <ButtonGroup>
             <ButtonLink
-              appearance={magenta ? 'primary-action-button' : `${appearance}-action-button`}
+              appearance={magenta ? 'primary-action-button' : kebabCase(appearance)}
               href={href}
               className={magenta ? css('utrecht-button-link--magenta') : undefined}
             >
-              {text} <UtrechtIconArrow />
+              {children} <UtrechtIconArrow />
             </ButtonLink>
           </ButtonGroup>
         </>
