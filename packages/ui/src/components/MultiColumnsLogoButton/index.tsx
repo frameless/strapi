@@ -1,5 +1,6 @@
 import { Heading } from '@utrecht/component-library-react/dist/css-module';
 import classnames from 'classnames/bind';
+import { kebabCase } from 'lodash';
 import styles from './index.module.scss';
 import { Grid, GridCell } from '../Grid';
 import { LogoButton, LogoButtonProps } from '../LogoButton';
@@ -26,11 +27,12 @@ export const MultiColumnsButton = ({ columns }: MultiColumnsButtonProps) => (
                 headingLevel={title ? 4 : 3}
                 key={index}
                 href={item.href}
-                text={item.text}
-                appearance={item.logo_button_appearance}
+                appearance={kebabCase(item.appearance)}
                 label={item.label}
                 logo={item.logo}
-              />
+              >
+                {item.textContent}
+              </LogoButton>
             ))}
         </GridCell>
       ))}
