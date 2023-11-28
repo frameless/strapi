@@ -18,8 +18,8 @@ const config = {
   translations: {
     en: {
       'app.components.HomePage.welcome': 'Welcome to the Utrecht PDC dashboard 👋',
-      primary: 'Primary',
-      secondary: 'Secondary',
+      'primary-action-button': 'Primary',
+      'secondary-action-button': 'Secondary',
       magenta: 'Magenta',
       without_logo: 'Without logo',
       digid: 'DigiD',
@@ -45,8 +45,8 @@ const config = {
       'content-manager.popUpWarning.warning.updateAllSettings': 'Dit zal al je instellingen wijzigen.',
       'content-manager.form.Input.hint.character.unit': '{maxValue, plural, one { teken} other { tekens}}',
       without_logo: 'Zonder logo',
-      primary: 'Inwoners (blauw)',
-      secondary: 'Aanvullende knop (wit)',
+      'primary-action-button': 'Inwoners (blauw)',
+      'secondary-action-button': 'Aanvullende knop (wit)',
       magenta: 'Organisaties (paars)',
       digid: 'DigiD',
       eidas: 'eIDAS',

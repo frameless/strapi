@@ -1,11 +1,11 @@
 {
-  "collectionName": "components_components_accordions",
+  "collectionName": "components_components_utrecht_accordion_section",
   "info": {
-    "displayName": "Accordion"
+    "displayName": "Accordion Section"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "label": {
       "type": "string"
     },
     "body": {

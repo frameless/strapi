@@ -18,8 +18,8 @@
   "attributes": {
     "faq": {
       "type": "component",
-      "repeatable": false,
-      "component": "sections.faq-section",
+      "repeatable": true,
+      "component": "components.utrecht-accordion-section",
       "pluginOptions": {
         "i18n": {
           "localized": true

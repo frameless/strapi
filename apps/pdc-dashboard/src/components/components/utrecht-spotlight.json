@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_components_spotlights",
+  "collectionName": "components_components_utrecht_spotlight",
   "info": {
     "displayName": "Spotlight",
     "description": ""
@@ -18,7 +18,7 @@
     "logoButton": {
       "type": "component",
       "repeatable": true,
-      "component": "components.logo-button"
+      "component": "components.utrecht-logo-button"
     }
   }
 }

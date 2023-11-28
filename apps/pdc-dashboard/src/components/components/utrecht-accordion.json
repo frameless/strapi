@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_components_accordion_sections",
+  "collectionName": "components_components_utrecht_accordion",
   "info": {
     "displayName": "Uitklapmenu",
     "description": ""
@@ -9,7 +9,7 @@
     "item": {
       "type": "component",
       "repeatable": true,
-      "component": "components.accordion"
+      "component": "components.utrecht-accordion-section"
     }
   }
 }

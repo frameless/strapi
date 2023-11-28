@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_components::sections.passport-and-id-card-costs",
+  "key": "plugin_content_manager_configuration_components::components.utrecht-link",
   "value": {
-    "uid": "sections.passport-and-id-card-costs",
+    "uid": "components.utrecht-link",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "application",
-      "defaultSortBy": "application",
+      "mainField": "textContent",
+      "defaultSortBy": "textContent",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,46 +20,66 @@
           "sortable": false
         }
       },
-      "application": {
+      "textContent": {
         "edit": {
-          "label": "application",
+          "label": "Text",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "application",
+          "label": "textContent",
           "searchable": true,
           "sortable": true
         }
       },
-      "cost": {
+      "href": {
         "edit": {
-          "label": "cost",
-          "description": "",
+          "label": "Href",
+          "description": "De website-adres waarnaar je wilt linken.",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "cost",
+          "label": "href",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "icon": {
+        "edit": {
+          "label": "Soort link",
+          "description": "Kies hoe de link eruit ziet.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "icon",
           "searchable": true,
           "sortable": true
         }
       }
     },
     "layouts": {
-      "list": ["id", "application", "cost"],
+      "list": ["id", "href", "textContent", "icon"],
       "edit": [
         [
           {
-            "name": "application",
+            "name": "href",
             "size": 6
           },
           {
-            "name": "cost",
-            "size": 4
+            "name": "textContent",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "icon",
+            "size": 6
           }
         ]
       ]
