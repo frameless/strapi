@@ -1,6 +1,6 @@
 const gql = (query: any) => query;
 
-export const GET_ALL_PRODUCTS_SLUG_FETCH = gql(`
+export const GET_ALL_PRODUCTS_SLUG = gql(`
   query getAllProductsSlugQuery($locale: I18NLocaleCode, $page: Int, $pageSize: Int) {
       products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }) {
         meta {
@@ -64,7 +64,7 @@ export const CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY = gql(`
   }
 `);
 
-export const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
+export const GET_SAMENWERKENDECATALOGI = gql(`
   query getSamenwerkendecatalogi($locale: I18NLocaleCode) {
     products(locale: $locale) {
       data {
@@ -99,145 +99,152 @@ export const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
   }
 `);
 
-export const GET_PRODUCT_BY_SLUG_FETCH = gql(`
-  query getProductBySlug($slug: String, $locale: I18NLocaleCode, $pageMode: PublicationState) {
-    products(filters: { slug: { eq: $slug } }, locale: $locale, publicationState: $pageMode) {
-      data {
-        id
-        attributes {
+export const GET_PRODUCT_BY_SLUG = gql(`
+  query getProductBySlug(
+  $slug: String
+  $locale: I18NLocaleCode
+  $pageMode: PublicationState
+) {
+  products(
+    filters: { slug: { eq: $slug } }
+    locale: $locale
+    publicationState: $pageMode
+  ) {
+    data {
+      id
+      attributes {
+        title
+        slug
+        metaTags {
           title
-          slug
-          metaTags {
-            title
-            description
-            keymatch
-            ogImage {
+          description
+          keymatch
+          ogImage {
             data {
               attributes {
                 url
-               }
-             }
-           }
+              }
+            }
           }
-          content
-          sections {
-            ... on ComponentComponentsImage {
-              __typename
-              imageData {
-                data {
-                  attributes {
-                    name
-                    alternativeText
-                    caption
-                    width
-                    height
-                    formats
-                    url
-                  }
+        }
+        content
+        sections {
+          ... on ComponentComponentsUtrechtImage {
+            __typename
+            imageData {
+              data {
+                attributes {
+                  name
+                  alternativeText
+                  caption
+                  width
+                  height
+                  formats
+                  url
                 }
               }
             }
-            ... on ComponentComponentsLogoButton {
-              __typename
-              label
-              href
-              text
-              logo_button_appearance
-              logo
-            }
-            ... on ComponentComponentsSpotlight {
-              __typename
-              content
-              type
-              logoButton {
+          }
+          ... on ComponentComponentsUtrechtLogoButton {
+            __typename
+            label
+            href
+            textContent
+            appearance
+            logo
+          }
+          ... on ComponentComponentsUtrechtSpotlight {
+            __typename
+            content
+            type
+            logoButton {
               id
               label
               href
-              text
+              textContent
               logo
-              logo_button_appearance
+              appearance
               __typename
-             }
             }
-            ... on ComponentComponentsBlockContent {
-              __typename
-              content
-            }
-            ... on ComponentComponentsMultiColumnsButton {
-              __typename
-              column {
-                id
-                title
-                logoButton {
-                  __typename
-                  label
-                  href
-                  text
-                  logo
-                  logo_button_appearance
-                }
+          }
+          ... on ComponentComponentsUtrechtRichText {
+            __typename
+            content
+          }
+          ... on ComponentComponentsUtrechtMultiColumnsButton {
+            __typename
+            column {
+              id
+              title
+              logoButton {
+                __typename
+                label
+                href
+                textContent
+                logo
+                appearance
               }
             }
-            ... on ComponentComponentsLink {
-              __typename
-              href
-              text
-              iconList:icon
-            }
-            ... on ComponentComponentsFaq {
-              __typename
-              faq {
-                data {
-                  attributes {
-                    title
-                    faq {
-                      accordion {
-                        id
-                        title
-                        body
-                      }
-                    }
+          }
+          ... on ComponentComponentsUtrechtLink {
+            __typename
+            href
+            textContent
+            iconList: icon
+          }
+          ... on ComponentComponentsFaq {
+            __typename
+            faq {
+              data {
+                attributes {
+                  title
+                  faq {
+                    id
+                    label
+                    body
                   }
                 }
               }
             }
-            ... on ComponentComponentsAccordionSection {
-              __typename
-              item {
-                id
-                title
-                body
-              }
+          }
+          ... on ComponentComponentsUtrechtAccordion {
+            __typename
+            item {
+              id
+              label
+              body
             }
           }
-          price {
-            data {
-              attributes {
-                price {
-                  id
-                  label
-                  value
-                  currency
-                }
-              }
-            }
-          }
-          localizations {
-            data {
-              attributes {
-                locale
-                slug
-              }
-            }
-          }
-          locale
         }
+        price {
+          data {
+            attributes {
+              price {
+                id
+                label
+                value
+                currency
+              }
+            }
+          }
+        }
+        localizations {
+          data {
+            attributes {
+              locale
+              slug
+            }
+          }
+        }
+        locale
       }
     }
   }
+}
+
 `);
 
-export const GET_PRODUCT_BY_SLUG_AND_LOCALE_FETCH = gql(`
+export const GET_PRODUCT_BY_SLUG_AND_LOCALE = gql(`
   query getProductBySlugAndLocale($slug: String, $locale: I18NLocaleCode, $pageMode: PublicationState) {
     products(filters: { slug: { eq: $slug } }, locale: $locale, publicationState: $pageMode) {
       data {

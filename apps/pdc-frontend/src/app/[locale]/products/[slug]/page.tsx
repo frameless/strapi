@@ -20,8 +20,7 @@ import {
 } from '@/components';
 import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
-import { FAQSection } from '@/components/FAQSection';
-import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
+import { GET_PRODUCT_BY_SLUG } from '@/query';
 import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
@@ -30,7 +29,7 @@ const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_PRODUCT_BY_SLUG_FETCH,
+    query: GET_PRODUCT_BY_SLUG,
     variables: {
       slug,
       locale,
@@ -92,46 +91,51 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
     product?.attributes && product?.attributes.sections.length > 0
       ? product?.attributes.sections.map((component: any, index: number) => {
           switch (component?.__typename) {
-            case 'ComponentComponentsBlockContent':
+            case 'ComponentComponentsUtrechtRichText':
               return component.content ? (
                 <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale} key={index}>
                   {component.content}
                 </Markdown>
               ) : null;
-            case 'ComponentComponentsLogoButton':
-              if (component && component.href && component.text) {
+            case 'ComponentComponentsUtrechtLogoButton':
+              if (component && component.href && component.textContent) {
                 return (
                   <LogoButton
                     key={index}
                     href={component.href}
-                    text={component.text}
-                    appearance={component.logo_button_appearance}
+                    appearance={component.appearance}
                     label={component.label}
                     logo={component.logo}
-                  />
+                  >
+                    {component.textContent}
+                  </LogoButton>
                 );
               }
               return null;
             case 'ComponentComponentsFaq':
               if (component && component?.faq && component?.faq?.data && component?.faq?.data.attributes) {
                 return (
-                  <FAQSection
-                    key={index}
-                    imageUrl={getImageBaseUrl()}
-                    locale={locale}
-                    accordion={component.faq.data.attributes.faq.accordion}
-                    sectionTitle={component.faq.data.attributes.title}
-                    priceData={priceData}
+                  <AccordionProvider
+                    sections={component?.faq?.data.attributes?.faq?.map(({ id, label, body }: any) => ({
+                      id,
+                      label,
+                      headingLevel: 3,
+                      body: (
+                        <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                          {body}
+                        </Markdown>
+                      ),
+                    }))}
                   />
                 );
               }
               return null;
-            case 'ComponentComponentsAccordionSection':
+            case 'ComponentComponentsUtrechtAccordion':
               return (
                 <AccordionProvider
-                  sections={component.item.map(({ id, title, body }: any) => ({
+                  sections={component.item.map(({ id, label, body }: any) => ({
                     id,
-                    label: title,
+                    label,
                     headingLevel: 3,
                     body: (
                       <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
@@ -141,7 +145,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
                   }))}
                 />
               );
-            case 'ComponentComponentsImage':
+            case 'ComponentComponentsUtrechtImage':
               return (
                 <Img
                   Image={Image}
@@ -153,7 +157,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               );
-            case 'ComponentComponentsSpotlight':
+            case 'ComponentComponentsUtrechtSpotlight':
               return component.content ? (
                 <SpotlightSection type={component.type !== 'gray' && component.type}>
                   <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
@@ -165,24 +169,25 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
                       <LogoButton
                         key={button.id}
                         href={button.href}
-                        text={button.text}
-                        appearance={button.logo_button_appearance}
+                        appearance={button.appearance}
                         label={button.label}
                         logo={button.logo}
-                      />
+                      >
+                        {button.textContent}
+                      </LogoButton>
                     ))}
                 </SpotlightSection>
               ) : null;
-            case 'ComponentComponentsMultiColumnsButton':
+            case 'ComponentComponentsUtrechtMultiColumnsButton':
               return <MultiColumnsButton columns={component.column} />;
-            case 'ComponentComponentsLink':
-              return component?.href && component?.text ? (
+            case 'ComponentComponentsUtrechtLink':
+              return component?.href && component?.textContent ? (
                 <AdvancedLink
                   href={component?.href}
                   external={isAbsoluteUrl(component?.href)}
                   icon={component?.iconList}
                 >
-                  {component?.text}
+                  {component?.textContent}
                 </AdvancedLink>
               ) : null;
             default:
