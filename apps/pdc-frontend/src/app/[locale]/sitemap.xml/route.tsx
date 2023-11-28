@@ -1,6 +1,6 @@
 import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
 import { languages } from '@/app/i18n/settings';
-import { GET_ALL_PRODUCTS_SLUG_FETCH } from '@/query';
+import { GET_ALL_PRODUCTS_SLUG } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
@@ -29,7 +29,7 @@ export async function GET() {
   try {
     const { data } = await fetchData({
       url: createStrapiURL(),
-      query: GET_ALL_PRODUCTS_SLUG_FETCH,
+      query: GET_ALL_PRODUCTS_SLUG,
       variables: {
         locale: 'all',
       },

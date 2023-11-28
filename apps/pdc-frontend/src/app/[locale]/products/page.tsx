@@ -5,7 +5,7 @@ import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-import { GET_ALL_PRODUCTS_SLUG_FETCH } from '../../../query';
+import { GET_ALL_PRODUCTS_SLUG } from '../../../query';
 import { useTranslation } from '../../i18n';
 export interface Fields {
   title: string;
@@ -48,7 +48,7 @@ const mappingProducts = (products: Product[]): { title: string; url: string }[] 
 const fetchAllProducts = async ({ locale, page, pageSize }: fetchAllProductsTypes) => {
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_ALL_PRODUCTS_SLUG_FETCH,
+    query: GET_ALL_PRODUCTS_SLUG,
     variables: { locale, page, pageSize },
   });
   return data;

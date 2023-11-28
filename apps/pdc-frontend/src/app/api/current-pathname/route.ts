@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { GET_PRODUCT_BY_SLUG_FETCH } from '@/query';
+import { GET_PRODUCT_BY_SLUG } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
@@ -18,7 +18,7 @@ export async function GET(request: Request) {
   cookieStore.set('slug', slug);
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_PRODUCT_BY_SLUG_FETCH,
+    query: GET_PRODUCT_BY_SLUG,
     variables: {
       slug: slug,
       locale: locale,

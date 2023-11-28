@@ -1,13 +1,13 @@
 import { convertJsonToXML } from '@frameless/samenwerkende-catalogi';
 import { NextRequest, NextResponse } from 'next/server';
-import { GET_SAMENWERKENDECATALOGI_FETCH } from '@/query';
+import { GET_SAMENWERKENDECATALOGI } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
 export async function GET(_request: NextRequest, ctx: any) {
   const { data } = await fetchData({
     url: createStrapiURL(),
-    query: GET_SAMENWERKENDECATALOGI_FETCH,
+    query: GET_SAMENWERKENDECATALOGI,
     variables: {
       locale: ctx.params.locale,
     },
