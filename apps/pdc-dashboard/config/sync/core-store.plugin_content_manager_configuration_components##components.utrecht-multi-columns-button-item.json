@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_components::components.spotlight",
+  "key": "plugin_content_manager_configuration_components::components.utrecht-multi-columns-button-item",
   "value": {
-    "uid": "components.spotlight",
+    "uid": "components.utrecht-multi-columns-button-item",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "type",
-      "defaultSortBy": "id",
+      "mainField": "title",
+      "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,30 +20,16 @@
           "sortable": false
         }
       },
-      "content": {
+      "title": {
         "edit": {
-          "label": "Inhoud",
-          "description": "",
+          "label": "Title",
+          "description": "De titel weergegeven aan de bovenkant van elke kolom, indien opgegeven. Deze titel helpt bij het organiseren en labelen van de inhoud binnen de kolom.",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "content",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "type": {
-        "edit": {
-          "label": "Soort",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "type",
+          "label": "title",
           "searchable": true,
           "sortable": true
         }
@@ -64,17 +50,11 @@
       }
     },
     "layouts": {
-      "list": ["id", "type", "logoButton"],
+      "list": ["id", "title", "logoButton"],
       "edit": [
         [
           {
-            "name": "content",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "type",
+            "name": "title",
             "size": 6
           }
         ],

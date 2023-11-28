@@ -8,7 +8,7 @@
     "column": {
       "type": "component",
       "repeatable": true,
-      "component": "components.multi-columns-button-item"
+      "component": "components.utrecht-multi-columns-button-item"
     }
   }
 }

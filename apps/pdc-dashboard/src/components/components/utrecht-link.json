@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_components_links",
+  "collectionName": "components_components_utrecht_links",
   "info": {
     "displayName": "Link",
     "icon": "link",
@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "text": {
+    "textContent": {
       "type": "string",
       "required": true
     },

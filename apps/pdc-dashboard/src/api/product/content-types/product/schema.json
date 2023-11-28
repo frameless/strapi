@@ -43,14 +43,14 @@
       },
       "type": "dynamiczone",
       "components": [
-        "components.block-content",
-        "components.logo-button",
-        "components.spotlight",
+        "components.utrecht-rich-text",
+        "components.utrecht-logo-button",
+        "components.utrecht-spotlight",
         "components.faq",
-        "components.multi-columns-button",
-        "components.accordion-section",
-        "components.image",
-        "components.link"
+        "components.utrecht-multi-columns-button",
+        "components.utrecht-accordion",
+        "components.utrecht-image",
+        "components.utrecht-link"
       ],
       "required": false
     },

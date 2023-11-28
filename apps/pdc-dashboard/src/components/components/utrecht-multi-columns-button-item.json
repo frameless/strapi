@@ -12,7 +12,7 @@
     "logoButton": {
       "type": "component",
       "repeatable": true,
-      "component": "components.logo-button"
+      "component": "components.utrecht-logo-button"
     }
   }
 }

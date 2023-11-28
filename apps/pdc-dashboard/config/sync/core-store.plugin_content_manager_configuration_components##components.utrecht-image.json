@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_components::components.image",
+  "key": "plugin_content_manager_configuration_components::components.utrecht-image",
   "value": {
-    "uid": "components.image",
+    "uid": "components.utrecht-image",
     "settings": {
       "bulkable": true,
       "filterable": true,

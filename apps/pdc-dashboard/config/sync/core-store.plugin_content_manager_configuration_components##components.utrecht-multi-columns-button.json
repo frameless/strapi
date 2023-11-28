@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_components::sections.faq-section",
+  "key": "plugin_content_manager_configuration_components::components.utrecht-multi-columns-button",
   "value": {
-    "uid": "sections.faq-section",
+    "uid": "components.utrecht-multi-columns-button",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -20,27 +20,27 @@
           "sortable": false
         }
       },
-      "accordion": {
+      "column": {
         "edit": {
-          "label": "Accordion",
+          "label": "Column",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "accordion",
+          "label": "column",
           "searchable": false,
           "sortable": false
         }
       }
     },
     "layouts": {
-      "list": ["id", "accordion"],
+      "list": ["id", "column"],
       "edit": [
         [
           {
-            "name": "accordion",
+            "name": "column",
             "size": 12
           }
         ]
