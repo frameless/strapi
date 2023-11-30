@@ -11,7 +11,9 @@
     "development-env": "STRAPI_PRIVATE_URL=https://pdc-api.cg-intern.ont.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://pdc-api.cg-intern.ont.utrecht.nl next dev -p 9000",
     "acceptance-env": "STRAPI_PRIVATE_URL=https://pdc-api.cg-intern.acc.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://pdc-api.cg-intern.acc.utrecht.nl next dev -p 8000",
     "prod-env": "STRAPI_PRIVATE_URL=https://pdc-api.cg-intern.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://pdc-api.cg-intern.utrecht.nl next dev -p 3000",
-    "prebuild": "npm run clean",
+    "prebuild": "yarn clean",
+    "predev": "yarn codegen",
+    "codegen": "graphql-codegen",
     "clean": "rimraf build .next",
     "build": "next build",
     "start": "next start -p 3000",
@@ -41,8 +43,10 @@
     "sharp": "0.32.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.4",
-    "sass": "1.63.6"
+    "sass": "1.63.6",
+    "@graphql-codegen/client-preset": "4.1.0"
   }
 }

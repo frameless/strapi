@@ -42,7 +42,7 @@ export const ClientLanguageSwitcher = ({ locales, currentLocale }: ClientLanguag
   const { data, isFetching } = useQuery({
     queryKey: ['getSlugs'],
     enabled: !!params.slug,
-    queryFn: async () => fetchData({ url: getSlugsURL, method: 'GET' }),
+    queryFn: async () => fetchData<any>({ url: getSlugsURL, method: 'GET' }),
   });
 
   if (!isFetching && data?.localizations.length > 0) {

@@ -9,6 +9,7 @@ import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
 import { alphabet } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
+import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../gql/graphql';
 import { useTranslation } from '../i18n';
 
 export interface Fields {
@@ -46,14 +47,14 @@ const Home = async ({ params: { locale } }: { params: any }) => {
   const { t } = await useTranslation(locale, ['home-page', 'common']);
 
   const productsAvailability = alphabet.map(async (letter) => {
-    const { data } = await fetchData({
+    const { data } = await fetchData<{ data: CheckAlphabeticallyProductsAvailabilityQuery }>({
       url: createStrapiURL(),
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
     return {
       char: letter,
-      disabled: data.products.data.length > 0 ? false : true,
+      disabled: data.products?.data && data.products?.data.length > 0 ? false : true,
       href: `products/alphabet/${letter.toLocaleLowerCase()}`,
     };
   });

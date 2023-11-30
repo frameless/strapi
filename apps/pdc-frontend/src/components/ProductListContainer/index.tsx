@@ -15,7 +15,7 @@ type Product = {
 interface ProductsListProps {
   initialData: Product[];
   locale: string;
-  total: number;
+  total?: number;
   onReadMoreButtonClickHandler: (
     // eslint-disable-next-line no-unused-vars
     limit: number,
@@ -29,7 +29,7 @@ type PaginationType = {
 
 type ProductsType = {
   data: { paginationInfo?: PaginationType | null; products: Product[] }[];
-  total: number;
+  total?: number;
 };
 
 export const ProductListContainer = ({

@@ -32,7 +32,7 @@ export async function GET(request: Request) {
     }
   };
 
-  const { data } = await fetchData({
+  const { data } = await fetchData<{ data: any }>({
     url: createStrapiURL(),
     query: getCurrentPage(type).query,
     variables: {

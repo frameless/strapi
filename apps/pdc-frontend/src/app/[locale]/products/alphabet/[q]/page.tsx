@@ -10,6 +10,11 @@ import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_ALPHABETICALLY_PRODUCTS
 import { alphabet } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
+import {
+  CheckAlphabeticallyProductsAvailabilityQuery,
+  GetAlphabeticallyProductsByLetterQueryQuery,
+  Product as ProductType,
+} from '../../../../../../gql/graphql';
 type Params = {
   params: {
     locale: string;
@@ -29,16 +34,8 @@ type fetchAllProductsTypes = {
   startsWith: string;
 };
 
-type ProductAttributes = {
-  title: string;
-  slug: string;
-  metaTags: {
-    description: string;
-  };
-};
-
 type Product = {
-  attributes: ProductAttributes;
+  attributes: ProductType;
 };
 
 const mappingProducts = (products: Product[]): { title: string; url: string }[] | [] => {
@@ -51,7 +48,7 @@ const mappingProducts = (products: Product[]): { title: string; url: string }[] 
 };
 
 const fetchAllProducts = async ({ locale, page, pageSize, startsWith }: fetchAllProductsTypes) => {
-  const { data } = await fetchData({
+  const { data } = await fetchData<{ data: GetAlphabeticallyProductsByLetterQueryQuery }>({
     url: createStrapiURL(),
     query: GET_ALPHABETICALLY_PRODUCTS_BY_LETTER,
     variables: { locale, page, pageSize, startsWith },
@@ -100,20 +97,20 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
     });
 
     return {
-      data: mappingProducts(products.data),
-      pagination: products.meta.pagination,
+      data: mappingProducts(products?.data as Product[]),
+      pagination: products?.meta.pagination,
     };
   };
 
   const productsAvailability = alphabet.map(async (letter) => {
-    const { data } = await fetchData({
+    const { data } = await fetchData<{ data: CheckAlphabeticallyProductsAvailabilityQuery }>({
       url: createStrapiURL(),
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
     return {
       char: letter,
-      disabled: data.products.data.length > 0 ? false : true,
+      disabled: data.products?.data && data.products.data.length > 0 ? false : true,
       href: `${letter.toLocaleLowerCase()}`,
     };
   });
@@ -154,11 +151,11 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
           characters={alphabetAvailability}
           Link={Link}
         />
-        {mappingProducts(res.data) && mappingProducts(res.data).length > 0 ? (
+        {mappingProducts(res?.data as Product[]) && mappingProducts(res?.data as Product[]).length > 0 ? (
           <ProductListContainer
             locale={locale}
-            total={res.meta.pagination.total}
-            initialData={mappingProducts(res.data)}
+            total={res?.meta.pagination.total}
+            initialData={mappingProducts(res?.data as Product[])}
             onReadMoreButtonClickHandler={readMoreButtonAction}
           />
         ) : (

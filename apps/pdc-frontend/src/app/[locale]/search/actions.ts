@@ -1,5 +1,6 @@
 'use server';
 import { redirect } from 'next/navigation';
+import { GetLiveSuggestionsData, SearchResult } from '@/types';
 import { createURL } from '@/util/create-url';
 import { fetchData } from '@/util/fetchData';
 
@@ -18,7 +19,7 @@ export const getSuggestedSearch = async (locale: string, value: string, params: 
 
   const url = createURL('https://public.pandosearch.com/developer.pandosearch.com/search', urlParams);
 
-  const searchResult = await fetchData({
+  const searchResult = await fetchData<SearchResult>({
     url,
     method: 'GET',
   });
@@ -39,7 +40,7 @@ export const getLiveSuggestions = async (value: string) => {
     track: false,
   };
   const url = createURL('https://public.pandosearch.com/developer.pandosearch.com/suggest', urlParams);
-  const searchResult = await fetchData({
+  const searchResult = await fetchData<GetLiveSuggestionsData>({
     url,
     method: 'GET',
   });
