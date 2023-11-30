@@ -284,27 +284,20 @@ query GET_ARTICLE_BY_SLUG($slug: String, $pageMode: String) {
 
 export const GET_PRINT_PAGE = gql(`
 query GET_PRINT_PAGE {
-  homepage {
+  printPage {
     data {
       attributes {
         title
-        bannerImage {
-          data {
-            attributes {
-              url
-            }
-          }
-        }
-        content
+        versiondate
+        introductionBody
       }
     }
   }
-  themas(filters: { parents: { id: null } }) {
+  navigationPages {
     data {
       id
       attributes {
         title
-        updatedAt
         content {
           ... on ComponentComponentsUtrechtRichText {
             __typename
@@ -314,16 +307,15 @@ query GET_PRINT_PAGE {
             __typename
             item {
               id
-              title
+              label
               body
             }
           }
         }
-        child_themas {
+        theme_pages {
           data {
             attributes {
               title
-              updatedAt
               content {
                 ... on ComponentComponentsUtrechtRichText {
                   __typename
@@ -333,16 +325,15 @@ query GET_PRINT_PAGE {
                   __typename
                   item {
                     id
-                    title
+                    label
                     body
                   }
                 }
               }
-              child_contents {
+              article_pages {
                 data {
                   attributes {
                     title
-                    updatedAt
                     content {
                       ... on ComponentComponentsUtrechtRichText {
                         __typename
@@ -352,7 +343,7 @@ query GET_PRINT_PAGE {
                         __typename
                         item {
                           id
-                          title
+                          label
                           body
                         }
                       }
@@ -363,11 +354,10 @@ query GET_PRINT_PAGE {
             }
           }
         }
-        child_contents {
+        article_pages {
           data {
             attributes {
               title
-              updatedAt
               content {
                 ... on ComponentComponentsUtrechtRichText {
                   __typename
@@ -377,7 +367,7 @@ query GET_PRINT_PAGE {
                   __typename
                   item {
                     id
-                    title
+                    label
                     body
                   }
                 }
