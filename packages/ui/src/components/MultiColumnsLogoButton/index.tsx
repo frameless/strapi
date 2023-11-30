@@ -4,11 +4,13 @@ import { kebabCase } from 'lodash';
 import styles from './index.module.scss';
 import { Grid, GridCell } from '../Grid';
 import { LogoButton, LogoButtonProps } from '../LogoButton';
-interface MultiColumnsButtonProps {
-  columns: {
-    title?: string;
-    logoButton: LogoButtonProps[];
-  }[];
+
+export type Columns = {
+  title?: string;
+  logoButton: LogoButtonProps[];
+};
+export interface MultiColumnsButtonProps {
+  columns: Columns[];
 }
 
 const css = classnames.bind(styles);

@@ -11,13 +11,13 @@ import kebabCase from 'lodash.kebabcase';
 import { ReactNode } from 'react';
 import styles from './index.module.scss';
 
-type Logo = 'digid' | 'eherkenning' | 'eidas' | 'without_logo';
+export type LogoType = 'digid' | 'eherkenning' | 'eidas' | 'without_logo';
 export interface LogoButtonProps {
-  logo: Logo;
+  logo?: LogoType | null;
   appearance?: ButtonProps['appearance'];
   href: string;
   children: ReactNode;
-  label: string;
+  label?: string | null;
   headingLevel?: number;
 }
 const css = classnames.bind(styles);
