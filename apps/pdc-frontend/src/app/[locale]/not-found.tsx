@@ -5,13 +5,14 @@ import { GET_NOT_FOUND_PAGE } from '@/query';
 import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
+import { GetNotFoundPageQuery } from '../../../gql/graphql';
 import { useTranslation } from '../i18n';
 import { fallbackLng } from '../i18n/settings';
 
 const NotFoundPage = async () => {
   const locale = cookies().get('i18next')?.value;
   const { t } = await useTranslation(locale || fallbackLng, ['common']);
-  const { data } = await fetchData({
+  const { data } = await fetchData<{ data: GetNotFoundPageQuery }>({
     url: createStrapiURL(),
     query: GET_NOT_FOUND_PAGE,
     variables: { locale: locale },
@@ -29,7 +30,9 @@ const NotFoundPage = async () => {
         ]}
       />
       <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
-      <Markdown imageUrl={getImageBaseUrl()}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+      {data?.notFoundPage?.data?.attributes?.body && (
+        <Markdown imageUrl={getImageBaseUrl()}>{data.notFoundPage.data.attributes.body}</Markdown>
+      )}
     </div>
   );
 };

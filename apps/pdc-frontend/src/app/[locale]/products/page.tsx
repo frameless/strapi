@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
+import { GetAllProductsSlugQueryQuery, Product as ProductType } from '../../../../gql/graphql';
 import { GET_ALL_PRODUCTS_SLUG } from '../../../query';
 import { useTranslation } from '../../i18n';
 export interface Fields {
@@ -24,16 +25,8 @@ type fetchAllProductsTypes = {
   pageSize: number;
 };
 
-type ProductAttributes = {
-  title: string;
-  slug: string;
-  metaTags: {
-    description: string;
-  };
-};
-
 type Product = {
-  attributes: ProductAttributes;
+  attributes: ProductType;
 };
 
 const mappingProducts = (products: Product[]): { title: string; url: string }[] | [] => {
@@ -46,7 +39,7 @@ const mappingProducts = (products: Product[]): { title: string; url: string }[] 
 };
 
 const fetchAllProducts = async ({ locale, page, pageSize }: fetchAllProductsTypes) => {
-  const { data } = await fetchData({
+  const { data } = await fetchData<{ data: GetAllProductsSlugQueryQuery }>({
     url: createStrapiURL(),
     query: GET_ALL_PRODUCTS_SLUG,
     variables: { locale, page, pageSize },
@@ -74,7 +67,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   };
 }
 
-const Products = async ({ params: { locale } }: { params: any }) => {
+const Products = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { t } = await useTranslation(locale, ['products-page', 'common']);
   const limit = 10;
   const page = 1;
@@ -89,8 +82,8 @@ const Products = async ({ params: { locale } }: { params: any }) => {
     });
 
     return {
-      data: mappingProducts(products.data),
-      pagination: products.meta.pagination,
+      data: mappingProducts(products?.data as Product[]),
+      pagination: products?.meta.pagination,
     };
   };
 
@@ -117,11 +110,11 @@ const Products = async ({ params: { locale } }: { params: any }) => {
       />
       <Article>
         <Heading level={1}>{t('h1')}</Heading>
-        {mappingProducts(res.data) && mappingProducts(res.data).length > 0 && (
+        {mappingProducts(res?.data as Product[]) && mappingProducts(res?.data as Product[]).length > 0 && (
           <ProductListContainer
             locale={locale}
-            total={res.meta.pagination.total}
-            initialData={mappingProducts(res.data)}
+            total={res?.meta.pagination.total}
+            initialData={mappingProducts(res?.data as Product[])}
             onReadMoreButtonClickHandler={readMoreButtonAction}
           />
         )}

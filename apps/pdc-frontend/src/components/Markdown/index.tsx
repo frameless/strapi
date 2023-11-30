@@ -8,7 +8,7 @@ import type { ExtraProps } from 'react-markdown';
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
 
-type PriceTypes = {
+export type PriceTypes = {
   id: string;
   price: number;
   currency: string;

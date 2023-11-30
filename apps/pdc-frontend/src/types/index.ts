@@ -63,3 +63,16 @@ export type SuggestedHits = {
 export type Suggestions = {
   text: string;
 };
+
+export interface Hits {
+  title: string;
+  url: string;
+  type: string;
+  titleRaw: string;
+}
+
+export interface GetLiveSuggestionsData {
+  hits: Hits[];
+  suggestions: Suggestions[];
+  timing: Timing;
+}

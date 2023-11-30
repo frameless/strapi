@@ -3,9 +3,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { GET_SAMENWERKENDECATALOGI } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
+import { GetSamenwerkendecatalogiQuery } from '../../../../gql/graphql';
 
 export async function GET(_request: NextRequest, ctx: any) {
-  const { data } = await fetchData({
+  const { data } = await fetchData<{ data: GetSamenwerkendecatalogiQuery }>({
     url: createStrapiURL(),
     query: GET_SAMENWERKENDECATALOGI,
     variables: {
@@ -14,7 +15,7 @@ export async function GET(_request: NextRequest, ctx: any) {
   });
 
   if (data && data.products && data.products?.data.length > 0) {
-    const xml = convertJsonToXML(data.products.data, process.env.FRONTEND_PUBLIC_URL as string);
+    const xml = convertJsonToXML(data.products.data as [], process.env.FRONTEND_PUBLIC_URL as string);
     return new Response(xml, {
       status: 200,
       headers: {
