@@ -6,15 +6,19 @@ import { IndexCharNav } from '@/components';
 import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
-import { alphabet } from '@/util';
+import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
+import {
+  alphabet,
+  apiSettings,
+  getAlphabeticallyProductsByLetter,
+  mappingProducts,
+  MappingProductsProps,
+} from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-import {
-  CheckAlphabeticallyProductsAvailabilityQuery,
-  GetAlphabeticallyProductsByLetterQueryQuery,
-  Product as ProductType,
-} from '../../../../../../gql/graphql';
+import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../../../../gql/graphql';
+export const revalidate = 3600; // revalidate the data at most every hour
+
 type Params = {
   params: {
     locale: string;
@@ -26,35 +30,6 @@ export interface Fields {
   title: string;
   body: string;
 }
-
-type fetchAllProductsTypes = {
-  locale: string;
-  page: number;
-  pageSize: number;
-  startsWith: string;
-};
-
-type Product = {
-  attributes: ProductType;
-};
-
-const mappingProducts = (products: Product[]): { title: string; url: string }[] | [] => {
-  if (!products || products.length === 0) return [];
-  return products.map(({ attributes }) => ({
-    title: attributes.title,
-    url: `/products/${attributes.slug}`,
-    body: attributes?.metaTags?.description,
-  }));
-};
-
-const fetchAllProducts = async ({ locale, page, pageSize, startsWith }: fetchAllProductsTypes) => {
-  const { data } = await fetchData<{ data: GetAlphabeticallyProductsByLetterQueryQuery }>({
-    url: createStrapiURL(),
-    query: GET_ALPHABETICALLY_PRODUCTS_BY_LETTER,
-    variables: { locale, page, pageSize, startsWith },
-  });
-  return data;
-};
 
 export async function generateMetadata({ params: { locale, q } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -75,32 +50,16 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
     },
   };
 }
+
 const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
-  const limit = 10;
-  const page = 1;
-  const { products: res } = await fetchAllProducts({
+
+  const { products } = await getAlphabeticallyProductsByLetter({
     locale,
-    page,
-    pageSize: limit,
-    startsWith: q.toLocaleUpperCase(),
+    page: 1,
+    pageSize: apiSettings.pagination.pageSize,
+    startsWith: q.toUpperCase(),
   });
-
-  const readMoreButtonAction = async (pageIndex: number) => {
-    'use server';
-
-    const { products } = await fetchAllProducts({
-      locale,
-      page: pageIndex + 1,
-      pageSize: limit,
-      startsWith: q.toLocaleUpperCase(),
-    });
-
-    return {
-      data: mappingProducts(products?.data as Product[]),
-      pagination: products?.meta.pagination,
-    };
-  };
 
   const productsAvailability = alphabet.map(async (letter) => {
     const { data } = await fetchData<{ data: CheckAlphabeticallyProductsAvailabilityQuery }>({
@@ -115,6 +74,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
     };
   });
   const alphabetAvailability = await Promise.all(productsAvailability);
+  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[]);
 
   return (
     <>
@@ -145,21 +105,16 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       <Article>
         <Heading level={1}>{t('h1')}</Heading>
         <Paragraph lead>{t('lead-paragraph')}</Paragraph>
-        <IndexCharNav
-          component="link"
-          currentChar={q.toLocaleUpperCase()}
-          characters={alphabetAvailability}
-          Link={Link}
-        />
-        {mappingProducts(res?.data as Product[]) && mappingProducts(res?.data as Product[]).length > 0 ? (
+        <IndexCharNav component="link" currentChar={q.toUpperCase()} characters={alphabetAvailability} Link={Link} />
+        {mappedProduct && mappedProduct.length > 0 ? (
           <ProductListContainer
             locale={locale}
-            total={res?.meta.pagination.total}
-            initialData={mappingProducts(res?.data as Product[])}
-            onReadMoreButtonClickHandler={readMoreButtonAction}
+            total={products?.meta.pagination.total}
+            initialData={mappedProduct}
+            currentQuery={q.toUpperCase()}
           />
         ) : (
-          <Paragraph>{t('product-notfound', { letter: q.toLocaleUpperCase() })}</Paragraph>
+          <Paragraph>{t('product-notfound', { letter: q.toUpperCase() })}</Paragraph>
         )}
       </Article>
       <Grid justifyContent="space-between">

@@ -3,6 +3,7 @@
 import classnames from 'classnames';
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
+import { setPageIndex } from '@/app/actions';
 import { useTranslation } from '@/app/i18n/client';
 import { LoadMoreButton, Markdown, ProductListItem, ProductListPaginationInfo, ProductsList } from '@/components';
 
@@ -16,10 +17,8 @@ interface ProductsListProps {
   initialData: Product[];
   locale: string;
   total?: number;
-  onReadMoreButtonClickHandler: (
-    // eslint-disable-next-line no-unused-vars
-    limit: number,
-  ) => Promise<{ data: Product[]; pagination: any }>;
+  currentQuery?: string;
+  segment?: string;
 }
 
 type PaginationType = {
@@ -32,18 +31,14 @@ type ProductsType = {
   total?: number;
 };
 
-export const ProductListContainer = ({
-  initialData,
-  locale,
-  onReadMoreButtonClickHandler,
-  total,
-}: ProductsListProps) => {
+export const ProductListContainer = ({ initialData, locale, total, currentQuery, segment }: ProductsListProps) => {
   const [productsList, setProductsList] = useState<ProductsType>({
     data: [{ paginationInfo: null, products: initialData }],
     total,
   });
   const [totalProducts, setTotalProducts] = useState(initialData);
-  const { t } = useTranslation(locale, ['product-list-container-component', 'load-more-button']);
+  const { t } = useTranslation(locale, ['product-list-container-component', 'common']);
+
   return (
     <>
       <ProductsList>
@@ -77,31 +72,37 @@ export const ProductListContainer = ({
         <LoadMoreButton
           locale={locale}
           onLoadMoreClick={async (pageIndex) => {
-            onReadMoreButtonClickHandler(pageIndex).then(({ pagination, data }) => {
-              setTotalProducts((prevArray) => {
-                return [...prevArray, ...data];
-              });
-              if (data.length > 0) {
-                setProductsList((prevArray) => {
-                  return {
-                    data: [
-                      ...prevArray.data,
-                      {
-                        paginationInfo: {
-                          to: totalProducts.length + data.length,
-                          result: totalProducts.length + 1,
-                        },
-                        products: data,
-                      },
-                    ],
-                    total: pagination.total,
-                  };
+            setPageIndex.bind(null, String(pageIndex), currentQuery as string, locale, segment);
+            setPageIndex(String(pageIndex), currentQuery as string, locale, segment)
+              .then(({ pagination, data }) => {
+                setTotalProducts((prevArray) => {
+                  return [...prevArray, ...data];
                 });
-              }
-            });
+                if (data.length > 0) {
+                  setProductsList((prevArray) => {
+                    return {
+                      data: [
+                        ...prevArray.data,
+                        {
+                          paginationInfo: {
+                            to: totalProducts.length + data.length,
+                            result: totalProducts.length + 1,
+                          },
+                          products: data,
+                        },
+                      ],
+                      total: pagination?.total,
+                    };
+                  });
+                }
+              })
+              .catch((e) => {
+                // eslint-disable-next-line no-console
+                console.error(e);
+              });
           }}
         >
-          {t('load-more')}
+          {t('actions.load-more')}
         </LoadMoreButton>
       )}
     </>

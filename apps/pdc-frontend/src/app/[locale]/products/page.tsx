@@ -3,9 +3,10 @@ import { AdvancedLink, Article, Grid, GridCell, Heading } from '@/components';
 import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
+import { apiSettings, mappingProducts, MappingProductsProps } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-import { GetAllProductsSlugQueryQuery, Product as ProductType } from '../../../../gql/graphql';
+import { GetAllProductsSlugQueryQuery } from '../../../../gql/graphql';
 import { GET_ALL_PRODUCTS_SLUG } from '../../../query';
 import { useTranslation } from '../../i18n';
 export interface Fields {
@@ -19,30 +20,11 @@ type Params = {
   };
 };
 
-type fetchAllProductsTypes = {
-  locale: string;
-  page: number;
-  pageSize: number;
-};
-
-type Product = {
-  attributes: ProductType;
-};
-
-const mappingProducts = (products: Product[]): { title: string; url: string }[] | [] => {
-  if (!products || products.length === 0) return [];
-  return products.map(({ attributes }) => ({
-    title: attributes.title,
-    url: `/products/${attributes.slug}`,
-    body: attributes?.metaTags?.description,
-  }));
-};
-
-const fetchAllProducts = async ({ locale, page, pageSize }: fetchAllProductsTypes) => {
+const fetchAllProducts = async ({ locale }: { locale: string }) => {
   const { data } = await fetchData<{ data: GetAllProductsSlugQueryQuery }>({
     url: createStrapiURL(),
     query: GET_ALL_PRODUCTS_SLUG,
-    variables: { locale, page, pageSize },
+    variables: { locale, page: 1, pageSize: apiSettings.pagination.pageSize },
   });
   return data;
 };
@@ -69,23 +51,9 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Products = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { t } = await useTranslation(locale, ['products-page', 'common']);
-  const limit = 10;
-  const page = 1;
-  const { products: res } = await fetchAllProducts({ locale, page, pageSize: limit });
-  const readMoreButtonAction = async (pageIndex: number) => {
-    'use server';
 
-    const { products } = await fetchAllProducts({
-      locale,
-      page: pageIndex + 1,
-      pageSize: limit,
-    });
-
-    return {
-      data: mappingProducts(products?.data as Product[]),
-      pagination: products?.meta.pagination,
-    };
-  };
+  const { products } = await fetchAllProducts({ locale });
+  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[]);
 
   return (
     <>
@@ -110,13 +78,8 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
       />
       <Article>
         <Heading level={1}>{t('h1')}</Heading>
-        {mappingProducts(res?.data as Product[]) && mappingProducts(res?.data as Product[]).length > 0 && (
-          <ProductListContainer
-            locale={locale}
-            total={res?.meta.pagination.total}
-            initialData={mappingProducts(res?.data as Product[])}
-            onReadMoreButtonClickHandler={readMoreButtonAction}
-          />
+        {mappedProduct && mappedProduct.length > 0 && (
+          <ProductListContainer locale={locale} total={products?.meta.pagination.total} initialData={mappedProduct} />
         )}
       </Article>
       <Grid justifyContent="space-between">
