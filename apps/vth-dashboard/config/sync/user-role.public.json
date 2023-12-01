@@ -22,6 +22,9 @@
       "action": "api::not-found-page.not-found-page.find"
     },
     {
+      "action": "api::print-page.print-page.find"
+    },
+    {
       "action": "api::theme-page.theme-page.find"
     },
     {
