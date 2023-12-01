@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 import Link from 'next/link';
-import { Fragment, useState } from 'react';
+import { Fragment, useReducer } from 'react';
 import { setPageIndex } from '@/app/actions';
 import { useTranslation } from '@/app/i18n/client';
 import { LoadMoreButton, Markdown, ProductListItem, ProductListPaginationInfo, ProductsList } from '@/components';
@@ -31,18 +31,49 @@ type ProductsType = {
   total?: number;
 };
 
+const reducer = (state: any, action: any) => ({
+  ...state,
+  totalProducts: [...state.totalProducts, ...action.payload.data],
+  productsList: action.payload.data.length > 0 && {
+    data: [
+      ...state.productsList.data,
+      {
+        paginationInfo: {
+          to: state.totalProducts.length + action.payload.data.length,
+          result: state.totalProducts.length + 1,
+        },
+        products: action.payload.data,
+      },
+    ],
+    total: action.payload.pagination?.total,
+  },
+});
+
 export const ProductListContainer = ({ initialData, locale, total, currentQuery, segment }: ProductsListProps) => {
-  const [productsList, setProductsList] = useState<ProductsType>({
-    data: [{ paginationInfo: null, products: initialData }],
-    total,
-  });
-  const [totalProducts, setTotalProducts] = useState(initialData);
   const { t } = useTranslation(locale, ['product-list-container-component', 'common']);
+  const initialState = {
+    productsList: {
+      data: [{ paginationInfo: null, products: initialData }],
+      total,
+    },
+    totalProducts: initialData,
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const onLoadMoreClickHandler = async (pageIndex: number) => {
+    // bind arguments to a Server Action https://nextjs.org/docs/app/api-reference/functions/server-actions#binding-arguments
+    setPageIndex.bind(null, String(pageIndex), currentQuery as string, locale, segment);
+    setPageIndex(String(pageIndex), currentQuery as string, locale, segment)
+      .then(({ pagination, data }) => dispatch({ payload: { pagination, data } }))
+      .catch((e) => {
+        // eslint-disable-next-line no-console
+        console.error(e);
+      });
+  };
 
   return (
     <>
       <ProductsList>
-        {productsList.data.map(({ paginationInfo, products }, index) => {
+        {(state.productsList as ProductsType)?.data?.map(({ paginationInfo, products }, index) => {
           return (
             <Fragment key={index}>
               {paginationInfo?.result && paginationInfo.to && (
@@ -68,40 +99,8 @@ export const ProductListContainer = ({ initialData, locale, total, currentQuery,
           );
         })}
       </ProductsList>
-      {totalProducts.length !== productsList.total && (
-        <LoadMoreButton
-          locale={locale}
-          onLoadMoreClick={async (pageIndex) => {
-            setPageIndex.bind(null, String(pageIndex), currentQuery as string, locale, segment);
-            setPageIndex(String(pageIndex), currentQuery as string, locale, segment)
-              .then(({ pagination, data }) => {
-                setTotalProducts((prevArray) => {
-                  return [...prevArray, ...data];
-                });
-                if (data.length > 0) {
-                  setProductsList((prevArray) => {
-                    return {
-                      data: [
-                        ...prevArray.data,
-                        {
-                          paginationInfo: {
-                            to: totalProducts.length + data.length,
-                            result: totalProducts.length + 1,
-                          },
-                          products: data,
-                        },
-                      ],
-                      total: pagination?.total,
-                    };
-                  });
-                }
-              })
-              .catch((e) => {
-                // eslint-disable-next-line no-console
-                console.error(e);
-              });
-          }}
-        >
+      {state.totalProducts.length !== state.productsList.total && (
+        <LoadMoreButton locale={locale} onLoadMoreClick={onLoadMoreClickHandler}>
           {t('actions.load-more')}
         </LoadMoreButton>
       )}
