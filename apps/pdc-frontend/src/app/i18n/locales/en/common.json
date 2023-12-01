@@ -6,7 +6,8 @@
   "actions": {
     "try-again": "Try again",
     "scroll-to-top": "Back to top",
-    "reaction-link": "What do you think of this page?"
+    "reaction-link": "What do you think of this page?",
+    "load-more": "Load More"
   },
   "components": {
     "alphabetically-products-navigation": "Products by alphabet",

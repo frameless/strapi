@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { getSuggestedSearch } from '@/app/actions';
 import { AdvancedLink, Article, Grid, GridCell, Heading } from '@/components';
 import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { useTranslation } from '../../../i18n/index';
-import { getSuggestedSearch } from '../actions';
 
 type ParamsType = {
   locale: string;
@@ -42,14 +42,6 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
     },
   };
 }
-const mappingResults = (data: any) => {
-  if (!data || data.length === 0) return [];
-  return data.map(({ url, fields }: any) => ({
-    title: fields.title,
-    url,
-    body: fields.body,
-  }));
-};
 
 const Search = async ({ params: { locale, query } }: SearchProps) => {
   const { t } = await useTranslation(locale, ['search-page', 'common']);
@@ -59,20 +51,14 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
     redirect(`/search/tips/${query}`);
   }
 
-  const results = mappingResults(searchResults.hits);
-
-  const readMoreButtonAction = async (pageIndex: number) => {
-    'use server';
-    const searchResults = await getSuggestedSearch(locale, query, {
-      page: pageIndex + 1,
-      size: 5,
-    });
-
-    return {
-      data: mappingResults(searchResults.hits),
-      pagination: { total: searchResults.total },
-    };
-  };
+  const results =
+    searchResults.hits.length > 0
+      ? searchResults.hits.map(({ url, fields }: any) => ({
+          title: fields.title,
+          url,
+          body: fields.body,
+        }))
+      : [];
 
   return (
     <>
@@ -96,7 +82,8 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           locale={locale}
           total={searchResults.total}
           initialData={results}
-          onReadMoreButtonClickHandler={readMoreButtonAction}
+          currentQuery={query}
+          segment="search"
         />
       </Article>
       <Grid justifyContent="space-between">

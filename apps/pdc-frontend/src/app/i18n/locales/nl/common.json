@@ -6,7 +6,8 @@
   "actions": {
     "try-again": "Probeer opnieuw",
     "scroll-to-top": "Naar boven",
-    "reaction-link": "Wat vindt u van deze pagina?"
+    "reaction-link": "Wat vindt u van deze pagina?",
+    "load-more": "Meer Laden"
   },
   "components": {
     "alphabetically-products-navigation": "Producten op alfabet",
