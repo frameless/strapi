@@ -1,0 +1,1812 @@
+/* onbekenden selector */
+*
+  + :is(
+    utrecht-heading-1,
+    .utrecht-heading-1,
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6
+  ),
+:is(utrecht-alert, .utrecht-alert) + :is(utrecht-heading-1, .utrecht-heading-1) {
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-end: 0;
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-end: 0;
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-end: 0;
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-end: 0;
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-2-margin-block-end: 0;
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-1-margin-block-end: 0;
+}
+
+utrecht-heading,
+.utrecht-heading + utrecht-pagination,
+.utrecht-pagination + :is(utrecht-separator, .utrecht-separator, utrecht-accordion, .utrecht-accordion),
+utrecht-heading-2,
+.utrecht-heading-2 + :is(utrecht-side-navigation, .utrecht-side-navigation, utrecht-accordion, .utrecht-accordion) {
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-side-navigation-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-alert, .utrecht-alert)
+  + :is(
+    utrecht-heading-1,
+    .utrecht-heading-1,
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-datalist,
+    .utrecht-datalist,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    todo-image-hero,
+    .todo-image-hero,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-separator,
+    .utrecht-separator,
+    utrecht-status-badge,
+    .utrecht-status-badge,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-datalist-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-image-hero-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-status-badge-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-breadcrumb-nav, .utrecht-breadcrumb-nav)
+  + :is(
+    utrecht-heading-1,
+    .utrecht-heading-1,
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-datalist,
+    .utrecht-datalist,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    todo-image-hero,
+    .todo-image-hero,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-separator,
+    .utrecht-separator,
+    utrecht-side-navigation,
+    .utrecht-side-navigation,
+    utrecht-status-badge,
+    .utrecht-status-badge,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-datalist-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-image-hero-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-side-navigation-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-status-badge-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-blockquote, .utrecht-blockquote) + :is(utrecht-alert, .utrecht-alert),
+:is(utrecht-blockquote, .utrecht-blockquote) + :is(utrecht-separator, .utrecht-separator) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-button, .utrecht-button)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-separator,
+    .utrecht-separator,
+    utrecht-side-navigation,
+    .utrecht-side-navigation
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-side-navigation-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-form-field, .utrecht-form-field)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-separator,
+    .utrecht-separator
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(todo-icon-only-button, .todo-icon-only-button)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-separator,
+    .utrecht-separator,
+    utrecht-side-navigation,
+    .utrecht-side-navigation
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-side-navigation-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(todo-image-paragraph, .todo-image-paragraph) + :is(utrecht-alert, .utrecht-alert),
+:is(todo-image-paragraph, .todo-image-paragraph) + :is(utrecht-separator, .utrecht-separator) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(todo-image-hero, .todo-image-hero)
+  + :is(utrecht-alert, .utrecht-alert, utrecht-pagination, .utrecht-pagination, utrecht-separator, .utrecht-separator) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-invalid-form-alert, .utrecht-invalid-form-alert)
+  + :is(
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-separator,
+    .utrecht-separator,
+    utrecht-side-navigation,
+    .utrecht-side-navigation
+  ) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-side-navigation-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-link, .utrecht-link)
+  + :is(
+    utrecht-alert,
+    .utrecht-alert utrecht-separator,
+    .utrecht-separator,
+    utrecht-side-navigation,
+    .utrecht-side-navigation
+  ) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-side-navigation-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-ordered-list, .utrecht-ordered-list)
+  + :is(utrecht-alert, .utrecht-alert, utrecht-separator, .utrecht-separator) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-pagination, .utrecht-pagination)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-separator,
+    .utrecht-separator
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-paragraph, .utrecht-paragraph) + :is(utrecht-alert, .utrecht-alert, utrecht-separator, .utrecht-separator) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-separator, .utrecht-separator)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-datalist,
+    .utrecht-datalist,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-separator,
+    .utrecht-separator,
+    utrecht-side-navigation,
+    .utrecht-side-navigation,
+    utrecht-status-badge,
+    .utrecht-status-badge,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-datalist-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-side-navigation-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-status-badge-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-side-navigation, .utrecht-side-navigation)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-alert,
+    .utrecht-alert,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-datalist,
+    .utrecht-datalist,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-separator,
+    .utrecht-separator,
+    utrecht-status-badge,
+    .utrecht-status-badge,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-datalist-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-onbekenden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-status-badge-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-status-badge-list, .utrecht-status-badge-list)
+  + :is(utrecht-alert, .utrecht-alert, utrecht-separator, .utrecht-separator) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-table, .utrecht-table) + :is(utrecht-alert, .utrecht-alert, utrecht-separator, .utrecht-separator) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+:is(utrecht-unordered-list, .utrecht-unordered-list, utrecht-unordered-list-item, .utrecht-unordered-list__item)
+  + :is(utrecht-alert, .utrecht-alert, utrecht-separator, .utrecht-separator) {
+  --utrecht-alert-margin-block-start: var(--denhaag-space-onbekenden);
+  --utrecht-separator-margin-block-start: var(--denhaag-space-onbekenden);
+}
+
+/* kennissen selector */
+:is(utrecht-heading-1, .utrecht-heading-1) + :is(utrecht-heading-2, .utrecht-heading-2),
+:is(utrecht-heading-2, .utrecht-heading-2) + :is(utrecht-heading-3, .utrecht-heading-3),
+:is(utrecht-heading-3, .utrecht-heading-3) + :is(utrecht-heading-4, .utrecht-heading-4),
+:is(utrecht-heading-4, .utrecht-heading-4) + :is(utrecht-heading-5, .utrecht-heading-5),
+:is(utrecht-heading-5, .utrecht-heading-5) + :is(utrecht-heading-6, .utrecht-heading-6) {
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-heading, .utrecht-heading)
+  + :is(
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-badge-list, .utrecht-badge-list)
+  + :is(
+    utrecht-heading,
+    .utrecht-heading,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-blockquote, .utrecht-blockquote)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-datalist-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-link-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-table-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-button, .utrecht-button)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-block-qoute-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-data-list, .utrecht-data-list)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-blockquote,
+    .utrecht-blockquote
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-block-qoute-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-form-field, .utrecht-form-field)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-block-qoute-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(todo-icon-only-button, .todo-icon-only-button)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrect-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(todo-image-paragraph, .todo-image-paragraph)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-block-qoute-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(todo-image-hero, .todo-image-hero)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    todo-image-hero,
+    .todo-image-hero,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-skip-link,
+    .utrecht-skip-link,
+    utrecht-status-badge,
+    .utrecht-status-badge,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-textarea,
+    .utrecht-textarea,
+    utrecht-textbox,
+    .utrecht-textbox,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-datalist-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-image-hero-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-link-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-status-badge-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-table-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-textarea-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-textbox-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-invalid-form-alert, .utrecht-invalid-form-alert)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-datalist-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-link-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-table-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-link, .utrecht-link)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert,
+    utrecht-paragraph,
+    .utrecht-paragraph
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-ordered-list, .utrecht-ordered-list)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-pagination, .utrecht-pagination)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-kennissen);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-link-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-table-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-paragraph, .utrecht-paragraph)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-status-badge, .utrecht-status-badge)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-status-badge-list, .utrecht-status-badge-list)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list
+  ) {
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-table, .utrecht-table)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+:is(utrecht-unordered-list, .utrecht-unordered-list)
+  + :is(
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    utrecht-heading-6,
+    .utrecht-heading-6,
+    utrecht-blockquote,
+    .utrecht-blockquote,
+    utrecht-invalid-form-alert,
+    .utrecht-invalid-form-alert
+  ) {
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-blockquote-margin-block-start: var(--denhaag-space-kennissen);
+  --utrecht-invalid-form-alert-margin-block-start: var(--denhaag-space-kennissen);
+}
+
+/* vrienden selector */
+:is(utrecht-heading-2, .utrecht-heading-2, utrecht-heading-3, .utrecht-heading-3)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge,
+    .utrecht-status-badge,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table
+  ) {
+  --utrecht-heading-6-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-heading-5-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-heading-4-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-heading-3-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-heading-2-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-heading-1-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-image-paragrapgh-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-badge-list, .utrecht-badge-list)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-button, .utrecht-button)
+  + :is(
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-heading-2, utrecht-heading-3, utrecht-heading-4, utrecht-heading-5, utrecht-heading-6, utrecht-badge-list)
+  + :is(utrecht-accordion, .utrecht-accordion) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-form-field, .utrecht-form-field)
+  + :is(
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-undordered-list,
+    .utrecht-undordered-list
+  ) {
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(todo-icon-only-button, .todo-icon-only-button)
+  + :is(
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(todo-image-paragraph, .todo-image-paragraph)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-link, .utrecht-link)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    todo-image-hero,
+    .todo-image-hero,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-hero-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-ordered-list, .utrecht-ordered-list)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-paragraph, .utrecht-paragraph)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    todo-image-paragraph,
+    .todo-image-paragraph,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-status-badge-list, .utrecht-status-badge-list)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    utrecht-image-button,
+    .utrecht-image-button,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-table, .utrecht-table)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    utrecht-image-button,
+    .utrecht-image-button,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+:is(utrecht-unordered-list, .utrecht-unordered-list)
+  + :is(
+    utrecht-accordion,
+    .utrecht-accordion,
+    utrecht-badge-list,
+    .utrecht-badge-list,
+    utrecht-button,
+    .utrecht-button,
+    utrecht-button-group,
+    .utrecht-button-group,
+    utrecht-data-list,
+    .utrecht-data-list,
+    utrecht-form-field,
+    .utrecht-form-field,
+    todo-icon-only-button,
+    .todo-icon-only-button,
+    utrecht-image-button,
+    .utrecht-image-button,
+    utrecht-link,
+    .utrecht-link,
+    utrecht-ordered-list,
+    .utrecht-ordered-list,
+    utrecht-pagination,
+    .utrecht-pagination,
+    utrecht-paragraph,
+    .utrecht-paragraph,
+    utrecht-status-badge-list,
+    .utrecht-status-badge-list,
+    utrecht-table,
+    .utrecht-table,
+    utrecht-unordered-list,
+    .utrecht-unordered-list
+  ) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-button-group-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-data-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-form-field-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-icon-only-button-margin-block-start: var(--denhaag-space-vrienden);
+  --todo-image-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-link-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-ordered-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-pagination-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-paragraph-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-status-badge-list-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-table-margin-block-start: var(--denhaag-space-vrienden);
+  --utrecht-unordered-list-margin-block-start: var(--denhaag-space-vrienden);
+}
+
+/* besties selector */
+:is(utrecht-unordered-list, .utrecht-unorderd-list) + :is(utrecht-button, .utrecht-button) {
+  --utrecht-button-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(utrecht-accordion, .utrecht-accordion) + :is(utrecht-accordion, .utrecht-accordion) {
+  --utrecht-accordion-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(utrecht-data-list-item, .utrecht-data-list-item) + :is(utrecht-data-list-item, .utrecht-data-list-item) {
+  --utrecht-data-list-item-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(utrecht-form-field-checkbox-option, .utrecht-form-field-checkbox-option)
+  + :is(
+    utrecht-form-field-checkbox-option,
+    .utrecht-form-field-checkbox-option,
+    utrecht-form-field-description,
+    .utrecht-form-field-description,
+    utrecht-form-field-error-message,
+    .utrecht-form-field-error-message
+  ) {
+  --utrecht-form-field-checkbox-option-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-description-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-error-message-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(
+    utrecht-form-field-label,
+    .utrecht-form-field-label,
+    utrecht-form-field-description,
+    .utrecht-form-field-description,
+    utrecht-form-field-error-message,
+    .utrecht-form-field-error-message
+  )
+  + :is(
+    utrecht-form-field-checkbox-option,
+    .utrecht-form-field-checkbox-option,
+    utrecht-form-field-radion-option,
+    .utrecht-form-field-radion-option,
+    utrecht-form-field-error-message,
+    .utrecht-form-field-error-message,
+    utrecht-form-field-radio-group,
+    .utrecht-form-field-radio-group,
+    utrecht-form-field-select,
+    .utrecht-form-field-select,
+    utrecht-form-field-textarea,
+    .utrecht-form-field-textarea,
+    utrecht-form-field-text-input,
+    .utrecht-form-field-text-input
+  ) {
+  --utrecht-form-field-checkbox-option-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-error-message-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-radio-group-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-radio-option-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-select-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-text-input-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-textarea-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(utrecht-form-field-radio-option, .utrecht-form-field-radio-option)
+  + :is(
+    utrecht-form-field-error-message,
+    .utrecht-form-field-error-message,
+    utrecht-form-field-radio-option,
+    .utrecht-form-field-radio-option,
+    utrecht-form-field-description,
+    .utrecht-form-field-description
+  ) {
+  --utrecht-form-field-radio-option-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-error-message-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-description-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(utrecht-radio-group, .utrecht-radio-group)
+  + :is(
+    utrecht-form-field-description,
+    .utrecht-form-field-description,
+    utrecht-form-field-error-message,
+    .utrecht-form-field-error-message
+  ) {
+  --utrecht-form-field-error-message-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-description-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(utrecht-status-badge, .utrecht-status-badge) + :is(utrecht-status-badge, .utrecht-status-badge) {
+  --utrecht-status-badge-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(utrecht-select, .utrecht-select, utrecht-textarea, .utrecht-textarea, utrecht-textbox, .utrecht-textbox)
+  + :is(
+    utrecht-form-field-error-message,
+    .utrecht-form-field-error-message,
+    utrecht-form-field-description,
+    .utrecht-form-field-description
+  ) {
+  --utrecht-form-field-error-message-margin-block-start: var(--denhaag-space-besties);
+  --utrecht-form-field-description-margin-block-start: var(--denhaag-space-besties);
+}
+
+:is(utrecht-alert, .utrecht-alert)
+  > :is(
+    .utrecht-heading-1,
+    utrecht-heading-1,
+    .utrecht-heading-1,
+    .utrecht-heading-2,
+    utrecht-heading-2,
+    .utrecht-heading-2,
+    .utrecht-heading-3,
+    utrecht-heading-3,
+    .utrecht-heading-3,
+    .utrecht-heading-4,
+    utrecht-heading-4,
+    .utrecht-heading-4,
+    .utrecht-heading-5,
+    utrecht-heading-5,
+    .utrecht-heading-5,
+    .utrecht-heading-6,
+    utrecht-heading-6,
+    .utrecht-heading-6
+  ):first-child {
+  --utrecht-heading-1-margin-block-start: 0;
+  --utrecht-heading-2-margin-block-start: 0;
+  --utrecht-heading-3-margin-block-start: 0;
+  --utrecht-heading-4-margin-block-start: 0;
+  --utrecht-heading-5-margin-block-start: 0;
+  --utrecht-heading-6-margin-block-start: 0;
+}

@@ -83,12 +83,21 @@ body {
   /* active focus */
   --utrecht-navigation-link-active-focus-color: var(--utrecht-color-black);
 
+  /* --- navigation tokens end --- */
+
+  /* --- spacing tokens start --- */
+  --denhaag-space-besties: 4px;
+  --denhaag-space-vrienden: 8px;
+  --denhaag-space-kennissen: 16px;
+  --denhaag-space-onbekenden: 32px;
+  --denhaag-space-onbemindend: 64px;
+
   margin-block: 0;
   margin-inline: 0;
   padding-block: 0;
   padding-inline: 0;
 
-  /* --- navigation tokens end --- */
+  /* --- spacing tokens end --- */
 }
 
 a {
