@@ -169,6 +169,47 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::print-page.print-page",
+      "properties": {
+        "fields": ["versiondate", "title", "introductionBody"]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::print-page.print-page",
+      "properties": {},
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::print-page.print-page",
+      "properties": {},
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::print-page.print-page",
+      "properties": {
+        "fields": ["versiondate", "title", "introductionBody"]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::print-page.print-page",
+      "properties": {
+        "fields": ["versiondate", "title", "introductionBody"]
+      },
+      "conditions": [],
+      "actionParameters": {}
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::theme-page.theme-page",
       "properties": {
         "fields": ["title", "slug", "navigation_pages", "description", "previewImage", "content", "article_pages"]
