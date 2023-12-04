@@ -28,13 +28,7 @@ module.exports = {
       files: ['*.json'],
     },
     {
-      extends: [
-        'plugin:react/recommended',
-        'eslint-config-prettier',
-        '@strapi-community',
-        './.eslintrc.js.json',
-        './.eslintrc.react.json',
-      ],
+      extends: ['plugin:react/recommended', 'eslint-config-prettier', './.eslintrc.js.json', './.eslintrc.react.json'],
       files: ['*.js', '*.jsx'],
       plugins: ['import', 'jest', 'prettier'],
       rules: {
