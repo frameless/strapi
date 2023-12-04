@@ -1,3 +1,11 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "settings": {
+    "next": {
+      "rootDir": "../vth-frontend"
+    }
+  },
+  "rules": {
+    "@next/next/no-html-link-for-pages": "off"
+  }
 }
