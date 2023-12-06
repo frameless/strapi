@@ -206,20 +206,7 @@ a {
     display: none;
   }
 
-  ol {
-    counter-reset: item;
-  }
-
-  ol > li {
-    counter-increment: item;
-  }
-
-  ol ol > li {
-    display: block;
-  }
-
-  ol ol > li::before {
-    content: counters(item, ".") ". ";
-    margin-block-start: -20px;
+  .utrecht-accordion__button[aria-expanded="false"]::after {
+    display: none;
   }
 }

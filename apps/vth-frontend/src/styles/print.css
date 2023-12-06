@@ -8,3 +8,26 @@
 .utrecht-image {
   max-inline-size: 500px;
 }
+
+ol {
+  counter-reset: item;
+}
+
+ol > li {
+  counter-increment: item;
+}
+
+ol ol > li {
+  display: block;
+}
+
+ol ol > li::before {
+  content: counters(item, ".") ". ";
+  margin-block-start: -20px;
+}
+
+table,
+table tr td,
+table tr th {
+  page-break-inside: avoid;
+}
