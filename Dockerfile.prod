@@ -3,12 +3,16 @@ FROM node:20-alpine3.18 as build
 RUN apk update && apk add --no-cache git libc6-compat build-base gcc bash autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 
 ARG NODE_ENV=production
+RUN yarn set version 4.0.2
 ARG STRAPI_PUBLIC_URL
 ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
 WORKDIR /opt/app
 COPY ./package.json ./yarn.lock ./
+COPY .yarn ./.yarn
+COPY .yarnrc.yml ./
+
 ENV PATH /opt/app/node_modules/.bin:$PATH
-RUN yarn global add patch-package node-gyp
+RUN yarn dlx node-gyp patch-package 
 
 COPY ./ .
 
@@ -16,14 +20,17 @@ COPY ./ .
 #############################
 FROM build AS dependencies
 
+# Install patch-package globally
+
+# Install packages globally
+# RUN yarn dlx node-gyp patch-package 
 COPY ./patches /opt/app/patches
 # Install prod dependencies
-RUN yarn install --production=true --frozen-lockfile && \
+RUN yarn workspaces focus --all --production \
     # Cache prod dependencies
-    cp -R node_modules /prod_node_modules && \
+    && cp -R node_modules /prod_node_modules \
     # Install dev dependencies
-    yarn install --production=false
-
+    && yarn install
 # Build target builder #
 ########################
 FROM build AS builder

@@ -1,6 +1,5 @@
 {
   "name": "@frameless/pdc-dashboard",
-  "private": false,
   "version": "0.1.0",
   "description": "A Strapi application",
   "keywords": [],
@@ -18,12 +17,12 @@
     "config-sync-import": "config-sync import"
   },
   "dependencies": {
-    "@frameless/preview-button": "0.0.0-semantically-released",
-    "@frameless/strapi-plugin-gemeente-select": "0.0.0-semantically-released",
-    "@frameless/strapi-plugin-open-forms-embed": "0.0.0-semantically-released",
-    "@frameless/strapi-plugin-scheme-select": "0.0.0-semantically-released",
-    "@frameless/strapi-plugin-uniform-product-name": "0.0.0-semantically-released",
-    "@frameless/strapi-tiptap-editor": "0.0.0-semantically-released",
+    "@frameless/preview-button": "workspace:*",
+    "@frameless/strapi-plugin-gemeente-select": "workspace:*",
+    "@frameless/strapi-plugin-open-forms-embed": "workspace:*",
+    "@frameless/strapi-plugin-scheme-select": "workspace:*",
+    "@frameless/strapi-plugin-uniform-product-name": "workspace:*",
+    "@frameless/strapi-tiptap-editor": "workspace:*",
     "@strapi/plugin-graphql": "4.14.6",
     "@strapi/plugin-i18n": "4.14.6",
     "@strapi/plugin-users-permissions": "4.14.6",
@@ -31,6 +30,7 @@
     "better-sqlite3": "8.3.0",
     "pg": "8.11.3",
     "slugify": "1.6.6",
+    "strapi-content-type-explorer": "0.1.1",
     "strapi-plugin-config-sync": "1.2.3",
     "strapi-plugin-import-export-entries": "1.23.1",
     "strapi-plugin-notes": "1.1.3",

@@ -1,6 +1,6 @@
 {
   "name": "@frameless/provider-upload-vercel",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "description": "Vercel provider for strapi upload",
   "private": true,
   "keywords": [
@@ -23,8 +23,8 @@
   "author": "Frameless",
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "rollup --config rollup.config.ts --configPlugin typescript",
-    "watch": "rollup --config rollup.config.ts --configPlugin typescript -w",
+    "build": "npx rollup --config rollup.config.ts --configPlugin typescript",
+    "watch": "npx rollup --config rollup.config.ts --configPlugin typescript -w",
     "clean": "rimraf dist .rollup.cache"
   },
   "dependencies": {
@@ -41,7 +41,7 @@
     "@rollup/plugin-json": "6.0.1",
     "@rollup/plugin-node-resolve": "15.2.3",
     "rollup-plugin-peer-deps-external": "2.2.4",
-    "rollup-plugin-terser": "7.0.2"
+    "rollup-plugin-terser": "7.0.2",
   },
   "engines": {
     "node": "20.x.x"

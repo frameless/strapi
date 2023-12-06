@@ -22,6 +22,7 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
 }
 
 const SearchTips = async ({ params: { locale, query } }: any) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['tips-page', 'common']);
   const tipsList = t('body.section.unordered-list', { returnObjects: true }) as string[];
   return (

@@ -11,11 +11,10 @@
     "prebuild": "npm run clean",
     "clean": "rimraf build .next",
     "build": "next build",
-    "start": "next start -p 3000",
-    "lint": "next lint"
+    "start": "next start -p 3000"
   },
   "dependencies": {
-    "@frameless/ui": "0.0.0-semantically-released",
+    "@frameless/ui": "workspace:*",
     "@tanstack/react-query": "4.29.25",
     "@utrecht/component-library-css": "3.0.1-alpha.19",
     "@utrecht/component-library-react": "3.0.1-alpha.19",

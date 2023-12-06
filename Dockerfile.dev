@@ -2,12 +2,14 @@ FROM node:20-alpine3.18 as build
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add --no-cache git libc6-compat build-base bash gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 
+# Install Yarn globally (adjust version as needed)
+RUN yarn set version stable
+
+# Set environment variables
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
 ARG STRAPI_PUBLIC_URL
 ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
-WORKDIR /opt/app
-COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
 COPY ./apps/pdc-dashboard/package.json apps/pdc-dashboard/package.json
 COPY ./apps/pdc-frontend/package.json apps/pdc-frontend/package.json
@@ -26,17 +28,39 @@ COPY ./packages/ui/package.json packages/ui/package.json
 COPY ./packages/upl/package.json packages/upl/package.json
 COPY ./packages/strapi-plugin-uniform-product-name/package.json packages/strapi-plugin-uniform-product-name/package.json
 COPY ./packages/strapi-plugin-open-forms-embed/package.json packages/strapi-plugin-open-forms-embed/package.json
+# Set the working directory
+WORKDIR /opt/app
+
+# Copy required files
+COPY ./package.json ./yarn.lock ./
+COPY .yarn ./.yarn
+COPY .yarnrc.yml ./
+COPY .yarnrc.yml ./
+COPY ./apps/*/package.json apps/
+COPY ./packages/*/package.json packages/
 
 # Build target dependencies #
 #############################
 FROM build AS dependencies
+
 # Install prod dependencies
 COPY ./patches /opt/app/patches
+COPY ./.yarn /opt/app/.yarn
+COPY ./.yarnrc.yml /opt/app/.yarnrc.yml 
+
+# Install workspaces dependencies
 RUN yarn install
 
 # Build target builder #
 ########################
 FROM build AS builder
+
+# Run necessary build commands
+RUN yarn dlx node-gyp rollup patch-package
+# Install prod dependencies
+COPY ./patches /opt/app/patches
+COPY ./.yarn /opt/app/.yarn
+COPY ./.yarnrc.yml /opt/app/.yarnrc.yml 
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
 RUN  npm run build --workspace @frameless/upl && \
@@ -51,8 +75,15 @@ RUN  npm run build --workspace @frameless/upl && \
 # Build target production #
 ###########################
 FROM build AS development
+
+# Copy required files from the builder stage
 COPY --from=builder /opt/app /opt/app
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
+
 RUN chmod +x ./bin/wait-for-it.sh
+
+# Expose the required port
 EXPOSE 1337
+
+# Define the command to start the application
 CMD ["yarn", "dev"]

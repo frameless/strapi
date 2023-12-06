@@ -1,8 +1,7 @@
 {
   "name": "@frameless/upl",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "sideEffects": true,
-  "private": false,
   "main": "./dist/build/main.js",
   "keywords": [],
   "author": "@frameless",
@@ -32,6 +31,7 @@
   "devDependencies": {
     "@types/uuid": "9.0.8",
     "rimraf": "5.0.5",
+    "typescript": "5.0.4",
     "uuid": "9.0.1"
   }
 }

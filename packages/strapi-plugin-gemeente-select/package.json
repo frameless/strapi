@@ -1,9 +1,8 @@
 {
   "name": "@frameless/strapi-plugin-gemeente-select",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "description": "A strapi custom field for selecting gemeente",
   "keywords": [],
-  "private": false,
   "strapi": {
     "name": "gemeente-select",
     "description": "Gemeente Select custom field",
@@ -28,6 +27,7 @@
     "node": "20.x.x"
   },
   "dependencies": {
+    "@frameless/catalogi-data": "workspace:*",
     "@strapi/design-system": "1.12.2",
     "@strapi/icons": "1.12.2"
   }

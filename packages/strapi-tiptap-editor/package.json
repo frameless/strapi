@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-tiptap-editor",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "description": "A drop-in replacement for the strapi editor",
   "strapi": {
     "name": "strapi-tiptap-editor",
@@ -72,7 +72,6 @@
     "@strapi/typescript-utils": "4.14.6",
     "@types/styled-components": "5.1.34",
     "react-router-dom": "5.3.4",
-    "@types/react-router-dom": "5.3.3",
     "typescript": "5.0.4"
   },
   "peerDependencies": {

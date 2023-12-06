@@ -36,7 +36,13 @@ module.exports = {
       },
     },
     {
-      extends: ['plugin:react/recommended', 'eslint-config-prettier', './.eslintrc.js.json', './.eslintrc.react.json'],
+      extends: [
+        'plugin:react/recommended',
+        'eslint-config-prettier',
+        './.eslintrc.js.json',
+        './.eslintrc.react.json',
+        'next/core-web-vitals',
+      ],
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint', 'import', 'jest', 'prettier'],
@@ -77,6 +83,7 @@ module.exports = {
       plugins: ['@typescript-eslint', 'import', 'prettier'],
       rules: {
         'prettier/prettier': 'error',
+        '@next/next/no-html-link-for-pages': 'off',
       },
     },
   ],

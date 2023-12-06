@@ -52,6 +52,7 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
 }
 
 const Search = async ({ params: { locale, query } }: SearchProps) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['search-page', 'common']);
   const searchResults = await getSuggestedSearch(locale, query);
 

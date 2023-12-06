@@ -64,6 +64,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
   const { data } = await fetchData({

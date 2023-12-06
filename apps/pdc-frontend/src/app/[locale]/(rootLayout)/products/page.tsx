@@ -58,6 +58,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const Products = async ({ params: { locale } }: { params: { locale: string } }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['products-page', 'common']);
 
   const { products } = await fetchAllProducts({ locale });

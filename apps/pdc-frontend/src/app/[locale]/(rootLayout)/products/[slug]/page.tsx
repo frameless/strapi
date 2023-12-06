@@ -249,7 +249,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const { product } = await getAllProducts(locale, slug);
 
   const priceData: any = product?.attributes?.price && product?.attributes?.price?.data?.attributes?.price;
-
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
 
   return (

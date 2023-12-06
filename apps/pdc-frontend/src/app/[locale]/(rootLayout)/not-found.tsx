@@ -12,6 +12,7 @@ import { fallbackLng } from '../../i18n/settings';
 
 const NotFoundPage = async () => {
   const locale = cookies().get('i18next')?.value;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale || fallbackLng, ['common']);
   const { data } = await fetchData<{ data: GetNotFoundPageQuery }>({
     url: createStrapiURL(),

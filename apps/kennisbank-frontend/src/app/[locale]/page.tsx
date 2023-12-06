@@ -23,6 +23,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const Home = async ({ params: { locale } }: { params: any }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'home-page');
   return (
     <div>

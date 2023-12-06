@@ -60,6 +60,7 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
 }
 
 const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
 
   const { products } = await getAlphabeticallyProductsByLetter({

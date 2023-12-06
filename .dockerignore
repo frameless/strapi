@@ -1,15 +1,21 @@
+# Docker specific exclusions
 Dockerfile
 Dockerfile.*
 *docker-compose.*.yml
-*docker-compose.*.yml
 .dockerignore
+
+# Node.js / npm / Yarn specific exclusions
 node_modules/
 **/node_modules
 **/**/node_modules
 npm-debug.log
-README.md
+.yarn/cache
+.yarn/install-state.gz
+
+# Project specific exclusions
 .next/
-.git
+**/.next/
+**/**/.next/
 .tmp/
 .cache/
 build/
@@ -17,13 +23,23 @@ data/
 .env
 .env*
 
+# Git and version control exclusions
+# Exclude the root-level .git directory if needed
+# .git/
+**/.git
+
+# Additional directories to exclude
+# Exclude documentation if not needed in the Docker image
+docs
+
+# Exclude log files and build artifacts
+*.log
+**/.DS_Store
+
+# Excluding build output directories, if applicable
 **/.next
 **/.tmp
 **/build/
 **/data/
 **/dist/
 **/.cache/
-**/node_modules/
-**/.DS_Store
-docs
-*.log
