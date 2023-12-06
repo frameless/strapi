@@ -1,8 +1,8 @@
 .utrecht-print-page {
-  --utrecht-heading-3-font-size: var(--utrecht-heading-2-font-size);
-  --utrecht-heading-4-font-size: var(--utrecht-heading-2-font-size);
-  --utrecht-heading-5-font-size: var(--utrecht-heading-2-font-size);
-  --utrecht-heading-6-font-size: var(--utrecht-heading-2-font-size);
+  --utrecht-heading-2-font-size: var(--utrecht-heading-4-font-size);
+  --utrecht-heading-3-font-size: var(--utrecht-heading-4-font-size);
+  --utrecht-heading-5-font-size: var(--utrecht-heading-4-font-size);
+  --utrecht-heading-6-font-size: var(--utrecht-heading-4-font-size);
 }
 
 .utrecht-image {
