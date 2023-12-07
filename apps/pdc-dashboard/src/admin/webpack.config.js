@@ -1,9 +1,8 @@
-'use strict';
+const { NormalModuleReplacementPlugin } = require('webpack');
 
-module.exports = (config, webpack) => {
-  config.plugins.push(
-    new webpack.NormalModuleReplacementPlugin(/^tippy\.js$/, 'tippy.js/dist/tippy-bundle.umd.min.js'),
-  );
+// eslint-disable-next-line no-undef
+module.exports = (config) => {
+  config.plugins.push(new NormalModuleReplacementPlugin(/^tippy\.js$/, 'tippy.js/dist/tippy-bundle.umd.min.js'));
   // Allow scss modules
   config.resolve = {
     ...config.resolve,
