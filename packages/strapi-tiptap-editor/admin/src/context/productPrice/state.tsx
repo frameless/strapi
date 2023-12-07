@@ -11,7 +11,7 @@ const State = (props: any) => {
   };
 
   const [state, dispatch] = useReducer(Reducer, initialState);
-  const getProductPrice = React.useCallback(async (pageId) => {
+  const getProductPrice = React.useCallback(async (pageId: string) => {
     try {
       const res = await fetch(`${process.env.STRAPI_ADMIN_BACKEND_URL}/graphql`, {
         method: 'POST',
