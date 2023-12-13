@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_components_utrecht_accordion",
+  "info": {
+    "displayName": "Uitklapmenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-accordion-section"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_components_catalogi_metas",
+  "info": {
+    "displayName": "Catalogi Metadata",
+    "icon": "database",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "spatial": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.spatial",
+      "required": true
+    },
+    "authority": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.spatial",
+      "required": true
+    },
+    "audience": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.audience",
+      "required": true
+    },
+    "onlineRequest": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.online-request",
+      "required": true
+    },
+    "uniformProductName": {
+      "type": "customField",
+      "customField": "plugin::uniform-product-name.uniform-product-name"
+    },
+    "abstract": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_seo_metas",
+  "info": {
+    "displayName": "Metadata Tags",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "keymatch": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 70,
+      "unique": false,
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 160,
+      "required": true
+    },
+    "ogImage": {
+      "allowedTypes": ["images", "files", "videos", "audios"],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

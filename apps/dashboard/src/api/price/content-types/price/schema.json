@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prices",
+  "info": {
+    "singularName": "price",
+    "pluralName": "prices",
+    "displayName": "Price",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "price": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {},
+      "component": "components.price"
+    },
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "price"
+    }
+  }
+}

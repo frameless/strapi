@@ -1,0 +1,293 @@
+version: "3.8"
+services:
+  kb_dashboard:
+    container_name: kb_dashboard
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: strapi:latest
+    restart: unless-stopped
+    volumes:
+      - ./apps/dashboard/public/uploads:/opt/app/apps/dashboard/public/uploads
+    environment:
+      HOST: ${HOST_KB}
+      PORT: ${PORT_KB}
+      APP_KEYS: ${APP_KEYS_KB}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET_KB}
+      JWT_SECRET: ${JWT_SECRET_KB}
+      API_TOKEN_SALT: ${API_TOKEN_SALT_KB}
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN_KB}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT_KB}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL_KB}
+      DATABASE_CLIENT: ${DATABASE_CLIENT_KB}
+      DATABASE_HOST: kb_db
+      DATABASE_PORT: ${DATABASE_PORT_KB}
+      DATABASE_NAME: ${DATABASE_NAME_KB}
+      DATABASE_USERNAME: ${DATABASE_USERNAME_KB}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD_KB}
+      NODE_ENV: ${NODE_ENV_KB}
+    ports:
+      - "4339:4339"
+    networks:
+      - dashboard_network
+    depends_on:
+      - kb_db
+  pdc_dashboard:
+    container_name: pdc_dashboard
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: strapi:latest
+    restart: unless-stopped
+    volumes:
+      - ./apps/dashboard/public/uploads:/opt/app/apps/dashboard/public/uploads
+    environment:
+      HOST: ${HOST_PDC}
+      PORT: ${PORT_PDC}
+      APP_KEYS: ${APP_KEYS_PDC}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET_PDC}
+      JWT_SECRET: ${JWT_SECRET_PDC}
+      API_TOKEN_SALT: ${API_TOKEN_SALT_PDC}
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN_PDC}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT_PDC}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL_PDC}
+      DATABASE_CLIENT: ${DATABASE_CLIENT_PDC}
+      DATABASE_HOST: pdc_db
+      DATABASE_PORT: ${DATABASE_PORT_PDC}
+      DATABASE_NAME: ${DATABASE_NAME_PDC}
+      DATABASE_USERNAME: ${DATABASE_USERNAME_PDC}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD_PDC}
+      NODE_ENV: ${NODE_ENV_PDC}
+    ports:
+      - "4338:4338"
+    networks:
+      - dashboard_network
+    depends_on:
+      - pdc_db
+  vth_dashboard:
+    container_name: vth_dashboard
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: strapi:latest
+    restart: unless-stopped
+    volumes:
+      - ./apps/dashboard/public/uploads:/opt/app/apps/dashboard/public/uploads
+    environment:
+      HOST: ${HOST_VTH}
+      PORT: ${PORT_VTH}
+      APP_KEYS: ${APP_KEYS_VTH}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET_VTH}
+      JWT_SECRET: ${JWT_SECRET_VTH}
+      API_TOKEN_SALT: ${API_TOKEN_SALT_VTH}
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN_VTH}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT_VTH}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL_VTH}
+      DATABASE_CLIENT: ${DATABASE_CLIENT_VTH}
+      DATABASE_HOST: vth_db
+      DATABASE_PORT: ${DATABASE_PORT_VTH}
+      DATABASE_NAME: ${DATABASE_NAME_VTH}
+      DATABASE_USERNAME: ${DATABASE_USERNAME_VTH}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD_VTH}
+      NODE_ENV: ${NODE_ENV_VTH}
+    ports:
+      - "4337:4337"
+    networks:
+      - dashboard_network
+    depends_on:
+      - vth_db
+  kb_frontend:
+    container_name: kb_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    command: |
+      ./bin/wait-for-it.sh kb_dashboard:4339 -- npm run --workspace @frameless/kennisbank-frontend start -- -p 3000
+    environment:
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN_KB}
+      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL_KB}
+      FRONTEND_PUBLIC_URL: ${STRAPI_PRIVATE_URL_KB}
+      STRAPI_PUBLIC_URL: ${STRAPI_PUBLIC_URL_KB}
+    ports:
+      - "3000:3000"
+    networks:
+      - dashboard_network
+    depends_on:
+      - kb_dashboard
+      - kb_db
+  pdc_frontend:
+    container_name: pdc_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    command: ./bin/wait-for-it.sh pdc_dashboard:4338 -- npm run --workspace @frameless/pdc-frontend start -- -p 3001
+    environment:
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN_PDC}
+      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL_PDC}
+      FRONTEND_PUBLIC_URL: ${STRAPI_PRIVATE_URL_PDC}
+      STRAPI_PUBLIC_URL: ${STRAPI_PUBLIC_URL_PDC}
+    ports:
+      - "3001:3001"
+    networks:
+      - dashboard_network
+    depends_on:
+      - pdc_dashboard
+      - pdc_db
+  vth_frontend:
+    container_name: vth_frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    command: ./bin/wait-for-it.sh vth_dashboard:4339 -- npm run --workspace @frameless/vth-frontend start -- -p 3002
+    environment:
+      PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN_VTH}
+      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL_VTH}
+      FRONTEND_PUBLIC_URL: ${STRAPI_PRIVATE_URL_VTH}
+      STRAPI_PUBLIC_URL: ${STRAPI_PUBLIC_URL_VTH}
+    ports:
+      - "3002:3002"
+    networks:
+      - dashboard_network
+    depends_on:
+      - vth_dashboard
+      - vth_db
+  pdc_sc:
+    container_name: pdc_sc
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    command: npm run start:pdc-sc
+    environment:
+      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL_PDC}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL_PDC}
+    ports:
+      - "4000:4000"
+    networks:
+      - dashboard_network
+    depends_on:
+      - pdc_dashboard
+      - pdc_db
+  kb_db:
+    container_name: kb_db
+    platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    image: postgres:12.0-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME_KB}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD_KB}
+      POSTGRES_DB: ${DATABASE_NAME_KB}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "sh -c 'pg_isready -U ${DATABASE_USERNAME_KB} -d ${DATABASE_NAME_KB}'",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    volumes:
+      - kb-data:/var/lib/postgresql/data/
+    ports:
+      - "5430:5430"
+    networks:
+      - dashboard_network
+  pdc_db:
+    container_name: pdc_db
+    platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    image: postgres:12.0-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME_PDC}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD_PDC}
+      POSTGRES_DB: ${DATABASE_NAME_PDC}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "sh -c 'pg_isready -U ${DATABASE_USERNAME_PDC} -d ${DATABASE_NAME_PDC}'",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    volumes:
+      - pdc-data:/var/lib/postgresql/data/
+    ports:
+      - "5431:5431"
+    networks:
+      - dashboard_network
+  vth_db:
+    container_name: vth_db
+    platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    image: postgres:12.0-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME_VTH}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD_VTH}
+      POSTGRES_DB: ${DATABASE_NAME_VTH}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "sh -c 'pg_isready -U ${DATABASE_USERNAME_VTH} -d ${DATABASE_NAME_VTH}'",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    volumes:
+      - vth-data:/var/lib/postgresql/data/
+    ports:
+      - "5433:5433"
+    networks:
+      - dashboard_network
+  kb_pgadmin:
+    container_name: kb_pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL_KB}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD_KB}
+    ports:
+      - "9000:80"
+    networks:
+      - dashboard_network
+    depends_on:
+      - pdc_db
+  pdc_pgadmin:
+    container_name: pdc_pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL_PDC}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD_PDC}
+    ports:
+      - "9001:80"
+    networks:
+      - dashboard_network
+    depends_on:
+      - pdc_db
+  vth_pgadmin:
+    container_name: vth_pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL_VTH}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD_VTH}
+    ports:
+      - "9002:80"
+    networks:
+      - dashboard_network
+    depends_on:
+      - vth_db
+volumes:
+  kb-data:
+  pdc-data:
+  vth-data:
+
+networks:
+  dashboard_network:
+    name: Strapi network
+    driver: bridge

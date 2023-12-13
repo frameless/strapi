@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_components_prices",
+  "info": {
+    "displayName": "Price",
+    "icon": "euro-sign",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "currency": {
+      "type": "enumeration",
+      "enum": ["EUR", "USD"],
+      "required": true,
+      "default": "EUR"
+    },
+    "value": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    }
+  }
+}

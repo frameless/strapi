@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_utrecht_rich_text",
+  "info": {
+    "displayName": "Contentblok",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

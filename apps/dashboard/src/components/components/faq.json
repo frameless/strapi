@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_components_faqs",
+  "info": {
+    "displayName": "FAQ koppelen",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "faq": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::faq.faq"
+    }
+  }
+}

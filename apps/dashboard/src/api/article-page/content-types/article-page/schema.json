@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_pages",
+  "info": {
+    "singularName": "article-page",
+    "pluralName": "article-pages",
+    "displayName": "Themacontent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "minLength": 2
+    },
+    "description": {
+      "type": "text"
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": ["components.utrecht-accordion", "components.utrecht-rich-text"]
+    },
+    "navigation_pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::navigation-page.navigation-page",
+      "inversedBy": "article_pages"
+    },
+    "theme_pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::theme-page.theme-page",
+      "mappedBy": "article_pages"
+    }
+  }
+}

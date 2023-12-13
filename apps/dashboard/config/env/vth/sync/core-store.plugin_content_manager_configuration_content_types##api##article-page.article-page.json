@@ -1,0 +1,227 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::article-page.article-page",
+  "value": {
+    "uid": "api::article-page.article-page",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 50,
+      "mainField": "title",
+      "defaultSortBy": "title",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Paginatitel",
+          "description": "De titel van de pagina zoals deze in linkjes en op navigatietegels verschijnt.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Titel",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "URL segment",
+          "description": "Leeg laten om automatisch in te vullen.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Tegel beschrijving",
+          "description": "De korte beschrijving van deze content pagina zoals deze op de navigatie tegel op het bovenliggende thema verschijnt.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "previewImage": {
+        "edit": {
+          "label": "Tegel afbeelding",
+          "description": "De afbeelding zoals deze op de navigatie tegel voor deze content verschijnt.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "previewImage",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "content": {
+        "edit": {
+          "label": "pagina content",
+          "description": "Zelf de pagina content bewerken.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "content",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "navigation_pages": {
+        "edit": {
+          "label": "Hoofditems ",
+          "description": "Hoofditems die direct boven deze content pagina moeten vallen zonder thema pagina er tussen. ",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "navigation_pages",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "theme_pages": {
+        "edit": {
+          "label": "Thema pagina's",
+          "description": "De thema's die boven deze content pagina vallen.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "theme_pages",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "Aangemaakt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "Laatst gewijzigd",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdBy": {
+        "edit": {
+          "label": "createdBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "createdBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedBy": {
+        "edit": {
+          "label": "updatedBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "updatedBy",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "edit": [
+        [
+          {
+            "name": "title",
+            "size": 6
+          },
+          {
+            "name": "slug",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "description",
+            "size": 6
+          },
+          {
+            "name": "previewImage",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "theme_pages",
+            "size": 6
+          },
+          {
+            "name": "navigation_pages",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "content",
+            "size": 12
+          }
+        ]
+      ],
+      "list": ["id", "title", "updatedAt", "createdAt"]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

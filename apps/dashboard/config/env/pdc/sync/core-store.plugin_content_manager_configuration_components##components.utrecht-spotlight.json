@@ -1,0 +1,94 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.utrecht-spotlight",
+  "value": {
+    "uid": "components.utrecht-spotlight",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "type",
+      "defaultSortBy": "id",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "content": {
+        "edit": {
+          "label": "Inhoud",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "content",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "type": {
+        "edit": {
+          "label": "Soort",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "type",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "logoButton": {
+        "edit": {
+          "label": "CTA-knop",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "logoButton",
+          "searchable": false,
+          "sortable": false
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "type", "logoButton"],
+      "edit": [
+        [
+          {
+            "name": "content",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "type",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "logoButton",
+            "size": 12
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

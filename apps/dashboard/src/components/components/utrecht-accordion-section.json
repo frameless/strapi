@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_components_utrecht_accordion_section",
+  "info": {
+    "displayName": "Accordion Section"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    }
+  }
+}

@@ -50,6 +50,8 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: [
+          './apps/dashboard/tsconfig.json',
+          './apps/dashboard/src/admin/tsconfig.json',
           './apps/pdc-frontend/tsconfig.json',
           './apps/pdc-sc/tsconfig.json',
           './apps/pdc-dashboard/tsconfig.json',

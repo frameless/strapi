@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_components_multi_columns_button_items",
+  "info": {
+    "displayName": "Multi Columns Button Item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "logoButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-logo-button"
+    }
+  }
+}

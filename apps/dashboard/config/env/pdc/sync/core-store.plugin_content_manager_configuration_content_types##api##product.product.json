@@ -1,0 +1,271 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::product.product",
+  "value": {
+    "uid": "api::product.product",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "title",
+      "defaultSortBy": "title",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Paginatitel",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "title",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "content": {
+        "edit": {
+          "label": "Contentblok",
+          "description": "",
+          "placeholder": "Voeg de pagina inhoud",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "content",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "sections": {
+        "edit": {
+          "label": "Sections",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "sections",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "price": {
+        "edit": {
+          "label": "Gekoppelde kosten",
+          "description": "Een relationeel veld waarin je de kosten van de producten kunt definiëren.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "price",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "metaTags": {
+        "edit": {
+          "label": "Metadata",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "metaTags",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "catalogiMeta": {
+        "edit": {
+          "label": "Samenwerkende Catalogi",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "catalogiMeta",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "metadata": {
+        "edit": {
+          "label": "Beheerinformatie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "metadata",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "Slug",
+          "description": "Een automatisch gegenereerde URL-vriendelijke versie van de titel voor een betere SEO en leesbaarheid.",
+          "placeholder": "",
+          "visible": true,
+          "editable": false
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "subcategories": {
+        "edit": {
+          "label": "Subcategorieën",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "subcategories",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdBy": {
+        "edit": {
+          "label": "createdBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "createdBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedBy": {
+        "edit": {
+          "label": "updatedBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "updatedBy",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "edit": [
+        [
+          {
+            "name": "title",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "content",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "sections",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "price",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "metaTags",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "catalogiMeta",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "metadata",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "subcategories",
+            "size": 6
+          },
+          {
+            "name": "slug",
+            "size": 6
+          }
+        ]
+      ],
+      "list": ["title", "metaTags", "price", "subcategories"]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

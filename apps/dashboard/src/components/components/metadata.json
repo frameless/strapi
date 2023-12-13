@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_components_metadata",
+  "info": {
+    "displayName": "Metadata Attributes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "singleDigitalGateway": {
+      "type": "enumeration",
+      "enum": ["ja", "nee"],
+      "required": true,
+      "private": true
+    },
+    "attachementAdded": {
+      "type": "enumeration",
+      "enum": ["ja", "nee"],
+      "private": true
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.contact",
+      "private": true,
+      "required": true
+    },
+    "identificationMethod": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.identification-method"
+    },
+    "eForm": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.e-form"
+    }
+  }
+}

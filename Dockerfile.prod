@@ -1,25 +1,19 @@
-FROM node:18-alpine as build
+FROM node:18.18.0-alpine as build
 # Installing libvips-dev for sharp Compatibility
-RUN apk update && apk add libc6-compat --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
-RUN apk update && apk add bash
+RUN apk update && apk add --no-cache --virtual libc6-compat build-base gcc autoconf bash automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 ARG NODE_ENV=production
 ARG STRAPI_PUBLIC_URL
 ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
 WORKDIR /opt/app
 COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
-
-COPY ./ .
-
+RUN yarn global add patch-package node-gyp
+COPY ./ . 
 
 # Build target dependencies #
 #############################
 FROM build AS dependencies
 
-RUN yarn global add node-gyp
-
-# Install patch-package globally
-RUN yarn global add patch-package
 COPY ./patches /opt/app/patches
 # Install prod dependencies
 RUN yarn install --production=true --frozen-lockfile && \

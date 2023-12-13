@@ -1,0 +1,152 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.catalogi-meta",
+  "value": {
+    "uid": "components.catalogi-meta",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "uniformProductName",
+      "defaultSortBy": "uniformProductName",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "spatial": {
+        "edit": {
+          "label": "Auteur",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "spatial",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "authority": {
+        "edit": {
+          "label": "Publicerende organisatie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "authority",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "audience": {
+        "edit": {
+          "label": "Doelgroep",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "audience",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "onlineRequest": {
+        "edit": {
+          "label": "Online aanvragen",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "onlineRequest",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "uniformProductName": {
+        "edit": {
+          "label": "De Uniforme Productnamenlijst (UPL)",
+          "description": "De Uniforme Productnamenlijst (UPL) biedt gestandaardiseerde namen voor overheidsproducten en -diensten, waardoor vindbaarheid en hergebruik worden verbeterd.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uniformProductName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "abstract": {
+        "edit": {
+          "label": "Korte omschrijving",
+          "description": "Korte beschrijving van het product, ter presentatie in de zoekresultatenlijst van afnemers. Een lengte van ongeveer 300 tekens wordt aangeraden. Let erop dat de tekst leesbaar moet zijn voor een doorsnee eindgebruiker (burger of ondernemer) en bruikbaar voor het bepalen van de relevantie van dit product in een lijst zoekresultaten.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "abstract",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "spatial", "authority", "audience"],
+      "edit": [
+        [
+          {
+            "name": "spatial",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "authority",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "audience",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "onlineRequest",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "uniformProductName",
+            "size": 6
+          },
+          {
+            "name": "abstract",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

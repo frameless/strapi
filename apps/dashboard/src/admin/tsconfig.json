@@ -1,0 +1,10 @@
+{
+  "extends": "@strapi/typescript-utils/tsconfigs/admin",
+  "include": [
+    "../../../../packages/**/**/admin/src/**/*.ts",
+    "../../../../packages/**/**/admin/src/**/*.tsx",
+    "./",
+    "../../global.d.ts"
+  ],
+  "exclude": ["node_modules/", "./webpack.config.js"]
+}

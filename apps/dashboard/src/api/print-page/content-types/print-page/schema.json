@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "print_pages",
+  "info": {
+    "singularName": "print-page",
+    "pluralName": "print-pages",
+    "displayName": "Print page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "versiondate": {
+      "type": "date",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "introductionBody": {
+      "type": "text"
+    }
+  }
+}

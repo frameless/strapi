@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_multi_columns_buttons",
+  "info": {
+    "displayName": "Meerdere Call to Action knoppen (CTA)"
+  },
+  "options": {},
+  "attributes": {
+    "column": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-multi-columns-button-item"
+    }
+  }
+}

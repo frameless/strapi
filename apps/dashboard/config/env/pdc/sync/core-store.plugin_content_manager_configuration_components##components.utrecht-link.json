@@ -1,0 +1,92 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.utrecht-link",
+  "value": {
+    "uid": "components.utrecht-link",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "textContent",
+      "defaultSortBy": "textContent",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "textContent": {
+        "edit": {
+          "label": "Text",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "textContent",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "href": {
+        "edit": {
+          "label": "Href",
+          "description": "De website-adres waarnaar je wilt linken.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "href",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "icon": {
+        "edit": {
+          "label": "Soort link",
+          "description": "Kies hoe de link eruit ziet.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "icon",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "href", "textContent", "icon"],
+      "edit": [
+        [
+          {
+            "name": "href",
+            "size": 6
+          },
+          {
+            "name": "textContent",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "icon",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

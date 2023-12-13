@@ -1,0 +1,76 @@
+{
+  "name": "Public",
+  "description": "Default role given to unauthenticated user.",
+  "type": "public",
+  "permissions": [
+    {
+      "action": "api::category.category.find"
+    },
+    {
+      "action": "api::category.category.findOne"
+    },
+    {
+      "action": "api::faq.faq.find"
+    },
+    {
+      "action": "api::faq.faq.findOne"
+    },
+    {
+      "action": "api::not-found-page.not-found-page.find"
+    },
+    {
+      "action": "api::price.price.find"
+    },
+    {
+      "action": "api::price.price.findOne"
+    },
+    {
+      "action": "api::product.product.find"
+    },
+    {
+      "action": "api::product.product.findOne"
+    },
+    {
+      "action": "api::subcategory.subcategory.find"
+    },
+    {
+      "action": "api::subcategory.subcategory.findOne"
+    },
+    {
+      "action": "plugin::i18n.locales.listLocales"
+    },
+    {
+      "action": "plugin::publisher.actionController.find"
+    },
+    {
+      "action": "plugin::slugify.slugController.findSlug"
+    },
+    {
+      "action": "plugin::strapi-prometheus.prometheus.find"
+    },
+    {
+      "action": "plugin::strapi-prometheus.prometheus.findOne"
+    },
+    {
+      "action": "plugin::users-permissions.auth.callback"
+    },
+    {
+      "action": "plugin::users-permissions.auth.connect"
+    },
+    {
+      "action": "plugin::users-permissions.auth.emailConfirmation"
+    },
+    {
+      "action": "plugin::users-permissions.auth.forgotPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.register"
+    },
+    {
+      "action": "plugin::users-permissions.auth.resetPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.sendEmailConfirmation"
+    }
+  ]
+}
