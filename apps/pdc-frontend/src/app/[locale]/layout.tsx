@@ -3,6 +3,7 @@ import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
+import Script from 'next/script';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
 import {
@@ -295,6 +296,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
             <Footer data={footerData} />
           </Surface>
         </QueryClientProvider>
+        <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>
       </body>
     </html>
   );
