@@ -61,6 +61,10 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
 
   const navigationPages: PageData[] = data?.navigationPages?.data;
 
+  navigationPages?.sort((a, b) => {
+    return a.attributes.title.localeCompare(b.attributes.title);
+  });
+
   const navListData = navigationPages?.map((navigationPage) => {
     return {
       title: navigationPage.attributes.title,
