@@ -194,7 +194,7 @@ export const GET_PRODUCT_BY_SLUG = gql(`
           }
           ... on ComponentComponentsFaq {
             __typename
-            faq {
+            pdc_faq {
               data {
                 attributes {
                   title

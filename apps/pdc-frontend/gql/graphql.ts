@@ -50,58 +50,6 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type Category = {
-  __typename?: 'Category';
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  subcategories?: Maybe<SubcategoryRelationResponseCollection>;
-  title: Scalars['String']['output'];
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-
-export type CategorySubcategoriesArgs = {
-  filters?: InputMaybe<SubcategoryFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type CategoryEntity = {
-  __typename?: 'CategoryEntity';
-  attributes?: Maybe<Category>;
-  id?: Maybe<Scalars['ID']['output']>;
-};
-
-export type CategoryEntityResponse = {
-  __typename?: 'CategoryEntityResponse';
-  data?: Maybe<CategoryEntity>;
-};
-
-export type CategoryEntityResponseCollection = {
-  __typename?: 'CategoryEntityResponseCollection';
-  data: Array<CategoryEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type CategoryFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<CategoryFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<CategoryFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<CategoryFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  subcategories?: InputMaybe<SubcategoryFiltersInput>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type CategoryInput = {
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  subcategories?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type ComponentComponentsAudience = {
   __typename?: 'ComponentComponentsAudience';
   id: Scalars['ID']['output'];
@@ -200,8 +148,8 @@ export type ComponentComponentsEFormInput = {
 
 export type ComponentComponentsFaq = {
   __typename?: 'ComponentComponentsFaq';
-  faq?: Maybe<FaqEntityResponse>;
   id: Scalars['ID']['output'];
+  pdc_faq?: Maybe<PdcFaqEntityResponse>;
 };
 
 export type ComponentComponentsIdentificationMethod = {
@@ -626,74 +574,6 @@ export type Error = {
   message?: Maybe<Scalars['String']['output']>;
 };
 
-export type Faq = {
-  __typename?: 'Faq';
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  faq?: Maybe<Array<Maybe<ComponentComponentsUtrechtAccordionSection>>>;
-  locale?: Maybe<Scalars['String']['output']>;
-  localizations?: Maybe<FaqRelationResponseCollection>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-
-export type FaqFaqArgs = {
-  filters?: InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type FaqLocalizationsArgs = {
-  filters?: InputMaybe<FaqFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type FaqEntity = {
-  __typename?: 'FaqEntity';
-  attributes?: Maybe<Faq>;
-  id?: Maybe<Scalars['ID']['output']>;
-};
-
-export type FaqEntityResponse = {
-  __typename?: 'FaqEntityResponse';
-  data?: Maybe<FaqEntity>;
-};
-
-export type FaqEntityResponseCollection = {
-  __typename?: 'FaqEntityResponseCollection';
-  data: Array<FaqEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type FaqFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<FaqFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  faq?: InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>;
-  id?: InputMaybe<IdFilterInput>;
-  locale?: InputMaybe<StringFilterInput>;
-  localizations?: InputMaybe<FaqFiltersInput>;
-  not?: InputMaybe<FaqFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<FaqFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type FaqInput = {
-  faq?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtAccordionSectionInput>>>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type FaqRelationResponseCollection = {
-  __typename?: 'FaqRelationResponseCollection';
-  data: Array<FaqEntity>;
-};
-
 export type FileInfoInput = {
   alternativeText?: InputMaybe<Scalars['String']['input']>;
   caption?: InputMaybe<Scalars['String']['input']>;
@@ -728,7 +608,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = Category | ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSpotlight | ComponentSeoMeta | EntityNotesNote | Faq | I18NLocale | NotFoundPage | Price | Product | PublisherAction | SlugifySlug | Subcategory | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSpotlight | ComponentSeoMeta | EntityNotesNote | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcSubcategory | Price | Product | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -841,37 +721,205 @@ export type JsonFilterInput = {
   startsWith?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type KbCategory = {
+  __typename?: 'KbCategory';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  kb_subcategories?: Maybe<KbSubcategoryRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type KbCategoryKb_SubcategoriesArgs = {
+  filters?: InputMaybe<KbSubcategoryFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type KbCategoryEntity = {
+  __typename?: 'KbCategoryEntity';
+  attributes?: Maybe<KbCategory>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type KbCategoryEntityResponse = {
+  __typename?: 'KbCategoryEntityResponse';
+  data?: Maybe<KbCategoryEntity>;
+};
+
+export type KbCategoryEntityResponseCollection = {
+  __typename?: 'KbCategoryEntityResponseCollection';
+  data: Array<KbCategoryEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type KbCategoryFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<KbCategoryFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  kb_subcategories?: InputMaybe<KbSubcategoryFiltersInput>;
+  not?: InputMaybe<KbCategoryFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<KbCategoryFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type KbCategoryInput = {
+  kb_subcategories?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type KbFaq = {
+  __typename?: 'KbFaq';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  faq?: Maybe<Array<Maybe<ComponentComponentsUtrechtAccordionSection>>>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type KbFaqFaqArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type KbFaqEntity = {
+  __typename?: 'KbFaqEntity';
+  attributes?: Maybe<KbFaq>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type KbFaqEntityResponse = {
+  __typename?: 'KbFaqEntityResponse';
+  data?: Maybe<KbFaqEntity>;
+};
+
+export type KbFaqEntityResponseCollection = {
+  __typename?: 'KbFaqEntityResponseCollection';
+  data: Array<KbFaqEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type KbFaqFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<KbFaqFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  faq?: InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<KbFaqFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<KbFaqFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type KbFaqInput = {
+  faq?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtAccordionSectionInput>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type KbSubcategory = {
+  __typename?: 'KbSubcategory';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  kb_category?: Maybe<KbCategoryEntityResponse>;
+  products?: Maybe<ProductRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type KbSubcategoryProductsArgs = {
+  filters?: InputMaybe<ProductFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type KbSubcategoryEntity = {
+  __typename?: 'KbSubcategoryEntity';
+  attributes?: Maybe<KbSubcategory>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type KbSubcategoryEntityResponse = {
+  __typename?: 'KbSubcategoryEntityResponse';
+  data?: Maybe<KbSubcategoryEntity>;
+};
+
+export type KbSubcategoryEntityResponseCollection = {
+  __typename?: 'KbSubcategoryEntityResponseCollection';
+  data: Array<KbSubcategoryEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type KbSubcategoryFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<KbSubcategoryFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  kb_category?: InputMaybe<KbCategoryFiltersInput>;
+  not?: InputMaybe<KbSubcategoryFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<KbSubcategoryFiltersInput>>>;
+  products?: InputMaybe<ProductFiltersInput>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type KbSubcategoryInput = {
+  kb_category?: InputMaybe<Scalars['ID']['input']>;
+  products?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type KbSubcategoryRelationResponseCollection = {
+  __typename?: 'KbSubcategoryRelationResponseCollection';
+  data: Array<KbSubcategoryEntity>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
   changePassword?: Maybe<UsersPermissionsLoginPayload>;
-  createCategory?: Maybe<CategoryEntityResponse>;
   createEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
-  createFaq?: Maybe<FaqEntityResponse>;
-  createFaqLocalization?: Maybe<FaqEntityResponse>;
+  createKbCategory?: Maybe<KbCategoryEntityResponse>;
+  createKbFaq?: Maybe<KbFaqEntityResponse>;
+  createKbSubcategory?: Maybe<KbSubcategoryEntityResponse>;
   createNotFoundPageLocalization?: Maybe<NotFoundPageEntityResponse>;
+  createPdcCategory?: Maybe<PdcCategoryEntityResponse>;
+  createPdcFaq?: Maybe<PdcFaqEntityResponse>;
+  createPdcFaqLocalization?: Maybe<PdcFaqEntityResponse>;
+  createPdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   createPrice?: Maybe<PriceEntityResponse>;
   createProduct?: Maybe<ProductEntityResponse>;
   createProductLocalization?: Maybe<ProductEntityResponse>;
   createPublisherAction?: Maybe<PublisherActionEntityResponse>;
   createSlugifySlug?: Maybe<SlugifySlugEntityResponse>;
-  createSubcategory?: Maybe<SubcategoryEntityResponse>;
-  createSubcategoryLocalization?: Maybe<SubcategoryEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   createUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Create a new role */
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  deleteCategory?: Maybe<CategoryEntityResponse>;
   deleteEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
-  deleteFaq?: Maybe<FaqEntityResponse>;
+  deleteKbCategory?: Maybe<KbCategoryEntityResponse>;
+  deleteKbFaq?: Maybe<KbFaqEntityResponse>;
+  deleteKbSubcategory?: Maybe<KbSubcategoryEntityResponse>;
   deleteNotFoundPage?: Maybe<NotFoundPageEntityResponse>;
+  deletePdcCategory?: Maybe<PdcCategoryEntityResponse>;
+  deletePdcFaq?: Maybe<PdcFaqEntityResponse>;
+  deletePdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   deletePrice?: Maybe<PriceEntityResponse>;
   deleteProduct?: Maybe<ProductEntityResponse>;
   deletePublisherAction?: Maybe<PublisherActionEntityResponse>;
   deleteSlugifySlug?: Maybe<SlugifySlugEntityResponse>;
-  deleteSubcategory?: Maybe<SubcategoryEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Delete an existing role */
@@ -889,16 +937,19 @@ export type Mutation = {
   removeFile?: Maybe<UploadFileEntityResponse>;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
-  updateCategory?: Maybe<CategoryEntityResponse>;
   updateEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
-  updateFaq?: Maybe<FaqEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
+  updateKbCategory?: Maybe<KbCategoryEntityResponse>;
+  updateKbFaq?: Maybe<KbFaqEntityResponse>;
+  updateKbSubcategory?: Maybe<KbSubcategoryEntityResponse>;
   updateNotFoundPage?: Maybe<NotFoundPageEntityResponse>;
+  updatePdcCategory?: Maybe<PdcCategoryEntityResponse>;
+  updatePdcFaq?: Maybe<PdcFaqEntityResponse>;
+  updatePdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   updatePrice?: Maybe<PriceEntityResponse>;
   updateProduct?: Maybe<ProductEntityResponse>;
   updatePublisherAction?: Maybe<PublisherActionEntityResponse>;
   updateSlugifySlug?: Maybe<SlugifySlugEntityResponse>;
-  updateSubcategory?: Maybe<SubcategoryEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Update an existing role */
@@ -916,26 +967,23 @@ export type MutationChangePasswordArgs = {
 };
 
 
-export type MutationCreateCategoryArgs = {
-  data: CategoryInput;
-};
-
-
 export type MutationCreateEntityNotesNoteArgs = {
   data: EntityNotesNoteInput;
 };
 
 
-export type MutationCreateFaqArgs = {
-  data: FaqInput;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+export type MutationCreateKbCategoryArgs = {
+  data: KbCategoryInput;
 };
 
 
-export type MutationCreateFaqLocalizationArgs = {
-  data?: InputMaybe<FaqInput>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+export type MutationCreateKbFaqArgs = {
+  data: KbFaqInput;
+};
+
+
+export type MutationCreateKbSubcategoryArgs = {
+  data: KbSubcategoryInput;
 };
 
 
@@ -943,6 +991,29 @@ export type MutationCreateNotFoundPageLocalizationArgs = {
   data?: InputMaybe<NotFoundPageInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationCreatePdcCategoryArgs = {
+  data: PdcCategoryInput;
+};
+
+
+export type MutationCreatePdcFaqArgs = {
+  data: PdcFaqInput;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationCreatePdcFaqLocalizationArgs = {
+  data?: InputMaybe<PdcFaqInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationCreatePdcSubcategoryArgs = {
+  data: PdcSubcategoryInput;
 };
 
 
@@ -974,19 +1045,6 @@ export type MutationCreateSlugifySlugArgs = {
 };
 
 
-export type MutationCreateSubcategoryArgs = {
-  data: SubcategoryInput;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-};
-
-
-export type MutationCreateSubcategoryLocalizationArgs = {
-  data?: InputMaybe<SubcategoryInput>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-};
-
-
 export type MutationCreateUploadFileArgs = {
   data: UploadFileInput;
 };
@@ -1007,24 +1065,44 @@ export type MutationCreateUsersPermissionsUserArgs = {
 };
 
 
-export type MutationDeleteCategoryArgs = {
-  id: Scalars['ID']['input'];
-};
-
-
 export type MutationDeleteEntityNotesNoteArgs = {
   id: Scalars['ID']['input'];
 };
 
 
-export type MutationDeleteFaqArgs = {
+export type MutationDeleteKbCategoryArgs = {
   id: Scalars['ID']['input'];
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationDeleteKbFaqArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteKbSubcategoryArgs = {
+  id: Scalars['ID']['input'];
 };
 
 
 export type MutationDeleteNotFoundPageArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationDeletePdcCategoryArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeletePdcFaqArgs = {
+  id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationDeletePdcSubcategoryArgs = {
+  id: Scalars['ID']['input'];
 };
 
 
@@ -1046,12 +1124,6 @@ export type MutationDeletePublisherActionArgs = {
 
 export type MutationDeleteSlugifySlugArgs = {
   id: Scalars['ID']['input'];
-};
-
-
-export type MutationDeleteSubcategoryArgs = {
-  id: Scalars['ID']['input'];
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -1115,22 +1187,9 @@ export type MutationResetPasswordArgs = {
 };
 
 
-export type MutationUpdateCategoryArgs = {
-  data: CategoryInput;
-  id: Scalars['ID']['input'];
-};
-
-
 export type MutationUpdateEntityNotesNoteArgs = {
   data: EntityNotesNoteInput;
   id: Scalars['ID']['input'];
-};
-
-
-export type MutationUpdateFaqArgs = {
-  data: FaqInput;
-  id: Scalars['ID']['input'];
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -1140,9 +1199,46 @@ export type MutationUpdateFileInfoArgs = {
 };
 
 
+export type MutationUpdateKbCategoryArgs = {
+  data: KbCategoryInput;
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateKbFaqArgs = {
+  data: KbFaqInput;
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateKbSubcategoryArgs = {
+  data: KbSubcategoryInput;
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationUpdateNotFoundPageArgs = {
   data: NotFoundPageInput;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationUpdatePdcCategoryArgs = {
+  data: PdcCategoryInput;
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdatePdcFaqArgs = {
+  data: PdcFaqInput;
+  id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationUpdatePdcSubcategoryArgs = {
+  data: PdcSubcategoryInput;
+  id: Scalars['ID']['input'];
 };
 
 
@@ -1168,13 +1264,6 @@ export type MutationUpdatePublisherActionArgs = {
 export type MutationUpdateSlugifySlugArgs = {
   data: SlugifySlugInput;
   id: Scalars['ID']['input'];
-};
-
-
-export type MutationUpdateSubcategoryArgs = {
-  data: SubcategoryInput;
-  id: Scalars['ID']['input'];
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -1263,6 +1352,186 @@ export type PaginationArg = {
   start?: InputMaybe<Scalars['Int']['input']>;
 };
 
+export type PdcCategory = {
+  __typename?: 'PdcCategory';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  pdc_subcategories?: Maybe<PdcSubcategoryRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type PdcCategoryPdc_SubcategoriesArgs = {
+  filters?: InputMaybe<PdcSubcategoryFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type PdcCategoryEntity = {
+  __typename?: 'PdcCategoryEntity';
+  attributes?: Maybe<PdcCategory>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type PdcCategoryEntityResponse = {
+  __typename?: 'PdcCategoryEntityResponse';
+  data?: Maybe<PdcCategoryEntity>;
+};
+
+export type PdcCategoryEntityResponseCollection = {
+  __typename?: 'PdcCategoryEntityResponseCollection';
+  data: Array<PdcCategoryEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type PdcCategoryFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<PdcCategoryFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<PdcCategoryFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<PdcCategoryFiltersInput>>>;
+  pdc_subcategories?: InputMaybe<PdcSubcategoryFiltersInput>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type PdcCategoryInput = {
+  pdc_subcategories?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PdcFaq = {
+  __typename?: 'PdcFaq';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  faq?: Maybe<Array<Maybe<ComponentComponentsUtrechtAccordionSection>>>;
+  locale?: Maybe<Scalars['String']['output']>;
+  localizations?: Maybe<PdcFaqRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type PdcFaqFaqArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type PdcFaqLocalizationsArgs = {
+  filters?: InputMaybe<PdcFaqFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type PdcFaqEntity = {
+  __typename?: 'PdcFaqEntity';
+  attributes?: Maybe<PdcFaq>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type PdcFaqEntityResponse = {
+  __typename?: 'PdcFaqEntityResponse';
+  data?: Maybe<PdcFaqEntity>;
+};
+
+export type PdcFaqEntityResponseCollection = {
+  __typename?: 'PdcFaqEntityResponseCollection';
+  data: Array<PdcFaqEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type PdcFaqFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<PdcFaqFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  faq?: InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>;
+  id?: InputMaybe<IdFilterInput>;
+  locale?: InputMaybe<StringFilterInput>;
+  localizations?: InputMaybe<PdcFaqFiltersInput>;
+  not?: InputMaybe<PdcFaqFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<PdcFaqFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type PdcFaqInput = {
+  faq?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtAccordionSectionInput>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PdcFaqRelationResponseCollection = {
+  __typename?: 'PdcFaqRelationResponseCollection';
+  data: Array<PdcFaqEntity>;
+};
+
+export type PdcSubcategory = {
+  __typename?: 'PdcSubcategory';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  pdc_category?: Maybe<PdcCategoryEntityResponse>;
+  products?: Maybe<ProductRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type PdcSubcategoryProductsArgs = {
+  filters?: InputMaybe<ProductFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type PdcSubcategoryEntity = {
+  __typename?: 'PdcSubcategoryEntity';
+  attributes?: Maybe<PdcSubcategory>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type PdcSubcategoryEntityResponse = {
+  __typename?: 'PdcSubcategoryEntityResponse';
+  data?: Maybe<PdcSubcategoryEntity>;
+};
+
+export type PdcSubcategoryEntityResponseCollection = {
+  __typename?: 'PdcSubcategoryEntityResponseCollection';
+  data: Array<PdcSubcategoryEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type PdcSubcategoryFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<PdcSubcategoryFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<PdcSubcategoryFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<PdcSubcategoryFiltersInput>>>;
+  pdc_category?: InputMaybe<PdcCategoryFiltersInput>;
+  products?: InputMaybe<ProductFiltersInput>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type PdcSubcategoryInput = {
+  pdc_category?: InputMaybe<Scalars['ID']['input']>;
+  products?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PdcSubcategoryRelationResponseCollection = {
+  __typename?: 'PdcSubcategoryRelationResponseCollection';
+  data: Array<PdcSubcategoryEntity>;
+};
+
 export type Price = {
   __typename?: 'Price';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
@@ -1330,16 +1599,25 @@ export type Product = {
   catalogiMeta?: Maybe<ComponentComponentsCatalogiMeta>;
   content?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  kb_subcategories?: Maybe<KbSubcategoryRelationResponseCollection>;
   locale?: Maybe<Scalars['String']['output']>;
   localizations?: Maybe<ProductRelationResponseCollection>;
   metaTags?: Maybe<ComponentSeoMeta>;
+  pdc_subcategories?: Maybe<PdcSubcategoryRelationResponseCollection>;
   price?: Maybe<PriceEntityResponse>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   sections?: Maybe<Array<Maybe<ProductSectionsDynamicZone>>>;
   slug: Scalars['String']['output'];
-  subcategories?: Maybe<SubcategoryRelationResponseCollection>;
   title: Scalars['String']['output'];
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type ProductKb_SubcategoriesArgs = {
+  filters?: InputMaybe<KbSubcategoryFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -1351,8 +1629,8 @@ export type ProductLocalizationsArgs = {
 };
 
 
-export type ProductSubcategoriesArgs = {
-  filters?: InputMaybe<SubcategoryFiltersInput>;
+export type ProductPdc_SubcategoriesArgs = {
+  filters?: InputMaybe<PdcSubcategoryFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1381,16 +1659,17 @@ export type ProductFiltersInput = {
   content?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
+  kb_subcategories?: InputMaybe<KbSubcategoryFiltersInput>;
   locale?: InputMaybe<StringFilterInput>;
   localizations?: InputMaybe<ProductFiltersInput>;
   metaTags?: InputMaybe<ComponentSeoMetaFiltersInput>;
   metadata?: InputMaybe<ComponentComponentsMetadataFiltersInput>;
   not?: InputMaybe<ProductFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ProductFiltersInput>>>;
+  pdc_subcategories?: InputMaybe<PdcSubcategoryFiltersInput>;
   price?: InputMaybe<PriceFiltersInput>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   slug?: InputMaybe<StringFilterInput>;
-  subcategories?: InputMaybe<SubcategoryFiltersInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
@@ -1398,13 +1677,14 @@ export type ProductFiltersInput = {
 export type ProductInput = {
   catalogiMeta?: InputMaybe<ComponentComponentsCatalogiMetaInput>;
   content?: InputMaybe<Scalars['String']['input']>;
+  kb_subcategories?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   metaTags?: InputMaybe<ComponentSeoMetaInput>;
   metadata?: InputMaybe<ComponentComponentsMetadataInput>;
+  pdc_subcategories?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   price?: InputMaybe<Scalars['ID']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   sections?: InputMaybe<Array<Scalars['ProductSectionsDynamicZoneInput']['input']>>;
   slug?: InputMaybe<Scalars['String']['input']>;
-  subcategories?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -1469,17 +1749,25 @@ export type PublisherActionInput = {
 
 export type Query = {
   __typename?: 'Query';
-  categories?: Maybe<CategoryEntityResponseCollection>;
-  category?: Maybe<CategoryEntityResponse>;
   entityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
   entityNotesNotes?: Maybe<EntityNotesNoteEntityResponseCollection>;
-  faq?: Maybe<FaqEntityResponse>;
-  faqs?: Maybe<FaqEntityResponseCollection>;
   findSlug?: Maybe<FindSlugResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
+  kbCategories?: Maybe<KbCategoryEntityResponseCollection>;
+  kbCategory?: Maybe<KbCategoryEntityResponse>;
+  kbFaq?: Maybe<KbFaqEntityResponse>;
+  kbFaqs?: Maybe<KbFaqEntityResponseCollection>;
+  kbSubcategories?: Maybe<KbSubcategoryEntityResponseCollection>;
+  kbSubcategory?: Maybe<KbSubcategoryEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
   notFoundPage?: Maybe<NotFoundPageEntityResponse>;
+  pdcCategories?: Maybe<PdcCategoryEntityResponseCollection>;
+  pdcCategory?: Maybe<PdcCategoryEntityResponse>;
+  pdcFaq?: Maybe<PdcFaqEntityResponse>;
+  pdcFaqs?: Maybe<PdcFaqEntityResponseCollection>;
+  pdcSubcategories?: Maybe<PdcSubcategoryEntityResponseCollection>;
+  pdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   price?: Maybe<PriceEntityResponse>;
   prices?: Maybe<PriceEntityResponseCollection>;
   product?: Maybe<ProductEntityResponse>;
@@ -1488,8 +1776,6 @@ export type Query = {
   publisherActions?: Maybe<PublisherActionEntityResponseCollection>;
   slugifySlug?: Maybe<SlugifySlugEntityResponse>;
   slugifySlugs?: Maybe<SlugifySlugEntityResponseCollection>;
-  subcategories?: Maybe<SubcategoryEntityResponseCollection>;
-  subcategory?: Maybe<SubcategoryEntityResponse>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   uploadFolder?: Maybe<UploadFolderEntityResponse>;
@@ -1501,19 +1787,6 @@ export type Query = {
 };
 
 
-export type QueryCategoriesArgs = {
-  filters?: InputMaybe<CategoryFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type QueryCategoryArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-
 export type QueryEntityNotesNoteArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
@@ -1522,21 +1795,6 @@ export type QueryEntityNotesNoteArgs = {
 export type QueryEntityNotesNotesArgs = {
   filters?: InputMaybe<EntityNotesNoteFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type QueryFaqArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-};
-
-
-export type QueryFaqsArgs = {
-  filters?: InputMaybe<FaqFiltersInput>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -1560,9 +1818,89 @@ export type QueryI18NLocalesArgs = {
 };
 
 
+export type QueryKbCategoriesArgs = {
+  filters?: InputMaybe<KbCategoryFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryKbCategoryArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryKbFaqArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryKbFaqsArgs = {
+  filters?: InputMaybe<KbFaqFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryKbSubcategoriesArgs = {
+  filters?: InputMaybe<KbSubcategoryFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryKbSubcategoryArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
 export type QueryNotFoundPageArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryPdcCategoriesArgs = {
+  filters?: InputMaybe<PdcCategoryFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryPdcCategoryArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryPdcFaqArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type QueryPdcFaqsArgs = {
+  filters?: InputMaybe<PdcFaqFiltersInput>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryPdcSubcategoriesArgs = {
+  filters?: InputMaybe<PdcSubcategoryFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryPdcSubcategoryArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 
@@ -1615,21 +1953,6 @@ export type QuerySlugifySlugsArgs = {
   filters?: InputMaybe<SlugifySlugFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type QuerySubcategoriesArgs = {
-  filters?: InputMaybe<SubcategoryFiltersInput>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type QuerySubcategoryArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -1749,78 +2072,6 @@ export type StringFilterInput = {
   null?: InputMaybe<Scalars['Boolean']['input']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   startsWith?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Subcategory = {
-  __typename?: 'Subcategory';
-  category?: Maybe<CategoryEntityResponse>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  locale?: Maybe<Scalars['String']['output']>;
-  localizations?: Maybe<SubcategoryRelationResponseCollection>;
-  products?: Maybe<ProductRelationResponseCollection>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  title: Scalars['String']['output'];
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-
-export type SubcategoryLocalizationsArgs = {
-  filters?: InputMaybe<SubcategoryFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type SubcategoryProductsArgs = {
-  filters?: InputMaybe<ProductFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type SubcategoryEntity = {
-  __typename?: 'SubcategoryEntity';
-  attributes?: Maybe<Subcategory>;
-  id?: Maybe<Scalars['ID']['output']>;
-};
-
-export type SubcategoryEntityResponse = {
-  __typename?: 'SubcategoryEntityResponse';
-  data?: Maybe<SubcategoryEntity>;
-};
-
-export type SubcategoryEntityResponseCollection = {
-  __typename?: 'SubcategoryEntityResponseCollection';
-  data: Array<SubcategoryEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type SubcategoryFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<SubcategoryFiltersInput>>>;
-  category?: InputMaybe<CategoryFiltersInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  locale?: InputMaybe<StringFilterInput>;
-  localizations?: InputMaybe<SubcategoryFiltersInput>;
-  not?: InputMaybe<SubcategoryFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<SubcategoryFiltersInput>>>;
-  products?: InputMaybe<ProductFiltersInput>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type SubcategoryInput = {
-  category?: InputMaybe<Scalars['ID']['input']>;
-  products?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type SubcategoryRelationResponseCollection = {
-  __typename?: 'SubcategoryRelationResponseCollection';
-  data: Array<SubcategoryEntity>;
 };
 
 export type UploadFile = {
@@ -2237,7 +2488,7 @@ export type GetProductBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetProductBySlugQuery = { __typename?: 'Query', products?: { __typename?: 'ProductEntityResponseCollection', data: Array<{ __typename?: 'ProductEntity', id?: string | null, attributes?: { __typename?: 'Product', title: string, slug: string, content?: string | null, locale?: string | null, metaTags?: { __typename?: 'ComponentSeoMeta', title: string, description: string, keymatch: string, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null, sections?: Array<{ __typename: 'ComponentComponentsFaq', faq?: { __typename?: 'FaqEntityResponse', data?: { __typename?: 'FaqEntity', attributes?: { __typename?: 'Faq', title?: string | null, faq?: Array<{ __typename?: 'ComponentComponentsUtrechtAccordionSection', id: string, label?: string | null, body?: string | null } | null> | null } | null } | null } | null } | { __typename: 'ComponentComponentsUtrechtAccordion', item?: Array<{ __typename?: 'ComponentComponentsUtrechtAccordionSection', id: string, label?: string | null, body?: string | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtImage', imageData?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', name: string, alternativeText?: string | null, caption?: string | null, width?: number | null, height?: number | null, formats?: any | null, url: string } | null } | null } | null } | { __typename: 'ComponentComponentsUtrechtLink', href: string, textContent: string, iconList?: Enum_Componentcomponentsutrechtlink_Icon | null } | { __typename: 'ComponentComponentsUtrechtLogoButton', label?: string | null, href: string, textContent: string, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null } | { __typename: 'ComponentComponentsUtrechtMultiColumnsButton', column?: Array<{ __typename?: 'ComponentComponentsUtrechtMultiColumnsButtonItem', id: string, title?: string | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', label?: string | null, href: string, textContent: string, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtRichText', content: string } | { __typename: 'ComponentComponentsUtrechtSpotlight', content: string, type?: Enum_Componentcomponentsutrechtspotlight_Type | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', id: string, label?: string | null, href: string, textContent: string, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | { __typename?: 'Error' } | null> | null, price?: { __typename?: 'PriceEntityResponse', data?: { __typename?: 'PriceEntity', attributes?: { __typename?: 'Price', price?: Array<{ __typename?: 'ComponentComponentsPrice', id: string, label: string, value: number, currency: Enum_Componentcomponentsprice_Currency } | null> | null } | null } | null } | null, localizations?: { __typename?: 'ProductRelationResponseCollection', data: Array<{ __typename?: 'ProductEntity', attributes?: { __typename?: 'Product', locale?: string | null, slug: string } | null }> } | null } | null }> } | null };
+export type GetProductBySlugQuery = { __typename?: 'Query', products?: { __typename?: 'ProductEntityResponseCollection', data: Array<{ __typename?: 'ProductEntity', id?: string | null, attributes?: { __typename?: 'Product', title: string, slug: string, content?: string | null, locale?: string | null, metaTags?: { __typename?: 'ComponentSeoMeta', title: string, description: string, keymatch: string, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null, sections?: Array<{ __typename: 'ComponentComponentsFaq', pdc_faq?: { __typename?: 'PdcFaqEntityResponse', data?: { __typename?: 'PdcFaqEntity', attributes?: { __typename?: 'PdcFaq', title?: string | null, faq?: Array<{ __typename?: 'ComponentComponentsUtrechtAccordionSection', id: string, label?: string | null, body?: string | null } | null> | null } | null } | null } | null } | { __typename: 'ComponentComponentsUtrechtAccordion', item?: Array<{ __typename?: 'ComponentComponentsUtrechtAccordionSection', id: string, label?: string | null, body?: string | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtImage', imageData?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', name: string, alternativeText?: string | null, caption?: string | null, width?: number | null, height?: number | null, formats?: any | null, url: string } | null } | null } | null } | { __typename: 'ComponentComponentsUtrechtLink', href: string, textContent: string, iconList?: Enum_Componentcomponentsutrechtlink_Icon | null } | { __typename: 'ComponentComponentsUtrechtLogoButton', label?: string | null, href: string, textContent: string, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null } | { __typename: 'ComponentComponentsUtrechtMultiColumnsButton', column?: Array<{ __typename?: 'ComponentComponentsUtrechtMultiColumnsButtonItem', id: string, title?: string | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', label?: string | null, href: string, textContent: string, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtRichText', content: string } | { __typename: 'ComponentComponentsUtrechtSpotlight', content: string, type?: Enum_Componentcomponentsutrechtspotlight_Type | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', id: string, label?: string | null, href: string, textContent: string, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | { __typename?: 'Error' } | null> | null, price?: { __typename?: 'PriceEntityResponse', data?: { __typename?: 'PriceEntity', attributes?: { __typename?: 'Price', price?: Array<{ __typename?: 'ComponentComponentsPrice', id: string, label: string, value: number, currency: Enum_Componentcomponentsprice_Currency } | null> | null } | null } | null } | null, localizations?: { __typename?: 'ProductRelationResponseCollection', data: Array<{ __typename?: 'ProductEntity', attributes?: { __typename?: 'Product', locale?: string | null, slug: string } | null }> } | null } | null }> } | null };
 
 export type GetProductBySlugAndLocaleQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']['input']>;
@@ -2260,6 +2511,6 @@ export const GetAllProductsSlugQueryDocument = {"kind":"Document","definitions":
 export const GetAlphabeticallyProductsByLetterQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAlphabeticallyProductsByLetterQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"startsWith"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"pageSize"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"title"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"startsWith"},"value":{"kind":"Variable","name":{"kind":"Name","value":"startsWith"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pagination"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"pageSize"}},{"kind":"Field","name":{"kind":"Name","value":"pageCount"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAlphabeticallyProductsByLetterQueryQuery, GetAlphabeticallyProductsByLetterQueryQueryVariables>;
 export const CheckAlphabeticallyProductsAvailabilityDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"checkAlphabeticallyProductsAvailability"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"startsWith"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"title"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"startsWith"},"value":{"kind":"Variable","name":{"kind":"Name","value":"startsWith"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]}}]} as unknown as DocumentNode<CheckAlphabeticallyProductsAvailabilityQuery, CheckAlphabeticallyProductsAvailabilityQueryVariables>;
 export const GetSamenwerkendecatalogiDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getSamenwerkendecatalogi"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"catalogiMeta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uniformProductName"}},{"kind":"Field","name":{"kind":"Name","value":"abstract"}},{"kind":"Field","name":{"kind":"Name","value":"spatial"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"scheme"}},{"kind":"Field","name":{"kind":"Name","value":"resourceIdentifier"}}]}},{"kind":"Field","name":{"kind":"Name","value":"authority"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"scheme"}},{"kind":"Field","name":{"kind":"Name","value":"resourceIdentifier"}}]}},{"kind":"Field","name":{"kind":"Name","value":"audience"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}},{"kind":"Field","name":{"kind":"Name","value":"onlineRequest"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetSamenwerkendecatalogiQuery, GetSamenwerkendecatalogiQueryVariables>;
-export const GetProductBySlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProductBySlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationState"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"publicationState"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"keymatch"}},{"kind":"Field","name":{"kind":"Name","value":"ogImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtImage"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"imageData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLogoButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtSpotlight"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtRichText"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtMultiColumnsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"column"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLink"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","alias":{"kind":"Name","value":"iconList"},"name":{"kind":"Name","value":"icon"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsFaq"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"faq"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"faq"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"body"}}]}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtAccordion"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"item"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"body"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"localizations"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"locale"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetProductBySlugQuery, GetProductBySlugQueryVariables>;
+export const GetProductBySlugDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProductBySlug"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationState"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"publicationState"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"keymatch"}},{"kind":"Field","name":{"kind":"Name","value":"ogImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtImage"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"imageData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLogoButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtSpotlight"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtRichText"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtMultiColumnsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"column"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLink"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","alias":{"kind":"Name","value":"iconList"},"name":{"kind":"Name","value":"icon"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsFaq"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"pdc_faq"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"faq"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"body"}}]}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtAccordion"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"item"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"body"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"localizations"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"locale"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetProductBySlugQuery, GetProductBySlugQueryVariables>;
 export const GetProductBySlugAndLocaleDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProductBySlugAndLocale"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationState"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"publicationState"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetProductBySlugAndLocaleQuery, GetProductBySlugAndLocaleQueryVariables>;
 export const GetNotFoundPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getNotFoundPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"notFoundPage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"body"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetNotFoundPageQuery, GetNotFoundPageQueryVariables>;

@@ -120,13 +120,13 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
               return <></>;
             case 'ComponentComponentsFaq':
               if (
-                component.faq?.data?.attributes &&
-                component.faq.data.attributes.faq &&
-                component.faq.data.attributes.faq.length > 0
+                component.pdc_faq?.data?.attributes &&
+                component.pdc_faq.data.attributes.faq &&
+                component.pdc_faq.data.attributes.faq.length > 0
               ) {
                 return (
                   <AccordionProvider
-                    sections={component.faq.data.attributes.faq.map((faqItem) => ({
+                    sections={component.pdc_faq.data.attributes.faq.map((faqItem) => ({
                       id: faqItem?.id,
                       label: faqItem?.label as string,
                       headingLevel: 3,
