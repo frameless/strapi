@@ -6,89 +6,123 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
-      "subject": "api::category.category",
+      "subject": "api::kb-category.kb-category",
       "properties": {
-        "fields": ["subcategories", "title"]
+        "fields": ["title", "kb_subcategories"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
-      "subject": "api::category.category",
+      "subject": "api::kb-category.kb-category",
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
-      "subject": "api::category.category",
+      "subject": "api::kb-category.kb-category",
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
-      "subject": "api::category.category",
+      "subject": "api::kb-category.kb-category",
       "properties": {
-        "fields": ["subcategories", "title"]
+        "fields": ["title", "kb_subcategories"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
-      "subject": "api::category.category",
+      "subject": "api::kb-category.kb-category",
       "properties": {
-        "fields": ["subcategories", "title"]
+        "fields": ["title", "kb_subcategories"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
-      "subject": "api::faq.faq",
+      "subject": "api::kb-faq.kb-faq",
       "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
-        "locales": ["en", "nl"]
+        "fields": ["title", "faq.label", "faq.body"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
-      "subject": "api::faq.faq",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
+      "subject": "api::kb-faq.kb-faq",
+      "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
-      "subject": "api::faq.faq",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
+      "subject": "api::kb-faq.kb-faq",
+      "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
-      "subject": "api::faq.faq",
+      "subject": "api::kb-faq.kb-faq",
       "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
-        "locales": ["en", "nl"]
+        "fields": ["title", "faq.label", "faq.body"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
-      "subject": "api::faq.faq",
+      "subject": "api::kb-faq.kb-faq",
       "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
-        "locales": ["en", "nl"]
+        "fields": ["title", "faq.label", "faq.body"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::kb-subcategory.kb-subcategory",
+      "properties": {
+        "fields": ["title", "kb_category", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::kb-subcategory.kb-subcategory",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::kb-subcategory.kb-subcategory",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::kb-subcategory.kb-subcategory",
+      "properties": {
+        "fields": ["title", "kb_category", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::kb-subcategory.kb-subcategory",
+      "properties": {
+        "fields": ["title", "kb_category", "products"]
       },
       "conditions": []
     },
@@ -98,7 +132,7 @@
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"],
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -107,7 +141,7 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -116,7 +150,7 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -126,7 +160,7 @@
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"],
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -136,7 +170,137 @@
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"],
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::pdc-category.pdc-category",
+      "properties": {
+        "fields": ["title", "pdc_subcategories"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::pdc-category.pdc-category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::pdc-category.pdc-category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::pdc-category.pdc-category",
+      "properties": {
+        "fields": ["title", "pdc_subcategories"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::pdc-category.pdc-category",
+      "properties": {
+        "fields": ["title", "pdc_subcategories"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::pdc-faq.pdc-faq",
+      "properties": {
+        "fields": ["title", "faq.label", "faq.body"],
+        "locales": ["nl", "en"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::pdc-faq.pdc-faq",
+      "properties": {
+        "locales": ["nl", "en"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::pdc-faq.pdc-faq",
+      "properties": {
+        "locales": ["nl", "en"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::pdc-faq.pdc-faq",
+      "properties": {
+        "fields": ["title", "faq.label", "faq.body"],
+        "locales": ["nl", "en"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::pdc-faq.pdc-faq",
+      "properties": {
+        "fields": ["title", "faq.label", "faq.body"],
+        "locales": ["nl", "en"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {
+        "fields": ["title", "pdc_category", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {
+        "fields": ["title", "pdc_category", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {
+        "fields": ["title", "pdc_category", "products"]
       },
       "conditions": []
     },
@@ -211,9 +375,10 @@
           "metadata.eForm.linkedEForm",
           "metadata.eForm.eFormURL.value",
           "slug",
-          "subcategories"
+          "pdc_subcategories",
+          "kb_subcategories"
         ],
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -222,7 +387,7 @@
       "actionParameters": {},
       "subject": "api::product.product",
       "properties": {
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -231,7 +396,7 @@
       "actionParameters": {},
       "subject": "api::product.product",
       "properties": {
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -265,9 +430,10 @@
           "metadata.eForm.linkedEForm",
           "metadata.eForm.eFormURL.value",
           "slug",
-          "subcategories"
+          "pdc_subcategories",
+          "kb_subcategories"
         ],
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -301,57 +467,10 @@
           "metadata.eForm.linkedEForm",
           "metadata.eForm.eFormURL.value",
           "slug",
-          "subcategories"
+          "pdc_subcategories",
+          "kb_subcategories"
         ],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "fields": ["category", "title", "products"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": {},
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "fields": ["category", "title", "products"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": {},
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "fields": ["category", "title", "products"],
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
@@ -680,6 +799,20 @@
     },
     {
       "action": "plugin::i18n.locale.update",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::import-export-entries.export",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::import-export-entries.import",
       "actionParameters": {},
       "subject": null,
       "properties": {},

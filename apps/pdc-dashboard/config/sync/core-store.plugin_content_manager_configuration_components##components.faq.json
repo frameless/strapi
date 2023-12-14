@@ -20,7 +20,7 @@
           "sortable": false
         }
       },
-      "faq": {
+      "pdc_faq": {
         "edit": {
           "label": "FAQ",
           "description": "Koppel een FAQ-collectie aan dit product.",
@@ -30,18 +30,18 @@
           "mainField": "title"
         },
         "list": {
-          "label": "faq",
+          "label": "pdc_faq",
           "searchable": true,
           "sortable": true
         }
       }
     },
     "layouts": {
-      "list": ["id", "faq"],
+      "list": ["id", "pdc_faq"],
       "edit": [
         [
           {
-            "name": "faq",
+            "name": "pdc_faq",
             "size": 6
           }
         ]

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pdc_subcategories",
+  "info": {
+    "singularName": "pdc-subcategory",
+    "pluralName": "pdc-subcategories",
+    "displayName": "Subcategorie (PDC)",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "pdc_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pdc-category.pdc-category",
+      "inversedBy": "pdc_subcategories"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "pdc_subcategories"
+    }
+  }
+}

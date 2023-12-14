@@ -6,10 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "faq": {
+    "pdc_faq": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::faq.faq"
+      "target": "api::pdc-faq.pdc-faq"
     }
   }
 }

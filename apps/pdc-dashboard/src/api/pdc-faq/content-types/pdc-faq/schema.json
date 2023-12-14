@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pdc_faqs",
+  "info": {
+    "singularName": "pdc-faq",
+    "pluralName": "pdc-faqs",
+    "displayName": "FAQ (PDC)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.utrecht-accordion-section"
+    }
+  }
+}

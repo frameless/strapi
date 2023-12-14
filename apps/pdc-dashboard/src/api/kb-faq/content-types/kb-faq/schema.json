@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kb_faqs",
+  "info": {
+    "singularName": "kb-faq",
+    "pluralName": "kb-faqs",
+    "displayName": "FAQ (KB)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-accordion-section"
+    }
+  }
+}

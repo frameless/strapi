@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pdc_categories",
+  "info": {
+    "singularName": "pdc-category",
+    "pluralName": "pdc-categories",
+    "displayName": "Categorie (PDC)",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "pdc_subcategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pdc-subcategory.pdc-subcategory",
+      "mappedBy": "pdc_category"
+    }
+  }
+}
