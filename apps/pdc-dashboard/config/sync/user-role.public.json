@@ -4,19 +4,37 @@
   "type": "public",
   "permissions": [
     {
-      "action": "api::category.category.find"
+      "action": "api::kb-category.kb-category.find"
     },
     {
-      "action": "api::category.category.findOne"
+      "action": "api::kb-category.kb-category.findOne"
     },
     {
-      "action": "api::faq.faq.find"
+      "action": "api::kb-faq.kb-faq.find"
     },
     {
-      "action": "api::faq.faq.findOne"
+      "action": "api::kb-faq.kb-faq.findOne"
     },
     {
       "action": "api::not-found-page.not-found-page.find"
+    },
+    {
+      "action": "api::pdc-category.pdc-category.find"
+    },
+    {
+      "action": "api::pdc-category.pdc-category.findOne"
+    },
+    {
+      "action": "api::pdc-faq.pdc-faq.find"
+    },
+    {
+      "action": "api::pdc-faq.pdc-faq.findOne"
+    },
+    {
+      "action": "api::pdc-subcategory.pdc-subcategory.find"
+    },
+    {
+      "action": "api::pdc-subcategory.pdc-subcategory.findOne"
     },
     {
       "action": "api::price.price.find"
@@ -29,12 +47,6 @@
     },
     {
       "action": "api::product.product.findOne"
-    },
-    {
-      "action": "api::subcategory.subcategory.find"
-    },
-    {
-      "action": "api::subcategory.subcategory.findOne"
     },
     {
       "action": "plugin::i18n.locales.listLocales"

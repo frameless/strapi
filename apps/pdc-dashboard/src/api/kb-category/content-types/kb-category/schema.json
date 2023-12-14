@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kb_categories",
+  "info": {
+    "singularName": "kb-category",
+    "pluralName": "kb-categories",
+    "displayName": "Categorie (KB)",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "kb_subcategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kb-subcategory.kb-subcategory",
+      "mappedBy": "kb_category"
+    }
+  }
+}

@@ -5,388 +5,90 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
-      "actionParameters": null,
-      "subject": "api::category.category",
-      "properties": {
-        "fields": ["subcategories", "title"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": null,
-      "subject": "api::category.category",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": null,
-      "subject": "api::category.category",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": null,
-      "subject": "api::category.category",
-      "properties": {
-        "fields": ["subcategories", "title"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": null,
-      "subject": "api::category.category",
-      "properties": {
-        "fields": ["subcategories", "title"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": null,
-      "subject": "api::faq.faq",
-      "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": null,
-      "subject": "api::faq.faq",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": null,
-      "subject": "api::faq.faq",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": null,
-      "subject": "api::faq.faq",
-      "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": null,
-      "subject": "api::faq.faq",
-      "properties": {
-        "fields": ["faq.accordion.title", "faq.accordion.body", "title"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"],
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": ["en", "nl"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "actionParameters": null,
-      "subject": "api::not-found-page.not-found-page",
-      "properties": {
-        "fields": ["title", "body"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": null,
-      "subject": "api::price.price",
-      "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": null,
-      "subject": "api::price.price",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": null,
-      "subject": "api::price.price",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": null,
-      "subject": "api::price.price",
-      "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.update",
-      "actionParameters": null,
-      "subject": "api::price.price",
+      "actionParameters": {},
+      "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": null,
-      "subject": "api::product.product",
-      "properties": {
-        "fields": [
-          "title",
-          "sections",
-          "price",
-          "metaTags.keymatch",
-          "metaTags.title",
-          "metaTags.description",
-          "catalogiMeta.spatial.resourceIdentifier",
-          "catalogiMeta.spatial.scheme",
-          "catalogiMeta.authority.resourceIdentifier",
-          "catalogiMeta.authority.scheme",
-          "catalogiMeta.audience.type",
-          "catalogiMeta.onlineRequest.type",
-          "catalogiMeta.uniformProductName",
-          "metadata.singleDigitalGateway",
-          "metadata.attachementAdded",
-          "metadata.contact.name",
-          "metadata.contact.email",
-          "metadata.identificationMethod.method",
-          "metadata.eForm.linkedEForm",
-          "metadata.eForm.eFormURL.value",
-          "slug",
-          "subcategories",
-          "catalogiMeta.abstract"
-        ],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": null,
-      "subject": "api::product.product",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": null,
-      "subject": "api::product.product",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": null,
-      "subject": "api::product.product",
-      "properties": {
-        "fields": [
-          "title",
-          "sections",
-          "price",
-          "metaTags.keymatch",
-          "metaTags.title",
-          "metaTags.description",
-          "catalogiMeta.spatial.resourceIdentifier",
-          "catalogiMeta.spatial.scheme",
-          "catalogiMeta.authority.resourceIdentifier",
-          "catalogiMeta.authority.scheme",
-          "catalogiMeta.audience.type",
-          "catalogiMeta.onlineRequest.type",
-          "catalogiMeta.uniformProductName",
-          "metadata.singleDigitalGateway",
-          "metadata.attachementAdded",
-          "metadata.contact.name",
-          "metadata.contact.email",
-          "metadata.identificationMethod.method",
-          "metadata.eForm.linkedEForm",
-          "metadata.eForm.eFormURL.value",
-          "slug",
-          "subcategories",
-          "catalogiMeta.abstract"
-        ],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": null,
-      "subject": "api::product.product",
-      "properties": {
-        "fields": [
-          "title",
-          "sections",
-          "price",
-          "metaTags.keymatch",
-          "metaTags.title",
-          "metaTags.description",
-          "catalogiMeta.spatial.resourceIdentifier",
-          "catalogiMeta.spatial.scheme",
-          "catalogiMeta.authority.resourceIdentifier",
-          "catalogiMeta.authority.scheme",
-          "catalogiMeta.audience.type",
-          "catalogiMeta.onlineRequest.type",
-          "catalogiMeta.uniformProductName",
-          "metadata.singleDigitalGateway",
-          "metadata.attachementAdded",
-          "metadata.contact.name",
-          "metadata.contact.email",
-          "metadata.identificationMethod.method",
-          "metadata.eForm.linkedEForm",
-          "metadata.eForm.eFormURL.value",
-          "slug",
-          "subcategories",
-          "catalogiMeta.abstract"
-        ],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": null,
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "fields": ["category", "title", "products"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": null,
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": null,
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": null,
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "fields": ["category", "title", "products"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": null,
-      "subject": "api::subcategory.subcategory",
-      "properties": {
-        "fields": ["category", "title", "products"],
-        "locales": ["en", "nl"]
+        "fields": ["title", "body"],
+        "locales": ["nl", "en"]
       },
       "conditions": []
     },
     {
       "action": "plugin::upload.assets.copy-link",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": null,
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::upload.assets.create",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": null,
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::upload.assets.download",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": null,
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::upload.assets.update",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": null,
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::upload.configure-view",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": null,
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::upload.read",
-      "actionParameters": null,
+      "actionParameters": {},
       "subject": null,
       "properties": {},
       "conditions": []
