@@ -33,11 +33,15 @@ $utrecht-breakpoints: (
     flex: 0 0 auto;
     inline-size: calc(var(--_utrecht-columns, 12) / 12 * 100%);
     justify-content: var(--_utrecht-grid-justify-content, initial);
+    order: var(--_utrecht-grid-order, initial);
   }
 
   @for $i from 1 to 13 {
     &--xs-#{$i} {
       --_utrecht-columns: #{$i};
+    }
+    &--order-#{$i} {
+      --_utrecht-grid-order: #{$i};
     }
   }
 
@@ -45,6 +49,9 @@ $utrecht-breakpoints: (
     @for $i from 1 to 13 {
       &--sm-#{$i} {
         --_utrecht-columns: #{$i};
+      }
+      &--order-sm-#{$i} {
+        --_utrecht-grid-order: #{$i};
       }
     }
     @each $value in $utrecht-justify-content {
@@ -66,6 +73,9 @@ $utrecht-breakpoints: (
       &--md-#{$i} {
         --_utrecht-columns: #{$i};
       }
+      &--order-md-#{$i} {
+        --_utrecht-grid-order: #{$i};
+      }
     }
     @each $value in $utrecht-justify-content {
       &--justify-content-md-#{$value} {
@@ -85,6 +95,9 @@ $utrecht-breakpoints: (
     @for $i from 1 to 13 {
       &--lg-#{$i} {
         --_utrecht-columns: #{$i};
+      }
+      &--order-lg-#{$i} {
+        --_utrecht-grid-order: #{$i};
       }
     }
     @each $value in $utrecht-justify-content {

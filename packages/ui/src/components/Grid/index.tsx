@@ -3,6 +3,7 @@ import React, { ForwardedRef, forwardRef, PropsWithChildren, ReactNode } from 'r
 import styles from './index.module.scss';
 
 type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type Order = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type Spacing = 'sm' | 'md' | 'lg';
 
 type JustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between';
@@ -38,6 +39,10 @@ export interface GridCellProps extends React.HTMLAttributes<HTMLElement> {
   alignItemsSm?: AlignItems;
   alignItemsMd?: AlignItems;
   alignItemsLg?: AlignItems;
+  order?: Order;
+  orderSm?: Order;
+  orderMd?: Order;
+  orderLg?: Order;
 }
 
 export const Grid = forwardRef(
@@ -99,6 +104,10 @@ export const GridCell = forwardRef(
       alignItemsMd,
       alignItemsLg,
       className,
+      orderLg,
+      orderMd,
+      orderSm,
+      order,
       ...props
     }: PropsWithChildren<GridCellProps>,
     ref: ForwardedRef<HTMLDivElement>,
@@ -116,6 +125,10 @@ export const GridCell = forwardRef(
       [`utrecht-grid--align-items-sm-${alignItemsSm}`]: alignItemsSm,
       [`utrecht-grid--align-items-md-${alignItemsMd}`]: alignItemsMd,
       [`utrecht-grid--align-items-lg-${alignItemsLg}`]: alignItemsLg,
+      [`utrecht-grid--order-${order}`]: order,
+      [`utrecht-grid--order-sm-${orderSm}`]: orderSm,
+      [`utrecht-grid--order-md-${orderMd}`]: orderMd,
+      [`utrecht-grid--order-lg-${orderLg}`]: orderLg,
     });
 
     return (
