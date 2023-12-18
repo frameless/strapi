@@ -20,7 +20,7 @@ import {
   SkipLink,
   Surface,
 } from '@/components';
-import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
+// import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import { Main } from '@/components/Main';
@@ -265,10 +265,10 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                       </Logo>
                     </Link>
                   </GridCell>
-                  <GridCell xs={6}>
-                    <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
-                  </GridCell>
-                  <GridCell sm={12} justifyContent="flex-end">
+                  {/* <GridCell xs={3}>
+                      <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
+                    </GridCell> */}
+                  <GridCell sm={12} md={6} justifyContent="flex-end" alignItems="center" order={3} orderMd={2}>
                     <SearchBar
                       locale={locale}
                       onSearchSubmit={onSearchSubmitAction}
@@ -279,16 +279,19 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                       hitsTitle={t('search-bar.hits-title')}
                     />
                   </GridCell>
+                  <GridCell xs={6} md={12} order={2} orderMd={3}>
+                    <Navigation
+                      list={getNavListData(t)}
+                      mobileBreakpoint={961}
+                      toggleButton={{
+                        openText: 'Menu',
+                        closeText: 'Sluiten',
+                      }}
+                    />
+                  </GridCell>
                 </Grid>
               </PageHeader>
-              <Navigation
-                list={getNavListData(t)}
-                mobileBreakpoint={768}
-                toggleButton={{
-                  openText: 'Menu',
-                  closeText: 'Sluiten',
-                }}
-              />
+
               <PageContent className="utrecht-page-content--modifier">
                 <Main id="main">{children}</Main>
               </PageContent>
