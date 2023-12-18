@@ -13,4 +13,5 @@
   display: flex;
   flex-direction: column;
   inline-size: 100%;
+  justify-content: var(--utrecht-navigation-mobile-justify-content, flex-end);
 }
