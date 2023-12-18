@@ -2,16 +2,27 @@ import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
-import { Navigation, NavigationListType, Page, PageContent, PageHeader, PreviewAlert, SkipLink } from '@/components';
+import {
+  Grid,
+  GridCell,
+  Logo,
+  LogoImage,
+  Navigation,
+  NavigationListType,
+  Page,
+  PageContent,
+  PageHeader,
+  PreviewAlert,
+  SkipLink,
+} from '@/components';
 import '@utrecht/component-library-css';
 import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
 import { Footer } from '@/components/Footer';
-import { Grid } from '@/components/Grid';
-import { Logo } from '@/components/Logo';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Main } from '@/components/Main';
 import { GET_NAVIGATION_PAGES } from '@/query';
@@ -175,22 +186,35 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <QueryClientProvider>
           <Page className="utrecht-page--full-width">
             <PageHeader>
-              <div className={'utrecht-skip-link-container'}>
+              <div className="utrecht-skip-link-container">
                 <SkipLink href="#main">Ga naar inhoud</SkipLink>
               </div>
-              <Grid className={'utrecht-grid--content-padding'}>
-                <Logo locale={locale} />
+              <Grid spacing="md">
+                <GridCell xs={6}>
+                  <Link
+                    href={`/${locale}`}
+                    className="utrecht-link utrecht-link--html-a utrecht-link--box-content utrecht-logo__wrapper"
+                    prefetch={true}
+                    aria-label="Ga naar home pagina"
+                  >
+                    <Logo>
+                      <LogoImage />
+                    </Logo>
+                  </Link>
+                </GridCell>
+                <GridCell xs={6} md={12}>
+                  <Navigation
+                    list={navListData}
+                    mobileBreakpoint={998}
+                    toggleButton={{
+                      openText: 'Menu',
+                      closeText: 'Sluiten',
+                    }}
+                  />
+                </GridCell>
               </Grid>
             </PageHeader>
             <PageContent>
-              <Navigation
-                list={navListData}
-                mobileBreakpoint={998}
-                toggleButton={{
-                  openText: 'Menu',
-                  closeText: 'Sluiten',
-                }}
-              />
               <Main id="main">{children}</Main>
             </PageContent>
             <Footer data={footerData} />
