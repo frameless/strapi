@@ -11,17 +11,17 @@
     "development-env": "STRAPI_PRIVATE_URL=https://pdc-api.cg-intern.ont.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://pdc-api.cg-intern.ont.utrecht.nl next dev -p 9000",
     "acceptance-env": "STRAPI_PRIVATE_URL=https://pdc-api.cg-intern.acc.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://pdc-api.cg-intern.acc.utrecht.nl next dev -p 8000",
     "prod-env": "STRAPI_PRIVATE_URL=https://pdc-api.cg-intern.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://pdc-api.cg-intern.utrecht.nl next dev -p 3000",
-    "prebuild": "yarn clean",
-    "predev": "yarn codegen",
+    "prebuild": "pnpm clean",
+    "predev": "pnpm codegen",
     "codegen": "graphql-codegen",
     "clean": "rimraf build .next",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "next start -p 3000",
     "lint": "next lint"
   },
   "dependencies": {
-    "@frameless/samenwerkende-catalogi": "0.0.0-semantically-released",
-    "@frameless/ui": "0.0.0-semantically-released",
+    "@frameless/samenwerkende-catalogi": "workspace:*",
+    "@frameless/ui": "workspace:*",
     "@tanstack/react-query": "4.29.12",
     "@utrecht/component-library-css": "1.0.0-alpha.604",
     "@utrecht/component-library-react": "1.0.0-alpha.413",
@@ -40,13 +40,13 @@
     "react-dom": "18.2.0",
     "react-i18next": "12.3.1",
     "react-loading-skeleton": "3.3.1",
-    "sharp": "0.32.1"
+    "sharp": "0.33.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/client-preset": "4.1.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.4",
-    "sass": "1.63.6",
-    "@graphql-codegen/client-preset": "4.1.0"
+    "sass": "1.63.6"
   }
 }

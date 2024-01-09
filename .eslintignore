@@ -13,3 +13,4 @@ sample
 .cache
 generated
 gql
+pnpm-lock.yaml

@@ -16,20 +16,24 @@
     "clean": "rimraf build .cache dist"
   },
   "dependencies": {
-    "@frameless/preview-button": "0.0.0-semantically-released",
-    "@frameless/strapi-tiptap-editor": "0.0.0-semantically-released",
-    "@strapi/plugin-graphql": "4.14.4",
-    "@strapi/plugin-i18n": "4.14.4",
-    "@strapi/plugin-users-permissions": "4.14.4",
-    "strapi-plugin-import-export-entries": "1.21.1",
-    "@strapi/strapi": "4.14.4",
-    "better-sqlite3": "8.3.0",
+    "@frameless/preview-button": "file:../../packages/preview-button",
+    "@frameless/strapi-tiptap-editor": "file:../../packages/strapi-tiptap-editor",
+    "@strapi/plugin-graphql": "4.17.0",
+    "@strapi/plugin-i18n": "4.17.0",
+    "@strapi/plugin-users-permissions": "4.17.0",
+    "@strapi/strapi": "4.17.0",
+    "better-sqlite3": "9.2.2",
     "pg": "8.11.3",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-router-dom": "5.2.0",
     "slugify": "1.6.6",
     "strapi-plugin-config-sync": "1.2.3",
-    "strapi-plugin-publisher": "1.5.4",
+    "strapi-plugin-import-export-entries": "1.23.1",
+    "strapi-plugin-publisher": "1.5.6",
     "strapi-plugin-slugify": "2.3.8",
-    "strapi-prometheus": "1.8.1"
+    "strapi-prometheus": "1.8.1",
+    "styled-components": "5.2.1"
   },
   "author": {
     "name": ""
@@ -38,7 +42,8 @@
     "uuid": "3d9f46d7-679c-4633-8821-761d8bbb5bea"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x",
+    "pnpm": "8.x.x"
   },
   "license": "MIT",
   "devDependencies": {

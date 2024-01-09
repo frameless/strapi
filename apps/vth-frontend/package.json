@@ -10,12 +10,12 @@
     "dev": "next dev -p 3000",
     "prebuild": "npm run clean",
     "clean": "rimraf build .next",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "next start -p 3000",
     "lint": "next lint"
   },
   "dependencies": {
-    "@frameless/ui": "0.0.0-semantically-released",
+    "@frameless/ui": "workspace:*",
     "@tanstack/react-query": "4.29.12",
     "@utrecht/component-library-css": "1.0.0-alpha.604",
     "@utrecht/component-library-react": "1.0.0-alpha.413",
@@ -33,7 +33,7 @@
     "react-dom": "18.2.0",
     "react-i18next": "12.3.1",
     "react-loading-skeleton": "3.3.1",
-    "sharp": "0.32.1"
+    "sharp": "0.33.1"
   },
   "devDependencies": {
     "eslint": "8.35.0",

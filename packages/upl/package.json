@@ -1,6 +1,6 @@
 {
   "name": "@frameless/upl",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "sideEffects": true,
   "private": false,
   "main": "./dist/build/main.js",
@@ -21,7 +21,7 @@
     "access": "public"
   },
   "scripts": {
-    "prebuild": "npm run tsc",
+    "prebuild": "pnpm run tsc",
     "build": "node dist/index.js && npm run tsc",
     "tsc": "tsc",
     "clean": "rimraf dist src/build"
@@ -33,5 +33,9 @@
     "@types/uuid": "9.0.7",
     "rimraf": "5.0.5",
     "uuid": "9.0.1"
+  },
+  "engines": {
+    "node": "20.x.x",
+    "pnpm": "8.x.x"
   }
 }

@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./package.json:/opt/app/package.json
-      - ./yarn.lock:/opt/app/yarn.lock
+      - ./pnpm-lock.yaml:/opt/app/pnpm-lock.yaml
       - ./apps/pdc-dashboard/config:/opt/app/apps/pdc-dashboard/config
       - ./apps/pdc-dashboard/src:/opt/app/apps/pdc-dashboard/src
       - ./apps/pdc-dashboard/package.json:/opt/app/apps/pdc-dashboard/package.json
@@ -17,7 +17,7 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        npm run dev --workspace @frameless/pdc-dashboard
+        pnpm --filter @frameless/pdc-dashboard run dev
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
@@ -47,7 +47,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh -s pdc_strapi:1337 -t 25 -- npm run dev --workspace @frameless/pdc-frontend
+    command: ./bin/wait-for-it.sh -s pdc_strapi:1337 -t 25 -- pnpm --filter @frameless/pdc-frontend run dev
     environment:
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
@@ -71,7 +71,7 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     restart: unless-stopped
-    command: npm run start:pdc-sc
+    command: pnpm start:pdc-sc
     environment:
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}

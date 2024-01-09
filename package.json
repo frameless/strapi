@@ -3,16 +3,6 @@
   "version": "0.0.0-semantically-released",
   "description": "",
   "private": true,
-  "workspaces": [
-    "packages/upl",
-    "packages/strapi-plugin-uniform-product-name",
-    "packages/strapi-tiptap-editor",
-    "packages/catalogi-data",
-    "packages/samenwerkende-catalogi",
-    "packages/provider-upload-vercel",
-    "packages/*",
-    "apps/*"
-  ],
   "repository": {
     "type": "git+ssh",
     "url": "git@github.com:frameless/strapi.git"
@@ -22,26 +12,25 @@
   },
   "keywords": [],
   "scripts": {
-    "start": "npm run --workspaces start --if-present",
-    "start:pdc-frontend": "npm run --workspace @frameless/pdc-frontend start",
-    "start:pdc-dashboard": "npm run --workspace @frameless/pdc-dashboard start",
-    "start:kennisbank-frontend": "npm run --workspace @frameless/kennisbank-frontend start",
-    "start:kennisbank-dashboard": "npm run --workspace @frameless/kennisbank-dashboard start",
-    "start:pdc-sc": "npm run --workspace @frameless/pdc-sc start",
-    "build": "npm run --workspaces build --if-present",
-    "build:frontend": "npm run build --workspace @frameless/${APP}",
-    "build:strapi": "npm run build --workspace @frameless/${APP}",
-    "build:both": "npm run build --workspace @frameless/${APP1} && npm run build --workspace @frameless/${APP2}",
-    "dev:frontend": "npm run dev -w @frameless/${APP}",
-    "dev:strapi": "npm run dev -w @frameless/${APP}",
-    "dev:both": "concurrently \"npm run dev -w @frameless/${APP1}\" \"npm run dev -w @frameless/${APP2}\"",
+    "start": "turbo run start",
+    "start:pdc-frontend": "pnpm --filter @frameless/pdc-frontend start",
+    "start:pdc-dashboard": "pnpm --filter @frameless/pdc-dashboard start",
+    "start:kennisbank-frontend": "pnpm --filter @frameless/kennisbank-frontend start",
+    "start:kennisbank-dashboard": "pnpm --filter @frameless/kennisbank-dashboard start",
+    "start:pdc-sc": "pnpm --filter @frameless/pdc-sc start",
+    "build": "turbo run build",
+    "build:frontend": "pnpm --filter @frameless/${APP}",
+    "build:strapi": "pnpm --filter @frameless/${APP}",
+    "build:both": "pnpm --filter @frameless/${APP1} && pnpm --filter @frameless/${APP2}",
+    "dev:frontend": "pnpm --filter @frameless/${APP} dev",
+    "dev:strapi": "pnpm --filter @frameless/${APP} dev",
+    "dev:both": "concurrently \"pnpm --filter @frameless/${APP1} dev\" \"pnpm --filter @frameless/${APP2} dev\"",
     "development": "node scripts/start.js",
-    "start:frontend": "npm run start -w @frameless/${APP}",
-    "start:strapi": "npm run start -w @frameless/${APP}",
-    "start:both": "concurrently \"npm run start -w @frameless/${APP1}\" \"npm run start -w @frameless/${APP2}\"",
-    "test": "npm run test --workspaces --if-present",
-    "clean": "npm run --workspaces clean --if-present",
-    "clean-node_modules": "npm exec --workspaces --include-workspace-root -- rimraf node_modules",
+    "start:frontend": "pnpm --filter @frameless/${APP}",
+    "start:strapi": "pnpm --filter @frameless/${APP}",
+    "start:both": "concurrently \"pnpm --filter @frameless/${APP1}\" \"pnpm --filter @frameless/${APP2}\"",
+    "test": "turbo run test",
+    "clean": "turbo run clean",
     "lint": "npm-run-all lint:*",
     "lint-fix": "npm-run-all lint-fix:*",
     "lint:css": "stylelint '**/*.{css,scss}'",
@@ -54,14 +43,14 @@
     "lint-fix:js": "NODE_OPTIONS=--max-old-space-size=8048 eslint --ext '.{js, json, jsx, ts, tsx}' --fix --report-unused-disable-directives .",
     "release": "multi-semantic-release --ignore-packages='apps/*/**'",
     "lint-fix:md": "markdownlint --fix '**/*.md'",
-    "prettier": "prettier --list-different --write .",
-    "postinstall": "patch-package"
+    "prettier": "prettier --list-different --write ."
+
   },
   "author": "",
   "license": "",
   "engines": {
-    "node": "18.x.x",
-    "yarn": "^1.22"
+    "node": "20.x.x",
+    "pnpm": "8.x.x"
   },
   "devDependencies": {
     "@babel/core": "7.21.8",
@@ -97,6 +86,7 @@
     "stylelint-config-prettier": "9.0.5",
     "stylelint-config-standard-scss": "10.0.0",
     "stylelint-order": "6.0.3",
+    "turbo": "1.11.3",
     "typescript": "5.0.4"
   }
 }

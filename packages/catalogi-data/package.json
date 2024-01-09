@@ -1,6 +1,6 @@
 {
   "name": "@frameless/catalogi-data",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "private": false,
   "main": "./dist/gemeente.json",
   "keywords": [],
@@ -18,7 +18,7 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "prebuild": "npm run tsc",
+    "prebuild": "pnpm tsc",
     "build": "node dist/index.js",
     "tsc": "tsc"
   },

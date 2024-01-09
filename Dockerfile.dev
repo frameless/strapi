@@ -1,5 +1,5 @@
 
-FROM node:18.18-alpine as build
+FROM node:20-alpine as build
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add --no-cache libc6-compat build-base bash gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 
@@ -8,8 +8,11 @@ ENV NODE_ENV=${NODE_ENV}
 ARG STRAPI_PUBLIC_URL
 ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
 WORKDIR /opt/app
-COPY ./package.json ./yarn.lock ./
-ENV PATH /opt/app/node_modules/.bin:$PATH
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+COPY ./package.json ./pnpm-lock.yaml ./
+RUN npm install -g pnpm@8
+
 COPY ./apps/pdc-dashboard/package.json apps/pdc-dashboard/package.json
 COPY ./apps/pdc-frontend/package.json apps/pdc-frontend/package.json
 COPY ./apps/pdc-sc/package.json apps/pdc-sc/package.json
@@ -32,21 +35,22 @@ COPY ./packages/strapi-plugin-uniform-product-name/package.json packages/strapi-
 #############################
 FROM build AS dependencies
 # Install prod dependencies
+RUN pnpm -g add patch-package node-gyp
 COPY ./patches /opt/app/patches
-RUN yarn install
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install
 
 # Build target builder #
 ########################
 FROM build AS builder
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN  npm run build --workspace @frameless/upl && \
-    npm run build --workspace @frameless/strapi-plugin-uniform-product-name && \
-    npm run build --workspace @frameless/strapi-tiptap-editor && \
-    npm run build --workspace @frameless/ui && \
-    npm run build --workspace @frameless/catalogi-data && \
-    npm run build --workspace @frameless/samenwerkende-catalogi && \
-    npm run build --workspace @frameless/pdc-sc
+RUN  pnpm  --filter @frameless/upl run build && \
+    pnpm  --filter @frameless/strapi-plugin-uniform-product-name run build && \
+    pnpm  --filter @frameless/strapi-tiptap-editor run build && \
+    pnpm  --filter @frameless/ui run build && \
+    pnpm  --filter @frameless/catalogi-data run build && \
+    pnpm  --filter @frameless/samenwerkende-catalogi run build && \
+    pnpm  --filter @frameless/pdc-sc run build
 
 # Build target production #
 ###########################
@@ -55,4 +59,4 @@ COPY --from=builder /opt/app /opt/app
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 RUN chmod +x ./bin/wait-for-it.sh
 EXPOSE 1337
-CMD ["yarn", "dev"]
+CMD ["pnpm", "dev"]

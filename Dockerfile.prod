@@ -1,46 +1,58 @@
-FROM node:18.18-alpine as build
+FROM node:20.10-alpine as build
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add --no-cache libc6-compat build-base gcc bash autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
-
-ARG NODE_ENV=production
-ARG STRAPI_PUBLIC_URL
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
+ARG STRAPI_PUBLIC_URL
+RUN npm install -g pnpm@8
+ARG NODE_ENV=production
+COPY ./package.json ./pnpm-lock.yaml ./.npmrc ./pnpm-workspace.yaml ./
+RUN pnpm -g add patch-package node-gyp turbo
 WORKDIR /opt/app
-COPY ./package.json ./yarn.lock ./
-ENV PATH /opt/app/node_modules/.bin:$PATH
-RUN yarn global add patch-package node-gyp
-
 COPY ./ .
-
+RUN turbo prune @frameless/pdc-dashboard --docker && \
+    turbo prune @frameless/pdc-frontend --docker && \ 
+    turbo prune @frameless/vth-dashboard --docker && \
+    turbo prune @frameless/vth-frontend --docker && \
+    turbo prune @frameless/kennisbank-dashboard --docker && \ 
+    turbo prune @frameless/kennisbank-frontend --docker && \
+    turbo prune @frameless/pdc-sc --docker
 
 # Build target dependencies #
 #############################
 FROM build AS dependencies
-
-# Install patch-package globally
-
-COPY ./patches /opt/app/patches
 # Install prod dependencies
-RUN yarn install --production=true --frozen-lockfile && \
+COPY .gitignore .gitignore
+COPY --from=build /opt/app/out/json/ .
+COPY --from=build /opt/app/out/pnpm-lock.yaml ./pnpm-lock.yaml
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store NODE_ENV=production pnpm install --prod --no-frozen-lockfile && \
     # Cache prod dependencies
     cp -R node_modules /prod_node_modules && \
     # Install dev dependencies
-    yarn install --production=false
+    NODE_ENV=development pnpm install
 
 # Build target builder #
 ########################
 FROM build AS builder
-COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
-COPY . /opt/app/
-RUN yarn build && \
-    rm -rf node_modules
 
+# Build the project
+COPY --from=build /opt/app/out/full/ .
+COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
+COPY --from=dependencies /opt/app /opt/app
+
+WORKDIR /opt/app
+RUN pnpm build && \
+    rm -rf node_modules
 
 # Build target production #
 ###########################
 FROM build AS production
-COPY --from=builder /opt/app /opt/app
+COPY --from=build /opt/app /opt/app
+COPY --from=build /opt/app/out/full/ .
 COPY --from=dependencies /prod_node_modules /opt/app/node_modules
+COPY --from=builder /opt/app /opt/app
 
 RUN set -eux; \
     chmod +x ./bin/wait-for-it.sh && \
@@ -52,4 +64,4 @@ USER pdcuser
 
 ENV NODE_ENV=${NODE_ENV}
 EXPOSE 1337
-CMD ["yarn" , "start"]
+CMD ["pnpm", "start"]

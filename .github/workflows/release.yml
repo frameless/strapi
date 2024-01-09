@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -21,10 +21,28 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "yarn"
+          cache: "pnpm"
           registry-url: "https://npm.pkg.github.com/"
           scope: "@frameless"
-      - run: yarn install --frozen-lockfile
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+  
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        run: pnpm install
       - name: Make the root envfile
         uses: SpicyPizza/create-envfile@v1.3
         with:
@@ -53,7 +71,7 @@ jobs:
           file_name: .prod.env
           fail_on_empty: false
       - name: Build
-        run: npm run --workspace packages build --if-present
+        run: pnpm build
       - name: Lint
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"

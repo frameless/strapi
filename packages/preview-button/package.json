@@ -1,6 +1,6 @@
 {
   "name": "@frameless/preview-button",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "description": "A Strapi plugin that enable preview button",
   "private": false,
   "keywords": [],
@@ -25,7 +25,8 @@
     "name": "@frameless"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x",
+    "pnpm": "8.x.x"
   },
   "license": "MIT",
   "peerDependencies": {

@@ -1,5 +1,3 @@
-import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
-import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -12,6 +10,8 @@ import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_ARTICLE_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
+import { createStrapiURL } from '@/util/createStrapiURL';
+import { fetchData } from '@/util/fetchData';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
 type Params = {

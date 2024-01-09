@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./package.json:/opt/app/package.json
-      - ./yarn.lock:/opt/app/yarn.lock
+      - ./pnpm-lock.yaml:/opt/app/pnpm-lock.yaml
       - ./apps/vth-dashboard/config:/opt/app/apps/vth-dashboard/config
       - ./apps/vth-dashboard/src:/opt/app/apps/vth-dashboard/src
       - ./apps/vth-dashboard/package.json:/opt/app/apps/vth-dashboard/package.json
@@ -17,7 +17,7 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        npm run dev --workspace @frameless/vth-dashboard
+        pnpm --filter @frameless/vth-dashboard run dev
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
@@ -47,7 +47,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh -s vth_strapi:1337 -t 25 -- npm run dev --workspace @frameless/vth-frontend
+    command: ./bin/wait-for-it.sh -s vth_strapi:1337 -t 25 -- pnpm --filter @frameless/vth-frontend run dev
     environment:
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}

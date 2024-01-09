@@ -16,6 +16,7 @@ build/
 data/
 .env
 .env*
+.turbo
 
 **/.next
 **/.tmp
@@ -27,3 +28,5 @@ data/
 **/.DS_Store
 docs
 *.log
+
+.rollup.cache

@@ -1,5 +1,3 @@
-import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiURL';
-import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Heading1 } from '@utrecht/component-library-react';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
@@ -10,6 +8,8 @@ import { Card } from '@/components/Card';
 import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { GET_HOMEPAGE } from '@/query';
+import { createStrapiURL } from '@/util/createStrapiURL';
+import { fetchData } from '@/util/fetchData';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { useTranslation } from '../i18n';
 

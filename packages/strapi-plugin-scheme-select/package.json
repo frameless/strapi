@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-plugin-scheme-select",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "description": "A strapi custom field for selecting scheme",
   "keywords": [],
   "private": false,
@@ -25,7 +25,8 @@
     "@strapi/strapi": ">=4.0.0"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x",
+    "pnpm": "8.x.x"
   },
   "dependencies": {
     "@strapi/design-system": "1.12.2",

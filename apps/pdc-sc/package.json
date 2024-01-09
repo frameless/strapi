@@ -7,22 +7,26 @@
   "license": "",
   "keywords": [],
   "scripts": {
-    "prebuild": "yarn clean",
+    "prebuild": "pnpm clean",
     "build": "tsc -p ./tsconfig.json",
-    "watch": "tsc -p ./tsconfig.json  -w",
+    "watch": "tsc -p ./tsconfig.json -w",
     "start": "node dist/server.js",
     "dev": "nodemon dist/server.js",
     "clean": "rimraf dist"
   },
   "dependencies": {
     "express": "4.18.2",
-    "axios": "1.6.2",
+    "axios": "1.6.5",
     "react": "18.2.0",
-    "@frameless/samenwerkende-catalogi": "0.0.0-semantically-released",
+    "@frameless/samenwerkende-catalogi": "workspace:*",
     "@utrecht/component-library-react": "1.0.2-alpha.0",
     "dotenv": "16.3.1"
   },
   "devDependencies": {
     "nodemon": "3.0.2"
+  },
+  "engines": {
+    "node": "20.x.x",
+    "pnpm": "8.x.x"
   }
 }
