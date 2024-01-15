@@ -1,14 +1,4 @@
-import {
-  Heading2,
-  Heading3,
-  Link,
-  LinkSocial,
-  ListSocial,
-  ListSocialItem,
-  Page,
-  PageFooter,
-  Paragraph,
-} from '@utrecht/component-library-react';
+import { Heading2, Heading3, Link, Page, PageFooter, Paragraph } from '@utrecht/component-library-react';
 import {
   UtrechtIconFacebook,
   UtrechtIconInstagram,
@@ -83,7 +73,7 @@ export const Footer = ({ data }: FooterProps) => (
                   {listItem.items &&
                     listItem.items.length > 0 &&
                     listItem.items.map((item, index) => (
-                      <Link key={index} href={item.link} className={css('utrecht-footer__link')}>
+                      <Link key={index} external href={item.link} className={css('utrecht-footer__link')}>
                         {item.title}
                       </Link>
                     ))}
@@ -102,25 +92,20 @@ export const Footer = ({ data }: FooterProps) => (
             'utrecht-grid--justify-content-sm-flex-end',
           )}
         >
-          <ListSocial>
+          <ul className={css('utrecht-footer__list')}>
             {data?.social_media &&
               data.social_media.length > 0 &&
               data.social_media.map((socialItem, index) => {
                 const Icon = socialMediaIconTypes[socialItem.icon as keyof typeof socialMediaIconTypes];
                 return (
-                  <ListSocialItem key={index}>
-                    <LinkSocial
-                      external={socialItem.external}
-                      href={socialItem.link}
-                      title={socialItem.title}
-                      className="utrecht-link-social"
-                    >
-                      <Icon />
-                    </LinkSocial>
-                  </ListSocialItem>
+                  <li key={index} className={css('utrecht-footer__list-item')}>
+                    <Link external={socialItem.external} href={socialItem.link} className={css('utrecht-footer__link')}>
+                      <Icon /> {socialItem.title}
+                    </Link>
+                  </li>
                 );
               })}
-          </ListSocial>
+          </ul>
         </div>
       </div>
     </Page>
