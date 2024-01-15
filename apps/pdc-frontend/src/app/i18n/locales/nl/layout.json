@@ -61,31 +61,31 @@
         "icon": "facebook",
         "link": "https://www.facebook.com/GemeenteUtrecht",
         "external": true,
-        "title": "Volg ons op Facebook"
+        "title": "Facebook"
       },
       {
         "icon": "instagram",
         "link": "https://www.instagram.com/GemeenteUtrecht",
         "external": true,
-        "title": "Volg ons op Instagram"
+        "title": "Instagram"
       },
       {
         "icon": "linkedin",
         "link": "https://nl.linkedin.com/company/gemeente-utrecht",
         "external": true,
-        "title": "Volg ons op LinkedIn"
+        "title": "LinkedIn"
       },
       {
         "icon": "twitter",
         "link": "https://twitter.com/gemeenteutrecht",
         "external": true,
-        "title": "Volg ons op Twitter"
+        "title": "X (Twitter)"
       },
       {
         "icon": "whatsapp",
         "link": "https://api.whatsapp.com/send?phone=31624927665",
         "external": false,
-        "title": "Neem contact op via WhatsApp"
+        "title": "WhatsApp"
       }
     ]
   },

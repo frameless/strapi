@@ -20,6 +20,12 @@ body {
   --utrecht-list-social-margin-block-start: 24px;
   --utrecht-heading-1-margin-block-start: var(--utrecht-space-block-2xl);
   --utrecht-heading-1-margin-block-end: var(--utrecht-space-block-2xl);
+  --utrecht-page-footer-background-image: linear-gradient(
+    45deg,
+    var(--utrecht-color-red-40),
+    var(--utrecht-color-red-40) 50%,
+    #d63433 50%
+  );
 
   /* Advanced Link tokens */
   --utrecht-advanced-link-with-icon-text-decoration: none;
