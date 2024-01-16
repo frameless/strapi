@@ -58,34 +58,40 @@
     ],
     "social_media": [
       {
-        "icon": "facebook",
-        "link": "https://www.facebook.com/GemeenteUtrecht",
-        "external": true,
-        "title": "Follow us on Facebook"
-      },
-      {
         "icon": "instagram",
         "link": "https://www.instagram.com/GemeenteUtrecht",
         "external": true,
-        "title": "Follow us on Instagram"
-      },
-      {
-        "icon": "linkedin",
-        "link": "https://nl.linkedin.com/company/gemeente-utrecht",
-        "external": true,
-        "title": "Follow us on LinkedIn"
-      },
-      {
-        "icon": "twitter",
-        "link": "https://twitter.com/gemeenteutrecht",
-        "external": true,
-        "title": "Follow us on Twitter"
+        "title": "Instagram"
       },
       {
         "icon": "whatsapp",
         "link": "https://api.whatsapp.com/send?phone=31624927665",
         "external": false,
-        "title": "Contact us via WhatsApp"
+        "title": "WhatsApp"
+      },
+      {
+        "icon": "facebook",
+        "link": "https://www.facebook.com/GemeenteUtrecht",
+        "external": true,
+        "title": "Facebook"
+      },
+      {
+        "icon": "twitter",
+        "link": "https://twitter.com/gemeenteutrecht",
+        "external": true,
+        "title": "X (Twitter)"
+      },
+      {
+        "icon": "linkedin",
+        "link": "https://nl.linkedin.com/company/gemeente-utrecht",
+        "external": true,
+        "title": "LinkedIn"
+      },
+      {
+        "icon": "newsletter",
+        "link": "https://www.utrecht.nl/bestuur-en-organisatie/publicaties/nieuwsbrieven/nieuwsbrief-utrecht/",
+        "external": true,
+        "title": "Newsletter"
       }
     ]
   },

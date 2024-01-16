@@ -52,16 +52,28 @@
     ],
     "social_media": [
       {
+        "icon": "instagram",
+        "link": "https://www.instagram.com/GemeenteUtrecht",
+        "external": true,
+        "title": "Instagram"
+      },
+      {
+        "icon": "whatsapp",
+        "link": "https://api.whatsapp.com/send?phone=31624927665",
+        "external": true,
+        "title": "WhatsApp"
+      },
+      {
         "icon": "facebook",
         "link": "https://www.facebook.com/GemeenteUtrecht",
         "external": true,
         "title": "Facebook"
       },
       {
-        "icon": "instagram",
-        "link": "https://www.instagram.com/GemeenteUtrecht",
+        "icon": "x",
+        "link": "https://twitter.com/gemeenteutrecht",
         "external": true,
-        "title": "Instagram"
+        "title": "X (Twitter)"
       },
       {
         "icon": "linkedin",
@@ -70,16 +82,10 @@
         "title": "LinkedIn"
       },
       {
-        "icon": "twitter",
-        "link": "https://twitter.com/gemeenteutrecht",
+        "icon": "newsletter",
+        "link": "https://www.utrecht.nl/bestuur-en-organisatie/publicaties/nieuwsbrieven/nieuwsbrief-utrecht/",
         "external": true,
-        "title": "X (Twitter)"
-      },
-      {
-        "icon": "whatsapp",
-        "link": "https://api.whatsapp.com/send?phone=31624927665",
-        "external": false,
-        "title": "WhatsApp"
+        "title": "Nieuwsbrief"
       }
     ]
   },
