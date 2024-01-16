@@ -42,7 +42,7 @@
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-typescript": "11.1.5",
     "@types/react-dom": "18.2.17",
-    "@utrecht/component-library-react": "1.0.0-alpha.413",
+    "@utrecht/component-library-react": "3.0.1-alpha.4",
     "@utrecht/web-component-library-react": "1.0.2",
     "autoprefixer": "10.4.16",
     "react": "18.2.0",
