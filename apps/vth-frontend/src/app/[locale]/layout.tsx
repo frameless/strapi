@@ -7,6 +7,7 @@ import Script from 'next/script';
 import React from 'react';
 import { QueryClientProvider } from '@/client';
 import {
+  Footer,
   Grid,
   GridCell,
   Logo,
@@ -20,9 +21,7 @@ import {
   SkipLink,
 } from '@/components';
 import '@utrecht/component-library-css';
-import '../../styles/globals.css';
 import '@utrecht/design-tokens/dist/index.css';
-import { Footer } from '@/components/Footer';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Main } from '@/components/Main';
 import { GET_NAVIGATION_PAGES } from '@/query';
@@ -30,6 +29,7 @@ import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { useTranslation } from '../i18n/index';
 import '@frameless/ui/dist/bundle.css';
+import '../../styles/globals.css';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -155,7 +155,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         title: t('footer.social_media.2.title'),
       },
       {
-        icon: 'twitter',
+        icon: 'x',
         link: 'https://twitter.com/gemeenteutrecht',
         external: true,
         title: t('footer.social_media.3.title'),
@@ -168,10 +168,11 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
       },
     ],
   };
+
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
-        className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-surface')}
+        className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-surface', 'utrecht-vth-theme')}
         suppressHydrationWarning={true}
       >
         {isEnabled && (

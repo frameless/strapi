@@ -1,5 +1,4 @@
-html,
-body {
+.utrecht-vth-theme {
   --utrecht-space-around: 1;
   --utrecht-list-social-margin-block-start: 24px;
   --utrecht-page-header-background-color: var(--utrecht-color-white);
@@ -92,12 +91,19 @@ body {
   --denhaag-space-onbekenden: 32px;
   --denhaag-space-onbemindend: 64px;
 
+  /* --- spacing tokens end --- */
+  --utrecht-page-footer-background-image: linear-gradient(
+    45deg,
+    var(--utrecht-color-red-40),
+    var(--utrecht-color-red-40) 50%,
+    #d63433 50%
+  );
+  --utrecht-link-list-marker-background-image: url("https://pki.utrecht.nl/Loket/base/files/getImageAction.do?key=kl_pijltje-wit-SVG");
+
   margin-block: 0;
   margin-inline: 0;
   padding-block: 0;
   padding-inline: 0;
-
-  /* --- spacing tokens end --- */
 }
 
 a {
