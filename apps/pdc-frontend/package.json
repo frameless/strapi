@@ -26,7 +26,7 @@
     "@utrecht/component-library-css": "3.0.1-alpha.4",
     "@utrecht/component-library-react": "3.0.1-alpha.4",
     "@utrecht/design-tokens": "1.0.0-alpha.617",
-    "@utrecht/web-component-library-react": "1.0.2",
+    "@utrecht/web-component-library-react": "1.0.3-alpha.4",
     "accept-language": "3.0.18",
     "classnames": "2.3.2",
     "downshift": "7.6.0",

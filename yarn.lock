@@ -3682,10 +3682,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@stencil/core@4.5.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-4.5.0.tgz#99e2e47985a867c1cba476f9c3632cd2fd06d948"
-  integrity sha512-XRbHdb9t4SQzCCbF9qsh0dexvnlArEzCDJl19BJzxzazVBM398SeJUKCBh4p91AZIWveN0gHuZSIGMhLWR7qSA==
+"@stencil/core@4.8.2":
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-4.8.2.tgz#def54fa5afd8024125333451ed1dbf00c3f35e62"
+  integrity sha512-KdZEAtz9VnqMtXOkf51+8mphyRt0fN/LYgtj5M8gnveGspG8KzoyTDzlWt0wsstWIsJJ21RA1yd3AgMMZiu3MA==
 
 "@strapi/admin@4.14.4":
   version "4.14.4"
@@ -6280,19 +6280,19 @@
   resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.617.tgz#fc32d98bc551be2c4573458668508b4b19605796"
   integrity sha512-LDkDPDX+BthQ6d6kMe5y5ufwM1SgjSpVt+v2TuVVgpNLC4c5kegAhDIpLE74ockfMBocL65lUT/HH+Qoe9TOzA==
 
-"@utrecht/web-component-library-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.0.2.tgz#08798038b93f11d0f72c592c9964a9e1cf526779"
-  integrity sha512-TFs2ub0bNvqXlNNn2rdmWyb7/1fQN/pijQFcBt5yohaiQYhrdk7G63JfqPiF7xGk6XbAV0NW3HogcYMhMbKBqg==
+"@utrecht/web-component-library-react@1.0.3-alpha.4":
+  version "1.0.3-alpha.4"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.0.3-alpha.4.tgz#35ab2e803b65681e28ad06779edf62c6fd024cf4"
+  integrity sha512-TyOL+pyKNVIOvUJodEoy/Yels9/IexEQ9SCPDiejd8Z3na5nJrSrkzhRLjqNWzEwQCKd8uMDX0lAnneSRtoBWQ==
   dependencies:
-    "@utrecht/web-component-library-stencil" "1.1.0"
+    "@utrecht/web-component-library-stencil" "1.1.1-alpha.4"
 
-"@utrecht/web-component-library-stencil@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.1.0.tgz#d05d3e96fee3e816781e1b384418c15b9d7429d4"
-  integrity sha512-3gHqaSqI5y6J+H6ZABHNxgdPxhQDzLFJX+ILfQDzuzQUOywyuAFodrArE2J53uPPcL6cw6ckXlIPEOZmuy3KSA==
+"@utrecht/web-component-library-stencil@1.1.1-alpha.4":
+  version "1.1.1-alpha.4"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.1.1-alpha.4.tgz#c7d0f6e5087a6ae64dde3639cb559ae4b53a111e"
+  integrity sha512-VFFGcliaaHJAXgqeeUNuLs/l2uK6rJ0zicXx3umysR3aaHLBP1MMeyXtu5aKQkaCvaoD+8BdWH+q/wyTiG3ycA==
   dependencies:
-    "@stencil/core" "4.5.0"
+    "@stencil/core" "4.8.2"
 
 "@vercel/blob@0.12.3":
   version "0.12.3"
