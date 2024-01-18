@@ -23,17 +23,16 @@
     "@frameless/strapi-plugin-scheme-select": "0.0.0-semantically-released",
     "@frameless/strapi-plugin-uniform-product-name": "0.0.0-semantically-released",
     "@frameless/strapi-tiptap-editor": "0.0.0-semantically-released",
-    "strapi-plugin-import-export-entries": "1.21.1",
     "@strapi/plugin-graphql": "4.14.4",
-    "strapi-content-type-explorer": "0.1.1",
     "@strapi/plugin-i18n": "4.14.4",
     "@strapi/plugin-users-permissions": "4.14.4",
     "@strapi/strapi": "4.14.4",
-    "strapi-plugin-notes": "1.1.2",
     "better-sqlite3": "8.3.0",
     "pg": "8.11.3",
     "slugify": "1.6.6",
     "strapi-plugin-config-sync": "1.2.3",
+    "strapi-plugin-import-export-entries": "1.23.1",
+    "strapi-plugin-notes": "1.1.2",
     "strapi-plugin-publisher": "1.5.4",
     "strapi-plugin-slugify": "2.3.8",
     "strapi-prometheus": "1.8.1"
@@ -45,7 +44,7 @@
     "uuid": "3d9f46d7-679c-4633-8821-761d8bbb5bea"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x"
   },
   "license": "MIT",
   "devDependencies": {

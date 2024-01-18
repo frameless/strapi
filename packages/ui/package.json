@@ -21,7 +21,7 @@
     "name": "@frameless"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x"
   },
   "license": "MIT",
   "peerDependencies": {
