@@ -1,6 +1,6 @@
-FROM node:18.18-alpine as build
+FROM node:20-alpine3.18 as build
 # Installing libvips-dev for sharp Compatibility
-RUN apk update && apk add --no-cache libc6-compat build-base gcc bash autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
+RUN apk update && apk add --no-cache --virtual libc6-compat build-base gcc bash autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 
 ARG NODE_ENV=production
 ARG STRAPI_PUBLIC_URL
@@ -12,12 +12,9 @@ RUN yarn global add patch-package node-gyp
 
 COPY ./ .
 
-
 # Build target dependencies #
 #############################
 FROM build AS dependencies
-
-# Install patch-package globally
 
 COPY ./patches /opt/app/patches
 # Install prod dependencies
@@ -34,7 +31,6 @@ COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
 RUN yarn build && \
     rm -rf node_modules
-
 
 # Build target production #
 ###########################

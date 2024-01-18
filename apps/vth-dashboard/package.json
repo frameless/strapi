@@ -21,7 +21,7 @@
     "@strapi/plugin-graphql": "4.14.4",
     "@strapi/plugin-i18n": "4.14.4",
     "@strapi/plugin-users-permissions": "4.14.4",
-    "strapi-plugin-import-export-entries": "1.21.1",
+    "strapi-plugin-import-export-entries": "1.23.1",
     "@strapi/strapi": "4.14.4",
     "better-sqlite3": "8.3.0",
     "pg": "8.11.3",
@@ -38,7 +38,7 @@
     "uuid": "3d9f46d7-679c-4633-8821-761d8bbb5bea"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x"
   },
   "license": "MIT",
   "devDependencies": {

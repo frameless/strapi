@@ -36,7 +36,7 @@
     "uuid": "3d9f46d7-679c-4633-8821-761d8bbb5bea"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x"
   },
   "license": "MIT",
   "devDependencies": {

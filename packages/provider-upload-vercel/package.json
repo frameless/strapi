@@ -44,6 +44,6 @@
     "rollup-plugin-terser": "7.0.2"
   },
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x"
   }
 }
