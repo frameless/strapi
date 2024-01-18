@@ -36,7 +36,7 @@ export const Navigation = forwardRef(
     useClickOutside(navigationListRef, () => setDrawerVisible(false));
 
     useEffect(() => {
-      if (mobileBreakpoint) {
+      if (mobileBreakpoint && screenSize) {
         setVisible(screenSize < mobileBreakpoint);
       }
     }, [screenSize, mobileBreakpoint]);
@@ -45,6 +45,7 @@ export const Navigation = forwardRef(
       // TODO improve the scroll body lock when the menu is open
       // this is one of the packages that maybe fix the issue https://github.com/willmcpo/body-scroll-lock#readme
       if (drawerVisible && visible) {
+        if (typeof window === 'undefined') return () => {};
         window.scrollTo({
           top: 0,
           behavior: 'smooth',

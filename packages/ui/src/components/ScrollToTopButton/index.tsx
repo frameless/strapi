@@ -10,8 +10,9 @@ export interface ScrollToTopButtonProps extends ButtonHTMLAttributes<HTMLButtonE
 }
 
 export const scrollToTop = () => {
-  const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (typeof window === 'undefined') return;
 
+  const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (reduceMotionQuery.matches) {
     // If prefers-reduced-motion is set to reduce, instantly jump to the top
     window.scrollTo(0, 0);
