@@ -33,7 +33,7 @@
     "strapi-plugin-config-sync": "1.2.3",
     "strapi-plugin-import-export-entries": "1.23.1",
     "strapi-plugin-notes": "1.1.2",
-    "strapi-plugin-publisher": "1.5.4",
+    "strapi-plugin-publisher": "1.5.7",
     "strapi-plugin-slugify": "2.3.8",
     "strapi-prometheus": "1.8.1"
   },
