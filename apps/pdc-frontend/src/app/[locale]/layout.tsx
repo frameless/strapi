@@ -253,47 +253,53 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         )}
         <QueryClientProvider>
           <Surface>
-            <Page className="utrecht-main-wrapper">
-              <PageHeader>
+            <Page className="utrecht-custom-page">
+              <PageHeader className="utrecht-custom-header">
                 <SkipLink href="#main">{t('components.skip-link.main')}</SkipLink>
                 <SkipLink href="#menu">{t('components.skip-link.menu')}</SkipLink>
                 <SkipLink href="#search-input">{t('components.skip-link.search-input')}</SkipLink>
                 <Grid spacing="sm">
                   <GridCell xs={6}>
-                    <Link
-                      href={`/${locale}`}
-                      className="utrecht-link utrecht-link--html-a utrecht-link--box-content"
-                      prefetch={false}
-                      aria-label="Ga naar home pagina"
-                    >
-                      <Logo>
-                        <LogoImage />
-                      </Logo>
-                    </Link>
+                    <div className="utrecht-logo-wrapper">
+                      <Link
+                        href={`/${locale}`}
+                        className="utrecht-link utrecht-link--html-a utrecht-link--box-content"
+                        prefetch={false}
+                        aria-label="Ga naar home pagina"
+                      >
+                        <Logo>
+                          <LogoImage />
+                        </Logo>
+                      </Link>
+                    </div>
                   </GridCell>
                   {/* <GridCell xs={3}>
                       <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
                     </GridCell> */}
                   <GridCell sm={12} md={6} justifyContent="flex-end" alignItems="center" order={3} orderMd={2}>
-                    <SearchBar
-                      locale={locale}
-                      onSearchSubmit={onSearchSubmitAction}
-                      onSearchChange={getLiveSuggestions}
-                      submitButtonText={t('search-bar.search-submit')}
-                      inputAriaLabel={t('search-bar.input-ariaLabel')}
-                      suggestionsTitle={t('search-bar.suggestions-title')}
-                      hitsTitle={t('search-bar.hits-title')}
-                    />
+                    <div className="utrecht-search-bar-wrapper">
+                      <SearchBar
+                        locale={locale}
+                        onSearchSubmit={onSearchSubmitAction}
+                        onSearchChange={getLiveSuggestions}
+                        submitButtonText={t('search-bar.search-submit')}
+                        inputAriaLabel={t('search-bar.input-ariaLabel')}
+                        suggestionsTitle={t('search-bar.suggestions-title')}
+                        hitsTitle={t('search-bar.hits-title')}
+                      />
+                    </div>
                   </GridCell>
                   <GridCell xs={6} md={12} order={2} orderMd={3}>
-                    <Navigation
-                      list={getNavListData(t)}
-                      mobileBreakpoint={961}
-                      toggleButton={{
-                        openText: 'Menu',
-                        closeText: 'Sluiten',
-                      }}
-                    />
+                    <div className="utrecht-nav-wrapper">
+                      <Navigation
+                        list={getNavListData(t)}
+                        mobileBreakpoint={961}
+                        toggleButton={{
+                          openText: 'Menu',
+                          closeText: 'Sluiten',
+                        }}
+                      />
+                    </div>
                   </GridCell>
                 </Grid>
               </PageHeader>
