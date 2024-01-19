@@ -54,7 +54,7 @@ interface FooterProps {
 
 export const Footer = ({ data }: FooterProps) => (
   <PageFooter className={css('utrecht-footer')}>
-    <Page style={{ '--utrecht-page-margin-inline-end': '1rem', '--utrecht-page-margin-inline-start': '1rem' } as any}>
+    <Page>
       <div className={css('utrecht-grid__container')}>
         <div className={css('utrecht-grid__cell', 'utrecht-grid--md-8', 'utrecht-grid--sm-9')}>
           {data?.title && <Heading2>{data?.title}</Heading2>}
