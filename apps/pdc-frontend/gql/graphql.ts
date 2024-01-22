@@ -708,6 +708,110 @@ export type ComponentSeoMetaInput = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ContentReleasesRelease = {
+  __typename?: 'ContentReleasesRelease';
+  actions?: Maybe<ContentReleasesReleaseActionRelationResponseCollection>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  name: Scalars['String']['output'];
+  releasedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type ContentReleasesReleaseActionsArgs = {
+  filters?: InputMaybe<ContentReleasesReleaseActionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ContentReleasesReleaseAction = {
+  __typename?: 'ContentReleasesReleaseAction';
+  contentType: Scalars['String']['output'];
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  entry?: Maybe<GenericMorph>;
+  locale?: Maybe<Scalars['String']['output']>;
+  release?: Maybe<ContentReleasesReleaseEntityResponse>;
+  type: Enum_Contentreleasesreleaseaction_Type;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type ContentReleasesReleaseActionEntity = {
+  __typename?: 'ContentReleasesReleaseActionEntity';
+  attributes?: Maybe<ContentReleasesReleaseAction>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type ContentReleasesReleaseActionEntityResponse = {
+  __typename?: 'ContentReleasesReleaseActionEntityResponse';
+  data?: Maybe<ContentReleasesReleaseActionEntity>;
+};
+
+export type ContentReleasesReleaseActionEntityResponseCollection = {
+  __typename?: 'ContentReleasesReleaseActionEntityResponseCollection';
+  data: Array<ContentReleasesReleaseActionEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ContentReleasesReleaseActionFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ContentReleasesReleaseActionFiltersInput>>>;
+  contentType?: InputMaybe<StringFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  locale?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ContentReleasesReleaseActionFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ContentReleasesReleaseActionFiltersInput>>>;
+  release?: InputMaybe<ContentReleasesReleaseFiltersInput>;
+  type?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ContentReleasesReleaseActionInput = {
+  contentType?: InputMaybe<Scalars['String']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  release?: InputMaybe<Scalars['ID']['input']>;
+  type?: InputMaybe<Enum_Contentreleasesreleaseaction_Type>;
+};
+
+export type ContentReleasesReleaseActionRelationResponseCollection = {
+  __typename?: 'ContentReleasesReleaseActionRelationResponseCollection';
+  data: Array<ContentReleasesReleaseActionEntity>;
+};
+
+export type ContentReleasesReleaseEntity = {
+  __typename?: 'ContentReleasesReleaseEntity';
+  attributes?: Maybe<ContentReleasesRelease>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type ContentReleasesReleaseEntityResponse = {
+  __typename?: 'ContentReleasesReleaseEntityResponse';
+  data?: Maybe<ContentReleasesReleaseEntity>;
+};
+
+export type ContentReleasesReleaseEntityResponseCollection = {
+  __typename?: 'ContentReleasesReleaseEntityResponseCollection';
+  data: Array<ContentReleasesReleaseEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ContentReleasesReleaseFiltersInput = {
+  actions?: InputMaybe<ContentReleasesReleaseActionFiltersInput>;
+  and?: InputMaybe<Array<InputMaybe<ContentReleasesReleaseFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ContentReleasesReleaseFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ContentReleasesReleaseFiltersInput>>>;
+  releasedAt?: InputMaybe<DateTimeFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ContentReleasesReleaseInput = {
+  actions?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  releasedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
 export type DateFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
@@ -856,59 +960,17 @@ export enum Enum_Componentcomponentsutrechttoptasklink_Toptaskicons {
   Verhuizen = 'verhuizen'
 }
 
+export enum Enum_Contentreleasesreleaseaction_Type {
+  Publish = 'publish',
+  Unpublish = 'unpublish'
+}
+
 export enum Enum_Productencatalogus_Doelgroep {
   BedrijvenEnInstellingen = 'bedrijven_en_instellingen',
   Burgers = 'burgers',
   InterneOrganisatie = 'interne_organisatie',
   Samenwerkingspartners = 'samenwerkingspartners'
 }
-
-export type EntityNotesNote = {
-  __typename?: 'EntityNotesNote';
-  content?: Maybe<Scalars['String']['output']>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  entityId?: Maybe<Scalars['Int']['output']>;
-  entitySlug?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-export type EntityNotesNoteEntity = {
-  __typename?: 'EntityNotesNoteEntity';
-  attributes?: Maybe<EntityNotesNote>;
-  id?: Maybe<Scalars['ID']['output']>;
-};
-
-export type EntityNotesNoteEntityResponse = {
-  __typename?: 'EntityNotesNoteEntityResponse';
-  data?: Maybe<EntityNotesNoteEntity>;
-};
-
-export type EntityNotesNoteEntityResponseCollection = {
-  __typename?: 'EntityNotesNoteEntityResponseCollection';
-  data: Array<EntityNotesNoteEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type EntityNotesNoteFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<EntityNotesNoteFiltersInput>>>;
-  content?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  entityId?: InputMaybe<IntFilterInput>;
-  entitySlug?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<EntityNotesNoteFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<EntityNotesNoteFiltersInput>>>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type EntityNotesNoteInput = {
-  content?: InputMaybe<Scalars['String']['input']>;
-  entityId?: InputMaybe<Scalars['Int']['input']>;
-  entitySlug?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
 
 export type Error = {
   __typename?: 'Error';
@@ -950,7 +1012,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentSeoMeta | EntityNotesNote | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentSeoMeta | ContentReleasesRelease | ContentReleasesReleaseAction | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -1230,7 +1292,8 @@ export type Mutation = {
   __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
   changePassword?: Maybe<UsersPermissionsLoginPayload>;
-  createEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
+  createContentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
+  createContentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   createKbCategory?: Maybe<KbCategoryEntityResponse>;
   createKbFaq?: Maybe<KbFaqEntityResponse>;
   createKbSubcategory?: Maybe<KbSubcategoryEntityResponse>;
@@ -1252,7 +1315,8 @@ export type Mutation = {
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  deleteEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
+  deleteContentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
+  deleteContentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   deleteKbCategory?: Maybe<KbCategoryEntityResponse>;
   deleteKbFaq?: Maybe<KbFaqEntityResponse>;
   deleteKbSubcategory?: Maybe<KbSubcategoryEntityResponse>;
@@ -1283,7 +1347,8 @@ export type Mutation = {
   removeFile?: Maybe<UploadFileEntityResponse>;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
-  updateEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
+  updateContentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
+  updateContentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateKbCategory?: Maybe<KbCategoryEntityResponse>;
   updateKbFaq?: Maybe<KbFaqEntityResponse>;
@@ -1315,8 +1380,13 @@ export type MutationChangePasswordArgs = {
 };
 
 
-export type MutationCreateEntityNotesNoteArgs = {
-  data: EntityNotesNoteInput;
+export type MutationCreateContentReleasesReleaseArgs = {
+  data: ContentReleasesReleaseInput;
+};
+
+
+export type MutationCreateContentReleasesReleaseActionArgs = {
+  data: ContentReleasesReleaseActionInput;
 };
 
 
@@ -1425,7 +1495,12 @@ export type MutationCreateUsersPermissionsUserArgs = {
 };
 
 
-export type MutationDeleteEntityNotesNoteArgs = {
+export type MutationDeleteContentReleasesReleaseArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteContentReleasesReleaseActionArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -1557,8 +1632,14 @@ export type MutationResetPasswordArgs = {
 };
 
 
-export type MutationUpdateEntityNotesNoteArgs = {
-  data: EntityNotesNoteInput;
+export type MutationUpdateContentReleasesReleaseArgs = {
+  data: ContentReleasesReleaseInput;
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateContentReleasesReleaseActionArgs = {
+  data: ContentReleasesReleaseActionInput;
   id: Scalars['ID']['input'];
 };
 
@@ -2265,8 +2346,10 @@ export type PublisherActionInput = {
 
 export type Query = {
   __typename?: 'Query';
-  entityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
-  entityNotesNotes?: Maybe<EntityNotesNoteEntityResponseCollection>;
+  contentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
+  contentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
+  contentReleasesReleaseActions?: Maybe<ContentReleasesReleaseActionEntityResponseCollection>;
+  contentReleasesReleases?: Maybe<ContentReleasesReleaseEntityResponseCollection>;
   findSlug?: Maybe<FindSlugResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
@@ -2306,13 +2389,25 @@ export type Query = {
 };
 
 
-export type QueryEntityNotesNoteArgs = {
+export type QueryContentReleasesReleaseArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 
-export type QueryEntityNotesNotesArgs = {
-  filters?: InputMaybe<EntityNotesNoteFiltersInput>;
+export type QueryContentReleasesReleaseActionArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryContentReleasesReleaseActionsArgs = {
+  filters?: InputMaybe<ContentReleasesReleaseActionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryContentReleasesReleasesArgs = {
+  filters?: InputMaybe<ContentReleasesReleaseFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };

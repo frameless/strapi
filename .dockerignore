@@ -23,7 +23,7 @@ data/
 **/data/
 **/dist/
 **/.cache/
-**/node_modules/
+**/.strapi
 **/.DS_Store
 docs
 *.log

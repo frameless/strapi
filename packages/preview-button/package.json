@@ -18,8 +18,8 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@strapi/design-system": "1.12.2",
-    "@strapi/icons": "1.12.2"
+    "@strapi/design-system": "1.14.1",
+    "@strapi/icons": "1.14.1"
   },
   "author": {
     "name": "@frameless"

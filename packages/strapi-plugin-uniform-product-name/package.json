@@ -28,8 +28,8 @@
     "node": "20.x.x"
   },
   "dependencies": {
-    "@strapi/design-system": "1.12.2",
-    "@strapi/icons": "1.12.2",
+    "@strapi/design-system": "1.14.1",
+    "@strapi/icons": "1.14.1",
     "@frameless/upl": "0.0.0-semantically-released"
   },
   "scripts": {

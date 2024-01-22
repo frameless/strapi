@@ -113,6 +113,7 @@ license.txt
 exports
 *.cache
 build
+.strapi
 .strapi-updater.json
 dist/*
 tsconfig.tsbuildinfo
