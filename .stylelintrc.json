@@ -143,6 +143,7 @@
     "string-quotes": null,
     "property-no-vendor-prefix": null,
     "value-keyword-case": ["lower", { "camelCaseSvgKeywords": true }],
-    "declaration-block-no-redundant-longhand-properties": null
+    "declaration-block-no-redundant-longhand-properties": null,
+    "scss/at-import-no-partial-leading-underscore": null
   }
 }
