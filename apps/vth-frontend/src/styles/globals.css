@@ -153,6 +153,35 @@ a {
   max-width: var(--utrecht-page-content-max-width);
 }
 
+@media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
+  .utrecht-accordion__header .utrecht-accordion__button {
+    max-inline-size: 100%;
+    border: 2px solid white;
+    position: relative;
+  }
+
+  .utrecht-accordion__header .utrecht-accordion__button::after {
+    background-image: var(
+      --utrecht-accordion-icon-arrow-down,
+      url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21.39' height='14.39'%3E%3Cpath fill='none' stroke='black' stroke-width='3' stroke-miterlimit='10' d='m15.866 4.135-5.32 5.322-5.322-5.322'/%3E%3C/svg%3E")
+    ) !important;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .utrecht-accordion__header .utrecht-accordion__button::after {
+      background-image: var(
+        --utrecht-accordion-icon-arrow-down,
+        url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21.39' height='14.39'%3E%3Cpath fill='none' stroke='white' stroke-width='3' stroke-miterlimit='10' d='m15.866 4.135-5.32 5.322-5.322-5.322'/%3E%3C/svg%3E")
+      ) !important;
+    }
+  }
+}
+
 .utrecht-link-social {
   border-style: none !important;
 }
