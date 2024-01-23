@@ -31,7 +31,7 @@ query getHomepage($pageMode: PublicationState) {
       }
     }
   }
-  navigationPages(publicationState: $pageMode) {
+  navigationPages(publicationState: $pageMode, sort: ["order:asc", "title:asc"]) {
     data {
       id
       attributes {
@@ -52,7 +52,7 @@ query getHomepage($pageMode: PublicationState) {
 
 export const GET_NAVIGATION_PAGES = gql(`
 query getNavigationPages($pageMode: PublicationState) {
-  navigationPages(publicationState: $pageMode) {
+  navigationPages(publicationState: $pageMode, sort: ["order:asc", "title:asc"]) {
     data {
       id
       attributes {
@@ -293,7 +293,7 @@ query GET_PRINT_PAGE {
       }
     }
   }
-  navigationPages {
+  navigationPages(sort: ["order:asc", "title:asc"]){
     data {
       id
       attributes {
