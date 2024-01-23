@@ -120,6 +120,20 @@
           "sortable": false
         }
       },
+      "order": {
+        "edit": {
+          "label": "Volgorde",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "order",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -215,6 +229,12 @@
           {
             "name": "content",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "order",
+            "size": 4
           }
         ]
       ],

@@ -42,6 +42,12 @@
       "relation": "manyToMany",
       "target": "api::theme-page.theme-page",
       "mappedBy": "navigation_pages"
+    },
+    "order": {
+      "type": "integer",
+      "required": false,
+      "unique": true,
+      "min": 1
     }
   }
 }
