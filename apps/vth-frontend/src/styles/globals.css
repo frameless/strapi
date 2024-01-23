@@ -205,8 +205,8 @@ a {
   border-block-end-color: var(--utrecht-navigation-border-block-start-color);
   border-block-end-style: solid;
   border-block-end-width: var(--utrecht-navigation-border-block-start-width);
-  padding-block-start: calc(var(--utrecht-focus-outline-width) * 2);
   padding-block-end: calc(var(--utrecht-focus-outline-width) * 2);
+  padding-block-start: calc(var(--utrecht-focus-outline-width) * 2);
 }
 
 .utrecht-sidenav {
