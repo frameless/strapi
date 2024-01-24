@@ -64,41 +64,6 @@ export const CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY = gql(`
   }
 `);
 
-export const GET_SAMENWERKENDECATALOGI = gql(`
-  query getSamenwerkendecatalogi($locale: I18NLocaleCode) {
-    products(locale: $locale) {
-      data {
-        id
-        attributes {
-          title
-          slug
-          locale
-          updatedAt
-          catalogiMeta {
-            uniformProductName
-            abstract
-            spatial {
-              scheme
-              resourceIdentifier
-            }
-            authority {
-              scheme
-              resourceIdentifier
-            }
-            audience {
-              id
-              type
-            }
-            onlineRequest {
-              type
-            }
-          }
-        }
-      }
-    }
-  }
-`);
-
 export const GET_PRODUCT_BY_SLUG = gql(`
   query getProductBySlug(
   $slug: String

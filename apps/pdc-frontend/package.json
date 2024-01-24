@@ -20,7 +20,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@frameless/samenwerkende-catalogi": "0.0.0-semantically-released",
     "@frameless/ui": "0.0.0-semantically-released",
     "@tanstack/react-query": "4.29.12",
     "@utrecht/component-library-css": "3.0.1-alpha.4",
@@ -44,9 +43,9 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/client-preset": "4.1.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.4",
-    "sass": "1.63.6",
-    "@graphql-codegen/client-preset": "4.1.0"
+    "sass": "1.63.6"
   }
 }
