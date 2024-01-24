@@ -224,8 +224,8 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
             <PageContent>
               <Main id="main">{children}</Main>
             </PageContent>
-            <Footer data={footerData} />
           </Page>
+          <Footer data={footerData} />
         </QueryClientProvider>
         <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>
       </body>
