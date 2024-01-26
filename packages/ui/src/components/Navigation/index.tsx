@@ -9,8 +9,8 @@ import { Portal } from '../Portal';
 const css = classnames.bind(styles);
 
 export type NavigationListType = {
-  title: string;
-  link: string;
+  textContent: string;
+  href: string;
   children?: NavigationListType[];
 };
 
