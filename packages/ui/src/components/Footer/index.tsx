@@ -1,4 +1,4 @@
-import { Heading2, Heading3, Link, Page, PageFooter, Paragraph } from '@utrecht/component-library-react';
+import { Heading2, Heading3, Link, Page, PageFooter } from '@utrecht/component-library-react';
 import {
   UtrechtIconChevronRight,
   UtrechtIconFacebook,
@@ -11,33 +11,34 @@ import {
 import classnames from 'classnames/bind';
 import styles from './index.module.scss';
 import { Grid, GridCell } from '../Grid';
+import { Markdown } from '../Markdown';
 
 const css = classnames.bind(styles);
-interface FooterItem {
-  title: string | null;
-  items: FooterSubItem[];
-  paragraph: string | null;
-  column: number;
+
+type SocialMediaIconTypes = 'facebook' | 'instagram' | 'linkedin' | 'newsletter' | 'whatsapp' | 'x';
+
+interface LinkType {
+  id?: string;
+  textContent: string;
+  href: string;
+  icon?: SocialMediaIconTypes;
 }
 
-interface FooterSubItem {
-  title: string;
-  link: string;
-  external: boolean;
+type FooterListItemContent = { id?: string; title: string; link: LinkType[] };
+interface FooterListItem {
+  listItem: FooterListItemContent[];
 }
 
 interface SocialMediaItem {
-  icon: string;
-  link: string;
-  external: boolean;
-  title: string;
+  link: LinkType[];
 }
 
-interface FooterData {
-  title: string;
-  list: FooterItem[];
-  social_media: SocialMediaItem[];
-}
+export type FooterData = {
+  title?: string;
+  list?: FooterListItem;
+  address?: string;
+  socialMediaList: SocialMediaItem;
+};
 
 const socialMediaIconTypes = {
   facebook: UtrechtIconFacebook,
@@ -48,79 +49,73 @@ const socialMediaIconTypes = {
   newsletter: UtrechtIconNieuwsbrief,
 };
 
-interface FooterProps {
+export interface FooterProps {
   data: FooterData;
 }
 
 export const Footer = ({ data }: FooterProps) => (
   <PageFooter className={css('utrecht-footer')}>
     <Page>
-      <div className={css('utrecht-grid__container')}>
-        <div className={css('utrecht-grid__cell', 'utrecht-grid--md-8', 'utrecht-grid--sm-9')}>
-          {data?.title && <Heading2>{data?.title}</Heading2>}
-          <ul className={css('utrecht-link-list', 'utrecht-link-list--html-ul', 'utrecht-grid__container')}>
-            {data?.list &&
-              data.list.length > 0 &&
-              data.list.map((listItem, index) => (
-                <li
-                  key={index}
-                  className={css(
-                    'utrecht-link-list__item',
-                    'utrecht-grid__cell',
-                    `utrecht-grid--md-${listItem.column}`,
-                  )}
-                >
-                  {listItem?.title && (
-                    <Heading3 className={css('utrecht-footer__list-title')}>{listItem.title}</Heading3>
-                  )}
-                  <Grid flexDirection="column" spacing="sm">
-                    {listItem.items &&
-                      listItem.items.length > 0 &&
-                      listItem.items.map((item, index) => (
-                        <GridCell>
-                          <Link key={index} external href={item.link} className={css('utrecht-link-list__link')}>
-                            <UtrechtIconChevronRight />
-                            <span className="utrecht-link-list__link-text">{item.title}</span>
-                          </Link>
-                        </GridCell>
-                      ))}
-                  </Grid>
-                  {listItem?.paragraph && (
-                    <Paragraph style={{ whiteSpace: 'pre-line' }}>{listItem.paragraph}</Paragraph>
-                  )}
-                </li>
-              ))}
-          </ul>
-        </div>
-        <div
-          className={css(
-            'utrecht-grid__cell',
-            'utrecht-grid--md-4',
-            'utrecht-grid--sm-3',
-            'utrecht-grid--justify-content-sm-flex-end',
-          )}
-        >
+      <Grid>
+        <GridCell md={8} sm={10}>
+          <Grid>
+            <GridCell md={12}>{data?.title && <Heading2>{data?.title}</Heading2>}</GridCell>
+            <GridCell md={6} sm={6}>
+              <ul className={css('utrecht-link-list', 'utrecht-link-list--html-ul')}>
+                {data?.list &&
+                  data.list?.listItem?.length > 0 &&
+                  data?.list?.listItem?.map((item, index) => (
+                    <li key={index} className={css('utrecht-link-list__item')}>
+                      {item?.title && <Heading3 className={css('utrecht-footer__list-title')}>{item?.title}</Heading3>}
+                      <Grid flexDirection="column" spacing="sm">
+                        {item?.link &&
+                          item?.link?.length > 0 &&
+                          item?.link?.map((item, index) => {
+                            const isPhoneNumber = item.href.includes('tel:14030');
+                            return (
+                              <GridCell key={index} sm={12}>
+                                <Link
+                                  key={index}
+                                  external
+                                  href={item.href}
+                                  className={css('utrecht-link-list__link', {
+                                    'utrecht-link-list__link--phone': isPhoneNumber,
+                                  })}
+                                >
+                                  {!isPhoneNumber && <UtrechtIconChevronRight />}
+                                  <span className="utrecht-link-list__link-text">{item.textContent}</span>
+                                </Link>
+                              </GridCell>
+                            );
+                          })}
+                      </Grid>
+                    </li>
+                  ))}
+              </ul>
+            </GridCell>
+            <GridCell md={6} sm={6}>
+              {data?.address && <Markdown>{data?.address}</Markdown>}
+            </GridCell>
+          </Grid>
+        </GridCell>
+        <GridCell md={4} sm={2} className={css('utrecht-grid--justify-content-sm-flex-end')}>
           <ul className={css('utrecht-link-list', 'utrecht-link-list--html-ul', 'utrecht-link-list--social-media')}>
-            {data?.social_media &&
-              data.social_media.length > 0 &&
-              data.social_media.map((socialItem, index) => {
-                const Icon = socialMediaIconTypes[socialItem.icon as keyof typeof socialMediaIconTypes];
+            {data?.socialMediaList &&
+              data.socialMediaList?.link.length > 0 &&
+              data.socialMediaList?.link.map((item, index) => {
+                const Icon = socialMediaIconTypes[item.icon as keyof typeof socialMediaIconTypes];
                 return (
                   <li key={index} className={css('utrecht-link-list__item')}>
-                    <Link
-                      external={socialItem.external}
-                      href={socialItem.link}
-                      className={css('utrecht-link-list__link')}
-                    >
+                    <Link external href={item.href} className={css('utrecht-link-list__link')}>
                       <Icon />
-                      <span className="utrecht-link-list__link-text">{socialItem.title}</span>
+                      <span className="utrecht-link-list__link-text">{item.textContent}</span>
                     </Link>
                   </li>
                 );
               })}
           </ul>
-        </div>
-      </div>
+        </GridCell>
+      </Grid>
     </Page>
   </PageFooter>
 );
