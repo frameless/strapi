@@ -6,6 +6,11 @@
 .utrecht-footer__list-title {
   --utrecht-heading-3-margin-block-end: var(--utrecht-footer-list-title-margin-block-end, 14px);
 }
+.utrecht-link-list__link--phone {
+  --utrecht-link-text-decoration: underline;
+
+  font-size: var(utrecht-link-list-link-phone-font-size, 2em);
+}
 
 .utrecht-link-list__item {
   margin-block-end: var(--utrecht-link-list-item-margin-block-end, 16px);
