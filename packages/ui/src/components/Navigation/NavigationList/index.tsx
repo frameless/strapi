@@ -30,8 +30,8 @@ export const NavigationList = forwardRef(
         list.length > 0 &&
         list.map((item, index) => (
           <NavigationItem key={index} mobile={mobile}>
-            <NavigationLink mobile={mobile} href={item.link}>
-              {item.title}
+            <NavigationLink mobile={mobile} href={item.href}>
+              {item.textContent}
             </NavigationLink>
             {mobile && item.children && item.children.length > 0 && (
               <NavigationList list={item.children} mobile={mobile} />
