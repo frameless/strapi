@@ -8,6 +8,7 @@ import React from 'react';
 import { QueryClientProvider } from '@/client';
 import {
   Footer,
+  FooterData,
   Grid,
   GridCell,
   Logo,
@@ -75,100 +76,73 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
 
   const navListData = navigationPages?.map((navigationPage) => {
     return {
-      title: navigationPage.attributes.title,
-      link: `/${navigationPage.attributes.slug}`,
+      textContent: navigationPage.attributes.title,
+      href: `/${navigationPage.attributes.slug}`,
     } satisfies NavigationListType;
   });
 
   const footerData = {
     title: t('footer.title'),
-    list: [
-      {
-        title: t('footer.list.0.title'),
-        items: [
-          {
-            title: t('footer.list.0.items.0.title'),
-            link: 'tel:14030',
-            external: false,
-          },
-          {
-            title: t('footer.list.0.items.1.title'),
-            link: 'https://utrecht.nl/contact/verkort-telefoonnummer-gemeente/',
-            external: true,
-          },
-        ],
-        paragraph: null,
-        column: 6,
-      },
-      {
-        title: t('footer.list.1.title'),
-        items: [],
-        paragraph: 'Stadskantoor\nStadsplateau 1\n3521AZ Utrecht',
-        column: 6,
-      },
-      {
-        title: null,
-        items: [
-          {
-            title: t('footer.list.2.items.0.title'),
-            link: 'https://utrecht.nl/contact/',
-            external: true,
-          },
-        ],
-        paragraph: null,
-        column: 12,
-      },
-      {
-        title: null,
-        items: [
-          {
-            title: t('footer.list.3.items.0.title'),
-            link: 'https://utrecht.nl/over-deze-website/',
-            external: true,
-          },
-        ],
-        paragraph: null,
-        column: 12,
-      },
-    ],
-    social_media: [
-      {
-        icon: t('footer.social_media.0.icon'),
-        link: t('footer.social_media.0.link'),
-        external: true,
-        title: t('footer.social_media.0.title'),
-      },
-      {
-        icon: t('footer.social_media.1.icon'),
-        link: t('footer.social_media.1.link'),
-        external: true,
-        title: t('footer.social_media.1.title'),
-      },
-      {
-        icon: t('footer.social_media.2.icon'),
-        link: t('footer.social_media.2.link'),
-        external: true,
-        title: t('footer.social_media.2.title'),
-      },
-      {
-        icon: t('footer.social_media.3.icon'),
-        link: t('footer.social_media.3.link'),
-        external: true,
-        title: t('footer.social_media.3.title'),
-      },
-      {
-        icon: t('footer.social_media.4.icon'),
-        link: t('footer.social_media.4.link'),
-        external: true,
-        title: t('footer.social_media.4.title'),
-      },
-      {
-        icon: t('footer.social_media.5.icon'),
-        link: t('footer.social_media.5.link'),
-        external: true,
-        title: t('footer.social_media.5.title'),
-      },
-    ],
+    list: {
+      listItem: [
+        {
+          title: t('footer.list.listItem.0.title'),
+          link: [
+            {
+              href: t('footer.list.listItem.0.link.0.href'),
+              textContent: t('footer.list.listItem.0.link.0.textContent'),
+            },
+            {
+              href: t('footer.list.listItem.0.link.1.href'),
+              textContent: t('footer.list.listItem.0.link.1.textContent'),
+            },
+            {
+              href: t('footer.list.listItem.0.link.2.href'),
+              textContent: t('footer.list.listItem.0.link.2.textContent'),
+            },
+            {
+              href: t('footer.list.listItem.0.link.3.href'),
+              textContent: t('footer.list.listItem.0.link.3.textContent'),
+            },
+          ],
+        },
+      ],
+    },
+    address: t('footer.address'),
+    socialMediaList: {
+      link: [
+        {
+          href: t('footer.socialMediaList.link.0.href'),
+          icon: t('footer.socialMediaList.link.0.icon'),
+          textContent: t('footer.socialMediaList.link.0.textContent'),
+        },
+        {
+          href: t('footer.socialMediaList.link.1.href'),
+          icon: t('footer.socialMediaList.link.1.icon'),
+          textContent: t('footer.socialMediaList.link.1.textContent'),
+        },
+        {
+          href: t('footer.socialMediaList.link.2.href'),
+          icon: t('footer.socialMediaList.link.2.icon'),
+          textContent: t('footer.socialMediaList.link.2.textContent'),
+        },
+        {
+          href: t('footer.socialMediaList.link.3.href'),
+          icon: t('footer.socialMediaList.link.3.icon'),
+          textContent: t('footer.socialMediaList.link.3.textContent'),
+        },
+        {
+          href: t('footer.socialMediaList.link.4.href'),
+          icon: t('footer.socialMediaList.link.4.icon'),
+          textContent: t('footer.socialMediaList.link.4.textContent'),
+        },
+        {
+          href: t('footer.socialMediaList.link.5.href'),
+          icon: t('footer.socialMediaList.link.5.icon'),
+          textContent: t('footer.socialMediaList.link.5.textContent'),
+        },
+      ],
+    },
   };
 
   return (
@@ -221,7 +195,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               <Main id="main">{children}</Main>
             </PageContent>
           </Page>
-          <Footer data={footerData} />
+          <Footer data={footerData as FooterData} />
         </QueryClientProvider>
         <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>
       </body>
