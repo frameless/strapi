@@ -20,6 +20,7 @@ export type Scalars = {
   I18NLocaleCode: { input: any; output: any; }
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: { input: any; output: any; }
+  PdcHomePageComponentsDynamicZoneInput: { input: any; output: any; }
   ProductSectionsDynamicZoneInput: { input: any; output: any; }
   /** The `Upload` scalar type represents a file upload. */
   Upload: { input: any; output: any; }
@@ -319,6 +320,65 @@ export type ComponentComponentsUtrechtAccordionSectionInput = {
   label?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ComponentComponentsUtrechtFooter = {
+  __typename?: 'ComponentComponentsUtrechtFooter';
+  address?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  list?: Maybe<ComponentComponentsUtrechtFooterList>;
+  socialMediaList?: Maybe<ComponentComponentsUtrechtSocialMediaList>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentComponentsUtrechtFooterLink = {
+  __typename?: 'ComponentComponentsUtrechtFooterLink';
+  href?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  textContent?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentComponentsUtrechtFooterLinkFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtFooterLinkFiltersInput>>>;
+  href?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsUtrechtFooterLinkFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtFooterLinkFiltersInput>>>;
+  textContent?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsUtrechtFooterList = {
+  __typename?: 'ComponentComponentsUtrechtFooterList';
+  id: Scalars['ID']['output'];
+  listItem?: Maybe<Array<Maybe<ComponentComponentsUtrechtFooterListItem>>>;
+};
+
+
+export type ComponentComponentsUtrechtFooterListListItemArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtFooterListItemFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsUtrechtFooterListItem = {
+  __typename?: 'ComponentComponentsUtrechtFooterListItem';
+  id: Scalars['ID']['output'];
+  link?: Maybe<Array<Maybe<ComponentComponentsUtrechtFooterLink>>>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentComponentsUtrechtFooterListItemLinkArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtFooterLinkFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsUtrechtFooterListItemFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtFooterListItemFiltersInput>>>;
+  link?: InputMaybe<ComponentComponentsUtrechtFooterLinkFiltersInput>;
+  not?: InputMaybe<ComponentComponentsUtrechtFooterListItemFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtFooterListItemFiltersInput>>>;
+  title?: InputMaybe<StringFilterInput>;
+};
+
 export type ComponentComponentsUtrechtImage = {
   __typename?: 'ComponentComponentsUtrechtImage';
   id: Scalars['ID']['output'];
@@ -389,10 +449,68 @@ export type ComponentComponentsUtrechtMultiColumnsButtonItemFiltersInput = {
   title?: InputMaybe<StringFilterInput>;
 };
 
+export type ComponentComponentsUtrechtNavigation = {
+  __typename?: 'ComponentComponentsUtrechtNavigation';
+  id: Scalars['ID']['output'];
+  navigationList?: Maybe<Array<Maybe<ComponentComponentsUtrechtNavigationLink>>>;
+};
+
+
+export type ComponentComponentsUtrechtNavigationNavigationListArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtNavigationLinkFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsUtrechtNavigationLink = {
+  __typename?: 'ComponentComponentsUtrechtNavigationLink';
+  href?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  textContent?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentComponentsUtrechtNavigationLinkFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtNavigationLinkFiltersInput>>>;
+  href?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsUtrechtNavigationLinkFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtNavigationLinkFiltersInput>>>;
+  textContent?: InputMaybe<StringFilterInput>;
+};
+
 export type ComponentComponentsUtrechtRichText = {
   __typename?: 'ComponentComponentsUtrechtRichText';
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
+};
+
+export type ComponentComponentsUtrechtSocialMediaLink = {
+  __typename?: 'ComponentComponentsUtrechtSocialMediaLink';
+  href?: Maybe<Scalars['String']['output']>;
+  icon: Enum_Componentcomponentsutrechtsocialmedialink_Icon;
+  id: Scalars['ID']['output'];
+  textContent?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentComponentsUtrechtSocialMediaLinkFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtSocialMediaLinkFiltersInput>>>;
+  href?: InputMaybe<StringFilterInput>;
+  icon?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsUtrechtSocialMediaLinkFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtSocialMediaLinkFiltersInput>>>;
+  textContent?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsUtrechtSocialMediaList = {
+  __typename?: 'ComponentComponentsUtrechtSocialMediaList';
+  id: Scalars['ID']['output'];
+  link?: Maybe<Array<Maybe<ComponentComponentsUtrechtSocialMediaLink>>>;
+};
+
+
+export type ComponentComponentsUtrechtSocialMediaListLinkArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtSocialMediaLinkFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type ComponentComponentsUtrechtSpotlight = {
@@ -406,6 +524,36 @@ export type ComponentComponentsUtrechtSpotlight = {
 
 export type ComponentComponentsUtrechtSpotlightLogoButtonArgs = {
   filters?: InputMaybe<ComponentComponentsUtrechtLogoButtonFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsUtrechtTopTaskLink = {
+  __typename?: 'ComponentComponentsUtrechtTopTaskLink';
+  href?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  textContent?: Maybe<Scalars['String']['output']>;
+  topTaskIcons: Enum_Componentcomponentsutrechttoptasklink_Toptaskicons;
+};
+
+export type ComponentComponentsUtrechtTopTaskLinkFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtTopTaskLinkFiltersInput>>>;
+  href?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsUtrechtTopTaskLinkFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtTopTaskLinkFiltersInput>>>;
+  textContent?: InputMaybe<StringFilterInput>;
+  topTaskIcons?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsUtrechtTopTasks = {
+  __typename?: 'ComponentComponentsUtrechtTopTasks';
+  id: Scalars['ID']['output'];
+  link?: Maybe<Array<Maybe<ComponentComponentsUtrechtTopTaskLink>>>;
+};
+
+
+export type ComponentComponentsUtrechtTopTasksLinkArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtTopTaskLinkFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
@@ -515,10 +663,28 @@ export enum Enum_Componentcomponentsutrechtlogobutton_Logo {
   WithoutLogo = 'without_logo'
 }
 
+export enum Enum_Componentcomponentsutrechtsocialmedialink_Icon {
+  Facebook = 'facebook',
+  Instagram = 'instagram',
+  Linkedin = 'linkedin',
+  Newsletter = 'newsletter',
+  Whatsapp = 'whatsapp',
+  X = 'x'
+}
+
 export enum Enum_Componentcomponentsutrechtspotlight_Type {
   Gray = 'gray',
   Info = 'info',
   Warning = 'warning'
+}
+
+export enum Enum_Componentcomponentsutrechttoptasklink_Toptaskicons {
+  GrofvuilOphalen = 'grofvuil_ophalen',
+  Melding = 'melding',
+  Nummerbord = 'nummerbord',
+  Paspoort = 'paspoort',
+  Rijbewijs = 'rijbewijs',
+  Verhuizen = 'verhuizen'
 }
 
 export type EntityNotesNote = {
@@ -608,7 +774,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSpotlight | ComponentSeoMeta | EntityNotesNote | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcSubcategory | Price | Product | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentSeoMeta | EntityNotesNote | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | Price | Product | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -896,6 +1062,7 @@ export type Mutation = {
   createPdcCategory?: Maybe<PdcCategoryEntityResponse>;
   createPdcFaq?: Maybe<PdcFaqEntityResponse>;
   createPdcFaqLocalization?: Maybe<PdcFaqEntityResponse>;
+  createPdcHomePageLocalization?: Maybe<PdcHomePageEntityResponse>;
   createPdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   createPrice?: Maybe<PriceEntityResponse>;
   createProduct?: Maybe<ProductEntityResponse>;
@@ -915,6 +1082,7 @@ export type Mutation = {
   deleteNotFoundPage?: Maybe<NotFoundPageEntityResponse>;
   deletePdcCategory?: Maybe<PdcCategoryEntityResponse>;
   deletePdcFaq?: Maybe<PdcFaqEntityResponse>;
+  deletePdcHomePage?: Maybe<PdcHomePageEntityResponse>;
   deletePdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   deletePrice?: Maybe<PriceEntityResponse>;
   deleteProduct?: Maybe<ProductEntityResponse>;
@@ -945,6 +1113,7 @@ export type Mutation = {
   updateNotFoundPage?: Maybe<NotFoundPageEntityResponse>;
   updatePdcCategory?: Maybe<PdcCategoryEntityResponse>;
   updatePdcFaq?: Maybe<PdcFaqEntityResponse>;
+  updatePdcHomePage?: Maybe<PdcHomePageEntityResponse>;
   updatePdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   updatePrice?: Maybe<PriceEntityResponse>;
   updateProduct?: Maybe<ProductEntityResponse>;
@@ -1007,6 +1176,13 @@ export type MutationCreatePdcFaqArgs = {
 
 export type MutationCreatePdcFaqLocalizationArgs = {
   data?: InputMaybe<PdcFaqInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationCreatePdcHomePageLocalizationArgs = {
+  data?: InputMaybe<PdcHomePageInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -1097,6 +1273,11 @@ export type MutationDeletePdcCategoryArgs = {
 
 export type MutationDeletePdcFaqArgs = {
   id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationDeletePdcHomePageArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
@@ -1232,6 +1413,12 @@ export type MutationUpdatePdcCategoryArgs = {
 export type MutationUpdatePdcFaqArgs = {
   data: PdcFaqInput;
   id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationUpdatePdcHomePageArgs = {
+  data: PdcHomePageInput;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
@@ -1470,6 +1657,44 @@ export type PdcFaqInput = {
 export type PdcFaqRelationResponseCollection = {
   __typename?: 'PdcFaqRelationResponseCollection';
   data: Array<PdcFaqEntity>;
+};
+
+export type PdcHomePage = {
+  __typename?: 'PdcHomePage';
+  components?: Maybe<Array<Maybe<PdcHomePageComponentsDynamicZone>>>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  locale?: Maybe<Scalars['String']['output']>;
+  localizations?: Maybe<PdcHomePageRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type PdcHomePageLocalizationsArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+export type PdcHomePageComponentsDynamicZone = ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtTopTasks | Error;
+
+export type PdcHomePageEntity = {
+  __typename?: 'PdcHomePageEntity';
+  attributes?: Maybe<PdcHomePage>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type PdcHomePageEntityResponse = {
+  __typename?: 'PdcHomePageEntityResponse';
+  data?: Maybe<PdcHomePageEntity>;
+};
+
+export type PdcHomePageInput = {
+  components?: InputMaybe<Array<Scalars['PdcHomePageComponentsDynamicZoneInput']['input']>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type PdcHomePageRelationResponseCollection = {
+  __typename?: 'PdcHomePageRelationResponseCollection';
+  data: Array<PdcHomePageEntity>;
 };
 
 export type PdcSubcategory = {
@@ -1766,6 +1991,7 @@ export type Query = {
   pdcCategory?: Maybe<PdcCategoryEntityResponse>;
   pdcFaq?: Maybe<PdcFaqEntityResponse>;
   pdcFaqs?: Maybe<PdcFaqEntityResponseCollection>;
+  pdcHomePage?: Maybe<PdcHomePageEntityResponse>;
   pdcSubcategories?: Maybe<PdcSubcategoryEntityResponseCollection>;
   pdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   price?: Maybe<PriceEntityResponse>;
@@ -1888,6 +2114,12 @@ export type QueryPdcFaqsArgs = {
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryPdcHomePageArgs = {
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  publicationState?: InputMaybe<PublicationState>;
 };
 
 
@@ -2447,6 +2679,14 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type GetPdcHomePageQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pageMode?: InputMaybe<PublicationState>;
+}>;
+
+
+export type GetPdcHomePageQuery = { __typename?: 'Query', pdcHomePage?: { __typename?: 'PdcHomePageEntityResponse', data?: { __typename?: 'PdcHomePageEntity', attributes?: { __typename?: 'PdcHomePage', components?: Array<{ __typename: 'ComponentComponentsUtrechtFooter', title?: string | null, address?: string | null, list?: { __typename?: 'ComponentComponentsUtrechtFooterList', listItem?: Array<{ __typename?: 'ComponentComponentsUtrechtFooterListItem', id: string, title?: string | null, link?: Array<{ __typename?: 'ComponentComponentsUtrechtFooterLink', id: string, textContent?: string | null, href?: string | null } | null> | null } | null> | null } | null, socialMediaList?: { __typename?: 'ComponentComponentsUtrechtSocialMediaList', link?: Array<{ __typename?: 'ComponentComponentsUtrechtSocialMediaLink', id: string, textContent?: string | null, href?: string | null, icon: Enum_Componentcomponentsutrechtsocialmedialink_Icon } | null> | null } | null } | { __typename: 'ComponentComponentsUtrechtNavigation', navigationList?: Array<{ __typename?: 'ComponentComponentsUtrechtNavigationLink', id: string, textContent?: string | null, href?: string | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtTopTasks', link?: Array<{ __typename?: 'ComponentComponentsUtrechtTopTaskLink', id: string, textContent?: string | null, href?: string | null, topTaskIcons: Enum_Componentcomponentsutrechttoptasklink_Toptaskicons } | null> | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
+
 export type GetAllProductsSlugQueryQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   page?: InputMaybe<Scalars['Int']['input']>;
@@ -2507,6 +2747,7 @@ export type GetNotFoundPageQueryVariables = Exact<{
 export type GetNotFoundPageQuery = { __typename?: 'Query', notFoundPage?: { __typename?: 'NotFoundPageEntityResponse', data?: { __typename?: 'NotFoundPageEntity', attributes?: { __typename?: 'NotFoundPage', title?: string | null, body?: string | null } | null } | null } | null };
 
 
+export const GetPdcHomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getPDCHomePage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationState"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pdcHomePage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"publicationState"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"components"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtNavigation"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"navigationList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtTopTasks"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"topTaskIcons"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtFooter"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"list"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"listItem"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"socialMediaList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}}]}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetPdcHomePageQuery, GetPdcHomePageQueryVariables>;
 export const GetAllProductsSlugQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAllProductsSlugQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"pageSize"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pagination"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"pageSize"}},{"kind":"Field","name":{"kind":"Name","value":"pageCount"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAllProductsSlugQueryQuery, GetAllProductsSlugQueryQueryVariables>;
 export const GetAlphabeticallyProductsByLetterQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAlphabeticallyProductsByLetterQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"startsWith"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"pageSize"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"title"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"startsWith"},"value":{"kind":"Variable","name":{"kind":"Name","value":"startsWith"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pagination"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"pageSize"}},{"kind":"Field","name":{"kind":"Name","value":"pageCount"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAlphabeticallyProductsByLetterQueryQuery, GetAlphabeticallyProductsByLetterQueryQueryVariables>;
 export const CheckAlphabeticallyProductsAvailabilityDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"checkAlphabeticallyProductsAvailability"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"startsWith"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"title"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"startsWith"},"value":{"kind":"Variable","name":{"kind":"Name","value":"startsWith"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]}}]} as unknown as DocumentNode<CheckAlphabeticallyProductsAvailabilityQuery, CheckAlphabeticallyProductsAvailabilityQueryVariables>;

@@ -8,11 +8,13 @@ import React from 'react';
 import { QueryClientProvider } from '@/client';
 import {
   Footer,
+  FooterData,
   Grid,
   GridCell,
   Logo,
   LogoImage,
   Navigation,
+  NavigationListType,
   Page,
   PageContent,
   PageHeader,
@@ -26,35 +28,18 @@ import '@utrecht/design-tokens/dist/index.css';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { GIT_PDC_HOME_PAGE } from '@/query';
+import { createStrapiURL, fetchData } from '@/util';
+import {
+  ComponentComponentsUtrechtFooter,
+  ComponentComponentsUtrechtNavigation,
+  GetPdcHomePageQuery,
+} from '../../../gql/graphql';
 import { getLiveSuggestions, onSearchSubmitAction } from '../actions';
 import { useTranslation } from '../i18n/index';
 import { languages } from '../i18n/settings';
 import '@frameless/ui/dist/bundle.css';
 import '../../styles/globals.css';
-
-// eslint-disable-next-line no-unused-vars
-const getNavListData = (t: (text: string) => string) => [
-  {
-    title: t('navigation.list.0.title'),
-    link: t('navigation.list.0.link'),
-  },
-  {
-    title: t('navigation.list.1.title'),
-    link: t('navigation.list.1.link'),
-  },
-  {
-    title: t('navigation.list.2.title'),
-    link: t('navigation.list.2.link'),
-  },
-  {
-    title: t('navigation.list.3.title'),
-    link: t('navigation.list.3.link'),
-  },
-  {
-    title: t('navigation.list.4.title'),
-    link: t('navigation.list.4.link'),
-  },
-];
 
 const escapeComment = (data: any) => String(data).replace(/--/g, '-\u200B-');
 
@@ -141,96 +126,19 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
-  const footerData = {
-    title: t('footer.title'),
-    list: [
-      {
-        title: t('footer.list.0.title'),
-        items: [
-          {
-            title: t('footer.list.0.items.0.title'),
-            link: 'tel:14030',
-            external: false,
-          },
-          {
-            title: t('footer.list.0.items.1.title'),
-            link: 'https://utrecht.nl/contact/verkort-telefoonnummer-gemeente/',
-            external: true,
-          },
-        ],
-        paragraph: null,
-        column: 6,
-      },
-      {
-        title: t('footer.list.1.title'),
-        items: [],
-        paragraph: 'Stadskantoor\nStadsplateau 1\n3521AZ Utrecht',
-        column: 6,
-      },
-      {
-        title: null,
-        items: [
-          {
-            title: t('footer.list.2.items.0.title'),
-            link: 'https://utrecht.nl/contact/',
-            external: true,
-          },
-        ],
-        paragraph: null,
-        column: 12,
-      },
-      {
-        title: null,
-        items: [
-          {
-            title: t('footer.list.3.items.0.title'),
-            link: 'https://utrecht.nl/over-deze-website/',
-            external: true,
-          },
-        ],
-        paragraph: null,
-        column: 12,
-      },
-    ],
-    social_media: [
-      {
-        icon: t('footer.social_media.0.icon'),
-        link: t('footer.social_media.0.link'),
-        external: true,
-        title: t('footer.social_media.0.title'),
-      },
-      {
-        icon: t('footer.social_media.1.icon'),
-        link: t('footer.social_media.1.link'),
-        external: true,
-        title: t('footer.social_media.1.title'),
-      },
-      {
-        icon: t('footer.social_media.2.icon'),
-        link: t('footer.social_media.2.link'),
-        external: true,
-        title: t('footer.social_media.2.title'),
-      },
-      {
-        icon: t('footer.social_media.3.icon'),
-        link: t('footer.social_media.3.link'),
-        external: true,
-        title: t('footer.social_media.3.title'),
-      },
-      {
-        icon: t('footer.social_media.4.icon'),
-        link: t('footer.social_media.4.link'),
-        external: true,
-        title: t('footer.social_media.4.title'),
-      },
-      {
-        icon: t('footer.social_media.5.icon'),
-        link: t('footer.social_media.5.link'),
-        external: true,
-        title: t('footer.social_media.5.title'),
-      },
-    ],
-  };
+  const { data } = await fetchData<{ data: GetPdcHomePageQuery }>({
+    url: createStrapiURL(),
+    query: GIT_PDC_HOME_PAGE,
+    variables: { locale },
+  });
+  const navigationData = data.pdcHomePage?.data?.attributes?.components?.find(
+    (component) => component?.__typename === 'ComponentComponentsUtrechtNavigation',
+  ) as ComponentComponentsUtrechtNavigation;
+
+  const footerData = data.pdcHomePage?.data?.attributes?.components?.find(
+    (component) => component?.__typename === 'ComponentComponentsUtrechtFooter',
+  ) as ComponentComponentsUtrechtFooter;
+
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
@@ -289,26 +197,27 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                       />
                     </div>
                   </GridCell>
-                  <GridCell xs={6} md={12} order={2} orderMd={3}>
-                    <div className="utrecht-nav-wrapper">
-                      <Navigation
-                        list={getNavListData(t)}
-                        mobileBreakpoint={961}
-                        toggleButton={{
-                          openText: 'Menu',
-                          closeText: 'Sluiten',
-                        }}
-                      />
-                    </div>
-                  </GridCell>
+                  {navigationData?.navigationList && navigationData?.navigationList?.length > 0 && (
+                    <GridCell xs={6} md={12} order={2} orderMd={3}>
+                      <div className="utrecht-nav-wrapper">
+                        <Navigation
+                          list={navigationData.navigationList as NavigationListType[]}
+                          mobileBreakpoint={961}
+                          toggleButton={{
+                            openText: 'Menu',
+                            closeText: 'Sluiten',
+                          }}
+                        />
+                      </div>
+                    </GridCell>
+                  )}
                 </Grid>
               </PageHeader>
-
               <PageContent className="utrecht-page-content--modifier">
                 <Main id="main">{children}</Main>
               </PageContent>
             </Page>
-            <Footer data={footerData} />
+            <Footer data={footerData as FooterData} />
           </Surface>
         </QueryClientProvider>
         <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>
