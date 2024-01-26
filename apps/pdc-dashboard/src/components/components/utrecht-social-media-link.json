@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_components_utrecht_social_media_links",
+  "info": {
+    "displayName": "Social Media Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "textContent": {
+      "type": "string",
+      "required": false
+    },
+    "href": {
+      "type": "string",
+      "required": false
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": ["instagram", "whatsapp", "facebook", "x", "linkedin", "newsletter"],
+      "required": true
+    }
+  }
+}

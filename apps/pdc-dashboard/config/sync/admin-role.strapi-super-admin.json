@@ -132,7 +132,7 @@
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"],
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -141,7 +141,7 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -150,27 +150,27 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "actionParameters": {},
-      "subject": "api::not-found-page.not-found-page",
-      "properties": {
-        "fields": ["title", "body"],
-        "locales": ["nl", "en"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"],
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::not-found-page.not-found-page",
+      "properties": {
+        "fields": ["title", "body"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -221,7 +221,7 @@
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
         "fields": ["title", "faq.label", "faq.body"],
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -230,7 +230,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -239,7 +239,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -249,7 +249,7 @@
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
         "fields": ["title", "faq.label", "faq.body"],
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -259,7 +259,55 @@
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
         "fields": ["title", "faq.label", "faq.body"],
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "fields": ["components"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "fields": ["components"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "fields": ["components"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -378,7 +426,7 @@
           "pdc_subcategories",
           "kb_subcategories"
         ],
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -387,7 +435,7 @@
       "actionParameters": {},
       "subject": "api::product.product",
       "properties": {
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -396,7 +444,7 @@
       "actionParameters": {},
       "subject": "api::product.product",
       "properties": {
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -433,7 +481,7 @@
           "pdc_subcategories",
           "kb_subcategories"
         ],
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -470,7 +518,7 @@
           "pdc_subcategories",
           "kb_subcategories"
         ],
-        "locales": ["nl", "en"]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },

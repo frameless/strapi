@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_components_utrecht_footers",
+  "info": {
+    "displayName": "Footer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "list": {
+      "displayName": "Footer List",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.utrecht-footer-list"
+    },
+    "address": {
+      "type": "richtext"
+    },
+    "socialMediaList": {
+      "displayName": "social Media List",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.utrecht-social-media-list"
+    }
+  }
+}

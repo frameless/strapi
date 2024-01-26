@@ -31,6 +31,9 @@
       "action": "api::pdc-faq.pdc-faq.findOne"
     },
     {
+      "action": "api::pdc-home-page.pdc-home-page.find"
+    },
+    {
       "action": "api::pdc-subcategory.pdc-subcategory.find"
     },
     {

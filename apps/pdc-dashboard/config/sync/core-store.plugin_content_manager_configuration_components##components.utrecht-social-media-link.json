@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_components::components.utrecht-link",
+  "key": "plugin_content_manager_configuration_components::components.utrecht-social-media-link",
   "value": {
-    "uid": "components.utrecht-link",
+    "uid": "components.utrecht-social-media-link",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -22,7 +22,7 @@
       },
       "textContent": {
         "edit": {
-          "label": "Text",
+          "label": "Tekst",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -36,7 +36,7 @@
       },
       "href": {
         "edit": {
-          "label": "Href",
+          "label": "URL (internetadres)",
           "description": "De website-adres waarnaar je wilt linken.",
           "placeholder": "",
           "visible": true,
@@ -50,8 +50,8 @@
       },
       "icon": {
         "edit": {
-          "label": "Soort link",
-          "description": "Kies hoe de link eruit ziet.",
+          "label": "Iconen",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -64,7 +64,7 @@
       }
     },
     "layouts": {
-      "list": ["id", "href", "textContent", "icon"],
+      "list": ["id", "textContent", "href", "icon"],
       "edit": [
         [
           {

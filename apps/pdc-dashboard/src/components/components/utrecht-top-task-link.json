@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_components_utrecht_top_task_links",
+  "info": {
+    "displayName": "Top Task Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "textContent": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "topTaskIcons": {
+      "type": "enumeration",
+      "enum": ["paspoort", "melding", "verhuizen", "nummerbord", "rijbewijs", "grofvuil-ophalen"],
+      "required": true
+    }
+  }
+}

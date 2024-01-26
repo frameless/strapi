@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_utrecht_navigation_links",
+  "info": {
+    "displayName": "Navigation Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "textContent": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}
