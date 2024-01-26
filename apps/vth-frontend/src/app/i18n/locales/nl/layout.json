@@ -1,93 +1,77 @@
 {
   "footer": {
     "title": "Gemeente Utrecht",
-    "list": [
-      {
-        "title": "Telefoon",
-        "items": [
-          {
-            "title": "14 030",
-            "link": "tel:14030",
-            "external": false
-          },
-          {
-            "title": "Hoe werkt 14030?",
-            "link": "https://utrecht.nl/contact/verkort-telefoonnummer-gemeente/",
-            "external": true
-          }
-        ],
-        "paragraph": null,
-        "column": 6
-      },
-      {
-        "title": "Adres",
-        "items": [],
-        "paragraph": "Stadskantoor\nStadsplateau 1\n3521AZ Utrecht",
-        "column": 6
-      },
-      {
-        "title": null,
-        "items": [
-          {
-            "title": "Meer contactinformatie",
-            "link": "https://utrecht.nl/contact/",
-            "external": true
-          }
-        ],
-        "paragraph": null,
-        "column": 12
-      },
-      {
-        "title": null,
-        "items": [
-          {
-            "title": "Over deze website",
-            "link": "https://utrecht.nl/over-deze-website/",
-            "external": true
-          }
-        ],
-        "paragraph": null,
-        "column": 12
-      }
-    ],
-    "social_media": [
-      {
-        "icon": "instagram",
-        "link": "https://www.instagram.com/GemeenteUtrecht",
-        "external": true,
-        "title": "Instagram"
-      },
-      {
-        "icon": "whatsapp",
-        "link": "https://api.whatsapp.com/send?phone=31624927665",
-        "external": true,
-        "title": "WhatsApp"
-      },
-      {
-        "icon": "facebook",
-        "link": "https://www.facebook.com/GemeenteUtrecht",
-        "external": true,
-        "title": "Facebook"
-      },
-      {
-        "icon": "x",
-        "link": "https://twitter.com/gemeenteutrecht",
-        "external": true,
-        "title": "X (Twitter)"
-      },
-      {
-        "icon": "linkedin",
-        "link": "https://nl.linkedin.com/company/gemeente-utrecht",
-        "external": true,
-        "title": "LinkedIn"
-      },
-      {
-        "icon": "newsletter",
-        "link": "https://www.utrecht.nl/bestuur-en-organisatie/publicaties/nieuwsbrieven/nieuwsbrief-utrecht/",
-        "external": true,
-        "title": "Nieuwsbrief"
-      }
-    ]
+    "list": {
+      "listItem": [
+        {
+          "id": "1",
+          "title": "Telefoon",
+          "link": [
+            {
+              "id": "1",
+              "textContent": "14 030",
+              "href": "tel:14030"
+            },
+            {
+              "id": "2",
+              "textContent": "Hoe werkt 14030?",
+              "href": "https://utrecht.nl/contact/verkort-telefoonnummer-gemeente"
+            },
+            {
+              "id": "3",
+              "textContent": "Meer contactinformatie",
+              "href": "https://www.utrecht.nl/contact/"
+            },
+            {
+              "id": "4",
+              "textContent": "Over deze website",
+              "href": "https://www.utrecht.nl/over-deze-website/"
+            }
+          ]
+        }
+      ]
+    },
+    "address": "<h3>Adres</h3><p><strong>Stadskantoor</strong><br>Stadsplateau 1<br>3521AZ Utrecht<br></p>",
+    "socialMediaList": {
+      "link": [
+        {
+          "id": "7",
+          "textContent": "Instagram",
+          "href": "https://www.instagram.com/GemeenteUtrecht",
+          "icon": "instagram"
+        },
+        {
+          "id": "8",
+          "textContent": "Whatsapp",
+          "href": "https://api.whatsapp.com/send?phone=31624927665",
+          "icon": "whatsapp"
+        },
+        {
+          "id": "9",
+          "textContent": "Facebook",
+          "href": "https://www.facebook.com/GemeenteUtrecht",
+          "icon": "facebook"
+        },
+        {
+          "id": "10",
+          "textContent": "X (Twitter)",
+          "href": "https://x.com/gemeenteutrecht",
+          "icon": "x"
+        },
+        {
+          "id": "11",
+          "textContent": "LinkedIn",
+          "href": "https://nl.linkedin.com/company/gemeente-utrecht",
+          "icon": "linkedin"
+        },
+        {
+          "id": "12",
+          "textContent": "Nieuwsbrief",
+          "href": "https://www.utrecht.nl/bestuur-en-organisatie/publicaties/nieuwsbrieven/nieuwsbrief-utrecht/",
+          "icon": "newsletter"
+        }
+      ]
+    }
   },
   "navigation": {
     "list": [
