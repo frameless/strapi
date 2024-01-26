@@ -1,5 +1,59 @@
 const gql = (query: any) => query;
 
+export const GIT_PDC_HOME_PAGE = gql(`
+query getPDCHomePage($locale: I18NLocaleCode, $pageMode: PublicationState) {
+  pdcHomePage(publicationState: $pageMode, locale: $locale) {
+    data {
+      attributes {
+        components {
+          ... on ComponentComponentsUtrechtNavigation {
+            __typename
+            navigationList {
+              id
+              textContent
+              href
+            }
+          }
+          ... on ComponentComponentsUtrechtTopTasks {
+            __typename
+            link {
+              id
+              textContent
+              href
+              topTaskIcons
+            }
+          }
+          ... on ComponentComponentsUtrechtFooter {
+            __typename
+            title
+            list {
+              listItem {
+                id
+                title
+                link {
+                  id
+                  textContent
+                  href
+                }
+              }
+            }
+            address
+            socialMediaList {
+              link {
+                id
+                textContent
+                href
+                icon
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`);
+
 export const GET_ALL_PRODUCTS_SLUG = gql(`
   query getAllProductsSlugQuery($locale: I18NLocaleCode, $page: Int, $pageSize: Int) {
       products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }) {

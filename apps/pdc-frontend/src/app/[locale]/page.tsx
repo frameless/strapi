@@ -4,12 +4,16 @@ import { AdvancedLink, Grid, GridCell, Heading, Heading2 } from '@/components';
 import { IndexCharNav } from '@/components';
 import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Breadcrumbs } from '@/components/Breadcrumb';
-import { TopTask, TopTaskIconsTypes } from '@/components/Toptask';
-import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
+import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
+import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GIT_PDC_HOME_PAGE } from '@/query';
 import { alphabet } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../gql/graphql';
+import {
+  CheckAlphabeticallyProductsAvailabilityQuery,
+  ComponentComponentsUtrechtTopTasks,
+  GetPdcHomePageQuery,
+} from '../../../gql/graphql';
 import { useTranslation } from '../i18n';
 
 export interface Fields {
@@ -45,6 +49,15 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Home = async ({ params: { locale } }: { params: any }) => {
   const { t } = await useTranslation(locale, ['home-page', 'common']);
+  const { data } = await fetchData<{ data: GetPdcHomePageQuery }>({
+    url: createStrapiURL(),
+    query: GIT_PDC_HOME_PAGE,
+    variables: { locale },
+  });
+
+  const topTasksData = data.pdcHomePage?.data?.attributes?.components?.find(
+    (component) => component?.__typename === 'ComponentComponentsUtrechtTopTasks',
+  ) as ComponentComponentsUtrechtTopTasks;
 
   const productsAvailability = alphabet.map(async (letter) => {
     const { data } = await fetchData<{ data: CheckAlphabeticallyProductsAvailabilityQuery }>({
@@ -60,45 +73,6 @@ const Home = async ({ params: { locale } }: { params: any }) => {
   });
 
   const alphabetAvailability = await Promise.all(productsAvailability);
-
-  const toptask = [
-    {
-      id: '1',
-      title: t('toptask.items.0.title'),
-      icon: 'paspoort' as TopTaskIconsTypes,
-      href: 'https://www.utrecht.nl/paspoort',
-    },
-    {
-      id: '2',
-      title: t('toptask.items.1.title'),
-      icon: 'melding' as TopTaskIconsTypes,
-      href: 'https://www.utrecht.nl/melding',
-    },
-    {
-      id: '3',
-      title: t('toptask.items.2.title'),
-      icon: 'verhuizen' as TopTaskIconsTypes,
-      href: 'https://www.utrecht.nl/verhuizen',
-    },
-    {
-      id: '4',
-      title: t('toptask.items.3.title'),
-      icon: 'parkeren_betalen' as TopTaskIconsTypes,
-      href: 'https://www.utrecht.nl/kentekenwijziging',
-    },
-    {
-      id: '5',
-      title: t('toptask.items.4.title'),
-      icon: 'rijbewijs' as TopTaskIconsTypes,
-      href: 'https://www.utrecht.nl/rijbewijs',
-    },
-    {
-      id: '6',
-      title: t('toptask.items.5.title'),
-      icon: 'grofvuil' as TopTaskIconsTypes,
-      href: 'https://www.utrecht.nl/grofvuil',
-    },
-  ];
 
   return (
     <>
@@ -121,7 +95,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
         <>
           <GridCell md={10} lg={9}>
             <section>
-              <TopTask data={toptask} />
+              <TopTask data={topTasksData?.link as TopTaskDataTypes[]} />
             </section>
           </GridCell>
           <GridCell md={10} lg={9}>
