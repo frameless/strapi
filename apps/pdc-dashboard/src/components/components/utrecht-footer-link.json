@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_utrecht_footer_links",
+  "info": {
+    "displayName": "Footer Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "textContent": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}

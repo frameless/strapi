@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_utrecht_social_media_lists",
+  "info": {
+    "displayName": "social Media List",
+    "icon": "user",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-social-media-link"
+    }
+  }
+}

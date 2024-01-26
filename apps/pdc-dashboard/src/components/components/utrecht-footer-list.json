@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_utrecht_footer_lists",
+  "info": {
+    "displayName": "Footer List",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "listItem": {
+      "displayName": "Footer List Item",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-footer-list-item"
+    }
+  }
+}

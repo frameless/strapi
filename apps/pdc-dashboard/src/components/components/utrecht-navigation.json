@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_utrecht_navigations",
+  "info": {
+    "displayName": "Navigation"
+  },
+  "options": {},
+  "attributes": {
+    "navigationList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-navigation-link"
+    }
+  }
+}

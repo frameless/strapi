@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_utrecht_top_tasks",
+  "info": {
+    "displayName": "Top tasks",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-top-task-link"
+    }
+  }
+}
