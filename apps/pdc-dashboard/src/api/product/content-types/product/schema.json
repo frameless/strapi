@@ -112,6 +112,12 @@
       "relation": "manyToMany",
       "target": "api::kb-subcategory.kb-subcategory",
       "mappedBy": "products"
+    },
+    "productencatalogus": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::productencatalogus.productencatalogus",
+      "inversedBy": "product"
     }
   }
 }

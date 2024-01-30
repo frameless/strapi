@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productencataloguses",
+  "info": {
+    "singularName": "productencatalogus",
+    "pluralName": "productencataloguses",
+    "displayName": "Productencatalogus"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "OrganisatieIdentificatie": {
+      "type": "string"
+    },
+    "Domein": {
+      "type": "string"
+    },
+    "Naam": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Doelgroep": {
+      "type": "string"
+    },
+    "ReferentiePDC": {
+      "type": "string"
+    },
+    "Toelichting": {
+      "type": "text"
+    },
+    "Versie": {
+      "type": "string"
+    },
+    "BegindatumVersie": {
+      "type": "date"
+    },
+    "BeherendeOrganisatie": {
+      "type": "string"
+    },
+    "ContactpesoonBeheerNaam": {
+      "type": "string"
+    },
+    "ContactpersoonBeheerEmail": {
+      "type": "string"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product",
+      "mappedBy": "productencatalogus"
+    }
+  }
+}
