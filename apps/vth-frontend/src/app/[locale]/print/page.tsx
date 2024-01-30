@@ -1,7 +1,8 @@
 import { Emphasis, Heading1, Heading2, Heading3, Heading4, Paragraph } from '@utrecht/component-library-react';
 import React from 'react';
-import { AccordionProvider, Markdown } from '@/components';
-import { Grid } from '@/components/Grid';
+import { useTranslation } from '@/app/i18n';
+import { AccordionProvider, Grid, GridCell, Markdown, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
+import { Page, PageContent } from '@/components';
 import { PrintButton } from '@/components/PrintButton';
 import { GET_PRINT_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
@@ -52,7 +53,8 @@ type NavigationPagesResponse = {
   }[];
 };
 
-const Page = async ({ params: { locale } }: { params: { locale: string } }) => {
+const PrintPage = async ({ params: { locale } }: { params: { locale: string } }) => {
+  const { t } = await useTranslation(locale, ['common']);
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_PRINT_PAGE,
@@ -81,32 +83,41 @@ const Page = async ({ params: { locale } }: { params: { locale: string } }) => {
   });
 
   return (
-    <div className={'utrecht-print-page'}>
-      <PrintButton />
-      <Grid className={'utrecht-grid--content-padding'}>
-        <div className={'utrecht-grid__full-width'}>
-          <section>
-            <Heading1>{printPageData?.title}</Heading1>
-            <Emphasis>Versiedatum: {printPageData?.versiondate}</Emphasis>
-            <Paragraph>{printPageData?.introductionBody}</Paragraph>
-          </section>
-          <section>
-            <Heading2>Inhoudsopgave</Heading2>
-            <TableOfContents navigationPagesResponse={navigationPagesResponse} />
-          </section>
+    <Page>
+      <PageContent className="utrecht-custom-page-content">
+        <div className="utrecht-print-page">
+          <PrintButton />
+          <Grid spacing="lg">
+            <GridCell sm={12}>
+              <section>
+                <Heading1>{printPageData?.title}</Heading1>
+                <Emphasis>Versiedatum: {printPageData?.versiondate}</Emphasis>
+                <Paragraph>{printPageData?.introductionBody}</Paragraph>
+              </section>
+              <section>
+                <Heading2>Inhoudsopgave</Heading2>
+                <TableOfContents navigationPagesResponse={navigationPagesResponse} />
+              </section>
+            </GridCell>
+          </Grid>
+          <Grid spacing="lg">
+            {navigationPagesResponse.data[0] &&
+              navigationPagesResponse.data.map(({ attributes: navigationPage }, index) => {
+                return (
+                  <GridCell sm={12} key={index}>
+                    {NavigationPageDisplay(navigationPage, (index + 1).toString())}
+                  </GridCell>
+                );
+              })}
+          </Grid>
         </div>
-      </Grid>
-      {navigationPagesResponse.data[0] &&
-        navigationPagesResponse.data.map(({ attributes: navigationPage }, index) => {
-          return (
-            <Grid className={'utrecht-grid--content-padding'} key={index}>
-              <div className={'utrecht-grid__full-width'}>
-                {NavigationPageDisplay(navigationPage, (index + 1).toString())}
-              </div>
-            </Grid>
-          );
-        })}
-    </div>
+        <Grid spacing="lg">
+          <GridCell md={12} justifyContent="flex-end">
+            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          </GridCell>
+        </Grid>
+      </PageContent>
+    </Page>
   );
 };
 
@@ -232,4 +243,4 @@ const ArticlePageDisplay = (articlePage: ArticlePage, indexString: string) => {
     </div>
   );
 };
-export default Page;
+export default PrintPage;

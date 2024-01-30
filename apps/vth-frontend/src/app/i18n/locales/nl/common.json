@@ -4,7 +4,8 @@
     "link": "(Klik hier om het uit te schakelen)"
   },
   "actions": {
-    "try-again": "Probeer opnieuw"
+    "try-again": "Probeer opnieuw",
+    "scroll-to-top": "Naar boven"
   },
   "website-setting": {
     "website-name": "Gemeente Utrecht"

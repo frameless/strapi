@@ -4,10 +4,19 @@ import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import React from 'react';
-import { AccordionProvider, Heading1 } from '@/components';
+import { useTranslation } from '@/app/i18n';
+import {
+  AccordionProvider,
+  Grid,
+  GridCell,
+  Heading1,
+  Page,
+  PageContent,
+  ScrollToTopButton,
+  UtrechtIconChevronUp,
+} from '@/components';
 import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
 import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
-import { Grid } from '@/components/Grid';
 import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_ARTICLE_BY_SLUG } from '@/query';
@@ -35,6 +44,7 @@ export async function generateMetadata({ params: { locale, articleSlug } }: Para
 }
 
 const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
+  const { t } = await useTranslation(locale, ['common']);
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
@@ -124,26 +134,35 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
     });
 
   return (
-    <Grid className={'utrecht-grid--content-padding'}>
-      <div className={'utrecht-grid__full-width'}>
-        <BreadcrumbWithBacklink
-          breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
-          backlinkProps={{
-            title: parentElement.title,
-            href: parentElement.href,
-          }}
-        />
-      </div>
-      <div className={'utrecht-grid__two-third'}>
-        <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
-        <DynamicContent />
-      </div>
-      {sideNavigationLinks.length > 1 && (
-        <div className={'utrecht-grid-mobile-hidden utrecht-grid__one-third'}>
-          <SideNavigation links={sideNavigationLinks} />
-        </div>
-      )}
-    </Grid>
+    <Page>
+      <PageContent className="utrecht-custom-page-content">
+        <Grid spacing="lg">
+          <GridCell sm={12}>
+            <BreadcrumbWithBacklink
+              breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
+              backlinkProps={{
+                title: parentElement.title,
+                href: parentElement.href,
+              }}
+            />
+          </GridCell>
+        </Grid>
+        <Grid spacing="lg">
+          <GridCell md={8}>
+            <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
+            <DynamicContent />
+          </GridCell>
+          <GridCell md={4} className="utrecht-grid-mobile-hidden">
+            {sideNavigationLinks.length > 1 && <SideNavigation links={sideNavigationLinks} />}
+          </GridCell>
+        </Grid>
+        <Grid spacing="lg">
+          <GridCell md={12} justifyContent="flex-end">
+            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          </GridCell>
+        </Grid>
+      </PageContent>
+    </Page>
   );
 };
 
