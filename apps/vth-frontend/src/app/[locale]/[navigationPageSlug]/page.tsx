@@ -4,10 +4,20 @@ import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import React from 'react';
-import { AccordionProvider, Heading1, Markdown } from '@/components';
+import { useTranslation } from '@/app/i18n';
+import {
+  AccordionProvider,
+  Grid,
+  GridCell,
+  Heading1,
+  Markdown,
+  Page,
+  PageContent,
+  ScrollToTopButton,
+  UtrechtIconChevronUp,
+} from '@/components';
 import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Card } from '@/components/Card';
-import { Grid } from '@/components/Grid';
 import { GET_NAVIGATION_PAGE_BY_SLUG } from '@/query';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
@@ -33,6 +43,7 @@ export async function generateMetadata({ params: { locale, navigationPageSlug } 
 
 const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params) => {
   const { isEnabled } = draftMode();
+  const { t } = await useTranslation(locale, ['common']);
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_NAVIGATION_PAGE_BY_SLUG,
@@ -73,52 +84,66 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
     });
 
   return (
-    <Grid className={'utrecht-grid--content-padding'}>
-      <div className={'utrecht-grid__full-width'}>
-        <BreadcrumbWithBacklink
-          breadcrumbProps={{ navigationElements: [] }}
-          backlinkProps={{ title: 'Home', href: '/' }}
-        />
-      </div>
-      <Grid className={'utrecht-grid__two-third'}>
-        <div className={'utrecht-grid__full-width'}>
-          <Heading1>{title}</Heading1>
-          <DynamicContent />
-        </div>
-        <Grid className={'utrecht-grid__full-width'}>
-          {themes?.length > 0 &&
-            themes.map((theme: any) => {
-              const { title, description, slug: childSlug, previewImage: imageData } = theme.attributes;
-              const imageUrl = imageData?.data?.attributes?.url;
-              return (
-                <Card
-                  className={'utrecht-grid__half-width'}
-                  image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  title={title}
-                  description={description}
-                  key={`theme-${childSlug}`}
-                  link={{ href: `/${locale}/theme/${childSlug}` }}
-                />
-              );
-            })}
-          {articles?.length > 0 &&
-            articles.map((article: any) => {
-              const { title, description, slug: articleSlug, previewImage: imageData } = article.attributes;
-              const imageUrl = imageData?.data?.attributes?.url;
-              return (
-                <Card
-                  className={'utrecht-grid__half-width'}
-                  title={title}
-                  description={description}
-                  key={`thema-${articleSlug}`}
-                  image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  link={{ href: `/${locale}/article/${articleSlug}` }}
-                />
-              );
-            })}
+    <Page>
+      <PageContent className="utrecht-custom-page-content">
+        <Grid spacing="md">
+          <GridCell sm={12}>
+            <BreadcrumbWithBacklink
+              breadcrumbProps={{ navigationElements: [] }}
+              backlinkProps={{ title: 'Home', href: '/' }}
+            />
+          </GridCell>
+          <GridCell md={12}>
+            <Grid spacing="sm">
+              <GridCell md={8}>
+                <Heading1>{title}</Heading1>
+                <DynamicContent />
+              </GridCell>
+            </Grid>
+          </GridCell>
+          <GridCell md={8}>
+            <Grid spacing="sm">
+              {themes?.length > 0 &&
+                themes.map((theme: any) => {
+                  const { title, description, slug: childSlug, previewImage: imageData } = theme.attributes;
+                  const imageUrl = imageData?.data?.attributes?.url;
+                  return (
+                    <GridCell sm={6} key={`theme-${childSlug}`}>
+                      <Card
+                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
+                        title={title}
+                        description={description}
+                        link={{ href: `/${locale}/theme/${childSlug}` }}
+                      />
+                    </GridCell>
+                  );
+                })}
+              {articles?.length > 0 &&
+                articles.map((article: any) => {
+                  const { title, description, slug: articleSlug, previewImage: imageData } = article.attributes;
+                  const imageUrl = imageData?.data?.attributes?.url;
+                  return (
+                    <GridCell sm={6} key={`thema-${articleSlug}`}>
+                      <Card
+                        title={title}
+                        description={description}
+                        key={`thema-${articleSlug}`}
+                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
+                        link={{ href: `/${locale}/article/${articleSlug}` }}
+                      />
+                    </GridCell>
+                  );
+                })}
+            </Grid>
+          </GridCell>
         </Grid>
-      </Grid>
-    </Grid>
+        <Grid spacing="lg">
+          <GridCell md={12} justifyContent="flex-end">
+            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          </GridCell>
+        </Grid>
+      </PageContent>
+    </Page>
   );
 };
 

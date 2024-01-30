@@ -16,10 +16,10 @@ import {
   Navigation,
   NavigationListType,
   Page,
-  PageContent,
   PageHeader,
   PreviewAlert,
   SkipLink,
+  Surface,
 } from '@/components';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
@@ -148,7 +148,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
-        className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-surface', 'utrecht-vth-theme')}
+        className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-vth-theme')}
         suppressHydrationWarning={true}
       >
         {isEnabled && (
@@ -161,40 +161,40 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
           />
         )}
         <QueryClientProvider>
-          <Page className="utrecht-page--full-width">
-            <PageHeader>
-              <div className="utrecht-skip-link-container">
-                <SkipLink href="#main">Ga naar inhoud</SkipLink>
-              </div>
-              <Grid spacing="md">
-                <GridCell xs={6}>
-                  <Link
-                    href={`/${locale}`}
-                    className="utrecht-link utrecht-link--html-a utrecht-link--box-content utrecht-logo__wrapper"
-                    prefetch={true}
-                    aria-label="Ga naar home pagina"
-                  >
-                    <Logo>
-                      <LogoImage />
-                    </Logo>
-                  </Link>
-                </GridCell>
-                <GridCell xs={6} md={12}>
-                  <Navigation
-                    list={navListData}
-                    mobileBreakpoint={998}
-                    toggleButton={{
-                      openText: 'Menu',
-                      closeText: 'Sluiten',
-                    }}
-                  />
-                </GridCell>
-              </Grid>
-            </PageHeader>
-            <PageContent>
+          <Surface>
+            <Page className="utrecht-page--full-width">
+              <PageHeader>
+                <div className="utrecht-skip-link-container">
+                  <SkipLink href="#main">Ga naar inhoud</SkipLink>
+                </div>
+                <Grid spacing="md">
+                  <GridCell xs={6}>
+                    <Link
+                      href={`/${locale}`}
+                      className="utrecht-link utrecht-link--html-a utrecht-link--box-content utrecht-logo__wrapper"
+                      prefetch={true}
+                      aria-label="Ga naar home pagina"
+                    >
+                      <Logo>
+                        <LogoImage />
+                      </Logo>
+                    </Link>
+                  </GridCell>
+                  <GridCell xs={6} md={12}>
+                    <Navigation
+                      list={navListData}
+                      mobileBreakpoint={998}
+                      toggleButton={{
+                        openText: 'Menu',
+                        closeText: 'Sluiten',
+                      }}
+                    />
+                  </GridCell>
+                </Grid>
+              </PageHeader>
               <Main id="main">{children}</Main>
-            </PageContent>
-          </Page>
+            </Page>
+          </Surface>
           <Footer data={footerData as FooterData} />
         </QueryClientProvider>
         <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>

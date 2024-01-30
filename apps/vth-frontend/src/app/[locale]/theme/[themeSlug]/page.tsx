@@ -4,11 +4,21 @@ import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import React from 'react';
-import { AccordionProvider, Heading1, Markdown } from '@/components';
+import { useTranslation } from '@/app/i18n';
+import {
+  AccordionProvider,
+  Grid,
+  GridCell,
+  Heading1,
+  Markdown,
+  Page,
+  PageContent,
+  ScrollToTopButton,
+  UtrechtIconChevronUp,
+} from '@/components';
 import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
 import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Card } from '@/components/Card';
-import { Grid } from '@/components/Grid';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_THEME_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
@@ -35,6 +45,7 @@ export async function generateMetadata({ params: { locale, themeSlug } }: Params
 }
 
 const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
+  const { t } = await useTranslation(locale, ['common']);
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
@@ -107,43 +118,54 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
     });
 
   return (
-    <Grid className={'utrecht-grid--content-padding'}>
-      <div className={'utrecht-grid__full-width'}>
-        <BreadcrumbWithBacklink
-          breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
-          backlinkProps={{ title: parentElement?.title || 'Home', href: parentElement?.href || '/' }}
-        />
-      </div>
-      <Grid className={'utrecht-grid__two-third'}>
-        <div className={'utrecht-grid__full-width'}>
-          <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
-          <DynamicContent />
-        </div>
-        <Grid className={'utrecht-grid__full-width'}>
-          {data.findSlug.data?.attributes?.article_pages.data &&
-            data.findSlug.data?.attributes?.article_pages.data[0] &&
-            data.findSlug.data?.attributes?.article_pages.data.map((content: any) => {
-              const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
-              const imageUrl = imageData?.data?.attributes?.url;
-              return (
-                <Card
-                  className={'utrecht-grid__half-width'}
-                  title={title}
-                  description={description}
-                  key={`content-${contentSlug}`}
-                  image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
-                  link={{ href: `/${locale}/article/${contentSlug}` }}
-                />
-              );
-            })}
+    <Page>
+      <PageContent className="utrecht-custom-page-content">
+        <Grid spacing="sm">
+          <GridCell sm={12}>
+            <BreadcrumbWithBacklink
+              breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
+              backlinkProps={{ title: parentElement?.title || 'Home', href: parentElement?.href || '/' }}
+            />
+          </GridCell>
         </Grid>
-      </Grid>
-      {sideNavigationLinks.length > 1 && (
-        <div className={'utrecht-grid-mobile-hidden utrecht-grid__one-third'}>
-          <SideNavigation links={sideNavigationLinks} />
-        </div>
-      )}
-    </Grid>
+        <Grid spacing="lg">
+          <GridCell md={8}>
+            <Grid spacing="sm">
+              <GridCell sm={12}>
+                <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
+                <DynamicContent />
+              </GridCell>
+              {data.findSlug.data?.attributes?.article_pages.data &&
+                data.findSlug.data?.attributes?.article_pages.data[0] &&
+                data.findSlug.data?.attributes?.article_pages.data.map((content: any) => {
+                  const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
+                  const imageUrl = imageData?.data?.attributes?.url;
+                  return (
+                    <GridCell sm={6} key={`content-${contentSlug}`}>
+                      <Card
+                        title={title}
+                        description={description}
+                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
+                        link={{ href: `/${locale}/article/${contentSlug}` }}
+                      />
+                    </GridCell>
+                  );
+                })}
+            </Grid>
+          </GridCell>
+          {sideNavigationLinks.length > 1 && (
+            <GridCell md={4} className="utrecht-grid-mobile-hidden">
+              <SideNavigation links={sideNavigationLinks} />
+            </GridCell>
+          )}
+        </Grid>
+        <Grid spacing="lg">
+          <GridCell md={12} justifyContent="flex-end">
+            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          </GridCell>
+        </Grid>
+      </PageContent>
+    </Page>
   );
 };
 
