@@ -9,7 +9,7 @@
 .utrecht-link-list__link--phone {
   --utrecht-link-text-decoration: underline;
 
-  font-size: var(utrecht-link-list-link-phone-font-size, 2em);
+  font-size: var(--utrecht-link-list-link-phone-font-size, 2em);
 }
 
 .utrecht-link-list__item {
