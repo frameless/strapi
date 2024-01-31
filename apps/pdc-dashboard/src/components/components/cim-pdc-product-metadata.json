@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_components_cim_pdc_product_metadata",
+  "info": {
+    "displayName": "CimPDC Product metadata",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "productCode": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "doelgroep": {
+      "type": "string"
+    },
+    "beoogdResultaat": {
+      "type": "string"
+    },
+    "bestelwijze": {
+      "type": "string"
+    },
+    "wettelijkeTermijn": {
+      "type": "string"
+    },
+    "servicetermijn": {
+      "type": "string"
+    },
+    "afnemer": {
+      "type": "string"
+    },
+    "soortBevoegdGezag": {
+      "type": "string"
+    },
+    "uitvoeringsorganisatie": {
+      "type": "string"
+    },
+    "grondslag": {
+      "type": "string"
+    },
+    "soortTaak": {
+      "type": "string"
+    },
+    "uplProductnaam": {
+      "type": "string"
+    },
+    "eigenaar": {
+      "type": "string"
+    }
+  }
+}

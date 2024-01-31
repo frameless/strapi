@@ -4,46 +4,44 @@
   "info": {
     "singularName": "productencatalogus",
     "pluralName": "productencataloguses",
-    "displayName": "Productencatalogus"
+    "displayName": "Productencatalogus",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "OrganisatieIdentificatie": {
+    "organisatieIdentificatie": {
       "type": "string"
     },
-    "Domein": {
+    "domein": {
       "type": "string"
     },
-    "Naam": {
+    "naam": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "Doelgroep": {
+    "doelgroep": {
       "type": "string"
     },
-    "ReferentiePDC": {
-      "type": "string"
-    },
-    "Toelichting": {
+    "toelichting": {
       "type": "text"
     },
-    "Versie": {
+    "versie": {
       "type": "string"
     },
-    "BegindatumVersie": {
+    "begindatumVersie": {
       "type": "date"
     },
-    "BeherendeOrganisatie": {
+    "beherendeOrganisatie": {
       "type": "string"
     },
-    "ContactpesoonBeheerNaam": {
+    "contactpersoonBeheerNaam": {
       "type": "string"
     },
-    "ContactpersoonBeheerEmail": {
+    "contactpersoonBeheerEmail": {
       "type": "string"
     },
     "product": {
@@ -51,6 +49,9 @@
       "relation": "oneToOne",
       "target": "api::product.product",
       "mappedBy": "productencatalogus"
+    },
+    "referentiePDC": {
+      "type": "boolean"
     }
   }
 }
