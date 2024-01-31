@@ -118,6 +118,16 @@
       "relation": "oneToOne",
       "target": "api::productencatalogus.productencatalogus",
       "inversedBy": "product"
+    },
+    "pdc_metadata": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.cim-pdc-product-metadata"
     }
   }
 }
