@@ -1,6 +1,11 @@
 .utrecht-footer {
   --utrecht-link-social-border-color: transparent;
   --utrecht-link-list-margin-block-start: 24px;
+  --utrecht-page-footer-padding-inline-start: 0;
+  --utrecht-page-footer-padding-inline-end: 0;
+  & .utrecht-link {
+    font-weight: 400;
+  }
 }
 
 .utrecht-footer__list-title {
