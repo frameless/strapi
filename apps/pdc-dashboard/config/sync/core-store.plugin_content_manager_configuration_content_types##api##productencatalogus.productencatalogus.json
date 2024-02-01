@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::product.product",
+  "key": "plugin_content_manager_configuration_content_types::api::productencatalogus.productencatalogus",
   "value": {
-    "uid": "api::product.product",
+    "uid": "api::productencatalogus.productencatalogus",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "title",
-      "defaultSortBy": "title",
+      "mainField": "naam",
+      "defaultSortBy": "organisatieIdentificatie",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,174 +20,186 @@
           "sortable": true
         }
       },
-      "title": {
+      "organisatieIdentificatie": {
         "edit": {
-          "label": "Paginatitel",
+          "label": "Organisatie-identificatie",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "organisatieIdentificatie",
           "searchable": true,
           "sortable": true
         }
       },
-      "content": {
+      "domein": {
         "edit": {
-          "label": "Contentblok",
-          "description": "",
-          "placeholder": "Voeg de pagina inhoud",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "content",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "sections": {
-        "edit": {
-          "label": "Sections",
+          "label": "Domein",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "sections",
-          "searchable": false,
-          "sortable": false
+          "label": "domein",
+          "searchable": true,
+          "sortable": true
         }
       },
-      "price": {
+      "naam": {
         "edit": {
-          "label": "Gekoppelde kosten",
-          "description": "Een relationeel veld waarin je de kosten van de producten kunt definiëren.",
+          "label": "Naam",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "naam",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "toelichting": {
+        "edit": {
+          "label": "Toelichting",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "toelichting",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "versie": {
+        "edit": {
+          "label": "Versie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "versie",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "begindatumVersie": {
+        "edit": {
+          "label": "Begindatum versie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "begindatumVersie",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "beherendeOrganisatie": {
+        "edit": {
+          "label": "Beherende organisatie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "beherendeOrganisatie",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contactpersoonBeheerNaam": {
+        "edit": {
+          "label": "Contactpersoon beheer naam",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contactpersoonBeheerNaam",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contactpersoonBeheerEmail": {
+        "edit": {
+          "label": "Contactpersoon beheer email",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contactpersoonBeheerEmail",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "producten": {
+        "edit": {
+          "label": "Producten",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true,
           "mainField": "title"
         },
         "list": {
-          "label": "price",
+          "label": "producten",
           "searchable": true,
           "sortable": true
         }
       },
-      "metaTags": {
+      "referentiePDC": {
         "edit": {
-          "label": "Metadata",
+          "label": "Referentie-PDC",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "metaTags",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "catalogiMeta": {
-        "edit": {
-          "label": "Samenwerkende Catalogi",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "catalogiMeta",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "metadata": {
-        "edit": {
-          "label": "Beheerinformatie",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "metadata",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "slug": {
-        "edit": {
-          "label": "Slug",
-          "description": "Een automatisch gegenereerde URL-vriendelijke versie van de titel voor een betere SEO en leesbaarheid.",
-          "placeholder": "",
-          "visible": true,
-          "editable": false
-        },
-        "list": {
-          "label": "slug",
+          "label": "referentiePDC",
           "searchable": true,
           "sortable": true
         }
       },
-      "pdc_subcategories": {
+      "doelgroep": {
         "edit": {
-          "label": "pdc_subcategories",
+          "label": "Doelgroep",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true,
-          "mainField": "title"
+          "editable": true
         },
         "list": {
-          "label": "pdc_subcategories",
-          "searchable": false,
-          "sortable": false
+          "label": "doelgroep",
+          "searchable": true,
+          "sortable": true
         }
       },
-      "kb_subcategories": {
+      "referentieCatalogus": {
         "edit": {
-          "label": "kb_subcategories",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "kb_subcategories",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "productencatalogus": {
-        "edit": {
-          "label": "Productencatalogus",
-          "description": "",
+          "label": "Producten catalogus",
+          "description": "De referentieproductencatalogus waarvan de catalogus is afgeleid.",
           "placeholder": "",
           "visible": true,
           "editable": true,
           "mainField": "organisatieIdentificatie"
         },
         "list": {
-          "label": "productencatalogus",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "pdc_metadata": {
-        "edit": {
-          "label": "CimPDC Product metadata",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "pdc_metadata",
+          "label": "referentieCatalogus",
           "searchable": false,
           "sortable": false
         }
@@ -255,76 +267,74 @@
       "edit": [
         [
           {
-            "name": "title",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "content",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "sections",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "price",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "metaTags",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "catalogiMeta",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "metadata",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "slug",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "pdc_subcategories",
+            "name": "naam",
             "size": 6
           },
           {
-            "name": "kb_subcategories",
+            "name": "domein",
             "size": 6
           }
         ],
         [
           {
-            "name": "productencatalogus",
+            "name": "doelgroep",
+            "size": 6
+          },
+          {
+            "name": "organisatieIdentificatie",
             "size": 6
           }
         ],
         [
           {
-            "name": "pdc_metadata",
+            "name": "referentiePDC",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "toelichting",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "versie",
+            "size": 6
+          },
+          {
+            "name": "begindatumVersie",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "beherendeOrganisatie",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "contactpersoonBeheerNaam",
+            "size": 6
+          },
+          {
+            "name": "contactpersoonBeheerEmail",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "referentieCatalogus",
+            "size": 6
+          },
+          {
+            "name": "producten",
+            "size": 6
           }
         ]
       ],
-      "list": ["title", "metaTags", "price"]
+      "list": ["naam", "domein", "doelgroep"]
     }
   },
   "type": "object",

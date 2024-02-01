@@ -24,7 +24,8 @@
       "type": "string"
     },
     "uitvoeringsorganisatie": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "grondslag": {
       "type": "string"
@@ -32,37 +33,35 @@
     "soortTaak": {
       "type": "string"
     },
-    "uplProductnaam": {
-      "type": "string"
-    },
     "eigenaar": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "doelgroep": {
       "type": "enumeration",
-      "enum": [
-        "gemeente\t",
-        "provincie\t",
-        "rijksoverheid\t",
-        "waterschap"
-      ]
+      "enum": ["gemeente\t", "provincie\t", "rijksoverheid\t", "waterschap"],
+      "required": true
     },
     "bestelwijze": {
       "type": "enumeration",
-      "enum": [
-        "informatie\t",
-        "initiatief bevoegd gezag\t",
-        "op verzoek"
-      ]
+      "enum": ["informatie\t", "initiatief bevoegd gezag\t", "op verzoek"],
+      "required": true
     },
     "soortBevoegdGezag": {
       "type": "enumeration",
-      "enum": [
-        "gemeente\t",
-        "provincie\t",
-        "rijksoverheid\t",
-        "waterschap"
-      ]
+      "enum": ["gemeente\t", "provincie\t", "rijksoverheid\t", "waterschap"]
+    },
+    "uplProductNaam": {
+      "type": "customField",
+      "customField": "plugin::uniform-product-name.uniform-product-name"
+    },
+    "cimPdcProductBeschrijving": {
+      "displayName": "CimPDC product beschrijving",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.cim-pdc-product-beschrijving",
+      "required": true,
+      "min": 1
     }
   }
 }
