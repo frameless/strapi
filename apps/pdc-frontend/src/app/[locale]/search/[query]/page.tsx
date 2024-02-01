@@ -86,8 +86,8 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           segment="search"
         />
       </Article>
-      <Grid justifyContent="space-between">
-        <GridCell xs={8}>
+      <Grid justifyContent="space-between" spacing="sm">
+        <GridCell sm={8}>
           <AdvancedLink
             rel="noopener noreferrer"
             external
@@ -98,7 +98,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
             {t('actions.reaction-link')}
           </AdvancedLink>
         </GridCell>
-        <GridCell xs={4} justifyContent="flex-end">
+        <GridCell sm={4} justifyContent="flex-end">
           <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
         </GridCell>
       </Grid>

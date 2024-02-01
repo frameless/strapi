@@ -8,6 +8,7 @@ body {
 
 .utrecht-pdc-theme {
   --utrecht-space-around: 1;
+  --utrecht-page-header-padding-block-start: 16px;
   --utrecht-search-bar-dropdown-inline-size: 100%;
   --utrecht-search-bar-dropdown-z-index: 100;
   --utrecht-search-bar-dropdown-padding-inline-start: 1rem;
@@ -152,9 +153,6 @@ body {
   /* Button group */
   --utrecht-button-group-margin-block-start: var(--utrecht-space-block-xs);
   --utrecht-button-group-margin-block-end: var(--utrecht-space-block-xs);
-  --utrecht-logo-wrapper-padding-inline-start: 32px;
-  --utrecht-nav-wrapper-padding-inline-end: 32px;
-  --utrecht-search-bar-wrapper-padding-inline-end: 32px;
 }
 
 a {
@@ -168,6 +166,7 @@ a {
 
 .utrecht-article {
   flex: 1 1;
+  margin-block-end: 1rem;
 }
 
 .utrecht-page-content--modifier {
@@ -177,7 +176,8 @@ a {
 }
 
 .utrecht-logo-wrapper {
-  padding-inline-start: var(--utrecht-logo-wrapper-padding-inline-start);
+  padding-block-end: var(--utrecht-logo-wrapper-padding-block-end, 16px);
+  padding-inline-start: var(--utrecht-logo-wrapper-padding-inline-start, 16px);
 }
 
 .utrecht-nav-wrapper {
@@ -185,7 +185,8 @@ a {
 }
 
 .utrecht-search-bar-wrapper {
-  padding-inline-end: var(--utrecht-search-bar-wrapper-padding-inline-end);
+  padding-inline-end: var(--utrecht-search-bar-wrapper-padding-inline-end, 16px);
+  padding-inline-start: var(--utrecht-search-bar-wrapper-padding-inline-start, 16px);
 }
 
 .utrecht-custom-header {
@@ -225,8 +226,13 @@ th > p {
   --utrecht-paragraph-font-weight: var(--utrecht-table-header-font-weight);
 }
 
-@media screen and (width >= 961px) {
-  .utrecht-nav-wrapper {
-    --utrecht-nav-wrapper-padding-inline-end: 0;
+@media screen and (width > 360px) {
+  .utrecht-page-header {
+    --utrecht-page-header-padding-block-start: 32px;
+    --utrecht-logo-wrapper-padding-inline-start: 32px;
+    --utrecht-logo-wrapper-padding-block-end: 32px;
+    --utrecht-search-bar-wrapper-padding-inline-start: 32px;
+    --utrecht-search-bar-wrapper-padding-inline-end: 32px;
+    --utrecht-nav-wrapper-padding-inline-end: 32px;
   }
 }
