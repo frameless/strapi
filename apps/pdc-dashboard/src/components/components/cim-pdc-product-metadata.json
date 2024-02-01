@@ -11,13 +11,7 @@
       "required": true,
       "unique": true
     },
-    "doelgroep": {
-      "type": "string"
-    },
     "beoogdResultaat": {
-      "type": "string"
-    },
-    "bestelwijze": {
       "type": "string"
     },
     "wettelijkeTermijn": {
@@ -27,9 +21,6 @@
       "type": "string"
     },
     "afnemer": {
-      "type": "string"
-    },
-    "soortBevoegdGezag": {
       "type": "string"
     },
     "uitvoeringsorganisatie": {
@@ -46,6 +37,32 @@
     },
     "eigenaar": {
       "type": "string"
+    },
+    "doelgroep": {
+      "type": "enumeration",
+      "enum": [
+        "gemeente\t",
+        "provincie\t",
+        "rijksoverheid\t",
+        "waterschap"
+      ]
+    },
+    "bestelwijze": {
+      "type": "enumeration",
+      "enum": [
+        "informatie\t",
+        "initiatief bevoegd gezag\t",
+        "op verzoek"
+      ]
+    },
+    "soortBevoegdGezag": {
+      "type": "enumeration",
+      "enum": [
+        "gemeente\t",
+        "provincie\t",
+        "rijksoverheid\t",
+        "waterschap"
+      ]
     }
   }
 }
