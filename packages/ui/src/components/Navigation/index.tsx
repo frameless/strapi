@@ -84,7 +84,7 @@ export const Navigation = forwardRef(
             <NavToggleButton
               text={toggleButton?.openText}
               icon="hamburger"
-              aria-expanded={visible}
+              aria-expanded={drawerVisible}
               aria-label="Open menu"
               onClick={() => setDrawerVisible(!drawerVisible)}
             />
@@ -105,7 +105,7 @@ export const Navigation = forwardRef(
                   <NavToggleButton
                     text={toggleButton?.closeText}
                     icon="close"
-                    aria-expanded={visible}
+                    aria-expanded={drawerVisible}
                     aria-label="Close menu"
                     onClick={() => setDrawerVisible(!drawerVisible)}
                   />
