@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_components_cim_pdc_product_aspect_beschrijvings",
+  "info": {
+    "displayName": "CimPDC product aspect beschrijving",
+    "icon": "",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "onderwerp": {
+      "type": "string"
+    },
+    "uitleg": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_components_cim_pdc_product_beschrijvings",
+  "info": {
+    "displayName": "CimPDC product beschrijving"
+  },
+  "options": {},
+  "attributes": {
+    "taal": {
+      "type": "string",
+      "required": true
+    },
+    "productNaam": {
+      "type": "string"
+    },
+    "omschrijving": {
+      "type": "text"
+    },
+    "trefwoord": {
+      "type": "string"
+    },
+    "cimPdcProductAspectBeschrijving": {
+      "displayName": "CimPDC Product aspect beschrijving",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.cim-pdc-product-aspect-beschrijving"
+    }
+  }
+}

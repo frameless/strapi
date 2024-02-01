@@ -16,7 +16,8 @@
       "type": "string"
     },
     "domein": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "naam": {
       "type": "string",
@@ -27,37 +28,43 @@
       "type": "text"
     },
     "versie": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "begindatumVersie": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "beherendeOrganisatie": {
       "type": "string"
     },
     "contactpersoonBeheerNaam": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "contactpersoonBeheerEmail": {
       "type": "string"
     },
-    "product": {
+    "producten": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product.product",
-      "mappedBy": "productencatalogus"
+      "inversedBy": "productencatalogus"
     },
     "referentiePDC": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true,
+      "default": false
     },
     "doelgroep": {
       "type": "enumeration",
-      "enum": [
-        "bedrijven en instellingen\t",
-        "burgers\t",
-        "samenwerkingspartners\t",
-        "interne organisatie"
-      ]
+      "enum": ["bedrijven en instellingen\t", "burgers\t", "samenwerkingspartners\t", "interne organisatie"],
+      "required": true
+    },
+    "referentieCatalogus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::productencatalogus.productencatalogus"
     }
   }
 }

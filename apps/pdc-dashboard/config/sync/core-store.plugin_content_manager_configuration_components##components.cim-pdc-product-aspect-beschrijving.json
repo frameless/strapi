@@ -1,0 +1,72 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.cim-pdc-product-aspect-beschrijving",
+  "value": {
+    "uid": "components.cim-pdc-product-aspect-beschrijving",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "onderwerp",
+      "defaultSortBy": "onderwerp",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "onderwerp": {
+        "edit": {
+          "label": "Onderwerp",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "onderwerp",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "uitleg": {
+        "edit": {
+          "label": "Uitleg",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uitleg",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "onderwerp", "uitleg"],
+      "edit": [
+        [
+          {
+            "name": "onderwerp",
+            "size": 6
+          },
+          {
+            "name": "uitleg",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

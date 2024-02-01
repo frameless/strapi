@@ -424,7 +424,27 @@
           "metadata.eForm.eFormURL.value",
           "slug",
           "pdc_subcategories",
-          "kb_subcategories"
+          "kb_subcategories",
+          "pdc_metadata.productCode",
+          "pdc_metadata.beoogdResultaat",
+          "pdc_metadata.wettelijkeTermijn",
+          "pdc_metadata.servicetermijn",
+          "pdc_metadata.afnemer",
+          "pdc_metadata.uitvoeringsorganisatie",
+          "pdc_metadata.grondslag",
+          "pdc_metadata.soortTaak",
+          "pdc_metadata.eigenaar",
+          "pdc_metadata.doelgroep",
+          "pdc_metadata.bestelwijze",
+          "pdc_metadata.soortBevoegdGezag",
+          "pdc_metadata.uplProductNaam",
+          "pdc_metadata.cimPdcProductBeschrijving.taal",
+          "pdc_metadata.cimPdcProductBeschrijving.productNaam",
+          "pdc_metadata.cimPdcProductBeschrijving.omschrijving",
+          "pdc_metadata.cimPdcProductBeschrijving.trefwoord",
+          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
+          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
+          "productencatalogus"
         ],
         "locales": ["en", "nl"]
       },
@@ -479,7 +499,27 @@
           "metadata.eForm.eFormURL.value",
           "slug",
           "pdc_subcategories",
-          "kb_subcategories"
+          "kb_subcategories",
+          "pdc_metadata.productCode",
+          "pdc_metadata.beoogdResultaat",
+          "pdc_metadata.wettelijkeTermijn",
+          "pdc_metadata.servicetermijn",
+          "pdc_metadata.afnemer",
+          "pdc_metadata.uitvoeringsorganisatie",
+          "pdc_metadata.grondslag",
+          "pdc_metadata.soortTaak",
+          "pdc_metadata.eigenaar",
+          "pdc_metadata.doelgroep",
+          "pdc_metadata.bestelwijze",
+          "pdc_metadata.soortBevoegdGezag",
+          "pdc_metadata.uplProductNaam",
+          "pdc_metadata.cimPdcProductBeschrijving.taal",
+          "pdc_metadata.cimPdcProductBeschrijving.productNaam",
+          "pdc_metadata.cimPdcProductBeschrijving.omschrijving",
+          "pdc_metadata.cimPdcProductBeschrijving.trefwoord",
+          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
+          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
+          "productencatalogus"
         ],
         "locales": ["en", "nl"]
       },
@@ -516,9 +556,112 @@
           "metadata.eForm.eFormURL.value",
           "slug",
           "pdc_subcategories",
-          "kb_subcategories"
+          "kb_subcategories",
+          "pdc_metadata.productCode",
+          "pdc_metadata.beoogdResultaat",
+          "pdc_metadata.wettelijkeTermijn",
+          "pdc_metadata.servicetermijn",
+          "pdc_metadata.afnemer",
+          "pdc_metadata.uitvoeringsorganisatie",
+          "pdc_metadata.grondslag",
+          "pdc_metadata.soortTaak",
+          "pdc_metadata.eigenaar",
+          "pdc_metadata.doelgroep",
+          "pdc_metadata.bestelwijze",
+          "pdc_metadata.soortBevoegdGezag",
+          "pdc_metadata.uplProductNaam",
+          "pdc_metadata.cimPdcProductBeschrijving.taal",
+          "pdc_metadata.cimPdcProductBeschrijving.productNaam",
+          "pdc_metadata.cimPdcProductBeschrijving.omschrijving",
+          "pdc_metadata.cimPdcProductBeschrijving.trefwoord",
+          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
+          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
+          "productencatalogus"
         ],
         "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::productencatalogus.productencatalogus",
+      "properties": {
+        "fields": [
+          "organisatieIdentificatie",
+          "domein",
+          "naam",
+          "toelichting",
+          "versie",
+          "begindatumVersie",
+          "beherendeOrganisatie",
+          "contactpersoonBeheerNaam",
+          "contactpersoonBeheerEmail",
+          "producten",
+          "referentiePDC",
+          "doelgroep",
+          "referentieCatalogus"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::productencatalogus.productencatalogus",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::productencatalogus.productencatalogus",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::productencatalogus.productencatalogus",
+      "properties": {
+        "fields": [
+          "organisatieIdentificatie",
+          "domein",
+          "naam",
+          "toelichting",
+          "versie",
+          "begindatumVersie",
+          "beherendeOrganisatie",
+          "contactpersoonBeheerNaam",
+          "contactpersoonBeheerEmail",
+          "producten",
+          "referentiePDC",
+          "doelgroep",
+          "referentieCatalogus"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::productencatalogus.productencatalogus",
+      "properties": {
+        "fields": [
+          "organisatieIdentificatie",
+          "domein",
+          "naam",
+          "toelichting",
+          "versie",
+          "begindatumVersie",
+          "beherendeOrganisatie",
+          "contactpersoonBeheerNaam",
+          "contactpersoonBeheerEmail",
+          "producten",
+          "referentiePDC",
+          "doelgroep",
+          "referentieCatalogus"
+        ]
       },
       "conditions": []
     },

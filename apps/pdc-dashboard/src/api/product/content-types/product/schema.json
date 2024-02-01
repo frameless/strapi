@@ -113,12 +113,6 @@
       "target": "api::kb-subcategory.kb-subcategory",
       "mappedBy": "products"
     },
-    "productencatalogus": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::productencatalogus.productencatalogus",
-      "inversedBy": "product"
-    },
     "pdc_metadata": {
       "type": "component",
       "repeatable": false,
@@ -128,6 +122,12 @@
         }
       },
       "component": "components.cim-pdc-product-metadata"
+    },
+    "productencatalogus": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::productencatalogus.productencatalogus",
+      "mappedBy": "producten"
     }
   }
 }

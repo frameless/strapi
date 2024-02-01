@@ -1,0 +1,302 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.cim-pdc-product-metadata",
+  "value": {
+    "uid": "components.cim-pdc-product-metadata",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "productCode",
+      "defaultSortBy": "productCode",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "productCode": {
+        "edit": {
+          "label": "Productcode",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "productCode",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "beoogdResultaat": {
+        "edit": {
+          "label": "Beoogd resultaat",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "beoogdResultaat",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "wettelijkeTermijn": {
+        "edit": {
+          "label": "Wettelijke termijn",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "wettelijkeTermijn",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "servicetermijn": {
+        "edit": {
+          "label": "Servicetermijn",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "servicetermijn",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "afnemer": {
+        "edit": {
+          "label": "Afnemer",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "afnemer",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "uitvoeringsorganisatie": {
+        "edit": {
+          "label": "Uitvoeringsorganisatie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uitvoeringsorganisatie",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "grondslag": {
+        "edit": {
+          "label": "Grondslag",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "grondslag",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "soortTaak": {
+        "edit": {
+          "label": "Soort taak",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "soortTaak",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "eigenaar": {
+        "edit": {
+          "label": "Eigenaar",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "eigenaar",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "doelgroep": {
+        "edit": {
+          "label": "Doelgroep",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "doelgroep",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "bestelwijze": {
+        "edit": {
+          "label": "Bestelwijze",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "bestelwijze",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "soortBevoegdGezag": {
+        "edit": {
+          "label": "Soort bevoegd gezag",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "soortBevoegdGezag",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "uplProductNaam": {
+        "edit": {
+          "label": "UPL-productnaam",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uplProductNaam",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "cimPdcProductBeschrijving": {
+        "edit": {
+          "label": "Taalafhankelijke productbeschrijving",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "cimPdcProductBeschrijving",
+          "searchable": false,
+          "sortable": false
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "productCode", "doelgroep", "beoogdResultaat"],
+      "edit": [
+        [
+          {
+            "name": "productCode",
+            "size": 6
+          },
+          {
+            "name": "doelgroep",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "beoogdResultaat",
+            "size": 6
+          },
+          {
+            "name": "bestelwijze",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "wettelijkeTermijn",
+            "size": 6
+          },
+          {
+            "name": "servicetermijn",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "afnemer",
+            "size": 6
+          },
+          {
+            "name": "soortBevoegdGezag",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "uitvoeringsorganisatie",
+            "size": 6
+          },
+          {
+            "name": "grondslag",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "soortTaak",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "eigenaar",
+            "size": 6
+          },
+          {
+            "name": "uplProductNaam",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "cimPdcProductBeschrijving",
+            "size": 12
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
