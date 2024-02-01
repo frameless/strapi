@@ -167,7 +167,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <SkipLink href="#main">{t('components.skip-link.main')}</SkipLink>
                 <SkipLink href="#menu">{t('components.skip-link.menu')}</SkipLink>
                 <SkipLink href="#search-input">{t('components.skip-link.search-input')}</SkipLink>
-                <Grid spacing="sm">
+                <Grid>
                   <GridCell xs={6}>
                     <div className="utrecht-logo-wrapper">
                       <Link
