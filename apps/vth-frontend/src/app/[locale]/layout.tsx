@@ -167,7 +167,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <div className="utrecht-skip-link-container">
                   <SkipLink href="#main">Ga naar inhoud</SkipLink>
                 </div>
-                <Grid spacing="md">
+                <Grid>
                   <GridCell xs={6}>
                     <Link
                       href={`/${locale}`}
