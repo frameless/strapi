@@ -23,9 +23,6 @@
       "required": true,
       "unique": true
     },
-    "doelgroep": {
-      "type": "string"
-    },
     "toelichting": {
       "type": "text"
     },
@@ -52,6 +49,15 @@
     },
     "referentiePDC": {
       "type": "boolean"
+    },
+    "doelgroep": {
+      "type": "enumeration",
+      "enum": [
+        "bedrijven en instellingen\t",
+        "burgers\t",
+        "samenwerkingspartners\t",
+        "interne organisatie"
+      ]
     }
   }
 }
