@@ -1,4 +1,7 @@
 .utrecht-navigation {
+  border-block-end-color: var(--utrecht-navigation-border-block-end-color);
+  border-block-end-style: solid;
+  border-block-end-width: var(--utrecht-navigation-border-block-end-width);
   border-block-start-color: var(--utrecht-navigation-border-block-start-color);
   border-block-start-style: solid;
   border-block-start-width: var(--utrecht-navigation-border-block-start-width);
@@ -7,6 +10,8 @@
 .utrecht-navigation--mobile {
   --utrecht-navigation-border-block-start-color: transparent;
   --utrecht-navigation-border-block-start-width: 0;
+  --utrecht-navigation-border-block-end-color: transparent;
+  --utrecht-navigation-border-block-end-width: 0;
 
   align-items: flex-end;
   block-size: 100%;
