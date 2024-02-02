@@ -14,6 +14,8 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
+  Date: { input: any; output: any; }
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: { input: any; output: any; }
   /** A string used to identify an i18n locale */
@@ -107,6 +109,128 @@ export type ComponentComponentsCatalogiMetaInput = {
   onlineRequest?: InputMaybe<ComponentComponentsOnlineRequestInput>;
   spatial?: InputMaybe<ComponentComponentsSpatialInput>;
   uniformProductName?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentComponentsCimPdcProductAspectBeschrijving = {
+  __typename?: 'ComponentComponentsCimPdcProductAspectBeschrijving';
+  id: Scalars['ID']['output'];
+  onderwerp?: Maybe<Scalars['String']['output']>;
+  uitleg: Scalars['String']['output'];
+};
+
+export type ComponentComponentsCimPdcProductAspectBeschrijvingFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsCimPdcProductAspectBeschrijvingFiltersInput>>>;
+  not?: InputMaybe<ComponentComponentsCimPdcProductAspectBeschrijvingFiltersInput>;
+  onderwerp?: InputMaybe<StringFilterInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsCimPdcProductAspectBeschrijvingFiltersInput>>>;
+  uitleg?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsCimPdcProductAspectBeschrijvingInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  onderwerp?: InputMaybe<Scalars['String']['input']>;
+  uitleg?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentComponentsCimPdcProductBeschrijving = {
+  __typename?: 'ComponentComponentsCimPdcProductBeschrijving';
+  cimPdcProductAspectBeschrijving?: Maybe<Array<Maybe<ComponentComponentsCimPdcProductAspectBeschrijving>>>;
+  id: Scalars['ID']['output'];
+  omschrijving?: Maybe<Scalars['String']['output']>;
+  productNaam?: Maybe<Scalars['String']['output']>;
+  taal: Scalars['String']['output'];
+  trefwoord?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentComponentsCimPdcProductBeschrijvingCimPdcProductAspectBeschrijvingArgs = {
+  filters?: InputMaybe<ComponentComponentsCimPdcProductAspectBeschrijvingFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsCimPdcProductBeschrijvingFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsCimPdcProductBeschrijvingFiltersInput>>>;
+  cimPdcProductAspectBeschrijving?: InputMaybe<ComponentComponentsCimPdcProductAspectBeschrijvingFiltersInput>;
+  not?: InputMaybe<ComponentComponentsCimPdcProductBeschrijvingFiltersInput>;
+  omschrijving?: InputMaybe<StringFilterInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsCimPdcProductBeschrijvingFiltersInput>>>;
+  productNaam?: InputMaybe<StringFilterInput>;
+  taal?: InputMaybe<StringFilterInput>;
+  trefwoord?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsCimPdcProductBeschrijvingInput = {
+  cimPdcProductAspectBeschrijving?: InputMaybe<Array<InputMaybe<ComponentComponentsCimPdcProductAspectBeschrijvingInput>>>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  omschrijving?: InputMaybe<Scalars['String']['input']>;
+  productNaam?: InputMaybe<Scalars['String']['input']>;
+  taal?: InputMaybe<Scalars['String']['input']>;
+  trefwoord?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentComponentsCimPdcProductMetadata = {
+  __typename?: 'ComponentComponentsCimPdcProductMetadata';
+  afnemer?: Maybe<Scalars['String']['output']>;
+  beoogdResultaat?: Maybe<Scalars['String']['output']>;
+  bestelwijze: Enum_Componentcomponentscimpdcproductmetadata_Bestelwijze;
+  cimPdcProductBeschrijving: Array<Maybe<ComponentComponentsCimPdcProductBeschrijving>>;
+  doelgroep: Enum_Componentcomponentscimpdcproductmetadata_Doelgroep;
+  eigenaar: Scalars['String']['output'];
+  grondslag?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  productCode: Scalars['String']['output'];
+  servicetermijn?: Maybe<Scalars['String']['output']>;
+  soortBevoegdGezag?: Maybe<Enum_Componentcomponentscimpdcproductmetadata_Soortbevoegdgezag>;
+  soortTaak?: Maybe<Scalars['String']['output']>;
+  uitvoeringsorganisatie: Scalars['String']['output'];
+  uplProductNaam?: Maybe<Scalars['String']['output']>;
+  wettelijkeTermijn?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentComponentsCimPdcProductMetadataCimPdcProductBeschrijvingArgs = {
+  filters?: InputMaybe<ComponentComponentsCimPdcProductBeschrijvingFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsCimPdcProductMetadataFiltersInput = {
+  afnemer?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsCimPdcProductMetadataFiltersInput>>>;
+  beoogdResultaat?: InputMaybe<StringFilterInput>;
+  bestelwijze?: InputMaybe<StringFilterInput>;
+  cimPdcProductBeschrijving?: InputMaybe<ComponentComponentsCimPdcProductBeschrijvingFiltersInput>;
+  doelgroep?: InputMaybe<StringFilterInput>;
+  eigenaar?: InputMaybe<StringFilterInput>;
+  grondslag?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsCimPdcProductMetadataFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsCimPdcProductMetadataFiltersInput>>>;
+  productCode?: InputMaybe<StringFilterInput>;
+  servicetermijn?: InputMaybe<StringFilterInput>;
+  soortBevoegdGezag?: InputMaybe<StringFilterInput>;
+  soortTaak?: InputMaybe<StringFilterInput>;
+  uitvoeringsorganisatie?: InputMaybe<StringFilterInput>;
+  uplProductNaam?: InputMaybe<StringFilterInput>;
+  wettelijkeTermijn?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsCimPdcProductMetadataInput = {
+  afnemer?: InputMaybe<Scalars['String']['input']>;
+  beoogdResultaat?: InputMaybe<Scalars['String']['input']>;
+  bestelwijze?: InputMaybe<Enum_Componentcomponentscimpdcproductmetadata_Bestelwijze>;
+  cimPdcProductBeschrijving?: InputMaybe<Array<InputMaybe<ComponentComponentsCimPdcProductBeschrijvingInput>>>;
+  doelgroep?: InputMaybe<Enum_Componentcomponentscimpdcproductmetadata_Doelgroep>;
+  eigenaar?: InputMaybe<Scalars['String']['input']>;
+  grondslag?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  productCode?: InputMaybe<Scalars['String']['input']>;
+  servicetermijn?: InputMaybe<Scalars['String']['input']>;
+  soortBevoegdGezag?: InputMaybe<Enum_Componentcomponentscimpdcproductmetadata_Soortbevoegdgezag>;
+  soortTaak?: InputMaybe<Scalars['String']['input']>;
+  uitvoeringsorganisatie?: InputMaybe<Scalars['String']['input']>;
+  uplProductNaam?: InputMaybe<Scalars['String']['input']>;
+  wettelijkeTermijn?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentComponentsContact = {
@@ -584,6 +708,31 @@ export type ComponentSeoMetaInput = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type DateFilterInput = {
+  and?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  between?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  contains?: InputMaybe<Scalars['Date']['input']>;
+  containsi?: InputMaybe<Scalars['Date']['input']>;
+  endsWith?: InputMaybe<Scalars['Date']['input']>;
+  eq?: InputMaybe<Scalars['Date']['input']>;
+  eqi?: InputMaybe<Scalars['Date']['input']>;
+  gt?: InputMaybe<Scalars['Date']['input']>;
+  gte?: InputMaybe<Scalars['Date']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  lt?: InputMaybe<Scalars['Date']['input']>;
+  lte?: InputMaybe<Scalars['Date']['input']>;
+  ne?: InputMaybe<Scalars['Date']['input']>;
+  nei?: InputMaybe<Scalars['Date']['input']>;
+  not?: InputMaybe<DateFilterInput>;
+  notContains?: InputMaybe<Scalars['Date']['input']>;
+  notContainsi?: InputMaybe<Scalars['Date']['input']>;
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  null?: InputMaybe<Scalars['Boolean']['input']>;
+  or?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  startsWith?: InputMaybe<Scalars['Date']['input']>;
+};
+
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
@@ -612,6 +761,26 @@ export type DateTimeFilterInput = {
 export enum Enum_Componentcomponentsaudience_Type {
   Ondernemer = 'ondernemer',
   Particulier = 'particulier'
+}
+
+export enum Enum_Componentcomponentscimpdcproductmetadata_Bestelwijze {
+  Informatie = 'informatie',
+  InitiatiefBevoegdGezag = 'initiatief_bevoegd_gezag',
+  OpVerzoek = 'op_verzoek'
+}
+
+export enum Enum_Componentcomponentscimpdcproductmetadata_Doelgroep {
+  Gemeente = 'gemeente',
+  Provincie = 'provincie',
+  Rijksoverheid = 'rijksoverheid',
+  Waterschap = 'waterschap'
+}
+
+export enum Enum_Componentcomponentscimpdcproductmetadata_Soortbevoegdgezag {
+  Gemeente = 'gemeente',
+  Provincie = 'provincie',
+  Rijksoverheid = 'rijksoverheid',
+  Waterschap = 'waterschap'
 }
 
 export enum Enum_Componentcomponentseform_Linkedeform {
@@ -685,6 +854,13 @@ export enum Enum_Componentcomponentsutrechttoptasklink_Toptaskicons {
   Paspoort = 'paspoort',
   Rijbewijs = 'rijbewijs',
   Verhuizen = 'verhuizen'
+}
+
+export enum Enum_Productencatalogus_Doelgroep {
+  BedrijvenEnInstellingen = 'bedrijven_en_instellingen',
+  Burgers = 'burgers',
+  InterneOrganisatie = 'interne_organisatie',
+  Samenwerkingspartners = 'samenwerkingspartners'
 }
 
 export type EntityNotesNote = {
@@ -774,7 +950,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentSeoMeta | EntityNotesNote | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | Price | Product | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentSeoMeta | EntityNotesNote | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -1067,6 +1243,7 @@ export type Mutation = {
   createPrice?: Maybe<PriceEntityResponse>;
   createProduct?: Maybe<ProductEntityResponse>;
   createProductLocalization?: Maybe<ProductEntityResponse>;
+  createProductencatalogus?: Maybe<ProductencatalogusEntityResponse>;
   createPublisherAction?: Maybe<PublisherActionEntityResponse>;
   createSlugifySlug?: Maybe<SlugifySlugEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -1086,6 +1263,7 @@ export type Mutation = {
   deletePdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   deletePrice?: Maybe<PriceEntityResponse>;
   deleteProduct?: Maybe<ProductEntityResponse>;
+  deleteProductencatalogus?: Maybe<ProductencatalogusEntityResponse>;
   deletePublisherAction?: Maybe<PublisherActionEntityResponse>;
   deleteSlugifySlug?: Maybe<SlugifySlugEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -1117,6 +1295,7 @@ export type Mutation = {
   updatePdcSubcategory?: Maybe<PdcSubcategoryEntityResponse>;
   updatePrice?: Maybe<PriceEntityResponse>;
   updateProduct?: Maybe<ProductEntityResponse>;
+  updateProductencatalogus?: Maybe<ProductencatalogusEntityResponse>;
   updatePublisherAction?: Maybe<PublisherActionEntityResponse>;
   updateSlugifySlug?: Maybe<SlugifySlugEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -1211,6 +1390,11 @@ export type MutationCreateProductLocalizationArgs = {
 };
 
 
+export type MutationCreateProductencatalogusArgs = {
+  data: ProductencatalogusInput;
+};
+
+
 export type MutationCreatePublisherActionArgs = {
   data: PublisherActionInput;
 };
@@ -1295,6 +1479,11 @@ export type MutationDeletePriceArgs = {
 export type MutationDeleteProductArgs = {
   id: Scalars['ID']['input'];
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationDeleteProductencatalogusArgs = {
+  id: Scalars['ID']['input'];
 };
 
 
@@ -1439,6 +1628,12 @@ export type MutationUpdateProductArgs = {
   data: ProductInput;
   id: Scalars['ID']['input'];
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationUpdateProductencatalogusArgs = {
+  data: ProductencatalogusInput;
+  id: Scalars['ID']['input'];
 };
 
 
@@ -1828,8 +2023,10 @@ export type Product = {
   locale?: Maybe<Scalars['String']['output']>;
   localizations?: Maybe<ProductRelationResponseCollection>;
   metaTags?: Maybe<ComponentSeoMeta>;
+  pdc_metadata?: Maybe<ComponentComponentsCimPdcProductMetadata>;
   pdc_subcategories?: Maybe<PdcSubcategoryRelationResponseCollection>;
   price?: Maybe<PriceEntityResponse>;
+  productencatalogus?: Maybe<ProductencatalogusEntityResponse>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   sections?: Maybe<Array<Maybe<ProductSectionsDynamicZone>>>;
   slug: Scalars['String']['output'];
@@ -1891,8 +2088,10 @@ export type ProductFiltersInput = {
   metadata?: InputMaybe<ComponentComponentsMetadataFiltersInput>;
   not?: InputMaybe<ProductFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ProductFiltersInput>>>;
+  pdc_metadata?: InputMaybe<ComponentComponentsCimPdcProductMetadataFiltersInput>;
   pdc_subcategories?: InputMaybe<PdcSubcategoryFiltersInput>;
   price?: InputMaybe<PriceFiltersInput>;
+  productencatalogus?: InputMaybe<ProductencatalogusFiltersInput>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   slug?: InputMaybe<StringFilterInput>;
   title?: InputMaybe<StringFilterInput>;
@@ -1905,8 +2104,10 @@ export type ProductInput = {
   kb_subcategories?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   metaTags?: InputMaybe<ComponentSeoMetaInput>;
   metadata?: InputMaybe<ComponentComponentsMetadataInput>;
+  pdc_metadata?: InputMaybe<ComponentComponentsCimPdcProductMetadataInput>;
   pdc_subcategories?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   price?: InputMaybe<Scalars['ID']['input']>;
+  productencatalogus?: InputMaybe<Scalars['ID']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   sections?: InputMaybe<Array<Scalars['ProductSectionsDynamicZoneInput']['input']>>;
   slug?: InputMaybe<Scalars['String']['input']>;
@@ -1919,6 +2120,96 @@ export type ProductRelationResponseCollection = {
 };
 
 export type ProductSectionsDynamicZone = ComponentComponentsFaq | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSpotlight | Error;
+
+export type Productencatalogus = {
+  __typename?: 'Productencatalogus';
+  begindatumVersie: Scalars['Date']['output'];
+  beherendeOrganisatie?: Maybe<Scalars['String']['output']>;
+  contactpersoonBeheerEmail?: Maybe<Scalars['String']['output']>;
+  contactpersoonBeheerNaam: Scalars['String']['output'];
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  doelgroep: Enum_Productencatalogus_Doelgroep;
+  domein: Scalars['String']['output'];
+  naam: Scalars['String']['output'];
+  organisatieIdentificatie?: Maybe<Scalars['String']['output']>;
+  producten?: Maybe<ProductEntityResponse>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  referentieCatalogus?: Maybe<ProductencatalogusRelationResponseCollection>;
+  referentiePDC: Scalars['Boolean']['output'];
+  toelichting?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  versie: Scalars['String']['output'];
+};
+
+
+export type ProductencatalogusReferentieCatalogusArgs = {
+  filters?: InputMaybe<ProductencatalogusFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProductencatalogusEntity = {
+  __typename?: 'ProductencatalogusEntity';
+  attributes?: Maybe<Productencatalogus>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type ProductencatalogusEntityResponse = {
+  __typename?: 'ProductencatalogusEntityResponse';
+  data?: Maybe<ProductencatalogusEntity>;
+};
+
+export type ProductencatalogusEntityResponseCollection = {
+  __typename?: 'ProductencatalogusEntityResponseCollection';
+  data: Array<ProductencatalogusEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ProductencatalogusFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ProductencatalogusFiltersInput>>>;
+  begindatumVersie?: InputMaybe<DateFilterInput>;
+  beherendeOrganisatie?: InputMaybe<StringFilterInput>;
+  contactpersoonBeheerEmail?: InputMaybe<StringFilterInput>;
+  contactpersoonBeheerNaam?: InputMaybe<StringFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  doelgroep?: InputMaybe<StringFilterInput>;
+  domein?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  naam?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ProductencatalogusFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ProductencatalogusFiltersInput>>>;
+  organisatieIdentificatie?: InputMaybe<StringFilterInput>;
+  producten?: InputMaybe<ProductFiltersInput>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  referentieCatalogus?: InputMaybe<ProductencatalogusFiltersInput>;
+  referentiePDC?: InputMaybe<BooleanFilterInput>;
+  toelichting?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  versie?: InputMaybe<StringFilterInput>;
+};
+
+export type ProductencatalogusInput = {
+  begindatumVersie?: InputMaybe<Scalars['Date']['input']>;
+  beherendeOrganisatie?: InputMaybe<Scalars['String']['input']>;
+  contactpersoonBeheerEmail?: InputMaybe<Scalars['String']['input']>;
+  contactpersoonBeheerNaam?: InputMaybe<Scalars['String']['input']>;
+  doelgroep?: InputMaybe<Enum_Productencatalogus_Doelgroep>;
+  domein?: InputMaybe<Scalars['String']['input']>;
+  naam?: InputMaybe<Scalars['String']['input']>;
+  organisatieIdentificatie?: InputMaybe<Scalars['String']['input']>;
+  producten?: InputMaybe<Scalars['ID']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  referentieCatalogus?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  referentiePDC?: InputMaybe<Scalars['Boolean']['input']>;
+  toelichting?: InputMaybe<Scalars['String']['input']>;
+  versie?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ProductencatalogusRelationResponseCollection = {
+  __typename?: 'ProductencatalogusRelationResponseCollection';
+  data: Array<ProductencatalogusEntity>;
+};
 
 export enum PublicationState {
   Live = 'LIVE',
@@ -1997,6 +2288,8 @@ export type Query = {
   price?: Maybe<PriceEntityResponse>;
   prices?: Maybe<PriceEntityResponseCollection>;
   product?: Maybe<ProductEntityResponse>;
+  productencatalogus?: Maybe<ProductencatalogusEntityResponse>;
+  productencataloguses?: Maybe<ProductencatalogusEntityResponseCollection>;
   products?: Maybe<ProductEntityResponseCollection>;
   publisherAction?: Maybe<PublisherActionEntityResponse>;
   publisherActions?: Maybe<PublisherActionEntityResponseCollection>;
@@ -2152,6 +2445,19 @@ export type QueryPricesArgs = {
 export type QueryProductArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type QueryProductencatalogusArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryProductencatalogusesArgs = {
+  filters?: InputMaybe<ProductencatalogusFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
