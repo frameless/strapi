@@ -4,6 +4,10 @@
   padding-block-start: var(--utrecht-navigation-item-padding-block-start);
   padding-inline-end: var(--utrecht-navigation-item-padding-inline-end);
   padding-inline-start: var(--utrecht-navigation-item-padding-inline-start);
+
+  &:last-child .utrecht-navigation__link {
+    border-inline-end: none;
+  }
 }
 
 .utrecht-navigation__item--mobile {
