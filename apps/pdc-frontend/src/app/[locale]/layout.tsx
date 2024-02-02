@@ -200,16 +200,14 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   </GridCell>
                   {navigationData?.navigationList && navigationData?.navigationList?.length > 0 && (
                     <GridCell xs={6} md={12} order={2} orderMd={3}>
-                      <div className="utrecht-nav-wrapper">
-                        <Navigation
-                          list={navigationData.navigationList as NavigationListType[]}
-                          mobileBreakpoint={961}
-                          toggleButton={{
-                            openText: 'Menu',
-                            closeText: 'Sluiten',
-                          }}
-                        />
-                      </div>
+                      <Navigation
+                        list={navigationData.navigationList as NavigationListType[]}
+                        mobileBreakpoint={961}
+                        toggleButton={{
+                          openText: 'Menu',
+                          closeText: 'Sluiten',
+                        }}
+                      />
                     </GridCell>
                   )}
                 </Grid>
