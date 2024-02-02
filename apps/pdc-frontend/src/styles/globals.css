@@ -77,15 +77,17 @@ body {
   /* --- navigation tokens start --- */
 
   /* nav */
-  --utrecht-navigation-border-block-start-width: 1px;
-  --utrecht-navigation-border-block-start-color: var(--utrecht-color-grey-80);
-  --utrecht-navigation-border-block-end-width: 1px;
-  --utrecht-navigation-border-block-end-color: var(--utrecht-color-grey-80);
+  --utrecht-navigation-border-block-start-width: 0;
+  --utrecht-navigation-border-block-start-color: transparent;
+  --utrecht-navigation-border-block-end-width: 0;
+  --utrecht-navigation-border-block-end-color: transparent;
 
   /* nav-list */
 
-  --utrecht-navigation-list-padding-inline-start: 5px;
-  --utrecht-navigation-list-padding-inline-end: 5px;
+  --utrecht-navigation-list-padding-inline-start: 0;
+  --utrecht-navigation-list-padding-inline-end: 0;
+  --utrecht-navigation-list-padding-block-start: 0;
+  --utrecht-navigation-list-padding-block-end: 0;
   --utrecht-navigation-list-mobile-padding-inline-start: 16px;
   --utrecht-navigation-list-mobile-padding-inline-end: 8px;
   --utrecht-navigation-list-mobile-padding-block-start: 8px;
@@ -93,8 +95,10 @@ body {
   --utrecht-navigation-list-mobile-background-color: var(--utrecht-color-white);
 
   /* nav-item */
-  --utrecht-navigation-item-padding-inline-start: 5px;
-  --utrecht-navigation-item-padding-inline-end: 5px;
+
+  /* --utrecht-navigation-item-padding-inline-start: 0;
+     --utrecht-navigation-item-padding-inline-end: 0; 
+  */
 
   /* nav-item-mobile */
   --utrecht-navigation-item-mobile-padding-block-start: 8px;
@@ -107,12 +111,10 @@ body {
   /* link */
   --utrecht-navigation-link-padding-block-start: 16px;
   --utrecht-navigation-link-padding-block-end: 16px;
-  --utrecht-navigation-link-padding-inline-start: 0px;
-  --utrecht-navigation-link-padding-inline-end: 0px;
-  --utrecht-navigation-link-background-color: var(--utrecht-color-white);
-  --utrecht-navigation-link-border-color: none;
-  --utrecht-navigation-link-border-inline-end-width: 0;
-  --utrecht-navigation-link-color: var(--utrecht-color-black);
+  --utrecht-navigation-link-background-color: var(--utrecht-color-grey-15);
+  --utrecht-navigation-link-border-color: var(--utrecht-color-grey-40);
+  --utrecht-navigation-link-border-inline-end-width: 1px;
+  --utrecht-navigation-link-color: var(--utrecht-color-white);
   --utrecht-navigation-link-justify-content: center;
   --utrecht-navigation-link-font-weight: var(--utrecht-typography-weight-scale-normal-font-weight);
 
@@ -139,9 +141,9 @@ body {
   --utrecht-navigation-link-active-color: var(--utrecht-color-white);
 
   /* link-hover  */
-  --utrecht-navigation-link-hover-color: var(--utrecht-color-blue-35);
+  --utrecht-navigation-link-hover-color: var(--utrecht-color-white);
   --utrecht-navigation-link-hover-decoration-thickness: 1.5px;
-  --utrecht-navigation-link-hover-background-color: var(--utrecht-color-white);
+  --utrecht-navigation-link-hover-background-color: var(--utrecht-color-black);
 
   /* active focus */
   --utrecht-navigation-link-active-focus-color: var(--utrecht-color-black);
@@ -176,10 +178,6 @@ a {
 .utrecht-logo-wrapper {
   padding-block-end: var(--utrecht-logo-wrapper-padding-block-end, 16px);
   padding-inline-start: var(--utrecht-logo-wrapper-padding-inline-start, 16px);
-}
-
-.utrecht-navigation--mobile:has(button[aria-expanded="false"]) {
-  padding-inline-end: var(--utrecht-nav-wrapper-padding-inline-end, 0);
 }
 
 .utrecht-search-bar-wrapper {
@@ -224,6 +222,10 @@ th > p {
   --utrecht-paragraph-font-weight: var(--utrecht-table-header-font-weight);
 }
 
+.utrecht-navigation--mobile:has(button[aria-expanded="false"]) {
+  padding-inline-end: var(--utrecht-navigation-toggle-button-padding-end);
+}
+
 @media screen and (width > 360px) {
   .utrecht-page-header {
     --utrecht-page-header-padding-block-start: 32px;
@@ -231,6 +233,6 @@ th > p {
     --utrecht-logo-wrapper-padding-block-end: 32px;
     --utrecht-search-bar-wrapper-padding-inline-start: 32px;
     --utrecht-search-bar-wrapper-padding-inline-end: 32px;
-    --utrecht-nav-wrapper-padding-inline-end: 32px;
+    --utrecht-navigation-toggle-button-padding-end: 32px;
   }
 }
