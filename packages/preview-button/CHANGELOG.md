@@ -1,3 +1,10 @@
+# @frameless/preview-button [1.3.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.2.0...@frameless/preview-button@1.3.0) (2024-02-02)
+
+
+### Features
+
+* add Node.js 20 support ([7b5feb7](https://github.com/frameless/strapi/commit/7b5feb7f204e52566430e25ceb282a2a0d0fa86f))
+
 # @frameless/preview-button [1.2.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.1.0...@frameless/preview-button@1.2.0) (2023-11-21)
 
 
