@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
-import { draftMode } from 'next/headers';
+import { draftMode, headers } from 'next/headers';
 import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
@@ -124,6 +124,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
+  const nonce = headers().get('x-nonce') || '';
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
   const { data } = await fetchData<{ data: GetTemplateDataQuery }>({
@@ -220,7 +221,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
             <Footer data={footerData as FooterData} />
           </Surface>
         </QueryClientProvider>
-        <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>
+        <Script src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js" nonce={nonce}></Script>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 import acceptLanguage from 'accept-language';
-import { NextResponse } from 'next/server';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { fallbackLng, languages } from './app/i18n/settings';
+
 acceptLanguage.languages(languages);
 
 export const config = {
@@ -11,6 +11,8 @@ export const config = {
 const cookieName = 'i18next';
 
 export function middleware(req: NextRequest) {
+  const requestHeaders = new Headers(req.headers);
+
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1)
     return NextResponse.next();
   let lng;
@@ -33,7 +35,9 @@ export function middleware(req: NextRequest) {
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
     return response;
   }
-  const requestHeaders = new Headers(req.headers);
   requestHeaders.set('x-pathname', req.nextUrl.pathname);
-  return NextResponse.next();
+
+  return NextResponse.next({
+    request: { headers: requestHeaders },
+  });
 }
