@@ -1,10 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
-import { AdvancedLink, Article, Grid, GridCell, Heading, Paragraph } from '@/components';
-import { IndexCharNav } from '@/components';
-import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
-import { Breadcrumbs } from '@/components/Breadcrumb';
+import {
+  AdvancedLink,
+  Article,
+  Breadcrumbs,
+  Grid,
+  GridCell,
+  Heading,
+  IndexCharNav,
+  Paragraph,
+  ScrollToTopButton,
+  UtrechtIconChevronUp,
+} from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
 import {

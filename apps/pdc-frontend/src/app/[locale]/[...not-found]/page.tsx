@@ -1,6 +1,5 @@
 import { useTranslation } from '@/app/i18n';
-import { Heading, Markdown } from '@/components';
-import { Breadcrumbs } from '@/components/Breadcrumb';
+import { Breadcrumbs, Heading, Markdown } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';

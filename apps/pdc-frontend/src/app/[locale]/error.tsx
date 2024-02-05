@@ -2,8 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Button, Heading, Paragraph } from '@/components';
-import { Breadcrumbs } from '@/components/Breadcrumb';
+import { Breadcrumbs, Button, Heading, Paragraph } from '@/components';
 import { useTranslation } from '../i18n/client';
 import { fallbackLng } from '../i18n/settings';
 interface ErrorPageProps {

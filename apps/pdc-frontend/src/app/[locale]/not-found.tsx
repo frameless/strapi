@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { Heading, Markdown } from '@/components';
-import { Breadcrumbs } from '@/components/Breadcrumb';
+import { Breadcrumbs } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
