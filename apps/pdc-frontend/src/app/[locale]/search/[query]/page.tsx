@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getSuggestedSearch } from '@/app/actions';
 import {
@@ -82,6 +83,12 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
             current: true,
           },
         ]}
+        backLink={{
+          href: '/',
+          label: t('components.breadcrumbs.label.online-loket'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Article>
         <Heading level={1}>{t('h1', { query })}</Heading>

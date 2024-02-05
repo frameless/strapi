@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, UnorderedList, UnorderedListItem } from '@/components';
 
@@ -38,6 +39,12 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
             current: true,
           },
         ]}
+        backLink={{
+          href: '/',
+          label: t('components.breadcrumbs.label.online-loket'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Heading level={1}>
         {t('h1', {

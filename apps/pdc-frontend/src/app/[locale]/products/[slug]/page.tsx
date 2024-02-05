@@ -3,6 +3,7 @@ import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
@@ -254,6 +255,12 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
             current: true,
           },
         ]}
+        backLink={{
+          href: '/',
+          label: t('components.breadcrumbs.label.products'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Article>
         <Heading level={1}>{product?.attributes?.title}</Heading>

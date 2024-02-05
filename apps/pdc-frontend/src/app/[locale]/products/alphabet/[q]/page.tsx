@@ -109,6 +109,12 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
             current: true,
           },
         ]}
+        backLink={{
+          href: '/products',
+          label: t('components.breadcrumbs.label.products'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Article>
         <Heading level={1}>{t('h1')}</Heading>
