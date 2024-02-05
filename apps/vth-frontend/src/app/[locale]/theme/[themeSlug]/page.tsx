@@ -2,11 +2,13 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
+  Breadcrumbs,
   Grid,
   GridCell,
   Heading1,
@@ -16,8 +18,6 @@ import {
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
-import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
-import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Card } from '@/components/Card';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_THEME_BY_SLUG } from '@/query';
@@ -79,10 +79,16 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
 
   const sideNavigationLinks: LinkData[] = [...themasLinks, ...contentLinks];
 
-  const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
+  const breadcrumbNavigationElements = [
+    {
+      label: 'Home',
+      href: '/',
+      current: false,
+    },
+  ];
 
-  const parentElement: BreadcrumbNavigationElement = data.findSlug.data?.attributes.navigation_pages?.data[0] && {
-    title: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
+  const parentElement = data.findSlug.data?.attributes.navigation_pages?.data[0] && {
+    label: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
     href: `/${locale}/${navigationPageSlug}`,
   };
 
@@ -120,15 +126,12 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
   return (
     <Page>
       <PageContent className="utrecht-custom-page-content">
-        <Grid spacing="sm">
-          <GridCell sm={12}>
-            <BreadcrumbWithBacklink
-              breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
-              backlinkProps={{ title: parentElement?.title || 'Home', href: parentElement?.href || '/' }}
-            />
-          </GridCell>
-        </Grid>
-        <Grid spacing="lg">
+        <Breadcrumbs
+          links={breadcrumbNavigationElements}
+          Link={Link}
+          backLink={{ label: parentElement?.label || 'Home', href: parentElement?.href || '/', current: false }}
+        />
+        <Grid spacing="md">
           <GridCell md={8}>
             <Grid spacing="sm">
               <GridCell sm={12}>

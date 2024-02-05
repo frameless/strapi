@@ -2,11 +2,13 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
+  Breadcrumbs,
   Grid,
   GridCell,
   Heading1,
@@ -16,7 +18,6 @@ import {
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
-import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Card } from '@/components/Card';
 import { GET_NAVIGATION_PAGE_BY_SLUG } from '@/query';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
@@ -86,13 +87,12 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
   return (
     <Page>
       <PageContent className="utrecht-custom-page-content">
-        <Grid spacing="md">
-          <GridCell sm={12}>
-            <BreadcrumbWithBacklink
-              breadcrumbProps={{ navigationElements: [] }}
-              backlinkProps={{ title: 'Home', href: '/' }}
-            />
-          </GridCell>
+        <Breadcrumbs
+          Link={Link}
+          links={[{ label: 'Home', href: '/', current: false }]}
+          backLink={{ label: 'Home', href: '/', current: false }}
+        />
+        <Grid spacing="sm">
           <GridCell md={12}>
             <Grid spacing="sm">
               <GridCell md={8}>
