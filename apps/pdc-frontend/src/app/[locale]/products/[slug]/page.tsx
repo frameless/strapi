@@ -10,6 +10,7 @@ import {
   AccordionProvider,
   AdvancedLink,
   Article,
+  Breadcrumbs,
   Grid,
   GridCell,
   Heading,
@@ -17,10 +18,10 @@ import {
   LogoButton,
   Markdown,
   MultiColumnsButton,
+  ScrollToTopButton,
   SpotlightSection,
+  UtrechtIconChevronUp,
 } from '@/components';
-import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
-import { Breadcrumbs } from '@/components/Breadcrumb';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
 import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';

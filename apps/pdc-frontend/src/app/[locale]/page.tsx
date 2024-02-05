@@ -1,9 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { AdvancedLink, Grid, GridCell, Heading, Heading2 } from '@/components';
-import { IndexCharNav } from '@/components';
+import { AdvancedLink, Breadcrumbs, Grid, GridCell, Heading, Heading2, IndexCharNav } from '@/components';
 import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
-import { Breadcrumbs } from '@/components/Breadcrumb';
 import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GIT_PDC_HOME_PAGE } from '@/query';
 import { alphabet } from '@/util';

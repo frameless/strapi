@@ -1,9 +1,16 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { getSuggestedSearch } from '@/app/actions';
-import { AdvancedLink, Article, Grid, GridCell, Heading } from '@/components';
-import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
-import { Breadcrumbs } from '@/components/Breadcrumb';
+import {
+  AdvancedLink,
+  Article,
+  Breadcrumbs,
+  Grid,
+  GridCell,
+  Heading,
+  ScrollToTopButton,
+  UtrechtIconChevronUp,
+} from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { useTranslation } from '../../../i18n/index';
 

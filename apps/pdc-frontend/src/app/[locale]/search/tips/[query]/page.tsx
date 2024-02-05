@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { useTranslation } from '@/app/i18n';
-import { Heading, UnorderedList, UnorderedListItem } from '@/components';
-import { Breadcrumbs } from '@/components/Breadcrumb';
+import { Breadcrumbs, Heading, UnorderedList, UnorderedListItem } from '@/components';
 
 type Params = {
   params: {
