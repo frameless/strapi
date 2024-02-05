@@ -2,11 +2,13 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
+  Breadcrumbs,
   Grid,
   GridCell,
   Heading1,
@@ -15,8 +17,6 @@ import {
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
-import { BreadcrumbNavigationElement } from '@/components/BreadcrumbNavigation';
-import { BreadcrumbWithBacklink } from '@/components/BreadcrumbWithBacklink';
 import { Markdown } from '@/components/Markdown';
 import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_ARTICLE_BY_SLUG } from '@/query';
@@ -84,24 +84,33 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
 
   const sideNavigationLinks: LinkData[] = [...themasLinks, ...contentLinks];
 
-  const breadcrumbNavigationElements: BreadcrumbNavigationElement[] = [];
+  const breadcrumbNavigationElements = [
+    {
+      label: 'Home',
+      href: '/',
+      current: false,
+    },
+  ];
 
   if (data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]) {
     breadcrumbNavigationElements.push({
-      title:
+      label:
         data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]?.attributes?.title,
       href: `/${locale}/${data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]?.attributes?.slug}`,
+      current: false,
     });
   }
 
-  const parentElement: BreadcrumbNavigationElement = hasHoofditemParentOnly
+  const parentElement = hasHoofditemParentOnly
     ? {
-        title: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
+        label: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
         href: `/${locale}/${parentHoofditemSlug}`,
+        current: false,
       }
     : {
-        title: data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.title,
+        label: data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.title,
         href: `/theme/${parentThemaSlug}`,
+        current: true,
       };
 
   breadcrumbNavigationElements.push(parentElement);
@@ -136,18 +145,16 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
   return (
     <Page>
       <PageContent className="utrecht-custom-page-content">
-        <Grid spacing="lg">
-          <GridCell sm={12}>
-            <BreadcrumbWithBacklink
-              breadcrumbProps={{ navigationElements: breadcrumbNavigationElements }}
-              backlinkProps={{
-                title: parentElement.title,
-                href: parentElement.href,
-              }}
-            />
-          </GridCell>
-        </Grid>
-        <Grid spacing="lg">
+        <Breadcrumbs
+          links={breadcrumbNavigationElements}
+          Link={Link}
+          backLink={{
+            label: parentElement.label,
+            href: parentElement.href,
+            current: parentElement.current,
+          }}
+        />
+        <Grid spacing="md">
           <GridCell md={8}>
             <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
             <DynamicContent />
