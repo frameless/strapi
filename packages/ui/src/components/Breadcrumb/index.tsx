@@ -1,7 +1,13 @@
-import { BreadcrumbNav, BreadcrumbNavLink, BreadcrumbNavSeparator } from '@utrecht/component-library-react';
+import {
+  BreadcrumbNav,
+  BreadcrumbNavLink,
+  BreadcrumbNavSeparator,
+  Link as UtrechtLink,
+} from '@utrecht/component-library-react';
 import { UtrechtIconChevronLeft, UtrechtIconChevronRight } from '@utrecht/web-component-library-react';
-import Link from 'next/link';
-import { Fragment } from 'react';
+import classnames from 'classnames/bind';
+import { ComponentType } from 'react';
+import styles from './index.module.scss';
 import { useScreenSize } from '../../hooks';
 
 type BreadcrumbLinkType = {
@@ -11,33 +17,38 @@ type BreadcrumbLinkType = {
 };
 interface BreadcrumbProps {
   links: BreadcrumbLinkType[];
+  Link?: ComponentType<any>;
+  backLink?: {
+    href: string;
+    label: string;
+    current: boolean;
+  };
+  breakpoint?: number;
 }
+const css = classnames.bind(styles);
 
-export const Breadcrumbs = ({ links }: BreadcrumbProps) => {
+export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 360 }: BreadcrumbProps) => {
   const screenSize = useScreenSize();
 
-  const currentIndex = links.findIndex((link) => link.current);
+  const smallScreen = Number(screenSize) <= breakpoint;
 
-  const previousLink = links[currentIndex - 1];
-
-  const smallScreen = Number(screenSize) <= 360;
-
-  if (smallScreen) {
+  if (smallScreen && backLink?.href && backLink.label) {
     return (
       <BreadcrumbNav>
-        <BreadcrumbNavSeparator>
-          <UtrechtIconChevronLeft />
-        </BreadcrumbNavSeparator>
-        <BreadcrumbNavLink
-          className="utrecht-link utrecht-link--html-a"
-          href={previousLink.href}
-          rel={previousLink.href === '/' ? 'home' : 'up'}
-          index={currentIndex}
-          current={previousLink.current}
-          Link={Link}
-        >
-          {previousLink.label}
-        </BreadcrumbNavLink>
+        <div className={css('utrecht-breadcrumb-nav__item-wrapper')}>
+          <BreadcrumbNavSeparator>
+            <UtrechtIconChevronLeft />
+          </BreadcrumbNavSeparator>
+          <BreadcrumbNavLink
+            className="utrecht-link utrecht-link--html-a"
+            href={backLink.href}
+            rel={backLink.href === '/' ? 'home' : 'up'}
+            current={backLink.current}
+            Link={Link}
+          >
+            {backLink.label}
+          </BreadcrumbNavLink>
+        </div>
       </BreadcrumbNav>
     );
   }
@@ -47,7 +58,12 @@ export const Breadcrumbs = ({ links }: BreadcrumbProps) => {
         links.length > 0 &&
         links.map(({ href, label, current }: any, index: number) =>
           label ? (
-            <Fragment key={`${href}-${index}`}>
+            <div key={`${href}-${index}`} className={css('utrecht-breadcrumb-nav__item-wrapper')}>
+              {links.length === 1 && (
+                <BreadcrumbNavSeparator>
+                  <UtrechtIconChevronLeft />
+                </BreadcrumbNavSeparator>
+              )}
               <BreadcrumbNavLink
                 className="utrecht-link utrecht-link--html-a"
                 href={href}
@@ -58,10 +74,12 @@ export const Breadcrumbs = ({ links }: BreadcrumbProps) => {
               >
                 {label}
               </BreadcrumbNavLink>
-              <BreadcrumbNavSeparator>
-                <UtrechtIconChevronRight />
-              </BreadcrumbNavSeparator>
-            </Fragment>
+              {links.length > 1 && (
+                <BreadcrumbNavSeparator>
+                  <UtrechtIconChevronRight />
+                </BreadcrumbNavSeparator>
+              )}
+            </div>
           ) : null,
         )}
     </BreadcrumbNav>
