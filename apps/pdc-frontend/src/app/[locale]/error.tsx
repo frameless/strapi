@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Breadcrumbs, Button, Heading, Paragraph } from '@/components';
@@ -25,9 +26,20 @@ export default function Error({ error, reset }: ErrorPageProps) {
           {
             href: 'https://www.utrecht.nl/',
             label: t('components.breadcrumbs.label.home'),
+            current: false,
+          },
+          {
+            href: '/',
+            label: t('components.breadcrumbs.label.online-loket'),
             current: true,
           },
         ]}
+        backLink={{
+          href: '/',
+          label: t('components.breadcrumbs.label.online-loket'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Heading level={1}>{t('common.title')}</Heading>
       {process.env.NODE_ENV === 'production' && <Paragraph>{t('common.body')}</Paragraph>}

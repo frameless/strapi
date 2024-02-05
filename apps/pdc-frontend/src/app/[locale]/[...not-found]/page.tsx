@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, Markdown } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
@@ -24,6 +25,12 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
             current: true,
           },
         ]}
+        backLink={{
+          href: '/',
+          label: t('components.breadcrumbs.label.online-loket'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
       {data?.notFoundPage?.data?.attributes?.body && (

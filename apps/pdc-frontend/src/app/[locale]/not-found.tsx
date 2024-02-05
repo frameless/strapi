@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import Link from 'next/link';
 import { Heading, Markdown } from '@/components';
 import { Breadcrumbs } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
@@ -25,9 +26,15 @@ const NotFoundPage = async () => {
           {
             href: 'https://www.utrecht.nl/',
             label: t('components.breadcrumbs.label.home'),
-            current: true,
+            current: false,
           },
         ]}
+        backLink={{
+          href: '/',
+          label: t('components.breadcrumbs.label.online-loket'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
       {data?.notFoundPage?.data?.attributes?.body && (

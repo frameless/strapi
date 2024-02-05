@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import {
   AdvancedLink,
   Article,
@@ -79,9 +80,15 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
           {
             href: '/products',
             label: t('components.breadcrumbs.label.products'),
-            current: true,
+            current: false,
           },
         ]}
+        backLink={{
+          href: '/',
+          label: t('components.breadcrumbs.label.online-loket'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Article>
         <Heading level={1}>{t('h1')}</Heading>

@@ -87,6 +87,12 @@ const Home = async ({ params: { locale } }: { params: any }) => {
             current: true,
           },
         ]}
+        backLink={{
+          href: 'https://www.utrecht.nl/',
+          label: t('components.breadcrumbs.label.home'),
+          current: false,
+        }}
+        Link={Link}
       />
       <Heading level={1}>{t('h1')}</Heading>
       <Grid>
