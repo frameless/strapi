@@ -1,6 +1,30 @@
-.utrecht-breadcrumb-nav__item-wrapper {
+.utrecht-breadcrumb-nav {
+  --utrecht-breadcrumb-nav-item-padding-inline-start: 0;
+  --utrecht-breadcrumb-nav-item-padding-inline-end: 0;
+  --utrecht-link-focus-text-decoration-thickness: 3px;
+}
+
+.utrecht-breadcrumb-nav__text {
   --utrecht-icon-inset-block-start: 2px;
 
   align-items: baseline;
-  display: inline-flex;
+  display: flex;
+  gap: var(--utrecht-breadcrumb-nav-text-gap, 8px);
+}
+
+.utrecht-breadcrumb-nav__item {
+  margin-inline-end: 8px;
+}
+
+.utrecht-breadcrumb-nav__link {
+  --utrecht-link-focus-color: var(--utrecht-color-black);
+
+  &:focus {
+    --utrecht-link-focus-background-color: transparent;
+    --utrecht-icon-color: var(--utrecht-color-black);
+  }
+  &:focus-visible {
+    --utrecht-link-focus-background-color: var(--utrecht-color-yellow-80);
+    --utrecht-icon-color: var(--utrecht-color-black);
+  }
 }
