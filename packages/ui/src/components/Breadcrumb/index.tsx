@@ -36,9 +36,11 @@ export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 
     return (
       <BreadcrumbNav>
         <div className={css('utrecht-breadcrumb-nav__item-wrapper')}>
-          <BreadcrumbNavSeparator>
-            <UtrechtIconChevronLeft />
-          </BreadcrumbNavSeparator>
+          {backLink?.label?.toLowerCase() !== 'home' && (
+            <BreadcrumbNavSeparator>
+              <UtrechtIconChevronLeft />
+            </BreadcrumbNavSeparator>
+          )}
           <BreadcrumbNavLink
             className="utrecht-link utrecht-link--html-a"
             href={backLink.href}
@@ -52,6 +54,7 @@ export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 
       </BreadcrumbNav>
     );
   }
+
   return (
     <BreadcrumbNav>
       {links &&
@@ -59,7 +62,7 @@ export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 
         links.map(({ href, label, current }: any, index: number) =>
           label ? (
             <div key={`${href}-${index}`} className={css('utrecht-breadcrumb-nav__item-wrapper')}>
-              {links.length === 1 && (
+              {links.length === 1 && label?.toLowerCase() !== 'home' && (
                 <BreadcrumbNavSeparator>
                   <UtrechtIconChevronLeft />
                 </BreadcrumbNavSeparator>
@@ -74,7 +77,7 @@ export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 
               >
                 {label}
               </BreadcrumbNavLink>
-              {links.length > 1 && (
+              {index !== links.length - 1 && (
                 <BreadcrumbNavSeparator>
                   <UtrechtIconChevronRight />
                 </BreadcrumbNavSeparator>
