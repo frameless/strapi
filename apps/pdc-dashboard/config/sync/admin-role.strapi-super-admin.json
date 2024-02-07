@@ -355,6 +355,54 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
+      "subject": "api::pdc-template.pdc-template",
+      "properties": {
+        "fields": ["sections"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::pdc-template.pdc-template",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::pdc-template.pdc-template",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::pdc-template.pdc-template",
+      "properties": {
+        "fields": ["sections"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::pdc-template.pdc-template",
+      "properties": {
+        "fields": ["sections"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
       "subject": "api::price.price",
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "title", "products"]

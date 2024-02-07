@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "pdc_home_pages",
+  "collectionName": "pdc_templates",
   "info": {
-    "singularName": "pdc-home-page",
-    "pluralName": "pdc-home-pages",
-    "displayName": "Home Page (PDC)",
+    "singularName": "pdc-template",
+    "pluralName": "pdc-templates",
+    "displayName": "Tamplate (PDC)",
     "description": ""
   },
   "options": {
@@ -16,14 +16,14 @@
     }
   },
   "attributes": {
-    "components": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": ["components.utrecht-navigation", "components.utrecht-footer"],
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "dynamiczone",
-      "components": ["components.utrecht-top-tasks"]
+      }
     }
   }
 }
