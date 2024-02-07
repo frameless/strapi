@@ -40,6 +40,9 @@
       "action": "api::pdc-subcategory.pdc-subcategory.findOne"
     },
     {
+      "action": "api::pdc-template.pdc-template.find"
+    },
+    {
       "action": "api::price.price.find"
     },
     {
