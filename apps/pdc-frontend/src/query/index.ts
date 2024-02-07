@@ -6,14 +6,6 @@ query getPDCHomePage($locale: I18NLocaleCode, $pageMode: PublicationState) {
     data {
       attributes {
         components {
-          ... on ComponentComponentsUtrechtNavigation {
-            __typename
-            navigationList {
-              id
-              textContent
-              href
-            }
-          }
           ... on ComponentComponentsUtrechtTopTasks {
             __typename
             link {
@@ -21,30 +13,6 @@ query getPDCHomePage($locale: I18NLocaleCode, $pageMode: PublicationState) {
               textContent
               href
               topTaskIcons
-            }
-          }
-          ... on ComponentComponentsUtrechtFooter {
-            __typename
-            title
-            list {
-              listItem {
-                id
-                title
-                link {
-                  id
-                  textContent
-                  href
-                }
-              }
-            }
-            address
-            socialMediaList {
-              link {
-                id
-                textContent
-                href
-                icon
-              }
             }
           }
         }
@@ -287,4 +255,52 @@ query getNotFoundPage($locale: I18NLocaleCode){
     }
   }
 }
+`);
+
+export const GET_TAMPLATE = gql(`
+query getTemplateData($locale: I18NLocaleCode, $pageMode: PublicationState) {
+  pdcTemplate(publicationState: $pageMode, locale: $locale) {
+    data {
+      attributes {
+        sections {
+          ... on ComponentComponentsUtrechtNavigation {
+            __typename
+            navigationList {
+              id
+              textContent
+              href
+            }
+          }
+          ... on ComponentComponentsUtrechtFooter {
+            __typename
+            title
+            list {
+              id
+              listItem {
+                id
+                title
+                link {
+                  id
+                  textContent
+                  href
+                }
+              }
+            }
+            address
+            socialMediaList {
+              id
+              link {
+                id
+                textContent
+                href
+                icon
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 `);
