@@ -28,12 +28,12 @@ import '@utrecht/design-tokens/dist/index.css';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { GIT_PDC_HOME_PAGE } from '@/query';
+import { GET_TAMPLATE } from '@/query';
 import { createStrapiURL, fetchData } from '@/util';
 import {
   ComponentComponentsUtrechtFooter,
   ComponentComponentsUtrechtNavigation,
-  GetPdcHomePageQuery,
+  GetTemplateDataQuery,
 } from '../../../gql/graphql';
 import { getLiveSuggestions, onSearchSubmitAction } from '../actions';
 import { useTranslation } from '../i18n/index';
@@ -126,16 +126,17 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
-  const { data } = await fetchData<{ data: GetPdcHomePageQuery }>({
+  const { data } = await fetchData<{ data: GetTemplateDataQuery }>({
     url: createStrapiURL(),
-    query: GIT_PDC_HOME_PAGE,
+    query: GET_TAMPLATE,
     variables: { locale },
   });
-  const navigationData = data.pdcHomePage?.data?.attributes?.components?.find(
+
+  const navigationData = data.pdcTemplate?.data?.attributes?.sections?.find(
     (component) => component?.__typename === 'ComponentComponentsUtrechtNavigation',
   ) as ComponentComponentsUtrechtNavigation;
 
-  const footerData = data.pdcHomePage?.data?.attributes?.components?.find(
+  const footerData = data.pdcTemplate?.data?.attributes?.sections?.find(
     (component) => component?.__typename === 'ComponentComponentsUtrechtFooter',
   ) as ComponentComponentsUtrechtFooter;
 
