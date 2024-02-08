@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.10.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.9.1...@frameless/strapi-tiptap-editor@1.10.0) (2024-02-08)
+
+
+### Features
+
+* add Node.js 20 support ([7b5feb7](https://github.com/frameless/strapi/commit/7b5feb7f204e52566430e25ceb282a2a0d0fa86f))
+
 # @frameless/strapi-tiptap-editor 1.0.0 (2023-12-04)
 
 
