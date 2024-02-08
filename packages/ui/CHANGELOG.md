@@ -1,3 +1,34 @@
+# @frameless/ui [2.9.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.8.1...@frameless/ui@2.9.0) (2024-02-08)
+
+
+### Bug Fixes
+
+* **ui:** add `inset-block-start` to the link-list__link ([e54860e](https://github.com/frameless/strapi/commit/e54860eb8599a54eaa1b0c5c95916506b3df2026))
+* **ui:** correct the hamburger button position ([00675ed](https://github.com/frameless/strapi/commit/00675ed6a3a78307b03c80d9c935d08d792ea746))
+* **ui:** fix aria-expanded on nav-hamburger ([5410a02](https://github.com/frameless/strapi/commit/5410a029c391824547ff524c52eb9ef13fc245d1))
+* **ui:** fix the footer spacing ([d3a0b06](https://github.com/frameless/strapi/commit/d3a0b069847bc8e4c09f3f341d344669c8f72502))
+* **ui:** fix the phone link font-size ([ecca95f](https://github.com/frameless/strapi/commit/ecca95f95bafd620ca177a5b3875ff5b0323c889))
+* **ui:** fix the social media list ([29bb0c0](https://github.com/frameless/strapi/commit/29bb0c0ca690c8a278053d8e38e2abe1092b8152))
+* **ui:** hide the chevronLeft icon for the homepage ([2ccf66a](https://github.com/frameless/strapi/commit/2ccf66a750888c3905fcb27bcc9c6e8c8fd9a887))
+* **ui:** import nieuwsbrief icon from web-component-library-react ([3687f56](https://github.com/frameless/strapi/commit/3687f56fe449d7287db237d3c0c5c45f281430d0))
+* **ui:** referenceError: window is not defined ([1e8a249](https://github.com/frameless/strapi/commit/1e8a249bd20e9be19cb5a9f5d2668c748134b9c3))
+* **ui:** remove border-inline-end from last nav item ([9ed0cb6](https://github.com/frameless/strapi/commit/9ed0cb668cb9434606d55a6639d28c8a3ab5bfb7))
+* **ui:** remove extra spacing from footer & set font-weight to normale ([5e5e7f3](https://github.com/frameless/strapi/commit/5e5e7f397592dfe61dc18efc1cb4f83cb77b03df))
+
+
+### Features
+
+* add Node.js 20 support ([7b5feb7](https://github.com/frameless/strapi/commit/7b5feb7f204e52566430e25ceb282a2a0d0fa86f))
+* **ui-breadcrumb:** add `backLink, Link` & improve the mobile version ([103c458](https://github.com/frameless/strapi/commit/103c458c8812702ba8db7b1e86f1af191eea0457))
+* **ui:** add `justify-content` to the nav-mobile class ([37a91b5](https://github.com/frameless/strapi/commit/37a91b5a39566f9833c86646e5360fd0a968ea3f))
+* **ui:** add border-block-end to the Navigation ([5c81763](https://github.com/frameless/strapi/commit/5c817632555c7211a99931b7cebc05ba1017da81))
+* **ui:** add breadcrumb to ui package ([0ae7fe8](https://github.com/frameless/strapi/commit/0ae7fe8fb443887e1b959302bb2291f5f5134140))
+* **ui:** add newsletter icon to the footer ([f8d8391](https://github.com/frameless/strapi/commit/f8d8391f12c2137daf9c6113cf6c391d22414b21))
+* **ui:** add order property to the grid cell ([26a85fc](https://github.com/frameless/strapi/commit/26a85fcdb5de3eceaeaba71a5c903c76d2a36840))
+* **ui:** align the nav links props with Strapi ([2d18be8](https://github.com/frameless/strapi/commit/2d18be8948dcc8e095f22d1db5397a496c46c58c))
+* **ui:** refactor & improve the footer ([bed1a8a](https://github.com/frameless/strapi/commit/bed1a8abccc8306f57e67c57e4a0ba11949a6498))
+* **ui:** update the breadcrumb link style ([1c36034](https://github.com/frameless/strapi/commit/1c360348f6d383f7b52975ebedfd52d7a20cf7ae))
+
 ## @frameless/ui [2.8.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.8.0...@frameless/ui@2.8.1) (2023-11-29)
 
 
