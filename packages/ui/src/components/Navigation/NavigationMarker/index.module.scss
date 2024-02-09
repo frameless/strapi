@@ -1,0 +1,7 @@
+.utrecht-navigation__marker {
+  color: var(--utrecht-navigation-marker-color, var(--utrecht-color-grey-80));
+}
+
+.utrecht-navigation__marker--current {
+  --utrecht-navigation-marker-color: currentColor;
+}
