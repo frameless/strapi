@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_open_forms_embeds",
+  "info": {
+    "displayName": "OpenFormsEmbed",
+    "icon": "write"
+  },
+  "options": {},
+  "attributes": {
+    "openFormsId": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
