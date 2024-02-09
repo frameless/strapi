@@ -12,13 +12,13 @@ import {
   Grid,
   GridCell,
   Heading1,
+  NavigationList,
   Page,
   PageContent,
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
 import { Markdown } from '@/components/Markdown';
-import { LinkData, SideNavigation } from '@/components/SideNavigation';
 import { GET_ARTICLE_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
@@ -68,21 +68,19 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
 
   const themasLinks =
     siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
-      title,
-      slug,
+      textContent: title,
       href: `/${locale}/theme/${slug}`,
       isCurrent: slug === articleSlug,
     })) || [];
 
   const contentLinks =
     siblingContent?.map(({ attributes: { slug, title } }: SiblingData) => ({
-      title,
-      slug,
+      textContent: title,
       href: `/${locale}/article/${slug}`,
       isCurrent: slug === articleSlug,
     })) || [];
 
-  const sideNavigationLinks: LinkData[] = [...themasLinks, ...contentLinks];
+  const sideNavigationLinks = [...themasLinks, ...contentLinks];
 
   const breadcrumbNavigationElements = [
     {
@@ -160,7 +158,11 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
             <DynamicContent />
           </GridCell>
           <GridCell md={4} className="utrecht-grid-mobile-hidden">
-            {sideNavigationLinks.length > 1 && <SideNavigation links={sideNavigationLinks} />}
+            {sideNavigationLinks.length > 1 && (
+              <nav>
+                <NavigationList list={sideNavigationLinks} sideNav mobile />
+              </nav>
+            )}
           </GridCell>
         </Grid>
         <Grid spacing="lg">
