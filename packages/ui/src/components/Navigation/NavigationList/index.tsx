@@ -8,18 +8,20 @@ import { NavigationListType } from '../index';
 interface NavigationListProps extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {
   list: NavigationListType[];
   mobile?: boolean;
+  sideNav?: boolean;
 }
 
 const css = classnames.bind(styles);
 
 export const NavigationList = forwardRef(
   (
-    { list, mobile, children, ...restProps }: PropsWithChildren<NavigationListProps>,
+    { list, mobile, sideNav, children, ...restProps }: PropsWithChildren<NavigationListProps>,
     ref: ForwardedRef<HTMLUListElement>,
   ) => (
     <ul
       className={css('utrecht-navigation__list', {
         'utrecht-navigation__list--mobile': mobile,
+        'utrecht-navigation__list--side-nav': sideNav,
       })}
       ref={ref}
       {...restProps}
@@ -30,7 +32,7 @@ export const NavigationList = forwardRef(
         list.length > 0 &&
         list.map((item, index) => (
           <NavigationItem key={index} mobile={mobile}>
-            <NavigationLink mobile={mobile} href={item.href}>
+            <NavigationLink mobile={mobile} href={item.href} isCurrent={item.isCurrent}>
               {item.textContent}
             </NavigationLink>
             {mobile && item.children && item.children.length > 0 && (

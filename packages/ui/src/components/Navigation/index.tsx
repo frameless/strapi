@@ -11,6 +11,7 @@ const css = classnames.bind(styles);
 export type NavigationListType = {
   textContent: string;
   href: string;
+  isCurrent?: boolean;
   children?: NavigationListType[];
 };
 

@@ -1,21 +1,24 @@
 .utrecht-navigation__link {
+  --utrecht-link-focus-text-decoration: underline;
+  --utrecht-link-focus-text-decoration-thickness: var(--utrecht-navigation-link-focus-text-decoration-thickness, 3px);
   --utrecht-link-text-decoration: none;
   --utrecht-link-active-color: var(--utrecht-navigation-link-active-color);
-  --utrecht-link-hover-text-decoration-thickness: var(--utrecht-navigation-link-hover-decoration-thickness);
+  --utrecht-link-hover-text-decoration-thickness: var(--utrecht-navigation-link-hover-decoration-thickness, 3px);
   --utrecht-link-hover-color: var(--utrecht-navigation-link-hover-color);
   --utrecht-link-color: var(--utrecht-navigation-link-color);
-  --utrecht-link-focus-text-decoration-thickness: var(--utrecht-navigation-link-focus-declaration-thickness);
   --utrecht-link-visited-color: var(--utrecht-navigation-link-color);
 
+  align-items: var(--_utrecht-navigation-link-align-items, center);
   background-color: var(--utrecht-navigation-link-background-color);
   border-inline-end-color: var(--utrecht-navigation-link-border-color);
   border-inline-end-style: solid;
   border-inline-end-width: var(--utrecht-navigation-link-border-inline-end-width);
   display: flex;
-  font-weight: var(--utrecht-navigation-link-font-weight);
-  justify-content: var(--utrecht-navigation-link-justify-content);
-  padding-block-end: var(--utrecht-navigation-link-padding-block-end);
-  padding-block-start: var(--utrecht-navigation-link-padding-block-start);
+  font-weight: var(--utrecht-navigation-link-font-weight, var(--utrecht-typography-weight-scale-normal-font-weight));
+  gap: var(--utrecht-navigation-link-gap, 8px);
+  justify-content: var(--_utrecht-navigation-link-justify-content, center);
+  padding-block-end: var(--utrecht-navigation-link-padding-block-end, 1rem);
+  padding-block-start: var(--utrecht-navigation-link-padding-block-start, 1rem);
   padding-inline-end: var(--utrecht-navigation-link-padding-inline-end);
   padding-inline-start: var(--utrecht-navigation-link-padding-inline-start);
   text-align: var(--utrecht-navigation-link-text-align);
@@ -23,36 +26,53 @@
 
 .utrecht-navigation__link:hover {
   --utrecht-navigation-link-background-color: var(--utrecht-navigation-link-hover-background-color);
+  --utrecht-navigation-marker-color: currentColor;
 }
 
 .utrecht-navigation__link:focus {
-  --utrecht-link-focus-color: var(--utrecht-navigation-link-focus-color);
+  --utrecht-link-focus-color: var(--utrecht-navigation-link-focus-color, var(--utrecht-color-black));
   --utrecht-link-focus-background-color: var(--utrecht-color-yellow-80);
+  --utrecht-navigation-marker-color: currentColor;
 }
 
 .utrecht-navigation__link:active:focus {
-  color: var(--utrecht-navigation-link-active-focus-color);
+  --utrecht-link-focus-color: var(--utrecht-navigation-link-active-focus-color, var(--utrecht-color-black));
 }
 
 .utrecht-navigation__link--mobile {
+  --_utrecht-navigation-link-align-items: baseline;
+  --_utrecht-navigation-link-justify-content: normal;
   --utrecht-navigation-link-padding-inline-start: var(--utrecht-navigation-link-mobile-padding-inline-start);
   --utrecht-navigation-link-padding-inline-end: var(--utrecht-navigation-link-mobile-padding-inline-end);
-  --utrecht-navigation-link-padding-block-start: var(--utrecht-navigation-link-mobile-padding-block-start);
-  --utrecht-navigation-link-padding-block-end: var(--utrecht-navigation-link-mobile-padding-block-end);
+  --utrecht-navigation-link-padding-block-start: var(--utrecht-navigation-link-mobile-padding-block-start, 10px);
+  --utrecht-navigation-link-padding-block-end: var(--utrecht-navigation-link-mobile-padding-block-end, 10px);
   --utrecht-navigation-link-border-inline-end-width: 0;
   --utrecht-navigation-link-border-color: transparent;
-  --utrecht-navigation-link-background-color: var(--utrecht-navigation-link-mobile-background-color);
-  --utrecht-navigation-link-color: var(--utrecht-navigation-link-mobile-color);
-  --utrecht-navigation-link-justify-content: var(--utrecht-navigation-link-mobile-justify-content);
+  --utrecht-navigation-link-background-color: var(
+    --utrecht-navigation-link-mobile-background-color,
+    var(--utrecht-color-white)
+  );
+  --utrecht-navigation-link-color: var(--utrecht-navigation-link-mobile-color, var(--utrecht-color-blue-35));
+  --utrecht-navigation-link-justify-content: var(--utrecht-navigation-link-mobile-justify-content, flex-start);
 
   flex: 1 1 auto;
-  transition-duration: var(--utrecht-navigation-link-mobile-transition-duration);
+  transition-duration: var(--utrecht-navigation-link-mobile-transition-duration, 0.3s);
   transition-property: font-weight;
-  transition-timing-function: var(--utrecht-navigation-link-mobile-transition-timing-function);
+  transition-timing-function: var(--utrecht-navigation-link-mobile-transition-timing-function, ease-in-out);
 }
 
 .utrecht-navigation__link--mobile:hover {
   --utrecht-navigation-link-background-color: var(--utrecht-navigation-link-mobile-hover-background-color);
-  --utrecht-link-hover-color: var(--utrecht-navigation-link-mobile-hover-color);
-  --utrecht-navigation-link-font-weight: var(--utrecht-navigation-mobile-hover-link-font-weight);
+  --utrecht-link-hover-color: var(--utrecht-navigation-link-mobile-hover-color, var(--utrecht-color-blue-35));
+  --utrecht-navigation-link-font-weight: var(
+    --utrecht-navigation-mobile-hover-link-font-weight,
+    var(--utrecht-typography-weight-scale-bold-font-weight)
+  );
+}
+
+.utrecht-navigation__link--is-current {
+  --utrecht-navigation-link-font-weight: var(
+    --utrecht-navigation-link-is-current-font-weight,
+    var(--utrecht-typography-weight-scale-bold-font-weight)
+  );
 }

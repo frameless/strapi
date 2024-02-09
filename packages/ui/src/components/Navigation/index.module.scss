@@ -5,6 +5,8 @@
   border-block-start-color: var(--utrecht-navigation-border-block-start-color);
   border-block-start-style: solid;
   border-block-start-width: var(--utrecht-navigation-border-block-start-width);
+  margin-block-end: var(--utrecht-nav-margin-back-end);
+  margin-block-start: var(--utrecht-nav-margin-back-start);
 }
 
 .utrecht-navigation--mobile {

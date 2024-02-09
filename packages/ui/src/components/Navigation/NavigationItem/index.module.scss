@@ -1,4 +1,10 @@
 .utrecht-navigation__item {
+  border-block-end-color: var(--utrecht-navigation-item-border-block-end-color, transparent);
+  border-block-end-style: solid;
+  border-block-end-width: var(--utrecht-navigation-item-border-block-end-width, 0);
+  border-block-start-color: var(--utrecht-navigation-item-border-block-start-color, transparent);
+  border-block-start-style: solid;
+  border-block-start-width: var(--utrecht-navigation-item-border-block-start-width, 0);
   flex: 1 1 auto;
   padding-block-end: var(--utrecht-navigation-item-padding-block-end);
   padding-block-start: var(--utrecht-navigation-item-padding-block-start);
@@ -15,16 +21,20 @@
   --utrecht-navigation-item-padding-block-end: var(--utrecht-navigation-item-mobile-padding-block-end);
   --utrecht-navigation-item-padding-inline-start: var(--utrecht-navigation-item-mobile-padding-inline-start);
   --utrecht-navigation-item-padding-inline-end: var(--utrecht-navigation-item-mobile-padding-inline-end);
-
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  --utrecht-navigation-item-border-block-end-color: var(
+    --utrecht-navigation-item-mobile-border-block-end-color,
+    var(--utrecht-color-grey-80)
+  );
+  --utrecht-navigation-item-border-block-end-width: var(--utrecht-navigation-item-mobile-border-block-end-width, 1px);
 }
 
-.utrecht-navigation__item-icon::before {
-  color: var(--utrecht-navigation-item-icon-color);
-  content: "•";
-  font-size: inherit;
-  margin-inline-end: var(--utrecht-navigation-item-icon-margin-inline-end);
+.utrecht-navigation__item--mobile:first-of-type {
+  --utrecht-navigation-item-border-block-start-color: var(
+    --utrecht-navigation-item-mobile-border-block-start-color,
+    var(--utrecht-color-grey-80)
+  );
+  --utrecht-navigation-item-border-block-start-width: var(
+    --utrecht-navigation-item-mobile-border-block-start-width,
+    1px
+  );
 }
