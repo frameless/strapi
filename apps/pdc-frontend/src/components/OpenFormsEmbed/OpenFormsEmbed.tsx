@@ -23,7 +23,7 @@ export const OpenFormsEmbed = () => {
       <div
         ref={containerRef}
         data-base-url="http://localhost:8000/api/v2/"
-        data-form-id="f65657cb-2968-4a51-a576-2106e551e984"
+        data-form-id="voorbeeld-formulier"
         data-base-path="/en"
       ></div>
       <Script
