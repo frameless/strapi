@@ -73,8 +73,8 @@ a {
 }
 
 .utrecht-logo__wrapper {
-  padding-block-end: var(--utrecht-logo-wrapper-padding-block-end, 16px);
-  padding-inline-start: var(--utrecht-logo-wrapper-padding-block-start, 16px);
+  margin-block-end: var(--utrecht-logo-wrapper-margin-block-end, 16px);
+  margin-inline-start: var(--utrecht-logo-wrapper-margin-block-start, 16px);
 }
 
 .utrecht-navigation--mobile:has(button[aria-expanded="false"]) {
@@ -168,8 +168,8 @@ a {
 @media screen and (width > 360px) {
   .utrecht-page-header {
     --utrecht-page-header-padding-block-start: 32px;
-    --utrecht-logo-wrapper-padding-block-start: 32px;
-    --utrecht-logo-wrapper-padding-block-end: 32px;
+    --utrecht-logo-wrapper-margin-block-start: 32px;
+    --utrecht-logo-wrapper-margin-block-end: 32px;
     --utrecht-navigation-toggle-button-padding-end: 32px;
   }
 }
