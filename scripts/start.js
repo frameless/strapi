@@ -13,25 +13,24 @@ process.on('SIGINT', handleExit);
 const projects = [
   {
     type: 'select',
-    name: 'frontend',
-    message: 'Select Your app name:',
-    choices: ['pdc-frontend', 'vth-frontend', 'kennisbank-frontend'],
-  },
-  {
-    type: 'select',
     name: 'dashboard',
     message: 'Select Your Strapi Dashboard app name:',
     choices: ['pdc-dashboard', 'vth-dashboard', 'kennisbank-dashboard'],
+  },
+  {
+    type: 'select',
+    name: 'frontend',
+    message: 'Select Your app name:',
+    choices: ['pdc-frontend', 'vth-frontend', 'kennisbank-frontend'],
   },
 ];
 
 const getAppChoices = (appType) => {
   switch (appType) {
-    case 'frontend':
-      return ['pdc-frontend', 'vth-frontend', 'kennisbank-frontend'];
-
     case 'strapi':
       return ['pdc-dashboard', 'vth-dashboard', 'kennisbank-dashboard'];
+    case 'frontend':
+      return ['pdc-frontend', 'vth-frontend', 'kennisbank-frontend'];
 
     default:
       return [];
@@ -46,7 +45,7 @@ const runApp = async (appType, mode) => {
     message: `Enter the ${appType} app name:`,
     choices: getAppChoices(appType),
   });
-  const command = `APP=${app} npm run ${mode}:${appType}`;
+  const command = `APP=${app} yarn ${mode}:${appType}`;
 
   const childProcess = exec(command);
   childProcess.stdout.pipe(process.stdout); // Pipe standard output to terminal
@@ -54,7 +53,7 @@ const runApp = async (appType, mode) => {
 };
 
 const getTheCurrentOption = ({ dashboard, frontend, mode }) => {
-  const command = `APP1=${dashboard} APP2=${frontend} npm run ${mode}:both`;
+  const command = `APP1=${dashboard} APP2=${frontend} yarn ${mode}:both`;
   const childProcess = exec(command);
   childProcess.stdout.pipe(process.stdout);
   childProcess.stderr.pipe(process.stderr);
@@ -77,7 +76,7 @@ const runOption = async () => {
         choices: ['Frontend', 'Strapi', 'Both'],
       },
     ]);
-    const mode = option?.toLowerCase();
+    const mode = option.toLowerCase();
     switch (option) {
       case 'Build':
         if (appType === 'Both') {
