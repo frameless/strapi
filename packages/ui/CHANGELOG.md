@@ -1,3 +1,10 @@
+# @frameless/ui [2.10.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.9.0...@frameless/ui@2.10.0) (2024-02-13)
+
+
+### Features
+
+* **ui:** improve the nav component ([e76f44b](https://github.com/frameless/strapi/commit/e76f44bd5b2bc273dfe3c5187d640b283de54c7c))
+
 # @frameless/ui [2.9.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.8.1...@frameless/ui@2.9.0) (2024-02-08)
 
 
