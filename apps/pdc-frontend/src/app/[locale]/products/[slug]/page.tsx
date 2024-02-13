@@ -220,6 +220,12 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                   </AdvancedLink>
                 )
               );
+            case 'ComponentComponentsOpenFormsEmbed':
+              return (
+                component?.openFormsId && (
+                  <Link href={`/${locale}/form/${component.openFormsId}`}>Ga naar formulier</Link>
+                )
+              );
             default:
               return <></>;
           }

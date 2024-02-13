@@ -1,12 +1,15 @@
 'use client';
 
-// @ts-ignore
-import OpenForm from '@open-formulieren/sdk';
 import '@open-formulieren/sdk/styles.css';
 import Script from 'next/script';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
-export const OpenFormsEmbed = () => {
+export type OpenFormsEmbedProps = {
+  basePath: string;
+  slug: string;
+};
+
+export const OpenFormsEmbed = ({ basePath, slug }: OpenFormsEmbedProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const onLoadOpenForms = () => {
@@ -14,7 +17,8 @@ export const OpenFormsEmbed = () => {
       return;
     }
 
-    const form = new OpenForm(containerRef.current, containerRef.current.dataset);
+    // @ts-ignore
+    const form = new window.OpenForms.OpenForm(containerRef.current, containerRef.current.dataset);
     form.init();
   };
 
@@ -23,12 +27,13 @@ export const OpenFormsEmbed = () => {
       <div
         ref={containerRef}
         data-base-url="http://localhost:8000/api/v2/"
-        data-form-id="voorbeeld-formulier"
-        data-base-path="/en"
+        data-form-id={slug}
+        data-base-path={basePath}
       ></div>
+      <link rel="stylesheet" href="http://localhost:8000/static/sdk/open-forms-sdk.css" />
       <Script
         strategy={'afterInteractive'}
-        src="@open-formulieren/sdk/dist/open-forms-sdk.js"
+        src="http://localhost:8000/static/sdk/open-forms-sdk.js"
         onLoad={onLoadOpenForms}
       />
     </div>

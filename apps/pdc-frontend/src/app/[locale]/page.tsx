@@ -1,8 +1,16 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { AdvancedLink, Breadcrumbs, Grid, GridCell, Heading, Heading2, IndexCharNav } from '@/components';
-import { ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
-import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
+import {
+  AdvancedLink,
+  Breadcrumbs,
+  Grid,
+  GridCell,
+  Heading,
+  Heading2,
+  IndexCharNav,
+  ScrollToTopButton,
+  UtrechtIconChevronUp,
+} from '@/components';
 import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GIT_PDC_HOME_PAGE } from '@/query';
 import { alphabet } from '@/util';
@@ -96,7 +104,6 @@ const Home = async ({ params: { locale } }: { params: any }) => {
         Link={Link}
       />
       <Heading level={1}>{t('h1')}</Heading>
-      <OpenFormsEmbed />
       <Grid>
         <>
           <GridCell md={10} lg={9}>
