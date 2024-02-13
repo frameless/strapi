@@ -202,6 +202,10 @@ export const GET_PRODUCT_BY_SLUG = gql(`
               body
             }
           }
+          ... on ComponentComponentsOpenFormsEmbed {
+            __typename
+            openFormsId
+          }
         }
         price {
           data {
