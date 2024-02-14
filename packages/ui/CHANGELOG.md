@@ -1,3 +1,10 @@
+## @frameless/ui [2.10.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.10.0...@frameless/ui@2.10.1) (2024-02-14)
+
+
+### Bug Fixes
+
+* ui type export ([9a02e32](https://github.com/frameless/strapi/commit/9a02e32d91f1b7c8fa91977b589d57d86d0febfe))
+
 # @frameless/ui [2.10.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.9.0...@frameless/ui@2.10.0) (2024-02-13)
 
 
