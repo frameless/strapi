@@ -17,5 +17,6 @@ export * from './PriceWidget';
 export type { LanguageSwitcherProps } from './LanguageSwitcher';
 export type { LoadMoreButtonProps } from './LoadMoreButton';
 export type { LogoButtonProps, LogoType } from './LogoButton';
+export type { NavigationListType } from './Navigation';
 export type { PreviewAlertProps } from './PreviewAlert';
 export type { ProductListItemProps, ProductListPaginationInfoProps, ProductListProps } from './ProductList';
