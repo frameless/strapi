@@ -10,8 +10,40 @@ export const config = {
 
 const cookieName = 'i18next';
 
+const cspDevelopmentHeader = () =>
+  `default-src 'self';
+    script-src 'self' siteimproveanalytics.com localhost:8000 'unsafe-inline' 'unsafe-eval';
+    style-src 'self' localhost:8000 'unsafe-inline';
+    connect-src 'self' localhost:8000;
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    block-all-mixed-content;`;
+const cspProductionheader = (nonce: string) =>
+  `default-src 'self';
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
+    style-src 'self' 'nonce-${nonce}';
+    connect-src 'self' localhost:8000;
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    block-all-mixed-content;`;
+
 export function middleware(req: NextRequest) {
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
+
+  const cspHeaderRaw = process.env.NODE_ENV === 'production' ? cspProductionheader(nonce) : cspDevelopmentHeader();
+  const cspHeader = cspHeaderRaw.replace(/\s{2,}/g, ' ').trim();
+
   const requestHeaders = new Headers(req.headers);
+  requestHeaders.set('x-nonce', nonce);
+  requestHeaders.set('Content-Security-Policy', cspHeader);
 
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1)
     return NextResponse.next();
@@ -31,7 +63,10 @@ export function middleware(req: NextRequest) {
   if (req.headers.has('referer')) {
     const refererUrl = new URL(req.headers.get('referer') as any);
     const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`));
-    const response = NextResponse.next();
+    const response = NextResponse.next({
+      request: { headers: requestHeaders },
+      headers: { 'content-security-policy': cspHeader },
+    });
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
     return response;
   }
@@ -39,5 +74,6 @@ export function middleware(req: NextRequest) {
 
   return NextResponse.next({
     request: { headers: requestHeaders },
+    headers: { 'content-security-policy': cspHeader },
   });
 }
