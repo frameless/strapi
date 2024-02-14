@@ -5,11 +5,12 @@ import Script from 'next/script';
 import React, { useRef } from 'react';
 
 export type OpenFormsEmbedProps = {
+  nonce: string;
   basePath: string;
   slug: string;
 };
 
-export const OpenFormsEmbed = ({ basePath, slug }: OpenFormsEmbedProps) => {
+export const OpenFormsEmbed = ({ nonce, basePath, slug }: OpenFormsEmbedProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const onLoadOpenForms = () => {
@@ -30,8 +31,9 @@ export const OpenFormsEmbed = ({ basePath, slug }: OpenFormsEmbedProps) => {
         data-form-id={slug}
         data-base-path={basePath}
       ></div>
-      <link rel="stylesheet" href="http://localhost:8000/static/sdk/open-forms-sdk.css" />
+      <link rel="stylesheet" nonce={nonce} href="http://localhost:8000/static/sdk/open-forms-sdk.css" />
       <Script
+        nonce={nonce}
         strategy={'afterInteractive'}
         src="http://localhost:8000/static/sdk/open-forms-sdk.js"
         onLoad={onLoadOpenForms}

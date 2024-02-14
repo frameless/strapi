@@ -1,3 +1,4 @@
+import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
@@ -13,6 +14,7 @@ type FormPageProps = {
 
 const FormPage = async ({ params: { locale, slug } }: FormPageProps) => {
   const { t } = await useTranslation(locale, 'common');
+  const nonce = headers().get('x-nonce') || '';
 
   return (
     <>
@@ -36,7 +38,7 @@ const FormPage = async ({ params: { locale, slug } }: FormPageProps) => {
         }}
         Link={Link}
       />
-      <OpenFormsEmbed basePath={`/${locale}/form/${slug}/`} slug={slug} />
+      <OpenFormsEmbed nonce={nonce} basePath={`/${locale}/form/${slug}/`} slug={slug} />
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
           <AdvancedLink
