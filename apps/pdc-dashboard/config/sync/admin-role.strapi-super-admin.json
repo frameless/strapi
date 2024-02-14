@@ -6,6 +6,54 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
+      "subject": "api::form.form",
+      "properties": {
+        "fields": ["title", "slug", "form_id"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::form.form",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::form.form",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::form.form",
+      "properties": {
+        "fields": ["title", "slug", "form_id"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::form.form",
+      "properties": {
+        "fields": ["title", "slug", "form_id"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
       "subject": "api::kb-category.kb-category",
       "properties": {
         "fields": ["title", "kb_subcategories"]

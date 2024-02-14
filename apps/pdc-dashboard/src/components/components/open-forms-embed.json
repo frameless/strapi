@@ -1,14 +1,16 @@
 {
   "collectionName": "components_components_open_forms_embeds",
   "info": {
-    "displayName": "OpenFormsEmbed",
-    "icon": "write"
+    "displayName": "OpenForms Embed",
+    "icon": "information",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "openFormsId": {
-      "type": "string",
-      "required": true
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
     }
   }
 }
