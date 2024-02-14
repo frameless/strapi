@@ -1,6 +1,5 @@
 'use client';
 
-import '@open-formulieren/sdk/styles.css';
 import Script from 'next/script';
 import React, { useRef } from 'react';
 

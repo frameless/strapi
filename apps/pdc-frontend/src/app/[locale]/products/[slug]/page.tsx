@@ -212,6 +212,7 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                 component?.href &&
                 component?.textContent && (
                   <AdvancedLink
+                    key={component?.href}
                     href={component?.href}
                     external={isAbsoluteUrl(component?.href)}
                     icon={component?.icon as 'arrow'}
@@ -222,8 +223,15 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
               );
             case 'ComponentComponentsOpenFormsEmbed':
               return (
-                component?.openFormsId && (
-                  <Link href={`/${locale}/form/${component.openFormsId}`}>Ga naar formulier</Link>
+                component?.form?.data?.attributes?.slug && (
+                  <LogoButton
+                    logo="without_logo"
+                    appearance="primary-action-button"
+                    key={component?.form?.data?.attributes?.slug}
+                    href={`/${locale}/form/${component?.form?.data?.attributes?.slug}`}
+                  >
+                    Ga naar formulier
+                  </LogoButton>
                 )
               );
             default:

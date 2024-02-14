@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
-import { Breadcrumbs } from '@/components';
+import { AdvancedLink, Breadcrumbs, Grid, GridCell, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
 
 type FormPageProps = {
@@ -37,6 +37,22 @@ const FormPage = async ({ params: { locale, slug } }: FormPageProps) => {
         Link={Link}
       />
       <OpenFormsEmbed basePath={`/${locale}/form/${slug}/`} slug={slug} />
+      <Grid justifyContent="space-between" spacing="sm">
+        <GridCell sm={8}>
+          <AdvancedLink
+            rel="noopener noreferrer"
+            external
+            icon="arrow"
+            color="red"
+            href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
+          >
+            {t('actions.reaction-link')}
+          </AdvancedLink>
+        </GridCell>
+        <GridCell sm={4} justifyContent="flex-end">
+          <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+        </GridCell>
+      </Grid>
     </>
   );
 };
