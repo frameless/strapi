@@ -28,18 +28,18 @@ import '@utrecht/design-tokens/dist/index.css';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { GET_TAMPLATE } from '@/query';
+import { GET_TEMPLATE } from '@/query';
 import { createStrapiURL, fetchData } from '@/util';
 import {
   ComponentComponentsUtrechtFooter,
   ComponentComponentsUtrechtNavigation,
   GetTemplateDataQuery,
-} from '../../../gql/graphql';
-import { getLiveSuggestions, onSearchSubmitAction } from '../actions';
-import { useTranslation } from '../i18n/index';
-import { languages } from '../i18n/settings';
+} from '../../../../gql/graphql';
+import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
+import { useTranslation } from '../../i18n/index';
+import { languages } from '../../i18n/settings';
 import '@frameless/ui/dist/bundle.css';
-import '../../styles/globals.css';
+import '../../../styles/globals.css';
 
 const escapeComment = (data: any) => String(data).replace(/--/g, '-\u200B-');
 
@@ -129,7 +129,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData<{ data: GetTemplateDataQuery }>({
     url: createStrapiURL(),
-    query: GET_TAMPLATE,
+    query: GET_TEMPLATE,
     variables: { locale },
   });
 

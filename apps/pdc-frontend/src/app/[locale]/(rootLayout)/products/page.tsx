@@ -14,9 +14,9 @@ import { ProductListContainer } from '@/components/ProductListContainer';
 import { apiSettings, mappingProducts, MappingProductsProps } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-import { GetAllProductsSlugQueryQuery } from '../../../../gql/graphql';
-import { GET_ALL_PRODUCTS_SLUG } from '../../../query';
-import { useTranslation } from '../../i18n';
+import { GetAllProductsSlugQueryQuery } from '../../../../../gql/graphql';
+import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
+import { useTranslation } from '../../../i18n';
 export interface Fields {
   title: string;
   body: string;

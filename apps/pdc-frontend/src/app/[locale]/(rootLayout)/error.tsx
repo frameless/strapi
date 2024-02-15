@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Breadcrumbs, Button, Heading, Paragraph } from '@/components';
-import { useTranslation } from '../i18n/client';
-import { fallbackLng } from '../i18n/settings';
+import { useTranslation } from '../../i18n/client';
+import { fallbackLng } from '../../i18n/settings';
 interface ErrorPageProps {
   error: Error;
   reset: () => void;

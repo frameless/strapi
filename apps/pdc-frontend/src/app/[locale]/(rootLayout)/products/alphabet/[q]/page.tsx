@@ -24,7 +24,7 @@ import {
 } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../../../../gql/graphql';
+import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../../../../../gql/graphql';
 export const revalidate = 3600; // revalidate the data at most every hour
 
 type Params = {
