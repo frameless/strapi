@@ -1,4 +1,4 @@
-import { Link as UtrechtLink } from '@utrecht/component-library-react/dist/css-module';
+import { Link as UtrechtLink } from '@utrecht/component-library-react';
 import { UtrechtIconArrow, UtrechtIconChevronLeft } from '@utrecht/web-component-library-react';
 import classnames from 'classnames/bind';
 import React, { ComponentType, ForwardedRef, forwardRef, PropsWithChildren } from 'react';

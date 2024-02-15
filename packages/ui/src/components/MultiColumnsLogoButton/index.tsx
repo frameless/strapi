@@ -1,4 +1,4 @@
-import { Heading } from '@utrecht/component-library-react/dist/css-module';
+import { Heading } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
 import { kebabCase } from 'lodash';
 import styles from './index.module.scss';

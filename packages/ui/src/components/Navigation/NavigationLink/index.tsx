@@ -1,4 +1,4 @@
-import { Link } from '@utrecht/component-library-react/dist/css-module';
+import { Link } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 import styles from './index.module.scss';

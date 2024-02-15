@@ -1,4 +1,4 @@
-import { ButtonGroup, ButtonLink, ButtonProps, Heading } from '@utrecht/component-library-react/dist/css-module';
+import { ButtonGroup, ButtonLink, ButtonProps, Heading } from '@utrecht/component-library-react';
 import {
   UtrechtDigidLogo,
   UtrechtEherkenningLogo,
