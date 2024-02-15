@@ -4,6 +4,7 @@ import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { AdvancedLink, Breadcrumbs, Grid, GridCell, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
+import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
 
 type FormPageProps = {
   params: {
@@ -38,7 +39,14 @@ const FormPage = async ({ params: { locale, slug } }: FormPageProps) => {
         }}
         Link={Link}
       />
-      <OpenFormsEmbed nonce={nonce} basePath={`/${locale}/form/${slug}/`} slug={slug} />
+      <OpenFormsEmbed
+        apiUrl={createOpenFormsApiUrl()?.href || ''}
+        sdkUrl={createOpenFormsSdkUrl()?.href || ''}
+        cssUrl={createOpenFormsCssUrl()?.href || ''}
+        nonce={nonce}
+        basePath={`/${locale}/form/${slug}/`}
+        slug={slug}
+      />
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
           <AdvancedLink
