@@ -68,7 +68,6 @@ jobs:
           npm run release
           npm config delete "//npm.pkg.github.com/:_authToken"
   continuous-deployment:
-    needs: [check-disk-space]
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -77,6 +76,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GH_TOKEN }}
+      - name: Check Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          swap-storage: false
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
@@ -106,16 +109,3 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-  check-disk-space:
-    runs-on: ubuntu-latest
-    name: Check Free Disk Space
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-
-      - name: Check Free Disk Space
-        uses: jlumbroso/free-disk-space@main
-        with:
-          swap-storage: false
