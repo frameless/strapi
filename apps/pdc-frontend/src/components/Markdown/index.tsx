@@ -1,6 +1,6 @@
 'use client';
 import { Markdown as BaseMarkdown, Img, PriceWidget } from '@frameless/ui';
-import { Link } from '@utrecht/component-library-react/dist/css-module';
+import { Link } from '@utrecht/component-library-react';
 import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';

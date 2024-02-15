@@ -16,7 +16,7 @@ import {
   TableHeaderCell,
   TableRow,
   UnorderedList,
-} from '@utrecht/component-library-react/dist/css-module';
+} from '@utrecht/component-library-react';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
