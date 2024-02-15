@@ -41,6 +41,12 @@ export default ({ env }) => ({
             type: 'products',
           },
         },
+        {
+          uid: 'api::form.form',
+          query: {
+            type: 'form',
+          },
+        },
       ],
       domain: env('FRONTEND_PUBLIC_URL'),
       token: env('PREVIEW_SECRET_TOKEN'),
