@@ -256,6 +256,26 @@ export const GET_PRODUCT_BY_SLUG_AND_LOCALE = gql(`
   }
 `);
 
+export const GET_FROM_BY_SLUG = gql(`
+query getFormSlugs(
+  $slug: String
+  $locale: I18NLocaleCode
+  $pageMode: PublicationState
+) {
+  forms(
+    filters: { slug: { eq: $slug } }
+    locale: $locale
+    publicationState: $pageMode
+  ) {
+    data {
+      attributes {
+        slug
+      }
+    }
+  }
+}
+`);
+
 export const GET_NOT_FOUND_PAGE = gql(`
 query getNotFoundPage($locale: I18NLocaleCode){
   notFoundPage(locale: $locale) {
