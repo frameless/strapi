@@ -1,5 +1,6 @@
 import acceptLanguage from 'accept-language';
 import { NextRequest, NextResponse } from 'next/server';
+import { createOpenFormsApiUrl } from '@/util/openFormsSettings';
 import { fallbackLng, languages } from './app/i18n/settings';
 
 acceptLanguage.languages(languages);
@@ -10,11 +11,15 @@ export const config = {
 
 const cookieName = 'i18next';
 
+const getOpenFormsHostname = () => {
+  return createOpenFormsApiUrl()?.host || '';
+};
+
 const cspDevelopmentHeader = () =>
   `default-src 'self';
     script-src 'self' siteimproveanalytics.com localhost:8000 'unsafe-inline' 'unsafe-eval';
     style-src 'self' localhost:8000 'unsafe-inline';
-    connect-src 'self' localhost:8000;
+    connect-src 'self' ${getOpenFormsHost()};
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';
@@ -26,7 +31,7 @@ const cspProductionheader = (nonce: string) =>
   `default-src 'self';
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
     style-src 'self' 'nonce-${nonce}';
-    connect-src 'self' localhost:8000;
+    connect-src 'self' ${getOpenFormsHost()};
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';

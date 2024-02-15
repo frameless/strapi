@@ -3,14 +3,20 @@
 import '@open-formulieren/sdk/styles.css';
 import Script from 'next/script';
 import React, { useRef } from 'react';
+import { createOpenFormsApiUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
+import { createOpenFormsCssUrl } from '@/util/openFormsSettings';
+import css from 'styled-jsx/css';
 
 export type OpenFormsEmbedProps = {
   nonce: string;
   basePath: string;
   slug: string;
+  apiUrl: string;
+  sdkUrl: string;
+  cssUrl: string;
 };
 
-export const OpenFormsEmbed = ({ nonce, basePath, slug }: OpenFormsEmbedProps) => {
+export const OpenFormsEmbed = ({ nonce, basePath, slug, apiUrl, sdkUrl, cssUrl }: OpenFormsEmbedProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const onLoadOpenForms = () => {
@@ -25,19 +31,9 @@ export const OpenFormsEmbed = ({ nonce, basePath, slug }: OpenFormsEmbedProps) =
 
   return (
     <div>
-      <div
-        ref={containerRef}
-        data-base-url="http://localhost:8000/api/v2/"
-        data-form-id={slug}
-        data-base-path={basePath}
-      ></div>
-      <link rel="stylesheet" nonce={nonce} href="http://localhost:8000/static/sdk/open-forms-sdk.css" />
-      <Script
-        nonce={nonce}
-        strategy={'afterInteractive'}
-        src="http://localhost:8000/static/sdk/open-forms-sdk.js"
-        onLoad={onLoadOpenForms}
-      />
+      <div ref={containerRef} data-base-url={apiUrl} data-form-id={slug} data-base-path={basePath}></div>
+      <link rel="stylesheet" nonce={nonce} href={cssUrl} />
+      <Script nonce={nonce} strategy={'afterInteractive'} src={sdkUrl} onLoad={onLoadOpenForms} />
     </div>
   );
 };
