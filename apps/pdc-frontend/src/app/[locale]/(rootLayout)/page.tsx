@@ -20,8 +20,8 @@ import {
   CheckAlphabeticallyProductsAvailabilityQuery,
   ComponentComponentsUtrechtTopTasks,
   GetPdcHomePageQuery,
-} from '../../../gql/graphql';
-import { useTranslation } from '../i18n';
+} from '../../../../gql/graphql';
+import { useTranslation } from '../../i18n';
 
 export interface Fields {
   title: string;

@@ -13,7 +13,7 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { useTranslation } from '../../../i18n/index';
+import { useTranslation } from '../../../../i18n/index';
 
 type ParamsType = {
   locale: string;

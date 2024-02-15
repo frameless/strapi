@@ -269,7 +269,7 @@ query getNotFoundPage($locale: I18NLocaleCode){
 }
 `);
 
-export const GET_TAMPLATE = gql(`
+export const GET_TEMPLATE = gql(`
 query getTemplateData($locale: I18NLocaleCode, $pageMode: PublicationState) {
   pdcTemplate(publicationState: $pageMode, locale: $locale) {
     data {
@@ -308,6 +308,45 @@ query getTemplateData($locale: I18NLocaleCode, $pageMode: PublicationState) {
                 icon
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+`);
+
+export const GET_OPEN_FORMS_TEMPLATE = gql(`
+query getOpenFormsTemplateData($locale: I18NLocaleCode, $pageMode: PublicationState) {
+  pdcTemplate(publicationState: $pageMode, locale: $locale) {
+    data {
+      attributes {
+        sections {
+          ... on ComponentComponentsUtrechtNavigation {
+            __typename
+            navigationList {
+              id
+              textContent
+              href
+            }
+          }
+          ... on ComponentComponentsUtrechtFooter {
+            __typename
+            title
+            list {
+              id
+              listItem {
+                id
+                title
+                link {
+                  id
+                  textContent
+                  href
+                }
+              }
+            }
+            address
           }
         }
       }

@@ -27,7 +27,7 @@ import { GET_PRODUCT_BY_SLUG } from '@/query';
 import { getImageBaseUrl } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../gql/graphql';
+import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
 
 const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();
