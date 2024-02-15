@@ -11,13 +11,13 @@ export const config = {
 
 const cookieName = 'i18next';
 
-const getOpenFormsHostname = () => {
+const getOpenFormsHost = () => {
   return createOpenFormsApiUrl()?.host || '';
 };
 
 const cspDevelopmentHeader = () =>
   `default-src 'self';
-    script-src 'self' siteimproveanalytics.com localhost:8000 'unsafe-inline' 'unsafe-eval';
+    script-src 'self' siteimproveanalytics.com ${getOpenFormsHost()}'unsafe-inline' 'unsafe-eval';
     style-src 'self' localhost:8000 'unsafe-inline';
     connect-src 'self' ${getOpenFormsHost()};
     img-src 'self' blob: data:;
