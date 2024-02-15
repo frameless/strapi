@@ -3,9 +3,6 @@
 import '@open-formulieren/sdk/styles.css';
 import Script from 'next/script';
 import React, { useRef } from 'react';
-import { createOpenFormsApiUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
-import { createOpenFormsCssUrl } from '@/util/openFormsSettings';
-import css from 'styled-jsx/css';
 
 export type OpenFormsEmbedProps = {
   nonce: string;
