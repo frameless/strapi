@@ -1,6 +1,6 @@
 import { draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { GET_PRODUCT_BY_SLUG_AND_LOCALE } from '@/query';
+import { GET_FROM_BY_SLUG, GET_PRODUCT_BY_SLUG_AND_LOCALE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
@@ -26,6 +26,11 @@ export async function GET(request: Request) {
         return {
           path: `/${locale}/${type}/${slug}`,
           query: GET_PRODUCT_BY_SLUG_AND_LOCALE,
+        };
+      case 'form':
+        return {
+          path: `/${locale}/${type}/${slug}`,
+          query: GET_FROM_BY_SLUG,
         };
       default:
         return {};
