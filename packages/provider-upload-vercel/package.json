@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@vercel/blob": "0.12.5",
-    "into-stream": "8.0.1"
+    "into-stream": "8.0.1",
+    "typescript": "5.3.3"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "25.0.7",
