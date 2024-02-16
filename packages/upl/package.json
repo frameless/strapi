@@ -30,7 +30,7 @@
     "axios-retry": "3.5.1"
   },
   "devDependencies": {
-    "@types/uuid": "9.0.7",
+    "@types/uuid": "9.0.8",
     "rimraf": "5.0.5",
     "uuid": "9.0.1"
   }
