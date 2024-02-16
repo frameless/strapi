@@ -41,20 +41,6 @@ import { languages } from '../../i18n/settings';
 import '@frameless/ui/dist/bundle.css';
 import '../../../styles/globals.css';
 
-const escapeComment = (data: any) => String(data).replace(/--/g, '-\u200B-');
-
-const HTMLComment = ({ data }: any) => (
-  <noscript dangerouslySetInnerHTML={{ __html: `<!--${escapeComment(data)}-->` }} />
-);
-
-export const SearchIndexContent: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
-  <>
-    <HTMLComment data="TYPO3SEARCH_begin" />
-    {children}
-    <HTMLComment data="TYPO3SEARCH_end" />
-  </>
-);
-
 interface LayoutProps {
   children: React.ReactNode;
   params: {

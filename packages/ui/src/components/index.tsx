@@ -7,6 +7,7 @@ export { NavigationList } from './Navigation/NavigationList';
 export { PreviewAlert } from './PreviewAlert';
 export { ProductListItem, ProductListPaginationInfo, ProductsList } from './ProductList';
 export { ScrollToTopButton } from './ScrollToTopButton';
+export { SearchIndexContent } from './SearchIndexContent';
 export * from './AdvancedLink';
 export * from './Footer';
 export * from './Grid';
