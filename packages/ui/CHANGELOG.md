@@ -1,3 +1,10 @@
+# @frameless/ui [2.11.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.10.1...@frameless/ui@2.11.0) (2024-02-16)
+
+
+### Features
+
+* **ui:** move SearchIndexContent to ui ([2bb2ee6](https://github.com/frameless/strapi/commit/2bb2ee6e0896e53ed3e1da2c66dc1c4389e6d144))
+
 ## @frameless/ui [2.10.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.10.0...@frameless/ui@2.10.1) (2024-02-14)
 
 
