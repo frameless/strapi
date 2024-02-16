@@ -9,14 +9,14 @@
     "name": {
       "type": "string",
       "private": true,
-      "required": true,
-      "unique": true
+      "required": false,
+      "unique": false
     },
     "email": {
       "type": "email",
       "private": true,
-      "unique": true,
-      "required": true
+      "unique": false,
+      "required": false
     }
   }
 }
