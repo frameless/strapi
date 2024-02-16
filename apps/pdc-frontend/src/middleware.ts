@@ -15,35 +15,32 @@ const getOpenFormsHost = () => {
   return createOpenFormsApiUrl()?.host || '';
 };
 
-const cspDevelopmentHeader = () =>
-  `default-src 'self';
-    script-src 'self' siteimproveanalytics.com ${getOpenFormsHost()} 'unsafe-inline' 'unsafe-eval';
-    style-src 'self' localhost:8000 'unsafe-inline';
-    connect-src 'self' ${getOpenFormsHost()};
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;`;
-const cspProductionheader = (nonce: string) =>
-  `default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
-    style-src 'self' 'nonce-${nonce}';
-    connect-src 'self' ${getOpenFormsHost()};
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;`;
+const baseCSP = `
+  default-src 'self';
+  connect-src 'self' ${getOpenFormsHost()};
+  img-src 'self' blob: data:;
+  font-src 'self';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'none';
+  block-all-mixed-content;`;
+
+const cspDevelopmentHeader = () => `
+  ${baseCSP}
+  script-src 'self' siteimproveanalytics.com ${getOpenFormsHost()} 'unsafe-inline' 'unsafe-eval';
+  style-src 'self' localhost:8000 'unsafe-inline';`;
+
+const cspProductionHeader = (nonce: string) => `
+  ${baseCSP}
+  script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
+  style-src 'self' 'nonce-${nonce}';
+`;
 
 export function middleware(req: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
 
-  const cspHeaderRaw = process.env.NODE_ENV === 'production' ? cspProductionheader(nonce) : cspDevelopmentHeader();
+  const cspHeaderRaw = process.env.NODE_ENV === 'production' ? cspProductionHeader(nonce) : cspDevelopmentHeader();
   const cspHeader = cspHeaderRaw.replace(/\s{2,}/g, ' ').trim();
 
   const requestHeaders = new Headers(req.headers);
