@@ -2,7 +2,6 @@
   "name": "@frameless/upl",
   "version": "0.0.0-semantically-released",
   "sideEffects": true,
-  "private": false,
   "main": "./dist/build/main.js",
   "keywords": [],
   "author": "@frameless",

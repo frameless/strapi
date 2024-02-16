@@ -3,7 +3,6 @@
   "version": "0.0.0-semantically-released",
   "description": "A strapi custom field for selecting scheme",
   "keywords": [],
-  "private": false,
   "strapi": {
     "name": "scheme-select",
     "description": "Scheme Select custom field",

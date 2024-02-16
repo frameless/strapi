@@ -3,7 +3,6 @@
   "version": "0.0.0-semantically-released",
   "description": "A strapi custom field for selecting uniform product name",
   "keywords": [],
-  "private": false,
   "strapi": {
     "name": "uniform-product-name",
     "description": "Select uniform product name custom field",
@@ -28,9 +27,9 @@
     "node": "20.x.x"
   },
   "dependencies": {
+    "@frameless/upl": "0.0.0-semantically-released",
     "@strapi/design-system": "1.12.2",
-    "@strapi/icons": "1.12.2",
-    "@frameless/upl": "0.0.0-semantically-released"
+    "@strapi/icons": "1.12.2"
   },
   "scripts": {
     "develop": "tsc -p tsconfig.server.json -w",

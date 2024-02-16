@@ -1,7 +1,6 @@
 {
   "name": "@frameless/samenwerkende-catalogi",
   "version": "0.0.0-semantically-released",
-  "private": false,
   "sideEffects": true,
   "author": "@frameless",
   "description": "A Nodejs application that generate the samenwerkende-catalogi XML",
@@ -22,8 +21,8 @@
   },
   "dependencies": {
     "@frameless/catalogi-data": "0.0.0-semantically-released",
-    "xmlbuilder2": "3.0.2",
-    "@frameless/upl": "0.0.0-semantically-released"
+    "@frameless/upl": "0.0.0-semantically-released",
+    "xmlbuilder2": "3.0.2"
   },
   "scripts": {
     "prebuild": "yarn clean",
