@@ -22,7 +22,7 @@
       "repeatable": true,
       "component": "components.contact",
       "private": true,
-      "required": true
+      "required": false
     },
     "identificationMethod": {
       "type": "component",
