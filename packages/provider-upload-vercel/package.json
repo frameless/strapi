@@ -41,7 +41,7 @@
     "@types/fs-extra": "11.0.4",
     "rollup": "3.29.4",
     "rollup-plugin-peer-deps-external": "2.2.4",
-    "rollup-plugin-typescript2": "0.35.0"
+    "rollup-plugin-typescript2": "0.36.0"
   },
   "engines": {
     "node": "20.x.x"
