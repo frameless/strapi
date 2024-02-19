@@ -1,0 +1,4 @@
+{
+  "open-forms-embed.label": "Choose an Embedded Open Form",
+  "open-forms-embed.description": "Upon selecting a form, its unique identifier (UUID) will be stored in the database for future reference."
+}

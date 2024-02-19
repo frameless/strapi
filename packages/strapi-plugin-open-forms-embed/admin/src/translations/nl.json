@@ -1,0 +1,4 @@
+{
+  "open-forms-embed.label": "Kies een ingebed open formulier",
+  "open-forms-embed.description": "Bij het selecteren van een formulier wordt de unieke identificatie (UUID) ervan opgeslagen in de database voor toekomstige referentie."
+}
