@@ -2646,10 +2646,10 @@ __metadata:
     better-sqlite3: "npm:8.3.0"
     node-sass: "npm:8.0.0"
     pg: "npm:8.11.3"
-    react: "npm:^17.0.0 || ^18.0.0"
-    react-dom: "npm:^17.0.0 || ^18.0.0"
+    react: "npm:18.0.0"
+    react-dom: "npm:18.0.0"
     react-is: "npm:18.2.0"
-    react-router-dom: "npm:^5.2.0"
+    react-router-dom: "npm:5.2.0"
     sass-loader: "npm:13.2.2"
     scss: "npm:0.2.4"
     slugify: "npm:1.6.6"
@@ -2707,10 +2707,10 @@ __metadata:
     better-sqlite3: "npm:8.3.0"
     node-sass: "npm:8.0.0"
     pg: "npm:8.11.3"
-    react: "npm:^17.0.0 || ^18.0.0"
-    react-dom: "npm:^17.0.0 || ^18.0.0"
+    react: "npm:18.0.0"
+    react-dom: "npm:18.0.0"
     react-is: "npm:18.2.0"
-    react-router-dom: "npm:^5.2.0"
+    react-router-dom: "npm:5.2.0"
     sass-loader: "npm:13.2.2"
     scss: "npm:0.2.4"
     slugify: "npm:1.6.6"
@@ -2751,11 +2751,11 @@ __metadata:
     next: "npm:13.5.6"
     next-sitemap: "npm:4.1.8"
     prop-types: "npm:15.8.1"
-    react: "npm:^17.0.0 || ^18.0.0"
-    react-dom: "npm:^17.0.0 || ^18.0.0"
+    react: "npm:18.0.0"
+    react-dom: "npm:18.0.0"
     react-i18next: "npm:12.3.1"
     react-loading-skeleton: "npm:3.3.1"
-    react-router-dom: "npm:^5.2.0"
+    react-router-dom: "npm:5.2.0"
     sass: "npm:1.63.6"
     sharp: "npm:0.32.6"
     wait-on: "npm:7.2.0"
@@ -2899,8 +2899,11 @@ __metadata:
     "@utrecht/component-library-react": "npm:3.0.1-alpha.18"
     "@utrecht/design-tokens": "npm:1.0.0-alpha.631"
     classnames: "npm:2.3.3"
-    react: "npm:^17.0.0 || ^18.0.0"
-    react-dom: "npm:^17.0.0 || ^18.0.0"
+    i: "npm:0.3.7"
+    npm: "npm:10.4.0"
+    react: "npm:18.0.0"
+    react-cool-inview: "npm:3.0.1"
+    react-dom: "npm:18.0.0"
     react-icons: "npm:4.8.0"
     react-is: "npm:18.2.0"
     react-router-dom: "npm:5.3.4"
@@ -2973,10 +2976,10 @@ __metadata:
     better-sqlite3: "npm:8.3.0"
     node-sass: "npm:8.0.0"
     pg: "npm:8.11.3"
-    react: "npm:^17.0.0 || ^18.0.0"
-    react-dom: "npm:^17.0.0 || ^18.0.0"
+    react: "npm:18.0.0"
+    react-dom: "npm:18.0.0"
     react-is: "npm:18.2.0"
-    react-router-dom: "npm:^5.2.0"
+    react-router-dom: "npm:5.2.0"
     sass-loader: "npm:13.2.2"
     scss: "npm:0.2.4"
     slugify: "npm:1.6.6"
@@ -19191,6 +19194,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"i@npm:0.3.7":
+  version: 0.3.7
+  resolution: "i@npm:0.3.7"
+  checksum: 10c0/fc591b64987c5fcc96aadf9136d8d58b937abb90e9cd840160b9c99a32140ed8a30a94ee1ab7d9a45170ec4d3f872dda9d15afeb1083f689873da6197c25efc7
+  languageName: node
+  linkType: hard
+
 "ibantools@npm:^3.3.0":
   version: 3.3.1
   resolution: "ibantools@npm:3.3.1"
@@ -23540,6 +23550,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mini-create-react-context@npm:^0.4.0":
+  version: 0.4.1
+  resolution: "mini-create-react-context@npm:0.4.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.12.1"
+    tiny-warning: "npm:^1.0.3"
+  peerDependencies:
+    prop-types: ^15.0.0
+    react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 10c0/80b8daa8fa6092293547984537c8193093e32d0025d387d8d21b6a2807bbf6f209bceef97eb61c518be9c4f7dfcd077584d1c8dbcd828a0e96b80273a5bad148
+  languageName: node
+  linkType: hard
+
 "mini-css-extract-plugin@npm:2.7.2":
   version: 2.7.2
   resolution: "mini-css-extract-plugin@npm:2.7.2"
@@ -25029,7 +25052,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm@npm:^10.0.0":
+"npm@npm:10.4.0, npm@npm:^10.0.0":
   version: 10.4.0
   resolution: "npm@npm:10.4.0"
   dependencies:
@@ -27857,6 +27880,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-cool-inview@npm:3.0.1":
+  version: 3.0.1
+  resolution: "react-cool-inview@npm:3.0.1"
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: 10c0/626012feef5a6f5f36d1f220e512718989e8308d7cc851e6267e9454918aa0a8ae9b32a5545d6d2ce51ce1da205227e72625a3a57753c0e73bee5b2eae273f5f
+  languageName: node
+  linkType: hard
+
 "react-diff-viewer-continued@npm:3.2.6":
   version: 3.2.6
   resolution: "react-diff-viewer-continued@npm:3.2.6"
@@ -27941,7 +27973,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0, react-dom@npm:^17.0.0 || ^18.0.0, react-dom@npm:^18.2.0":
+"react-dom@npm:18.0.0":
+  version: 18.0.0
+  resolution: "react-dom@npm:18.0.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+    scheduler: "npm:^0.21.0"
+  peerDependencies:
+    react: ^18.0.0
+  checksum: 10c0/78aa393ab4ae35f7266ba5cd761ebd35cab8375f63051bda2bb97a27be2622dbd661b24b32b8e55f9365aa027e732251e7d0d754c755f8efb6bd38a72ba03df8
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:18.2.0, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -28293,7 +28337,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:5.3.4, react-router-dom@npm:^5.2.0":
+"react-router-dom@npm:5.2.0":
+  version: 5.2.0
+  resolution: "react-router-dom@npm:5.2.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.1.2"
+    history: "npm:^4.9.0"
+    loose-envify: "npm:^1.3.1"
+    prop-types: "npm:^15.6.2"
+    react-router: "npm:5.2.0"
+    tiny-invariant: "npm:^1.0.2"
+    tiny-warning: "npm:^1.0.0"
+  peerDependencies:
+    react: ">=15"
+  checksum: 10c0/1f6c139174fbbf5d91ae622a7684f5a1794d4008b5fabd034a996572fe3be3d205822b06e7112fe179509977f5d01b9d5b0b650da6fa267c43d4a052bbf35556
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:5.3.4":
   version: 5.3.4
   resolution: "react-router-dom@npm:5.3.4"
   dependencies:
@@ -28320,6 +28381,26 @@ __metadata:
     react: ">=16.8"
     react-dom: ">=16.8"
   checksum: 10c0/f1c338d6a37ee331f141d683a9139bc397128f6c15ef796589894ba29de1101eeeab7c4bf26429632c86bbca7376a9d900a6bfbd351ac5c9e1e231ac1b05fe5d
+  languageName: node
+  linkType: hard
+
+"react-router@npm:5.2.0":
+  version: 5.2.0
+  resolution: "react-router@npm:5.2.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.1.2"
+    history: "npm:^4.9.0"
+    hoist-non-react-statics: "npm:^3.1.0"
+    loose-envify: "npm:^1.3.1"
+    mini-create-react-context: "npm:^0.4.0"
+    path-to-regexp: "npm:^1.7.0"
+    prop-types: "npm:^15.6.2"
+    react-is: "npm:^16.6.0"
+    tiny-invariant: "npm:^1.0.2"
+    tiny-warning: "npm:^1.0.0"
+  peerDependencies:
+    react: ">=15"
+  checksum: 10c0/3225ca136f0e95a972d3698f05d83e48733b0ea1248b28e1051727cf12e7e13700ee638141a076ebad4dea2b9e915f65aac097d33da785d64e8a08f23cdd34e9
   languageName: node
   linkType: hard
 
@@ -28496,7 +28577,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0, react@npm:^17.0.0 || ^18.0.0, react@npm:^18.2.0":
+"react@npm:18.0.0":
+  version: 18.0.0
+  resolution: "react@npm:18.0.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 10c0/cf55bc7b4315f54321d04cb0b69241c4973a5182d679551b3e6c3f57b312a4fdeac05038ca9502d48ea4d040d7550b0b7f07b3872a19589a5995ee899cc19d2b
+  languageName: node
+  linkType: hard
+
+"react@npm:18.2.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -29720,6 +29810,15 @@ __metadata:
   dependencies:
     xmlchars: "npm:^2.2.0"
   checksum: 10c0/3847b839f060ef3476eb8623d099aa502ad658f5c40fd60c105ebce86d244389b0d76fcae30f4d0c728d7705ceb2f7e9b34bb54717b6a7dbedaf5dad2d9a4b74
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.21.0":
+  version: 0.21.0
+  resolution: "scheduler@npm:0.21.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 10c0/083a9a0c83f4923f7f5bb28d8bcf13cff42c90f4303bc187166520fcfc576c97e946d426c707d5a9c0aa0a655819605dd0c741467c626824bbf191251c126f1b
   languageName: node
   linkType: hard
 
