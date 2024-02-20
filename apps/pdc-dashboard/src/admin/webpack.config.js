@@ -21,5 +21,12 @@ module.exports = (config) => {
       },
     ],
   });
+  // Make it possible to configure the watch server, particularly when using `strapi develop --watch-admin`.
+  // This is essential, especially considering that the openForms server is using port 8000.
+  config.devServer = {
+    ...config.devServer,
+    port: process.env.WATCH_PORT || 4000,
+  };
+
   return config;
 };
