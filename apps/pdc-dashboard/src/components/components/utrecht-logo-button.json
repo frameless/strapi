@@ -11,11 +11,11 @@
     },
     "href": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "textContent": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "logo": {
       "type": "enumeration",
@@ -26,6 +26,10 @@
       "type": "enumeration",
       "enum": ["primary-action-button", "secondary-action-button", "magenta"],
       "default": "primary-action-button"
+    },
+    "openFormsEmbed": {
+      "type": "customField",
+      "customField": "plugin::open-forms-embed.open-forms-embed"
     }
   }
 }
