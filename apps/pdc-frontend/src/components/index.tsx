@@ -13,3 +13,11 @@ export const Breadcrumbs = dynamic(
   },
   { ssr: false },
 );
+
+export const MultiColumnsButton = dynamic(
+  async () => {
+    const Component = (await import('@frameless/ui')).MultiColumnsButton;
+    return { default: Component };
+  },
+  { ssr: false },
+);
