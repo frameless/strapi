@@ -132,18 +132,6 @@ export const GET_PRODUCT_BY_SLUG = gql(`
               }
             }
           }
-          ... on ComponentComponentsOpenFormsEmbed {
-            __typename
-            form {
-              data {
-                attributes {
-                  title
-                  slug
-                  form_id
-                }
-              }
-            }
-          }
           ... on ComponentComponentsUtrechtLogoButton {
             __typename
             appearance
