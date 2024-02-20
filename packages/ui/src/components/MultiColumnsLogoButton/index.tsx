@@ -24,18 +24,36 @@ export const MultiColumnsButton = ({ columns }: MultiColumnsButtonProps) => (
           <Heading level={3}>{title}</Heading>
           {logoButton &&
             logoButton.length > 0 &&
-            logoButton.map((item: any, index: number) => (
-              <LogoButton
-                headingLevel={title ? 4 : 3}
-                key={index}
-                href={item.href}
-                appearance={kebabCase(item.appearance)}
-                label={item.label}
-                logo={item.logo}
-              >
-                {item.textContent}
-              </LogoButton>
-            ))}
+            logoButton.map((item: any, index: number) => {
+              if (item.openFormsEmbed) {
+                const parsOpenFormsEmbedData = new URLSearchParams(item.openFormsEmbed);
+                const slug = parsOpenFormsEmbedData.get('slug');
+                const uuid = parsOpenFormsEmbedData.get('uuid');
+                const label = parsOpenFormsEmbedData.get('label');
+                return (
+                  <LogoButton
+                    key={uuid}
+                    appearance={item?.appearance as string}
+                    logo={item.logo}
+                    href={`/form/${slug}`}
+                  >
+                    {label}
+                  </LogoButton>
+                );
+              }
+              return (
+                <LogoButton
+                  headingLevel={title ? 4 : 3}
+                  key={index}
+                  href={item.href}
+                  appearance={kebabCase(item.appearance)}
+                  label={item.label}
+                  logo={item.logo}
+                >
+                  {item.textContent}
+                </LogoButton>
+              );
+            })}
         </GridCell>
       ))}
   </Grid>
