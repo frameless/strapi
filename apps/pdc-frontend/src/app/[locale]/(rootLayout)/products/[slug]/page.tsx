@@ -106,6 +106,22 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                 )
               );
             case 'ComponentComponentsUtrechtLogoButton':
+              if (component.openFormsEmbed) {
+                const parsOpenFormsEmbedData = new URLSearchParams(component.openFormsEmbed);
+                const slug = parsOpenFormsEmbedData.get('slug');
+                const uuid = parsOpenFormsEmbedData.get('uuid');
+                const label = parsOpenFormsEmbedData.get('label');
+                return (
+                  <LogoButton
+                    key={uuid}
+                    appearance={component?.appearance as string}
+                    logo={component.logo}
+                    href={`/form/${slug}`}
+                  >
+                    {label}
+                  </LogoButton>
+                );
+              }
               if (component && component.href && component.textContent) {
                 return (
                   <LogoButton

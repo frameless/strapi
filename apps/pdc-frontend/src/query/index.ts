@@ -146,11 +146,12 @@ export const GET_PRODUCT_BY_SLUG = gql(`
           }
           ... on ComponentComponentsUtrechtLogoButton {
             __typename
-            label
-            href
-            textContent
             appearance
+            href
+            label
             logo
+            openFormsEmbed
+            textContent
           }
           ... on ComponentComponentsUtrechtSpotlight {
             __typename
@@ -177,11 +178,12 @@ export const GET_PRODUCT_BY_SLUG = gql(`
               title
               logoButton {
                 __typename
-                label
-                href
-                textContent
-                logo
                 appearance
+                href
+                label
+                logo
+                openFormsEmbed
+                textContent
               }
             }
           }
