@@ -237,19 +237,6 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                   </AdvancedLink>
                 )
               );
-            case 'ComponentComponentsOpenFormsEmbed':
-              return (
-                component?.form?.data?.attributes?.slug && (
-                  <LogoButton
-                    logo="without_logo"
-                    appearance="primary-action-button"
-                    key={component?.form?.data?.attributes?.slug}
-                    href={`/${locale}/form/${component?.form?.data?.attributes?.slug}`}
-                  >
-                    Ga naar formulier
-                  </LogoButton>
-                )
-              );
             default:
               return <></>;
           }
