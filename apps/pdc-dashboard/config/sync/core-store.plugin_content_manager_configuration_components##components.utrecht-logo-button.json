@@ -7,7 +7,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "textContent",
+      "mainField": "label",
       "defaultSortBy": "label",
       "defaultSortOrder": "ASC"
     },
@@ -89,6 +89,20 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "openFormsEmbed": {
+        "edit": {
+          "label": "Open Forms Embed",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "openFormsEmbed",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
@@ -117,6 +131,10 @@
         [
           {
             "name": "appearance",
+            "size": 6
+          },
+          {
+            "name": "openFormsEmbed",
             "size": 6
           }
         ]

@@ -4,12 +4,6 @@
   "type": "public",
   "permissions": [
     {
-      "action": "api::form.form.find"
-    },
-    {
-      "action": "api::form.form.findOne"
-    },
-    {
       "action": "api::kb-category.kb-category.find"
     },
     {

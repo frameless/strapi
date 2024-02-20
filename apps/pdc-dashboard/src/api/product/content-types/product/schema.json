@@ -50,8 +50,7 @@
         "components.utrecht-multi-columns-button",
         "components.utrecht-accordion",
         "components.utrecht-image",
-        "components.utrecht-link",
-        "components.open-forms-embed"
+        "components.utrecht-link"
       ],
       "required": false
     },
