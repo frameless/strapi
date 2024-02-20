@@ -9,11 +9,11 @@
   "attributes": {
     "textContent": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "href": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "icon": {
       "type": "enumeration",

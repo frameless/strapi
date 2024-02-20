@@ -46,6 +46,13 @@ export default ({ env }) => ({
       token: env('PREVIEW_SECRET_TOKEN'),
     },
   },
+  'open-forms-embed': {
+    enabled: true,
+    config: {
+      api_url: env('OPEN_FORMS_API_URL'),
+      token: env('OPEN_FORMS_API_TOKEN'),
+    },
+  },
   upload: {
     config: {
       providerOptions: {
