@@ -73,43 +73,36 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   };
 
   return (
-    <div style={{ position: 'relative' }}>
-      <form
-        action={(formData) => onSearchSubmit(formData, locale)}
-        className="utrecht-search-bar"
-        role="search"
-        aria-label="zoeken in utrecht.nl"
-      >
-        <UtrechtSearchBar
-          button={{
-            label: submitButtonText,
-          }}
-          onStateChange={handleStateChange}
-          onChange={onChange}
-          items={optimisticSearchValue.value}
-          input={{
-            id: 'search-input',
-            ariaLabel: inputAriaLabel,
-            name: 'search',
-            required: true,
-          }}
-          itemToString={itemToString}
-          renderOptions={(option) => {
-            if (option.type === 'page') {
-              return <UtrechtLink external href={option.url} dangerouslySetInnerHTML={{ __html: option.title }} />;
-            }
-            return (
-              option?.text && (
-                <Link
-                  className={classNames('utrecht-link', 'utrecht-link--external')}
-                  href={`/search/${option?.text}`}
-                  dangerouslySetInnerHTML={{ __html: option?.text }}
-                />
-              )
-            );
-          }}
-        />
-      </form>
-    </div>
+    <form action={(formData) => onSearchSubmit(formData, locale)} role="search" aria-label="zoeken in utrecht.nl">
+      <UtrechtSearchBar
+        button={{
+          label: submitButtonText,
+        }}
+        onStateChange={handleStateChange}
+        onChange={onChange}
+        items={optimisticSearchValue.value}
+        input={{
+          id: 'search-input',
+          ariaLabel: inputAriaLabel,
+          name: 'search',
+          required: true,
+        }}
+        itemToString={itemToString}
+        renderOptions={(option) => {
+          if (option.type === 'page') {
+            return <UtrechtLink external href={option.url} dangerouslySetInnerHTML={{ __html: option.title }} />;
+          }
+          return (
+            option?.text && (
+              <Link
+                className={classNames('utrecht-link', 'utrecht-link--external')}
+                href={`/search/${option?.text}`}
+                dangerouslySetInnerHTML={{ __html: option?.text }}
+              />
+            )
+          );
+        }}
+      />
+    </form>
   );
 };

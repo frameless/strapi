@@ -86,12 +86,7 @@ interface SearchBarDropdownProps {
 }
 
 export const SearchBarDropdown: React.FC<SearchBarDropdownProps> = ({ children }) => (
-  <div
-    className={clsx('utrecht-search-bar__dropdown')}
-    style={{ backgroundColor: '#fff' }} // TODO add this css property from the design system
-  >
-    {children}
-  </div>
+  <div className={clsx('utrecht-search-bar__dropdown')}>{children}</div>
 );
 
 interface SearchBarSectionProps {
