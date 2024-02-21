@@ -134,6 +134,14 @@ a {
 .utrecht-search-bar-wrapper {
   padding-inline-end: var(--utrecht-search-bar-wrapper-padding-inline-end, 16px);
   padding-inline-start: var(--utrecht-search-bar-wrapper-padding-inline-start, 16px);
+  & form {
+    position: relative;
+  }
+
+  & .utrecht-search-bar__dropdown {
+    /* TODO: This CSS property should be add to the design system package */
+    background-color: var(--utrecht-color-white);
+  }
 }
 
 .utrecht-custom-header {
