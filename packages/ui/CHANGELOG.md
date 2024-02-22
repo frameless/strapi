@@ -1,3 +1,10 @@
+# @frameless/ui [2.12.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.11.0...@frameless/ui@2.12.0) (2024-02-22)
+
+
+### Features
+
+* **ui:** integrate openFormsEmbed data into MultiColumnsLogoButton ([1c77a04](https://github.com/frameless/strapi/commit/1c77a043a21a82b60da6720454484ea2f2560ff6))
+
 # @frameless/ui [2.11.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.10.1...@frameless/ui@2.11.0) (2024-02-16)
 
 
