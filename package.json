@@ -55,7 +55,11 @@
     "release": "multi-semantic-release --ignore-packages='apps/*/**'",
     "lint-fix:md": "markdownlint --fix '**/*.md'",
     "prettier": "prettier --list-different --write .",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "test-update": "yarn lint && yarn build && yarn test",
+    "update-major": "npm-check-updates --configFileName .ncurc.major.js",
+    "update-minor": "npm-check-updates --configFileName .ncurc.minor.js",
+    "update-patch": "npm-check-updates --configFileName .ncurc.patch.js"
   },
   "author": "",
   "license": "",
@@ -95,6 +99,7 @@
     "stylelint-config-prettier": "9.0.5",
     "stylelint-config-standard-scss": "10.0.0",
     "stylelint-order": "6.0.4",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "npm-check-updates": "16.14.15"
   }
 }
