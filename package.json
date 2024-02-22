@@ -34,7 +34,7 @@
     "build:both": "npm run build --workspace @frameless/${APP1} && npm run build --workspace @frameless/${APP2}",
     "dev:frontend": "npm run dev -w @frameless/${APP}",
     "dev:strapi": "npm run dev -w @frameless/${APP}",
-    "dev:both": "concurrently \"npm run dev -w @frameless/${APP1}\" \"npm run dev -w @frameless/${APP2}\"",
+    "dev:both": "concurrently \"npm run dev -w @frameless/${APP1}\" \"npm run codegen -w @frameless/${APP2} --if-present && npm run dev -w @frameless/${APP2}\"",
     "development": "node scripts/start.js",
     "start:frontend": "npm run start -w @frameless/${APP}",
     "start:strapi": "npm run start -w @frameless/${APP}",
