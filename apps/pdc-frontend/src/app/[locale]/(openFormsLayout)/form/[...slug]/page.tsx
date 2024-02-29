@@ -9,11 +9,16 @@ import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } f
 type FormPageProps = {
   params: {
     locale: string;
-    slug: string;
+    slug: [formId: string, formStep: string];
   };
 };
 
-const FormPage = async ({ params: { locale, slug } }: FormPageProps) => {
+const FormPage = async ({
+  params: {
+    locale,
+    slug: [formId],
+  },
+}: FormPageProps) => {
   const { t } = await useTranslation(locale, 'common');
   const nonce = headers().get('x-nonce') || '';
 
@@ -44,8 +49,8 @@ const FormPage = async ({ params: { locale, slug } }: FormPageProps) => {
         sdkUrl={createOpenFormsSdkUrl()?.href || ''}
         cssUrl={createOpenFormsCssUrl()?.href || ''}
         nonce={nonce}
-        basePath={`/${locale}/form/${slug}/`}
-        slug={slug}
+        basePath={`/${locale}/form/${formId}/`}
+        slug={formId}
       />
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
