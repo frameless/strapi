@@ -1,7 +1,7 @@
 import { Combobox, ComboboxOption } from '@strapi/design-system/Combobox';
 import { Field, FieldError, FieldHint, FieldLabel } from '@strapi/design-system/Field';
 import { Stack } from '@strapi/design-system/Stack';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import usePluginConfig from '../../hooks/use-plugin-config';
 
@@ -34,11 +34,13 @@ function CustomCombobox({
   error,
 }: CustomComboboxProps) {
   const { formatMessage } = useIntl();
-  const [openForms, setOpenForms] = React.useState([]);
-  const { config } = usePluginConfig();
-  const apiUrl = config.api_url?.endsWith('/') ? `${config.api_url}forms` : `${config.api_url}/forms`;
+  const [openForms, setOpenForms] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
+  const { config } = usePluginConfig();
+  const apiUrl = config?.api_url?.endsWith('/') ? `${config?.api_url}forms` : `${config?.api_url}/forms`;
   const fetchAllOpenForms = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(apiUrl, {
         mode: 'cors',
@@ -50,9 +52,11 @@ function CustomCombobox({
       });
       const data = await response.json();
       setOpenForms(data);
+      setIsLoading(false);
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.log(error);
+      console.error(error);
+      setIsLoading(false);
     }
   };
 
@@ -65,6 +69,7 @@ function CustomCombobox({
   const generateOpenFormsData = (params) => {
     return new URLSearchParams({ ...params }).toString();
   };
+
   return (
     <Field name={name} id={name} error={error} hint={description && formatMessage(description)}>
       <Stack spacing={1}>
@@ -78,6 +83,7 @@ function CustomCombobox({
           disabled={disabled}
           value={value}
           onChange={(url: string) => onChange({ target: { name, value: url, type: attribute.type } })}
+          loading={isLoading}
         >
           {openForms?.length > 0 &&
             openForms?.map(({ uuid, name, slug }) => (
