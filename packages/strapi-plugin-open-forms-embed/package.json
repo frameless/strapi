@@ -3,7 +3,6 @@
   "version": "0.0.0-semantically-released",
   "description": "A strapi custom field for selecting uniform product name",
   "keywords": [],
-  "private": false,
   "strapi": {
     "name": "open-forms-embed",
     "description": "Select uniform product name custom field",
@@ -34,5 +33,8 @@
   "scripts": {
     "develop": "tsc -p tsconfig.server.json -w",
     "build": "tsc -p tsconfig.server.json"
+  },
+  "devDependencies": {
+    "@strapi/typescript-utils": "4.20.3"
   }
 }

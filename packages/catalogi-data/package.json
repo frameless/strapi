@@ -25,6 +25,7 @@
     "xmlbuilder2": ">=3.0.2"
   },
   "devDependencies": {
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "xmlbuilder2": "3.1.1"
   }
 }

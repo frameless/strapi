@@ -282,7 +282,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   </GridCell>
                   <GridCell xs={6} md={12} order={2} orderMd={3}>
                     <Navigation
-                      list={getNavListData(t)}
+                      list={getNavListData(t) as any}
                       mobileBreakpoint={961}
                       toggleButton={{
                         openText: 'Menu',
@@ -297,7 +297,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <Main id="main">{children}</Main>
               </PageContent>
             </Page>
-            <Footer data={footerData} />
+            <Footer data={footerData as any} />
           </Surface>
         </QueryClientProvider>
         <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>

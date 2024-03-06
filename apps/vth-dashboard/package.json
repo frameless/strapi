@@ -20,12 +20,12 @@
     "@strapi/plugin-graphql": "4.14.6",
     "@strapi/plugin-i18n": "4.14.6",
     "@strapi/plugin-users-permissions": "4.14.6",
-    "strapi-plugin-import-export-entries": "1.23.1",
     "@strapi/strapi": "4.14.6",
     "better-sqlite3": "8.3.0",
     "pg": "8.11.3",
     "slugify": "1.6.6",
     "strapi-plugin-config-sync": "1.2.3",
+    "strapi-plugin-import-export-entries": "1.23.1",
     "strapi-plugin-publisher": "1.5.7",
     "strapi-plugin-slugify": "2.3.8",
     "strapi-prometheus": "1.8.1"

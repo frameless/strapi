@@ -93,7 +93,7 @@ interface SectionsProps {
 
 const Sections = ({ sections, locale, priceData }: SectionsProps) => {
   return (
-    <>
+    <div>
       {sections &&
         sections.map((component, index: number) => {
           switch (component?.__typename) {
@@ -241,7 +241,7 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
               return <></>;
           }
         })}
-    </>
+    </div>
   );
 };
 

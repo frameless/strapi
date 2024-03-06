@@ -35,6 +35,7 @@ interface File {
   provider_metadata?: Record<string, unknown>;
   stream?: ReadStream;
 
+  // eslint-disable-next-line no-undef
   buffer: Buffer;
 }
 

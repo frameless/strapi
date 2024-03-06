@@ -3,7 +3,8 @@ FROM node:20-alpine3.18 as build
 RUN apk update && apk add --no-cache git libc6-compat build-base bash gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 
 # Install Yarn globally (adjust version as needed)
-RUN yarn set version stable
+RUN corepack enable
+RUN yarn set version 4.1.1
 
 # Set environment variables
 ARG NODE_ENV=development
@@ -49,7 +50,8 @@ COPY ./.yarn /opt/app/.yarn
 COPY ./.yarnrc.yml /opt/app/.yarnrc.yml 
 
 # Install workspaces dependencies
-RUN yarn install
+RUN yarn install --immutable
+
 
 # Build target builder #
 ########################
@@ -63,15 +65,15 @@ COPY ./.yarn /opt/app/.yarn
 COPY ./.yarnrc.yml /opt/app/.yarnrc.yml 
 COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
 COPY . /opt/app/
-RUN  npm run build --workspace @frameless/upl && \
-    npm run build --workspace @frameless/strapi-plugin-uniform-product-name && \
-    npm run build --workspace @frameless/strapi-tiptap-editor && \
-    npm run build --workspace @frameless/ui && \
-    npm run build --workspace @frameless/catalogi-data && \
-    npm run build --workspace @frameless/samenwerkende-catalogi && \
-    npm run build --workspace @frameless/pdc-sc && \
-    npm run build --workspace @frameless/strapi-plugin-open-forms-embed
-
+# RUN  npm run build --workspace @frameless/upl && \
+#     npm run build --workspace @frameless/strapi-plugin-uniform-product-name && \
+#     npm run build --workspace @frameless/strapi-tiptap-editor && \
+#     npm run build --workspace @frameless/ui && \
+#     npm run build --workspace @frameless/catalogi-data && \
+#     npm run build --workspace @frameless/samenwerkende-catalogi && \
+#     npm run build --workspace @frameless/pdc-sc && \
+#     npm run build --workspace @frameless/strapi-plugin-open-forms-embed
+RUN yarn workspaces foreach -Rpt --from 'apps/*' run build
 # Build target production #
 ###########################
 FROM build AS development
