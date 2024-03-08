@@ -1,4 +1,5 @@
 import acceptLanguage from 'accept-language';
+import { BLOB, DATA, EVAL, getCSP, INLINE, nonce, NONE, SELF, STRICT_DYNAMIC } from 'csp-header';
 import { NextRequest, NextResponse } from 'next/server';
 import { createOpenFormsApiUrl } from '@/util/openFormsSettings';
 import { fallbackLng, languages } from './app/i18n/settings';
@@ -15,39 +16,46 @@ const getOpenFormsHost = () => {
   return createOpenFormsApiUrl()?.host || '';
 };
 
-const cspDevelopmentHeader = () =>
-  `default-src 'self';
-    script-src 'self' siteimproveanalytics.com ${getOpenFormsHost()} 'unsafe-inline' 'unsafe-eval';
-    style-src 'self' localhost:8000 'unsafe-inline';
-    connect-src 'self' ${getOpenFormsHost()};
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;`;
-const cspProductionheader = (nonce: string) =>
-  `default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
-    style-src 'self' 'nonce-${nonce}';
-    connect-src 'self' ${getOpenFormsHost()};
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    block-all-mixed-content;`;
+const cspBase = {
+  'default-src': [SELF],
+  'object-src': [NONE],
+  'base-uri': [SELF],
+  'form-action': [SELF],
+  'frame-ancestors': [NONE],
+  'worker-src': [BLOB],
+  'connect-src': [SELF, getOpenFormsHost(), DATA, BLOB],
+  'img-src': [SELF, BLOB, DATA, 'https://service.pdok.nl'],
+  'font-src': [SELF, getOpenFormsHost()],
+  'block-all-mixed-content': true,
+};
+
+const cspDevelopmentHeader = () => {
+  return getCSP({
+    directives: {
+      'script-src': [SELF, INLINE, EVAL, getOpenFormsHost(), 'siteimproveanalytics.com'],
+      'style-src': [SELF, INLINE, 'localhost:8000'],
+      ...cspBase,
+    },
+  });
+};
+
+const cspProductionHeader = (nonceValue: string) => {
+  return getCSP({
+    directives: {
+      'script-src': [SELF, nonce(nonceValue), STRICT_DYNAMIC, BLOB],
+      'style-src': [SELF, nonce(nonceValue)],
+      ...cspBase,
+    },
+  });
+};
 
 export function middleware(req: NextRequest) {
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
+  const nonceValue = Buffer.from(crypto.randomUUID()).toString('base64');
 
-  const cspHeaderRaw = process.env.NODE_ENV === 'production' ? cspProductionheader(nonce) : cspDevelopmentHeader();
+  const cspHeaderRaw = process.env.NODE_ENV === 'production' ? cspProductionHeader(nonceValue) : cspDevelopmentHeader();
   const cspHeader = cspHeaderRaw.replace(/\s{2,}/g, ' ').trim();
-
   const requestHeaders = new Headers(req.headers);
-  requestHeaders.set('x-nonce', nonce);
+  requestHeaders.set('x-nonce', nonceValue);
   requestHeaders.set('Content-Security-Policy', cspHeader);
 
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1)
