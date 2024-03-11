@@ -10,51 +10,46 @@ const usePluginConfig = () => {
 
   const { isLoading, config } = useSelector((state: any) => state[`${pluginId}_config`]);
   const client = useFetchClient();
+  const abortController = new AbortController();
+
+  // eslint-disable-next-line consistent-return
+  const fetchData = async () => {
+    try {
+      const endpoint = `/${pluginId}/config`;
+      const { data } = await client.get(endpoint, {
+        signal: abortController.signal,
+      });
+      dispatch({ type: RESOLVE_CONFIG, data: data ?? {} });
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+
+      if (!abortController.signal.aborted) {
+        toggleNotification({
+          type: 'warning',
+          message: { id: 'notification.error' },
+        });
+
+        return err;
+      }
+    }
+  };
 
   useEffect(() => {
     // Do nothing if we have already loaded the config data.
     if (!isLoading && !!config) {
       return;
     }
-
-    const abortController = new AbortController();
-
+    fetchData();
     // eslint-disable-next-line consistent-return
-    const fetchData = async () => {
-      try {
-        const endpoint = `/${pluginId}/config`;
-        const { data } = await client.get(endpoint, {
-          signal: abortController.signal,
-        });
-
-        return data ?? {};
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error(err);
-
-        if (!abortController.signal.aborted) {
-          toggleNotification({
-            type: 'warning',
-            message: { id: 'notification.error' },
-          });
-
-          return err;
-        }
+    return () => {
+      if (!abortController.signal.aborted) {
+        abortController.abort();
       }
     };
+  }, [abortController]);
 
-    fetchData()
-      .then((data) => dispatch({ type: RESOLVE_CONFIG, data }))
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error(error);
-      });
-
-    // eslint-disable-next-line consistent-return
-    return () => abortController.abort();
-  }, [client, config, dispatch, isLoading, toggleNotification]);
-
-  return { config: config, isLoading: isLoading };
+  return { config, isLoading };
 };
 
 export default usePluginConfig;
