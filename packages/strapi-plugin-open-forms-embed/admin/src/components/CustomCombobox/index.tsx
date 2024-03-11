@@ -64,12 +64,14 @@ function CustomCombobox({
     if (config?.api_url && config?.token && apiUrl) {
       fetchAllOpenForms();
     }
-  }, [config?.api_url, config?.token]);
+  }, [config]);
 
   const generateOpenFormsData = (params) => {
     return new URLSearchParams({ ...params }).toString();
   };
-
+  if (!config?.api_url || !config?.token) {
+    return null;
+  }
   return (
     <Field name={name} id={name} error={error} hint={description && formatMessage(description)}>
       <Stack spacing={1}>
