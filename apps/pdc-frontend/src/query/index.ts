@@ -179,7 +179,7 @@ export const GET_PRODUCT_BY_SLUG = gql(`
             __typename
             href
             textContent
-            iconList: icon
+            icon
           }
           ... on ComponentComponentsFaq {
             __typename
