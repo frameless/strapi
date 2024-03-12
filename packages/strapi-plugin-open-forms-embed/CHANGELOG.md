@@ -1,3 +1,10 @@
+## @frameless/strapi-plugin-open-forms-embed [1.0.2](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-open-forms-embed@1.0.1...@frameless/strapi-plugin-open-forms-embed@1.0.2) (2024-03-12)
+
+
+### Bug Fixes
+
+* **plugin-open-forms-embed:** fix the infinity loop request issue ([5f69961](https://github.com/frameless/strapi/commit/5f69961217e499d5e6bfdc725f03965b195478fb))
+
 ## @frameless/strapi-plugin-open-forms-embed [1.0.1](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-open-forms-embed@1.0.0...@frameless/strapi-plugin-open-forms-embed@1.0.1) (2024-02-29)
 
 
