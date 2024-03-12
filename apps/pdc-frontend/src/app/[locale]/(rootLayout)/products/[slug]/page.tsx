@@ -12,6 +12,7 @@ import {
   AdvancedLink,
   Article,
   Breadcrumbs,
+  ButtonGroup,
   Grid,
   GridCell,
   Heading,
@@ -227,14 +228,16 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
               return (
                 component?.href &&
                 component?.textContent && (
-                  <AdvancedLink
-                    key={component?.href}
-                    href={component?.href}
-                    external={isAbsoluteUrl(component?.href)}
-                    icon={component?.icon as 'arrow'}
-                  >
-                    {component?.textContent}
-                  </AdvancedLink>
+                  <ButtonGroup className="utrecht-link-group">
+                    <AdvancedLink
+                      key={component?.href}
+                      href={component?.href}
+                      external={isAbsoluteUrl(component?.href)}
+                      icon={component?.icon as 'arrow'}
+                    >
+                      {component?.textContent}
+                    </AdvancedLink>
+                  </ButtonGroup>
                 )
               );
             default:

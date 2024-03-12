@@ -157,6 +157,11 @@ a {
   padding-inline: 0 !important;
 }
 
+.utrecht-link-group {
+  --utrecht-button-group-margin-block-start: var(--utrecht-space-block-md);
+  --utrecht-button-group-margin-block-end: var(--utrecht-space-block-md);
+}
+
 .utrecht-spotlight-section > :first-child {
   --utrecht-space-around: 0;
 }
