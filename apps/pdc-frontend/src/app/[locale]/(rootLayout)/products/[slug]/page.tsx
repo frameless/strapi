@@ -114,11 +114,12 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                 return (
                   <LogoButton
                     key={uuid}
+                    label={component.label}
                     appearance={component?.appearance as string}
                     logo={component.logo}
                     href={`/form/${slug}`}
                   >
-                    {label}
+                    {component.textContent || label}
                   </LogoButton>
                 );
               }
