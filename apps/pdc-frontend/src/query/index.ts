@@ -188,9 +188,10 @@ export const GET_PRODUCT_BY_SLUG = gql(`
                 attributes {
                   title
                   faq {
+                    body
+                    headingLevel
                     id
                     label
-                    body
                   }
                 }
               }
@@ -199,9 +200,10 @@ export const GET_PRODUCT_BY_SLUG = gql(`
           ... on ComponentComponentsUtrechtAccordion {
             __typename
             item {
+              body
+              headingLevel
               id
               label
-              body
             }
           }
         }
