@@ -1,7 +1,8 @@
 {
   "collectionName": "components_components_utrecht_accordion_section",
   "info": {
-    "displayName": "Accordion Section"
+    "displayName": "Accordion Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,6 +11,12 @@
     },
     "body": {
       "type": "richtext"
+    },
+    "headingLevel": {
+      "type": "integer",
+      "default": 2,
+      "max": 6,
+      "min": 2
     }
   }
 }

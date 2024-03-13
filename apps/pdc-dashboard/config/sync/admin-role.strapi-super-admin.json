@@ -49,7 +49,7 @@
       "actionParameters": {},
       "subject": "api::kb-faq.kb-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body"]
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"]
       },
       "conditions": []
     },
@@ -72,7 +72,7 @@
       "actionParameters": {},
       "subject": "api::kb-faq.kb-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body"]
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"]
       },
       "conditions": []
     },
@@ -81,7 +81,7 @@
       "actionParameters": {},
       "subject": "api::kb-faq.kb-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body"]
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"]
       },
       "conditions": []
     },
@@ -220,7 +220,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body"],
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"],
         "locales": ["en", "nl"]
       },
       "conditions": []
@@ -248,7 +248,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body"],
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"],
         "locales": ["en", "nl"]
       },
       "conditions": []
@@ -258,7 +258,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body"],
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"],
         "locales": ["en", "nl"]
       },
       "conditions": []

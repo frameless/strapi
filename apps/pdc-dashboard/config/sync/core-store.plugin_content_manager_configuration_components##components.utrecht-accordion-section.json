@@ -47,14 +47,32 @@
           "searchable": false,
           "sortable": false
         }
+      },
+      "headingLevel": {
+        "edit": {
+          "label": "Kopniveau",
+          "description": "Standaardwaarde is 2, wat betekent <h2></h2>.",
+          "placeholder": "Selecteer waarde van 2 tot 6.",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "headingLevel",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "label"],
+      "list": ["id", "label", "headingLevel"],
       "edit": [
         [
           {
             "name": "label",
+            "size": 6
+          },
+          {
+            "name": "headingLevel",
             "size": 6
           }
         ],
