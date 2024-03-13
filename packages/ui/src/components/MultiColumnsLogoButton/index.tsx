@@ -32,12 +32,14 @@ export const MultiColumnsButton = ({ columns }: MultiColumnsButtonProps) => (
                 const label = parsOpenFormsEmbedData.get('label');
                 return (
                   <LogoButton
+                    headingLevel={title ? 4 : 3}
                     key={uuid}
                     appearance={item?.appearance as string}
+                    label={item.label}
                     logo={item.logo}
                     href={`/form/${slug}`}
                   >
-                    {label}
+                    {item.textContent || label}
                   </LogoButton>
                 );
               }
