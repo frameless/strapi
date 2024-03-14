@@ -24,11 +24,6 @@
       "private": true,
       "required": false
     },
-    "identificationMethod": {
-      "type": "component",
-      "repeatable": true,
-      "component": "components.identification-method"
-    },
     "eForm": {
       "type": "component",
       "repeatable": false,
