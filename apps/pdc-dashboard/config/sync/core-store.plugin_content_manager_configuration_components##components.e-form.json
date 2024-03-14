@@ -33,31 +33,11 @@
           "searchable": true,
           "sortable": true
         }
-      },
-      "eFormURL": {
-        "edit": {
-          "label": "E-FormURL",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "eFormURL",
-          "searchable": false,
-          "sortable": false
-        }
       }
     },
     "layouts": {
-      "list": ["id", "eFormURL", "linkedEForm"],
+      "list": ["id", "linkedEForm"],
       "edit": [
-        [
-          {
-            "name": "eFormURL",
-            "size": 12
-          }
-        ],
         [
           {
             "name": "linkedEForm",

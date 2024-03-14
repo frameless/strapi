@@ -62,20 +62,6 @@
           "sortable": false
         }
       },
-      "identificationMethod": {
-        "edit": {
-          "label": "Identificatiemethode",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "identificationMethod",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "eForm": {
         "edit": {
           "label": "eForm",
@@ -107,12 +93,6 @@
         [
           {
             "name": "contact",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "identificationMethod",
             "size": 12
           }
         ],
