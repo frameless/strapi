@@ -25,16 +25,19 @@ declare module '@tiptap/core' {
 }
 
 export const Price = Node.create({
-  name: 'reactWidget',
+  name: 'priceWidget',
   group: 'inline',
   content: 'inline*',
+  atom: true,
   inline: true,
   draggable: true,
-  atom: true,
   addAttributes() {
     return {
-      id: {
+      'data-strapi-idref': {
         default: '',
+      },
+      'data-strapi-category': {
+        default: 'price',
       },
     };
   },
@@ -43,33 +46,31 @@ export const Price = Node.create({
       insertReactComponent:
         (price) =>
         ({ commands }) => {
-          return commands.insertContent(`<react-widget id='${price.id}'></react-widget>`);
+          return commands.insertContent(`<span data-strapi-idref='${price.id}'></span>`);
         },
     };
   },
   parseHTML() {
     return [
       {
-        tag: 'react-widget',
+        tag: 'span',
         getAttrs: (element) => {
-          return (element as any).getAttribute('id');
+          return (element as any).getAttribute('data-strapi-idref');
         },
       },
     ];
   },
   renderHTML({ HTMLAttributes }) {
     return [
-      'react-widget',
+      'span',
       mergeAttributes(HTMLAttributes, {
-        id: HTMLAttributes.id,
+        'data-strapi-idref': HTMLAttributes['data-strapi-idref'],
       }),
       0,
     ];
   },
 
   addNodeView() {
-    return ReactNodeViewRenderer(Widget, {
-      as: 'span',
-    });
+    return ReactNodeViewRenderer(Widget);
   },
 });

@@ -4,22 +4,26 @@ import { useIntl } from 'react-intl';
 import ProductPriceContext from '../../../context/productPrice/context';
 import { getPriceValue } from '../../../utils';
 
-interface Props {
+interface PriceWidgetProps {
   node: {
     attrs: {
-      id: string;
+      'data-strapi-idref': string;
     };
   };
 }
 
-export default function Widget(props: Props) {
+export default function PriceWidget({ node: { attrs } }: PriceWidgetProps) {
   const { busy, productPrice } = React.useContext(ProductPriceContext);
-  const price = productPrice && productPrice.price?.find((price) => Number(price?.id) === Number(props.node.attrs.id));
+  const price = productPrice?.price?.find((price) => {
+    const currentPrice = price?.id === attrs['data-strapi-idref'].toString();
+    return currentPrice;
+  });
+
   const { formatMessage } = useIntl();
 
   if (busy) return null;
-  return price ? (
-    <NodeViewWrapper className="utrecht-price-widget" as="span" contentEditable={false}>
+  return price && attrs['data-strapi-category'] === 'price' ? (
+    <NodeViewWrapper className="utrecht-price-widget" contentEditable={false}>
       <span draggable contentEditable={false} data-drag-handle="" id={price?.id}>
         {formatMessage({ id: getPriceValue(price, 'common.words.freeProduct') })}
       </span>
