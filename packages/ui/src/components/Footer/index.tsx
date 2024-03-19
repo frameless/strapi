@@ -106,7 +106,12 @@ export const Footer = ({ data }: FooterProps) => (
                 const Icon = socialMediaIconTypes[item.icon as keyof typeof socialMediaIconTypes];
                 return (
                   <li key={index} className={css('utrecht-link-list__item')}>
-                    <Link external href={item.href} className={css('utrecht-link-list__link')}>
+                    <Link
+                      external
+                      href={item.href}
+                      className={css('utrecht-link-list__link')}
+                      aria-label={item.textContent}
+                    >
                       <Icon />
                       <span className="utrecht-link-list__link-text">{item.textContent}</span>
                     </Link>
