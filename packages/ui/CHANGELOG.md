@@ -1,3 +1,10 @@
+# @frameless/ui [2.13.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.12.0...@frameless/ui@2.13.0) (2024-03-19)
+
+
+### Features
+
+* add aria label to footer for accesabillaty ([2045c60](https://github.com/frameless/strapi/commit/2045c600ac297c0c5b282b0c4920a4acf27b1f35))
+
 # @frameless/ui [2.12.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.11.0...@frameless/ui@2.12.0) (2024-02-22)
 
 
