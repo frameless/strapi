@@ -201,7 +201,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
             {productPrice && productPrice?.price?.length > 0 && productPrice.title && (
               <Box className={classnames('button-group')}>
                 <PriceList
-                  value={editor.isActive('reactWidget') ? editor.getAttributes('reactWidget').id : ''}
+                  value={editor.isActive('priceWidget') ? editor.getAttributes('priceWidget')['data-strapi-idref'] : ''}
                   onPriceChange={(price) => {
                     if (price && editor) {
                       editor.chain().focus().insertReactComponent(price).run();
