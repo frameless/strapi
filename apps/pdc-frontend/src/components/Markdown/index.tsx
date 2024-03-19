@@ -36,17 +36,21 @@ export const Markdown = ({
   locale?: string;
 }) => {
   const priceWidget = {
-    'react-widget': ({ node }: ExtraProps) => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const { t } = useTranslation(locale || fallbackLng, ['common']);
-      return (
-        <PriceWidget
-          freeProductText={t('text.free-product') as string}
-          priceData={priceData}
-          locale={locale || fallbackLng}
-          id={node?.properties?.id as string}
-        />
-      );
+    span: ({ node }: ExtraProps) => {
+      if (node?.properties.dataStrapiCategory === 'price') {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const { t } = useTranslation(locale || fallbackLng, ['common']);
+        return (
+          <PriceWidget
+            freeProductText={t('text.free-product') as string}
+            priceData={priceData}
+            locale={locale || fallbackLng}
+            id={node?.properties.dataStrapiIdref as string}
+          />
+        );
+      }
+      delete node?.properties?.style;
+      return <span {...node?.properties}>{children}</span>;
     },
   };
 
