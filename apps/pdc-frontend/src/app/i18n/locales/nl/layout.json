@@ -57,5 +57,8 @@
         "link": "https://www.utrecht.nl/bestuur-en-organisatie"
       }
     ]
+  },
+  "logo": {
+    "aria-label": "Gemeente Utrecht logo, ga naar homepage"
   }
 }
