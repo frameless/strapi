@@ -1,3 +1,10 @@
+## @frameless/ui [2.13.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.13.0...@frameless/ui@2.13.1) (2024-03-20)
+
+
+### Bug Fixes
+
+* **ui:** remove unneeded `aria-label` from `NavToggleButton` ([6f2c442](https://github.com/frameless/strapi/commit/6f2c442ed29a9ff7c6d82d95ec66a3311bf39ae0))
+
 # @frameless/ui [2.13.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.12.0...@frameless/ui@2.13.0) (2024-03-19)
 
 
