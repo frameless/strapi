@@ -148,7 +148,7 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                     sections={component.pdc_faq.data.attributes.faq.map((faqItem) => ({
                       id: faqItem?.id,
                       label: faqItem?.label as string,
-                      headingLevel: 3,
+                      headingLevel: faqItem?.headingLevel || 2,
                       body: faqItem?.body && (
                         <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
                           {faqItem.body}
@@ -166,7 +166,7 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                     sections={component.item.map((accordionItem) => ({
                       id: accordionItem?.id,
                       label: accordionItem?.label as string,
-                      headingLevel: 3,
+                      headingLevel: accordionItem?.headingLevel || 2,
                       body: accordionItem?.body && (
                         <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
                           {accordionItem.body}
