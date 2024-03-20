@@ -1,3 +1,10 @@
+## @frameless/ui [2.13.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.13.1...@frameless/ui@2.13.2) (2024-03-20)
+
+
+### Bug Fixes
+
+* **ui:** enable `MultiColumnsLogoButton` `textContent` overwrite for openFormsEmbed label ([08a1ab8](https://github.com/frameless/strapi/commit/08a1ab8fc3d5e0e5f761ae8ebceac5b568e7ffce))
+
 ## @frameless/ui [2.13.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.13.0...@frameless/ui@2.13.1) (2024-03-20)
 
 
