@@ -173,7 +173,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                       href={`/${locale}`}
                       className="utrecht-link utrecht-link--html-a utrecht-link--box-content utrecht-logo__wrapper"
                       prefetch={true}
-                      aria-label={t('logo.aria-label')}
+                      aria-label={t('logo.aria-label') || ''}
                     >
                       <Logo>
                         <LogoImage />
