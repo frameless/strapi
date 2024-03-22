@@ -83,5 +83,12 @@ export default ({ env }) => ({
   },
   publisher: {
     enabled: true,
+    config: {
+      components: {
+        dateTimePicker: {
+          step: 15,
+        },
+      },
+    },
   },
 });
