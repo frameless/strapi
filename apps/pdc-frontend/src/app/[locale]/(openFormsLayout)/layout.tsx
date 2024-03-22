@@ -180,7 +180,11 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                         href={`/${locale}`}
                         className="utrecht-link utrecht-link--html-a utrecht-link--box-content"
                         prefetch={false}
-                        aria-label={t('logo.aria-label') || ''}
+                        aria-label={
+                          t('logo.aria-label', {
+                            defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',
+                          }) || ''
+                        }
                       >
                         <Logo>
                           <LogoImage />
