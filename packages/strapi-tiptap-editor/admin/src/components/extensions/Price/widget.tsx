@@ -22,7 +22,7 @@ export default function PriceWidget({ node: { attrs } }: PriceWidgetProps) {
   const { formatMessage } = useIntl();
 
   if (busy) return null;
-  return price && attrs['data-strapi-category'] === 'price' ? (
+  return price ? (
     <NodeViewWrapper className="utrecht-price-widget" contentEditable={false}>
       <span draggable contentEditable={false} data-drag-handle="" id={price?.id}>
         {formatMessage({ id: getPriceValue(price, 'common.words.freeProduct') })}
