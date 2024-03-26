@@ -16,6 +16,9 @@ const getOpenFormsHost = () => {
   return createOpenFormsApiUrl()?.host || '';
 };
 
+// Using "//*" in JavaScript, especially with VSCode, can disrupt syntax highlighting and code analysis, causing confusion and hindering development.
+const formatURL = (url: string): string => `https://${url}`;
+
 const cspBase = {
   'default-src': [SELF],
   'object-src': [NONE],
@@ -24,7 +27,7 @@ const cspBase = {
   'frame-ancestors': [NONE],
   'worker-src': [BLOB],
   'connect-src': [SELF, getOpenFormsHost(), DATA, BLOB],
-  'img-src': [SELF, BLOB, DATA, 'https://service.pdok.nl'],
+  'img-src': [SELF, BLOB, DATA, 'https://service.pdok.nl', formatURL('*.siteimproveanalytics.io')],
   'font-src': [SELF, getOpenFormsHost()],
   'block-all-mixed-content': true,
 };
