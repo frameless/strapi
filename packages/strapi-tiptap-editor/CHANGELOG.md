@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.10.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.0...@frameless/strapi-tiptap-editor@1.10.1) (2024-03-26)
+
+
+### Bug Fixes
+
+* **tiptap-editor:** improve the price tiptap extension ([511e46b](https://github.com/frameless/strapi/commit/511e46b1ad6d370fd48b580095a285a34d2f7767))
+
 # @frameless/strapi-tiptap-editor [1.10.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.9.1...@frameless/strapi-tiptap-editor@1.10.0) (2024-02-08)
 
 
