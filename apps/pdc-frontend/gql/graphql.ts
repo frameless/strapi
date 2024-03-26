@@ -260,14 +260,12 @@ export type ComponentComponentsEForm = {
 
 export type ComponentComponentsEFormFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentComponentsEFormFiltersInput>>>;
-  eFormURL?: InputMaybe<ComponentComponentsUrlFiltersInput>;
   linkedEForm?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ComponentComponentsEFormFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentComponentsEFormFiltersInput>>>;
 };
 
 export type ComponentComponentsEFormInput = {
-  eFormURL?: InputMaybe<Array<InputMaybe<ComponentComponentsUrlInput>>>;
   id?: InputMaybe<Scalars['ID']['input']>;
   linkedEForm?: InputMaybe<Enum_Componentcomponentseform_Linkedeform>;
 };
@@ -278,36 +276,10 @@ export type ComponentComponentsFaq = {
   pdc_faq?: Maybe<PdcFaqEntityResponse>;
 };
 
-export type ComponentComponentsIdentificationMethod = {
-  __typename?: 'ComponentComponentsIdentificationMethod';
-  id: Scalars['ID']['output'];
-  method?: Maybe<Enum_Componentcomponentsidentificationmethod_Method>;
-};
-
-export type ComponentComponentsIdentificationMethodFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentComponentsIdentificationMethodFiltersInput>>>;
-  method?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ComponentComponentsIdentificationMethodFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentComponentsIdentificationMethodFiltersInput>>>;
-};
-
-export type ComponentComponentsIdentificationMethodInput = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  method?: InputMaybe<Enum_Componentcomponentsidentificationmethod_Method>;
-};
-
 export type ComponentComponentsMetadata = {
   __typename?: 'ComponentComponentsMetadata';
   eForm?: Maybe<ComponentComponentsEForm>;
   id: Scalars['ID']['output'];
-  identificationMethod?: Maybe<Array<Maybe<ComponentComponentsIdentificationMethod>>>;
-};
-
-
-export type ComponentComponentsMetadataIdentificationMethodArgs = {
-  filters?: InputMaybe<ComponentComponentsIdentificationMethodFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type ComponentComponentsMetadataFiltersInput = {
@@ -315,7 +287,6 @@ export type ComponentComponentsMetadataFiltersInput = {
   attachementAdded?: InputMaybe<StringFilterInput>;
   contact?: InputMaybe<ComponentComponentsContactFiltersInput>;
   eForm?: InputMaybe<ComponentComponentsEFormFiltersInput>;
-  identificationMethod?: InputMaybe<ComponentComponentsIdentificationMethodFiltersInput>;
   not?: InputMaybe<ComponentComponentsMetadataFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentComponentsMetadataFiltersInput>>>;
   singleDigitalGateway?: InputMaybe<StringFilterInput>;
@@ -326,7 +297,6 @@ export type ComponentComponentsMetadataInput = {
   contact?: InputMaybe<Array<InputMaybe<ComponentComponentsContactInput>>>;
   eForm?: InputMaybe<ComponentComponentsEFormInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
-  identificationMethod?: InputMaybe<Array<InputMaybe<ComponentComponentsIdentificationMethodInput>>>;
   singleDigitalGateway?: InputMaybe<Enum_Componentcomponentsmetadata_Singledigitalgateway>;
 };
 
@@ -397,18 +367,6 @@ export type ComponentComponentsUrl = {
   __typename?: 'ComponentComponentsUrl';
   id: Scalars['ID']['output'];
   value?: Maybe<Scalars['String']['output']>;
-};
-
-export type ComponentComponentsUrlFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentComponentsUrlFiltersInput>>>;
-  not?: InputMaybe<ComponentComponentsUrlFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentComponentsUrlFiltersInput>>>;
-  value?: InputMaybe<StringFilterInput>;
-};
-
-export type ComponentComponentsUrlInput = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentComponentsUtrechtAccordion = {
@@ -794,12 +752,6 @@ export enum Enum_Componentcomponentseform_Linkedeform {
   Nee = 'nee'
 }
 
-export enum Enum_Componentcomponentsidentificationmethod_Method {
-  Digid = 'digid',
-  Eherkenning = 'eherkenning',
-  Eidas = 'eidas'
-}
-
 export enum Enum_Componentcomponentsmetadata_Attachementadded {
   Ja = 'ja',
   Nee = 'nee'
@@ -956,7 +908,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsIdentificationMethod | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentSeoMeta | EntityNotesNote | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | PdcTemplate | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentSeoMeta | EntityNotesNote | I18NLocale | KbCategory | KbFaq | KbSubcategory | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | PdcTemplate | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
