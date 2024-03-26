@@ -1,3 +1,5 @@
+@import "../Grid/index.module";
+
 .utrecht-navigation {
   border-block-end-color: var(--utrecht-navigation-border-block-end-color);
   border-block-end-style: solid;
@@ -21,4 +23,18 @@
   flex-direction: column;
   inline-size: 100%;
   justify-content: var(--utrecht-navigation-mobile-justify-content, flex-start);
+}
+
+.utrecht-drawer--nav {
+  --utrecht-drawer-min-inline-size: 100%;
+}
+
+.utrecht-drawer--nav::backdrop {
+  --utrecht-backdrop-background-color: rgb(0 0 0 / 30%);
+}
+
+@include breakpoint("sm") {
+  .utrecht-drawer--nav {
+    --utrecht-drawer-min-inline-size: 50%;
+  }
 }
