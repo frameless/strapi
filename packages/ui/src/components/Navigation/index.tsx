@@ -1,11 +1,19 @@
+import { Drawer } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useEffect, useRef, useState } from 'react';
+import {
+  createRef,
+  ForwardedRef,
+  forwardRef,
+  HTMLAttributes,
+  PropsWithChildren,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { NavigationList } from './NavigationList';
 import { NavToggleButton } from './NavigationToggleButton';
 import styles from './index.module.scss';
-import { useClickOutside, useKeyboardEvent, useScreenSize } from '../../hooks';
-import { Drawer } from '../Drawer';
-import { Portal } from '../Portal';
+import { useClickOutside, useScreenSize } from '../../hooks';
 const css = classnames.bind(styles);
 
 export type NavigationListType = {
@@ -32,17 +40,31 @@ export const Navigation = forwardRef(
     const screenSize = useScreenSize();
     const [visible, setVisible] = useState<boolean>(false);
     const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
-    const navigationListRef = useRef<HTMLUListElement>(null);
-    useKeyboardEvent('Escape', () => setDrawerVisible(false));
-    useClickOutside(navigationListRef, () => setDrawerVisible(false));
+    const navigationListRef = createRef<HTMLUListElement>();
+    const drawerRef = useRef<HTMLDialogElement>(null);
+    const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
-    useEffect(() => {
+    useClickOutside(drawerRef, hamburgerButtonRef);
+
+    const showModal = () => {
+      if (drawerRef.current) {
+        if (drawerRef.current.open) {
+          drawerRef.current.close();
+          setDrawerVisible(false);
+        } else {
+          setDrawerVisible(true);
+          drawerRef.current.showModal();
+        }
+      }
+    };
+
+    useLayoutEffect(() => {
       if (mobileBreakpoint && screenSize) {
         setVisible(screenSize < mobileBreakpoint);
       }
     }, [screenSize, mobileBreakpoint]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
       // TODO improve the scroll body lock when the menu is open
       // this is one of the packages that maybe fix the issue https://github.com/willmcpo/body-scroll-lock#readme
       if (drawerVisible && visible) {
@@ -65,6 +87,13 @@ export const Navigation = forwardRef(
       };
     }, [visible, drawerVisible]);
 
+    useLayoutEffect(() => {
+      if (!visible && drawerRef.current) {
+        setDrawerVisible(false);
+        drawerRef.current.close();
+      }
+    }, [visible, drawerRef.current]);
+
     return (
       <>
         <nav
@@ -81,38 +110,36 @@ export const Navigation = forwardRef(
         >
           {!visible ? (
             <NavigationList list={list} mobile={visible} />
-          ) : !drawerVisible ? (
+          ) : (
             <NavToggleButton
               text={toggleButton?.openText}
               icon="hamburger"
+              ref={hamburgerButtonRef}
               aria-expanded={drawerVisible}
-              onClick={() => setDrawerVisible(!drawerVisible)}
+              onClick={showModal}
             />
-          ) : null}
+          )}
         </nav>
-        {visible && drawerVisible && (
-          <Portal>
-            <Drawer onDrawerClose={() => setDrawerVisible(!drawerVisible)} open={drawerVisible}>
-              <nav
-                className={css('utrecht-navigation', {
-                  'utrecht-navigation--mobile': visible,
-                })}
-                id="menu"
-                ref={ref}
-                {...restProps}
-              >
-                <NavigationList list={list} mobile={visible} ref={navigationListRef}>
-                  <NavToggleButton
-                    text={toggleButton?.closeText}
-                    icon="close"
-                    aria-expanded={drawerVisible}
-                    onClick={() => setDrawerVisible(!drawerVisible)}
-                  />
-                </NavigationList>
-              </nav>
-            </Drawer>
-          </Portal>
-        )}
+        <Drawer align="inline-end" className={css('utrecht-drawer--nav')} ref={drawerRef}>
+          <nav
+            className={css('utrecht-navigation', {
+              'utrecht-navigation--mobile': visible,
+            })}
+            id="menu"
+            ref={ref}
+            {...restProps}
+          >
+            <NavigationList list={list} mobile={visible} ref={navigationListRef}>
+              <NavToggleButton
+                text={toggleButton?.closeText}
+                id="nav-toggle-button-close"
+                icon="close"
+                aria-expanded={drawerVisible}
+                onClick={showModal}
+              />
+            </NavigationList>
+          </nav>
+        </Drawer>
       </>
     );
   },

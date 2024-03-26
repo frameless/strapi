@@ -23,10 +23,6 @@
 
   background-color: var(--utrecht-navigation-list-mobile-background-color, var(--utrecht-color-white));
   block-size: 100%;
-
-  @media (width >= 550px) {
-    --utrecht-navigation-list-mobile-inline-size: 50%;
-  }
 }
 
 .utrecht-navigation__list--side-nav {

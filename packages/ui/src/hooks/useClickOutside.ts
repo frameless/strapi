@@ -1,9 +1,18 @@
 import { RefObject, useEffect } from 'react';
 
-export const useClickOutside = (ref: RefObject<HTMLElement>, callback: () => void) => {
-  const handleClickOutside = (event: Event) => {
-    if (ref.current && !ref.current.contains(event.target as Node)) {
-      callback();
+export const useClickOutside = (
+  ref: RefObject<HTMLDialogElement>,
+  prevFocusableElement?: RefObject<HTMLButtonElement>,
+) => {
+  const handleClickOutside = (event: any) => {
+    event.preventDefault();
+    if (ref.current && ref.current === event.target) {
+      ref.current.close();
+      if (prevFocusableElement) {
+        prevFocusableElement.current?.focus();
+      } else {
+        (document.activeElement as HTMLElement).focus();
+      }
     }
   };
 
