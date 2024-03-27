@@ -29,7 +29,7 @@
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Titel",
           "searchable": true,
           "sortable": true
         }
@@ -73,7 +73,7 @@
           "editable": true
         },
         "list": {
-          "label": "createdAt",
+          "label": "Aangemaakt op",
           "searchable": true,
           "sortable": true
         }
@@ -117,7 +117,7 @@
           "mainField": "firstname"
         },
         "list": {
-          "label": "updatedBy",
+          "label": "Bijgewerkt op",
           "searchable": true,
           "sortable": true
         }
@@ -142,7 +142,7 @@
           }
         ]
       ],
-      "list": ["id", "createdAt", "updatedAt", "title"]
+      "list": ["id", "title", "createdAt", "updatedBy"]
     }
   },
   "type": "object",

@@ -29,7 +29,7 @@
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Titel",
           "searchable": true,
           "sortable": true
         }
@@ -58,7 +58,7 @@
           "editable": true
         },
         "list": {
-          "label": "createdAt",
+          "label": "Aangemaakt op",
           "searchable": true,
           "sortable": true
         }
@@ -72,7 +72,7 @@
           "editable": true
         },
         "list": {
-          "label": "updatedAt",
+          "label": "Bijgewerkt op",
           "searchable": true,
           "sortable": true
         }

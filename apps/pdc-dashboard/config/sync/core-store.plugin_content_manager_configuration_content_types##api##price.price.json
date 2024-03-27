@@ -15,7 +15,7 @@
       "id": {
         "edit": {},
         "list": {
-          "label": "id",
+          "label": "ID",
           "searchable": true,
           "sortable": true
         }
@@ -29,7 +29,7 @@
           "editable": true
         },
         "list": {
-          "label": "price",
+          "label": "Kosten",
           "searchable": false,
           "sortable": false
         }
@@ -37,13 +37,13 @@
       "title": {
         "edit": {
           "label": "Titel ",
-          "description": "Hoofdtitel voor de Prijs-collectie",
+          "description": "Titel voor deze collectie",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Titel",
           "searchable": true,
           "sortable": true
         }
@@ -52,13 +52,13 @@
         "edit": {
           "label": "Gekoppeld product",
           "description": "Dit veld stelt u in staat om producten aan deze inhoud te koppelen. U kunt producten selecteren uit een lijst om hun relatie met deze inhoud aan te geven.",
-          "placeholder": "",
+          "placeholder": "Kies product",
           "visible": true,
           "editable": true,
           "mainField": "title"
         },
         "list": {
-          "label": "products",
+          "label": "Producten",
           "searchable": false,
           "sortable": false
         }

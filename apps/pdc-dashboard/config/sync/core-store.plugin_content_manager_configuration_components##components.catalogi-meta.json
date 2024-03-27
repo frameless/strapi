@@ -79,7 +79,7 @@
       "uniformProductName": {
         "edit": {
           "label": "De Uniforme Productnamenlijst (UPL)",
-          "description": "De Uniforme Productnamenlijst (UPL) biedt gestandaardiseerde namen voor overheidsproducten en -diensten, waardoor vindbaarheid en hergebruik worden verbeterd.",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -93,7 +93,7 @@
       "abstract": {
         "edit": {
           "label": "Korte omschrijving",
-          "description": "Korte beschrijving van het product, ter presentatie in de zoekresultatenlijst van afnemers. Een lengte van ongeveer 300 tekens wordt aangeraden. Let erop dat de tekst leesbaar moet zijn voor een doorsnee eindgebruiker (burger of ondernemer) en bruikbaar voor het bepalen van de relevantie van dit product in een lijst zoekresultaten.",
+          "description": "Korte omschrijving van het product.",
           "placeholder": "",
           "visible": true,
           "editable": true

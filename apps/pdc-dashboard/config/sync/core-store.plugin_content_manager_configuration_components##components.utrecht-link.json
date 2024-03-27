@@ -37,7 +37,7 @@
       "href": {
         "edit": {
           "label": "Href",
-          "description": "De website-adres waarnaar je wilt linken.",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
