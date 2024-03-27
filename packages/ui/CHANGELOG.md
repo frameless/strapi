@@ -1,3 +1,10 @@
+# @frameless/ui [2.14.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.13.2...@frameless/ui@2.14.0) (2024-03-27)
+
+
+### Features
+
+* **ui:** use Drawer from nl ds package ([3bc6b2f](https://github.com/frameless/strapi/commit/3bc6b2ff4a943e9023ccf97761f109319eb97246))
+
 ## @frameless/ui [2.13.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.13.1...@frameless/ui@2.13.2) (2024-03-20)
 
 
