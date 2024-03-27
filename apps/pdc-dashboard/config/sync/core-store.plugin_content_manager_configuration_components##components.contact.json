@@ -23,7 +23,7 @@
       "name": {
         "edit": {
           "label": "Naam",
-          "description": "Beheer Naam",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -37,7 +37,7 @@
       "email": {
         "edit": {
           "label": "E-mailadres",
-          "description": "Beheer Email",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
