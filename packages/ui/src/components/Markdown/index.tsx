@@ -1,4 +1,4 @@
-import { OrderedList } from '@utrecht/component-library-react';
+import { OrderedList, TableContainer } from '@utrecht/component-library-react';
 import {
   Heading1,
   Heading2,
@@ -82,7 +82,11 @@ const defaultComponents = (config?: Components) => {
     },
     table: ({ children, node }) => {
       delete node.properties?.style;
-      return <Table {...node.properties}>{children}</Table>;
+      return (
+        <TableContainer overflowInline>
+          <Table {...node.properties}>{children}</Table>
+        </TableContainer>
+      );
     },
     tbody: ({ children, node }) => {
       delete node.properties?.style;
