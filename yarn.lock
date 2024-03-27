@@ -6368,23 +6368,23 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@utrecht/component-library-css@3.0.1-alpha.19":
-  version "3.0.1-alpha.19"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-3.0.1-alpha.19.tgz#b76e4ed3caf345dfc195299e729def20600c78f1"
-  integrity sha512-47xhvpoZVMSsPGOAUPCCVHS9DqIk+ux4Sc5LO5BLtTeB9UQoQxCoEwzvEDk2Zr4PazjO/WSGiWd7u9kl6JRWKQ==
+"@utrecht/component-library-css@3.0.1-alpha.27":
+  version "3.0.1-alpha.27"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-3.0.1-alpha.27.tgz#eae1af4e5a0a6292f11a89e3a922c51ea1dae65e"
+  integrity sha512-ZmdkJkUCaY3Y+hX4ubOqq2ci74r0DDxWrVMHK9zHy5D100bq9Uy5koEFYT8J+iEXIGtFA16iJ3UKcrioeJPXKg==
 
-"@utrecht/component-library-react@3.0.1-alpha.19":
-  version "3.0.1-alpha.19"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-3.0.1-alpha.19.tgz#379370cfe0f5583933ddf420184d664b6babce6e"
-  integrity sha512-OTkWMCse92EVcB3nTWHBYWJ8DkfZwMs1xe1ogxFJZkpVci+APCdPFFmwqLa1eeHxsuIjH7qlz5I/0BQII0i59Q==
+"@utrecht/component-library-react@3.0.1-alpha.27":
+  version "3.0.1-alpha.27"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-3.0.1-alpha.27.tgz#40f85fddbbe41c418db6bea548495df9f9063b51"
+  integrity sha512-NowGn+JSqQh6ekwHxevoWeBB0BYTTPXNSA9/slc9UEv7yjACYqSLIpCeoaKX7I+VgbK25tw0Cv9sHDxfVcJ2PQ==
   dependencies:
     clsx "1.2.1"
     lodash.chunk "4.2.0"
 
-"@utrecht/design-tokens@1.0.0-alpha.632":
-  version "1.0.0-alpha.632"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.632.tgz#933d18141cf2a312a33d676fca695505550424b9"
-  integrity sha512-QYFYwZsRB8KtQf8rG4kQ9mwMuh7KwJFkJY8e0cH+V919KX2Z0L5bBU7cUxGyiepb5YGABXzAyQo+gBf+qR2VEA==
+"@utrecht/design-tokens@1.0.0-alpha.640":
+  version "1.0.0-alpha.640"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.640.tgz#8d821e59f56ea8740ba7946b8da94728a94e6de7"
+  integrity sha512-YBpP7faSBeCVgn+oAdzDhiAJqzEFV29yTzqsTpyNrrMCjn0TxHqOCexUFr7vMLnqDVFbs7KiV2/lNJozRZK8xw==
 
 "@utrecht/web-component-library-react@1.0.3-alpha.19":
   version "1.0.3-alpha.19"
