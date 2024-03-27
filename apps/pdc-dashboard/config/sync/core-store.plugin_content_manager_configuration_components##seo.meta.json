@@ -38,7 +38,7 @@
         "edit": {
           "label": "Verkorte paginatitel",
           "description": "",
-          "placeholder": "",
+          "placeholder": "In dit veld een korte paginatitel, max 70 tekens. Gebruikt voor leesbare zoekresultaten en tabbladen.",
           "visible": true,
           "editable": true
         },

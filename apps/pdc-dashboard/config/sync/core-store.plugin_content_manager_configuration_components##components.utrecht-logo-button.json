@@ -78,7 +78,7 @@
       },
       "appearance": {
         "edit": {
-          "label": "Stijl of Stijl van de knop",
+          "label": "Stijl",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -92,7 +92,7 @@
       },
       "openFormsEmbed": {
         "edit": {
-          "label": "Open Forms Embed",
+          "label": "Formulier Open Forms",
           "description": "",
           "placeholder": "",
           "visible": true,

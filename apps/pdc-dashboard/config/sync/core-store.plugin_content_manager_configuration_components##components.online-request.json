@@ -23,7 +23,7 @@
       "type": {
         "edit": {
           "label": "Type",
-          "description": "Geeft aan of het product online is aan te vragen, en zo ja of hiervoor DigiD wordt gebruikt. Indien niet van toepassing, vult u hier 'nee' in. waardelijst: 'ja', 'nee' of 'digid'",
+          "description": "Geef aan of het product online aan te vragen is (met of zonder DigiD) of niet.",
           "placeholder": "",
           "visible": true,
           "editable": true

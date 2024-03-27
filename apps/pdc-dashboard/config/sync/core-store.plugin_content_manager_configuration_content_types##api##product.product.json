@@ -29,7 +29,7 @@
           "editable": true
         },
         "list": {
-          "label": "title",
+          "label": "Titel",
           "searchable": true,
           "sortable": true
         }
@@ -65,14 +65,14 @@
       "price": {
         "edit": {
           "label": "Gekoppelde kosten",
-          "description": "Een relationeel veld waarin je de kosten van de producten kunt definiëren.",
-          "placeholder": "",
+          "description": "Selecteer de kosten die bij dit product horen.",
+          "placeholder": "Voeg productkosten toe.",
           "visible": true,
           "editable": true,
           "mainField": "title"
         },
         "list": {
-          "label": "price",
+          "label": "Kosten",
           "searchable": true,
           "sortable": true
         }
@@ -86,7 +86,7 @@
           "editable": true
         },
         "list": {
-          "label": "metaTags",
+          "label": "Metadata",
           "searchable": false,
           "sortable": false
         }
@@ -135,9 +135,9 @@
       },
       "pdc_subcategories": {
         "edit": {
-          "label": "pdc_subcategories",
+          "label": "Categorie",
           "description": "",
-          "placeholder": "",
+          "placeholder": "Voeg relatie toe",
           "visible": true,
           "editable": true,
           "mainField": "title"
@@ -150,9 +150,9 @@
       },
       "kb_subcategories": {
         "edit": {
-          "label": "kb_subcategories",
+          "label": "Kennisbank categorie",
           "description": "",
-          "placeholder": "",
+          "placeholder": "Voeg relatie toe",
           "visible": true,
           "editable": true,
           "mainField": "title"
@@ -161,21 +161,6 @@
           "label": "kb_subcategories",
           "searchable": false,
           "sortable": false
-        }
-      },
-      "productencatalogus": {
-        "edit": {
-          "label": "Productencatalogus",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "organisatieIdentificatie"
-        },
-        "list": {
-          "label": "productencatalogus",
-          "searchable": true,
-          "sortable": true
         }
       },
       "pdc_metadata": {
@@ -190,6 +175,21 @@
           "label": "pdc_metadata",
           "searchable": false,
           "sortable": false
+        }
+      },
+      "productencatalogus": {
+        "edit": {
+          "label": "Productencatalogus",
+          "description": "",
+          "placeholder": "Voeg relatie toe",
+          "visible": true,
+          "editable": true,
+          "mainField": "organisatieIdentificatie"
+        },
+        "list": {
+          "label": "productencatalogus",
+          "searchable": true,
+          "sortable": true
         }
       },
       "createdAt": {
