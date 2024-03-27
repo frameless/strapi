@@ -22,9 +22,9 @@
   "dependencies": {
     "@frameless/ui": "0.0.0-semantically-released",
     "@tanstack/react-query": "4.29.25",
-    "@utrecht/component-library-css": "3.0.1-alpha.19",
-    "@utrecht/component-library-react": "3.0.1-alpha.19",
-    "@utrecht/design-tokens": "1.0.0-alpha.632",
+    "@utrecht/component-library-css": "3.0.1-alpha.27",
+    "@utrecht/component-library-react": "3.0.1-alpha.27",
+    "@utrecht/design-tokens": "1.0.0-alpha.640",
     "@utrecht/web-component-library-react": "1.0.3-alpha.19",
     "@open-formulieren/sdk": "2.1.3",
     "accept-language": "3.0.18",
