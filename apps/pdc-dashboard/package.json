@@ -24,6 +24,7 @@
     "@frameless/strapi-plugin-scheme-select": "0.0.0-semantically-released",
     "@frameless/strapi-plugin-uniform-product-name": "0.0.0-semantically-released",
     "@frameless/strapi-tiptap-editor": "0.0.0-semantically-released",
+    "strapi-plugin-entity-relationship-chart": "4.14.6",
     "@strapi/plugin-graphql": "4.14.6",
     "@strapi/plugin-i18n": "4.14.6",
     "@strapi/plugin-users-permissions": "4.14.6",
