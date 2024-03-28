@@ -1,3 +1,10 @@
+# @frameless/ui [2.15.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.14.0...@frameless/ui@2.15.0) (2024-03-28)
+
+
+### Features
+
+* add table container to tables with overflow inline ([36c2929](https://github.com/frameless/strapi/commit/36c29293da2b53eb0d0f9d2d67ab5aac82ebc56f))
+
 # @frameless/ui [2.14.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.13.2...@frameless/ui@2.14.0) (2024-03-27)
 
 
