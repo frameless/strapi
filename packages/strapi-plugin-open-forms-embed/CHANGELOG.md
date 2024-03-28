@@ -1,3 +1,15 @@
+# @frameless/strapi-plugin-open-forms-embed [1.1.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-open-forms-embed@1.0.2...@frameless/strapi-plugin-open-forms-embed@1.1.0) (2024-03-28)
+
+
+### Bug Fixes
+
+* **plugin-open-forms-embed:** use correct syntax to ComboBox ([adaf0eb](https://github.com/frameless/strapi/commit/adaf0eb2eeddfd6e03747c78c3f2ed09e19978fb))
+
+
+### Features
+
+* **plugin-open-forms-embed:** enable field with settings guidance ([71365a1](https://github.com/frameless/strapi/commit/71365a183b6c4cdcb38834b706673a49345797f3))
+
 ## @frameless/strapi-plugin-open-forms-embed [1.0.2](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-open-forms-embed@1.0.1...@frameless/strapi-plugin-open-forms-embed@1.0.2) (2024-03-12)
 
 
