@@ -55,7 +55,11 @@ export const Price = Node.create({
       {
         tag: 'span',
         getAttrs: (element) => {
-          return (element as any).getAttribute('data-strapi-idref');
+          if ((element as any)?.hasAttribute('data-strapi-idref')) {
+            return (element as any).getAttribute('data-strapi-idref');
+          }
+
+          return false;
         },
       },
     ];
