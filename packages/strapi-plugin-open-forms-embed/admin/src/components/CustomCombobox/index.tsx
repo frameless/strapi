@@ -1,9 +1,11 @@
+import { TextInput } from '@strapi/design-system';
 import { Combobox, ComboboxOption } from '@strapi/design-system/Combobox';
 import { Field, FieldError, FieldHint, FieldLabel } from '@strapi/design-system/Field';
 import { Stack } from '@strapi/design-system/Stack';
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import usePluginConfig from '../../hooks/use-plugin-config';
+import getTrad from '../../utils/getTrad';
 
 interface CustomComboboxProps {
   intlLabel: any;
@@ -70,7 +72,25 @@ function CustomCombobox({
     return new URLSearchParams({ ...params }).toString();
   };
   if (!config?.api_url || !config?.token) {
-    return null;
+    return (
+      <TextInput
+        id={name}
+        error={error}
+        placeholder={formatMessage({
+          id: getTrad('open-forms-embed.disabled.placeholder'),
+          defaultMessage: 'This field is disabled until necessary settings are configured.',
+        })}
+        label={formatMessage(intlLabel)}
+        name={name}
+        hint={formatMessage({
+          id: getTrad('open-forms-embed.disabled.hint'),
+          defaultMessage:
+            'Please ensure the required settings (OPEN_FORMS_API_URL and OPEN_FORMS_API_TOKEN) are properly configured to enable this field.',
+        })}
+        value=""
+        disabled
+      />
+    );
   }
   return (
     <Field name={name} id={name} error={error} hint={description && formatMessage(description)}>

@@ -1,4 +1,6 @@
 {
   "open-forms-embed.label": "Choose an Embedded Open Form",
-  "open-forms-embed.description": "Upon selecting a form, its unique identifier (UUID) will be stored in the database for future reference."
+  "open-forms-embed.description": "Upon selecting a form, its unique identifier (UUID) will be stored in the database for future reference.",
+  "open-forms-embed.disabled.placeholder": "This field is disabled until necessary settings are configured.",
+  "open-forms-embed.disabled.hint": "Please ensure the required settings (OPEN_FORMS_API_URL and OPEN_FORMS_API_TOKEN) are properly configured to enable this field."
 }
