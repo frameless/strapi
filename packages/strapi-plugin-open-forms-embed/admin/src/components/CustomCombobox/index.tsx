@@ -1,6 +1,5 @@
-import { TextInput } from '@strapi/design-system';
-import { Combobox, ComboboxOption } from '@strapi/design-system/Combobox';
-import { Field, FieldError, FieldHint, FieldLabel } from '@strapi/design-system/Field';
+import { Combobox, ComboboxOption, TextInput } from '@strapi/design-system';
+import {} from '@strapi/design-system/Combobox';
 import { Stack } from '@strapi/design-system/Stack';
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -93,38 +92,36 @@ function CustomCombobox({
     );
   }
   return (
-    <Field name={name} id={name} error={error} hint={description && formatMessage(description)}>
-      <Stack spacing={1}>
-        <FieldLabel action={labelAction} required={required}>
-          {formatMessage(intlLabel)}
-        </FieldLabel>
-        <Combobox
-          placeholder={placeholder && formatMessage(placeholder)}
-          aria-label={formatMessage(intlLabel)}
-          aria-disabled={disabled}
-          disabled={disabled}
-          value={value}
-          onChange={(url: string) => onChange({ target: { name, value: url, type: attribute.type } })}
-          loading={isLoading}
-        >
-          {openForms?.length > 0 &&
-            openForms?.map(({ uuid, name, slug }) => (
-              <ComboboxOption
-                value={generateOpenFormsData({
-                  uuid,
-                  slug,
-                  label: name,
-                })}
-                key={uuid}
-              >
-                {name}
-              </ComboboxOption>
-            ))}
-        </Combobox>
-        <FieldHint />
-        <FieldError />
-      </Stack>
-    </Field>
+    <Stack spacing={1}>
+      <Combobox
+        action={labelAction}
+        required={required}
+        name={name}
+        error={error}
+        hint={description && formatMessage(description)}
+        placeholder={placeholder && formatMessage(placeholder)}
+        label={formatMessage(intlLabel)}
+        aria-disabled={disabled}
+        disabled={disabled}
+        value={value}
+        onChange={(url: string) => onChange({ target: { name, value: url, type: attribute.type } })}
+        loading={isLoading}
+      >
+        {openForms?.length > 0 &&
+          openForms?.map(({ uuid, name, slug }) => (
+            <ComboboxOption
+              value={generateOpenFormsData({
+                uuid,
+                slug,
+                label: name,
+              })}
+              key={uuid}
+            >
+              {name}
+            </ComboboxOption>
+          ))}
+      </Combobox>
+    </Stack>
   );
 }
 
