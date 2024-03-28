@@ -4,7 +4,7 @@ import { Link } from '@utrecht/component-library-react';
 import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import type { ExtraProps } from 'react-markdown';
+import type { Options } from 'react-markdown';
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
 
@@ -35,8 +35,8 @@ export const Markdown = ({
   priceData?: PriceTypes[];
   locale?: string;
 }) => {
-  const priceWidget = {
-    span: ({ node }: ExtraProps) => {
+  const priceWidget: Options['components'] = {
+    span: ({ node, children: spanChildren }) => {
       if (node?.properties.dataStrapiCategory === 'price') {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const { t } = useTranslation(locale || fallbackLng, ['common']);
@@ -50,7 +50,7 @@ export const Markdown = ({
         );
       }
       delete node?.properties?.style;
-      return <span {...node?.properties}>{children}</span>;
+      return <span {...node?.properties}>{spanChildren}</span>;
     },
   };
 
