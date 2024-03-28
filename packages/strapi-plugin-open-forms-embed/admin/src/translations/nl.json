@@ -1,4 +1,6 @@
 {
   "open-forms-embed.label": "Kies een ingebed open formulier",
-  "open-forms-embed.description": "Bij het selecteren van een formulier wordt de unieke identificatie (UUID) ervan opgeslagen in de database voor toekomstige referentie."
+  "open-forms-embed.description": "Bij het selecteren van een formulier wordt de unieke identificatie (UUID) ervan opgeslagen in de database voor toekomstige referentie.",
+  "open-forms-embed.disabled.placeholder": "Dit veld is uitgeschakeld totdat de vereiste instellingen zijn geconfigureerd.",
+  "open-forms-embed.disabled.hint": "Zorg ervoor dat de vereiste instellingen (OPEN_FORMS_API_URL en OPEN_FORMS_API_TOKEN) correct zijn geconfigureerd om dit veld in te schakelen."
 }
