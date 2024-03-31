@@ -31,10 +31,6 @@
       "component": "components.online-request",
       "required": true
     },
-    "uniformProductName": {
-      "type": "customField",
-      "customField": "plugin::uniform-product-name.uniform-product-name"
-    },
     "abstract": {
       "type": "text",
       "required": true

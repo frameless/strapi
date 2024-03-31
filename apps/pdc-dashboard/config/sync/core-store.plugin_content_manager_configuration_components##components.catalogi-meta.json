@@ -7,8 +7,8 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "uniformProductName",
-      "defaultSortBy": "uniformProductName",
+      "mainField": "id",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -76,20 +76,6 @@
           "sortable": false
         }
       },
-      "uniformProductName": {
-        "edit": {
-          "label": "De Uniforme Productnamenlijst (UPL)",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "uniformProductName",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "abstract": {
         "edit": {
           "label": "Korte omschrijving",
@@ -133,10 +119,6 @@
           }
         ],
         [
-          {
-            "name": "uniformProductName",
-            "size": 6
-          },
           {
             "name": "abstract",
             "size": 6
