@@ -36,7 +36,7 @@
       },
       "content": {
         "edit": {
-          "label": "Contentblok",
+          "label": "Inleiding content",
           "description": "",
           "placeholder": "Voeg de pagina inhoud",
           "visible": true,
@@ -165,7 +165,7 @@
       },
       "pdc_metadata": {
         "edit": {
-          "label": "CimPDC Product metadata",
+          "label": "Product metadata",
           "description": "",
           "placeholder": "",
           "visible": true,
