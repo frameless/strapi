@@ -1,5 +1,4 @@
-import { mergeAttributes } from '@tiptap/core';
-import Paragraph from '@tiptap/extension-paragraph';
+import { Paragraph } from '@tiptap/extension-paragraph';
 
 declare module '@tiptap/core' {
   // eslint-disable-next-line no-unused-vars
@@ -11,11 +10,19 @@ declare module '@tiptap/core' {
 }
 
 export const LeadParagraph = Paragraph.extend({
-  name: 'leadParagraph',
   addAttributes() {
     return {
       'data-lead': {
         default: true,
+        parseHTML: (element) => element.hasAttribute('data-lead'),
+        renderHTML: (attributes) => {
+          if (attributes['data-lead']) {
+            return {
+              'data-lead': attributes['data-lead'],
+            };
+          }
+          return {};
+        },
       },
     };
   },
@@ -24,11 +31,16 @@ export const LeadParagraph = Paragraph.extend({
       setLeadParagraph:
         () =>
         ({ commands }) => {
-          return commands.setNode(this.name);
+          return commands.setNode(this.name, { 'data-lead': true });
         },
     };
   },
-  renderHTML({ HTMLAttributes }) {
-    return ['p', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0];
+  parseHTML() {
+    return [
+      {
+        tag: 'p',
+        getAttrs: (element) => (element as any).getAttribute('data-lead'),
+      },
+    ];
   },
 });
