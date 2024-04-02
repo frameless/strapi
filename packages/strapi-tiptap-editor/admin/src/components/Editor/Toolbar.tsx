@@ -52,6 +52,7 @@ interface ToolbarProps {
   toggleMediaLib: () => void;
   productPrice?: PriceListTypes;
 }
+
 interface LinkToolbarProps {
   editor: EditorTypes;
   onClick: (_event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -172,7 +173,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
 
   if (editor.isActive('paragraph')) selectedTextStyle = 'paragraph';
 
-  if (editor.isActive('leadParagraph')) selectedTextStyle = 'leadParagraph';
+  if (editor.isActive('paragraph', { 'data-lead': true })) selectedTextStyle = 'leadParagraph';
 
   return (
     <div ref={observe} className={classnames({ sticky: !inView })}>
