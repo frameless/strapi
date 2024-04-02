@@ -33,6 +33,11 @@ export const LeadParagraph = Paragraph.extend({
         ({ commands }) => {
           return commands.setNode(this.name, { 'data-lead': true });
         },
+      setParagraph:
+        () =>
+        ({ commands }) => {
+          return commands.setNode(this.name, { 'data-lead': false });
+        },
     };
   },
   parseHTML() {
