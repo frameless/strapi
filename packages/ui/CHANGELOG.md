@@ -1,3 +1,10 @@
+## @frameless/ui [2.15.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.15.0...@frameless/ui@2.15.1) (2024-04-02)
+
+
+### Bug Fixes
+
+* click outside hook overriding default ([d0301bc](https://github.com/frameless/strapi/commit/d0301bc8dfbfb0171c322190c19f5f4db1fcaedf))
+
 # @frameless/ui [2.15.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.14.0...@frameless/ui@2.15.0) (2024-03-28)
 
 
