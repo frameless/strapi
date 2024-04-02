@@ -20,7 +20,6 @@ const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
           locale
           updatedAt
           catalogiMeta {
-            uniformProductName
             abstract
             spatial {
               scheme
@@ -37,6 +36,9 @@ const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
             onlineRequest {
               type
             }
+          }
+          pdc_metadata {
+            uplProductNaam
           }
         }
       }
