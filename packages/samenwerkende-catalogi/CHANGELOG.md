@@ -1,3 +1,10 @@
+## @frameless/samenwerkende-catalogi [2.2.2](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@2.2.1...@frameless/samenwerkende-catalogi@2.2.2) (2024-04-02)
+
+
+### Bug Fixes
+
+* update samenwerkende-catalogi jsonToXML ([84133b0](https://github.com/frameless/strapi/commit/84133b0e972dfae0279acb8f8447c02761b4a8ab))
+
 ## @frameless/samenwerkende-catalogi [2.2.1](https://github.com/frameless/strapi/compare/@frameless/samenwerkende-catalogi@2.2.0...@frameless/samenwerkende-catalogi@2.2.1) (2023-10-26)
 
 
