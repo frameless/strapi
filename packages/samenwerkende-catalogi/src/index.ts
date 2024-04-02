@@ -36,8 +36,11 @@ type CatalogiMetaType = {
   authority: AuthorityType;
   audience: AudienceType[];
   onlineRequest: OnlineRequestType;
-  uniformProductName?: string;
   abstract: string;
+};
+
+type PdcMetaType = {
+  uplProductNaam?: string;
 };
 
 type AudienceType = {
@@ -48,6 +51,7 @@ type AudienceType = {
 
 type SamenWerkendeCatalogiAttributesTypes = {
   catalogiMeta: CatalogiMetaType;
+  pdc_metadata: PdcMetaType;
   locale: string;
   slug: string;
   title: string;
@@ -77,7 +81,7 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
     const meta = data.map(({ attributes, id }) => {
       const gemeenteSpatial = attributes.catalogiMeta?.spatial.resourceIdentifier;
       const gemeenteAuthority = attributes.catalogiMeta?.authority.resourceIdentifier;
-      const uniformProductName = uplKeyValues.find(({ uri }) => uri === attributes.catalogiMeta?.uniformProductName);
+      const uniformProductName = uplKeyValues.find(({ uri }) => uri === attributes.pdc_metadata?.uplProductNaam);
       const prefLabelSpatial = getPrefLabel(gemeente.cv.value, attributes.catalogiMeta?.spatial.resourceIdentifier);
       const prefLabelAuthority = getPrefLabel(gemeente.cv.value, attributes.catalogiMeta?.authority.resourceIdentifier);
 
