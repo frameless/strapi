@@ -80,7 +80,6 @@ export type ComponentComponentsCatalogiMeta = {
   id: Scalars['ID']['output'];
   onlineRequest: ComponentComponentsOnlineRequest;
   spatial: ComponentComponentsSpatial;
-  uniformProductName?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -99,7 +98,6 @@ export type ComponentComponentsCatalogiMetaFiltersInput = {
   onlineRequest?: InputMaybe<ComponentComponentsOnlineRequestFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentComponentsCatalogiMetaFiltersInput>>>;
   spatial?: InputMaybe<ComponentComponentsSpatialFiltersInput>;
-  uniformProductName?: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentComponentsCatalogiMetaInput = {
@@ -109,7 +107,6 @@ export type ComponentComponentsCatalogiMetaInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
   onlineRequest?: InputMaybe<ComponentComponentsOnlineRequestInput>;
   spatial?: InputMaybe<ComponentComponentsSpatialInput>;
-  uniformProductName?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentComponentsCimPdcProductAspectBeschrijving = {
@@ -174,17 +171,17 @@ export type ComponentComponentsCimPdcProductMetadata = {
   __typename?: 'ComponentComponentsCimPdcProductMetadata';
   afnemer?: Maybe<Scalars['String']['output']>;
   beoogdResultaat?: Maybe<Scalars['String']['output']>;
-  bestelwijze: Enum_Componentcomponentscimpdcproductmetadata_Bestelwijze;
-  cimPdcProductBeschrijving: Array<Maybe<ComponentComponentsCimPdcProductBeschrijving>>;
-  doelgroep: Enum_Componentcomponentscimpdcproductmetadata_Doelgroep;
-  eigenaar: Scalars['String']['output'];
+  bestelwijze?: Maybe<Enum_Componentcomponentscimpdcproductmetadata_Bestelwijze>;
+  cimPdcProductBeschrijving?: Maybe<Array<Maybe<ComponentComponentsCimPdcProductBeschrijving>>>;
+  doelgroep?: Maybe<Enum_Componentcomponentscimpdcproductmetadata_Doelgroep>;
+  eigenaar?: Maybe<Scalars['String']['output']>;
   grondslag?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
-  productCode: Scalars['String']['output'];
+  productCode?: Maybe<Scalars['String']['output']>;
   servicetermijn?: Maybe<Scalars['String']['output']>;
   soortBevoegdGezag?: Maybe<Enum_Componentcomponentscimpdcproductmetadata_Soortbevoegdgezag>;
   soortTaak?: Maybe<Scalars['String']['output']>;
-  uitvoeringsorganisatie: Scalars['String']['output'];
+  uitvoeringsorganisatie?: Maybe<Scalars['String']['output']>;
   uplProductNaam?: Maybe<Scalars['String']['output']>;
   wettelijkeTermijn?: Maybe<Scalars['String']['output']>;
 };
@@ -569,6 +566,7 @@ export type ComponentComponentsUtrechtRichText = {
   __typename?: 'ComponentComponentsUtrechtRichText';
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie>;
 };
 
 export type ComponentComponentsUtrechtSocialMediaLink = {
@@ -734,10 +732,10 @@ export enum Enum_Componentcomponentscimpdcproductmetadata_Bestelwijze {
 }
 
 export enum Enum_Componentcomponentscimpdcproductmetadata_Doelgroep {
-  Gemeente = 'gemeente',
-  Provincie = 'provincie',
-  Rijksoverheid = 'rijksoverheid',
-  Waterschap = 'waterschap'
+  BedrijvenEnInstellingen = 'bedrijven_en_instellingen',
+  Burgers = 'burgers',
+  InterneOrganisatie = 'interne_organisatie',
+  Samenwerkingspartners = 'samenwerkingspartners'
 }
 
 export enum Enum_Componentcomponentscimpdcproductmetadata_Soortbevoegdgezag {
@@ -788,6 +786,19 @@ export enum Enum_Componentcomponentsutrechtlogobutton_Logo {
   Eherkenning = 'eherkenning',
   Eidas = 'eidas',
   WithoutLogo = 'without_logo'
+}
+
+export enum Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
 }
 
 export enum Enum_Componentcomponentsutrechtsocialmedialink_Icon {
