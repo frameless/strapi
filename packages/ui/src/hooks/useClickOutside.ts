@@ -5,7 +5,6 @@ export const useClickOutside = (
   prevFocusableElement?: RefObject<HTMLButtonElement>,
 ) => {
   const handleClickOutside = (event: any) => {
-    event.preventDefault();
     if (ref.current && ref.current === event.target) {
       ref.current.close();
       if (prevFocusableElement) {
