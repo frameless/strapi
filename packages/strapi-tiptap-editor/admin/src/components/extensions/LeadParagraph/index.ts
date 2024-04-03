@@ -13,7 +13,7 @@ export const LeadParagraph = Paragraph.extend({
   addAttributes() {
     return {
       'data-lead': {
-        default: true,
+        default: false,
         parseHTML: (element) => element.hasAttribute('data-lead'),
         renderHTML: (attributes) => {
           if (attributes['data-lead']) {
