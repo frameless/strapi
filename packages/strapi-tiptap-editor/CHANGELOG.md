@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.10.4](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.3...@frameless/strapi-tiptap-editor@1.10.4) (2024-04-03)
+
+
+### Bug Fixes
+
+* all paragraphs incorrectly default to lead ([309aa25](https://github.com/frameless/strapi/commit/309aa25a9afd39ee029e715594542de49781c0b6))
+
 ## @frameless/strapi-tiptap-editor [1.10.3](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.2...@frameless/strapi-tiptap-editor@1.10.3) (2024-04-03)
 
 
