@@ -15,6 +15,15 @@ type Params = {
   page?: number;
 };
 
+const getPandoSearchURL = (route: string) => {
+  if (!process.env.PANDOSEARCH_API_URL) {
+    //TODO: Enable the line below when PandoSearch implements an API for gemeente Utrecht.
+    // throw new Error('PANDOSEARCH_API_URL is not defined');
+    return `https://public.pandosearch.com/developer.pandosearch.com/${route}`;
+  }
+  return `${process.env.PANDOSEARCH_API_URL}/${route}`;
+};
+
 export const getSuggestedSearch = async (
   locale: string,
   value: string,
@@ -26,8 +35,8 @@ export const getSuggestedSearch = async (
     size: params.pageSize,
     page: params.page,
   };
-
-  const url = createURL('https://public.pandosearch.com/developer.pandosearch.com/search', urlParams);
+  const pandosearchURL = getPandoSearchURL('search');
+  const url = createURL(pandosearchURL, urlParams);
 
   const searchResult = await fetchData<SearchResult>({
     url,
@@ -50,7 +59,9 @@ export const getLiveSuggestions = async (value: string) => {
     q: encodeURIComponent(value),
     track: false,
   };
-  const url = createURL('https://public.pandosearch.com/developer.pandosearch.com/suggest', urlParams);
+  const pandosearchURL = getPandoSearchURL('suggest');
+  const url = createURL(pandosearchURL, urlParams);
+
   const searchResult = await fetchData<GetLiveSuggestionsData>({
     url,
     method: 'GET',

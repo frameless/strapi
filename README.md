@@ -71,6 +71,7 @@ To run the application as a Docker container on your Mac, follow these steps:
        OPEN_FORMS_API_URL=
        OPEN_FORMS_CSS_URL=
        OPEN_FORMS_SDK_URL=
+       PANDOSEARCH_API_URL=
        PGADMIN_DEFAULT_EMAIL=
        PGADMIN_DEFAULT_PASSWORD=
        PORT=1337
@@ -129,6 +130,7 @@ To run the application as a Docker container on your Mac, follow these steps:
 | 16  | `OPEN_FORMS_API_URL`       | PDC ONLY: URL for Open Forms API (usually the origin + /api/v2)                                                          | `String`                      |               | frontend / strapi-dashboard |                                                                                                                                                                                                                          |
 | 17  | `OPEN_FORMS_CSS_URL`       | PDC ONLY / Optional: URL for Open Forms CSS                                                                              | `String`                      |               | frontend                    |                                                                                                                                                                                                                          |
 | 18  | `OPEN_FORMS_SDK_URL`       | PDC ONLY / Optional : URL for Open Forms SDK                                                                             | `String`                      |               | frontend                    |                                                                                                                                                                                                                          |
+| 18  | `PANDOSEARCH_API_URL`      | PDC ONLY                                                                                                                 | `String`                      |               | frontend                    |                                                                                                                                                                                                                          |
 | 19  | `PGADMIN_DEFAULT_EMAIL`    |                                                                                                                          | `String`                      |               | Database                    |                                                                                                                                                                                                                          |
 | 20  | `PGADMIN_DEFAULT_PASSWORD` |                                                                                                                          | `String`                      |               | Database                    |                                                                                                                                                                                                                          |
 | 21  | `PORT`                     | Port on which the server should be running.                                                                              | `Number`                      | 1337          | strapi-dashboard            |                                                                                                                                                                                                                          |
@@ -149,8 +151,8 @@ FRONTEND_PUBLIC_URL=http://localhost:3000
 OPEN_FORMS_API_URL=http://localhost:8000/api/v2/
 OPEN_FORMS_CSS_URL=http://localhost:8000/static/sdk/open-forms-sdk.css
 OPEN_FORMS_SDK_URL=http://localhost:8000/static/sdk/open-forms-sdk.js
-# the value should matched the same environment variable on the Strapi dashboard
-PREVIEW_SECRET_TOKEN=
+PANDOSEARCH_API_URL= # You can use the following API URL to test the functionality of the SearchBar component: https://public.pandosearch.com/developer.pandosearch.com/. Valid keys that can be used in the searchBar field include: search, server, highlighting, and help.
+PREVIEW_SECRET_TOKEN= # the value should matched the same environment variable on the Strapi dashboard
 STRAPI_PRIVATE_URL=http://0.0.0.0:1337/
 STRAPI_PUBLIC_URL=http://0.0.0.0:1337/
 ```
