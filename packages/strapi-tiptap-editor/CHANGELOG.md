@@ -1,3 +1,11 @@
+## @frameless/strapi-tiptap-editor [1.10.3](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.2...@frameless/strapi-tiptap-editor@1.10.3) (2024-04-03)
+
+
+### Bug Fixes
+
+* lead paragraph not rendering properly in tip-tap ([557669b](https://github.com/frameless/strapi/commit/557669b80208a68ebecbe868da0d23c54c50bc4c))
+* support changing back to paragraph from leadParagraph ([8c62cb9](https://github.com/frameless/strapi/commit/8c62cb97914ce3fc00b46169dba74a87bc67f97e))
+
 ## @frameless/strapi-tiptap-editor [1.10.2](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.1...@frameless/strapi-tiptap-editor@1.10.2) (2024-03-29)
 
 
