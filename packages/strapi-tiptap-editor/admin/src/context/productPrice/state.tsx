@@ -28,7 +28,7 @@ const State = (props: any) => {
                     data {
                       attributes {
                         title
-                        price {
+                        price(pagination: {limit: 100}) {
                           id
                           currency
                           label
