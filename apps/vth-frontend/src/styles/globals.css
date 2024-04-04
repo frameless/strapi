@@ -204,24 +204,21 @@ details summary::marker {
   content: "";
 }
 
-h3.utrecht-accordion__button {
+summary h3 {
   margin: 0px;
 }
 
-h3.utrecht-accordion__button::after {
+summary h3::after {
   display: block;
   --utrecht-accordion-button-icon-background-color: #ffcc00;
   --utrecht-accordion-button-icon-size: 24px;
   background-image: var(
-    --utrecht-accordion-icon-arrow-up,
-    url(
-      data:image/svg + xml;charset=utf-8,
-      %3Csvgxmlns="http://www.w3.org/2000/svg"width="21.39"height="14.39"%3E%3Cpathfill="none"stroke="%231D1D1D"stroke-width="3"stroke-miterlimit="10"d="m15.866 4.135-5.32 5.322-5.322-5.322"/%3E%3C/svg%3E
-    )
+    --utrecht-accordion-icon-arrow-down,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21.39' height='14.39'%3E%3Cpath fill='none' stroke='%231D1D1D' stroke-width='3' stroke-miterlimit='10' d='M15.866 4.135l-5.32 5.322-5.322-5.322'/%3E%3C/svg%3E")
   );
   background-position: 50%;
   background-repeat: no-repeat;
-  content: "v";
+  content: " ";
   text-align: center;
   background-color: var(--utrecht-accordion-button-icon-background-color);
   block-size: var(--utrecht-accordion-button-icon-size);
@@ -231,4 +228,11 @@ h3.utrecht-accordion__button::after {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+details[open] summary h3::after {
+  background-image: var(
+    --utrecht-accordion-icon-arrow-up,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21.39' height='14.39'%3E%3Cpath fill='none' stroke='%231D1D1D' stroke-width='3' stroke-miterlimit='10' d='M5.223 9.457l5.32-5.322 5.322 5.322'/%3E%3C/svg%3E")
+  );
 }
