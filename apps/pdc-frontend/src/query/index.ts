@@ -52,25 +52,25 @@ export const GET_ALPHABETICALLY_PRODUCTS_BY_LETTER = gql(`
   query getAlphabeticallyProductsByLetterQuery($locale: I18NLocaleCode, $page: Int, $pageSize: Int, $startsWith: String) {
       products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }, filters: { title: { startsWith: $startsWith } }) {
         meta {
-        pagination {
-          total
-          page
-          pageSize
-          pageCount
+          pagination {
+            total
+            page
+            pageSize
+            pageCount
+          }
         }
-      }
-      data {
-        attributes {
-          slug
-          title
-          locale
-          updatedAt
-          metaTags {
-            description
+        data {
+          attributes {
+            slug
+            title
+            locale
+            updatedAt
+            metaTags {
+              description
+            }
           }
         }
       }
-    }
   }
 `);
 
@@ -187,7 +187,7 @@ export const GET_PRODUCT_BY_SLUG = gql(`
               data {
                 attributes {
                   title
-                  faq {
+                  faq (pagination: {start: 0, limit: -1}) {
                     body
                     headingLevel
                     id
