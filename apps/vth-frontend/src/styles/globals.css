@@ -200,8 +200,8 @@ a {
 /* Experiment */
 details summary::-webkit-details-marker,
 details summary::marker {
-  display: none;
   content: "";
+  display: none;
 }
 
 summary h3 {
@@ -209,25 +209,33 @@ summary h3 {
 }
 
 summary h3::after {
-  display: block;
-  --utrecht-accordion-button-icon-background-color: #ffcc00;
-  --utrecht-accordion-button-icon-size: 24px;
+  background-color: var(--utrecht-accordion-button-icon-background-color);
+
   background-image: var(
     --utrecht-accordion-icon-arrow-down,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21.39' height='14.39'%3E%3Cpath fill='none' stroke='%231D1D1D' stroke-width='3' stroke-miterlimit='10' d='M15.866 4.135l-5.32 5.322-5.322-5.322'/%3E%3C/svg%3E")
   );
+
   background-position: 50%;
   background-repeat: no-repeat;
-  content: " ";
-  text-align: center;
-  background-color: var(--utrecht-accordion-button-icon-background-color);
+
   block-size: var(--utrecht-accordion-button-icon-size);
+
+  content: " ";
+  display: block;
+
+  --utrecht-accordion-button-icon-background-color: #fc0;
+
+  --utrecht-accordion-button-icon-size: 24px;
+
   inline-size: var(--utrecht-accordion-button-icon-size);
+
   inset-block-start: 0;
   inset-inline-end: 0;
   position: absolute;
-  top: 0;
   right: 0;
+  text-align: center;
+  top: 0;
 }
 
 details[open] summary h3::after {
