@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [1.10.5](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.4...@frameless/strapi-tiptap-editor@1.10.5) (2024-04-04)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** increase the pice API limit ([3bf193a](https://github.com/frameless/strapi/commit/3bf193ad6860a1059c2e0c39699d984e94e07b30))
+
 ## @frameless/strapi-tiptap-editor [1.10.4](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.3...@frameless/strapi-tiptap-editor@1.10.4) (2024-04-03)
 
 
