@@ -108,14 +108,27 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
         case 'ComponentComponentsUtrechtAccordion':
           return (
             <div>
-              {component.item.map(({ id, label, body }: any) => (
-                <details key={id}>
-                  <summary>{label}</summary>
-                  <div>
-                    <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>
-                  </div>
-                </details>
-              ))}
+              {' '}
+              <div>
+                {component.item.map(({ id, label, body }: any) => (
+                  <details key={id} className="utrecht-accordion">
+                    <summary className="utrecht-accordion__section">
+                      <h3 className="utrecht-button utrecht-button--subtle utrecht-accordion__button">{label}</h3>
+                    </summary>
+                    <div className="utrecht-accordion__panel">
+                      <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <AccordionProvider
+                sections={component.item.map(({ id, label, body }: any) => ({
+                  id,
+                  label,
+                  headingLevel: 3,
+                  body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
+                }))}
+              />
             </div>
           );
         default:

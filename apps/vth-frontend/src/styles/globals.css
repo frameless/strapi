@@ -131,7 +131,7 @@ a {
 
 .utrecht-accordion__panel {
   background-attachment: local, local, scroll, scroll;
-  background-image: 
+  background-image:
     /* Shadows */
     linear-gradient(to right, white, white),
     linear-gradient(to right, white, white),
@@ -195,4 +195,40 @@ a {
     --utrecht-logo-wrapper-margin-block-end: 32px;
     --utrecht-navigation-toggle-button-padding-end: 32px;
   }
+}
+
+/* Experiment */
+details summary::-webkit-details-marker,
+details summary::marker {
+  display: none;
+  content: "";
+}
+
+h3.utrecht-accordion__button {
+  margin: 0px;
+}
+
+h3.utrecht-accordion__button::after {
+  display: block;
+  --utrecht-accordion-button-icon-background-color: #ffcc00;
+  --utrecht-accordion-button-icon-size: 24px;
+  background-image: var(
+    --utrecht-accordion-icon-arrow-up,
+    url(
+      data:image/svg + xml;charset=utf-8,
+      %3Csvgxmlns="http://www.w3.org/2000/svg"width="21.39"height="14.39"%3E%3Cpathfill="none"stroke="%231D1D1D"stroke-width="3"stroke-miterlimit="10"d="m15.866 4.135-5.32 5.322-5.322-5.322"/%3E%3C/svg%3E
+    )
+  );
+  background-position: 50%;
+  background-repeat: no-repeat;
+  content: "v";
+  text-align: center;
+  background-color: var(--utrecht-accordion-button-icon-background-color);
+  block-size: var(--utrecht-accordion-button-icon-size);
+  inline-size: var(--utrecht-accordion-button-icon-size);
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
