@@ -12,7 +12,7 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
-import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GIT_PDC_HOME_PAGE } from '@/query';
+import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_PDC_HOME_PAGE } from '@/query';
 import { alphabet } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
@@ -58,7 +58,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
   const { t } = await useTranslation(locale, ['home-page', 'common']);
   const { data } = await fetchData<{ data: GetPdcHomePageQuery }>({
     url: createStrapiURL(),
-    query: GIT_PDC_HOME_PAGE,
+    query: GET_PDC_HOME_PAGE,
     variables: { locale },
   });
 
