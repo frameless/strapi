@@ -107,14 +107,16 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
           ) : null;
         case 'ComponentComponentsUtrechtAccordion':
           return (
-            <AccordionProvider
-              sections={component.item.map(({ id, label, body }: any) => ({
-                id,
-                label,
-                headingLevel: 3,
-                body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
-              }))}
-            />
+            <div>
+              {component.item.map(({ id, label, body }: any) => (
+                <details key={id}>
+                  <summary>{label}</summary>
+                  <div>
+                    <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>
+                  </div>
+                </details>
+              ))}
+            </div>
           );
         default:
           return null;
