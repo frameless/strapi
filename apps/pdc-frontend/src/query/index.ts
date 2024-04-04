@@ -199,7 +199,7 @@ export const GET_PRODUCT_BY_SLUG = gql(`
           }
           ... on ComponentComponentsUtrechtAccordion {
             __typename
-            item {
+            item (pagination: {start: 0, limit: -1}) {
               body
               headingLevel
               id
