@@ -1,6 +1,6 @@
 const gql = (query: any) => query;
 
-export const GIT_PDC_HOME_PAGE = gql(`
+export const GET_PDC_HOME_PAGE = gql(`
 query getPDCHomePage($locale: I18NLocaleCode, $pageMode: PublicationState) {
   pdcHomePage(publicationState: $pageMode, locale: $locale) {
     data {
