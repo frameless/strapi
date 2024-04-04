@@ -204,11 +204,16 @@ details summary::marker {
   display: none;
 }
 
+/* stylelint-disable property-disallowed-list */
+/* stylelint-disable length-zero-no-unit */
 summary h3 {
   margin: 0px;
 }
 
 summary h3::after {
+  --utrecht-accordion-button-icon-background-color: #fc0;
+  --utrecht-accordion-button-icon-size: 24px;
+
   background-color: var(--utrecht-accordion-button-icon-background-color);
   background-image: var(
     --utrecht-accordion-icon-arrow-down,
@@ -219,10 +224,6 @@ summary h3::after {
   block-size: var(--utrecht-accordion-button-icon-size);
   content: " ";
   display: block;
-
-  --utrecht-accordion-button-icon-background-color: #fc0;
-  --utrecht-accordion-button-icon-size: 24px;
-
   inline-size: var(--utrecht-accordion-button-icon-size);
   inset-block-start: 0;
   inset-inline-end: 0;
