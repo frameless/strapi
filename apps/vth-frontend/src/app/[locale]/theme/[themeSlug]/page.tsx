@@ -108,7 +108,7 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
         case 'ComponentComponentsUtrechtAccordion':
           return (
             <div>
-              {' '}
+              <h2>Details/Summary</h2>
               <div>
                 {component.item.map(({ id, label, body }: any) => (
                   <details key={id} className="utrecht-accordion">
@@ -121,6 +121,7 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
                   </details>
                 ))}
               </div>
+              <h2>Original AccordionProvider</h2>
               <AccordionProvider
                 sections={component.item.map(({ id, label, body }: any) => ({
                   id,
