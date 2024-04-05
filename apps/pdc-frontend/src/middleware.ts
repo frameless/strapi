@@ -27,7 +27,7 @@ const cspBase = {
   'frame-ancestors': [NONE],
   'worker-src': [BLOB],
   'connect-src': [SELF, getOpenFormsHost(), DATA, BLOB],
-  'img-src': [SELF, BLOB, DATA, 'https://service.pdok.nl', formatURL('*.siteimproveanalytics.io')],
+  'img-src': [SELF, getOpenFormsHost(), BLOB, DATA, 'https://service.pdok.nl', formatURL('*.siteimproveanalytics.io')],
   'font-src': [SELF, getOpenFormsHost()],
   'frame-src': ['https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/'],
   'block-all-mixed-content': true,
