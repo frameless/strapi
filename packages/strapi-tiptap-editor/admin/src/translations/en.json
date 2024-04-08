@@ -2,6 +2,10 @@
   "common.words.freeProduct": "free",
   "common.action.cancel": "Cancel",
   "common.action.confirm": "Confirm",
+  "common.action.close": "Close",
+  "common.action.heading": "Heading",
+  "common.action.update": "Update",
+  "common.action.generate": "Generate",
   "components.languagesList.placeholder": "Select a language",
   "components.languagesList.removeLanguage": "Remove Language",
   "components.priceList.placeholder": "Select price",
@@ -37,5 +41,14 @@
   "components.toolbar.linkDialog.textInput.hint": "URLs should start with 'https://' or 'http://', for example: https://www.example.com or https://example.com",
   "components.toolbar.linkDialog.textInput.error": "Invalid URL. Ensure it starts with 'https://' or 'http://', for example: https://www.example.com or https://example.com",
   "components.toolbar.linkDialog.textInput.label": "Insert a URL link",
-  "components.toolbar.linkDialog.textInput.placeholder": "Write or paste the URL here"
+  "components.toolbar.headingWithID.alert.description": "ID copied to clipboard:",
+  "components.toolbar.headingWithID.alert.title.generate": "The {heading} ID was generated successfully!",
+  "components.toolbar.headingWithID.alert.title.update": "The {heading} ID was updated successfully!",
+  "components.toolbar.headingWithID.dialog.title": "{state} {heading} ID",
+  "components.toolbar.headingWithID.iconButton.edit.label": "Edit heading-{headingLevel} ID and copy",
+  "components.toolbar.headingWithID.iconButton.generate.label": "Generate ID for heading-{headingLevel} and copy",
+  "components.toolbar.headingWithID.input.error": "This field is required",
+  "components.toolbar.headingWithID.input.hint": "The ID will be used to create a link to this {heading}.",
+  "components.toolbar.headingWithID.input.label": "{heading} ID",
+  "components.toolbar.headingWithID.input.placeholder": "Enter a unique ID"
 }

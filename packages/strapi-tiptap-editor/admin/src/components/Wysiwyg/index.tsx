@@ -133,7 +133,20 @@ const WysiwygContent = ({
     GapcursorExtension,
     ListItemExtension,
     BulletListExtension,
-    HeadingExtension,
+    HeadingExtension.extend({
+      addGlobalAttributes() {
+        return [
+          {
+            types: ['heading'],
+            attributes: {
+              id: {
+                default: null,
+              },
+            },
+          },
+        ];
+      },
+    }),
     LeadParagraph,
     settings.other.language ? Language : null,
     Price,

@@ -2,6 +2,10 @@
   "common.words.freeProduct": "gratis",
   "common.action.cancel": "Annuleren",
   "common.action.confirm": "Bevestigen",
+  "common.action.close": "Sluiten",
+  "common.action.heading": "Kop",
+  "common.action.update": "Bewerken",
+  "common.action.generate": "Genereren",
   "components.languagesList.placeholder": "Selecteer een taal",
   "components.languagesList.removeLanguage": "Taal verwijderen",
   "components.priceList.placeholder": "Selecteer prijs",
@@ -37,5 +41,14 @@
   "components.toolbar.linkDialog.textInput.hint": "URL's moeten beginnen met 'https://' of 'http://', bijvoorbeeld: https://www.example.com of https://example.com",
   "components.toolbar.linkDialog.textInput.error": "Ongeldige URL. Zorg ervoor dat het begint met 'https://' of 'http://', bijvoorbeeld: https://www.example.com of https://example.com",
   "components.toolbar.linkDialog.textInput.label": "Voeg een URL-koppeling in",
-  "components.toolbar.linkDialog.textInput.placeholder": "Schrijf of plak de URL hier"
+  "components.toolbar.headingWithID.alert.description": "ID gekopieerd naar klembord:",
+  "components.toolbar.headingWithID.alert.title.generate": "De {heading} ID is succesvol gegenereerd!",
+  "components.toolbar.headingWithID.alert.title.update": "De {heading} ID is succesvol bijgewerkt!",
+  "components.toolbar.headingWithID.dialog.title": "{state} {heading} ID",
+  "components.toolbar.headingWithID.iconButton.edit.label": "Bewerk kop - {headingLevel} ID en kopieer",
+  "components.toolbar.headingWithID.iconButton.generate.label": "Genereer ID voor kop - {headingLevel} en kopieer",
+  "components.toolbar.headingWithID.input.error": "Dit veld is verplicht",
+  "components.toolbar.headingWithID.input.hint": "De ID zal worden gebruikt om een link naar deze {heading} te maken.",
+  "components.toolbar.headingWithID.input.label": "{heading} ID",
+  "components.toolbar.headingWithID.input.placeholder": "Voer een unieke ID in"
 }
