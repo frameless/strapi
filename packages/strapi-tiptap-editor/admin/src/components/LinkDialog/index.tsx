@@ -1,6 +1,4 @@
-import { Button } from '@strapi/design-system/Button';
-import { Dialog, DialogBody, DialogFooter } from '@strapi/design-system/Dialog';
-import { Stack } from '@strapi/design-system/Stack';
+import { Button, Dialog, DialogBody, DialogFooter, Stack } from '@strapi/design-system';
 import { TextInput } from '@strapi/design-system/TextInput';
 import React from 'react';
 

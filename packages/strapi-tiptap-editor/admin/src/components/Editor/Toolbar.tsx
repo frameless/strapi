@@ -1,11 +1,7 @@
-import { Box } from '@strapi/design-system/Box';
-import { Button } from '@strapi/design-system/Button';
-import { Dialog, DialogBody, DialogFooter } from '@strapi/design-system/Dialog';
+import { Box, Button, Dialog, DialogBody, DialogFooter, Flex, Stack } from '@strapi/design-system';
 import { Field, FieldLabel } from '@strapi/design-system/Field';
-import { Flex } from '@strapi/design-system/Flex';
 import { IconButton, IconButtonGroup } from '@strapi/design-system/IconButton';
 import { Option, Select } from '@strapi/design-system/Select';
-import { Stack } from '@strapi/design-system/Stack';
 import { TextInput } from '@strapi/design-system/TextInput';
 import { Textarea } from '@strapi/design-system/Textarea';
 import Bold from '@strapi/icons/Bold';
@@ -101,6 +97,11 @@ const onHeadingChange = (editor: EditorTypes, type: HeadingEventsTypes) => {
 };
 
 export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: ToolbarProps) => {
+  // YouTube
+  const [isVisibleYouTubeDialog, setIsVisibleYouTubeDialog] = useState(false);
+  const [youTubeInput, setYouTubeInput] = useState('');
+  const [youTubeHeightInput, setYouTubeHeightInput] = useState(settings.youtube.height);
+  const [youTubeWidthInput, setYouTubeWidthInput] = useState(settings.youtube.width);
   const {
     isVisibleLinkDialog,
     onCloseLinkDialog,
@@ -110,11 +111,6 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
     onInsertLink,
     error,
   } = useLink(editor);
-  // YouTube
-  const [isVisibleYouTubeDialog, setIsVisibleYouTubeDialog] = useState(false);
-  const [youTubeInput, setYouTubeInput] = useState('');
-  const [youTubeHeightInput, setYouTubeHeightInput] = useState(settings.youtube.height);
-  const [youTubeWidthInput, setYouTubeWidthInput] = useState(settings.youtube.width);
   const { formatMessage } = useIntl();
   const { observe, inView } = useInView({
     rootMargin: '-1px 0px 0px 0px',

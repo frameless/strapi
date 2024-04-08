@@ -7,11 +7,5 @@ export const addRemoveFromList = (list: any, val: any) => {
   return list;
 };
 
-export const isURLhasProtocol = (url: string) => {
-  try {
-    new URL(url);
-    return true;
-  } catch (error) {
-    return false;
-  }
-};
+const validProtocols = ['https://', 'http://', '#', 'tel:', 'mailto:'];
+export const isValidURL = (url: string) => validProtocols.some((protocol) => url.startsWith(protocol));
