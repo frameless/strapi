@@ -37,6 +37,7 @@ import { VscTable } from 'react-icons/vsc';
 import { useIntl } from 'react-intl';
 import { LanguagesList } from './LanguagesList';
 import { PriceList } from './PriceList';
+import { ToolbarItemHeadingWithID } from './ToolbarItems/HeadingWithID';
 import defaultSettings from '../../../../utils/defaults';
 import { useLink } from '../../hooks/useLink';
 import getTrad from '../../utils/getTrad';
@@ -553,6 +554,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 />
               </Dialog>
             </IconButtonGroup>
+            <ToolbarItemHeadingWithID editor={editor} />
           </Flex>
         </Flex>
       </Box>
