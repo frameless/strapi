@@ -1,82 +1,118 @@
+/* eslint-disable no-unused-vars */
 import type { Editor as EditorTypes } from '@tiptap/react';
 import { useReducer } from 'react';
-import { isURLhasProtocol } from '../../../utils/helpers';
+import { isValidURL } from '../../../utils/helpers';
 
-const types = {
-  GET_THE_PREVIOUS_URL: 'GET_THE_PREVIOUS_URL',
-  GET_ERROR: 'GET_ERROR',
-  OPEN_LINK_DIALOG: 'OPEN_LINK_DIALOG',
-  ON_INPUT_LINK_CHANGE: 'ON_INPUT_LINK_CHANGE',
-  ON_CLOSE_LINK_DIALOG: 'ON_CLOSE_LINK_DIALOG',
-};
+// Define ActionTypes enum
+enum ActionTypes {
+  GET_THE_PREVIOUS_URL = 'GET_THE_PREVIOUS_URL',
+  ON_INPUT_LINK_CHANGE = 'ON_INPUT_LINK_CHANGE',
+  ON_CLOSE_LINK_DIALOG = 'ON_CLOSE_LINK_DIALOG',
+  OPEN_LINK_DIALOG = 'OPEN_LINK_DIALOG',
+  GET_ERROR = 'GET_ERROR',
+}
 
-type LinkStateTypes = {
+// Define Action types
+interface GetPreviousUrlAction {
+  type: ActionTypes.GET_THE_PREVIOUS_URL;
+  payload: string;
+}
+
+interface OnInputLinkChangeAction {
+  type: ActionTypes.ON_INPUT_LINK_CHANGE;
+  payload: string;
+}
+
+interface OnCloseLinkDialogAction {
+  type: ActionTypes.ON_CLOSE_LINK_DIALOG;
+}
+
+interface OpenLinkDialogAction {
+  type: ActionTypes.OPEN_LINK_DIALOG;
+}
+
+interface GetErrorAction {
+  type: ActionTypes.GET_ERROR;
+  payload: string;
+}
+
+type LinkActionTypes =
+  | GetPreviousUrlAction
+  | OnInputLinkChangeAction
+  | OnCloseLinkDialogAction
+  | OpenLinkDialogAction
+  | GetErrorAction;
+
+// Define State type
+interface LinkStateTypes {
   isVisibleLinkDialog: boolean;
   linkInput: string;
-  error?: string;
-};
+  error: string;
+}
 
-type LinkActionTypes = {
-  type: string;
-  payload: string;
-};
+// Define LinkInputValue type
+export interface LinkInputValue {
+  url: string;
+  anchor: string;
+}
 
 export const useLink = (editor: EditorTypes) => {
-  const reducer = (state: LinkStateTypes, action: LinkActionTypes) => {
+  const reducer = (state: LinkStateTypes, action: LinkActionTypes): LinkStateTypes => {
     switch (action.type) {
-      case types.GET_THE_PREVIOUS_URL:
+      case ActionTypes.GET_THE_PREVIOUS_URL:
+        return {
+          ...state,
+          linkInput: action.payload,
+          error: '',
+        };
+      case ActionTypes.ON_INPUT_LINK_CHANGE:
         return { ...state, linkInput: action.payload, error: '' };
-      case types.ON_INPUT_LINK_CHANGE:
-        return { ...state, linkInput: action.payload, error: '' };
-      case types.ON_CLOSE_LINK_DIALOG:
+      case ActionTypes.ON_CLOSE_LINK_DIALOG:
         return { ...state, linkInput: '', isVisibleLinkDialog: false, error: '' };
-      case types.OPEN_LINK_DIALOG:
-        return { ...state, isVisibleLinkDialog: true, error: '' };
-      case types.GET_ERROR:
+      case ActionTypes.OPEN_LINK_DIALOG:
+        return {
+          ...state,
+          isVisibleLinkDialog: true,
+          error: '',
+        };
+      case ActionTypes.GET_ERROR:
         return { ...state, error: action.payload };
       default:
         return state;
     }
   };
 
-  const initialState = {
+  const initialState: LinkStateTypes = {
     isVisibleLinkDialog: false,
     linkInput: '',
     error: '',
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
-
   const openLinkDialog = () => {
     const previousUrl = editor.getAttributes('link').href;
 
     // Update fields before showing dialog
-    if (previousUrl) dispatch({ type: types.GET_THE_PREVIOUS_URL, payload: previousUrl });
+    if (previousUrl) dispatch({ type: ActionTypes.GET_THE_PREVIOUS_URL, payload: previousUrl });
 
-    dispatch({ type: types.OPEN_LINK_DIALOG, payload: '' });
+    dispatch({ type: ActionTypes.OPEN_LINK_DIALOG });
   };
 
   const onInsertLink = () => {
-    // empty
     if (state.linkInput === '') {
       editor.chain().focus().extendMarkRange('link').unsetLink().run();
-      dispatch({ type: types.ON_CLOSE_LINK_DIALOG, payload: '' });
-    } else if (!isURLhasProtocol(state.linkInput)) {
-      dispatch({ type: types.GET_ERROR, payload: 'invalid-protocol' });
+      onCloseLinkDialog();
+    } else if (!isValidURL(state.linkInput)) {
+      dispatch({ type: ActionTypes.GET_ERROR, payload: 'invalid-protocol' });
     } else {
-      // update link
+      // Update link
       editor.chain().focus().extendMarkRange('link').setLink({ href: state.linkInput }).run();
-      dispatch({ type: types.ON_CLOSE_LINK_DIALOG, payload: '' });
+      onCloseLinkDialog();
     }
   };
 
-  const onCloseLinkDialog = () => {
-    dispatch({ type: types.ON_CLOSE_LINK_DIALOG, payload: '' });
-  };
-
-  const onLinkUrlInputChange = (inputText: string) => {
-    dispatch({ type: types.ON_INPUT_LINK_CHANGE, payload: inputText });
-  };
+  const onCloseLinkDialog = () => dispatch({ type: ActionTypes.ON_CLOSE_LINK_DIALOG });
+  const onLinkUrlInputChange = (value: string) => dispatch({ type: ActionTypes.ON_INPUT_LINK_CHANGE, payload: value });
 
   return {
     isVisibleLinkDialog: state.isVisibleLinkDialog,
