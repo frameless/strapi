@@ -39,7 +39,13 @@ export interface EditorOptions {
   other: {
     wordcount: boolean;
     saveJson: boolean;
-    language: boolean;
+    language: {
+      enabled: boolean;
+      default: {
+        name: string;
+        code: string;
+      }[];
+    };
   };
   youtube: {
     enabled: boolean;

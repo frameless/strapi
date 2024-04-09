@@ -33,7 +33,31 @@
     },
     "other": {
       "wordcount": false,
-      "language": true,
+      "language": {
+        "enabled": true,
+        "default": [
+          {
+            "name": "Arabisch",
+            "code": "ar"
+          },
+          {
+            "name": "Engels",
+            "code": "en"
+          },
+          {
+            "name": "Nederlands",
+            "code": "nl"
+          },
+          {
+            "name": "Oekraïens",
+            "code": "uk"
+          },
+          {
+            "name": "Turks",
+            "code": "tr"
+          }
+        ]
+      },
       "saveJson": false
     },
     "youtube": {

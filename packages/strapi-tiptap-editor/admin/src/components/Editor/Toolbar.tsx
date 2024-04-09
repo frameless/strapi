@@ -4,6 +4,7 @@ import { IconButton, IconButtonGroup } from '@strapi/design-system/IconButton';
 import { Option, Select } from '@strapi/design-system/Select';
 import { TextInput } from '@strapi/design-system/TextInput';
 import { Textarea } from '@strapi/design-system/Textarea';
+import { auth } from '@strapi/helper-plugin';
 import Bold from '@strapi/icons/Bold';
 import BulletList from '@strapi/icons/BulletList';
 import Code from '@strapi/icons/Code';
@@ -37,6 +38,7 @@ import { ToolbarItemHeadingWithID } from './ToolbarItems/HeadingWithID';
 import defaultSettings from '../../../../utils/defaults';
 import { useLink } from '../../hooks/useLink';
 import getTrad from '../../utils/getTrad';
+import { localizeLanguagesNames } from '../../utils/localizeLanguagesNames';
 import { LinkDialog } from '../LinkDialog';
 import { PriceListTypes } from '../extensions/Price/index';
 import initialTableWithCaption from '../extensions/schema/initialTableWithCaptionData';
@@ -54,12 +56,6 @@ interface LinkToolbarProps {
   editor: EditorTypes;
   onClick: (_event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-
-export const languages = [
-  { titleKey: 'languages.dutch', languageCode: 'nl' },
-  { titleKey: 'languages.english', languageCode: 'en' },
-  { titleKey: 'languages.arabic', languageCode: 'ar' },
-];
 
 export const LinkToolbar = ({ editor, onClick }: LinkToolbarProps) => {
   return (
@@ -97,11 +93,6 @@ const onHeadingChange = (editor: EditorTypes, type: HeadingEventsTypes) => {
 };
 
 export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: ToolbarProps) => {
-  // YouTube
-  const [isVisibleYouTubeDialog, setIsVisibleYouTubeDialog] = useState(false);
-  const [youTubeInput, setYouTubeInput] = useState('');
-  const [youTubeHeightInput, setYouTubeHeightInput] = useState(settings.youtube.height);
-  const [youTubeWidthInput, setYouTubeWidthInput] = useState(settings.youtube.width);
   const {
     isVisibleLinkDialog,
     onCloseLinkDialog,
@@ -111,6 +102,13 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
     onInsertLink,
     error,
   } = useLink(editor);
+  // YouTube
+  const [isVisibleYouTubeDialog, setIsVisibleYouTubeDialog] = useState(false);
+  const user = auth.getUserInfo();
+  const locale = user.preferedLanguage || 'nl';
+  const [youTubeInput, setYouTubeInput] = useState('');
+  const [youTubeHeightInput, setYouTubeHeightInput] = useState(settings.youtube.height);
+  const [youTubeWidthInput, setYouTubeWidthInput] = useState(settings.youtube.width);
   const { formatMessage } = useIntl();
   const { observe, inView } = useInView({
     rootMargin: '-1px 0px 0px 0px',
@@ -209,11 +207,11 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                 />
               </Box>
             )}
-            {settings.other.language && (
+            {settings.other.language.enabled && (
               <Box className={classnames('button-group')}>
                 <LanguagesList
                   editor={editor}
-                  languages={languages}
+                  languages={localizeLanguagesNames(settings.other.language.default, locale)}
                   selectField={{
                     placeholder: formatMessage({
                       id: getTrad('components.languagesList.placeholder'),
