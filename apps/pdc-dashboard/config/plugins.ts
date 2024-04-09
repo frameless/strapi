@@ -100,4 +100,16 @@ export default ({ env }) => ({
       ],
     },
   },
+  graphql: {
+    config: {
+      apolloServer: {
+        bodyParserConfig: {
+          limit: '128mb',
+          jsonLimit: '128mb',
+          textLimit: '128mb',
+          xmlLimit: '128mb',
+        },
+      },
+    },
+  },
 });
