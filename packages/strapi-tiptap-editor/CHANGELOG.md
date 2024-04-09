@@ -1,3 +1,11 @@
+# @frameless/strapi-tiptap-editor [1.11.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.5...@frameless/strapi-tiptap-editor@1.11.0) (2024-04-09)
+
+
+### Features
+
+* **strapi-tiptap-editor:** create anchor extension ([b056a27](https://github.com/frameless/strapi/commit/b056a2725a115c4b903c9795ac66488582f90003))
+* **strapi-tiptap-editor:** enable to use non-URLs ([9230298](https://github.com/frameless/strapi/commit/923029878a14e0ef54c9dd00f3356c68ac0db0d4))
+
 ## @frameless/strapi-tiptap-editor [1.10.5](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.4...@frameless/strapi-tiptap-editor@1.10.5) (2024-04-04)
 
 
