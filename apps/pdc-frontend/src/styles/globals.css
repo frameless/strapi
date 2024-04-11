@@ -206,12 +206,12 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
   --of-card-padding-inline-start: 0;
 }
 
-.utrecht-data-list--openforms > .utrecht-data-list__item:first-of-type {
-  margin-block-start: 0;
-}
-
 .utrecht-data-list--openforms > .utrecht-data-list__item {
   margin-block-start: var(--utrecht-data-list-rows-item-margin-block-start);
+}
+
+.utrecht-data-list--openforms > .utrecht-data-list__item:first-of-type {
+  margin-block-start: 0;
 }
 
 @media screen and (width > 360px) {
