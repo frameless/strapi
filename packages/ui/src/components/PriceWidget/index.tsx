@@ -44,6 +44,7 @@ export const PriceWidget = ({
 }) => {
   if (id && priceData && priceData.length > 0) {
     const product = priceData.find(({ id: priceDataId }) => priceDataId === id);
+    if (!product) return null;
     const price = formatCurrency({
       price: Number(product?.value),
       currency: product?.currency || 'EUR',
