@@ -104,6 +104,9 @@ body {
   /* Button group */
   --utrecht-button-group-margin-block-start: var(--utrecht-space-block-xs);
   --utrecht-button-group-margin-block-end: var(--utrecht-space-block-xs);
+
+  /* openforms datalist */
+  --of-progress-indicator-padding-block-end: 0;
 }
 
 a {
@@ -193,6 +196,22 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
 
 .utrecht-navigation--mobile:has(button[aria-expanded="false"]) {
   padding-inline-end: var(--utrecht-navigation-toggle-button-padding-end);
+}
+
+/* openforms datalist */
+.openforms-app > .openforms-app__body > .openforms-card {
+  --of-card-padding-block-end: 0;
+  --of-card-padding-block-start: 0;
+  --of-card-padding-inline-end: 0;
+  --of-card-padding-inline-start: 0;
+}
+
+.utrecht-data-list--openforms > .utrecht-data-list__item:first-of-type {
+  margin-block-start: 0;
+}
+
+.utrecht-data-list--openforms > .utrecht-data-list__item {
+  margin-block-start: var(--utrecht-data-list-rows-item-margin-block-start);
 }
 
 @media screen and (width > 360px) {
