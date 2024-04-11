@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [1.12.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.11.0...@frameless/strapi-tiptap-editor@1.12.0) (2024-04-11)
+
+
+### Features
+
+* **strapi-tiptap-editor:** make the language extension configurable ([f28d13a](https://github.com/frameless/strapi/commit/f28d13a30f8efa4e0bcc7db8d61a2dbf1b53cf71))
+
 # @frameless/strapi-tiptap-editor [1.11.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.10.5...@frameless/strapi-tiptap-editor@1.11.0) (2024-04-09)
 
 
