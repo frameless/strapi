@@ -118,8 +118,8 @@ const WysiwygContent = ({
   const data = useCMEditViewDataManager();
 
   useEffect(() => {
-    getProductPrice(data.initialData.id);
-  }, [data, getProductPrice]);
+    getProductPrice(data.initialData?.uuid);
+  }, [data.initialData?.uuid, getProductPrice]);
 
   const extensions: Extensions = [
     StarterKit,

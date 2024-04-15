@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import Context from './context';
+import { GET_PRODUCT_PRICES } from './queries';
 import Reducer from './reducer';
 import { GET_PRICE_PRODUCT, GET_PRICE_PRODUCT_ERROR } from '../types';
 
@@ -19,33 +20,12 @@ const State = (props: any) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          query: `{
-            product(id:${pageId}){
-              data {
-                id
-                attributes{
-                  price {
-                    data {
-                      attributes {
-                        title
-                        price(pagination: {limit: 100}) {
-                          id
-                          currency
-                          label
-                          value
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-              }`,
+          query: GET_PRODUCT_PRICES,
+          variables: { pageId },
         }),
       });
       const { data } = await res.json();
-
-      dispatch({ type: GET_PRICE_PRODUCT, payload: data.product.data?.attributes?.price?.data?.attributes || [] });
+      dispatch({ type: GET_PRICE_PRODUCT, payload: data.products.data[0]?.attributes?.price?.data?.attributes || [] });
     } catch (error) {
       dispatch({
         type: GET_PRICE_PRODUCT_ERROR,

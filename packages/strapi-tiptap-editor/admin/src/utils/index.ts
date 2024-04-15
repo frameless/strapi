@@ -1,4 +1,4 @@
-export * from './formateCurrency';
 export { default as getTrad } from './getTrad';
-export * from './getPriceValue';
+export { isFreeProduct } from './isFreeProduct';
+export * from './formatCurrency';
 export * from './merge';

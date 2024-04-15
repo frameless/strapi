@@ -1,8 +1,10 @@
 import { NodeViewWrapper } from '@tiptap/react';
-import React from 'react';
+import type { NodeViewWrapperProps } from '@tiptap/react';
+import React, { forwardRef, useContext } from 'react';
+import type { ForwardedRef, PropsWithChildren } from 'react';
 import { useIntl } from 'react-intl';
 import ProductPriceContext from '../../../context/productPrice/context';
-import { getPriceValue } from '../../../utils';
+import { formatCurrency, getTrad, isFreeProduct } from '../../../utils';
 
 interface PriceWidgetProps {
   node: {
@@ -12,21 +14,41 @@ interface PriceWidgetProps {
   };
 }
 
+interface PriceWidgetWrapperProps extends NodeViewWrapperProps {}
+
+const PriceWidgetWrapper = forwardRef(
+  ({ children }: PropsWithChildren<PriceWidgetWrapperProps>, ref: ForwardedRef<NodeViewWrapperProps>) => (
+    <NodeViewWrapper ref={ref} className="utrecht-price-widget" contentEditable={false}>
+      <span draggable contentEditable={false} data-drag-handle="">
+        {children}
+      </span>
+    </NodeViewWrapper>
+  ),
+);
+
+PriceWidgetWrapper.displayName = 'PriceWidgetWrapper';
+
 export default function PriceWidget({ node: { attrs } }: PriceWidgetProps) {
-  const { busy, productPrice } = React.useContext(ProductPriceContext);
-  const price = productPrice?.price?.find((price) => {
-    const currentPrice = price?.id === attrs['data-strapi-idref'].toString();
-    return currentPrice;
-  });
+  const { busy, productPrice } = useContext(ProductPriceContext);
+  const price = productPrice?.price?.find((price) => price?.uuid === attrs['data-strapi-idref']);
 
   const { formatMessage } = useIntl();
 
   if (busy) return null;
-  return price ? (
-    <NodeViewWrapper className="utrecht-price-widget" contentEditable={false}>
-      <span draggable contentEditable={false} data-drag-handle="" id={price?.id}>
-        {formatMessage({ id: getPriceValue(price, 'common.words.freeProduct') })}
-      </span>
-    </NodeViewWrapper>
-  ) : null;
+  if (!price)
+    return (
+      <PriceWidgetWrapper>
+        {formatMessage({
+          id: getTrad('components.priceWidget.priceUnknown'),
+          defaultMessage: '€\u00A0#,##0\u00A0(price\u00A0unknown)',
+        })}
+      </PriceWidgetWrapper>
+    );
+  return (
+    <PriceWidgetWrapper>
+      {isFreeProduct(price.value)
+        ? formatMessage({ id: getTrad('common.words.freeProduct'), defaultMessage: 'free' })
+        : formatCurrency(price)}
+    </PriceWidgetWrapper>
+  );
 }

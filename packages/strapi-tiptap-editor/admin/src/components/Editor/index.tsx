@@ -6,9 +6,9 @@ import { BubbleMenuComponent } from './BubbleMenuComponent';
 import { Toolbar } from './Toolbar';
 import Wrapper from './styles';
 import defaultSettings from '../../../../utils/defaults';
+import { PriceListTypes } from '../../types';
 import MediaLib from '../MediaLib';
 import { OnChangeParamTypes } from '../Wysiwyg';
-import { PriceListTypes } from '../extensions/Price';
 
 interface EditorProps {
   editor: EditorTypes;
