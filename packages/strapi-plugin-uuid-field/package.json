@@ -1,0 +1,45 @@
+{
+  "name": "@frameless/strapi-plugin-uuid-field",
+  "version": "0.0.0-semantically-released",
+  "description": "A strapi custom field for generating an UUID for each document",
+  "keywords": [],
+  "private": false,
+  "strapi": {
+    "name": "uuid-field",
+    "description": "Generate UUID",
+    "kind": "plugin",
+    "displayName": "Generate UUID"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": ""
+  },
+  "license": "",
+  "peerDependencies": {
+    "@strapi/strapi": ">=4.0.0"
+  },
+  "engines": {
+    "node": "20.x.x"
+  },
+  "dependencies": {
+    "@strapi/design-system": "1.12.2",
+    "@strapi/icons": "1.12.2",
+    "uuid": "9.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "9.0.8",
+    "rimraf": "5.0.5"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.server.json",
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "watch": "tsc -p tsconfig.server.json -w"
+  }
+}
