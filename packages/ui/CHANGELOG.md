@@ -1,3 +1,10 @@
+# @frameless/ui [2.16.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.15.1...@frameless/ui@2.16.0) (2024-04-15)
+
+
+### Features
+
+* **ui:** use UUID to display the price in `PriceWidget` ([2019a9d](https://github.com/frameless/strapi/commit/2019a9d41977011d8ad1e5867074d78d3e94c31d))
+
 ## @frameless/ui [2.15.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.15.0...@frameless/ui@2.15.1) (2024-04-02)
 
 
