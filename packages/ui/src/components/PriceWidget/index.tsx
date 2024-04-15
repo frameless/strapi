@@ -2,7 +2,7 @@ type PriceTypes = {
   value: string;
   label: string;
   currency: string;
-  id: string;
+  uuid?: string;
 };
 
 type FormatCurrencyTypes = {
@@ -43,9 +43,13 @@ export const PriceWidget = ({
   freeProductText?: string;
 }) => {
   if (id && priceData && priceData.length > 0) {
-    const product = priceData.find(({ id: priceDataId }) => priceDataId === id);
+    const product = priceData.find(({ uuid }) => uuid === id);
+
+    if (!product) {
+      return null;
+    }
     const price = formatCurrency({
-      price: Number(product?.value),
+      price: parseFloat(product?.value),
       currency: product?.currency || 'EUR',
       locale,
       freeProductText,
