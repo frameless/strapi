@@ -1,0 +1,1 @@
+# Strapi plugin uuid-field
