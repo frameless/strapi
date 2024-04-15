@@ -1,8 +1,8 @@
 import { Option, Select } from '@strapi/design-system/Select';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { getPriceValue, getTrad } from '../../utils';
-import { PriceListTypes, PriceTypes } from '../extensions/Price/index';
+import { PriceListTypes, PriceTypes } from '../../types';
+import { formatCurrency, getTrad, isFreeProduct } from '../../utils';
 interface PriceListProps {
   productPrice: PriceListTypes;
   // eslint-disable-next-line no-unused-vars
@@ -16,12 +16,13 @@ export const PriceList = ({ productPrice, onPriceChange, value }: PriceListProps
     return null;
   }
 
-  const handlePriceChange = (event: string | number) => {
-    const selectedPrice = productPrice.price?.find(({ id }) => Number(id) === Number(event));
+  const handlePriceChange = (id: string) => {
+    const selectedPrice = productPrice.price?.find((price) => price?.uuid === id);
     if (selectedPrice) {
       onPriceChange(selectedPrice);
     }
   };
+  const isPriceHasUUID = productPrice?.price?.every((price) => price?.uuid);
 
   return (
     <Select
@@ -31,18 +32,31 @@ export const PriceList = ({ productPrice, onPriceChange, value }: PriceListProps
       placeholder={formatMessage({ id: getTrad('components.priceList.placeholder') })}
       onChange={handlePriceChange}
     >
-      {productPrice?.title && <Option value={productPrice?.title}>{productPrice?.title}</Option>}
-      {productPrice?.price?.map((price) => (
-        <Option key={price.id} className="icon" value={price.id.toString()}>
-          {formatMessage(
-            { id: getTrad('components.priceList.option') },
-            {
-              label: price.label,
-              value: formatMessage({ id: getPriceValue(price, 'common.words.freeProduct') }),
-            },
-          )}
+      {productPrice?.title && isPriceHasUUID && <Option value={productPrice?.title}>{productPrice?.title}</Option>}
+      {!isPriceHasUUID && (
+        <Option className="icon" value={getTrad('components.priceList.option.errorMessage')}>
+          {formatMessage({
+            id: getTrad('components.priceList.option.errorMessage'),
+            defaultMessage: 'Please save the price collection to display the prices.',
+          })}
         </Option>
-      ))}
+      )}
+      {productPrice?.price?.map(
+        (price) =>
+          price?.uuid && (
+            <Option key={price.uuid} className="icon" value={price.uuid}>
+              {formatMessage(
+                { id: getTrad('components.priceList.option') },
+                {
+                  label: price.label,
+                  value: isFreeProduct(price.value)
+                    ? formatMessage({ id: getTrad('common.words.freeProduct'), defaultMessage: 'free' })
+                    : formatCurrency(price),
+                },
+              )}
+            </Option>
+          ),
+      )}
     </Select>
   );
 };

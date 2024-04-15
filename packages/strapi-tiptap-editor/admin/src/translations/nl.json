@@ -10,6 +10,8 @@
   "components.languagesList.removeLanguage": "Taal verwijderen",
   "components.priceList.placeholder": "Selecteer prijs",
   "components.priceList.option": "{label}: {value}",
+  "components.priceList.option.errorMessage": "Sla alstublieft de kostencollectie op om de kosten weer te geven.",
+  "components.priceWidget.priceUnknown": "€\u00A0#,##0\u00A0(prijs\u00A0onbekend)",
   "languages.dutch": "Nederlands",
   "languages.english": "Engels",
   "languages.arabic": "Arabisch",

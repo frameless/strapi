@@ -10,6 +10,8 @@
   "components.languagesList.removeLanguage": "Remove Language",
   "components.priceList.placeholder": "Select price",
   "components.priceList.option": "{label}: {value}",
+  "components.priceList.option.errorMessage": "Please save the price collection to display the prices.",
+  "components.priceWidget.priceUnknown": "€\u00A0#,##0\u00A0(price\u00A0unknown)",
   "languages.dutch": "Dutch",
   "languages.english": "English",
   "languages.arabic": "Arabic",

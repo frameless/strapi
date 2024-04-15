@@ -2,17 +2,7 @@ import { mergeAttributes, Node } from '@tiptap/core';
 import { ReactNodeViewRenderer } from '@tiptap/react';
 import Widget from './widget';
 import './price.css';
-
-export type PriceTypes = {
-  value: string;
-  label: string;
-  currency: string;
-  id: string;
-};
-export type PriceListTypes = {
-  title: string;
-  price: PriceTypes[];
-};
+import { PriceTypes } from '../../../types';
 
 declare module '@tiptap/core' {
   // eslint-disable-next-line no-unused-vars
@@ -46,7 +36,7 @@ export const Price = Node.create({
       insertReactComponent:
         (price) =>
         ({ commands }) => {
-          return commands.insertContent(`<span data-strapi-idref='${price.id}'></span>`);
+          return commands.insertContent(`<span data-strapi-idref='${price.uuid}'></span>`);
         },
     };
   },

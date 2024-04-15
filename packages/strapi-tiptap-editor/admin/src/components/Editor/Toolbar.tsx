@@ -37,10 +37,10 @@ import { PriceList } from './PriceList';
 import { ToolbarItemHeadingWithID } from './ToolbarItems/HeadingWithID';
 import defaultSettings from '../../../../utils/defaults';
 import { useLink } from '../../hooks/useLink';
+import { PriceListTypes } from '../../types';
 import getTrad from '../../utils/getTrad';
 import { localizeLanguagesNames } from '../../utils/localizeLanguagesNames';
 import { LinkDialog } from '../LinkDialog';
-import { PriceListTypes } from '../extensions/Price/index';
 import initialTableWithCaption from '../extensions/schema/initialTableWithCaptionData';
 
 type HeadingEventsTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'paragraph' | 'leadParagraph';
