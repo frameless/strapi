@@ -405,7 +405,7 @@
       "actionParameters": {},
       "subject": "api::price.price",
       "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
+        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
       "conditions": []
     },
@@ -428,7 +428,7 @@
       "actionParameters": {},
       "subject": "api::price.price",
       "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
+        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
       "conditions": []
     },
@@ -437,7 +437,7 @@
       "actionParameters": {},
       "subject": "api::price.price",
       "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "title", "products"]
+        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
       "conditions": []
     },
@@ -489,7 +489,8 @@
           "pdc_metadata.cimPdcProductBeschrijving.trefwoord",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
-          "productencatalogus"
+          "productencatalogus",
+          "uuid"
         ],
         "locales": ["en", "nl"]
       },
@@ -561,7 +562,8 @@
           "pdc_metadata.cimPdcProductBeschrijving.trefwoord",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
-          "productencatalogus"
+          "productencatalogus",
+          "uuid"
         ],
         "locales": ["en", "nl"]
       },
@@ -615,7 +617,8 @@
           "pdc_metadata.cimPdcProductBeschrijving.trefwoord",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
-          "productencatalogus"
+          "productencatalogus",
+          "uuid"
         ],
         "locales": ["en", "nl"]
       },

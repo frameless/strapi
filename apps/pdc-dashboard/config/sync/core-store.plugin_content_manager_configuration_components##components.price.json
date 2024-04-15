@@ -61,6 +61,20 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "uuid": {
+        "edit": {
+          "label": "Unieke ID",
+          "description": "Een speciale code die automatisch aan elk item wordt toegewezen, zodat het uniek geïdentificeerd kan worden.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uuid",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
@@ -73,6 +87,12 @@
           },
           {
             "name": "value",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "uuid",
             "size": 6
           }
         ]
