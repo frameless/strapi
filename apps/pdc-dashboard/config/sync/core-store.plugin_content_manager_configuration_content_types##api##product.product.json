@@ -192,6 +192,20 @@
           "sortable": true
         }
       },
+      "uuid": {
+        "edit": {
+          "label": "Unieke ID",
+          "description": "Een speciale code die automatisch aan elk item wordt toegewezen, zodat het uniek geïdentificeerd kan worden.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uuid",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -322,9 +336,15 @@
             "name": "pdc_metadata",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "uuid",
+            "size": 6
+          }
         ]
       ],
-      "list": ["title", "metaTags", "price"]
+      "list": ["title", "metaTags", "price", "uuid"]
     }
   },
   "type": "object",

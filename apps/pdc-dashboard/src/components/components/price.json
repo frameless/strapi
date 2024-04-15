@@ -21,6 +21,10 @@
       "type": "decimal",
       "required": true,
       "min": 0
+    },
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::uuid-field.uuid-field"
     }
   }
 }

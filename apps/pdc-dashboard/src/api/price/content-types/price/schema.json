@@ -28,6 +28,10 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "price"
+    },
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::uuid-field.uuid-field"
     }
   }
 }
