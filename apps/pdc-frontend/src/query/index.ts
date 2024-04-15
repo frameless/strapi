@@ -211,10 +211,11 @@ export const GET_PRODUCT_BY_SLUG = gql(`
           data {
             attributes {
               price {
+                currency
                 id
                 label
+                uuid
                 value
-                currency
               }
             }
           }
