@@ -44,14 +44,16 @@ const FormPage = async ({
         }}
         Link={Link}
       />
-      <OpenFormsEmbed
-        apiUrl={createOpenFormsApiUrl()?.href || ''}
-        sdkUrl={createOpenFormsSdkUrl()?.href || ''}
-        cssUrl={createOpenFormsCssUrl()?.href || ''}
-        nonce={nonce}
-        basePath={`/${locale}/form/${formId}/`}
-        slug={formId}
-      />
+      <div className="utrecht-form-container utrecht-form-container--openforms">
+        <OpenFormsEmbed
+          apiUrl={createOpenFormsApiUrl()?.href || ''}
+          sdkUrl={createOpenFormsSdkUrl()?.href || ''}
+          cssUrl={createOpenFormsCssUrl()?.href || ''}
+          nonce={nonce}
+          basePath={`/${locale}/form/${formId}/`}
+          slug={formId}
+        />
+      </div>
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
           <AdvancedLink

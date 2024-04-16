@@ -214,6 +214,10 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
   margin-block-start: 0;
 }
 
+.utrecht-form-container--openforms {
+  flex: 1 1;
+}
+
 @media screen and (width > 360px) {
   .utrecht-page-header {
     --utrecht-page-header-padding-block-start: 32px;
