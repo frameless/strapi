@@ -1,3 +1,15 @@
+# @frameless/strapi-tiptap-editor [2.0.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.12.0...@frameless/strapi-tiptap-editor@2.0.0) (2024-04-16)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** fix the price-widget issue ([8e5ef8a](https://github.com/frameless/strapi/commit/8e5ef8a0830235e1e6c0c7de4e190eda16338319))
+
+
+### BREAKING CHANGES
+
+* **strapi-tiptap-editor:** use UUID instead of incremental ID
+
 # @frameless/strapi-tiptap-editor [1.12.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.11.0...@frameless/strapi-tiptap-editor@1.12.0) (2024-04-11)
 
 
