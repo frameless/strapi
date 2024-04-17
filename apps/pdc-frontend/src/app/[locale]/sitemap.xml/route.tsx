@@ -1,9 +1,9 @@
 import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
 import { languages } from '@/app/i18n/settings';
-import { GET_ALL_PRODUCTS_SLUG } from '@/query';
+import { GET_ALL_PRODUCTS_SITEMAP } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
-import { GetAllProductsSlugQueryQuery } from '../../../../gql/graphql';
+import { GetAllProductsSitemapQuery } from '../../../../gql/graphql';
 
 // TODO find a way to fetch all available pages routes in Nextjs
 const generateStaticPagesPath = (locales: typeof languages, paths: string[]) => {
@@ -18,12 +18,9 @@ const generateStaticPagesPath = (locales: typeof languages, paths: string[]) => 
 
 export async function GET() {
   try {
-    const { data } = await fetchData<{ data: GetAllProductsSlugQueryQuery }>({
+    const { data } = await fetchData<{ data: GetAllProductsSitemapQuery }>({
       url: createStrapiURL(),
-      query: GET_ALL_PRODUCTS_SLUG,
-      variables: {
-        locale: 'all',
-      },
+      query: GET_ALL_PRODUCTS_SITEMAP,
     });
 
     const products = data?.products?.data?.map(
@@ -34,7 +31,7 @@ export async function GET() {
           hreflang: product.attributes?.locale,
         }) as ISitemapField,
     );
-    const fields = products?.concat(...generateStaticPagesPath(languages, ['/']));
+    const fields = products?.concat(...generateStaticPagesPath(languages, ['/', 'products/']));
 
     return fields ? getServerSideSitemap(fields) : getServerSideSitemap([]);
   } catch (error) {

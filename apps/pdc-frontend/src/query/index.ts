@@ -48,6 +48,20 @@ export const GET_ALL_PRODUCTS_SLUG = gql(`
   }
 `);
 
+export const GET_ALL_PRODUCTS_SITEMAP = gql(`
+  query getAllProductsSitemap {
+      products(locale: "all", pagination:{ start: 0, limit: -1}) {
+      data {
+        attributes {
+          slug
+          locale
+          updatedAt
+        }
+      }
+    }
+  }
+`);
+
 export const GET_ALPHABETICALLY_PRODUCTS_BY_LETTER = gql(`
   query getAlphabeticallyProductsByLetterQuery($locale: I18NLocaleCode, $page: Int, $pageSize: Int, $startsWith: String) {
       products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }, filters: { title: { startsWith: $startsWith } }) {
