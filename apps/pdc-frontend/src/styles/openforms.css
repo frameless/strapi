@@ -8,3 +8,8 @@
   --utrecht-textbox-disabled-border-color: transparent;
   --utrecht-textbox-disabled-color: hsl(0 0% 20%);
 }
+
+.formio-editor-read-only-content {
+  white-space: pre-line;
+  white-space-collapse: preserve-breaks;
+}
