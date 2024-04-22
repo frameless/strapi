@@ -1,8 +1,7 @@
 .utrecht-form-container--openforms .utrecht-form-label--openforms.utrecht-form-label--radio {
   font-weight: var(--utrecht-form-label-radio-font-weight, var(--utrecht-form-label-font-weight));
 }
-/* .utrecht-form-container--openforms  */
-.utrecht-textbox--openforms:disabled {
+.utrecht-form-container--openforms .utrecht-textbox--openforms:disabled {
   /* color tokens werken niet */
   --utrecht-textbox-disabled-background-color: hsl(0 0% 90%);
   --utrecht-textbox-disabled-border-color: transparent;
