@@ -4,6 +4,7 @@ import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { AdvancedLink, Breadcrumbs, Grid, GridCell, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
+import { openFormValidator } from '@/util';
 import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
 
 type FormPageProps = {
@@ -21,6 +22,7 @@ const FormPage = async ({
 }: FormPageProps) => {
   const { t } = await useTranslation(locale, 'common');
   const nonce = headers().get('x-nonce') || '';
+  await openFormValidator({ formId });
 
   return (
     <>
