@@ -26,6 +26,7 @@ COPY ./packages/ui/package.json packages/ui/package.json
 COPY ./packages/upl/package.json packages/upl/package.json
 COPY ./packages/strapi-plugin-uniform-product-name/package.json packages/strapi-plugin-uniform-product-name/package.json
 COPY ./packages/strapi-plugin-open-forms-embed/package.json packages/strapi-plugin-open-forms-embed/package.json
+COPY ./packages/strapi-plugin-uuid-field/package.json packages/strapi-plugin-uuid-field/package.json
 
 # Build target dependencies #
 #############################
@@ -46,7 +47,8 @@ RUN  npm run build --workspace @frameless/upl && \
     npm run build --workspace @frameless/catalogi-data && \
     npm run build --workspace @frameless/samenwerkende-catalogi && \
     npm run build --workspace @frameless/pdc-sc && \
-    npm run build --workspace @frameless/strapi-plugin-open-forms-embed
+    npm run build --workspace @frameless/strapi-plugin-open-forms-embed && \
+    npm run build --workspace @frameless/strapi-plugin-uuid-field
 
 # Build target production #
 ###########################
