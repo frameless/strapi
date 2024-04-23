@@ -1,6 +1,12 @@
 const { apolloPrometheusPlugin } = require('strapi-prometheus');
 
 export default ({ env }) => ({
+  'env-label': {
+    enabled: true,
+    config: {
+      env_label: env('STRAPI_ENV_LABEL'),
+    },
+  },
   'entity-notes': {
     enabled: true,
   },
