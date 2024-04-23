@@ -1,0 +1,44 @@
+{
+  "name": "@frameless/strapi-plugin-env-label",
+  "version": "0.0.0-semantically-released",
+  "description": "A Strapi plugin designed to visually represent the current environment.",
+  "keywords": [],
+  "private": false,
+  "strapi": {
+    "name": "env-label",
+    "description": "A helpful plugin for displaying the current environment.",
+    "kind": "plugin",
+    "displayName": "Display the current environment"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": ""
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@strapi/strapi": ">=4.0.0"
+  },
+  "engines": {
+    "node": "20.x.x"
+  },
+  "dependencies": {
+    "@strapi/design-system": "1.12.2",
+    "@strapi/icons": "1.12.2",
+    "@utrecht/component-library-css": "3.0.1-alpha.27",
+    "@utrecht/component-library-react": "3.0.1-alpha.27",
+    "@utrecht/design-tokens": "1.0.0-alpha.640"
+  },
+  "devDependencies": {
+    "typescript": "5.0.4"
+  },
+  "scripts": {
+    "develop": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json"
+  }
+}
