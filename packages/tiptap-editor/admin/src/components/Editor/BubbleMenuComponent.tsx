@@ -1,4 +1,4 @@
-import { Flex } from '@strapi/design-system/Flex';
+import { Flex } from '@strapi/design-system';
 import { BubbleMenu } from '@tiptap/react';
 import type { Editor as EditorTypes } from '@tiptap/react';
 import React from 'react';

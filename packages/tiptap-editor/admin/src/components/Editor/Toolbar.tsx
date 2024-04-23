@@ -1,9 +1,9 @@
 import { Box, Button, Dialog, DialogBody, DialogFooter, Flex, Stack } from '@strapi/design-system';
-import { Field, FieldLabel } from '@strapi/design-system/Field';
-import { IconButton, IconButtonGroup } from '@strapi/design-system/IconButton';
-import { Option, Select } from '@strapi/design-system/Select';
-import { TextInput } from '@strapi/design-system/TextInput';
-import { Textarea } from '@strapi/design-system/Textarea';
+import { Field, FieldLabel } from '@strapi/design-system';
+import { IconButton, IconButtonGroup } from '@strapi/design-system';
+import { Option, Select } from '@strapi/design-system';
+import { TextInput } from '@strapi/design-system';
+import { Textarea } from '@strapi/design-system';
 import { auth } from '@strapi/helper-plugin';
 import Bold from '@strapi/icons/Bold';
 import BulletList from '@strapi/icons/BulletList';

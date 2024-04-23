@@ -11,7 +11,8 @@
     "packages/samenwerkende-catalogi",
     "packages/provider-upload-vercel",
     "packages/*",
-    "apps/*"
+    "apps/*",
+    "tiptap-sandbox"
   ],
   "repository": {
     "type": "git+ssh",

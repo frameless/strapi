@@ -1,5 +1,5 @@
 import { Button, Dialog, DialogBody, DialogFooter, Stack } from '@strapi/design-system';
-import { TextInput } from '@strapi/design-system/TextInput';
+import { TextInput } from '@strapi/design-system';
 import React from 'react';
 
 type TextInputProps = {

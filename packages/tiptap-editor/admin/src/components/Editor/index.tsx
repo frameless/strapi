@@ -1,4 +1,4 @@
-import { Box } from '@strapi/design-system/Box';
+import { Box } from '@strapi/design-system';
 import { EditorContent } from '@tiptap/react';
 import type { Editor as EditorTypes } from '@tiptap/react';
 import React, { useState } from 'react';

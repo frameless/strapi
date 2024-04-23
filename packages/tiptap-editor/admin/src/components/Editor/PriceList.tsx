@@ -1,4 +1,4 @@
-import { Option, Select } from '@strapi/design-system/Select';
+import { Option, Select } from '@strapi/design-system';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { getPriceValue, getTrad } from '../../utils';

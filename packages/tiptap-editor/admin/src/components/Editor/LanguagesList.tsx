@@ -1,4 +1,4 @@
-import { Option, Select } from '@strapi/design-system/Select';
+import { Option, Select } from '@strapi/design-system';
 import type { Editor as EditorTypes } from '@tiptap/react';
 import React from 'react';
 

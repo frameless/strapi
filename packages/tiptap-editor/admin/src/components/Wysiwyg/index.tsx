@@ -1,7 +1,8 @@
-import { Box } from '@strapi/design-system/Box';
-import { Field, FieldLabel } from '@strapi/design-system/Field';
-import { Stack } from '@strapi/design-system/Stack';
-import { Typography } from '@strapi/design-system/Typography';
+import { Box } from '@strapi/design-system';
+import { Field, FieldLabel } from '@strapi/design-system';
+import { Stack } from '@strapi/design-system';
+import { DesignSystemProvider, lightTheme } from '@strapi/design-system';
+import { Typography } from '@strapi/design-system';
 import { useCMEditViewDataManager } from '@strapi/helper-plugin';
 import BlockquoteExtension from '@tiptap/extension-blockquote';
 import BoldExtension from '@tiptap/extension-bold';
@@ -49,6 +50,7 @@ import { Price } from '../extensions/Price/index';
 import '@utrecht/component-library-css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/design-tokens/dist/index.css';
+
 interface Target {
   name: string;
   value: string;
@@ -270,31 +272,33 @@ const WysiwygContent = ({
   }, [editor, name, onChange, settings.other.saveJson, data]);
 
   return (
-    <Field required={required}>
-      <Stack spacing={1}>
-        <Box>
-          <FieldLabel action={labelAction}> {formatMessage(intlLabel)}</FieldLabel>
-        </Box>
-        {editor && !busy && (
-          <Editor
-            key="editor"
-            disabled={disabled}
-            name={name}
-            editor={editor}
-            onChange={onChange}
-            value={value}
-            settings={settings}
-            productPrice={productPrice && productPrice}
-          />
-        )}
-        {error && (
-          <Typography variant="pi" textColor="danger600">
-            {formatMessage({ id: error, defaultMessage: error })}
-          </Typography>
-        )}
-        {description && <Typography variant="pi">{formatMessage(description)}</Typography>}
-      </Stack>
-    </Field>
+    <DesignSystemProvider locale={'nl'} theme={lightTheme}>
+      <Field required={required}>
+        <Stack spacing={1}>
+          <Box>
+            <FieldLabel action={labelAction}> {formatMessage(intlLabel)}</FieldLabel>
+          </Box>
+          {editor && !busy && (
+            <Editor
+              key="editor"
+              disabled={disabled}
+              name={name}
+              editor={editor}
+              onChange={onChange}
+              value={value}
+              settings={settings}
+              productPrice={productPrice && productPrice}
+            />
+          )}
+          {error && (
+            <Typography variant="pi" textColor="danger600">
+              {formatMessage({ id: error, defaultMessage: error })}
+            </Typography>
+          )}
+          {description && <Typography variant="pi">{formatMessage(description)}</Typography>}
+        </Stack>
+      </Field>
+    </DesignSystemProvider>
   );
 };
 
