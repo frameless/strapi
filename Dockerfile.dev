@@ -48,7 +48,8 @@ RUN  npm run build --workspace @frameless/upl && \
     npm run build --workspace @frameless/samenwerkende-catalogi && \
     npm run build --workspace @frameless/pdc-sc && \
     npm run build --workspace @frameless/strapi-plugin-open-forms-embed && \
-    npm run build --workspace @frameless/strapi-plugin-uuid-field
+    npm run build --workspace @frameless/strapi-plugin-uuid-field && \
+    npm run build --workspace @frameless/strapi-plugin-env-label
 
 # Build target production #
 ###########################

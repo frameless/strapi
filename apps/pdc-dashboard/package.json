@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@frameless/preview-button": "0.0.0-semantically-released",
+    "@frameless/strapi-plugin-env-label": "0.0.0-semantically-released",
     "@frameless/strapi-plugin-gemeente-select": "0.0.0-semantically-released",
     "@frameless/strapi-plugin-open-forms-embed": "0.0.0-semantically-released",
     "@frameless/strapi-plugin-scheme-select": "0.0.0-semantically-released",
