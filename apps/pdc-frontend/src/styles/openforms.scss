@@ -1,3 +1,5 @@
+@import "@utrecht/components/multiline-data/css/mixin";
+
 .utrecht-form-container--openforms .utrecht-form-label--openforms.utrecht-form-label--radio {
   font-weight: var(--utrecht-form-label-radio-font-weight, var(--utrecht-form-label-font-weight));
 }
@@ -9,6 +11,5 @@
 }
 
 .formio-editor-read-only-content {
-  white-space: pre-line;
-  white-space-collapse: preserve-breaks;
+  @include utrecht-multiline-data;
 }
