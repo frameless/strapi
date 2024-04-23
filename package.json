@@ -90,6 +90,7 @@
     "lodash": "4.17.21",
     "markdownlint-cli": "0.34.0",
     "multi-semantic-release": "3.0.2",
+    "npm-check-updates": "16.14.15",
     "npm-package-json-lint": "7.0.0",
     "npm-run-all": "4.1.5",
     "patch-package": "8.0.0",
@@ -99,7 +100,9 @@
     "stylelint-config-prettier": "9.0.5",
     "stylelint-config-standard-scss": "10.0.0",
     "stylelint-order": "6.0.4",
-    "typescript": "5.0.4",
-    "npm-check-updates": "16.14.15"
+    "typescript": "5.0.4"
+  },
+  "dependencies": {
+    "@utrecht/components": "3.0.1-alpha.28"
   }
 }
