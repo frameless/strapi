@@ -1,7 +1,8 @@
 @import "@utrecht/components/multiline-data/css/mixin";
+@import "@utrecht/components/form-label/css/mixin";
 
 .utrecht-form-container--openforms .utrecht-form-label--openforms.utrecht-form-label--radio {
-  font-weight: var(--utrecht-form-label-radio-font-weight, var(--utrecht-form-label-font-weight));
+  @include utrecht-form-label--radio;
 }
 .utrecht-form-container--openforms .utrecht-textbox--openforms:disabled {
   /* color tokens werken niet */
