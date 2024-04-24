@@ -75,6 +75,7 @@
     "@types/node": "20.1.7",
     "@typescript-eslint/eslint-plugin": "6.4.1",
     "@typescript-eslint/parser": "6.4.1",
+    "@utrecht/components": "3.0.1-alpha.28",
     "concurrently": "8.0.1",
     "enquirer": "2.4.1",
     "eslint": "8.40.0",
@@ -101,8 +102,5 @@
     "stylelint-config-standard-scss": "10.0.0",
     "stylelint-order": "6.0.4",
     "typescript": "5.0.4"
-  },
-  "dependencies": {
-    "@utrecht/components": "3.0.1-alpha.28"
   }
 }
