@@ -26,7 +26,7 @@ export async function GET() {
     const products = data?.products?.data?.map(
       (product) =>
         ({
-          loc: `${process.env.FRONTEND_PUBLIC_URL}/${product.attributes?.slug}`,
+          loc: `${process.env.FRONTEND_PUBLIC_URL}/${product.attributes?.locale}/products/${product.attributes?.slug}`,
           lastmod: product.attributes?.updatedAt,
           hreflang: product.attributes?.locale,
         }) as ISitemapField,
