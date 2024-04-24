@@ -224,7 +224,7 @@ export const GET_PRODUCT_BY_SLUG = gql(`
         price {
           data {
             attributes {
-              price {
+              price( pagination: {start: 0, limit: -1} ) {
                 currency
                 id
                 label
