@@ -820,12 +820,28 @@ export enum Enum_Componentcomponentsutrechtspotlight_Type {
 }
 
 export enum Enum_Componentcomponentsutrechttoptasklink_Toptaskicons {
+  AfspraakMaken = 'afspraak_maken',
+  Afval = 'afval',
+  Bewijsstukken = 'bewijsstukken',
+  Grofvuil = 'grofvuil',
   GrofvuilOphalen = 'grofvuil_ophalen',
+  Hulpverlening = 'hulpverlening',
+  Informatie = 'informatie',
+  Kalender = 'kalender',
+  Klachten = 'klachten',
+  Kroon = 'kroon',
   Melding = 'melding',
+  MeldingKlacht = 'melding_klacht',
   Nummerbord = 'nummerbord',
+  Parkeervergunning = 'parkeervergunning',
+  Parkeren = 'parkeren',
+  ParkerenBetalen = 'parkeren_betalen',
   Paspoort = 'paspoort',
   Rijbewijs = 'rijbewijs',
-  Verhuizen = 'verhuizen'
+  SchildGemeenteUtrecht = 'schild_gemeente_utrecht',
+  Subsidie = 'subsidie',
+  Verhuizen = 'verhuizen',
+  Werkzaamheden = 'werkzaamheden'
 }
 
 export enum Enum_Productencatalogus_Doelgroep {
