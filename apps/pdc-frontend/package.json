@@ -21,12 +21,12 @@
   },
   "dependencies": {
     "@frameless/ui": "0.0.0-semantically-released",
+    "@open-formulieren/sdk": "2.1.3",
     "@tanstack/react-query": "4.29.25",
     "@utrecht/component-library-css": "3.0.1-alpha.27",
     "@utrecht/component-library-react": "3.0.1-alpha.27",
     "@utrecht/design-tokens": "1.0.0-alpha.640",
     "@utrecht/web-component-library-react": "1.0.3-alpha.19",
-    "@open-formulieren/sdk": "2.1.3",
     "accept-language": "3.0.18",
     "classnames": "2.3.3",
     "csp-header": "5.2.1",
@@ -36,7 +36,6 @@
     "i18next-resources-to-backend": "1.1.4",
     "is-absolute-url": "4.0.1",
     "next": "13.5.6",
-    "next-sitemap": "4.1.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "12.3.1",
@@ -46,8 +45,8 @@
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.1.0",
-    "eslint-config-next": "13.2.4",
     "eslint": "8.35.0",
+    "eslint-config-next": "13.2.4",
     "sass": "1.63.6",
     "wait-on": "7.2.0"
   }
