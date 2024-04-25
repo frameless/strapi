@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
+import { languages } from '@/app/i18n/settings';
 import {
   AccordionProvider,
   AdvancedLink,
@@ -25,9 +26,7 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
-import { getImageBaseUrl } from '@/util';
-import { createStrapiURL } from '@/util/createStrapiURL';
-import { fetchData } from '@/util/fetchData';
+import { buildAlternateLinks, createStrapiURL, fetchData, getImageBaseUrl } from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
 
 const getAllProducts = async (locale: string, slug: string) => {
@@ -60,12 +59,15 @@ interface ProductProps {
 }
 
 export async function generateMetadata({ params }: { params: ParamsType }): Promise<Metadata> {
+  const locale = params?.locale;
+  const slug = params?.slug;
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = await useTranslation(params?.locale, 'common');
-  const { product } = await getAllProducts(params?.locale, params?.slug);
+  const { t } = await useTranslation(locale, 'common');
+  const { product } = await getAllProducts(locale, slug);
   const title = product?.attributes?.metaTags?.title;
   const description = product?.attributes?.metaTags?.description;
   const openGraphImage = product?.attributes?.metaTags?.ogImage?.data?.attributes?.url;
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products/${slug}`;
 
   return {
     title,
@@ -77,11 +79,17 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
       images: openGraphImage && getImageBaseUrl() && `${getImageBaseUrl()}${openGraphImage}`,
-      locale: params?.locale,
-      url: `${process.env.FRONTEND_PUBLIC_URL}/${params?.locale}/products/${params?.slug}`,
+      locale,
+      url,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
+    },
+    alternates: {
+      canonical: `/${locale}/products/${slug}`,
+      languages: {
+        ...buildAlternateLinks({ languages, segment: `products/${slug}` }),
+      },
     },
   };
 }
