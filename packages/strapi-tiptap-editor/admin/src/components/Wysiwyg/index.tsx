@@ -257,16 +257,6 @@ const WysiwygContent = ({
         onChange({ target: { name, value: editor.getHTML() } });
       }
     });
-
-    return () => {
-      editor?.off('update', () => {
-        if (settings.other.saveJson) {
-          onChange({ target: { name, value: JSON.stringify(editor.getJSON()) } });
-        } else {
-          onChange({ target: { name, value: editor.getHTML() } });
-        }
-      });
-    };
   }, [editor, name, onChange, settings.other.saveJson, data]);
 
   return (
