@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
+import { languages } from '@/app/i18n/settings';
 import {
   AdvancedLink,
   Article,
@@ -22,7 +23,7 @@ import {
   mappingProducts,
   MappingProductsProps,
 } from '@/util';
-import { createStrapiURL } from '@/util/createStrapiURL';
+import { buildAlternateLinks, createStrapiURL } from '@/util';
 import { fetchData } from '@/util/fetchData';
 import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../../../../../gql/graphql';
 export const revalidate = 3600; // revalidate the data at most every hour
@@ -44,6 +45,7 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
   const title = t('seo.title');
   const description = t('seo.description');
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products/alphabet/${q}`;
   return {
     title,
     description,
@@ -51,10 +53,16 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
       locale,
-      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}/search/${q}`,
+      url,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
+    },
+    alternates: {
+      canonical: `/${locale}/products/alphabet/${q}`,
+      languages: {
+        ...buildAlternateLinks({ languages, segment: `products/alphabet/${q}` }),
+      },
     },
   };
 }

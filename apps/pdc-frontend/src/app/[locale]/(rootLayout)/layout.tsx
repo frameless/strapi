@@ -29,7 +29,7 @@ import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { GET_TEMPLATE } from '@/query';
-import { createStrapiURL, fetchData } from '@/util';
+import { buildAlternateLinks, createStrapiURL, fetchData } from '@/util';
 import {
   ComponentComponentsUtrechtFooter,
   ComponentComponentsUtrechtNavigation,
@@ -57,7 +57,7 @@ type Params = {
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
-  const convertLanguagesArrayToObject = languages.reduce((a, v) => ({ ...a, [v]: v }), {});
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}`;
   return {
     title: {
       template: `%s | ${t('website-setting.website-name')}`,
@@ -97,13 +97,13 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
       locale,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
-      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}`,
+      url,
     },
-    metadataBase: new URL(process.env.FRONTEND_PUBLIC_URL || ''),
+    metadataBase: new URL(process.env.FRONTEND_PUBLIC_URL || 'http://localhost:3000'),
     alternates: {
-      canonical: '/',
+      canonical: `/${locale}`,
       languages: {
-        ...convertLanguagesArrayToObject,
+        ...buildAlternateLinks({ languages }),
       },
     },
   };

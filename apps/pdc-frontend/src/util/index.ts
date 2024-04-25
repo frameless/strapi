@@ -1,5 +1,6 @@
 export * from './alphabet';
 export * from './apiSettings';
+export * from './buildAlternateLinks';
 export * from './create-url';
 export * from './createStrapiURL';
 export * from './fetchData';

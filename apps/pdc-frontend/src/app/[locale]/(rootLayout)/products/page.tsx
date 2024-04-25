@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { languages } from '@/app/i18n/settings';
 import {
   AdvancedLink,
   Article,
@@ -12,8 +13,7 @@ import {
 } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { apiSettings, mappingProducts, MappingProductsProps } from '@/util';
-import { createStrapiURL } from '@/util/createStrapiURL';
-import { fetchData } from '@/util/fetchData';
+import { buildAlternateLinks, createStrapiURL, fetchData } from '@/util';
 import { GetAllProductsSlugQueryQuery } from '../../../../../gql/graphql';
 import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
 import { useTranslation } from '../../../i18n';
@@ -42,6 +42,8 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   const { t } = await useTranslation(locale, ['products-page', 'common']);
   const title = t('seo.title');
   const description = t('seo.description');
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products`;
+
   return {
     title,
     description,
@@ -49,10 +51,16 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
       locale,
-      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products`,
+      url,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
+    },
+    alternates: {
+      canonical: `/${locale}/products`,
+      languages: {
+        ...buildAlternateLinks({ languages, segment: 'products' }),
+      },
     },
   };
 }

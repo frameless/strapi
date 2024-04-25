@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getSuggestedSearch } from '@/app/actions';
+import { languages } from '@/app/i18n/settings';
 import {
   AdvancedLink,
   Article,
@@ -13,6 +14,7 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
+import { buildAlternateLinks } from '@/util';
 import { useTranslation } from '../../../../i18n/index';
 
 type ParamsType = {
@@ -36,6 +38,7 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
   const { t } = await useTranslation(locale, ['search-page', 'common']);
   const title = t('seo.title', { query });
   const description = t('seo.description');
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/search/${query}`;
   return {
     title,
     description,
@@ -43,10 +46,16 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
       locale,
-      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}/search/${query}`,
+      url,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
+    },
+    alternates: {
+      canonical: `/${locale}/search/${query}`,
+      languages: {
+        ...buildAlternateLinks({ languages, segment: `search/${query}` }),
+      },
     },
   };
 }
