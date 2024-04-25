@@ -4,7 +4,7 @@ import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { GetAllProductsSitemapQuery } from '../../../gql/graphql';
 
-const { origin } = new URL(process.env.FRONTEND_PUBLIC_URL || '');
+const { origin } = new URL(process.env.FRONTEND_PUBLIC_URL || 'http://localhost:3000');
 
 const generateStaticPagesPath = (paths: string[]) => {
   return paths.map((path) => ({
