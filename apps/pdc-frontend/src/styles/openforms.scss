@@ -1,14 +1,12 @@
 @import "@utrecht/components/multiline-data/css/mixin";
 @import "@utrecht/components/form-label/css/mixin";
+@import "@utrecht/components/textbox/css/mixin";
 
 .utrecht-form-container--openforms .utrecht-form-label--openforms.utrecht-form-label--radio {
   @include utrecht-form-label--radio;
 }
 .utrecht-form-container--openforms .utrecht-textbox--openforms:disabled {
-  /* color tokens werken niet */
-  --utrecht-textbox-disabled-background-color: hsl(0 0% 90%);
-  --utrecht-textbox-disabled-border-color: transparent;
-  --utrecht-textbox-disabled-color: hsl(0 0% 20%);
+  @include utrecht-textbox--read-only;
 }
 
 .formio-editor-read-only-content {
