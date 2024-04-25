@@ -1,3 +1,10 @@
+## @frameless/strapi-tiptap-editor [2.0.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.0.0...@frameless/strapi-tiptap-editor@2.0.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** fix tiptap duplication content issue ([7309d46](https://github.com/frameless/strapi/commit/7309d468050882f073f88dd9dd70be5e7c3c51c0))
+
 # @frameless/strapi-tiptap-editor [2.0.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@1.12.0...@frameless/strapi-tiptap-editor@2.0.0) (2024-04-16)
 
 
