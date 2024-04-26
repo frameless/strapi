@@ -26,17 +26,23 @@ const cspBase = {
   'form-action': [SELF],
   'frame-ancestors': [NONE],
   'worker-src': [BLOB],
-  'connect-src': [SELF, getOpenFormsHost(), DATA, BLOB],
+  'connect-src': [SELF, getOpenFormsHost(), 'https://virtuele-gemeente-assistent.nl', DATA, BLOB],
   'img-src': [SELF, getOpenFormsHost(), BLOB, DATA, 'https://service.pdok.nl', formatURL('*.siteimproveanalytics.io')],
   'font-src': [SELF, getOpenFormsHost()],
   'frame-src': ['https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/'],
   'block-all-mixed-content': true,
 };
-
 const cspDevelopmentHeader = () => {
   return getCSP({
     directives: {
-      'script-src': [SELF, INLINE, EVAL, getOpenFormsHost(), 'siteimproveanalytics.com'],
+      'script-src': [
+        SELF,
+        INLINE,
+        EVAL,
+        getOpenFormsHost(),
+        'siteimproveanalytics.com',
+        'https://virtuele-gemeente-assistent.nl',
+      ],
       'style-src': [SELF, INLINE, 'localhost:8000'],
       ...cspBase,
     },
