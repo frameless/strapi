@@ -208,10 +208,18 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <Main id="main">{children}</Main>
               </PageContent>
             </Page>
+            <div id="webchat" />
             <Footer data={footerData as FooterData} />
           </Surface>
         </QueryClientProvider>
         <Script src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js" nonce={nonce}></Script>
+        <Script
+          defer
+          id="chatwidget-script"
+          crossOrigin="anonymous"
+          src="https://virtuele-gemeente-assistent.nl/static/js/widget.js"
+          nonce={nonce}
+        />
       </body>
     </html>
   );
