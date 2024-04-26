@@ -152,8 +152,10 @@ const Other: React.FC<OtherProps> = ({ values, handleChange }) => {
       </GridLayout>
 
       <Box marginTop="2rem" marginBottom="1rem" />
-
-      <GridLayout>
+      {/* TODO: For now, let's disable this feature. The TipTap settings are accessible to every role, so if someone accidentally sets it to JSON, it could cause problems.
+      We To enable it, we need to restrict this setting based on role permissions. 
+      */}
+      {/* <GridLayout>
         <Box>
           <ToggleInput
             label="Save content as JSON"
@@ -173,7 +175,7 @@ const Other: React.FC<OtherProps> = ({ values, handleChange }) => {
             }
           />
         </Box>
-      </GridLayout>
+      </GridLayout> */}
     </>
   );
 };
