@@ -1,3 +1,11 @@
+## @frameless/strapi-tiptap-editor [2.0.2](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.0.1...@frameless/strapi-tiptap-editor@2.0.2) (2024-04-26)
+
+
+### Bug Fixes
+
+* **strapi-tiptap-editor:** use `onUpdate` instead of `useEffect` ([39f5102](https://github.com/frameless/strapi/commit/39f5102b4b42083929c0890ef702438faa98b5da))
+* **tiptap-strapi-editor:** disable the saveJson option from tiptap settings ([1ab0f8b](https://github.com/frameless/strapi/commit/1ab0f8b5e939cffc1b545e9f31a6076b4e34f125))
+
 ## @frameless/strapi-tiptap-editor [2.0.1](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.0.0...@frameless/strapi-tiptap-editor@2.0.1) (2024-04-25)
 
 
