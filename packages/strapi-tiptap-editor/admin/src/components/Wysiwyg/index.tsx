@@ -226,6 +226,13 @@ const WysiwygContent = ({
         class: 'utrecht-theme utrecht-theme--media-query-color-scheme utrecht-html utrecht-document',
       },
     },
+    onUpdate: ({ editor }) => {
+      if (settings.other.saveJson) {
+        onChange({ target: { name, value: JSON.stringify(editor.getJSON()) } });
+      } else {
+        onChange({ target: { name, value: editor.getHTML() } });
+      }
+    },
   });
 
   useEffect(() => {
@@ -248,16 +255,6 @@ const WysiwygContent = ({
       }
     }
   }, [currentContent, editor, value]);
-
-  useEffect(() => {
-    editor?.on('update', () => {
-      if (settings.other.saveJson) {
-        onChange({ target: { name, value: JSON.stringify(editor.getJSON()) } });
-      } else {
-        onChange({ target: { name, value: editor.getHTML() } });
-      }
-    });
-  }, [editor, name, onChange, settings.other.saveJson, data]);
 
   return (
     <Field required={required}>
