@@ -73,7 +73,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
   const { products } = await getAlphabeticallyProductsByLetter({
     locale,
     page: 1,
-    pageSize: apiSettings.pagination.pageSize,
+    pageSize: apiSettings.pagination.pageAlphabetSize,
     startsWith: q.toUpperCase(),
   });
 
