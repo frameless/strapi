@@ -24,7 +24,7 @@ query getPDCHomePage($locale: I18NLocaleCode, $pageMode: PublicationState) {
 
 export const GET_ALL_PRODUCTS_SLUG = gql(`
   query getAllProductsSlugQuery($locale: I18NLocaleCode, $page: Int, $pageSize: Int) {
-      products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }) {
+      products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }, sort: "title") {
         meta {
         pagination {
           total
@@ -64,7 +64,7 @@ export const GET_ALL_PRODUCTS_SITEMAP = gql(`
 
 export const GET_ALPHABETICALLY_PRODUCTS_BY_LETTER = gql(`
   query getAlphabeticallyProductsByLetterQuery($locale: I18NLocaleCode, $page: Int, $pageSize: Int, $startsWith: String) {
-      products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }, filters: { title: { startsWith: $startsWith } }) {
+      products(locale: $locale, pagination:{ page: $page, pageSize: $pageSize }, filters: { title: { startsWith: $startsWith } }, sort: "title") {
         meta {
           pagination {
             total
