@@ -31,7 +31,7 @@ export const LoadMoreButton = forwardRef(
           }}
           busy={busy}
           type="button"
-          appearance="secondary-action-button"
+          appearance="primary-action-button"
           {...restProps}
         >
           {children}
