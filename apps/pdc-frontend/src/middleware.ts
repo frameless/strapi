@@ -26,7 +26,14 @@ const cspBase = {
   'form-action': [SELF],
   'frame-ancestors': [NONE],
   'worker-src': [BLOB],
-  'connect-src': [SELF, getOpenFormsHost(), 'https://virtuele-gemeente-assistent.nl', DATA, BLOB],
+  'connect-src': [
+    SELF,
+    getOpenFormsHost(),
+    'wss://virtuele-gemeente-assistent.nl',
+    'https://virtuele-gemeente-assistent.nl',
+    DATA,
+    BLOB,
+  ],
   'img-src': [
     SELF,
     getOpenFormsHost(),
@@ -35,6 +42,7 @@ const cspBase = {
     'https://service.pdok.nl',
     formatURL('*.siteimproveanalytics.io'),
     'https://virtuele-gemeente-assistent.nl',
+    'https://mijn.virtuele-gemeente-assistent.nl',
   ],
   'font-src': [SELF, getOpenFormsHost()],
   'frame-src': ['https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/'],
@@ -61,7 +69,12 @@ const cspProductionHeader = (nonceValue: string) => {
   return getCSP({
     directives: {
       'script-src': [SELF, nonce(nonceValue), STRICT_DYNAMIC, BLOB],
-      'style-src': [SELF, nonce(nonceValue), 'https://virtuele-gemeente-assistent.nl'],
+      'style-src': [
+        SELF,
+        nonce(nonceValue),
+        'https://virtuele-gemeente-assistent.nl',
+        'https://mijn.virtuele-gemeente-assistent.nl',
+      ],
       ...cspBase,
     },
   });
