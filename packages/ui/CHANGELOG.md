@@ -1,3 +1,10 @@
+# @frameless/ui [2.17.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.16.0...@frameless/ui@2.17.0) (2024-04-29)
+
+
+### Features
+
+* **ui:** use primary instead of secondary for LoadMoreButton ([beaaa74](https://github.com/frameless/strapi/commit/beaaa74dd17525d7c00d701ec1a5426052a8c966))
+
 # @frameless/ui [2.16.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.15.1...@frameless/ui@2.16.0) (2024-04-15)
 
 
