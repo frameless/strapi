@@ -12,3 +12,8 @@
 .formio-editor-read-only-content {
   @include utrecht-multiline-data;
 }
+
+/* previous button alignment */
+.utrecht-form-container--openforms .openforms-toolbar .openforms-toolbar__list-item .utrecht-link--openforms {
+  justify-content: left;
+}
