@@ -15,7 +15,8 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
   const { t } = await useTranslation(locale, ['tips-page']);
   return {
     title: t('seo.title', {
-      query,
+      query: decodeURIComponent(query),
+      interpolation: { escapeValue: false },
     }),
     description: t('seo.description'),
   };
@@ -24,8 +25,9 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
 const SearchTips = async ({ params: { locale, query } }: any) => {
   const { t } = await useTranslation(locale, ['tips-page', 'common']);
   const tipsList = t('body.section.unordered-list', { returnObjects: true }) as string[];
+  const decodeQuery = decodeURIComponent(query);
   return (
-    <>
+    <div>
       <Breadcrumbs
         links={[
           {
@@ -34,7 +36,7 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
             current: false,
           },
           {
-            href: `/search/tips/${query}`,
+            href: `/search/tips/${decodeQuery}`,
             label: t('components.breadcrumbs.label.search-tips'),
             current: true,
           },
@@ -48,7 +50,8 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
       />
       <Heading level={1}>
         {t('h1', {
-          query,
+          query: decodeQuery,
+          interpolation: { escapeValue: false },
         })}
       </Heading>
       <Heading level={2}>{t('body.section.title')}</Heading>
@@ -57,7 +60,7 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
           tipsList.length > 0 &&
           tipsList?.map((item) => <UnorderedListItem key={item}>{item}</UnorderedListItem>)}
       </UnorderedList>
-    </>
+    </div>
   );
 };
 
