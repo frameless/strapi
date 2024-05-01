@@ -16,7 +16,6 @@ import {
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { buildAlternateLinks } from '@/util';
 import { useTranslation } from '../../../../i18n/index';
-
 type ParamsType = {
   locale: string;
   query: string;
@@ -36,9 +35,10 @@ type Params = {
 export async function generateMetadata({ params: { locale, query } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['search-page', 'common']);
-  const title = t('seo.title', { query });
+  const decodeQuery = decodeURIComponent(query)?.trim();
+  const title = t('seo.title', { query: decodeQuery, interpolation: { escapeValue: false } });
   const description = t('seo.description');
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/search/${query}`;
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/search/${decodeQuery}`;
   return {
     title,
     description,
@@ -52,9 +52,9 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}/search/${query}`,
+      canonical: `/${locale}/search/${decodeQuery}`,
       languages: {
-        ...buildAlternateLinks({ languages, segment: `search/${query}` }),
+        ...buildAlternateLinks({ languages, segment: `search/${decodeQuery}` }),
       },
     },
   };
@@ -62,10 +62,11 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
 
 const Search = async ({ params: { locale, query } }: SearchProps) => {
   const { t } = await useTranslation(locale, ['search-page', 'common']);
-  const searchResults = await getSuggestedSearch(locale, query);
+  const decodeQuery = decodeURIComponent(query)?.trim();
+  const searchResults = await getSuggestedSearch(locale, decodeQuery);
 
   if (searchResults && searchResults.hits && searchResults.hits.length === 0) {
-    redirect(`/search/tips/${query}`);
+    redirect(`/search/tips/${decodeQuery}`);
   }
 
   const results =
@@ -87,7 +88,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
             current: false,
           },
           {
-            href: `/search/${query}`,
+            href: `/search/${decodeQuery}`,
             label: t('components.breadcrumbs.label.search'),
             current: true,
           },
@@ -100,12 +101,13 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
         Link={Link}
       />
       <Article>
-        <Heading level={1}>{t('h1', { query })}</Heading>
+        <Heading level={1}>{t('h1', { query: decodeQuery, interpolation: { escapeValue: false } })}</Heading>
+        <h2>{decodeQuery}</h2>
         <ProductListContainer
           locale={locale}
           total={searchResults.total}
           initialData={results}
-          currentQuery={query}
+          currentQuery={decodeQuery}
           segment="search"
         />
       </Article>
