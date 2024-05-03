@@ -203,7 +203,6 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                         onSearchSubmit={onSearchSubmitAction}
                         onSearchChange={getLiveSuggestions}
                         submitButtonText={t('search-bar.search-submit')}
-                        inputAriaLabel={t('search-bar.input-ariaLabel')}
                         suggestionsTitle={t('search-bar.suggestions-title')}
                         hitsTitle={t('search-bar.hits-title')}
                       />

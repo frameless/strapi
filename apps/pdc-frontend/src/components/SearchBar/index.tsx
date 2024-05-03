@@ -17,7 +17,6 @@ export interface SearchBarProps {
   suggestedHits?: SuggestedHits[];
   suggestions?: Suggestions[];
   submitButtonText: string;
-  inputAriaLabel: string;
   suggestionsTitle: string;
   hitsTitle: string;
   locale: string;
@@ -31,7 +30,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   onSearchSubmit,
   onSearchChange,
   submitButtonText,
-  inputAriaLabel,
   suggestionsTitle,
   hitsTitle,
   locale,
@@ -83,7 +81,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         items={optimisticSearchValue.value}
         input={{
           id: 'search-input',
-          ariaLabel: inputAriaLabel,
           name: 'search',
           required: true,
         }}
