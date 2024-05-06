@@ -1,9 +1,7 @@
 import acceptLanguage from 'accept-language';
-import { BLOB, DATA, EVAL, getCSP, INLINE, nonce, NONE, SELF, STRICT_DYNAMIC } from 'csp-header';
 import { NextRequest, NextResponse } from 'next/server';
-import { createOpenFormsApiUrl } from '@/util/openFormsSettings';
+import { cspDevelopmentHeader, cspProductionHeader } from '@/util/cspConfig';
 import { fallbackLng, languages } from './app/i18n/settings';
-
 acceptLanguage.languages(languages);
 
 export const config = {
@@ -11,74 +9,6 @@ export const config = {
 };
 
 const cookieName = 'i18next';
-
-const getOpenFormsHost = () => {
-  return createOpenFormsApiUrl()?.host || '';
-};
-
-// Using "//*" in JavaScript, especially with VSCode, can disrupt syntax highlighting and code analysis, causing confusion and hindering development.
-const formatURL = (url: string): string => `https://${url}`;
-
-const cspBase = {
-  'default-src': [SELF],
-  'object-src': [NONE],
-  'base-uri': [SELF],
-  'form-action': [SELF],
-  'frame-ancestors': [NONE],
-  'worker-src': [BLOB],
-  'connect-src': [
-    SELF,
-    getOpenFormsHost(),
-    'wss://virtuele-gemeente-assistent.nl',
-    'https://virtuele-gemeente-assistent.nl',
-    DATA,
-    BLOB,
-  ],
-  'img-src': [
-    SELF,
-    getOpenFormsHost(),
-    BLOB,
-    DATA,
-    'https://service.pdok.nl',
-    formatURL('*.siteimproveanalytics.io'),
-    'https://virtuele-gemeente-assistent.nl',
-    'https://mijn.virtuele-gemeente-assistent.nl',
-  ],
-  'font-src': [SELF, getOpenFormsHost()],
-  'frame-src': ['https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/'],
-  'block-all-mixed-content': true,
-};
-const cspDevelopmentHeader = () => {
-  return getCSP({
-    directives: {
-      'script-src': [
-        SELF,
-        INLINE,
-        EVAL,
-        getOpenFormsHost(),
-        'siteimproveanalytics.com',
-        'https://virtuele-gemeente-assistent.nl',
-      ],
-      'style-src': [SELF, INLINE, 'localhost:8000'],
-      ...cspBase,
-    },
-  });
-};
-
-const cspProductionHeader = (nonceValue: string) => {
-  return getCSP({
-    directives: {
-      'script-src': [SELF, nonce(nonceValue), STRICT_DYNAMIC, BLOB],
-      'style-src': [
-        SELF,
-        nonce(nonceValue),
-        'https://virtuele-gemeente-assistent.nl',
-        'https://mijn.virtuele-gemeente-assistent.nl',
-      ],
-      ...cspBase,
-    },
-  });
-};
 
 export function middleware(req: NextRequest) {
   const nonceValue = Buffer.from(crypto.randomUUID()).toString('base64');
