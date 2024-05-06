@@ -8,6 +8,7 @@ import {
   Heading,
   Heading2,
   IndexCharNav,
+  IndexCharNavLink,
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
@@ -72,10 +73,13 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
+
+    const isAvailable = data.products?.data && data.products?.data.length > 0;
+
     return {
       char: letter,
-      disabled: data.products?.data && data.products?.data.length > 0 ? false : true,
-      href: `products/alphabet/${letter.toLocaleLowerCase()}`,
+      disabled: !isAvailable,
+      href: !isAvailable ? undefined : `products/alphabet/${letter.toLocaleLowerCase()}`,
     };
   });
 
@@ -114,7 +118,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           <GridCell md={10} lg={9}>
             <section>
               <Heading2>{t('components.alphabetically-products-navigation')}</Heading2>
-              <IndexCharNav characters={alphabetAvailability} component="link" Link={Link} />
+              <IndexCharNav characters={alphabetAvailability} component="link" Link={IndexCharNavLink} />
             </section>
           </GridCell>
         </>
