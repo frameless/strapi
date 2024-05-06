@@ -3,6 +3,7 @@ export * from './apiSettings';
 export * from './buildAlternateLinks';
 export * from './create-url';
 export * from './createStrapiURL';
+export * from './cspConfig';
 export * from './fetchData';
 export * from './getAlphabeticallyProductsByLetter';
 export * from './getImageBaseUrl';
