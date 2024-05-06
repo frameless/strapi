@@ -21,7 +21,7 @@ export const MultiColumnsButton = ({ columns }: MultiColumnsButtonProps) => (
       columns.length > 0 &&
       columns.map(({ logoButton, title }, index: number) => (
         <GridCell key={index} sm={6} className={css('utrecht-multi-columns-button__item')}>
-          <Heading level={3}>{title}</Heading>
+          {title && <Heading level={3}>{title}</Heading>}
           {logoButton &&
             logoButton.length > 0 &&
             logoButton.map((item: any, index: number) => {
