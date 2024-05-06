@@ -13,6 +13,7 @@ import {
   GridCell,
   Logo,
   LogoImage,
+  MatomoTagManager,
   Navigation,
   NavigationListType,
   Page,
@@ -211,7 +212,11 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
             <Footer data={footerData as FooterData} />
           </Surface>
         </QueryClientProvider>
-        <Script src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js" nonce={nonce}></Script>
+        <MatomoTagManager
+          nonce={nonce}
+          src={`${process.env.MATOMO_HOST}/analytics/js/container_${process.env.MATOMO_SITE_ID}.js`}
+        />
+        <SiteImproveAnalytics nonce={nonce} />
         <Script
           defer
           id="chatwidget-script"
