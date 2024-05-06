@@ -15,6 +15,9 @@ const chatWidget = {
 const map = {
   'img-src': ['https://service.pdok.nl'],
 };
+const matomo = {
+  'script-src': ['https://stats.utrecht.nl'],
+};
 
 const youtube = {
   'frame-src': ['https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/'],
@@ -65,6 +68,7 @@ export const cspDevelopmentHeader = () => {
         ...openForms['script-src'],
         ...siteimproveanalytics['script-src'],
         ...chatWidget['script-src'],
+        ...matomo['script-src'],
       ],
       'style-src': [SELF, INLINE, ...openForms['style-src']],
       ...cspBase,
