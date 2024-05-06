@@ -10,6 +10,7 @@ import {
   GridCell,
   Heading,
   IndexCharNav,
+  IndexCharNavLink,
   Paragraph,
   ScrollToTopButton,
   UtrechtIconChevronUp,
@@ -83,10 +84,12 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
+
+    const isAvailable = data.products?.data && data.products?.data.length > 0;
     return {
       char: letter,
-      disabled: data.products?.data && data.products.data.length > 0 ? false : true,
-      href: `${letter.toLocaleLowerCase()}`,
+      disabled: !isAvailable,
+      href: !isAvailable ? undefined : `${letter.toLocaleLowerCase()}`,
     };
   });
   const alphabetAvailability = await Promise.all(productsAvailability);
@@ -127,7 +130,12 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       <Article>
         <Heading level={1}>{t('h1')}</Heading>
         <Paragraph lead>{t('lead-paragraph')}</Paragraph>
-        <IndexCharNav component="link" currentChar={q.toUpperCase()} characters={alphabetAvailability} Link={Link} />
+        <IndexCharNav
+          component="link"
+          currentChar={q.toUpperCase()}
+          characters={alphabetAvailability}
+          Link={IndexCharNavLink}
+        />
         {mappedProduct && mappedProduct.length > 0 ? (
           <ProductListContainer
             locale={locale}
