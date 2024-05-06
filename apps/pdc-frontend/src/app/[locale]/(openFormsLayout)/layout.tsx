@@ -20,6 +20,7 @@ import {
   PageContent,
   PageHeader,
   PreviewAlert,
+  SiteImproveAnalytics,
   SkipLink,
   Surface,
 } from '@/components';

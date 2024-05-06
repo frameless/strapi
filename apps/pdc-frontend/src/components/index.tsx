@@ -11,6 +11,7 @@ export * from '@utrecht/component-library-react';
 export * from '@frameless/ui';
 export { Markdown } from './Markdown';
 export { MatomoTagManager } from './MatomoTagManager';
+export { SiteImproveAnalytics } from './SiteImproveAnalytics';
 export const Breadcrumbs = dynamic(
   async () => {
     const Component = (await import('@frameless/ui')).Breadcrumbs;
@@ -18,7 +19,6 @@ export const Breadcrumbs = dynamic(
   },
   { ssr: false },
 );
-
 export const MultiColumnsButton = dynamic(
   async () => {
     const Component = (await import('@frameless/ui')).MultiColumnsButton;
