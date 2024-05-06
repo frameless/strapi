@@ -1,4 +1,4 @@
-'use clint';
+'use client';
 
 import Script from 'next/script';
 import type { ScriptProps } from 'next/script';
