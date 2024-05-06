@@ -1,3 +1,10 @@
+# @frameless/ui [2.18.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.17.0...@frameless/ui@2.18.0) (2024-05-06)
+
+
+### Features
+
+* **deps:** upgrade `@utrecht/` packages ([a835ad6](https://github.com/frameless/strapi/commit/a835ad66a0095e8d1d762677b380e89010225070))
+
 # @frameless/ui [2.18.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.17.0...@frameless/ui@2.18.0) (2024-05-02)
 
 
