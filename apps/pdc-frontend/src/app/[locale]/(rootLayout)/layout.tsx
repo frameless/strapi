@@ -192,6 +192,12 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   {navigationData?.navigationList && navigationData?.navigationList?.length > 0 && (
                     <GridCell xs={6} md={12} order={2} orderMd={3}>
                       <Navigation
+                        targetId="menu"
+                        aria-label={
+                          t('navigation.ariaLabel', {
+                            defaultValue: 'Hoofdmenu',
+                          }) as string
+                        }
                         list={navigationData.navigationList as NavigationListType[]}
                         mobileBreakpoint={961}
                         toggleButton={{

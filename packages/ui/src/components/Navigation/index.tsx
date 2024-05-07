@@ -25,6 +25,7 @@ export type NavigationListType = {
 
 interface NavigationProps extends HTMLAttributes<HTMLElement> {
   list: NavigationListType[];
+  targetId?: string;
   mobileBreakpoint: number;
   toggleButton?: {
     openText?: string;
@@ -34,7 +35,7 @@ interface NavigationProps extends HTMLAttributes<HTMLElement> {
 
 export const Navigation = forwardRef(
   (
-    { list, mobileBreakpoint, toggleButton, ...restProps }: PropsWithChildren<NavigationProps>,
+    { list, mobileBreakpoint, toggleButton, targetId, ...restProps }: PropsWithChildren<NavigationProps>,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const screenSize = useScreenSize();
@@ -104,14 +105,14 @@ export const Navigation = forwardRef(
             },
             restProps.className,
           )}
-          id="menu"
           ref={ref}
           {...restProps}
         >
           {!visible ? (
-            <NavigationList list={list} mobile={visible} />
+            <NavigationList id={targetId} list={list} mobile={visible} />
           ) : (
             <NavToggleButton
+              id={targetId}
               text={toggleButton?.openText}
               icon="hamburger"
               ref={hamburgerButtonRef}
@@ -125,7 +126,6 @@ export const Navigation = forwardRef(
             className={css('utrecht-navigation', {
               'utrecht-navigation--mobile': visible,
             })}
-            id="menu"
             ref={ref}
             {...restProps}
           >
