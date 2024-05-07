@@ -60,8 +60,9 @@ export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 
     <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')}>
       {links &&
         links.length > 0 &&
-        links.map(({ href, label, current }: any, index: number) =>
-          label ? (
+        links
+          .filter(({ label }) => label)
+          .map(({ href, label, current }: any, index: number) => (
             <Fragment key={`${href}-${index}`}>
               <BreadcrumbNavLink
                 className={css('utrecht-link', 'utrecht-link--html-a', 'utrecht-breadcrumb-nav__link-custom')}
@@ -84,8 +85,7 @@ export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 
                 )}
               </BreadcrumbNavLink>
             </Fragment>
-          ) : null,
-        )}
+          ))}
     </BreadcrumbNav>
   );
 };
