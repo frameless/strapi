@@ -1,3 +1,10 @@
+## @frameless/ui [2.18.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.18.0...@frameless/ui@2.18.1) (2024-05-07)
+
+
+### Bug Fixes
+
+* **ui:** hide the empty  `MultiColumnsLogoButton` label ([55178b9](https://github.com/frameless/strapi/commit/55178b9ccd43b5405ded4af8e48ec0eb5b004d97))
+
 # @frameless/ui [2.18.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.17.0...@frameless/ui@2.18.0) (2024-05-06)
 
 
