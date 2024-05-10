@@ -120,7 +120,6 @@ const defaultComponents = (config?: Components) => {
       delete node.properties?.style;
       return <Figure {...node.properties}>{children}</Figure>;
     },
-
     figcaption: ({ children, node }) => {
       delete node.properties?.style;
       return (
