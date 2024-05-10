@@ -27,6 +27,7 @@ COPY ./packages/upl/package.json packages/upl/package.json
 COPY ./packages/strapi-plugin-uniform-product-name/package.json packages/strapi-plugin-uniform-product-name/package.json
 COPY ./packages/strapi-plugin-open-forms-embed/package.json packages/strapi-plugin-open-forms-embed/package.json
 COPY ./packages/strapi-plugin-uuid-field/package.json packages/strapi-plugin-uuid-field/package.json
+COPY ./packages/strapi-plugin-env-label/package.json packages/strapi-plugin-env-label/package.json
 
 # Build target dependencies #
 #############################
