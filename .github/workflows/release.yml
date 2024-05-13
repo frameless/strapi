@@ -36,6 +36,8 @@ jobs:
           envkey_API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
           envkey_ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
           envkey_JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          envkey_MATOMO_HOST: ${{ secrets.MATOMO_HOST }}
+          envkey_MATOMO_SITE_ID: ${{ secrets.MATOMO_SITE_ID }}
           envkey_PREVIEW_SECRET_TOKEN: ${{ secrets.PREVIEW_SECRET_TOKEN }}
           envkey_TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
           envkey_DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
