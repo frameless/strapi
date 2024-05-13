@@ -95,6 +95,7 @@
     ]
   },
   "navigation": {
+    "ariaLabel": "Main menu",
     "list": [
       {
         "title": "Living and Life",
