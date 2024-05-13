@@ -1,3 +1,10 @@
+# @frameless/ui [2.19.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.18.2...@frameless/ui@2.19.0) (2024-05-13)
+
+
+### Features
+
+* **ui:** handel the nav links focus ([940a226](https://github.com/frameless/strapi/commit/940a22688846f02ddc6b331acfa9fe01aaeb96b4))
+
 ## @frameless/ui [2.18.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.18.1...@frameless/ui@2.18.2) (2024-05-13)
 
 
