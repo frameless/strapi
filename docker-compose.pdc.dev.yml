@@ -53,6 +53,8 @@ services:
     command: ./bin/wait-for-it.sh -s pdc_strapi:1337 -t 25 -- yarn workspace @frameless/pdc-frontend dev
     environment:
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
+      MATOMO_HOST: ${MATOMO_HOST}
+      MATOMO_SITE_ID: ${MATOMO_SITE_ID}
       OPEN_FORMS_API_TOKEN: ${OPEN_FORMS_API_TOKEN}
       OPEN_FORMS_API_URL: ${OPEN_FORMS_API_URL}
       OPEN_FORMS_CSS_URL: ${OPEN_FORMS_CSS_URL}
