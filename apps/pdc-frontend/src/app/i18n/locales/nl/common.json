@@ -12,6 +12,7 @@
   "components": {
     "alphabetically-products-navigation": "Producten op alfabet",
     "breadcrumbs": {
+      "ariaLabel": "Kruimelpad",
       "label": {
         "home": "Home",
         "online-loket": "Online loket",

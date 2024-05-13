@@ -27,6 +27,11 @@ const FormPage = async ({
   return (
     <>
       <Breadcrumbs
+        label={
+          t('components.breadcrumbs.ariaLabel', {
+            defaultValue: 'Kruimelpad',
+          }) as string
+        }
         links={[
           {
             href: 'https://www.utrecht.nl/',

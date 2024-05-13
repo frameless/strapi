@@ -22,6 +22,11 @@ const NotFoundPage = async () => {
   return (
     <div>
       <Breadcrumbs
+        label={
+          t('components.breadcrumbs.ariaLabel', {
+            defaultValue: 'Kruimelpad',
+          }) as string
+        }
         links={[
           {
             href: 'https://www.utrecht.nl/',
