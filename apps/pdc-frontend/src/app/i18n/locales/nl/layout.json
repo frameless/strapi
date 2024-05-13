@@ -34,6 +34,7 @@
     "address": "<h3>Adres</h3><p><strong>Stadskantoor</strong><br>Stadsplateau 1<br>3521AZ Utrecht<br></p>"
   },
   "navigation": {
+    "ariaLabel": "Hoofdmenu",
     "list": [
       {
         "title": "Wonen en leven",
