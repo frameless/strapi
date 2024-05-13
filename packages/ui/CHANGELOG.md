@@ -1,3 +1,10 @@
+## @frameless/ui [2.18.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.18.1...@frameless/ui@2.18.2) (2024-05-13)
+
+
+### Bug Fixes
+
+* add figure component to markdown rendering ([#723](https://github.com/frameless/strapi/issues/723)) ([74fd9f3](https://github.com/frameless/strapi/commit/74fd9f3b7e9c6ff64427c723734748a111ce89a6))
+
 ## @frameless/ui [2.18.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.18.0...@frameless/ui@2.18.1) (2024-05-07)
 
 
