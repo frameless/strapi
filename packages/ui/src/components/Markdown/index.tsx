@@ -1,4 +1,4 @@
-import { OrderedList, TableContainer } from '@utrecht/component-library-react';
+import { Figure, OrderedList, TableContainer } from '@utrecht/component-library-react';
 import {
   Heading1,
   Heading2,
@@ -115,6 +115,10 @@ const defaultComponents = (config?: Components) => {
     caption: ({ children, node }) => {
       delete node.properties?.style;
       return <TableCaption {...node.properties}>{children}</TableCaption>;
+    },
+    figure: ({ children, node }) => {
+      delete node.properties?.style;
+      return <Figure {...node.properties}>{children}</Figure>;
     },
     figcaption: ({ children, node }) => {
       delete node.properties?.style;
