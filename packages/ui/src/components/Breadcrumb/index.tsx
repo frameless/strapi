@@ -4,6 +4,7 @@ import {
   BreadcrumbNavSeparator,
   Link as UtrechtLink,
 } from '@utrecht/component-library-react';
+import type { BreadcrumbNavProps } from '@utrecht/component-library-react';
 import { UtrechtIconChevronLeft, UtrechtIconChevronRight } from '@utrecht/web-component-library-react';
 import classnames from 'classnames/bind';
 import { ComponentType, Fragment } from 'react';
@@ -17,7 +18,8 @@ type BreadcrumbLinkType = {
   label: string;
   current: boolean;
 };
-interface BreadcrumbProps {
+
+interface BreadcrumbProps extends BreadcrumbNavProps {
   links: BreadcrumbLinkType[];
   Link?: ComponentType<any>;
   backLink?: {
@@ -28,14 +30,20 @@ interface BreadcrumbProps {
   breakpoint?: number;
 }
 
-export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 360 }: BreadcrumbProps) => {
+export const Breadcrumbs = ({
+  links,
+  Link = UtrechtLink,
+  backLink,
+  breakpoint = 360,
+  ...restBreadcrumbProps
+}: BreadcrumbProps) => {
   const screenSize = useScreenSize();
 
   const smallScreen = Number(screenSize) <= breakpoint;
 
   if (smallScreen && backLink?.href && backLink.label) {
     return (
-      <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')}>
+      <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')} {...restBreadcrumbProps}>
         <Fragment>
           <BreadcrumbNavLink
             className={css('utrecht-link', 'utrecht-link--html-a', 'utrecht-breadcrumb-nav__link-custom')}
@@ -57,7 +65,7 @@ export const Breadcrumbs = ({ links, Link = UtrechtLink, backLink, breakpoint = 
   }
 
   return (
-    <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')}>
+    <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')} {...restBreadcrumbProps}>
       {links &&
         links.length > 0 &&
         links

@@ -12,6 +12,7 @@
   "components": {
     "alphabetically-products-navigation": "Products by alphabet",
     "breadcrumbs": {
+      "ariaLabel": "Breadcrumbs",
       "label": {
         "home": "Home",
         "online-loket": "Online portal",

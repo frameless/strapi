@@ -267,6 +267,11 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
   return (
     <>
       <Breadcrumbs
+        label={
+          t('components.breadcrumbs.ariaLabel', {
+            defaultValue: 'Kruimelpad',
+          }) as string
+        }
         links={[
           {
             href: 'https://www.utrecht.nl/',
