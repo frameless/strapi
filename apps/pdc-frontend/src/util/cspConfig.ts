@@ -19,6 +19,7 @@ const map = {
   'img-src': ['https://service.pdok.nl'],
 };
 const matomo = {
+  'connect-src': ['https://stats.utrecht.nl'],
   'script-src': ['https://stats.utrecht.nl'],
 };
 
@@ -46,7 +47,14 @@ export const cspBase = {
   'form-action': [SELF, ...ogonePaymentServices['form-action']],
   'frame-ancestors': [NONE],
   'worker-src': [BLOB],
-  'connect-src': [SELF, ...openForms['connect-src'], ...chatWidget['connect-src'], DATA, BLOB],
+  'connect-src': [
+    SELF,
+    ...openForms['connect-src'],
+    ...chatWidget['connect-src'],
+    ...matomo['connect-src'],
+    DATA,
+    BLOB,
+  ],
   'img-src': [
     SELF,
     ...openForms['img-src'],
