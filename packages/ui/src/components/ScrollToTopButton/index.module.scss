@@ -35,3 +35,15 @@
 
   margin-inline-start: var(--utrecht-scroll-to-top-button-icon-margin-inline-start, var(--utrecht-space-inline-2xs));
 }
+
+.utrecht-scroll-to-top-container {
+  --utrecht-scroll-to-top-container-scroll-behavior: smooth;
+
+  scroll-behavior: var(--utrecht-scroll-to-top-container-scroll-behavior);
+}
+
+@media (prefers-reduced-motion) {
+  .utrecht-scroll-to-top-container {
+    --utrecht-scroll-to-top-container-scroll-behavior: auto;
+  }
+}
