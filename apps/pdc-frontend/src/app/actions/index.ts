@@ -49,9 +49,10 @@ export const getSuggestedSearch = async (
 export const onSearchSubmitAction = async (formData: FormData, locale: string) => {
   const value = formData.get('search') as string;
   const result = await getSuggestedSearch(value, locale);
-  if (result?.total) {
+  if (result?.total && value.trim()) {
     redirect(`/${locale}/search/${value}`);
   }
+  redirect(`/${locale}/search/tips?query=`);
 };
 
 export const getLiveSuggestions = async (value: string) => {
