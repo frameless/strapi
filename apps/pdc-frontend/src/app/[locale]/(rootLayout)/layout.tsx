@@ -130,7 +130,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   ) as ComponentComponentsUtrechtFooter;
 
   return (
-    <html lang={locale} dir={dir(locale)}>
+    <html lang={locale} dir={dir(locale)} id="top" className="utrecht-scroll-to-top-container">
       <body
         className={classnames(
           'utrecht-theme',
