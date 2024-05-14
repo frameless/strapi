@@ -82,7 +82,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         input={{
           id: 'search-input',
           name: 'search',
-          required: true,
         }}
         itemToString={itemToString}
         renderOptions={(option) => {
