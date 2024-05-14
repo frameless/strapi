@@ -6,6 +6,9 @@ const getOpenFormsHost = () => {
   return createOpenFormsApiUrl()?.host || '';
 };
 
+const ogonePaymentServices = {
+  'form-action': [process.env.OGONE_PAYMENT_SERVICE_URL ?? ''],
+};
 const chatWidget = {
   'connect-src': ['wss://virtuele-gemeente-assistent.nl', 'https://virtuele-gemeente-assistent.nl'],
   'img-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
@@ -40,7 +43,7 @@ export const cspBase = {
   'default-src': [SELF],
   'object-src': [NONE],
   'base-uri': [SELF],
-  'form-action': [SELF],
+  'form-action': [SELF, ...ogonePaymentServices['form-action']],
   'frame-ancestors': [NONE],
   'worker-src': [BLOB],
   'connect-src': [SELF, ...openForms['connect-src'], ...chatWidget['connect-src'], DATA, BLOB],

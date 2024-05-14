@@ -56,6 +56,7 @@ jobs:
           envkey_PGADMIN_DEFAULT_PASSWORD: ${{ secrets.PGADMIN_DEFAULT_PASSWORD }}
           envkey_STRAPI_PUBLIC_URL: ${{ secrets.STRAPI_PUBLIC_URL }}
           envkey_STRAPI_ENV_LABEL: ${{ secrets.STRAPI_ENV_LABEL }}
+          envkey_OGONE_PAYMENT_SERVICE_URL: ${{ secrets.OGONE_PAYMENT_SERVICE_URL }}
           file_name: .prod.env
           fail_on_empty: false
       - name: Build
