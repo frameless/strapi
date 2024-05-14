@@ -65,7 +65,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
   const searchResults = await getSuggestedSearch(locale, decodeQuery);
 
   if (searchResults && searchResults.hits && searchResults.hits.length === 0) {
-    redirect(`/search/tips/${decodeQuery}`);
+    redirect(`/search/tips?query=${decodeQuery}`);
   }
 
   const results =
