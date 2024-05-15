@@ -1,3 +1,10 @@
+# @frameless/ui [2.20.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.19.0...@frameless/ui@2.20.0) (2024-05-15)
+
+
+### Features
+
+* **ui:** ensure ScrollToTopButton forwards focus to specified element ([d79d719](https://github.com/frameless/strapi/commit/d79d719d278bfc3f3f7a9f1d8d1ce5a1a514fc8d))
+
 # @frameless/ui [2.19.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.18.2...@frameless/ui@2.19.0) (2024-05-13)
 
 
