@@ -37,12 +37,14 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
         }}
         Link={Link}
       />
-      <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
-      {data?.notFoundPage?.data?.attributes?.body && (
-        <Markdown imageUrl={getImageBaseUrl()} locale={locale}>
-          {data.notFoundPage.data.attributes.body}
-        </Markdown>
-      )}
+      <main id="main">
+        <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
+        {data?.notFoundPage?.data?.attributes?.body && (
+          <Markdown imageUrl={getImageBaseUrl()} locale={locale}>
+            {data.notFoundPage.data.attributes.body}
+          </Markdown>
+        )}
+      </main>
     </div>
   );
 };

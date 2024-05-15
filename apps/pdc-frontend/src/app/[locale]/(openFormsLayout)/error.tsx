@@ -61,13 +61,15 @@ export default function Error({ error, reset }: ErrorPageProps) {
         }}
         Link={Link}
       />
-      <ErrorPageContent
-        title={t('common.title') as string}
-        message={isProduction ? (t('common.body') as string) : errorMessage?.message}
-      />
-      <Button appearance="secondary-action-button" onClick={() => reset()}>
-        {t('actions.try-again')}
-      </Button>
+      <main id="main">
+        <ErrorPageContent
+          title={t('common.title') as string}
+          message={isProduction ? (t('common.body') as string) : errorMessage?.message}
+        />
+        <Button appearance="secondary-action-button" onClick={() => reset()}>
+          {t('actions.try-again')}
+        </Button>
+      </main>
     </>
   );
 }

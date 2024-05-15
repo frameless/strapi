@@ -231,7 +231,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 </Grid>
               </PageHeader>
               <PageContent className="utrecht-page-content--modifier">
-                <Main id="main">{children}</Main>
+                <Main>{children}</Main>
               </PageContent>
             </Page>
             <div id="webchat" />

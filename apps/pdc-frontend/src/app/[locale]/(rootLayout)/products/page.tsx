@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { languages } from '@/app/i18n/settings';
 import {
   AdvancedLink,
-  Article,
   Breadcrumbs,
   Grid,
   GridCell,
@@ -103,12 +102,12 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
         }}
         Link={Link}
       />
-      <Article>
+      <main id="main">
         <Heading level={1}>{t('h1')}</Heading>
         {mappedProduct && mappedProduct.length > 0 && (
           <ProductListContainer locale={locale} total={products?.meta.pagination.total} initialData={mappedProduct} />
         )}
-      </Article>
+      </main>
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
           <AdvancedLink
