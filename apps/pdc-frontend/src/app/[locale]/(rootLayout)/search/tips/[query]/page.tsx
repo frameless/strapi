@@ -53,18 +53,20 @@ const SearchTips = async ({ params: { locale, query } }: any) => {
         }}
         Link={Link}
       />
-      <Heading level={1}>
-        {t('h1', {
-          query: decodeQuery,
-          interpolation: { escapeValue: false },
-        })}
-      </Heading>
-      <Heading level={2}>{t('body.section.title')}</Heading>
-      <UnorderedList>
-        {tipsList &&
-          tipsList.length > 0 &&
-          tipsList?.map((item) => <UnorderedListItem key={item}>{item}</UnorderedListItem>)}
-      </UnorderedList>
+      <main id="main">
+        <Heading level={1}>
+          {t('h1', {
+            query: decodeQuery,
+            interpolation: { escapeValue: false },
+          })}
+        </Heading>
+        <Heading level={2}>{t('body.section.title')}</Heading>
+        <UnorderedList>
+          {tipsList &&
+            tipsList.length > 0 &&
+            tipsList?.map((item) => <UnorderedListItem key={item}>{item}</UnorderedListItem>)}
+        </UnorderedList>
+      </main>
     </div>
   );
 };

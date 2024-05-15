@@ -112,22 +112,24 @@ const Home = async ({ params: { locale } }: { params: any }) => {
         }}
         Link={Link}
       />
-      <Heading level={1}>{t('h1')}</Heading>
-      <Grid>
-        <>
-          <GridCell md={10} lg={9}>
-            <section>
-              <TopTask data={topTasksData?.link as TopTaskDataTypes[]} />
-            </section>
-          </GridCell>
-          <GridCell md={10} lg={9}>
-            <section>
-              <Heading2>{t('components.alphabetically-products-navigation')}</Heading2>
-              <IndexCharNav characters={alphabetAvailability} component="link" Link={IndexCharNavLink} />
-            </section>
-          </GridCell>
-        </>
-      </Grid>
+      <main id="main">
+        <Heading level={1}>{t('h1')}</Heading>
+        <Grid>
+          <>
+            <GridCell md={10} lg={9}>
+              <section>
+                <TopTask data={topTasksData?.link as TopTaskDataTypes[]} />
+              </section>
+            </GridCell>
+            <GridCell md={10} lg={9}>
+              <section>
+                <Heading2>{t('components.alphabetically-products-navigation')}</Heading2>
+                <IndexCharNav characters={alphabetAvailability} component="link" Link={IndexCharNavLink} />
+              </section>
+            </GridCell>
+          </>
+        </Grid>
+      </main>
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
           <AdvancedLink

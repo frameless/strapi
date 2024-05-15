@@ -296,7 +296,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         }}
         Link={Link}
       />
-      <Article>
+      <Article id="main">
         <Heading level={1}>{product?.attributes?.title}</Heading>
         {product?.attributes?.content && (
           <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>

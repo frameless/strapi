@@ -46,13 +46,15 @@ export default function Error({ error, reset }: ErrorPageProps) {
         }}
         Link={Link}
       />
-      <Heading level={1}>{t('common.title')}</Heading>
-      {process.env.NODE_ENV === 'production' && <Paragraph>{t('common.body')}</Paragraph>}
-      <Paragraph>{process.env.NODE_ENV === 'development' && errorMessage?.message}</Paragraph>
-      <Paragraph />
-      <Button appearance="secondary-action-button" onClick={() => reset()}>
-        {t('actions.try-again')}
-      </Button>
+      <main id="main">
+        <Heading level={1}>{t('common.title')}</Heading>
+        {process.env.NODE_ENV === 'production' && <Paragraph>{t('common.body')}</Paragraph>}
+        <Paragraph>{process.env.NODE_ENV === 'development' && errorMessage?.message}</Paragraph>
+        <Paragraph />
+        <Button appearance="secondary-action-button" onClick={() => reset()}>
+          {t('actions.try-again')}
+        </Button>
+      </main>
     </>
   );
 }
