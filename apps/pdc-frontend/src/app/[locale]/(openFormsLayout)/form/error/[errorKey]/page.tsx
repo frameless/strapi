@@ -41,8 +41,10 @@ const OpenFormsErrorPage = async ({ params: { errorKey, locale } }: OpenFormsErr
         }}
         Link={Link}
       />
-      <Heading level={1}>{t(`${errorKey}.title`)}</Heading>
-      <Paragraph>{t(`${errorKey}.message`)}</Paragraph>
+      <main id="main">
+        <Heading level={1}>{t(`${errorKey}.title`)}</Heading>
+        <Paragraph>{t(`${errorKey}.message`)}</Paragraph>
+      </main>
     </div>
   );
 };

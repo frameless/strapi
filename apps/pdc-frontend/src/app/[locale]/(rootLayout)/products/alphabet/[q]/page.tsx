@@ -4,7 +4,6 @@ import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
 import {
   AdvancedLink,
-  Article,
   Breadcrumbs,
   Grid,
   GridCell,
@@ -132,7 +131,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         }}
         Link={Link}
       />
-      <Article>
+      <main id="main">
         <Heading level={1}>{t('h1')}</Heading>
         <Paragraph lead>{t('lead-paragraph')}</Paragraph>
         <IndexCharNav
@@ -151,7 +150,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         ) : (
           <Paragraph>{t('product-notfound', { letter: q.toUpperCase() })}</Paragraph>
         )}
-      </Article>
+      </main>
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
           <AdvancedLink

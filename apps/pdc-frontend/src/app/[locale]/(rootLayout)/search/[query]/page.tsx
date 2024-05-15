@@ -5,7 +5,6 @@ import { getSuggestedSearch } from '@/app/actions';
 import { languages } from '@/app/i18n/settings';
 import {
   AdvancedLink,
-  Article,
   Breadcrumbs,
   Grid,
   GridCell,
@@ -105,7 +104,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
         }}
         Link={Link}
       />
-      <Article>
+      <main id="main">
         <Heading level={1}>{t('h1', { query: decodeQuery, interpolation: { escapeValue: false } })}</Heading>
         <h2>{decodeQuery}</h2>
         <ProductListContainer
@@ -115,7 +114,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           currentQuery={decodeQuery}
           segment="search"
         />
-      </Article>
+      </main>
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
           <AdvancedLink
