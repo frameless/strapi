@@ -9,6 +9,9 @@ const config = {
   auth: {
     logo: UtrechtLogo,
   },
+  flags: {
+    nps: false,
+  },
   head: {
     favicon: UtrechtFavicon,
   },
