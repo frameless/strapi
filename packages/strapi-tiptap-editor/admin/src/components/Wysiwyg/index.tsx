@@ -33,6 +33,7 @@ import UnderlineExtension from '@tiptap/extension-underline';
 import YouTubeExtension from '@tiptap/extension-youtube';
 import { Extensions, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+import { sanitize } from 'dompurify';
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useQuery } from 'react-query';
@@ -49,6 +50,7 @@ import { Price } from '../extensions/Price/index';
 import '@utrecht/component-library-css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/design-tokens/dist/index.css';
+
 interface Target {
   name: string;
   value: string;
@@ -230,7 +232,7 @@ const WysiwygContent = ({
       if (settings.other.saveJson) {
         onChange({ target: { name, value: JSON.stringify(editor.getJSON()) } });
       } else {
-        onChange({ target: { name, value: editor.getHTML() } });
+        onChange({ target: { name, value: sanitize(editor.getHTML()) } });
       }
     },
   });
