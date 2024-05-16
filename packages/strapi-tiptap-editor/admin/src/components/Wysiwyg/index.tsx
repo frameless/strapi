@@ -232,7 +232,7 @@ const WysiwygContent = ({
       if (settings.other.saveJson) {
         onChange({ target: { name, value: JSON.stringify(editor.getJSON()) } });
       } else {
-        onChange({ target: { name, value: sanitize(editor.getHTML()) } });
+        onChange({ target: { name, value: sanitize(editor.getHTML(), { ALLOW_DATA_ATTR: true }) } });
       }
     },
   });
