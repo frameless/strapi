@@ -3,6 +3,9 @@ const config = {
   notifications: {
     releases: false,
   },
+  flags: {
+    nps: false,
+  },
   translations: {
     en: {
       'app.components.HomePage.welcome': 'Welcome 👋',
