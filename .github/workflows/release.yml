@@ -59,6 +59,8 @@ jobs:
           envkey_OGONE_PAYMENT_SERVICE_URL: ${{ secrets.OGONE_PAYMENT_SERVICE_URL }}
           file_name: .prod.env
           fail_on_empty: false
+      - name: Test
+        run: npm run --workspaces test --if-present
       - name: Build
         run: npm run --workspace packages build --if-present
       - name: Lint
