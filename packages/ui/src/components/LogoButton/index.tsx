@@ -31,7 +31,7 @@ export const LogoButton = ({ logo, appearance, href, children, label, headingLev
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <ButtonGroup>
             <UtrechtLogoButton>
-              <UtrechtDigidLogo />
+              <UtrechtDigidLogo role="presentation" />
               <ButtonLink appearance={kebabCase(appearance)} href={href}>
                 {children} <UtrechtIconArrow />
               </ButtonLink>
