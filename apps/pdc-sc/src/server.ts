@@ -11,7 +11,7 @@ const port = 4000;
 const gql = (query: any) => query;
 const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
   query getSamenwerkendecatalogi($locale: I18NLocaleCode) {
-    products(locale: $locale) {
+    products(locale: $locale, pagination: {start: 0, limit: -1}) {
       data {
         id
         attributes {
