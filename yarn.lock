@@ -9970,6 +9970,10 @@ ecdsa-sig-formatter@1.0.11:
   dependencies:
     safe-buffer "^5.0.1"
 
+"editoria11y@github:itmaybejj/editoria11y#2.2.4":
+  version "2.1.1"
+  resolved "https://codeload.github.com/itmaybejj/editoria11y/tar.gz/a9542afb5b0176833049b11bb9419f50e7e55f26"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
