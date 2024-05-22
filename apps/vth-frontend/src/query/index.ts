@@ -52,12 +52,17 @@ query getHomepage($pageMode: PublicationState) {
 
 export const GET_NAVIGATION_PAGES = gql(`
 query getNavigationPages($pageMode: PublicationState) {
-  navigationPages(publicationState: $pageMode, sort: ["order:asc", "title:asc"]) {
+  navigationPages(
+    publicationState: $pageMode
+    sort: ["order:asc", "title:asc"]
+    pagination: { start: 0, limit: -1 }
+  ) {
     data {
       id
       attributes {
         title
         slug
+        updatedAt
       }
     }
   }
@@ -194,6 +199,35 @@ query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
             }
           }
         }
+      }
+    }
+  }
+}
+`);
+
+export const GET_ALL_THEME_SLUGS = gql(`
+query getAllThemeSlugs {
+  themePages(sort: ["title:asc"], pagination: { start: 0, limit: -1 }) {
+    data {
+      id
+      attributes {
+        title
+        slug
+        updatedAt
+      }
+    }
+  }
+}
+`);
+
+export const GET_ALL_ARTICLES_SLUGS = gql(`
+query getAllAriclesSlugs {
+  articlePages(pagination: { start: 0, limit: -1 }, sort: ["title:asc"]) {
+    data {
+      attributes {
+        title
+        slug
+        updatedAt
       }
     }
   }
