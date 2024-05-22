@@ -24,6 +24,7 @@ import {
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Editoria11y } from '@/components/Editoria11y';
 import { Main } from '@/components/Main';
 import { GET_NAVIGATION_PAGES } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
@@ -196,6 +197,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   </GridCell>
                 </Grid>
               </PageHeader>
+              {isEnabled && <Editoria11y />}
               <Main id="main">{children}</Main>
             </Page>
           </Surface>
