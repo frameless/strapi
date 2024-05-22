@@ -1,0 +1,33 @@
+name: GitHub Issues as WCAG result
+
+on:
+  issues:
+    types:
+      - opened
+      - closed
+      - reopened
+      - labelled
+      - unlabelled
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-wcag-result:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Include GitHub Issues as WCAG result
+        uses: frameless/wcag-issues-action@latest
+        with:
+          website: https://loket.digitaal.utrecht.nl/
+          label-color: D93F0B
+          owner: frameless
+          repo: strapi
+          input: apps/pdc-frontend/wcag-evaluation.json
+          create-labels: true
+          create-artifact: true
+          token: ${{ secrets.GH_ISSUES_TOKEN }}
