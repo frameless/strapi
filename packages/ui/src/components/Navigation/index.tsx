@@ -1,5 +1,6 @@
 import { Drawer } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
+import FocusTrap from 'focus-trap-react';
 import {
   createRef,
   ForwardedRef,
@@ -45,8 +46,6 @@ export const Navigation = forwardRef(
     const drawerRef = useRef<HTMLDialogElement>(null);
     const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
-    useClickOutside(drawerRef, hamburgerButtonRef);
-
     const showModal = () => {
       if (drawerRef.current) {
         if (drawerRef.current.open) {
@@ -58,7 +57,7 @@ export const Navigation = forwardRef(
         }
       }
     };
-
+    useClickOutside(drawerRef, showModal);
     useLayoutEffect(() => {
       if (mobileBreakpoint && screenSize) {
         setVisible(screenSize < mobileBreakpoint);
@@ -121,25 +120,35 @@ export const Navigation = forwardRef(
             />
           )}
         </nav>
-        <Drawer align="inline-end" className={css('utrecht-drawer--nav')} ref={drawerRef}>
-          <nav
-            className={css('utrecht-navigation', {
-              'utrecht-navigation--mobile': visible,
-            })}
-            ref={ref}
-            {...restProps}
-          >
-            <NavigationList list={list} mobile={visible} ref={navigationListRef}>
-              <NavToggleButton
-                text={toggleButton?.closeText}
-                id="nav-toggle-button-close"
-                icon="close"
-                aria-expanded={drawerVisible}
-                onClick={showModal}
-              />
-            </NavigationList>
-          </nav>
-        </Drawer>
+        <FocusTrap
+          active={drawerVisible}
+          focusTrapOptions={{
+            escapeDeactivates: () => {
+              showModal();
+              return true;
+            },
+          }}
+        >
+          <Drawer align="inline-end" className={css('utrecht-drawer--nav')} ref={drawerRef}>
+            <nav
+              className={css('utrecht-navigation', {
+                'utrecht-navigation--mobile': visible,
+              })}
+              ref={ref}
+              {...restProps}
+            >
+              <NavigationList list={list} mobile={visible} ref={navigationListRef}>
+                <NavToggleButton
+                  text={toggleButton?.closeText}
+                  id="nav-toggle-button-close"
+                  icon="close"
+                  aria-expanded={drawerVisible}
+                  onClick={showModal}
+                />
+              </NavigationList>
+            </nav>
+          </Drawer>
+        </FocusTrap>
       </>
     );
   },
