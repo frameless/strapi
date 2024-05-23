@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@frameless/preview-button": "0.0.0-semantically-released",
+    "@frameless/strapi-plugin-env-label": "0.0.0-semantically-released",
     "@frameless/strapi-tiptap-editor": "0.0.0-semantically-released",
     "@strapi/plugin-graphql": "4.14.6",
     "@strapi/plugin-i18n": "4.14.6",
