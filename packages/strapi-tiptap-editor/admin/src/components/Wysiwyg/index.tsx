@@ -22,7 +22,6 @@ import ListItemExtension from '@tiptap/extension-list-item';
 import OrderedListExtension from '@tiptap/extension-ordered-list';
 import ParagraphExtension from '@tiptap/extension-paragraph';
 import StrikeExtension from '@tiptap/extension-strike';
-import TableExtension from '@tiptap/extension-table';
 import TableCellExtension from '@tiptap/extension-table-cell';
 import TableHeaderExtension from '@tiptap/extension-table-header';
 import TableRowExtension from '@tiptap/extension-table-row';
@@ -41,6 +40,7 @@ import defaultSettings from '../../../../utils/defaults';
 import ProductPriceContext from '../../context/productPrice/context';
 import { mergeDeep } from '../../utils/merge';
 import Editor from '../Editor';
+import CustomTable from '../extensions/CustomTable';
 import { Figcaption } from '../extensions/Figcaption/index';
 import { Figure } from '../extensions/Figure/index';
 import { Language } from '../extensions/Language';
@@ -125,6 +125,7 @@ const WysiwygContent = ({
     StarterKit,
     // Text
     DocumentExtension,
+    // TableWidget,
     ParagraphExtension,
     TextExtension,
     BoldExtension,
@@ -156,7 +157,7 @@ const WysiwygContent = ({
       content: 'figcaption table',
     }),
     settings.disableOrderedListShorthand ? CustomOrderedList : OrderedListExtension,
-    settings.table ? TableExtension.configure({ allowTableNodeSelection: true }) : (null as any),
+    settings.table ? CustomTable.configure({ allowTableNodeSelection: true }) : (null as any),
     settings.table ? TableRowExtension : null,
     settings.table ? TableCellExtension : null,
     settings.table ? TableHeaderExtension : null,
