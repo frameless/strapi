@@ -1,6 +1,7 @@
 import { mergeAttributes, Node } from '@tiptap/core';
 import { Plugin } from '@tiptap/pm/state';
-
+import { ReactNodeViewRenderer } from '@tiptap/react';
+import { TableWidget } from '../../TableWidget';
 export const Figure = Node.create({
   name: 'figure',
 
@@ -47,5 +48,15 @@ export const Figure = Node.create({
         },
       }),
     ];
+  },
+  addNodeView() {
+    return ReactNodeViewRenderer(
+      (options) => {
+        return <TableWidget editor={options.editor} />;
+      },
+      {
+        className: 'utrecht-node-viewer--captured-table utrecht-node-viewer',
+      },
+    );
   },
 });
