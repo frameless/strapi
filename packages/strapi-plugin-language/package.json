@@ -1,0 +1,39 @@
+{
+  "name": "@frameless/strapi-plugin-language",
+  "version": "0.0.0-semantically-released",
+  "description": "A strapi custom field for selecting a language attribute",
+  "keywords": [],
+  "private": false,
+  "strapi": {
+    "name": "language",
+    "description": "A strapi custom field for selecting a language attribute",
+    "kind": "plugin",
+    "displayName": "Select uniform product name"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": ""
+  },
+  "license": "",
+  "peerDependencies": {
+    "@strapi/strapi": ">=4.0.0"
+  },
+  "engines": {
+    "node": "20.x.x"
+  },
+  "dependencies": {
+    "@strapi/design-system": "1.12.2",
+    "@strapi/icons": "1.12.2",
+    "@cospired/i18n-iso-languages": "4.2.0"
+  },
+  "scripts": {
+    "develop": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json"
+  }
+}

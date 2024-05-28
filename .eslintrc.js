@@ -65,6 +65,8 @@ module.exports = {
           './packages/samenwerkende-catalogi/tsconfig.json',
           './packages/strapi-plugin-env-label/tsconfig.json',
           './packages/strapi-plugin-env-label/tsconfig.server.json',
+          './packages/strapi-plugin-language/tsconfig.json',
+          './packages/strapi-plugin-language/tsconfig.server.json',
           './packages/strapi-plugin-open-forms-embed/tsconfig.json',
           './packages/strapi-plugin-open-forms-embed/tsconfig.server.json',
           './packages/strapi-plugin-uniform-product-name/tsconfig.json',
