@@ -18,6 +18,10 @@
     "icon": {
       "type": "enumeration",
       "enum": ["arrow"]
+    },
+    "language": {
+      "type": "customField",
+      "customField": "plugin::language.language"
     }
   }
 }
