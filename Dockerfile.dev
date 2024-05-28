@@ -28,6 +28,8 @@ COPY ./packages/strapi-plugin-uniform-product-name/package.json packages/strapi-
 COPY ./packages/strapi-plugin-open-forms-embed/package.json packages/strapi-plugin-open-forms-embed/package.json
 COPY ./packages/strapi-plugin-uuid-field/package.json packages/strapi-plugin-uuid-field/package.json
 COPY ./packages/strapi-plugin-env-label/package.json packages/strapi-plugin-env-label/package.json
+COPY ./packages/strapi-plugin-language/package.json packages/strapi-plugin-language/package.json
+
 
 # Build target dependencies #
 #############################
@@ -50,7 +52,8 @@ RUN  npm run build --workspace @frameless/upl && \
     npm run build --workspace @frameless/pdc-sc && \
     npm run build --workspace @frameless/strapi-plugin-open-forms-embed && \
     npm run build --workspace @frameless/strapi-plugin-uuid-field && \
-    npm run build --workspace @frameless/strapi-plugin-env-label
+    npm run build --workspace @frameless/strapi-plugin-env-label && \
+    npm run build --workspace @frameless/strapi-plugin-language 
 
 # Build target production #
 ###########################
