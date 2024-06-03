@@ -68,9 +68,10 @@ jobs:
       - name: Release
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm config set "//npm.pkg.github.com/:_authToken=${GH_TOKEN}"
+          npm config set "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}"
           npm config set workspaces-update false
           npm run release
           npm config delete "//npm.pkg.github.com/:_authToken"
