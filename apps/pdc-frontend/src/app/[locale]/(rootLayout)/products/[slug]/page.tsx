@@ -296,21 +296,23 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         }}
         Link={Link}
       />
-      <Article id="main">
-        <Heading level={1}>{product?.attributes?.title}</Heading>
-        {product?.attributes?.content && (
-          <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
-            {product?.attributes?.content}
-          </Markdown>
-        )}
-        {product?.attributes?.sections && product.attributes.sections.length > 0 && (
-          <Sections
-            sections={product.attributes.sections as ProductSectionsDynamicZone[]}
-            locale={locale}
-            priceData={priceData}
-          />
-        )}
-      </Article>
+      <main id="main">
+        <Article>
+          <Heading level={1}>{product?.attributes?.title}</Heading>
+          {product?.attributes?.content && (
+            <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+              {product?.attributes?.content}
+            </Markdown>
+          )}
+          {product?.attributes?.sections && product.attributes.sections.length > 0 && (
+            <Sections
+              sections={product.attributes.sections as ProductSectionsDynamicZone[]}
+              locale={locale}
+              priceData={priceData}
+            />
+          )}
+        </Article>
+      </main>
       <Grid justifyContent="space-between" spacing="sm">
         <GridCell sm={8}>
           <AdvancedLink
