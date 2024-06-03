@@ -1,6 +1,6 @@
 import acceptLanguage from 'accept-language';
 import { NextRequest, NextResponse } from 'next/server';
-import { cspDevelopmentHeader, cspProductionHeader } from '@/util/cspConfig';
+import { getContentSecurityPolicy } from '@/util/cspConfig';
 import { fallbackLng, languages } from './app/i18n/settings';
 acceptLanguage.languages(languages);
 
@@ -11,12 +11,11 @@ export const config = {
 const cookieName = 'i18next';
 
 export function middleware(req: NextRequest) {
-  const nonceValue = Buffer.from(crypto.randomUUID()).toString('base64');
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
 
-  const cspHeaderRaw = process.env.NODE_ENV === 'production' ? cspProductionHeader(nonceValue) : cspDevelopmentHeader();
-  const cspHeader = cspHeaderRaw.replace(/\s{2,}/g, ' ').trim();
+  const cspHeader = getContentSecurityPolicy({ nonce, node_env: process.env.NODE_ENV });
   const requestHeaders = new Headers(req.headers);
-  requestHeaders.set('x-nonce', nonceValue);
+  requestHeaders.set('X-Nonce', nonce);
   requestHeaders.set('Content-Security-Policy', cspHeader);
 
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1)

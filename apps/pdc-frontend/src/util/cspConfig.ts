@@ -1,21 +1,46 @@
-import { BLOB, DATA, EVAL, getCSP, INLINE, nonce, NONE, SELF, STRICT_DYNAMIC } from 'csp-header';
+import { BLOB, CSPDirectives, DATA, EVAL, getCSP, INLINE, nonce, NONE, SELF, STRICT_DYNAMIC } from 'csp-header';
 import mergeWith from 'lodash.mergewith';
-import { createOpenFormsApiUrl } from '@/util/openFormsSettings';
 // Using "//*" in JavaScript, especially with VSCode, can disrupt syntax highlighting and code analysis, causing confusion and hindering development.
-export const formatURL = (url: string): string => `https://${url}`;
-const getOpenFormsHost = () => {
-  return createOpenFormsApiUrl()?.host || '';
+export const subdomainWildcard = (url: string): string => {
+  const parsed = new URL(url);
+  return `${parsed.protocol}//*.${parsed.host}${parsed.pathname}${parsed.search}${parsed.hash}`;
 };
+
 type Object = Record<string, any>;
 
 // eslint-disable-next-line no-unused-vars
 type MergeCustomizer = (objValue: Object, srcValue: Object) => any;
 
-export const mergeCustomizer: MergeCustomizer = (objValue, srcValue) => {
-  if (Array.isArray(objValue)) {
-    return objValue.concat(srcValue);
+export const mergeCustomizer: MergeCustomizer = (objValue, srcValue) =>
+  Array.isArray(objValue) && Array.isArray(srcValue) ? objValue.concat(srcValue) : undefined;
+
+export const mergeCSPDirectives = (...directives: (Partial<CSPDirectives> | undefined)[]) =>
+  mergeWith({}, ...directives.filter(Boolean), mergeCustomizer);
+
+/**
+ * Check if the parameter is an actual URL. Then return the normalized URL.
+ * Otherwise return `null`.
+ */
+export const normalizeURL = (urlSetting: string | undefined): string | null => {
+  try {
+    return new URL(urlSetting || '').toString();
+  } catch (e) {
+    return null;
   }
-  return undefined;
+};
+
+export const stringSort = (a: string, b: string) => (a === b ? 0 : a > b ? 1 : -1);
+
+export const normalizeCSPDirectives = (directives: Partial<CSPDirectives>) => {
+  return Object.entries(directives)
+    .sort(([keyA], [keyB]) => stringSort(keyA, keyB))
+    .reduce(
+      (obj, [key, value]) => ({
+        ...obj,
+        [key]: Array.isArray(value) ? value.sort(stringSort) : value,
+      }),
+      {},
+    );
 };
 
 export const cspBase = {
@@ -29,104 +54,120 @@ export const cspBase = {
   'img-src': [SELF, BLOB, DATA],
   'font-src': [SELF],
   'block-all-mixed-content': true,
+  // For maximum safety, we don't include `script-src: 'self'` or `style-src: 'self'`
+  // For production we will use a nonce instead, for every script.
 };
 
-export const ogonePaymentServices = {
-  'form-action': process.env.OGONE_PAYMENT_SERVICE_URL ? [process.env.OGONE_PAYMENT_SERVICE_URL] : '',
+const ogoneURL = normalizeURL(process.env.OGONE_PAYMENT_SERVICE_URL);
+export const ogonePaymentServices = ogoneURL
+  ? {
+      'form-action': [ogoneURL],
+    }
+  : {};
+
+export const chatWidget = {
+  'connect-src': ['wss://virtuele-gemeente-assistent.nl', 'https://virtuele-gemeente-assistent.nl'],
+  'img-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
+  'style-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
 };
 
 export const chatWidgetDev = {
-  'connect-src': ['wss://virtuele-gemeente-assistent.nl', 'https://virtuele-gemeente-assistent.nl'],
-  'img-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
+  // Development only. We will use `nonce` instead of `script-src` for production.
   'script-src': ['https://virtuele-gemeente-assistent.nl'],
-  'style-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
-};
-
-export const chatWidgetProd = {
-  'connect-src': ['wss://virtuele-gemeente-assistent.nl', 'https://virtuele-gemeente-assistent.nl'],
-  'img-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
-  'style-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
 };
 
 export const map = {
   'img-src': ['https://service.pdok.nl'],
 };
 
-export const matomoDev = {
+export const matomo = {
   'connect-src': ['https://stats.utrecht.nl'],
-  'script-src': ['https://stats.utrecht.nl'],
 };
 
-export const matomoProd = {
-  'connect-src': ['https://stats.utrecht.nl'],
+export const matomoDev = {
+  'script-src': ['https://stats.utrecht.nl'],
 };
 
 export const youtube = {
   'frame-src': ['https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/'],
 };
 
+export const siteimproveanalytics = {
+  'img-src': [subdomainWildcard('https://siteimproveanalytics.io')],
+};
+
 export const siteimproveanalyticsDev = {
-  'script-src': [formatURL('siteimproveanalytics.com')],
-  'img-src': [formatURL('*.siteimproveanalytics.io')],
-};
-export const siteimproveanalyticsProd = {
-  'img-src': [formatURL('*.siteimproveanalytics.io')],
+  'script-src': ['https://siteimproveanalytics.com'],
 };
 
-export const openFormsDev = {
-  'connect-src': [getOpenFormsHost()],
-  'img-src': [getOpenFormsHost()],
-  'script-src': [getOpenFormsHost()],
-  'font-src': [getOpenFormsHost()],
-  'style-src': [getOpenFormsHost()],
+export const devCsp = {
+  'script-src': [SELF, STRICT_DYNAMIC, BLOB],
+  'style-src': [SELF],
 };
 
-export const openFormsProd = {
-  'connect-src': [getOpenFormsHost()],
-  'img-src': [getOpenFormsHost()],
-  'font-src': [getOpenFormsHost()],
+// The following settings are unsafe.
+// Only use these in development!
+export const unsafeNextJs = {
+  'script-src': [INLINE, EVAL],
+  'style-src': [INLINE],
 };
+
+const openFormsURL = normalizeURL(process.env.OPEN_FORMS_API_URL);
+
+export const openForms = openFormsURL
+  ? {
+      'connect-src': [openFormsURL],
+      'img-src': [openFormsURL],
+      'font-src': [openFormsURL],
+    }
+  : {};
+
+export const openFormsDev = openFormsURL
+  ? {
+      'script-src': [openFormsURL],
+      'style-src': [openFormsURL],
+    }
+  : {};
+
+// The following configuration is used currently, but we're not sure what would break when removed.
+const legacyProdCsp = {
+  'script-src': [
+    // 'strict-dynamic' was introduced here:
+    // https://github.com/frameless/strapi/commit/67555a0387f4e55ad8c2973b0ec44488b116434d
+    STRICT_DYNAMIC,
+    // blob: was introduced here:
+    // https://github.com/frameless/strapi/commit/b54edeef9bdfd66c28c216dcd8bbb28c8097a188
+    BLOB,
+  ],
+};
+
 type NODE_ENV = 'development' | 'production' | 'test';
-export const handelCSPEnv = (nonceValue?: string, node_env?: NODE_ENV) => {
-  if (node_env === 'development') {
-    return mergeWith(
-      { 'script-src': [SELF, INLINE, EVAL], 'style-src': [SELF, INLINE] },
-      chatWidgetDev,
-      cspBase,
-      map,
-      matomoDev,
-      ogonePaymentServices,
-      openFormsDev,
-      siteimproveanalyticsDev,
-      youtube,
-      mergeCustomizer,
-    );
-  }
-  return mergeWith(
-    {
-      'script-src': [SELF, nonceValue && nonce(nonceValue), STRICT_DYNAMIC, BLOB],
-      'style-src': [SELF, nonceValue && nonce(nonceValue)],
-    },
-    chatWidgetProd,
-    cspBase,
-    map,
-    matomoProd,
-    ogonePaymentServices,
-    openFormsProd,
-    siteimproveanalyticsProd,
-    youtube,
-    mergeCustomizer,
-  );
-};
 
-export const cspDevelopmentHeader = () => {
-  return getCSP({
-    directives: handelCSPEnv(undefined, process.env.NODE_ENV),
+export const getContentSecurityPolicy = ({ nonce: nonceValue, node_env }: { nonce?: string; node_env?: NODE_ENV }) =>
+  getCSP({
+    directives: normalizeCSPDirectives(
+      mergeCSPDirectives(
+        cspBase,
+        chatWidget,
+        map,
+        matomo,
+        ogonePaymentServices,
+        openForms,
+        siteimproveanalytics,
+        youtube,
+        node_env !== 'development' ? legacyProdCsp : undefined,
+        nonceValue
+          ? {
+              'script-src': [nonce(nonceValue)],
+              'style-src': [nonce(nonceValue)],
+            }
+          : undefined,
+        node_env === 'development' ? devCsp : undefined,
+        node_env === 'development' ? unsafeNextJs : undefined,
+        node_env === 'development' ? siteimproveanalyticsDev : undefined,
+        node_env === 'development' ? openFormsDev : undefined,
+        node_env === 'development' ? matomoDev : undefined,
+        node_env === 'development' ? chatWidgetDev : undefined,
+      ),
+    ),
   });
-};
-
-export const cspProductionHeader = (nonceValue: string) => {
-  return getCSP({
-    directives: handelCSPEnv(nonceValue, process.env.NODE_ENV),
-  });
-};
