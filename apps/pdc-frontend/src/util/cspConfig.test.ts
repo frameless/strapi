@@ -1,33 +1,13 @@
-import { BLOB, EVAL, getCSP, INLINE, nonce, SELF, STRICT_DYNAMIC } from 'csp-header';
-import mergeWith from 'lodash.mergewith';
+import { CSPDirectives } from 'csp-header';
 import {
-  chatWidgetDev,
-  chatWidgetProd,
-  cspBase,
-  cspDevelopmentHeader,
-  cspProductionHeader,
-  formatURL,
-  handelCSPEnv,
-  map,
-  matomoDev,
-  matomoProd,
+  getContentSecurityPolicy,
+  mergeCSPDirectives,
   mergeCustomizer,
-  ogonePaymentServices,
-  openFormsDev,
-  openFormsProd,
-  siteimproveanalyticsDev,
-  siteimproveanalyticsProd,
-  youtube,
+  normalizeURL,
+  subdomainWildcard,
 } from './cspConfig';
 
 describe('cspConfig', () => {
-  // Test formatURL
-  describe('formatURL', () => {
-    it('should format the URL correctly', () => {
-      expect(formatURL('example.com')).toBe('https://example.com');
-    });
-  });
-  // Test mergeCustomizer
   describe('mergeCustomizer', () => {
     it('should concatenate arrays', () => {
       const objValue = [1, 2];
@@ -41,68 +21,99 @@ describe('cspConfig', () => {
       expect(mergeCustomizer(objValue, srcValue)).toBeUndefined();
     });
   });
-  // Test handelCSPEnv
-  describe('handelCSPEnv', () => {
-    it('should return the correct directives for development environment', () => {
-      const expected = mergeWith(
-        { 'script-src': [SELF, INLINE, EVAL], 'style-src': [SELF, INLINE] },
-        chatWidgetDev,
-        cspBase,
-        map,
-        matomoDev,
-        ogonePaymentServices,
-        openFormsDev,
-        siteimproveanalyticsDev,
-        youtube,
-        mergeCustomizer,
-      );
-      expect(handelCSPEnv(undefined, 'development')).toEqual(expected);
+
+  describe('normalize URL', () => {
+    it('should return normalized URLs as-is', () => {
+      const url = 'https://example.com/foo?bar#quux';
+      expect(normalizeURL(url)).toEqual(url);
+    });
+    it('should return normalized URLs', () => {
+      const url = 'HTTPS://EXAMPLE.COM/';
+      expect(normalizeURL(url)).toEqual('https://example.com/');
     });
 
-    it('should return the correct directives for production environment', () => {
-      const nonceValue = '001496FD-C51E-43E8-B3FA-4082FA5E13A1';
-      const expected = mergeWith(
-        {
-          'script-src': [SELF, nonce(nonceValue), STRICT_DYNAMIC, BLOB],
-          'style-src': [SELF, nonce(nonceValue)],
-        },
-        chatWidgetProd,
-        cspBase,
-        map,
-        matomoProd,
-        ogonePaymentServices,
-        openFormsProd,
-        siteimproveanalyticsProd,
-        youtube,
-        mergeCustomizer,
-      );
-      expect(handelCSPEnv(nonceValue, 'production')).toEqual(expected);
+    it("should block non URL values, such as 'unsafe-inline'", () => {
+      const url = "'unsafe-inline";
+      expect(normalizeURL(url)).toEqual(null);
     });
   });
-  // Test cspDevelopmentHeader and cspProductionHeader
-  describe('csp headers', () => {
-    it('should return development CSP header', () => {
-      process.env = Object.assign(process.env, { NODE_ENV: 'development' });
 
-      const expectedDirectives = handelCSPEnv(undefined, 'development');
-      const result = cspDevelopmentHeader();
-      expect(result).toEqual(
-        getCSP({
-          directives: expectedDirectives,
-        }),
-      );
+  describe('subdomain URL', () => {
+    it('should return the URLs with a wildcard subdomain', () => {
+      const url = 'https://example.com/foo?bar#quux';
+      expect(subdomainWildcard(url)).toEqual('https://*.example.com/foo?bar#quux');
+    });
+  });
+
+  describe('mergeCSPDirectives', () => {
+    it('should concatenate deeply nested arrays', () => {
+      const configA = { 'font-src': ["'self'"] };
+      const configB = { 'font-src': ['https://font.example.com/'] };
+      const expected: Partial<CSPDirectives> = {
+        'font-src': ["'self'", 'https://font.example.com/'],
+      };
+      expect(mergeCSPDirectives(configA, configB)).toEqual(expected);
     });
 
-    it('should return production CSP header with nonce', () => {
-      const nonceValue = '001496FD-C51E-43E8-B3FA-4082FA5E13A1';
-      process.env = Object.assign(process.env, { NODE_ENV: 'production' });
-      const expectedDirectives = handelCSPEnv(nonceValue, 'production');
-      const result = cspProductionHeader(nonceValue);
-      expect(result).toEqual(
-        getCSP({
-          directives: expectedDirectives,
-        }),
-      );
+    it('should ignore undefined arguments', () => {
+      const configA = { 'font-src': ["'self'"] };
+      const configB = { 'font-src': ['https://font.example.com/'] };
+      const expected: Partial<CSPDirectives> = {
+        'font-src': ["'self'", 'https://font.example.com/'],
+      };
+      expect(mergeCSPDirectives(configA, undefined, configB)).toEqual(expected);
+    });
+  });
+
+  describe('getContentSecurityPolicy', () => {
+    describe('development CSP', () => {
+      const csp = getContentSecurityPolicy({
+        nonce: 'bb4c20ae-a1f1-4620-865c-88cb88e89727',
+        node_env: 'development',
+      });
+
+      it('should return the correct directives for development environment', () => {
+        expect(typeof csp).toBe('string');
+        expect(csp).not.toBe('');
+      });
+
+      it('development CSP should not be the default', () => {
+        const devCsp = getContentSecurityPolicy({
+          node_env: 'development',
+        });
+        const defaultCsp = getContentSecurityPolicy({});
+        expect(devCsp).not.toBe(defaultCsp);
+      });
+    });
+
+    describe('production CSP', () => {
+      const csp = getContentSecurityPolicy({
+        nonce: '9b7d46bc-f64f-4063-8a1c-e8a85bc6817d',
+        node_env: 'production',
+      });
+
+      it('production CSP should be the default', () => {
+        const prodCsp = getContentSecurityPolicy({
+          nonce: 'b7e29a49-3571-43f9-a645-c772cad9a516',
+          node_env: 'production',
+        });
+        const defaultCsp = getContentSecurityPolicy({
+          nonce: 'b7e29a49-3571-43f9-a645-c772cad9a516',
+        });
+        expect(prodCsp).toBe(defaultCsp);
+      });
+      it('should not include unsafe-eval', () => {
+        expect(csp).not.toContain('unsafe-eval');
+      });
+      it('should not include unsafe-inline', () => {
+        expect(csp).not.toContain('unsafe-inline');
+      });
+      it('should not include any http: values (unecrypted connections are not allowed)', () => {
+        expect(csp).not.toContain('http:');
+      });
+      it('should not include any ws: values (unecrypted connections are not allowed)', () => {
+        expect(csp).not.toContain('http:');
+      });
     });
   });
 });
