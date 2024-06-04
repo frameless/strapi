@@ -39,7 +39,7 @@ function CustomCombobox({
   const [isLoading, setIsLoading] = useState(false);
 
   const { config } = usePluginConfig();
-  const apiUrl = config?.api_url?.endsWith('/') ? `${config?.api_url}forms` : `${config?.api_url}/forms`;
+  const apiUrl = config?.api_url?.endsWith('/') ? `${config?.api_url}public/forms` : `${config?.api_url}/public/forms`;
   const fetchAllOpenForms = async () => {
     setIsLoading(true);
     try {
@@ -51,8 +51,8 @@ function CustomCombobox({
           Authorization: `Token ${config.token}`,
         },
       });
-      const data = await response.json();
-      setOpenForms(data);
+      const { results } = await response.json();
+      setOpenForms(results);
       setIsLoading(false);
     } catch (error) {
       // eslint-disable-next-line no-console

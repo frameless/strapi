@@ -1,3 +1,10 @@
+# @frameless/strapi-plugin-open-forms-embed [1.2.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-open-forms-embed@1.1.0...@frameless/strapi-plugin-open-forms-embed@1.2.0) (2024-06-03)
+
+
+### Features
+
+* use new open forms public api ([b8dcf4c](https://github.com/frameless/strapi/commit/b8dcf4c559b276a39ee3698c4899e0e510b580b8))
+
 # @frameless/strapi-plugin-open-forms-embed [1.1.0](https://github.com/frameless/strapi/compare/@frameless/strapi-plugin-open-forms-embed@1.0.2...@frameless/strapi-plugin-open-forms-embed@1.1.0) (2024-03-28)
 
 

@@ -18,7 +18,8 @@ import {
   UnorderedList,
 } from '@utrecht/component-library-react';
 import React from 'react';
-import ReactMarkdown, { Components } from 'react-markdown';
+import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
+import type { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
 const defaultComponents = (config?: Components) => {
@@ -141,13 +142,28 @@ const defaultComponents = (config?: Components) => {
   };
 };
 
+const transformUri = (url: string) => {
+  try {
+    const parsedURL = new URL(url);
+    if (parsedURL.protocol === 'tel:') {
+      // normalize the URL now that we have the URL object
+      return parsedURL.toString();
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(e);
+  }
+
+  return defaultUrlTransform(url);
+};
+
 interface MarkdownProps {
   children: string;
   components?: Components;
 }
 
 export const Markdown: React.FC<MarkdownProps> = ({ children, components }) => (
-  <ReactMarkdown components={defaultComponents(components)} rehypePlugins={[rehypeRaw]}>
+  <ReactMarkdown urlTransform={transformUri} components={defaultComponents(components)} rehypePlugins={[rehypeRaw]}>
     {children}
   </ReactMarkdown>
 );
