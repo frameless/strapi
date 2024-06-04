@@ -1,3 +1,11 @@
+# @frameless/strapi-tiptap-editor [2.2.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.1.0...@frameless/strapi-tiptap-editor@2.2.0) (2024-06-04)
+
+
+### Features
+
+* **strapi-tiptap-editor:** add missing i18n labels to the Toolbar ([edff4f2](https://github.com/frameless/strapi/commit/edff4f280abcdbb0405b21b3b7236f4aa89fd6c1))
+* **strapi-tiptap-editor:** improve table cursor positioning ([ef602db](https://github.com/frameless/strapi/commit/ef602dbf72c39228546a5899e75e1b0f955fa0d9))
+
 # @frameless/strapi-tiptap-editor [2.1.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.0.2...@frameless/strapi-tiptap-editor@2.1.0) (2024-05-02)
 
 
