@@ -1,3 +1,10 @@
+## @frameless/ui [2.20.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.20.0...@frameless/ui@2.20.1) (2024-06-04)
+
+
+### Bug Fixes
+
+* **ui:** enable ReactMarkdown to render 'tel:' links ([1d7c64d](https://github.com/frameless/strapi/commit/1d7c64da6baa0a3568ff1b622e92d10c7e21c304))
+
 # @frameless/ui [2.20.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.19.0...@frameless/ui@2.20.0) (2024-05-15)
 
 
