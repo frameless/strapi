@@ -72,6 +72,11 @@ export const Breadcrumbs = ({
           .filter(({ label }) => label)
           .map(({ href, label, current }: any, index: number) => (
             <Fragment key={`${href}-${index}`}>
+              {links.length === 1 && label?.toLowerCase() !== 'home' && (
+                <BreadcrumbNavSeparator>
+                  <UtrechtIconChevronLeft />
+                </BreadcrumbNavSeparator>
+              )}
               <BreadcrumbNavLink
                 className={css('utrecht-link', 'utrecht-link--html-a', 'utrecht-breadcrumb-nav__link-custom')}
                 href={href}
@@ -80,18 +85,13 @@ export const Breadcrumbs = ({
                 current={current}
                 Link={UtrechtLink}
               >
-                {links.length === 1 && label?.toLowerCase() !== 'home' && (
-                  <BreadcrumbNavSeparator>
-                    <UtrechtIconChevronLeft />
-                  </BreadcrumbNavSeparator>
-                )}
                 {label}
-                {index !== links.length - 1 && (
-                  <BreadcrumbNavSeparator>
-                    <UtrechtIconChevronRight />
-                  </BreadcrumbNavSeparator>
-                )}
               </BreadcrumbNavLink>
+              {index !== links.length - 1 && (
+                <BreadcrumbNavSeparator>
+                  <UtrechtIconChevronRight />
+                </BreadcrumbNavSeparator>
+              )}
             </Fragment>
           ))}
     </BreadcrumbNav>
