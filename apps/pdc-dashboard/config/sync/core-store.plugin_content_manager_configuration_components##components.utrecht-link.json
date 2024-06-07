@@ -61,6 +61,20 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "language": {
+        "edit": {
+          "label": "Taal",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "language",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
@@ -79,6 +93,10 @@
         [
           {
             "name": "icon",
+            "size": 6
+          },
+          {
+            "name": "language",
             "size": 6
           }
         ]
