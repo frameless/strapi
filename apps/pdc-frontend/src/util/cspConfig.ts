@@ -105,6 +105,11 @@ export const devCsp = {
   'style-src': [SELF],
 };
 
+export const prodCsp = {
+  'script-src': [SELF],
+  'style-src': [SELF],
+};
+
 // The following settings are unsafe.
 // Only use these in development!
 export const unsafeNextJs = {
@@ -162,7 +167,7 @@ export const getContentSecurityPolicy = ({ nonce: nonceValue, node_env }: { nonc
               'style-src': [nonce(nonceValue)],
             }
           : undefined,
-        node_env === 'development' ? devCsp : undefined,
+        node_env === 'development' ? devCsp : prodCsp,
         node_env === 'development' ? unsafeNextJs : undefined,
         node_env === 'development' ? siteimproveanalyticsDev : undefined,
         node_env === 'development' ? openFormsDev : undefined,
