@@ -112,7 +112,7 @@ export const unsafeNextJs = {
   'style-src': [INLINE],
 };
 
-const openFormsURL = normalizeURL(process.env.OPEN_FORMS_API_URL);
+const openFormsURL = normalizeURL(process.env.OPEN_FORMS_API_URL && new URL(process.env.OPEN_FORMS_API_URL).origin);
 
 export const openForms = openFormsURL
   ? {
