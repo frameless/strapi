@@ -26,7 +26,7 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
-import { buildAlternateLinks, createStrapiURL, fetchData, getImageBaseUrl } from '@/util';
+import { buildAlternateLinks, createStrapiURL, fetchData, getDirectionFromLanguageCode, getImageBaseUrl } from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
 
 const getAllProducts = async (locale: string, slug: string) => {
@@ -243,6 +243,8 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                       href={component?.href}
                       external={isAbsoluteUrl(component?.href)}
                       icon={component?.icon as 'arrow'}
+                      lang={component?.language ?? undefined}
+                      dir={component?.language ? getDirectionFromLanguageCode(component.language) : undefined}
                     >
                       {component?.textContent}
                     </AdvancedLink>

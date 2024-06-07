@@ -194,6 +194,7 @@ export const GET_PRODUCT_BY_SLUG = gql(`
             href
             textContent
             icon
+            language
           }
           ... on ComponentComponentsFaq {
             __typename
