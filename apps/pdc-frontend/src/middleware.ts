@@ -6,6 +6,8 @@ acceptLanguage.languages(languages);
 
 export const config = {
   matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)'],
+  // https://nextjs.org/docs/messages/edge-dynamic-code-evaluation
+  unstable_allowDynamic: ['**/node_modules/lodash.mergewith/index.js'],
 };
 
 const cookieName = 'i18next';
