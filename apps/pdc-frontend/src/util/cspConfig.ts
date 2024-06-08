@@ -54,8 +54,8 @@ export const cspBase = {
   'img-src': [SELF, BLOB, DATA],
   'font-src': [SELF],
   'block-all-mixed-content': true,
-  // For maximum safety, we don't include `script-src: 'self'` or `style-src: 'self'`
-  // For production we will use a nonce instead, for every script.
+  'script-src': [SELF],
+  'style-src': [SELF],
 };
 
 const ogoneURL = normalizeURL(process.env.OGONE_PAYMENT_SERVICE_URL);
@@ -101,13 +101,7 @@ export const siteimproveanalyticsDev = {
 };
 
 export const devCsp = {
-  'script-src': [SELF, STRICT_DYNAMIC, BLOB],
-  'style-src': [SELF],
-};
-
-export const prodCsp = {
-  'script-src': [SELF],
-  'style-src': [SELF],
+  'script-src': [STRICT_DYNAMIC, BLOB],
 };
 
 // The following settings are unsafe.
@@ -167,7 +161,7 @@ export const getContentSecurityPolicy = ({ nonce: nonceValue, node_env }: { nonc
               'style-src': [nonce(nonceValue)],
             }
           : undefined,
-        node_env === 'development' ? devCsp : prodCsp,
+        node_env === 'development' ? devCsp : undefined,
         node_env === 'development' ? unsafeNextJs : undefined,
         node_env === 'development' ? siteimproveanalyticsDev : undefined,
         node_env === 'development' ? openFormsDev : undefined,
