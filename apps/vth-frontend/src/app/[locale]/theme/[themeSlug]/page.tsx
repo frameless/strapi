@@ -107,14 +107,30 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
           ) : null;
         case 'ComponentComponentsUtrechtAccordion':
           return (
-            <AccordionProvider
-              sections={component.item.map(({ id, label, body }: any) => ({
-                id,
-                label,
-                headingLevel: 3,
-                body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
-              }))}
-            />
+            <div>
+              <h2>Details/Summary</h2>
+              <div>
+                {component.item.map(({ id, label, body }: any) => (
+                  <details key={id} className="utrecht-accordion">
+                    <summary className="utrecht-accordion__section">
+                      <h3 className="utrecht-button utrecht-button--subtle utrecht-accordion__button">{label}</h3>
+                    </summary>
+                    <div className="utrecht-accordion__panel">
+                      <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <h2>Original AccordionProvider</h2>
+              <AccordionProvider
+                sections={component.item.map(({ id, label, body }: any) => ({
+                  id,
+                  label,
+                  headingLevel: 3,
+                  body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
+                }))}
+              />
+            </div>
           );
         default:
           return null;
