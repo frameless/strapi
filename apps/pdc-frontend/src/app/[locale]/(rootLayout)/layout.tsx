@@ -42,6 +42,7 @@ import { useTranslation } from '../../i18n/index';
 import { languages } from '../../i18n/settings';
 import '@frameless/ui/dist/bundle.css';
 import '../../../styles/globals.css';
+import '../../../styles/richtext-container.scss';
 
 interface LayoutProps {
   children: React.ReactNode;
