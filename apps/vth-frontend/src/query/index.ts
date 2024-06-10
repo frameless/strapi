@@ -424,3 +424,68 @@ query GET_PRINT_PAGE {
     }
   }
 }`);
+
+export const GET_NAVIGATION_DATA = gql(`
+query getNavigationData($pageMode: PublicationState) {
+  navigationPages(
+    publicationState: $pageMode
+    sort: ["order:asc", "title:asc"]
+    pagination: { start: 0, limit: -1 }
+  ) {
+    data {
+      attributes {
+        title
+        slug
+        theme_pages(
+          publicationState: $pageMode
+          sort: ["title:asc"]
+          pagination: { start: 0, limit: -1 }
+        ) {
+          data {
+            attributes {
+              title
+              slug
+              article_pages(
+                publicationState: $pageMode
+                sort: ["title:asc"]
+                pagination: { start: 0, limit: -1 }
+              ) {
+                data {
+                  attributes {
+                    title
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        }
+        article_pages(
+          publicationState: $pageMode
+          sort: ["title:asc"]
+          pagination: { start: 0, limit: -1 }
+        ) {
+          data {
+            attributes {
+              title
+              slug
+              theme_pages(
+                publicationState: $pageMode
+                sort: ["title:asc"]
+                pagination: { start: 0, limit: -1 }
+              ) {
+                data {
+                  attributes {
+                    title
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`);
