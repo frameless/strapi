@@ -6463,17 +6463,30 @@
     clsx "1.2.1"
     lodash.chunk "4.2.0"
 
-"@utrecht/components@3.0.1-alpha.31":
-  version "3.0.1-alpha.31"
-  resolved "https://registry.yarnpkg.com/@utrecht/components/-/components-3.0.1-alpha.31.tgz#5fd2ca4e4d7a23ede33d7e3fd609108d2db8b84c"
-  integrity sha512-W+8FwRfVHOU2YDsfRXlz/0L4Ix1xvGX7m8vvrSROc9lC0L67jBkIb6mdlgVV9W21XCMWDItN38DmsiQkTGWMPQ==
-  dependencies:
-    clsx "1.2.1"
-
 "@utrecht/design-tokens@1.0.0-alpha.644":
   version "1.0.0-alpha.644"
   resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.644.tgz#c892bdb5f247f639e81009565ab44ec1343cb8c3"
   integrity sha512-2xg0rNDk80e5PT28d+4JHBfZ4ACDLhIpToAQcgwEsbcqlSu2MgNWmhoZFISSrBMhUV9AhsVzrOOxDLDgJGgMfw==
+
+"@utrecht/focus-ring-css@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/focus-ring-css/-/focus-ring-css-1.1.0.tgz#3a3b426b81d9aefc792288287e7ffc6981ab1ed6"
+  integrity sha512-MDxrC7b1AZ+S0+oqfMA/QD05GDhBTnc7q5VR3a+39jwJkgXtG7gJSQ7Pr8kdK8/Brx94SayIAEP5vAjuBee6bQ==
+
+"@utrecht/form-label-css@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/form-label-css/-/form-label-css-1.1.0.tgz#aa611c084fff3157b345e4b5c0ac3756d59b1163"
+  integrity sha512-6DeD2tLgSm8PiflP4jCk5D70H4RptEP6aJnHmXJCc0mbhHz0obONkrcl9pf4urRLQ+DuYa8x9fiHQHvjNCTeRg==
+
+"@utrecht/multiline-data-css@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/multiline-data-css/-/multiline-data-css-1.1.0.tgz#1cebc601d155efa57153fcd9709815547e18da26"
+  integrity sha512-9ZqOZ6TVzA4TTAp64UWND99+8Bb6tVmO6GUrLHibs69hVT6sCMXpI0H9a0LtHHkFg5KURqGonISzzKcWXzvxIg==
+
+"@utrecht/textbox-css@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/textbox-css/-/textbox-css-1.1.0.tgz#91c70aa102b690eb5b3d2e270d80a2d5d0943cf1"
+  integrity sha512-APQW299fyoNZQ/hYW8F9uET4JvzhXMbUBWT59h6sc/wwsbDBWku+ufgN4wrsYTqGSPExFKfffzRGuniaqyvBxA==
 
 "@utrecht/web-component-library-react@1.0.3-alpha.31":
   version "1.0.3-alpha.31"

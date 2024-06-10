@@ -45,8 +45,12 @@
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.1.0",
-    "eslint": "8.35.0",
+    "@utrecht/focus-ring-css": "1.1.0",
+    "@utrecht/form-label-css": "1.1.0",
+    "@utrecht/multiline-data-css": "1.1.0",
+    "@utrecht/textbox-css": "1.1.0",
     "eslint-config-next": "13.2.4",
+    "eslint": "8.35.0",
     "sass": "1.63.6",
     "wait-on": "7.2.0"
   }
