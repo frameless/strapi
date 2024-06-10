@@ -14,7 +14,6 @@ import {
   Logo,
   LogoImage,
   Navigation,
-  NavigationListType,
   Page,
   PageHeader,
   PreviewAlert,
@@ -26,9 +25,7 @@ import '@utrecht/design-tokens/dist/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Editoria11y } from '@/components/Editoria11y';
 import { Main } from '@/components/Main';
-import { GET_NAVIGATION_PAGES } from '@/query';
-import { createStrapiURL } from '@/util/createStrapiURL';
-import { fetchData } from '@/util/fetchData';
+import { getNavData } from '@/util/getNavData';
 import { useTranslation } from '../i18n/index';
 import '@frameless/ui/dist/bundle.css';
 import '../../styles/globals.css';
@@ -46,13 +43,6 @@ type Params = {
   };
 };
 
-type PageData = {
-  attributes: {
-    title: string;
-    slug: string;
-  };
-};
-
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
@@ -67,21 +57,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
-  const { data } = await fetchData({
-    url: createStrapiURL(),
-    query: GET_NAVIGATION_PAGES,
-    variables: { pageMode: isEnabled ? 'PREVIEW' : 'LIVE' },
-  });
-
-  const navigationPages: PageData[] = data?.navigationPages?.data;
-
-  const navListData = navigationPages?.map((navigationPage) => {
-    return {
-      textContent: navigationPage.attributes.title,
-      href: `/${navigationPage.attributes.slug}`,
-    } satisfies NavigationListType;
-  });
-
+  const navList = await getNavData({ pageMode: isEnabled ? 'PREVIEW' : 'LIVE' });
   const footerData = {
     title: t('footer.title'),
     list: {
@@ -186,14 +162,16 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                     </Link>
                   </GridCell>
                   <GridCell xs={6} md={12}>
-                    <Navigation
-                      list={navListData}
-                      mobileBreakpoint={998}
-                      toggleButton={{
-                        openText: 'Menu',
-                        closeText: 'Sluiten',
-                      }}
-                    />
+                    {navList && (
+                      <Navigation
+                        list={navList}
+                        mobileBreakpoint={998}
+                        toggleButton={{
+                          openText: 'Menu',
+                          closeText: 'Sluiten',
+                        }}
+                      />
+                    )}
                   </GridCell>
                 </Grid>
               </PageHeader>
