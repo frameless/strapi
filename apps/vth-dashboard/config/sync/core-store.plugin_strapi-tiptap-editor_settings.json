@@ -1,0 +1,72 @@
+{
+  "key": "plugin_strapi-tiptap-editor_settings",
+  "value": {
+    "headings": ["h1", "h2", "h3", "h4", "h4", "h5", "h6"],
+    "bold": true,
+    "italic": true,
+    "strikethrough": true,
+    "underline": false,
+    "code": false,
+    "blockquote": true,
+    "highlight": false,
+    "align": [],
+    "lists": ["ol", "ul"],
+    "disableOrderedListShorthand": false,
+    "columns": ["two", "three"],
+    "table": true,
+    "hardbreak": true,
+    "horizontal": true,
+    "links": {
+      "enabled": true,
+      "autolink": false,
+      "openOnClick": false,
+      "linkOnPaste": true,
+      "relAttribute": false,
+      "HTMLAttributes": {
+        "rel": ""
+      }
+    },
+    "image": {
+      "enabled": true,
+      "inline": true,
+      "allowBase64": false
+    },
+    "other": {
+      "wordcount": false,
+      "language": {
+        "enabled": false,
+        "default": [
+          {
+            "name": "Arabisch",
+            "code": "ar"
+          },
+          {
+            "name": "Dutch",
+            "code": "nl"
+          },
+          {
+            "name": "Nederlands",
+            "code": "en"
+          },
+          {
+            "name": "Oekraïens",
+            "code": "uk"
+          },
+          {
+            "name": "Turks",
+            "code": "tr"
+          }
+        ]
+      },
+      "saveJson": false
+    },
+    "youtube": {
+      "enabled": true,
+      "height": 480,
+      "width": 640
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
