@@ -107,10 +107,11 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
                 themes.map((theme: any) => {
                   const { title, description, slug: childSlug, previewImage: imageData } = theme.attributes;
                   const imageUrl = imageData?.data?.attributes?.url;
+                  const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
                   return (
                     <GridCell sm={6} key={`theme-${childSlug}`}>
                       <Card
-                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
+                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: imageAlt }}
                         title={title}
                         description={description}
                         link={{ href: `/${locale}/theme/${childSlug}` }}
@@ -122,13 +123,14 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
                 articles.map((article: any) => {
                   const { title, description, slug: articleSlug, previewImage: imageData } = article.attributes;
                   const imageUrl = imageData?.data?.attributes?.url;
+                  const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
                   return (
                     <GridCell sm={6} key={`thema-${articleSlug}`}>
                       <Card
                         title={title}
                         description={description}
                         key={`thema-${articleSlug}`}
-                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
+                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: imageAlt }}
                         link={{ href: `/${locale}/article/${articleSlug}` }}
                       />
                     </GridCell>
