@@ -42,6 +42,7 @@ query getHomepage($pageMode: PublicationState) {
           data {
             attributes {
               url
+              alternativeText
             }
           }
         }
@@ -107,6 +108,7 @@ query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
                   data {
                     attributes {
                       url
+                      alternativeText
                     }
                   }
                 }
@@ -123,6 +125,7 @@ query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
                   data {
                     attributes {
                       url
+                      alternativeText
                     }
                   }
                 }
@@ -194,6 +197,7 @@ query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
                   data {
                     attributes {
                       url
+                      alternativeText
                     }
                   }
                 }

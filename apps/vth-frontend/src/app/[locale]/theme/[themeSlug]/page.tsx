@@ -141,12 +141,13 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
                 data.findSlug.data?.attributes?.article_pages.data.map((content: any) => {
                   const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
                   const imageUrl = imageData?.data?.attributes?.url;
+                  const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
                   return (
                     <GridCell sm={6} key={`content-${contentSlug}`}>
                       <Card
                         title={title}
                         description={description}
-                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
+                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: imageAlt }}
                         link={{ href: `/${locale}/article/${contentSlug}` }}
                       />
                     </GridCell>

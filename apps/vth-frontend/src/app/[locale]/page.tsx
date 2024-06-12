@@ -73,12 +73,17 @@ const Home = async ({ params: { locale } }: { params: any }) => {
               navigationPages.map((navigationPage: any) => {
                 const { title, description, slug, previewImage: imageData } = navigationPage.attributes;
                 const imageUrl = imageData?.data?.attributes?.url;
+                const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
+
                 return (
                   <GridCell sm={6} md={4} key={`hoofditem-${slug}`}>
                     <Card
                       title={title}
                       description={description}
-                      image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: '' }}
+                      image={{
+                        url: imageUrl && `${getImageBaseUrl()}${imageUrl}`,
+                        alt: imageAlt,
+                      }}
                       link={{ href: `/${locale}/${slug}` }}
                     />
                   </GridCell>
