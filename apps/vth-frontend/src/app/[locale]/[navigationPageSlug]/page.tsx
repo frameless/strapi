@@ -71,10 +71,10 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
         case 'ComponentComponentsUtrechtAccordion':
           return (
             <AccordionProvider
-              sections={component.item.map(({ id, label, body }: any) => ({
+              sections={component.item.map(({ id, label, body, headingLevel }: any) => ({
                 id,
                 label,
-                headingLevel: 3,
+                headingLevel,
                 body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
               }))}
             />

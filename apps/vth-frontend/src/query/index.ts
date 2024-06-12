@@ -93,6 +93,7 @@ query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
                 id
                 label
                 body
+                headingLevel
               }
             }
           }
@@ -155,6 +156,7 @@ query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
                 id
                 label
                 body
+                headingLevel
               }
             }
           }
@@ -258,6 +260,7 @@ query GET_ARTICLE_BY_SLUG($slug: String, $pageMode: String) {
                 id
                 label
                 body
+                headingLevel
               }
             }
           }
@@ -343,6 +346,7 @@ query GET_PRINT_PAGE {
               id
               label
               body
+              headingLevel
             }
           }
         }
@@ -379,6 +383,7 @@ query GET_PRINT_PAGE {
                           id
                           label
                           body
+                          headingLevel
                         }
                       }
                     }
@@ -403,6 +408,7 @@ query GET_PRINT_PAGE {
                     id
                     label
                     body
+                    headingLevel
                   }
                 }
               }

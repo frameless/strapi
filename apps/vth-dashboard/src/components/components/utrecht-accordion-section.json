@@ -12,6 +12,12 @@
     },
     "body": {
       "type": "richtext"
+    },
+    "headingLevel": {
+      "type": "integer",
+      "default": 2,
+      "max": 6,
+      "min": 2
     }
   }
 }
