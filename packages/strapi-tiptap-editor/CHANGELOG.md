@@ -1,3 +1,10 @@
+# @frameless/strapi-tiptap-editor [2.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.2.0...@frameless/strapi-tiptap-editor@2.3.0) (2024-06-12)
+
+
+### Features
+
+* improved Dutch labels of rich text editor ([7bd1d81](https://github.com/frameless/strapi/commit/7bd1d8128e157416ad3a2024b23da1420f35389c))
+
 # @frameless/strapi-tiptap-editor [2.2.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.1.0...@frameless/strapi-tiptap-editor@2.2.0) (2024-06-04)
 
 
