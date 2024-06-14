@@ -45,7 +45,7 @@ export const LogoButton = ({ logo, appearance, href, children, label, headingLev
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <ButtonGroup>
             <UtrechtLogoButton>
-              <UtrechtEherkenningLogo />
+              <UtrechtEherkenningLogo role="presentation" />
               <ButtonLink
                 appearance="primary-action-button"
                 href={href}
@@ -63,7 +63,7 @@ export const LogoButton = ({ logo, appearance, href, children, label, headingLev
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <ButtonGroup>
             <UtrechtLogoButton>
-              <UtrechtEidasLogo />
+              <UtrechtEidasLogo role="presentation" />
               <ButtonLink appearance={kebabCase(appearance)} href={href}>
                 {children} <UtrechtIconArrow />
               </ButtonLink>
