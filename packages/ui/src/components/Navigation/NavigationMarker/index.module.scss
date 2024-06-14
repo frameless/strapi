@@ -5,3 +5,7 @@
 .utrecht-navigation__marker--current {
   --utrecht-navigation-marker-color: currentColor;
 }
+
+.utrecht-navigation__marker--outline {
+  fill: var(--utrecht-navigation-marker-outline-hover-fill, none);
+}
