@@ -148,21 +148,6 @@
           "sortable": false
         }
       },
-      "kb_subcategories": {
-        "edit": {
-          "label": "Kennisbank categorie",
-          "description": "",
-          "placeholder": "Voeg relatie toe",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "kb_subcategories",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "pdc_metadata": {
         "edit": {
           "label": "Product metadata",
@@ -266,6 +251,7 @@
       }
     },
     "layouts": {
+      "list": ["title", "metaTags", "price", "uuid"],
       "edit": [
         [
           {
@@ -319,10 +305,6 @@
           {
             "name": "pdc_subcategories",
             "size": 6
-          },
-          {
-            "name": "kb_subcategories",
-            "size": 6
           }
         ],
         [
@@ -343,8 +325,7 @@
             "size": 6
           }
         ]
-      ],
-      "list": ["title", "metaTags", "price", "uuid"]
+      ]
     }
   },
   "type": "object",

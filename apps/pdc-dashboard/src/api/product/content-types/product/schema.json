@@ -107,12 +107,6 @@
       "target": "api::pdc-subcategory.pdc-subcategory",
       "mappedBy": "products"
     },
-    "kb_subcategories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::kb-subcategory.kb-subcategory",
-      "mappedBy": "products"
-    },
     "pdc_metadata": {
       "type": "component",
       "repeatable": false,
