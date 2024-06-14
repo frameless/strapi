@@ -1,4 +1,4 @@
-.utrecht-navigation__list {
+@mixin utrecht-navigation__list {
   --utrecht-navigation-list-display: flex;
   --utrecht-navigation-list-mobile-inline-size: 100%;
 
@@ -13,7 +13,7 @@
   padding-inline-start: var(--utrecht-navigation-list-padding-inline-start);
 }
 
-.utrecht-navigation__list--mobile {
+@mixin utrecht-navigation__list--mobile {
   --utrecht-navigation-list-display: block;
   --utrecht-navigation-list-padding-inline-start: var(--utrecht-navigation-list-mobile-padding-inline-start, 16px);
   --utrecht-navigation-list-padding-inline-end: var(--utrecht-navigation-list-mobile-padding-inline-end, 16px);
@@ -25,12 +25,42 @@
   block-size: 100%;
 }
 
-.utrecht-navigation__list--side-nav {
+@mixin utrecht-navigation__list--side-nav {
   --utrecht-navigation-list-inline-size: var(--utrecht-navigation-list-side-nav-inline-size, 100%);
 }
 
-.utrecht-navigation__list .utrecht-navigation__list {
+@mixin utrecht-navigation__list--sub-list {
+  @include utrecht-navigation__list;
+  @include utrecht-navigation__list--mobile;
+
   inline-size: 100%;
   padding-block-end: 0;
   padding-block-start: 0;
+}
+
+@mixin utrecht-navigation__list--sub-list-item {
+  --utrecht-navigation-item-border-block-start-width: 0;
+  --utrecht-navigation-item-border-block-end-width: 0;
+  --utrecht-navigation-item-mobile-border-block-start-width: 0;
+  --utrecht-navigation-item-mobile-border-block-end-width: 0;
+}
+
+.utrecht-navigation__list {
+  @include utrecht-navigation__list;
+}
+
+.utrecht-navigation__list--mobile {
+  @include utrecht-navigation__list--mobile;
+}
+
+.utrecht-navigation__list--side-nav {
+  @include utrecht-navigation__list--side-nav;
+}
+
+.utrecht-navigation__list--sub-list {
+  @include utrecht-navigation__list--sub-list;
+}
+
+.utrecht-navigation__list--sub-list-item {
+  @include utrecht-navigation__list--sub-list-item;
 }
