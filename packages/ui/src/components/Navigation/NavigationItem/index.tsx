@@ -8,9 +8,12 @@ interface NavigationItemProps extends LiHTMLAttributes<HTMLLIElement> {
   mobile?: boolean;
 }
 export const NavigationItem = forwardRef(
-  ({ children, mobile, ...restProps }: PropsWithChildren<NavigationItemProps>, ref: ForwardedRef<HTMLLIElement>) => (
+  (
+    { children, mobile, className, ...restProps }: PropsWithChildren<NavigationItemProps>,
+    ref: ForwardedRef<HTMLLIElement>,
+  ) => (
     <li
-      className={css('utrecht-navigation__item', {
+      className={css(className, 'utrecht-navigation__item', {
         'utrecht-navigation__item--mobile': mobile,
         'utrecht-navigation__item-icon': mobile,
       })}
