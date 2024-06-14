@@ -4,18 +4,6 @@
   "type": "public",
   "permissions": [
     {
-      "action": "api::kb-category.kb-category.find"
-    },
-    {
-      "action": "api::kb-category.kb-category.findOne"
-    },
-    {
-      "action": "api::kb-faq.kb-faq.find"
-    },
-    {
-      "action": "api::kb-faq.kb-faq.findOne"
-    },
-    {
       "action": "api::not-found-page.not-found-page.find"
     },
     {
