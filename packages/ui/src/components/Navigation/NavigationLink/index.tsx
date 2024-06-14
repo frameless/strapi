@@ -1,20 +1,20 @@
 import { Link } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
+import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren, ReactNode } from 'react';
 import styles from './index.module.scss';
-import { NavigationMarker } from '../NavigationMarker';
 
 interface NavigationLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
   placeholder?: boolean;
   mobile?: boolean;
   isCurrent?: boolean;
+  marker?: ReactNode;
 }
 
 const css = classnames.bind(styles);
 
 export const NavigationLink = forwardRef(
   (
-    { children, mobile, isCurrent, ...restProps }: PropsWithChildren<NavigationLinkProps>,
+    { children, mobile, marker, isCurrent, ...restProps }: PropsWithChildren<NavigationLinkProps>,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
     <Link
@@ -26,7 +26,7 @@ export const NavigationLink = forwardRef(
       ref={ref}
       {...restProps}
     >
-      <NavigationMarker isCurrent={isCurrent} mobile={mobile} />
+      {marker}
       {children}
     </Link>
   ),
