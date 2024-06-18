@@ -2,33 +2,19 @@ import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
-import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
+import { useTranslation } from '@/app/i18n';
 import { QueryClientProvider } from '@/client';
-import {
-  Footer,
-  FooterData,
-  Grid,
-  GridCell,
-  Logo,
-  LogoImage,
-  Navigation,
-  Page,
-  PageHeader,
-  PreviewAlert,
-  SkipLink,
-  Surface,
-} from '@/components';
+import { Footer, FooterData, Header, Page, PreviewAlert, Surface } from '@/components';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Editoria11y } from '@/components/Editoria11y';
 import { Main } from '@/components/Main';
 import { getNavData } from '@/util/getNavData';
-import { useTranslation } from '../i18n/index';
 import '@frameless/ui/dist/bundle.css';
-import '../../styles/globals.css';
+import '../../../styles/globals.css';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -58,6 +44,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
   const navList = await getNavData({ pageMode: isEnabled ? 'PREVIEW' : 'LIVE' });
+
   const footerData = {
     title: t('footer.title'),
     list: {
@@ -140,41 +127,16 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <QueryClientProvider>
           <Surface>
             <Page className="utrecht-page--full-width">
-              <PageHeader>
-                <div className="utrecht-skip-link-container">
-                  <SkipLink href="#main">Ga naar inhoud</SkipLink>
-                </div>
-                <Grid>
-                  <GridCell xs={6}>
-                    <Link
-                      href={`/${locale}`}
-                      className="utrecht-link utrecht-link--html-a utrecht-link--box-content utrecht-logo__wrapper"
-                      prefetch={true}
-                      aria-label={
-                        t('logo.aria-label', {
-                          defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',
-                        }) || ''
-                      }
-                    >
-                      <Logo>
-                        <LogoImage />
-                      </Logo>
-                    </Link>
-                  </GridCell>
-                  <GridCell xs={6} md={12}>
-                    {navList && (
-                      <Navigation
-                        list={navList}
-                        mobileBreakpoint={998}
-                        toggleButton={{
-                          openText: 'Menu',
-                          closeText: 'Sluiten',
-                        }}
-                      />
-                    )}
-                  </GridCell>
-                </Grid>
-              </PageHeader>
+              <Header
+                navList={navList}
+                logo={{
+                  href: `/${locale}`,
+                  ariaLabel:
+                    t('logo.aria-label', {
+                      defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',
+                    }) || '',
+                }}
+              />
               {isEnabled && <Editoria11y />}
               <Main id="main">{children}</Main>
             </Page>

@@ -11,6 +11,7 @@ import {
   Breadcrumbs,
   Grid,
   GridCell,
+  Header,
   Heading1,
   Markdown,
   NavigationList,
@@ -20,9 +21,11 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { Card } from '@/components/Card';
+import { Main } from '@/components/Main';
 import { GET_THEME_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
+import { getNavData } from '@/util/getNavData';
 
 type Params = {
   params: {
@@ -120,49 +123,62 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
           return null;
       }
     });
+  const navList = await getNavData({ pageMode: isEnabled ? 'PREVIEW' : 'LIVE', themeSlug });
 
   return (
     <Page>
+      <Header
+        navList={navList}
+        logo={{
+          href: `/${locale}`,
+          ariaLabel:
+            t('logo.aria-label', {
+              defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',
+            }) || '',
+        }}
+      />
       <PageContent className="utrecht-custom-page-content">
         <Breadcrumbs
           links={breadcrumbNavigationElements}
           Link={Link}
           backLink={{ label: parentElement?.label || 'Home', href: parentElement?.href || '/', current: false }}
         />
-        <Grid spacing="md">
-          <GridCell md={8}>
-            <Grid spacing="sm">
-              <GridCell sm={12}>
-                <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
-                <DynamicContent />
-              </GridCell>
-              {data.findSlug.data?.attributes?.article_pages.data &&
-                data.findSlug.data?.attributes?.article_pages.data[0] &&
-                data.findSlug.data?.attributes?.article_pages.data.map((content: any) => {
-                  const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
-                  const imageUrl = imageData?.data?.attributes?.url;
-                  const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
-                  return (
-                    <GridCell sm={6} key={`content-${contentSlug}`}>
-                      <Card
-                        title={title}
-                        description={description}
-                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: imageAlt }}
-                        link={{ href: `/${locale}/article/${contentSlug}` }}
-                      />
-                    </GridCell>
-                  );
-                })}
-            </Grid>
-          </GridCell>
-          {sideNavigationLinks.length > 1 && (
-            <GridCell md={4} className="utrecht-grid-mobile-hidden">
-              <nav>
-                <NavigationList list={sideNavigationLinks} sideNav mobile />
-              </nav>
+        <Main id="main">
+          <Grid spacing="md">
+            <GridCell md={8}>
+              <Grid spacing="sm">
+                <GridCell sm={12}>
+                  <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
+                  <DynamicContent />
+                </GridCell>
+                {data.findSlug.data?.attributes?.article_pages.data &&
+                  data.findSlug.data?.attributes?.article_pages.data[0] &&
+                  data.findSlug.data?.attributes?.article_pages.data.map((content: any) => {
+                    const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
+                    const imageUrl = imageData?.data?.attributes?.url;
+                    const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
+                    return (
+                      <GridCell sm={6} key={`content-${contentSlug}`}>
+                        <Card
+                          title={title}
+                          description={description}
+                          image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: imageAlt }}
+                          link={{ href: `/${locale}/article/${contentSlug}` }}
+                        />
+                      </GridCell>
+                    );
+                  })}
+              </Grid>
             </GridCell>
-          )}
-        </Grid>
+            {sideNavigationLinks.length > 1 && (
+              <GridCell md={4} className="utrecht-grid-mobile-hidden">
+                <nav>
+                  <NavigationList list={sideNavigationLinks} sideNav mobile />
+                </nav>
+              </GridCell>
+            )}
+          </Grid>
+        </Main>
         <Grid spacing="lg">
           <GridCell md={12} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
