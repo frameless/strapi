@@ -235,7 +235,14 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               </PageContent>
             </Page>
             <div id="webchat" />
-            <Footer data={footerData as FooterData} />
+            <Footer
+              data={footerData as FooterData}
+              label={
+                t('footer.socialMediaLabel', {
+                  defaultValue: 'Social media links',
+                }) as string
+              }
+            />
           </Surface>
         </QueryClientProvider>
         <MatomoTagManager
