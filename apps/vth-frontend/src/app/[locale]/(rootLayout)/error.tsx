@@ -2,9 +2,10 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useTranslation } from '@/app/i18n/client';
+import { fallbackLng } from '@/app/i18n/settings';
 import { Button, Heading1, Page, PageContent, Paragraph } from '@/components';
-import { useTranslation } from '../i18n/client';
-import { fallbackLng } from '../i18n/settings';
+
 interface ErrorPageProps {
   error: Error;
   reset: () => void;

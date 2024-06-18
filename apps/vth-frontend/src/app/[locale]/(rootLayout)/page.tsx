@@ -5,12 +5,12 @@ import { draftMode } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
+import { useTranslation } from '@/app/i18n';
 import { Grid, GridCell, Heading1, Page, PageContent, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Card } from '@/components/Card';
 import { Markdown } from '@/components/Markdown';
 import { GET_HOMEPAGE } from '@/query';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
-import { useTranslation } from '../i18n';
 
 export interface Fields {
   title: string;

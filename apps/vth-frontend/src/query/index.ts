@@ -426,7 +426,11 @@ query GET_PRINT_PAGE {
 }`);
 
 export const GET_NAVIGATION_DATA = gql(`
-query getNavigationData($pageMode: PublicationState) {
+query getNavigationData(
+  $pageMode: PublicationState
+  $themeSlug: String
+  $articleSlug: String
+) {
   navigationPages(
     publicationState: $pageMode
     sort: ["order:asc", "title:asc"]
@@ -437,14 +441,73 @@ query getNavigationData($pageMode: PublicationState) {
         title
         slug
         theme_pages(
+          filters: {
+            slug: { eq: $themeSlug }
+            article_pages: { slug: { eq: $articleSlug } }
+          }
+        ) {
+          data {
+            attributes {
+              title
+              slug
+              article_pages {
+                data {
+                  attributes {
+                    title
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        }
+        article_pages(
+          filters: {
+            theme_pages: { slug: { eq: $themeSlug } }
+            slug: { eq: $articleSlug }
+          }
+        ) {
+          data {
+            attributes {
+              title
+              slug
+              theme_pages {
+                data {
+                  attributes {
+                    title
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  currentLink: navigationPages(
+    publicationState: $pageMode
+    sort: ["order:asc", "title:asc"]
+    pagination: { start: 0, limit: -1 }
+    filters: {
+      theme_pages: { slug: { eq: $themeSlug } }
+      article_pages: { slug: { eq: $articleSlug } }
+    }
+  ) {
+    data {
+      attributes {
+        title
+        slug
+        order
+        theme_pages(
           publicationState: $pageMode
           sort: ["title:asc"]
           pagination: { start: 0, limit: -1 }
         ) {
           data {
             attributes {
-              title
               slug
+              title
               article_pages(
                 publicationState: $pageMode
                 sort: ["title:asc"]
