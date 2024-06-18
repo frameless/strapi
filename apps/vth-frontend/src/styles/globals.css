@@ -13,6 +13,7 @@
   --utrecht-navigation-border-block-start-color: var(--utrecht-color-grey-80);
   --utrecht-navigation-border-block-end-width: 1px;
   --utrecht-navigation-border-block-end-color: var(--utrecht-color-grey-80);
+  --utrecht-drawer-mobile-min-inline-size: 80%;
 
   /* nav-list */
   --utrecht-navigation-list-padding-inline-start: 5px;
@@ -27,10 +28,13 @@
   --utrecht-navigation-link-border-color: none;
   --utrecht-navigation-link-border-inline-end-width: 0;
   --utrecht-navigation-link-color: var(--utrecht-color-black);
+  --utrecht-navigation-link-focus-text-decoration-thickness: 1px;
 
   /* link-hover  */
   --utrecht-navigation-link-hover-color: var(--utrecht-color-blue-35);
   --utrecht-navigation-link-hover-background-color: var(--utrecht-color-white);
+  --utrecht-navigation-mobile-hover-link-font-weight: normal;
+  --utrecht-navigation-link-hover-decoration-thickness: 1px;
 
   /* --- navigation tokens end --- */
 
