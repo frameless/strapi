@@ -35,6 +35,6 @@
 
 @include breakpoint("sm") {
   .utrecht-drawer--nav {
-    --utrecht-drawer-min-inline-size: 50%;
+    --utrecht-drawer-min-inline-size: var(--utrecht-drawer-mobile-min-inline-size, 50%);
   }
 }
