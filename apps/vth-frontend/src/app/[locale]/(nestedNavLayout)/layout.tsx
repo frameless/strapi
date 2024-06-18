@@ -128,7 +128,14 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               {children}
             </Page>
           </Surface>
-          <Footer data={footerData as FooterData} />
+          <Footer
+            data={footerData as FooterData}
+            label={
+              t('footer.socialMediaList.label', {
+                defaultValue: 'Social media links',
+              }) as string
+            }
+          />
         </QueryClientProvider>
         <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>
       </body>
