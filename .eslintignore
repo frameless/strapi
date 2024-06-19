@@ -6,10 +6,26 @@ SearchBar
 *.min.js
 
 # Ignore generated files
+.strapi-updater.json
+patches
 dist
 build
 tmp
 sample
 .cache
 generated
+.rollup.cache
+.tmp
+yarn-error.log
 gql
+.next
+**/build
+**/.next
+**/.cache
+**/.tmp
+**/dist
+**/node_modules
+**/.rollup.cache
+**/yarn-error.log
+**/.strapi-updater.json
+**/generated
