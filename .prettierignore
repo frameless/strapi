@@ -5,6 +5,7 @@ node_modules
 *.min.js
 
 # Ignore generated files
+patches
 dist
 build
 tmp
