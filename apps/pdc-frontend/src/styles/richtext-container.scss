@@ -1,13 +1,26 @@
-.utrecht-table-container {
-  .utrecht-Heading-1:first-child,
-  .utrecht-Heading-2:first-child,
-  .utrecht-Heading-3:first-child,
-  .utrecht-Heading-4:first-child,
-  .utrecht-Heading-5:first-child,
-  .utrecht-Heading-6:first-child {
-    margin-inline-start: 0;
+.utrecht-article {
+  .utrecht-heading-1:first-child {
+    --utrecht-heading-1-margin-block-start: 0;
+  }
+  .utrecht-heading-2:first-child {
+    --utrecht-heading-2-margin-block-start: 0;
+  }
+  .utrecht-heading-3:first-child {
+    --utrecht-heading-3-margin-block-start: 0;
+  }
+  .utrecht-heading-4:first-child {
+    --utrecht-heading-4-margin-block-start: 0;
+  }
+  .utrecht-heading-5:first-child {
+    --utrecht-heading-5-margin-block-start: 0;
+  }
+  .utrecht-heading-6:first-child {
+    --utrecht-heading-6-margin-block-start: 0;
   }
   .utrecht-paragraph:first-child {
-    margin-inline-start: 0;
+    --utrecht-paragraph-margin-block-start: 0;
+  }
+  .utrecht-table:first-child {
+    --utrecht-table-margin-block-start: 0;
   }
 }
