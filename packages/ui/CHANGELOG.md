@@ -1,3 +1,15 @@
+# @frameless/ui [2.21.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.20.1...@frameless/ui@2.21.0) (2024-06-20)
+
+
+### Features
+
+* **ui:** add `marker` property instead of using SVG directly ([94b9b41](https://github.com/frameless/strapi/commit/94b9b41fd5533444f7f793d7274198f4797ec399))
+* **ui:** add `NavSubList` component to the `NavigationList` ([5c48f9b](https://github.com/frameless/strapi/commit/5c48f9bfff58340ad338664eb0b0878cf17b3490))
+* **ui:** enable to use external className for `NavigationItem` ([98701e9](https://github.com/frameless/strapi/commit/98701e9d8bdc99c361479e442aab949e07725794))
+* **ui:** improve NavigationMarker component by adding `appearance` ([37a143c](https://github.com/frameless/strapi/commit/37a143cb46a075627c240e096cf939e62b74f9ce))
+* **ui:** integrate the outline marker style into NavigationLink CSS ([9b8a8a4](https://github.com/frameless/strapi/commit/9b8a8a429a515cb0b78384d746e98fcb39cf6bd6))
+* **ui:** make the drawer width on small screen configurable ([aa0fa9b](https://github.com/frameless/strapi/commit/aa0fa9b7bf77d8a09399283f3079fca11a37a36a))
+
 ## @frameless/ui [2.20.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.20.0...@frameless/ui@2.20.1) (2024-06-04)
 
 
