@@ -6948,23 +6948,23 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@utrecht/component-library-css@3.0.1-alpha.31":
-  version "3.0.1-alpha.31"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-3.0.1-alpha.31.tgz#c0dcd078397acf5543bb9950102a3bfb0743134c"
-  integrity sha512-VGcXiMuam0Aq8TwoNGA1pYug+EoUeTlDM3N+Gfl9Wv3pPYj8RqEMabkG2i2ffGJyd6/+oUbcf/aTlqxet5honw==
+"@utrecht/component-library-css@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-3.2.0.tgz#fc4b152a03c73dd8ab3a3d9bb81512a229c72c16"
+  integrity sha512-gye9m5NaxZGTTHLeYiCaGwugitNZE6jB1OPyo10m/YGesh6zmM+lCJoFf1UY2Q9UyTQih6SKC9dn5QU7QObY9g==
 
-"@utrecht/component-library-react@3.0.1-alpha.31":
-  version "3.0.1-alpha.31"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-3.0.1-alpha.31.tgz#969069e610b49d6901537d4b8648781a38e73708"
-  integrity sha512-MIn749q0u4qO1kyY2duYKixhyWmSPjQ176x6TDb0PdAPjIhfhfPH5bmUnbAmqp8A5AdFvDvW3Uk8++5CGOrjTQ==
+"@utrecht/component-library-react@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-3.1.0.tgz#9c0910aa48447d0a99c4f113d4d89124965bff7f"
+  integrity sha512-mz2CGkPbbAZiv+wcdUPu5MwfZ3fUqIUVI0HKzAfHNDPbB71pnboW8QSMV9HItsQ/bu5+4zM+l4fyJ69mvOGK0w==
   dependencies:
     clsx "1.2.1"
     lodash.chunk "4.2.0"
 
-"@utrecht/design-tokens@1.0.0-alpha.644":
-  version "1.0.0-alpha.644"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.644.tgz#c892bdb5f247f639e81009565ab44ec1343cb8c3"
-  integrity sha512-2xg0rNDk80e5PT28d+4JHBfZ4ACDLhIpToAQcgwEsbcqlSu2MgNWmhoZFISSrBMhUV9AhsVzrOOxDLDgJGgMfw==
+"@utrecht/design-tokens@1.0.0-alpha.655":
+  version "1.0.0-alpha.655"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.655.tgz#0db0304b96b9200d323268e18f63bf31d4fd7a75"
+  integrity sha512-URNcXhjmv1kzD0RJzQpyO8oM8dE7jvmGLjhum7NblJeaVHHo/rTfPCl/jMloJg4uKPh2HsBsnbT4RRvQBNgcwQ==
 
 "@utrecht/focus-ring-css@1.1.0":
   version "1.1.0"
@@ -6986,17 +6986,17 @@
   resolved "https://registry.yarnpkg.com/@utrecht/textbox-css/-/textbox-css-1.1.0.tgz#91c70aa102b690eb5b3d2e270d80a2d5d0943cf1"
   integrity sha512-APQW299fyoNZQ/hYW8F9uET4JvzhXMbUBWT59h6sc/wwsbDBWku+ufgN4wrsYTqGSPExFKfffzRGuniaqyvBxA==
 
-"@utrecht/web-component-library-react@1.0.3-alpha.31":
-  version "1.0.3-alpha.31"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.0.3-alpha.31.tgz#999be041ed93a7b2a2b15391658e6d4aa10361e0"
-  integrity sha512-+a5Nt3V3Gzp90C8E/Vy6yPXk5DpWM6G3PYs3SwFEJb1mLBBauk+swv/AecUQ4SXMmZjbE4ZkfsLbc94yY7ecdg==
+"@utrecht/web-component-library-react@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.1.0.tgz#582bfe40ded24534463b6e9bf5f748767f2ae360"
+  integrity sha512-TVkicJm7FDq5gRaJiCC9EEe22CDnmPwtICuPE1EYKA2dCiFc7lHcP53fjCq9q8KpXys/BDb1SFAARZ1JV6tiuw==
   dependencies:
-    "@utrecht/web-component-library-stencil" "1.1.1-alpha.31"
+    "@utrecht/web-component-library-stencil" "1.2.0"
 
-"@utrecht/web-component-library-stencil@1.1.1-alpha.31":
-  version "1.1.1-alpha.31"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.1.1-alpha.31.tgz#9b450ede1b3bafdb6a3978db5070983441a5f507"
-  integrity sha512-kXWLEDsceMZorW+bCC37gopq5oF723odhoHDChcVJTHeh12dr4P/rb9YzqYTYZseAbJLd0SjF9SYmqIcRxBjHw==
+"@utrecht/web-component-library-stencil@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.2.0.tgz#fa4c3c46cdcde80db87c2b84c4e7814f87d6519f"
+  integrity sha512-EGYoIxHGFMHRGfwYpCpxrxQahJbSlJSKhT3L6Jub4EtOyTKe/BXq6EeeQpxUB43JaHk3lV5xXnjuhAqrH12ekg==
   dependencies:
     "@stencil/core" "4.8.2"
 
