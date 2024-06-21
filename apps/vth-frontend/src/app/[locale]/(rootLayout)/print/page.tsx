@@ -8,8 +8,9 @@ import { GET_PRINT_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
-import '../../../styles/space.css';
-import '../../../styles/print.css';
+
+import '@/styles/print.css';
+import '@/styles/space.css';
 
 type PrintPageData = {
   title: string;
