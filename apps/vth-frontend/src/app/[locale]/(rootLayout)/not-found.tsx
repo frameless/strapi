@@ -6,6 +6,7 @@ import { fetchData } from '@/util/fetchData';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 
 const NotFoundPage = async () => {
+  new Response(null, { status: 404 });
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_NOT_FOUND_PAGE,

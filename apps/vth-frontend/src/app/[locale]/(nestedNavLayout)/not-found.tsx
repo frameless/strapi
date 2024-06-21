@@ -11,6 +11,7 @@ import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { getNavData } from '@/util/getNavData';
 
 const NotFoundPage = async () => {
+  new Response(null, { status: 404 });
   const locale = cookies().get('i18next')?.value;
   const { t } = await useTranslation(locale || fallbackLng, ['common']);
   const { isEnabled } = draftMode();
