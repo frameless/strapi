@@ -8,6 +8,7 @@ import { fetchData } from '@/util/fetchData';
 import { GetNotFoundPageQuery } from '../../../../../gql/graphql';
 
 const NotFoundPage = async ({ params: { locale } }: { params: { locale: string } }) => {
+  new Response(null, { status: 404 });
   const { t } = await useTranslation(locale, ['common']);
   const { data } = await fetchData<{ data: GetNotFoundPageQuery }>({
     url: createStrapiURL(),
