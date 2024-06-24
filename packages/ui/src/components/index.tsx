@@ -2,6 +2,7 @@ export { Breadcrumbs } from './Breadcrumb';
 export { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
 export { LoadMoreButton } from './LoadMoreButton';
 export { LogoButton } from './LogoButton';
+export { Nav } from './Nav';
 export { Navigation } from './Navigation';
 export { NavigationList } from './Navigation/NavigationList';
 export { PreviewAlert } from './PreviewAlert';
