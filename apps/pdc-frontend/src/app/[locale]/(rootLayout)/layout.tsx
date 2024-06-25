@@ -43,7 +43,6 @@ import '@frameless/ui/dist/bundle.css';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
-import '../../../styles/richtext-container.scss';
 
 interface LayoutProps {
   children: React.ReactNode;
