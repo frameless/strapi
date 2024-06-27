@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@4.0.0/dist/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@4.0.0/dist/html.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/design-tokens@1.0.0/dist/index.css" />
+    <title>Handleiding voor het gebruik van het Strapi-dashboard</title>
+  </head>
+
+  <body class="utrecht-html utrecht-theme">
+    <main class="utrecht-page">
+      <div class="utrecht-page-content">
+        <h1>Handleiding voor het gebruik van het Strapi-dashboard</h1>
+        <h2>Hoe u inhoud kunt toevoegen of bijwerken</h2>
+        <ol>
+          <li>
+            <p><strong>Open het Content Beheer:</strong></p>
+            <ul>
+              <li>Klik op de knop &quot;Content Beheer&quot; aan de linkerkant.</li>
+              <li>Er verschijnt een navigatiebalk aan de zijkant met alle inhoud.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Selecteer een collectie:</strong></p>
+            <ul>
+              <li>Kies een van de content collecties om inhoud toe te voegen of te wijzigen.</li>
+              <li>Klik op de knop &quot;Nieuwe invoer&quot; om iets nieuws toe te voegen.</li>
+            </ul>
+            <p>
+              <img
+                src="images/open-het-content-beheer.png"
+                class="utrecht-img utrecht-img--photo"
+                alt='Screenshot van de Hoofditem pagina in het Strapi-dashboard. Nummer 1 wijst de "Content beheer" link aan, nummer 2 wijst de "Hoofditem" collectie type link aan, nummer 3 wijst de knop "Nieuwe invoer" aan.'
+              />
+            </p>
+          </li>
+          <li>
+            <p><strong>Voorvertoning en Publicatie:</strong></p>
+            <ul>
+              <li>
+                <p>Klik op de &quot;Opslaan&quot; knop rechtsboven om je wijzigingen op te slaan.</p>
+              </li>
+              <li>
+                <p>
+                  Klik vervolgens op de &quot;Preview&quot; knop onder het &quot;Informatie&quot; blok aan de
+                  rechterkant om een voorvertoning van de pagina te bekijken.
+                </p>
+              </li>
+              <li>
+                <p>De voorvertoningsmodus toont de pagina alleen voor jou en is niet zichtbaar voor anderen.</p>
+                <p>
+                  <img
+                    src="images/voorvertoning-en-publicatie.png"
+                    class="utrecht-img utrecht-img--photo"
+                    alt='Screenshot van het Strapi-dashboard. Nummer 1 wijst de link "Thema" aan, nummer 2 wijst het formulier-veld "Invoer" aan, nummer 3 wijst de knop "Opslaan" aan, nummer 4 wijst de link "Preview" aan.'
+                  />
+                </p>
+              </li>
+              <li>
+                <p>
+                  Gebruik de Editoria11y tool in de voorvertoningsmodus voor toegankelijkheids- en HTML-validatie.
+                  <img
+                    src="images/gebruik-de-editoria11y-tool.png"
+                    class="utrecht-img utrecht-img--photo"
+                    alt="Screenshot van een Preview van een thema, waarbij Editoria11y een probleem heeft gevonden: afbeelding zonder alt-tekst."
+                  />
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Pagina&#39;s publiceren:</strong></p>
+            <ul>
+              <li>
+                <p>
+                  Gebruik de &quot;Publisher&quot; functie om een nieuwe pagina op een specifiek tijdstip te publiceren
+                  of te de-publiceren.
+                </p>
+                <p>
+                  <img
+                    src="images/pagina-publiceren.png"
+                    class="utrecht-img utrecht-img--photo"
+                    alt='Screenshot van het Strapi-dashboard, met een pijl naar de knop "Publiceer" en een pijl bij de knop "Voeg publicatiedatum toe".'
+                  />
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <h2>Content beschrijven</h2>
+        <h3>Collectie Types</h3>
+        <p><strong>Hoofditem</strong> wordt op de volgende plekken getoond:</p>
+        <ul>
+          <li>Elk hoofditem heeft een link de hoofdnavigatie.</li>
+          <li>Elk hoofditem wordt getoond als kaart op de homepage.</li>
+          <li>
+            Elk hoofditem heeft een eigen pagina, bijvoorbeeld op:
+            <code>https://vth-programma-verslag.digitaal.utrecht.nl/nl/verkeer</code>.
+          </li>
+        </ul>
+        <p><strong>Thema</strong> wordt op de volgende plekken getoond:</p>
+        <ul>
+          <li>Elk thema wordt getoond als kaart op de pagina van het hoofditem waarbij die hoort.</li>
+          <li>
+            Elk thema heeft een eigen pagina, bijvoorbeeld op de URL:
+            <code>http://vth-programma-verslag.digitaal.utrecht.nl/nl/theme/horeca</code>.
+          </li>
+        </ul>
+        <p>
+          <strong>Themacontent</strong> zijn de pagina&#39;s met een uitgebreide teksten. Ze worden op de volgende
+          plekken getoond:
+        </p>
+        <ul>
+          <li>
+            Alle themacontent wordt getoond als kaart op de pagina van het hoofditem of thema waar ze gekoppeld zijn.
+          </li>
+          <li>
+            Alle themacontent heeft een eigen pagina, bijvoorbeeld op de URL:
+            <code>https://vth-programma-verslag.digitaal.utrecht.nl/nl/article/slopen</code>
+          </li>
+        </ul>
+        <h3>Enkele Types</h3>
+        <ul>
+          <li><strong>Homepage:</strong> De startpagina van de website.</li>
+          <li>
+            <strong>Not Found Page:</strong> Toont tekst wanneer een gebruiker een niet-bestaande pagina probeert te
+            bereiken.
+          </li>
+          <li><strong>Print Page:</strong> Voor het afdrukken of downloaden van de volledige website-inhoud.</li>
+        </ul>
+        <h3>Media Library</h3>
+        <ul>
+          <li>Voor het beheren van afbeeldingen.</li>
+        </ul>
+        <h2>Tekst Editor</h2>
+        <p>Je kunt kiezen uit de volgende opties voor tekstopmaak:</p>
+        <ul>
+          <li><strong>Alinea</strong>: een alinea met tekst</li>
+          <li><strong>Lead</strong>: inleidende tekst</li>
+          <li><strong>Kop 1</strong> tot en met <strong>Kop 6</strong>: koppen van de tekst.</li>
+          <li>
+            <strong>Vet</strong>: extra belangrijke tekst kun je vet maken. Je moet nooit een hele alinea vet maken,
+            gebruik vet alleen voor een korte zin of een gedeelte van de tekst.
+          </li>
+          <li><strong>Opsommingslijst</strong>: voor een lijst met meerdere items.</li>
+          <li><strong>Genummerde lijst</strong>: een lijst met items in een specifieke volgorde.</li>
+          <li><strong>Blokcitaat</strong>: als je een tekst of een uitspraak wilt citeren.</li>
+          <li><strong>Hyperlink</strong>: maak een link naar een andere pagina.</li>
+          <li>
+            <strong>Afbeelding</strong>: voeg een afbeelding toe. Let op dat je altijd een &quot;Alternatieve
+            tekst&quot; invult, zodat mensen die de afbeelding niet kunnen zien wel weten wat er afgebeeld is.
+          </li>
+          <li>
+            Tabellen:
+            <ul>
+              <li><strong>Tabel met bijschrift invoegen</strong>: tabellen geef je op deze manier een titel.</li>
+              <li><strong>Tabel invoegen</strong>: hier kun je tabellen zonder titel maken.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>YouTube-video</strong>: kopieer eerst de URL van een YouTube-video, en plak die daarna hier in het
+            invoerveld.
+          </li>
+          <li>
+            <strong>Scheidingslijn</strong>: gebruik een horizontale lijn om een tekst in twee onderdelen op te
+            splitsen, wanneer je geen Kop kan gebruiken.
+          </li>
+          <li>
+            <strong>Genereer ID voor kop</strong>: wanneer je een link naar een kop in deze tekst wil maken, moet je
+            eerst een ID voor de kop maken. Plaats de cursor in een kop, en klik op de knop &quot;Genereer ID voor
+            kop&quot;. De link naar de kop wordt automatisch gekopieerd, zodat je de link kan plakken in het
+            &quot;URL&quot; veld van een link.
+          </li>
+        </ul>
+        <p>Werken met tabellen:</p>
+        <ul>
+          <li>Plaats de tekstcursor in een tabel, dan verschijnt het <strong>Tabel menu</strong>.</li>
+        </ul>
+        <p>
+          <a href="https://www.youtube.com/watch?v=9VCdyk2pbro" rel="noopener noreferrer"
+            >Bekijk de video over het werken met tabellen</a
+          >.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
