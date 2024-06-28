@@ -21,6 +21,7 @@ import React from 'react';
 import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
 import type { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import { RichText } from '../RichText';
 
 const defaultComponents = (config?: Components) => {
   const componentMap: { [key: string]: React.ComponentType<any> } = {
@@ -163,7 +164,9 @@ interface MarkdownProps {
 }
 
 export const Markdown: React.FC<MarkdownProps> = ({ children, components }) => (
-  <ReactMarkdown urlTransform={transformUri} components={defaultComponents(components)} rehypePlugins={[rehypeRaw]}>
-    {children}
-  </ReactMarkdown>
+  <RichText>
+    <ReactMarkdown urlTransform={transformUri} components={defaultComponents(components)} rehypePlugins={[rehypeRaw]}>
+      {children}
+    </ReactMarkdown>
+  </RichText>
 );
