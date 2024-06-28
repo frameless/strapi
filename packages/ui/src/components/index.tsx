@@ -1,8 +1,9 @@
 export { Breadcrumbs } from './Breadcrumb';
+export { HTMLHeading, type HTMLHeadingProps } from './HTMLHeading';
 export { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
 export { LoadMoreButton } from './LoadMoreButton';
 export { LogoButton } from './LogoButton';
-export { Nav } from './Nav';
+export { Nav, type NavProps } from './Nav';
 export { Navigation } from './Navigation';
 export { NavigationList } from './Navigation/NavigationList';
 export { PreviewAlert } from './PreviewAlert';
