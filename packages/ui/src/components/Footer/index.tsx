@@ -49,11 +49,13 @@ const socialMediaIconTypes = {
   whatsapp: UtrechtIconWhatsapp,
   newsletter: UtrechtIconNieuwsbrief,
 };
-export interface FooterProps extends NavProps {
+export interface FooterProps {
   data: FooterData;
+  headingLevel: NavProps['headingLevel'];
+  socialMediaLabel: NavProps['label'];
 }
 
-export const Footer = ({ data, headingLevel, label }: FooterProps) => {
+export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) => {
   const links = data?.socialMediaList?.link?.map((item) => {
     const Icon = socialMediaIconTypes[item.icon as keyof typeof socialMediaIconTypes];
     return {
@@ -109,7 +111,7 @@ export const Footer = ({ data, headingLevel, label }: FooterProps) => {
             </Grid>
           </GridCell>
           <GridCell md={4} sm={2} className={css('utrecht-grid--justify-content-sm-flex-end')}>
-            <Nav headingLevel={headingLevel} label={label}>
+            <Nav headingLevel={headingLevel} label={socialMediaLabel}>
               <LinkList links={links} className={css('utrecht-footer__link-social-media-list')} />
             </Nav>
           </GridCell>
