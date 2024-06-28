@@ -41,4 +41,5 @@ export const Nav = forwardRef(
     );
   },
 );
-Nav.displayName = 'SocialMediaNav';
+
+Nav.displayName = 'Nav';
