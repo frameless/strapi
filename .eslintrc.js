@@ -76,6 +76,7 @@ module.exports = {
           './packages/strapi-tiptap-editor/tsconfig.json',
           './packages/strapi-tiptap-editor/tsconfig.server.json',
           './packages/ui/tsconfig.json',
+          './packages/ui/tsconfig.test.json',
           './packages/upl/tsconfig.json',
         ],
         tsconfigRootDir: __dirname,
