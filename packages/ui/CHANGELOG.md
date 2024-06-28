@@ -1,3 +1,11 @@
+# @frameless/ui [2.22.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.21.0...@frameless/ui@2.22.0) (2024-06-28)
+
+
+### Features
+
+* **ui:** create `RichText` component ([0c6fa18](https://github.com/frameless/strapi/commit/0c6fa18c0b81b3b025e881cada8307d40ca483ad))
+* **ui:** integrate RichText component into Markdown ([8109365](https://github.com/frameless/strapi/commit/8109365f86a6802a2ea25e0f55fd484ae4ad724c))
+
 # @frameless/ui [2.21.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.20.1...@frameless/ui@2.21.0) (2024-06-20)
 
 
