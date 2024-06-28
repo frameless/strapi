@@ -239,7 +239,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               data={footerData as FooterData}
               label={
                 t('footer.socialMediaLabel', {
-                  defaultValue: 'Social media links',
+                  defaultValue: 'Social media',
                 }) as string
               }
             />
