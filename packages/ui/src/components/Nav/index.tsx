@@ -1,17 +1,30 @@
-import { Heading } from '@utrecht/component-library-react';
 import type { HeadingProps } from '@utrecht/component-library-react';
 import { DetailedHTMLProps, ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react';
 import { forwardRef, useId } from 'react';
+import { HTMLHeading } from '../HTMLHeading';
 
 export interface NavProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
+  /**
+   * Label of the navigation landmark.
+   */
   label?: string;
+
+  /**
+   * Heading level for the navigation landmark heading.
+   *
+   * Configuring this helps to make the website understandable when the CSS cannot be loaded.
+   * The visual hierarchy is still present because of the default styling of HTML.
+   */
   headingLevel?: number;
   headingRestProps?: HeadingProps;
 }
 
+/**
+ * Component for navigation landmarks with an accessible label that can be translated by Google Translate.
+ */
 export const Nav = forwardRef(
   (
-    { children, label, headingLevel = 3, className, headingRestProps, ...restProps }: PropsWithChildren<NavProps>,
+    { children, label, headingLevel, className, headingRestProps, ...restProps }: PropsWithChildren<NavProps>,
     ref: ForwardedRef<HTMLElement>,
   ) => {
     const headingId = label ? useId() : undefined;
@@ -19,9 +32,9 @@ export const Nav = forwardRef(
     return (
       <nav ref={ref} className={className} aria-labelledby={headingId} {...restProps}>
         {label && (
-          <Heading id={headingId} level={headingLevel} aria-hidden="true" hidden {...headingRestProps}>
+          <HTMLHeading id={headingId} level={headingLevel} aria-hidden="true" hidden {...headingRestProps}>
             {label}
-          </Heading>
+          </HTMLHeading>
         )}
         {children}
       </nav>
