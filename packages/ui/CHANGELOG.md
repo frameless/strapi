@@ -1,3 +1,16 @@
+# @frameless/ui [2.23.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.22.0...@frameless/ui@2.23.0) (2024-06-29)
+
+
+### Bug Fixes
+
+* use correct `displayName` for `Nav` ([fc22a1d](https://github.com/frameless/strapi/commit/fc22a1d6372157a29a22fd7b1bd233e380ddac0b))
+
+
+### Features
+
+* **ui:** add `socialMediaAriaLabel` to the footer component ([a01a8ed](https://github.com/frameless/strapi/commit/a01a8ed6794669925486364b97c3d33e70d5a060))
+* **ui:** build Nav component ([5b7efa5](https://github.com/frameless/strapi/commit/5b7efa55eb7af419c402b9e47949b932193cce1a))
+
 # @frameless/ui [2.22.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.21.0...@frameless/ui@2.22.0) (2024-06-28)
 
 
