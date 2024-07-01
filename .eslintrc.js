@@ -80,6 +80,7 @@ module.exports = {
           './packages/ui/tsconfig.json',
           './packages/ui/tsconfig.test.json',
           './packages/upl/tsconfig.json',
+          './packages/tiptap-editor/tsconfig.json',
         ],
         tsconfigRootDir: __dirname,
       },
