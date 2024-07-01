@@ -27,6 +27,7 @@
     "WCAG": "http://www.w3.org/TR/WCAG/#",
     "WCAG20": "http://www.w3.org/TR/WCAG20/#",
     "WCAG21": "http://www.w3.org/TR/WCAG21/#",
+    "WCAG22": "https://www.w3.org/TR/WCAG22/#",
     "WAI": "http://www.w3.org/WAI/",
     "A": "WAI:WCAG2A-Conformance",
     "AA": "WAI:WCAG2AA-Conformance",
