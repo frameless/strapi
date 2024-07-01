@@ -1,0 +1,1415 @@
+{
+  "@context": {
+    "reporter": "http://github.com/w3c/wai-wcag-em-report-tool/",
+    "wcagem": "http://www.w3.org/TR/WCAG-EM/#",
+    "Evaluation": "wcagem:procedure",
+    "defineScope": "wcagem:step1",
+    "scope": "wcagem:step1a",
+    "step1b": { "@id": "wcagem:step1b", "@type": "@id" },
+    "conformanceTarget": "step1b",
+    "accessibilitySupportBaseline": "wcagem:step1c",
+    "additionalEvaluationRequirements": "wcagem:step1d",
+    "exploreTarget": "wcagem:step2",
+    "essentialFunctionality": "wcagem:step2b",
+    "pageTypeVariety": "wcagem:step2c",
+    "technologiesReliedUpon": "wcagem:step2d",
+    "selectSample": "wcagem:step3",
+    "structuredSample": "wcagem:step3a",
+    "randomSample": "wcagem:step3b",
+    "Website": "wcagem:website",
+    "Webpage": "wcagem:webpage",
+    "auditSample": "wcagem:step4",
+    "reportFindings": "wcagem:step5",
+    "documentSteps": "wcagem:step5a",
+    "commissioner": "wcagem:commissioner",
+    "evaluator": "wcagem:evaluator",
+    "evaluationSpecifics": "wcagem:step5b",
+    "WCAG": "http://www.w3.org/TR/WCAG/#",
+    "WCAG20": "http://www.w3.org/TR/WCAG20/#",
+    "WCAG21": "http://www.w3.org/TR/WCAG21/#",
+    "WAI": "http://www.w3.org/WAI/",
+    "A": "WAI:WCAG2A-Conformance",
+    "AA": "WAI:WCAG2AA-Conformance",
+    "AAA": "WAI:WCAG2AAA-Conformance",
+    "wcagVersion": "WAI:standards-guidelines/wcag/#versions",
+    "reportToolVersion": "wcagem:reportToolVersion",
+    "earl": "http://www.w3.org/ns/earl#",
+    "Assertion": "earl:Assertion",
+    "TestMode": "earl:TestMode",
+    "TestCriterion": "earl:TestCriterion",
+    "TestCase": "earl:TestCase",
+    "TestRequirement": "earl:TestRequirement",
+    "TestSubject": "earl:TestSubject",
+    "TestResult": "earl:TestResult",
+    "OutcomeValue": "earl:OutcomeValue",
+    "Pass": "earl:Pass",
+    "Fail": "earl:Fail",
+    "CannotTell": "earl:CannotTell",
+    "NotApplicable": "earl:NotApplicable",
+    "NotTested": "earl:NotTested",
+    "assertedBy": "earl:assertedBy",
+    "mode": "earl:mode",
+    "result": "earl:result",
+    "subject": "earl:subject",
+    "test": "earl:test",
+    "outcome": "earl:outcome",
+    "dcterms": "http://purl.org/dc/terms/",
+    "title": "dcterms:title",
+    "description": "dcterms:description",
+    "summary": "dcterms:summary",
+    "date": "dcterms:date",
+    "hasPart": "dcterms:hasPart",
+    "isPartOf": "dcterms:isPartOf",
+    "id": "@id",
+    "type": "@type",
+    "language": "@language"
+  },
+  "language": "en",
+  "type": "Evaluation",
+  "reportToolVersion": "3.0.3",
+  "defineScope": {
+    "id": "_:defineScope",
+    "scope": {
+      "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+      "title": "Gemeente Utrecht VTH"
+    },
+    "conformanceTarget": "AA",
+    "accessibilitySupportBaseline": "Chrome version 126.0.6478.63,  \nEdge version 121.0.2277.112,  \nFirefox version 127.0.1,  \nSafari version 17.5 (19618.2.12.11.6) with VoiceOver\n",
+    "additionalEvaluationRequirements": "This report shows only the problems found; no solutions are offered for the reported problems.\n",
+    "wcagVersion": "2.2"
+  },
+  "exploreTarget": {
+    "id": "_:exploreTarget",
+    "essentialFunctionality": "",
+    "pageTypeVariety": "",
+    "technologiesReliedUpon": ["HTML", "CSS", "WAI-ARIA", "JavaScript", "SVG"]
+  },
+  "selectSample": {
+    "id": "_:selectSample",
+    "structuredSample": [
+      {
+        "id": "_:subject_2",
+        "type": ["TestSubject", "Webpage"],
+        "date": "2024-06-23T10:38:41.519Z",
+        "description": "https://vth-programma-verslag.digitaal.utrecht.nl/nl/",
+        "title": "Homepage"
+      },
+      {
+        "id": "_:subject_3",
+        "type": ["TestSubject", "Webpage"],
+        "date": "2024-06-23T10:39:19.782Z",
+        "description": "https://vth-programma-verslag.digitaal.utrecht.nl/nl/vth-in-cijfers#main",
+        "title": "VTH in Cijfers"
+      },
+      {
+        "id": "_:subject_4",
+        "type": ["TestSubject", "Webpage"],
+        "date": "2024-06-23T10:39:34.851Z",
+        "description": "https://vth-programma-verslag.digitaal.utrecht.nl/nl/article/parkeergarages",
+        "title": "Parkeergarages"
+      },
+      {
+        "id": "_:subject_5",
+        "type": ["TestSubject", "Webpage"],
+        "date": "2024-06-23T10:39:47.346Z",
+        "description": "https://vth-programma-verslag.digitaal.utrecht.nl/nl/article/controles-ondermijning",
+        "title": "Controles Ondermijning"
+      },
+      {
+        "id": "_:subject_6",
+        "type": ["TestSubject", "Webpage"],
+        "date": "2024-06-23T10:39:58.611Z",
+        "description": "https://vth-programma-verslag.digitaal.utrecht.nl/nl/bestaande-gebouwen",
+        "title": "Bestaande Gebouwen"
+      }
+    ],
+    "randomSample": {
+      "id": "_:subject_7",
+      "type": ["TestSubject", "Webpage"],
+      "date": "2024-06-23T10:40:55.012Z",
+      "description": "https://vth-programma-verslag.digitaal.utrecht.nl/nl/theme/ondermijning",
+      "title": "Ondermijning"
+    }
+  },
+  "auditSample": [
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.523Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T11:50:54.478Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:non-text-content",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.523Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:12:08.583Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:audio-only-and-video-only-prerecorded",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.523Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:14:06.166Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:captions-prerecorded",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.523Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:14:20.268Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:audio-description-or-media-alternative-prerecorded",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:14:30.693Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:captions-live",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:14:35.706Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:audio-description-prerecorded",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:18:39.581Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:info-and-relationships",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:25:01.244Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:meaningful-sequence",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:28:10.552Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:sensory-characteristics",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:31:14.626Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:orientation",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:38:55.846Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:identify-input-purpose",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:41:04.616Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:use-of-color",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:41:13.810Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:audio-control",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:41:24.115Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:contrast-minimum",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:50:52.855Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:resize-text",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T12:52:57.485Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:images-of-text",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-25T09:54:37.280Z",
+        "description": "- Issue: Regular text within the accordion component overflows when the zoom is set to 400%.  \n  Example: [VTH in cijfers - Accordion](https://vth-programma-verslag.digitaal.utrecht.nl/nl/vth-in-cijfers#main)  \n  **Note:** This problem does not occur when using the Firefox browser in its normal mode (i.e., when the \"Zoom text only\" mode is not enabled).\n\n- Issue: The text within the tables inside the accordion component cannot be fully accessed because keyboard-only users cannot use the horizontal scrollbar at the bottom of the table. Using the left and right arrow keys does not allow horizontal scrolling through the table's contents.    \n  Example: [VTH in cijfers - Accordion](https://vth-programma-verslag.digitaal.utrecht.nl/nl/vth-in-cijfers#main)  \n  **Note:** This problem does not occur when using the Firefox browser in its normal mode (not having the \"Zoom text only\" mode on).\n\n\n- The side navigation (.utrecht-sidenav) with links to other pages is not visible when zoomed in to 150%.    \n  Example: [Parkeergarages - Side Navigation](https://vth-programma-verslag.digitaal.utrecht.nl/nl/article/parkeergarages)\n\n",
+        "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:reflow",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:07:34.452Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:non-text-contrast",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-24T09:44:34.416Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:text-spacing",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:08:57.114Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:content-on-hover-or-focus",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-25T09:58:31.338Z",
+        "description": "- Issue: The text within the tables inside the accordion component cannot be fully accessed because keyboard-only users cannot use the horizontal scrollbar at the bottom of the table. Using the left and right arrow keys does not allow horizontal scrolling through the table's contents.  \n  Example: [VTH in cijfers - Accordion](https://vth-programma-verslag.digitaal.utrecht.nl/nl/vth-in-cijfers#main)  \n  **Note:** This problem does not occur when using the Firefox browser in its normal mode (i.e., when the \"Zoom text only\" mode is not enabled).",
+        "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:keyboard",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:33:02.457Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:no-keyboard-trap",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:50:25.942Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:character-key-shortcuts",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:50:40.273Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:timing-adjustable",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:50:44.453Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:pause-stop-hide",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:50:58.751Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:three-flashes-or-below-threshold",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:51:29.037Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:bypass-blocks",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:51:38.922Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:page-titled",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T13:54:51.641Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:focus-order",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-25T09:59:38.243Z",
+        "description": "- Issue: The [Controles Ondermijning](https://vth-programma-verslag.digitaal.utrecht.nl/nl/article/controles-ondermijning) page has 2 links (\"Grenzen stellen, perspectief bieden\") that lead to a different website where a PDF is automatically downloaded. These links are styled like regular links.  \n\n",
+        "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:link-purpose-in-context",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-25T10:00:26.788Z",
+        "description": "- Issue: There is no Sitemap or Search bar available to explore the site.\n\n- The side navigation (.utrecht-sidenav) with links to other pages is not visible when zoomed in to 150%.  \n  Example: [Parkeergarages - Side Navigation](https://vth-programma-verslag.digitaal.utrecht.nl/nl/article/parkeergarages)",
+        "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:multiple-ways",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:22:42.051Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:headings-and-labels",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:23:17.629Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:focus-visible",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.787Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.524Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:23:19.977Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:focus-not-obscured-minimum",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:23:41.149Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:pointer-gestures",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:23:42.495Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:pointer-cancellation",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:24:27.837Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:label-in-name",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:24:39.725Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:motion-actuation",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:24:41.200Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:dragging-movements",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:37:29.039Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:target-size-minimum",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:38:34.116Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:language-of-page",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:39:37.529Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:language-of-parts",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:39:59.090Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:on-focus",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-24T09:50:37.420Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:on-input",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:48:59.677Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:consistent-navigation",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:46:22.043Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:consistent-identification",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:46:32.490Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:consistent-help",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:49:28.137Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:error-identification",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:49:29.612Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:labels-or-instructions",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:49:32.232Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:error-suggestion",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:49:34.787Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:error-prevention-legal-financial-data",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:49:37.961Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:redundant-entry",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:49:41.795Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:accessible-authentication-minimum",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-23T14:54:29.024Z",
+        "description": "",
+        "outcome": { "id": "earl:passed", "type": ["OutcomeValue", "Pass"], "title": "Passed" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:name-role-value",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    },
+    {
+      "type": "Assertion",
+      "date": "2024-06-23T09:56:07.525Z",
+      "mode": { "type": "TestMode", "@value": "earl:manual" },
+      "result": {
+        "type": "TestResult",
+        "date": "2024-06-24T14:37:22.765Z",
+        "description": "",
+        "outcome": { "id": "earl:inapplicable", "type": ["OutcomeValue", "NotApplicable"], "title": "Not present" }
+      },
+      "subject": {
+        "id": "_:subject_1",
+        "type": ["TestSubject", "Website"],
+        "date": "2024-06-23T09:55:03.786Z",
+        "description": "All content pages of the VTH website on the subdomain https://vth-programma-verslag.digitaal.utrecht.nl/",
+        "title": "https://vth-programma-verslag.digitaal.utrecht.nl/"
+      },
+      "test": {
+        "id": "WCAG22:status-messages",
+        "type": ["TestCriterion", "TestRequirement"],
+        "date": "2024-06-23T09:55:03.788Z"
+      }
+    }
+  ],
+  "reportFindings": {
+    "date": { "type": "http://www.w3.org/TR/NOTE-datetime", "@value": "Mon Jun 24 2024" },
+    "summary": "The accessibility of the website has improved considerably since the last evaluation. Most of the issues found are present on several pages due to the repeated use of certain components. The report shows that 28 success criteria have been met and 4 have not. We take accessibility very seriously and will work hard to improve the website to achieve a better evaluation score in the near future.",
+    "title": "Accessibility evaluation report ",
+    "commissioner": "Gemeente Utrecht",
+    "evaluator": "Savitri Sepulveda from Frameless",
+    "documentSteps": [
+      { "id": "_:about" },
+      { "id": "_:defineScope" },
+      { "id": "_:exploreTarget" },
+      { "id": "_:selectSample" }
+    ],
+    "evaluationSpecifics": "Evaluation tools used: Polypane, axe DevTools, Accessibility Insights for Web, WAVE (Web Accessibility Evaluation Tool), Landmarks preferences, HeadingsMap, Text Spacing."
+  }
+}
