@@ -17,6 +17,7 @@ import {
   NavigationList,
   Page,
   PageContent,
+  RichText,
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
@@ -148,8 +149,10 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
             <GridCell md={8}>
               <Grid spacing="sm">
                 <GridCell sm={12}>
-                  <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
-                  <DynamicContent />
+                  <RichText>
+                    <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
+                    <DynamicContent />
+                  </RichText>
                 </GridCell>
                 {data.findSlug.data?.attributes?.article_pages.data &&
                   data.findSlug.data?.attributes?.article_pages.data[0] &&

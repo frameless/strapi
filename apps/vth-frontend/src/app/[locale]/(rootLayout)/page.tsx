@@ -6,7 +6,16 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
-import { Grid, GridCell, Heading1, Page, PageContent, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
+import {
+  Grid,
+  GridCell,
+  Heading1,
+  Page,
+  PageContent,
+  RichText,
+  ScrollToTopButton,
+  UtrechtIconChevronUp,
+} from '@/components';
 import { Card } from '@/components/Card';
 import { Markdown } from '@/components/Markdown';
 import { GET_HOMEPAGE } from '@/query';
@@ -64,8 +73,10 @@ const Home = async ({ params: { locale } }: { params: any }) => {
             <GridCell md={12}>
               <Grid>
                 <GridCell md={8}>
-                  <Heading1>{data?.homepage?.data?.attributes?.title}</Heading1>
-                  <Markdown imageUrl={getImageBaseUrl()}>{data?.homepage?.data?.attributes?.content}</Markdown>
+                  <RichText>
+                    <Heading1>{data?.homepage?.data?.attributes?.title}</Heading1>
+                    <Markdown imageUrl={getImageBaseUrl()}>{data?.homepage?.data?.attributes?.content}</Markdown>
+                  </RichText>
                 </GridCell>
               </Grid>
             </GridCell>
