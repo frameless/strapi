@@ -150,23 +150,23 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         ) : (
           <Paragraph>{t('product-notfound', { letter: q.toUpperCase() })}</Paragraph>
         )}
+        <Grid justifyContent="space-between" spacing="sm">
+          <GridCell sm={8}>
+            <AdvancedLink
+              rel="noopener noreferrer"
+              external
+              icon="arrow"
+              color="red"
+              href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
+            >
+              {t('actions.reaction-link')}
+            </AdvancedLink>
+          </GridCell>
+          <GridCell sm={4} justifyContent="flex-end">
+            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+          </GridCell>
+        </Grid>
       </main>
-      <Grid justifyContent="space-between" spacing="sm">
-        <GridCell sm={8}>
-          <AdvancedLink
-            rel="noopener noreferrer"
-            external
-            icon="arrow"
-            color="red"
-            href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
-          >
-            {t('actions.reaction-link')}
-          </AdvancedLink>
-        </GridCell>
-        <GridCell sm={4} justifyContent="flex-end">
-          <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
-        </GridCell>
-      </Grid>
     </>
   );
 };
