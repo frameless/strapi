@@ -15,6 +15,7 @@ import {
   Markdown,
   Page,
   PageContent,
+  RichText,
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
@@ -96,8 +97,10 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
           <GridCell md={12}>
             <Grid spacing="sm">
               <GridCell md={8}>
-                <Heading1>{title}</Heading1>
-                <DynamicContent />
+                <RichText>
+                  <Heading1>{title}</Heading1>
+                  <DynamicContent />
+                </RichText>
               </GridCell>
             </Grid>
           </GridCell>
