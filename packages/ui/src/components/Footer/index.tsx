@@ -64,6 +64,7 @@ export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) =>
       icon: <Icon role="presentation" />,
     };
   });
+  const displaySocialMediaLinks = Array.isArray(links) && links.length >= 1;
 
   return (
     <PageFooter className={css('utrecht-footer')}>
@@ -109,11 +110,13 @@ export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) =>
               </GridCell>
             </Grid>
           </GridCell>
-          <GridCell md={4} sm={2} className={css('utrecht-grid--justify-content-sm-flex-end')}>
-            <Nav headingLevel={headingLevel} label={socialMediaLabel}>
-              <LinkList links={links} className={css('utrecht-footer__link-social-media-list')} />
-            </Nav>
-          </GridCell>
+          {displaySocialMediaLinks && (
+            <GridCell md={4} sm={2} className={css('utrecht-grid--justify-content-sm-flex-end')}>
+              <Nav headingLevel={headingLevel} label={socialMediaLabel}>
+                <LinkList links={links} className={css('utrecht-footer__link-social-media-list')} />
+              </Nav>
+            </GridCell>
+          )}
         </Grid>
       </Page>
     </PageFooter>
