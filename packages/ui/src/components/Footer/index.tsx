@@ -73,37 +73,36 @@ export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) =>
             <Grid>
               <GridCell md={12}>{data?.title && <Heading2>{data?.title}</Heading2>}</GridCell>
               <GridCell md={6} sm={6}>
-                <ul className={css('utrecht-link-list', 'utrecht-link-list--html-ul')}>
-                  {data?.list &&
-                    data.list?.listItem?.length > 0 &&
-                    data?.list?.listItem?.map((item, index) => (
-                      <li key={index} className={css('utrecht-link-list__item')}>
-                        {item?.title && (
+                {data?.list &&
+                  data.list?.listItem?.length > 0 &&
+                  data?.list?.listItem?.map((item) => {
+                    return (
+                      <>
+                        {item?.title && item?.title && (
                           <Heading3 className={css('utrecht-footer__list-title')}>{item?.title}</Heading3>
                         )}
-                        <Grid flexDirection="column" spacing="sm">
-                          {item?.link &&
-                            item?.link?.length > 0 &&
-                            item?.link?.map((item, index) => {
+                        {Array.isArray(item.link) && item.link.length >= 1 && (
+                          <LinkList>
+                            {item?.link?.map((item, index) => {
                               const isPhoneNumber = item.href.includes('tel:14030');
                               return (
-                                <GridCell key={index} sm={12}>
-                                  <LinkListLink
-                                    icon={!isPhoneNumber && <UtrechtIconChevronRight />}
-                                    className={css('utrecht-link-list__link', {
-                                      'utrecht-link-list__link--phone': isPhoneNumber,
-                                    })}
-                                    href={item.href}
-                                  >
-                                    {item.textContent}
-                                  </LinkListLink>
-                                </GridCell>
+                                <LinkListLink
+                                  key={index}
+                                  icon={!isPhoneNumber && <UtrechtIconChevronRight />}
+                                  className={css({
+                                    'utrecht-link-list__link--phone': isPhoneNumber,
+                                  })}
+                                  href={item.href}
+                                >
+                                  {item.textContent}
+                                </LinkListLink>
                               );
                             })}
-                        </Grid>
-                      </li>
-                    ))}
-                </ul>
+                          </LinkList>
+                        )}
+                      </>
+                    );
+                  })}
               </GridCell>
               <GridCell md={6} sm={6}>
                 {data?.address && <Markdown>{data?.address}</Markdown>}
