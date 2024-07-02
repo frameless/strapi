@@ -1,7 +1,7 @@
 'use client';
 import clsx from 'clsx';
 import Downshift, { DownshiftProps } from 'downshift';
-import React from 'react';
+import React, { useId } from 'react';
 import { Button, Textbox, UnorderedList, UnorderedListItem } from '@/components';
 
 type InputTypes = {
@@ -115,6 +115,7 @@ export const UtrechtSearchBar: React.FC<SearchBarProps> = ({
   renderOptions,
   ...rest
 }) => {
+  const buttonId = useId();
   return (
     <Downshift itemToString={itemToString} {...rest}>
       {({ getInputProps, getItemProps, isOpen, selectedItem, highlightedIndex, getMenuProps }) => (
@@ -127,11 +128,16 @@ export const UtrechtSearchBar: React.FC<SearchBarProps> = ({
               id={input?.id}
               name={input?.name}
               type="search"
-              aria-label={input?.ariaLabel}
+              aria-labelledby={buttonId}
               spellCheck={input?.spellCheck || false}
               className={clsx('utrecht-search-bar__input')}
             />
-            <Button type="submit" appearance="primary-action-button" className={clsx('utrecht-search-bar__button')}>
+            <Button
+              type="submit"
+              appearance="primary-action-button"
+              className={clsx('utrecht-search-bar__button')}
+              id={buttonId}
+            >
               {button.label}
             </Button>
           </div>
