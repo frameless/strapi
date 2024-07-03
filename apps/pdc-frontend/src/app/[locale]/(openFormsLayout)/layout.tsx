@@ -237,11 +237,12 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
             <div id="webchat" />
             <Footer
               data={footerData as FooterData}
-              label={
+              socialMediaLabel={
                 t('footer.socialMediaLabel', {
                   defaultValue: 'Social media',
                 }) as string
               }
+              headingLevel={2}
             />
           </Surface>
         </QueryClientProvider>
