@@ -40,6 +40,7 @@
     "build": "tsc -p tsconfig.server.json",
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
-    "watch": "tsc -p tsconfig.server.json -w"
+    "watch": "tsc -p tsconfig.server.json -w",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   }
 }

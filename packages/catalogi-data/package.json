@@ -20,7 +20,8 @@
   "scripts": {
     "prebuild": "npm run tsc",
     "build": "node dist/index.js",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "peerDependencies": {
     "xmlbuilder2": ">=3.0.2"
