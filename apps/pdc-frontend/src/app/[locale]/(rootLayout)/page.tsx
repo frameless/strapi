@@ -9,6 +9,7 @@ import {
   Heading2,
   IndexCharNav,
   IndexCharNavLink,
+  RichText,
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';

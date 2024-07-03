@@ -7,6 +7,7 @@ import {
   Grid,
   GridCell,
   Heading,
+  RichText,
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
@@ -103,10 +104,12 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
         Link={Link}
       />
       <main id="main">
-        <Heading level={1}>{t('h1')}</Heading>
-        {mappedProduct && mappedProduct.length > 0 && (
-          <ProductListContainer locale={locale} total={products?.meta.pagination.total} initialData={mappedProduct} />
-        )}
+        <RichText>
+          <Heading level={1}>{t('h1')}</Heading>
+          {mappedProduct && mappedProduct.length > 0 && (
+            <ProductListContainer locale={locale} total={products?.meta.pagination.total} initialData={mappedProduct} />
+          )}
+        </RichText>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
             <AdvancedLink

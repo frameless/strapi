@@ -11,6 +11,7 @@ import {
   IndexCharNav,
   IndexCharNavLink,
   Paragraph,
+  RichText,
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
@@ -132,24 +133,26 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         Link={Link}
       />
       <main id="main">
-        <Heading level={1}>{t('h1')}</Heading>
-        <Paragraph lead>{t('lead-paragraph')}</Paragraph>
-        <IndexCharNav
-          component="link"
-          currentChar={q.toUpperCase()}
-          characters={alphabetAvailability}
-          Link={IndexCharNavLink}
-        />
-        {mappedProduct && mappedProduct.length > 0 ? (
-          <ProductListContainer
-            locale={locale}
-            total={products?.meta.pagination.total}
-            initialData={mappedProduct}
-            currentQuery={q.toUpperCase()}
+        <RichText>
+          <Heading level={1}>{t('h1')}</Heading>
+          <Paragraph lead>{t('lead-paragraph')}</Paragraph>
+          <IndexCharNav
+            component="link"
+            currentChar={q.toUpperCase()}
+            characters={alphabetAvailability}
+            Link={IndexCharNavLink}
           />
-        ) : (
-          <Paragraph>{t('product-notfound', { letter: q.toUpperCase() })}</Paragraph>
-        )}
+          {mappedProduct && mappedProduct.length > 0 ? (
+            <ProductListContainer
+              locale={locale}
+              total={products?.meta.pagination.total}
+              initialData={mappedProduct}
+              currentQuery={q.toUpperCase()}
+            />
+          ) : (
+            <Paragraph>{t('product-notfound', { letter: q.toUpperCase() })}</Paragraph>
+          )}
+        </RichText>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
             <AdvancedLink
