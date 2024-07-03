@@ -54,6 +54,7 @@
     "lint-fix:js": "NODE_OPTIONS=--max-old-space-size=16096 eslint --ext '.{js, json, jsx, ts, tsx}' --fix --report-unused-disable-directives .",
     "release": "multi-semantic-release --ignore-packages='apps/*/**'",
     "lint-fix:md": "markdownlint --fix '**/*.md'",
+    "lint-build": "npm run --workspaces lint-build --if-present",
     "prettier": "prettier --list-different --write .",
     "postinstall": "patch-package",
     "test-update": "yarn lint && yarn build && yarn test",

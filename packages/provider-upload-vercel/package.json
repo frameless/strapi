@@ -25,7 +25,8 @@
     "prebuild": "yarn clean",
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
     "watch": "rollup --config rollup.config.ts --configPlugin typescript -w",
-    "clean": "rimraf dist .rollup.cache"
+    "clean": "rimraf dist .rollup.cache",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
     "@vercel/blob": "0.12.5",

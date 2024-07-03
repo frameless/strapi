@@ -24,7 +24,8 @@
     "prebuild": "npm run tsc",
     "build": "node dist/index.js && npm run tsc",
     "tsc": "tsc",
-    "clean": "rimraf dist src/build"
+    "clean": "rimraf dist src/build",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
     "axios-retry": "3.5.1"

@@ -12,7 +12,8 @@
     "watch": "tsc -p ./tsconfig.json  -w",
     "start": "node dist/server.js",
     "dev": "nodemon dist/server.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
     "express": "4.18.2",

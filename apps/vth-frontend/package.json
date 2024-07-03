@@ -12,7 +12,8 @@
     "clean": "rimraf build .next",
     "build": "next build",
     "start": "next start -p 3000",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
     "@frameless/ui": "0.0.0-semantically-released",
