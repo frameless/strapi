@@ -230,7 +230,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   )}
                 </Grid>
               </PageHeader>
-              <PageContent className="utrecht-page-content--modifier">
+              <PageContent>
                 <Main>{children}</Main>
               </PageContent>
             </Page>
