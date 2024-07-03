@@ -4,7 +4,7 @@ export const defaultNS = 'common';
 
 export function getOptions(lng = fallbackLng, ns = defaultNS) {
   return {
-    debug: process.env.NODE_ENV === 'development',
+    debug: !!process.env.I18N_DEBUG,
     supportedLngs: languages,
     preload: languages,
     fallbackLng,
