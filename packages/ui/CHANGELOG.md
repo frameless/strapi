@@ -1,3 +1,10 @@
+## @frameless/ui [2.23.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.23.0...@frameless/ui@2.23.1) (2024-07-03)
+
+
+### Bug Fixes
+
+* cleaner page footer link list rendering ([0e82def](https://github.com/frameless/strapi/commit/0e82def739ff51b59ea10b838ad44e3210d7b7f3))
+
 # @frameless/ui [2.23.0](https://github.com/frameless/strapi/compare/@frameless/ui@2.22.0...@frameless/ui@2.23.0) (2024-06-29)
 
 
