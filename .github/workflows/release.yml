@@ -64,16 +64,20 @@ jobs:
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
         run: npm run lint
-      - name: Release
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+
+      - name: Publish to GitHub repository
+        if: github.ref == 'refs/heads/main'
+        uses: changesets/action@aba318e9165b45b7948c60273e0b72fce0a64eb9 # v1.4.7
+        id: changeset
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npm config set "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}"
-          npm config set workspaces-update false
-          npm run release
-          npm config delete "//npm.pkg.github.com/:_authToken"
+        with:
+          commit: "docs(release): strapi packages"
+          setupGitUser: false
+          title: "docs(release): strapi packages"
+          publish: "pnpm run publish"
+
   continuous-deployment:
     runs-on: ubuntu-latest
     permissions:
