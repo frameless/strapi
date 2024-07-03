@@ -12,7 +12,8 @@
   "keywords": [],
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:frameless/strapi.git"
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/ui"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -23,7 +24,7 @@
   "engines": {
     "node": "20.x.x"
   },
-  "license": "MIT",
+  "license": "EUPL-1.2",
   "peerDependencies": {
     "@utrecht/component-library-react": ">=1.0.0-alpha.365",
     "@utrecht/web-component-library-react": ">=1.0.0-alpha.555",

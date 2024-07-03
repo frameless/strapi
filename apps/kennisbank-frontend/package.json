@@ -4,7 +4,7 @@
   "private": true,
   "author": "@frameless",
   "description": "Utrecht kennisbank frontend application",
-  "license": "",
+  "license": "EUPL-1.2",
   "keywords": [],
   "scripts": {
     "dev": "next dev -p 3000",
@@ -40,5 +40,10 @@
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.4",
     "sass": "1.63.6"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "apps/kennisbank-frontend"
   }
 }

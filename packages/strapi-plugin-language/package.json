@@ -12,7 +12,8 @@
   },
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:frameless/strapi.git"
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/strapi-plugin-language"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -20,7 +21,7 @@
   "author": {
     "name": ""
   },
-  "license": "",
+  "license": "EUPL-1.2",
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"
   },

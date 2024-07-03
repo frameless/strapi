@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:frameless/strapi.git"
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/strapi-tiptap-editor"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -21,7 +22,7 @@
     "editor"
   ],
   "author": "@frameless",
-  "license": "MIT",
+  "license": "EUPL-1.2",
   "dependencies": {
     "@strapi/design-system": "1.12.2",
     "@strapi/helper-plugin": "4.14.6",

@@ -64,7 +64,7 @@
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.js"
   },
   "author": "",
-  "license": "",
+  "license": "EUPL-1.2",
   "engines": {
     "node": "20.x.x",
     "yarn": "^1.22"

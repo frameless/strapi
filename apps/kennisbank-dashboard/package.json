@@ -39,10 +39,15 @@
   "engines": {
     "node": "20.x.x"
   },
-  "license": "MIT",
+  "license": "EUPL-1.2",
   "devDependencies": {
     "node-sass": "8.0.0",
     "sass-loader": "13.2.2",
     "scss": "0.2.4"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "apps/kennisbank-dashboard"
   }
 }
