@@ -143,11 +143,12 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
           </Surface>
           <Footer
             data={footerData as FooterData}
-            label={
+            socialMediaLabel={
               t('footer.socialMediaList.label', {
                 defaultValue: 'Social media',
               }) as string
             }
+            headingLevel={2}
           />
         </QueryClientProvider>
         <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>
