@@ -13,12 +13,14 @@
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/src/index.d.ts",
+  "license": "EUPL-1.2",
   "files": [
     "dist/"
   ],
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:frameless/strapi.git"
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/provider-upload-vercel"
   },
   "author": "Frameless",
   "scripts": {

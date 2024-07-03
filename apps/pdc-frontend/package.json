@@ -4,7 +4,7 @@
   "private": true,
   "author": "@frameless",
   "description": "Utrecht PDC frontend application",
-  "license": "",
+  "license": "EUPL-1.2",
   "keywords": [],
   "scripts": {
     "dev": "next dev -p 3000",
@@ -64,5 +64,10 @@
     "@testing-library/jest-dom": "6.4.5",
     "ts-node": "10.9.2",
     "@types/jest": "29.5.12"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "apps/pdc-frontend"
   }
 }

@@ -6,13 +6,14 @@
   "keywords": [],
   "author": "@frameless",
   "description": "A Nodejs application that convert the catalogi XML to JSON formate",
-  "license": "",
+  "license": "EUPL-1.2",
   "files": [
     "dist"
   ],
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:frameless/strapi.git"
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/catalogi-data"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

@@ -4,7 +4,7 @@
   "private": true,
   "author": "@frameless",
   "description": "Utrecht PDC Samenwerkende Catalogi(SC) application",
-  "license": "",
+  "license": "EUPL-1.2",
   "keywords": [],
   "scripts": {
     "prebuild": "yarn clean",
@@ -25,5 +25,10 @@
   },
   "devDependencies": {
     "nodemon": "3.0.3"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "apps/pdc-sc"
   }
 }
