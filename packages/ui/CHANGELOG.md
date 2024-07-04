@@ -1,3 +1,10 @@
+## @frameless/ui [2.23.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.23.1...@frameless/ui@2.23.2) (2024-07-04)
+
+
+### Bug Fixes
+
+* avoid rendering an empty link list ([d95509e](https://github.com/frameless/strapi/commit/d95509efb53237b62b15e2ed3c2ecdc6e191fb5c))
+
 ## @frameless/ui [2.23.1](https://github.com/frameless/strapi/compare/@frameless/ui@2.23.0...@frameless/ui@2.23.1) (2024-07-03)
 
 
