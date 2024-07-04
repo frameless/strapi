@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-head-element */
 import {
-  CodeBlock,
   DataList,
   DataListItem,
   DataListKey,
@@ -89,15 +88,15 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
               </DataListItem>
               <DataListItem>
                 <DataListKey>Conformance target</DataListKey>
-                <DataListValue>{evaluation.defineScope.scope.conformanceTarget}</DataListValue>
+                <DataListValue>{evaluation.defineScope.conformanceTarget}</DataListValue>
               </DataListItem>
               <DataListItem>
                 <DataListKey>Accessibility support baseline</DataListKey>
-                <DataListValue>{evaluation.defineScope.scope.accessibilitySupportBaseline}</DataListValue>
+                <DataListValue>{evaluation.defineScope.accessibilitySupportBaseline}</DataListValue>
               </DataListItem>
               <DataListItem>
                 <DataListKey>Additional evaluation requirements</DataListKey>
-                <DataListValue>{evaluation.defineScope.scope.additionalEvaluationRequirements}</DataListValue>
+                <DataListValue>{evaluation.defineScope.additionalEvaluationRequirements}</DataListValue>
               </DataListItem>
             </DataList>
           </div>
