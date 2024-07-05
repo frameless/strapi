@@ -1,0 +1,49 @@
+.utrecht-table-widget {
+  --utrecht-table-widget-hover-outline-color: var(--utrecht-color-blue-35);
+  --utrecht-table-widget-hover-outline-width: 1px;
+  --utrecht-table-widget-button-size: 24px;
+  --utrecht-button-padding-block-start: 0;
+  --utrecht-button-padding-block-end: 0;
+  --utrecht-button-padding-inline-start: 0;
+  --utrecht-button-padding-inline-end: 0;
+  --utrecht-button-border-radius: 50%;
+  --utrecht-button-min-inline-size: var(--utrecht-table-widget-button-size);
+  --utrecht-button-min-block-size: var(--utrecht-table-widget-button-size);
+
+  position: relative;
+  width: fit-content;
+
+  & .utrecht-table-widget__button--top {
+    left: 5px;
+    top: -22px;
+  }
+  & .utrecht-table-widget__button--down {
+    bottom: -22px;
+    right: 5px;
+  }
+  & .utrecht-table-widget__button {
+    display: var(--_utrecht-table-button-display, none) !important;
+    position: absolute;
+  }
+  &:hover {
+    outline-color: var(--utrecht-table-widget-hover-outline-color);
+    outline-style: solid;
+    outline-width: var(--utrecht-table-widget-hover-outline-width);
+    & .utrecht-table-widget__button {
+      --_utrecht-table-button-display: inline-flex;
+    }
+  }
+}
+
+.utrecht-node-viewer--captured-table:has(.utrecht-node-viewer) {
+  & .utrecht-node-viewer {
+    --utrecht-table-widget-hover-outline-color: transparent;
+
+    & .utrecht-table-widget__button {
+      --_utrecht-table-button-display: none;
+    }
+    & :hover {
+      --utrecht-table-widget-hover-outline-color: transparent;
+    }
+  }
+}

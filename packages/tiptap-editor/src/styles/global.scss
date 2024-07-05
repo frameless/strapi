@@ -1,0 +1,80 @@
+@import "@utrecht/focus-ring-css/src/mixin";
+@import "@utrecht/paragraph-css/src/mixin";
+
+// utrecht-paragraph--lead
+.tippy-box {
+  background: transparent;
+}
+
+.ProseMirror {
+  min-block-size: 100px;
+  outline: none;
+  padding-block-end: 6px;
+  padding-block-start: 6px;
+  padding-inline-end: 12px;
+  padding-inline-start: 16px;
+
+  &:focus {
+    @include utrecht-focus-ring;
+  }
+
+  figure {
+    inline-size: fit-content;
+  }
+
+  figcaption {
+    border: 2px dashed #32324d;
+    break-inside: avoid;
+    color: var(--utrecht-table-caption-color);
+    font-family: var(--utrecht-table-caption-font-family);
+    font-size: var(--utrecht-table-caption-font-size);
+    font-weight: var(--utrecht-table-caption-font-weight);
+    line-height: var(--utrecht-table-caption-line-height);
+    margin-block-end: var(--utrecht-table-caption-margin-block-end);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    page-break-after: avoid;
+    text-align: var(--utrecht-table-caption-text-align, center);
+  }
+
+  p[data-lead="true"] {
+    @include utrecht-paragraph--lead;
+  }
+
+  .ProseMirror-selectednode {
+    border: 5px solid #32324d;
+    box-sizing: border-box;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  table {
+    inline-size: fit-content;
+  }
+
+  table * p {
+    --utrecht-space-around: 0;
+  }
+
+  td,
+  th {
+    --utrecht-table-header-cell-font-weight: var(--utrecht-table-header-font-weight);
+
+    border: 1px solid #ced4da;
+    min-inline-size: 3em;
+  }
+
+  th {
+    border-block-end-color: var(--utrecht-table-header-border-block-end-color, transparent);
+    border-block-end-style: solid;
+    border-block-end-width: var(--utrecht-table-header-border-block-end-width, 0);
+  }
+}
