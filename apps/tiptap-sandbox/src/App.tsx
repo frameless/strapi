@@ -1,20 +1,31 @@
 import { Editor } from '@frameless/tiptap-editor';
+import { useState } from 'react';
 import '@utrecht/component-library-css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/design-tokens/dist/index.css';
 import '@frameless/tiptap-editor/dist/tiptap.css';
+import 'tippy.js/dist/tippy.css';
+import '@frameless/ui/dist/bundle.css';
+
 const App = () => {
+  const [locale, setLocale] = useState('en');
+
   return (
     <div className="utrecht-app">
+      <select value={locale} onChange={(e) => setLocale(e.target.value)} style={{ marginBlock: '1.5rem' }}>
+        <option value="">Select Language</option>
+        <option value="en">English</option>
+        <option value="nl">Dutch</option>
+      </select>
       <Editor
+        locale={locale}
         name="tiptap-editor"
         onEditorChangeHandler={(content) => {
-          // eslint-disable-next-line no-console
-          console.log(content);
+          localStorage.setItem('content', content ?? '');
         }}
-        // value={'dddd'}
+        value={localStorage.getItem('content') ?? ''}
         intlLabel={'Label'}
-        labelAction={'Hello'}
+        labelAction={undefined}
         className="utrecht-theme utrecht-theme--media-query-color-scheme utrecht-html utrecht-document"
         error={'Error'}
         description={undefined}
@@ -23,35 +34,35 @@ const App = () => {
           price: {
             enabled: true,
             data: {
-              title: 'test',
+              title: 'Product prices list',
               price: [
                 {
                   currency: 'EUR',
-                  label: 'Visa',
+                  label: 'Product 1',
                   uuid: 'C68FC92B-A3CD-43BF-947A-09A04AFBF990',
                   value: 20,
                 },
                 {
                   currency: 'EUR',
-                  label: 'Hotel',
+                  label: 'Product 2',
                   uuid: 'C7F8F7DC-9205-4A33-A2E2-9B49379E2E1F',
                   value: 30,
                 },
                 {
                   currency: 'EUR',
-                  label: 'Flight',
+                  label: 'Product 3',
                   uuid: '899CFE0A-A98A-43E6-96CC-9A23F8B2B874',
                   value: 40,
                 },
                 {
                   currency: 'EUR',
-                  label: 'Car',
+                  label: 'Product 4',
                   uuid: '3FE0CCB9-C8FC-404E-B714-59A17155DE08',
                   value: 50,
                 },
                 {
                   currency: 'EUR',
-                  label: 'Meal',
+                  label: 'Product 5',
                   uuid: '40200BAB-F296-49DA-9861-57449840C4F8',
                   value: 60,
                 },
