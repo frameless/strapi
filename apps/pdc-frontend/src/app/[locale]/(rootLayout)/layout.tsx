@@ -25,11 +25,8 @@ import {
   Surface,
 } from '@/components';
 // import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
-import '@utrecht/component-library-css';
-import '@utrecht/design-tokens/dist/index.css';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
-import 'react-loading-skeleton/dist/skeleton.css';
 import { GET_TEMPLATE } from '@/query';
 import { buildAlternateLinks, createStrapiURL, fetchData } from '@/util';
 import {
@@ -40,8 +37,11 @@ import {
 import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
 import { useTranslation } from '../../i18n/index';
 import { languages } from '../../i18n/settings';
-import '@frameless/ui/dist/bundle.css';
 import '../../../styles/globals.css';
+import '@frameless/ui/dist/bundle.css';
+import '@utrecht/component-library-css';
+import '@utrecht/design-tokens/dist/index.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface LayoutProps {
   children: React.ReactNode;
