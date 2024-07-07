@@ -94,25 +94,25 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
             </DataList>
           </div>
           <Heading2>Detailed Audit Results</Heading2>
-          <Heading3>Summary</Heading3>
+          <Heading3>Samenvatting</Heading3>
           <Paragraph>Reported on 55 of 55 WCAG 2.2 AA Success Criteria.</Paragraph>
-          <ul>
-            <li>
+          <UnorderedList>
+            <UnorderedListItem>
               <span>28</span> <span>Passed</span>
-            </li>
-            <li>
+            </UnorderedListItem>
+            <UnorderedListItem>
               <span>16</span> <span>Failed</span>
-            </li>
-            <li>
+            </UnorderedListItem>
+            <UnorderedListItem>
               <span>0</span> <span>Cannot tell</span>
-            </li>
-            <li>
+            </UnorderedListItem>
+            <UnorderedListItem>
               <span>11</span> <span>Not present</span>
-            </li>
-            <li>
+            </UnorderedListItem>
+            <UnorderedListItem>
               <span>0</span> <span>Not checked</span>
-            </li>
-          </ul>
+            </UnorderedListItem>
+          </UnorderedList>
           <Heading3>All Results</Heading3>
           {successCriteria
             .map((sc) => ({
@@ -125,17 +125,24 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                   {sc} {title}
                 </Heading4>
                 <Paragraph>Gevonden issues:</Paragraph>
-                <UnorderedList>
-                  {Array.isArray(badDeveloperResults[url])
-                    ? badDeveloperResults[url].map((auditSample) => (
-                        <UnorderedListItem>
+                {Array.isArray(badDeveloperResults[url]) && badDeveloperResults[url].length > 0 ? (
+                  badDeveloperResults[url].length > 1 ? (
+                    <UnorderedList>
+                      {badDeveloperResults[url].map((auditSample) => (
+                        <UnorderedListItem key={auditSample.id}>
                           <Markdown>{auditSample.result.description}</Markdown>
                         </UnorderedListItem>
-                      ))
-                    : null}
-                </UnorderedList>
+                      ))}
+                    </UnorderedList>
+                  ) : (
+                    <Markdown>{badDeveloperResults[url][0].result.description}</Markdown>
+                  )
+                ) : (
+                  <Paragraph>Geen problemen vastgesteld.</Paragraph>
+                )}
+
                 <Paragraph>
-                  Lees meer bij NL Design System:
+                  Lees meer bij NL Design System:&nbsp;
                   <Link href={`https://nldesignsystem.nl/wcag/${sc}`} external>
                     WCAG 2.2 {sc} {title}
                   </Link>
