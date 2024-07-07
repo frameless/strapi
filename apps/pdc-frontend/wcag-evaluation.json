@@ -168,7 +168,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:25:39.650Z",
-        "description": "- Issue: Some icon images (DigiD) lack accessible text. The button next to them does not include the information conveyed by the image. The image is ignored by the screenreader, making the button text (\"Geef verhuizing door\") less understandable for screenreader-only users than for sighted users.  \n  Example: [Verhuizing doorgeven - Button](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven)\n",
+        "description": "Issue: Some icon images (DigiD) lack accessible text. The button next to them does not include the information conveyed by the image. The image is ignored by the screenreader, making the button text (\"Geef verhuizing door\") less understandable for screenreader-only users than for sighted users.  \n  Example: [Verhuizing doorgeven - Button](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven)\n",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -352,7 +352,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:25:18.899Z",
-        "description": "- Issue: The meaning of the asterisks next to the input field labels on the form is never defined. Users are left to assume they indicate that the related input field is mandatory.  \n  Example: [Form - Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "Issue: The meaning of the asterisks next to the input field labels on the form is never defined. Users are left to assume they indicate that the related input field is mandatory.  \n  Example: [Form - Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -398,7 +398,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:46:39.996Z",
-        "description": "- Issue: Not all suitable input fields on the [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet) page have the autocomplete attribute, preventing the browser from automatically filling them out.",
+        "description": "Issue: Not all suitable input fields on the [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet) page have the autocomplete attribute, preventing the browser from automatically filling them out.",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -421,7 +421,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:46:48.611Z",
-        "description": "- Issue: The [Overzicht (Controleer en Bevestig)](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/overzicht) page has some required checkboxes with a red border. The color red is the only indicator that the checkbox is invalid.",
+        "description": "Issue: The [Overzicht (Controleer en Bevestig)](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/overzicht) page has some required checkboxes with a red border. The color red is the only indicator that the checkbox is invalid.",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -513,7 +513,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:46:56.022Z",
-        "description": "- Issue: Some icon images (DigiD) lack accessible text. The button next to them does not include the information conveyed by the image. The image is ignored by the screenreader, making the button text (\"Geef verhuizing door\") less understandable for screenreader-only users than for sighted users.  \n  Example: [Verhuizing doorgeven - Button](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven)",
+        "description": "Issue: Some icon images (DigiD) lack accessible text. The button next to them does not include the information conveyed by the image. The image is ignored by the screenreader, making the button text (\"Geef verhuizing door\") less understandable for screenreader-only users than for sighted users.  \n  Example: [Verhuizing doorgeven - Button](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -536,7 +536,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:06.514Z",
-        "description": "- Issue: The visual order of the 3 buttons (\"Tussendoor opslaan\", \"Volgende\", and \"Afbreken\") and the link (\"Vorige\") at the bottom of the Main landmark of the form changes depending on the zoom level, resulting in an unexpected tabbing order when zoomed in.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "Issue: The visual order of the 3 buttons (\"Tussendoor opslaan\", \"Volgende\", and \"Afbreken\") and the link (\"Vorige\") at the bottom of the Main landmark of the form changes depending on the zoom level, resulting in an unexpected tabbing order when zoomed in.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -605,7 +605,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:14.712Z",
-        "description": "- Issue: The content of the tooltips on the form obscures non-decorative content when zoomed in and hovered over. The tooltip content cannot be dismissed by pressing the Escape key.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "Issue: The content of the tooltips on the form obscures non-decorative content when zoomed in and hovered over. The tooltip content cannot be dismissed by pressing the Escape key.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -651,7 +651,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:39.464Z",
-        "description": "- Issue: The focus on the dropdown menu \"Klacht over de gemeente doorgeven\" (located in the main landmark of the form), which appears when zoomed in, does not stay contained within itself. When tabbing outside of it, the dropdown menu stays open, obscuring the contents of the page.  \n  Example: [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet)\n\n",
+        "description": "Issue: The focus on the dropdown menu \"Klacht over de gemeente doorgeven\" (located in the main landmark of the form), which appears when zoomed in, does not stay contained within itself. When tabbing outside of it, the dropdown menu stays open, obscuring the contents of the page.  \n  Example: [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet)\n\n",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -812,7 +812,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:50.059Z",
-        "description": "- Issue: The visual order of the 3 buttons (\"Tussendoor opslaan\", \"Volgende\", and \"Afbreken\") and the link (\"Vorige\") at the bottom of the Main landmark of the form changes depending on the zoom level, resulting in an unexpected tabbing order when zoomed in.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "Issue: The visual order of the 3 buttons (\"Tussendoor opslaan\", \"Volgende\", and \"Afbreken\") and the link (\"Vorige\") at the bottom of the Main landmark of the form changes depending on the zoom level, resulting in an unexpected tabbing order when zoomed in.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -927,7 +927,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:48:02.751Z",
-        "description": "- Issue: Due to the lack of a keyboard trap, the dropdown menu \"Klacht over de gemeente doorgeven\" (located in the main landmark of the form), which appears when zoomed in, can obscure focusable elements.  \n  Example: [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet)",
+        "description": "Issue: Due to the lack of a keyboard trap, the dropdown menu \"Klacht over de gemeente doorgeven\" (located in the main landmark of the form), which appears when zoomed in, can obscure focusable elements.  \n  Example: [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -1111,7 +1111,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:48:17.061Z",
-        "description": "- Issue: The [Verhuizing doorgeven](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven) page has a link \"Read this information in English\" with English text that does not have a lang attribute.",
+        "description": "Issue: The [Verhuizing doorgeven](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven) page has a link \"Read this information in English\" with English text that does not have a lang attribute.",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -1295,7 +1295,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:48:58.718Z",
-        "description": "- Issue: The suggestions for correcting errors are not always adequate. The error message for the radio button group (from the first page [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht) of the form) when nothing is filled out and the \"Volgende\" button is clicked is ' \"null\" is een ongeldige keuze.'. The error message is only provided if the mandatory input fields on the same page have been filled in. Otherwise, no error message is shown for the mandatory radio button group at all.",
+        "description": "Issue: The suggestions for correcting errors are not always adequate. The error message for the radio button group (from the first page [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht) of the form) when nothing is filled out and the \"Volgende\" button is clicked is ' \"null\" is een ongeldige keuze.'. The error message is only provided if the mandatory input fields on the same page have been filled in. Otherwise, no error message is shown for the mandatory radio button group at all.",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
