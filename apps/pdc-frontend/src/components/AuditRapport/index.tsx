@@ -37,14 +37,6 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
   return (
     <>
       {/* <CodeBlock>{JSON.stringify(badDeveloperResults, null, 2)}</CodeBlock> */}
-      {/* <Heading1>Toegankelijkheid van ...</Heading1>
-      <OrderedList>
-        {evaluation.selectSample.structuredSample.map(({ description, id, title }) => (
-          <OrderedListItem key={id}>
-            {title}: <URLData>{description}</URLData>
-          </OrderedListItem>
-        ))}
-      </OrderedList> */}
       <div>
         {' '}
         <main>
@@ -63,16 +55,6 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
               <DataListItem>
                 <DataListKey>Evaluatiedatum</DataListKey>
                 <DataListValue>{evaluation.reportFindings.date['@value']}</DataListValue>
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>Techniek gebruikt op de website</DataListKey>
-                {evaluation.exploreTarget.technologiesReliedUpon.map((i) => (
-                  <DataListValue key={i}>{i}</DataListValue>
-                ))}
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>Bijzonderheden</DataListKey>
-                <DataListValue>{evaluation.reportFindings.evaluationSpecifics}</DataListValue>
               </DataListItem>
             </DataList>
           </div>
@@ -1179,61 +1161,26 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
               </tr>
             </tbody>
           </table>
-          <Heading2>Sample of Audited Web Pages</Heading2>
-          <ol>
-            <li>
-              <span>Homepage</span> - <span>https://loket.digitaal.utrecht.nl/nl</span>
-            </li>
-            <li>
-              <span>Paspoort en identiteitskaart aanvragen</span> -
-              <span>https://loket.digitaal.utrecht.nl/nl/products/paspoort-en-identiteitskaart-aanvragen</span>
-            </li>
-            <li>
-              <span>Klacht over de gemeente doorgeven</span> -
-              <span>https://loket.digitaal.utrecht.nl/nl/products/klacht-over-de-gemeente-doorgeven</span>
-            </li>
-            <li>
-              <span>Klacht over de gemeente doorgeven - Startpagina</span> -
-              <span>https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/startpagina</span>
-            </li>
-            <li>
-              <span>Klacht over de gemeente doorgeven - Aanvraag zonder DigiD - Uw klacht</span> -
-              <span>https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht</span>
-            </li>
-            <li>
-              <span>Klacht over de gemeente doorgeven - Aanvraag zonder DigiD - Uw gegevens</span> -
-              <span>
-                https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet
-              </span>
-            </li>
-            <li>
-              <span>Klacht over de gemeente doorgeven - Aanvraag zonder DigiD - Bijlagen toevoegen</span> -
-              <span>
-                https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/bijlagen-toevoegen-klacht
-              </span>
-            </li>
-            <li>
-              <span>Klacht over de gemeente doorgeven - Aanvraag zonder DigiD - Overzicht</span> -
-              <span>https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/overzicht</span>
-            </li>
-            <li>
-              <span>Klacht over de gemeente doorgeven - Aanvraag zonder DigiD - Bevestiging</span> -
-              <span>https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/bevestiging</span>
-            </li>
-            <li>
-              <span>Verhuizing doorgeven</span> -
-              <span>https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven</span>
-            </li>
-          </ol>
-          <Heading2>Web Technology</Heading2>
-          <Paragraph>HTML,CSS,WAI-ARIA,JavaScript,SVG</Paragraph>
-          <Heading2>Recording of Evaluation Specifics</Heading2>
-          <Paragraph></Paragraph>
-          <Paragraph>
-            Evaluation tools used: Polypane, axe DevTools, Accessibility Insights for Web, WAVE (Web Accessibility
-            Evaluation Tool), Landmarks preferences, HeadingsMap, Text Spacing.
-          </Paragraph>
-          <Paragraph></Paragraph>
+          <Heading2>Deze pagina&apos;s zijn onderzocht:</Heading2>
+          <OrderedList>
+            {evaluation.selectSample.structuredSample.map(({ description, id, title }) => (
+              <OrderedListItem key={id}>
+                <Link href={description} external>
+                  {title}
+                </Link>
+              </OrderedListItem>
+            ))}
+          </OrderedList>
+
+          <Heading2>Web Technologie</Heading2>
+          <UnorderedList>
+            {evaluation.exploreTarget.technologiesReliedUpon.map((i) => (
+              <UnorderedListItem key={i}>{i}</UnorderedListItem>
+            ))}
+          </UnorderedList>
+
+          <Heading2>Bijzonderheden</Heading2>
+          <Paragraph>{evaluation.reportFindings.evaluationSpecifics}</Paragraph>
         </main>
       </div>
     </>
