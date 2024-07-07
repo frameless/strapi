@@ -37,36 +37,47 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
   return (
     <>
       {/* <CodeBlock>{JSON.stringify(badDeveloperResults, null, 2)}</CodeBlock> */}
-      <Heading1>Toegankelijkheid van ...</Heading1>
+      {/* <Heading1>Toegankelijkheid van ...</Heading1>
       <OrderedList>
         {evaluation.selectSample.structuredSample.map(({ description, id, title }) => (
           <OrderedListItem key={id}>
             {title}: <URLData>{description}</URLData>
           </OrderedListItem>
         ))}
-      </OrderedList>
+      </OrderedList> */}
       <div>
+        {' '}
         <main>
-          <Heading1>Report</Heading1>
+          <Heading1>Toegankelijkheidsevaluatierapport</Heading1>
           <div>
-            <Heading2>About the Evaluation</Heading2>
+            <Heading2>Over de Evaluatie</Heading2>
             <DataList>
               <DataListItem>
-                <DataListKey>Report Creator</DataListKey>
+                <DataListKey>Rapportmaker</DataListKey>
                 <DataListValue>{evaluation.reportFindings.evaluator}</DataListValue>
               </DataListItem>
               <DataListItem>
-                <DataListKey>Evaluation Commissioner</DataListKey>
+                <DataListKey>Opdrachtgever Evaluatie</DataListKey>
                 <DataListValue>{evaluation.reportFindings.commissioner}</DataListValue>
               </DataListItem>
               <DataListItem>
-                <DataListKey>Evaluation date</DataListKey>
+                <DataListKey>Evaluatiedatum</DataListKey>
                 <DataListValue>{evaluation.reportFindings.date['@value']}</DataListValue>
+              </DataListItem>
+              <DataListItem>
+                <DataListKey>Techniek gebruikt op de website</DataListKey>
+                {evaluation.exploreTarget.technologiesReliedUpon.map((i) => (
+                  <DataListValue key={i}>{i}</DataListValue>
+                ))}
+              </DataListItem>
+              <DataListItem>
+                <DataListKey>Bijzonderheden</DataListKey>
+                <DataListValue>{evaluation.reportFindings.evaluationSpecifics}</DataListValue>
               </DataListItem>
             </DataList>
           </div>
           <div>
-            <Heading2>Executive Summary</Heading2>
+            <Heading2>Samenvatting</Heading2>
             <div>
               <Paragraph>{evaluation.reportFindings.summary}</Paragraph>
             </div>
