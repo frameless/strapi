@@ -24,26 +24,52 @@ import wcagJSON from '../../../wcag-evaluation.json';
 type WcagEmJson = typeof wcagJSON;
 
 export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
-  const badDeveloperResults = groupBy(evaluation.auditSample, (auditSample) => {
-    return auditSample.test.id.replace(/^([^:]+):/, (match, match2) => {
+  const badDeveloperResults: DeveloperResults = groupBy(evaluation.auditSample, (auditSample: AuditSample) => {
+    return auditSample.test.id.replace(/^([^:]+):/, (match: string, match2: string) => {
       if (evaluation['@context'].hasOwnProperty(match2)) {
-        return (evaluation['@context'] as any)[match2];
+        return evaluation['@context'][match2];
       } else {
         return match;
       }
     });
   });
   console.log(badDeveloperResults);
+  interface Outcome {
+    title: 'Passed' | 'Failed' | 'Not present' | 'Cannot tell' | 'Not checked';
+  }
 
-  // Function to count the occurrences of each outcome
-  const countOutcomes = (results) => {
+  interface Result {
+    outcome: Outcome;
+    description: string;
+  }
+
+  interface Assertion {
+    type: string;
+    date: string;
+    mode: Record<string, unknown>;
+    result: Result;
+    subject: Record<string, unknown>;
+    test: Record<string, unknown>;
+  }
+
+  interface DeveloperResults {
+    [url: string]: Assertion[];
+  }
+  interface OutcomeCounts {
+    Passed: number;
+    Failed: number;
+    'Not present': number;
+    'Cannot tell': number;
+    'Not checked': number;
+  }
+  const countOutcomes = (results: DeveloperResults): OutcomeCounts => {
     return Object.values(results)
       .flat()
       .reduce(
-        (acc, item) => {
+        (acc: OutcomeCounts, item: Assertion) => {
           const outcome = item.result.outcome.title;
           acc[outcome] = (acc[outcome] || 0) + 1;
-          return acc as any;
+          return acc;
         },
         { Passed: 0, Failed: 0, 'Not present': 0, 'Cannot tell': 0, 'Not checked': 0 },
       );
