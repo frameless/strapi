@@ -57,13 +57,13 @@ jobs:
           file_name: .prod.env
           fail_on_empty: false
       - name: Test
-        run: npm run --workspaces test --if-present
+        run: yarn run test
       - name: Build
-        run: npm run --workspace packages build --if-present
+        run: yarn run build
       - name: Lint
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
-        run: npm run lint
+        run: yarn run lint
 
       - name: Publish to GitHub repository
         if: github.ref == 'refs/heads/main'
