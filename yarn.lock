@@ -4713,10 +4713,10 @@
   resolved "https://registry.yarnpkg.com/@sphinxxxx/color-conversion/-/color-conversion-2.2.2.tgz#03ecc29279e3c0c832f6185a5bfa3497858ac8ca"
   integrity sha512-XExJS3cLqgrmNBIP3bBw6+1oQ1ksGjFh0+oClDKFYpCCqx/hlqwWO5KO/S63fzUo67SxI9dMrF0y5T/Ey7h8Zw==
 
-"@stencil/core@4.8.2":
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-4.8.2.tgz#def54fa5afd8024125333451ed1dbf00c3f35e62"
-  integrity sha512-KdZEAtz9VnqMtXOkf51+8mphyRt0fN/LYgtj5M8gnveGspG8KzoyTDzlWt0wsstWIsJJ21RA1yd3AgMMZiu3MA==
+"@stencil/core@4.18.3":
+  version "4.18.3"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-4.18.3.tgz#8568ffe3db307ea36aaacf82813cfed9ae319388"
+  integrity sha512-8yoG5AFQYEPocVtuoc5kvRS0Hku0MoDWDUpADRaXPVHsOFLmxR16LJENj25ucCz5GEfeTGQ/tCE8JAypPmr/fQ==
 
 "@strapi/admin@4.14.6":
   version "4.14.6"
@@ -7198,19 +7198,19 @@
   resolved "https://registry.yarnpkg.com/@utrecht/textbox-css/-/textbox-css-1.1.0.tgz#91c70aa102b690eb5b3d2e270d80a2d5d0943cf1"
   integrity sha512-APQW299fyoNZQ/hYW8F9uET4JvzhXMbUBWT59h6sc/wwsbDBWku+ufgN4wrsYTqGSPExFKfffzRGuniaqyvBxA==
 
-"@utrecht/web-component-library-react@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.1.1.tgz#a79fc760bebe36080d6f8fefa8a91ccff93a03e3"
-  integrity sha512-JNXzaMEO5XZ3C17De/bWt7R1Ct3FqP+CYIkpDYheh+PSKGHA9LT2d9syqP2VbokT8t24OmmgoeFDAGjoHGUF8g==
+"@utrecht/web-component-library-react@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.2.0.tgz#92e6a9bc027fef6795f31ff47874424ccf1d3fda"
+  integrity sha512-M//AVotO1tqBeC9aTta1hso/0N6npHyk2JAU63iHL8CA3INaThXQOJqAopy3D+CZa7ao8FIG1LszK96JQW6R0A==
   dependencies:
-    "@utrecht/web-component-library-stencil" "1.2.1"
+    "@utrecht/web-component-library-stencil" "1.3.0"
 
-"@utrecht/web-component-library-stencil@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.2.1.tgz#1773868f465d611d29bd31fdbe31121a9e82b58e"
-  integrity sha512-bvETL02MJ20W1PKHkDMIJbcWecj893mifAJEhjSAOz+SznwIjkW9TrLF2uKgmpjdG5dK+4WyI4wTe0bSVIjQgQ==
+"@utrecht/web-component-library-stencil@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.3.0.tgz#ad05922ca2ba143e4ec23956897a5f6cfc0475d8"
+  integrity sha512-7/S36RhMXkjo17ShOyUGWbOVt7lQtMUt6aOtz/u0xuqccofEyFNp3bx77+3nT3esFFUZ7YW77CVjMtPpNJpAjQ==
   dependencies:
-    "@stencil/core" "4.8.2"
+    "@stencil/core" "4.18.3"
 
 "@vercel/blob@0.12.5":
   version "0.12.5"

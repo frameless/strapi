@@ -29,7 +29,7 @@
     "@utrecht/component-library-css": "4.0.0",
     "@utrecht/component-library-react": "4.0.0",
     "@utrecht/design-tokens": "1.0.0",
-    "@utrecht/web-component-library-react": "1.1.1",
+    "@utrecht/web-component-library-react": "1.2.0",
     "accept-language": "3.0.18",
     "classnames": "2.3.3",
     "csp-header": "5.2.1",
