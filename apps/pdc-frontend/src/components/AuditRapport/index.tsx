@@ -34,6 +34,23 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
     });
   });
   console.log(badDeveloperResults);
+
+  // Function to count the occurrences of each outcome
+  const countOutcomes = (results) => {
+    return Object.values(results)
+      .flat()
+      .reduce(
+        (acc, item) => {
+          const outcome = item.result.outcome.title;
+          acc[outcome] = (acc[outcome] || 0) + 1;
+          return acc as any;
+        },
+        { Passed: 0, Failed: 0, 'Not present': 0, 'Cannot tell': 0, 'Not checked': 0 },
+      );
+  };
+  const outcomeCounts = countOutcomes(badDeveloperResults);
+  const totalSummary = outcomeCounts.Passed + outcomeCounts.Failed + outcomeCounts['Not present'];
+
   return (
     <>
       {/* <CodeBlock>{JSON.stringify(badDeveloperResults, null, 2)}</CodeBlock> */}
@@ -95,22 +112,22 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
           </div>
           <Heading2>Detailed Audit Results</Heading2>
           <Heading3>Samenvatting</Heading3>
-          <Paragraph>Reported on 55 of 55 WCAG 2.2 AA Success Criteria.</Paragraph>
+          <Paragraph>Reported on {totalSummary} of 55 WCAG 2.2 AA Success Criteria.</Paragraph>
           <UnorderedList>
             <UnorderedListItem>
-              <span>28</span> <span>Passed</span>
+              <span>{outcomeCounts.Passed}</span> <span>Passed</span>
             </UnorderedListItem>
             <UnorderedListItem>
-              <span>16</span> <span>Failed</span>
+              <span>{outcomeCounts.Failed}</span> <span>Failed</span>
             </UnorderedListItem>
             <UnorderedListItem>
-              <span>0</span> <span>Cannot tell</span>
+              <span>{outcomeCounts['Cannot tell']}</span> <span>Cannot tell</span>
             </UnorderedListItem>
             <UnorderedListItem>
-              <span>11</span> <span>Not present</span>
+              <span>{outcomeCounts['Not present']}</span> <span>Not present</span>
             </UnorderedListItem>
             <UnorderedListItem>
-              <span>0</span> <span>Not checked</span>
+              <span>{outcomeCounts['Not checked']}</span> <span>Not checked</span>
             </UnorderedListItem>
           </UnorderedList>
           <Heading3>All Results</Heading3>
