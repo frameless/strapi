@@ -77,6 +77,14 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
   const outcomeCounts = countOutcomes(badDeveloperResults);
   const totalSummary = outcomeCounts.Passed + outcomeCounts.Failed + outcomeCounts['Not present'];
 
+  const titleMapping = {
+    Passed: 'Geslaagd',
+    Failed: 'Gefaald',
+    'Not present': 'Niet aangetroffen',
+    'Cannot tell': 'Geen uitsluitsel',
+    'Not checked': 'Niet onderzocht',
+  };
+
   return (
     <>
       {/* <CodeBlock>{JSON.stringify(badDeveloperResults, null, 2)}</CodeBlock> */}
@@ -141,19 +149,19 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
           <Paragraph>Reported on {totalSummary} of 55 WCAG 2.2 AA Success Criteria.</Paragraph>
           <UnorderedList>
             <UnorderedListItem>
-              <span>{outcomeCounts.Passed}</span> <span>Passed</span>
+              <span>{outcomeCounts.Passed}</span> <span>geslaagd</span>
             </UnorderedListItem>
             <UnorderedListItem>
-              <span>{outcomeCounts.Failed}</span> <span>Failed</span>
+              <span>{outcomeCounts.Failed}</span> <span>gefaald</span>
             </UnorderedListItem>
             <UnorderedListItem>
-              <span>{outcomeCounts['Cannot tell']}</span> <span>Cannot tell</span>
+              <span>{outcomeCounts['Cannot tell']}</span> <span>geen uitsluitsel</span>
             </UnorderedListItem>
             <UnorderedListItem>
-              <span>{outcomeCounts['Not present']}</span> <span>Not present</span>
+              <span>{outcomeCounts['Not present']}</span> <span>niet aangetroffen</span>
             </UnorderedListItem>
             <UnorderedListItem>
-              <span>{outcomeCounts['Not checked']}</span> <span>Not checked</span>
+              <span>{outcomeCounts['Not checked']}</span> <span>niet onderzocht</span>
             </UnorderedListItem>
           </UnorderedList>
           <Heading3>All Results</Heading3>
@@ -167,25 +175,37 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                 <Heading4>
                   {sc} {title}
                 </Heading4>
-                <Paragraph>Gevonden issues:</Paragraph>
                 {Array.isArray(badDeveloperResults[url]) && badDeveloperResults[url].length > 0 ? (
                   badDeveloperResults[url].length > 1 ? (
-                    <UnorderedList>
-                      {badDeveloperResults[url].map((auditSample) => (
-                        <UnorderedListItem key={auditSample.test.id}>
-                          <Paragraph>{badDeveloperResults[url][0].result.outcome.title}</Paragraph>
-                          <Markdown>{auditSample.result.description}</Markdown>
-                        </UnorderedListItem>
-                      ))}
-                    </UnorderedList>
+                    <div>
+                      <Paragraph>Gevonden issues:</Paragraph>
+                      <UnorderedList>
+                        {badDeveloperResults[url].map((auditSample) => (
+                          <UnorderedListItem key={auditSample.test.id}>
+                            <Paragraph>{titleMapping[badDeveloperResults[url][0].result.outcome.title]}</Paragraph>
+                            <Markdown>{auditSample.result.description}</Markdown>
+                          </UnorderedListItem>
+                        ))}
+                      </UnorderedList>
+                    </div>
                   ) : (
                     <div>
-                      <Paragraph>{badDeveloperResults[url][0].result.outcome.title}</Paragraph>
-                      <Markdown>{badDeveloperResults[url][0].result.description}</Markdown>
+                      <Paragraph>
+                        <strong>{titleMapping[badDeveloperResults[url][0].result.outcome.title]}.</strong>
+                      </Paragraph>
+
+                      {badDeveloperResults[url][0].result.outcome.title == 'Failed' ? (
+                        <div>
+                          <Paragraph>Gevonden issue:</Paragraph>
+                          <Markdown>{badDeveloperResults[url][0].result.description}</Markdown>
+                        </div>
+                      ) : null}
                     </div>
                   )
                 ) : (
-                  <Paragraph>Geen problemen vastgesteld.</Paragraph>
+                  <Paragraph>
+                    <strong>Geen problemen vastgesteld.</strong>
+                  </Paragraph>
                 )}
 
                 <Paragraph>
