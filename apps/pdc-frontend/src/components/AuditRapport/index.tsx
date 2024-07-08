@@ -129,13 +129,17 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                   badDeveloperResults[url].length > 1 ? (
                     <UnorderedList>
                       {badDeveloperResults[url].map((auditSample) => (
-                        <UnorderedListItem key={auditSample.id}>
+                        <UnorderedListItem key={auditSample.test.id}>
+                          <Paragraph>{badDeveloperResults[url][0].result.outcome.title}</Paragraph>
                           <Markdown>{auditSample.result.description}</Markdown>
                         </UnorderedListItem>
                       ))}
                     </UnorderedList>
                   ) : (
-                    <Markdown>{badDeveloperResults[url][0].result.description}</Markdown>
+                    <div>
+                      <Paragraph>{badDeveloperResults[url][0].result.outcome.title}</Paragraph>
+                      <Markdown>{badDeveloperResults[url][0].result.description}</Markdown>
+                    </div>
                   )
                 ) : (
                   <Paragraph>Geen problemen vastgesteld.</Paragraph>
