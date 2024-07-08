@@ -12,6 +12,10 @@ export * from '@frameless/ui';
 export { Markdown } from './Markdown';
 export { MatomoTagManager } from './MatomoTagManager';
 export { SiteImproveAnalytics } from './SiteImproveAnalytics';
+
+// Overwrite `@frameless/ui` version with `"use client"` component
+export { GoogleTranslate } from './GoogleTranslate';
+
 export const Breadcrumbs = dynamic(
   async () => {
     const Component = (await import('@frameless/ui')).Breadcrumbs;

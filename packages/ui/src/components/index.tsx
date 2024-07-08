@@ -1,5 +1,6 @@
 export { Breadcrumbs } from './Breadcrumb';
 export { HTMLHeading, type HTMLHeadingProps } from './HTMLHeading';
+export { GoogleTranslate } from './GoogleTranslate';
 export { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
 export { LoadMoreButton } from './LoadMoreButton';
 export { LogoButton } from './LogoButton';

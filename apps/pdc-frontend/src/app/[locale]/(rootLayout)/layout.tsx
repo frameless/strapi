@@ -25,6 +25,7 @@ import {
   Surface,
 } from '@/components';
 // import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
+import { GoogleTranslate } from '@/components/GoogleTranslate';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import { GET_TEMPLATE } from '@/query';
@@ -151,6 +152,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
           />
         )}
         <QueryClientProvider>
+          <GoogleTranslate />
           <Surface>
             <Page className="utrecht-custom-page">
               <PageHeader className="utrecht-custom-header">
