@@ -4,4 +4,4 @@
 "@frameless/strapi-plugin-open-forms-embed": patch
 ---
 
-Maak gebruik van de nieuwe open-formulieren API versie(2.6.7). Deze wijzigingen lossen de vertragingen op in het veld voor open formulieren in Strapi."
+Als je in Strapi een link maakt naar een formulier, dan hoef je niet meer zo lang te wachten tot de lijst met alle formulieren is geladen.

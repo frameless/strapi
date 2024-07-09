@@ -4,4 +4,4 @@
 "@frameless/strapi-plugin-language": minor
 ---
 
-Maak een taal-Strapi-plugin die helpt bij het toevoegen van taalkenmerken aan de Strapi-blok. Dit zal de toegankelijkheid voor ondersteunende technologieën zoals schermlezers verbeteren, waardoor bezoekers van het Digitaal Loket gemakkelijker en effectiever kunnen navigeren en gebruik kunnen maken van de inhoud.
+Wanneer een linktekst in een andere taal is geschreven, dan kun je nu in Strapi de taal instellen. Als je dit doet verbeter je de toegankelijkheid, want dan kan de tekst met de juiste taal voorgelezen worden.
