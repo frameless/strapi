@@ -65,54 +65,56 @@ export const ogonePaymentServices = ogoneURL
     }
   : {};
 
+const isString = (arg: any): arg is string => typeof arg === 'string';
+
 export const environmentVariableCsp = {
   'connect-src':
     typeof process.env.CSP_CONNECT_SRC_URLS === 'string'
       ? process.env.CSP_CONNECT_SRC_URLS.split(/\s+/g)
           .map((str) => normalizeURL(str))
-          .filter((x) => x !== null)
+          .filter(isString)
       : [],
   'font-src':
     typeof process.env.CSP_FONT_SRC_URLS === 'string'
       ? process.env.CSP_FONT_SRC_URLS.split(/\s+/g)
           .map((str) => normalizeURL(str))
-          .filter((x) => x !== null)
+          .filter(isString)
       : [],
   'form-action':
     typeof process.env.CSP_FORM_ACTION_URLS === 'string'
       ? process.env.CSP_FORM_ACTION_URLS.split(/\s+/g)
           .map((str) => normalizeURL(str))
-          .filter((x) => x !== null)
+          .filter(isString)
       : [],
   'frame-src':
     typeof process.env.CSP_FRAME_SRC_URLS === 'string'
       ? process.env.CSP_FRAME_SRC_URLS.split(/\s+/g)
           .map((str) => normalizeURL(str))
-          .filter((x) => x !== null)
+          .filter(isString)
       : [],
   'img-src':
     typeof process.env.CSP_IMG_SRC_URLS === 'string'
       ? process.env.CSP_IMG_SRC_URLS.split(/\s+/g)
           .map((str) => normalizeURL(str))
-          .filter((x) => x !== null)
+          .filter(isString)
       : [],
   'script-src':
     typeof process.env.CSP_SCRIPT_SRC_URLS === 'string'
       ? process.env.CSP_SCRIPT_SRC_URLS.split(/\s+/g)
           .map((str) => normalizeURL(str))
-          .filter((x) => x !== null)
+          .filter(isString)
       : [],
   'style-src':
     typeof process.env.CSP_STYLE_SRC_URLS === 'string'
       ? process.env.CSP_STYLE_SRC_URLS.split(/\s+/g)
           .map((str) => normalizeURL(str))
-          .filter((x) => x !== null)
+          .filter(isString)
       : [],
   'worker-src':
     typeof process.env.CSP_WORKER_SRC_URLS === 'string'
       ? process.env.CSP_WORKER_SRC_URLS.split(/\s+/g)
           .map((str) => normalizeURL(str))
-          .filter((x) => x !== null)
+          .filter(isString)
       : [],
 };
 
