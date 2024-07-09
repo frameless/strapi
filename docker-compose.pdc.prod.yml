@@ -44,6 +44,14 @@ services:
     restart: unless-stopped
     command: ./bin/wait-for-it.sh pdc_strapi:1337 -- npm run start:pdc-frontend
     environment:
+      CSP_CONNECT_SRC_URLS: ${CSP_CONNECT_SRC_URLS}
+      CSP_FONT_SRC_URLS: ${CSP_FONT_SRC_URLS}
+      CSP_FORM_ACTION_URLS: ${CSP_FORM_ACTION_URLS}
+      CSP_FRAME_SRC_URLS: ${CSP_FRAME_SRC_URLS}
+      CSP_IMG_SRC_URLS: ${CSP_IMG_SRC_URLS}
+      CSP_SCRIPT_SRC_URLS: ${CSP_SCRIPT_SRC_URLS}
+      CSP_STYLE_SRC_URLS: ${CSP_STYLE_SRC_URLS}
+      CSP_WORKER_SRC_URLS: ${CSP_WORKER_SRC_URLS}
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
       MATOMO_HOST: ${MATOMO_HOST}
       MATOMO_SITE_ID: ${MATOMO_SITE_ID}
