@@ -1,4 +1,4 @@
-# @frameless/vth-dashboard 1.0.0 (2023-08-22)
+# @frameless/pdc-dashboard
 
 ## 0.2.0
 
@@ -14,12 +14,8 @@
 - 82fa577: Je kunt nu in Strapi links maken naar een telefoonnummer, zodat bezoekers van het Digitaal Loket gelijk kunnen bellen als ze op de link klikken.
 - Updated dependencies [82fa577]
 - Updated dependencies [82fa577]
+- Updated dependencies [82fa577]
+- Updated dependencies [82fa577]
   - @frameless/strapi-tiptap-editor@0.0.0
-
-### Features
-
-- **vth:** add vth-dashboard app ([#152](https://github.com/frameless/strapi/issues/152)) ([869e8bd](https://github.com/frameless/strapi/commit/869e8bdd0457a3d748254a27ac6c617d5d36ab6c))
-
-### Dependencies
-
-- **@frameless/strapi-tiptap-editor:** upgraded to 1.3.0
+  - @frameless/strapi-plugin-open-forms-embed@0.0.0
+  - @frameless/strapi-plugin-language@0.0.0
