@@ -68,6 +68,10 @@ jobs:
         uses: changesets/action@aba318e9165b45b7948c60273e0b72fce0a64eb9 # v1.4.7
         id: changeset
         env:
+          GIT_AUTHOR_EMAIL: "devops@frameless.io"
+          GIT_AUTHOR_NAME: "Frameless DevOps"
+          GIT_COMMITTER_EMAIL: "devops@frameless.io"
+          GIT_COMMITTER_NAME: "Frameless DevOps"
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
