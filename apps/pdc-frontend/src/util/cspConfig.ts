@@ -1,3 +1,4 @@
+// @ts-check
 import { BLOB, CSPDirectives, DATA, EVAL, getCSP, INLINE, nonce, NONE, SELF, STRICT_DYNAMIC } from 'csp-header';
 import mergeWith from 'lodash.mergewith';
 // Using "//*" in JavaScript, especially with VSCode, can disrupt syntax highlighting and code analysis, causing confusion and hindering development.
@@ -114,7 +115,7 @@ export const environmentVariableCsp = {
           .map((str) => normalizeURL(str))
           .filter((x) => x !== null)
       : [],
-};
+} as CSPDirectives;
 
 export const chatWidget = {
   'connect-src': ['wss://virtuele-gemeente-assistent.nl', 'https://virtuele-gemeente-assistent.nl'],
