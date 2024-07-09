@@ -1,8 +1,6 @@
-'use client';
-
+import React, { type ReactNode, useId } from 'react';
+import { OpenFormsScript } from './OpenFormsScript';
 import '@open-formulieren/sdk/styles.css';
-import Script from 'next/script';
-import React, { useRef } from 'react';
 
 export type OpenFormsEmbedProps = {
   nonce: string;
@@ -11,26 +9,19 @@ export type OpenFormsEmbedProps = {
   apiUrl: string;
   sdkUrl: string;
   cssUrl: string;
+  fallback?: ReactNode;
 };
 
-export const OpenFormsEmbed = ({ nonce, basePath, slug, apiUrl, sdkUrl, cssUrl }: OpenFormsEmbedProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const onLoadOpenForms = () => {
-    if (!containerRef.current) {
-      return;
-    }
-
-    // @ts-ignore
-    const form = new window.OpenForms.OpenForm(containerRef.current, containerRef.current.dataset);
-    form.init();
-  };
+export const OpenFormsEmbed = ({ nonce, basePath, slug, apiUrl, sdkUrl, cssUrl, fallback }: OpenFormsEmbedProps) => {
+  const id = useId();
 
   return (
-    <div>
-      <div ref={containerRef} data-base-url={apiUrl} data-form-id={slug} data-base-path={basePath}></div>
+    <>
+      <div id={id} data-base-url={apiUrl} data-form-id={slug} data-base-path={basePath}>
+        {fallback}
+      </div>
       <link rel="stylesheet" nonce={nonce} href={cssUrl} />
-      <Script nonce={nonce} strategy={'afterInteractive'} src={sdkUrl} onLoad={onLoadOpenForms} />
-    </div>
+      <OpenFormsScript targetId={id} nonce={nonce} src={sdkUrl} />
+    </>
   );
 };

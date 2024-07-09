@@ -2,7 +2,15 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
-import { AdvancedLink, Breadcrumbs, Grid, GridCell, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
+import {
+  AdvancedLink,
+  Breadcrumbs,
+  Grid,
+  GridCell,
+  Heading1,
+  ScrollToTopButton,
+  UtrechtIconChevronUp,
+} from '@/components';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
 import { openFormValidator } from '@/util';
 import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
@@ -22,7 +30,8 @@ const FormPage = async ({
 }: FormPageProps) => {
   const { t } = await useTranslation(locale, 'common');
   const nonce = headers().get('x-nonce') || '';
-  await openFormValidator({ formId });
+
+  const formInfo = await openFormValidator({ formId });
 
   return (
     <>
@@ -60,6 +69,7 @@ const FormPage = async ({
             nonce={nonce}
             basePath={`/${locale}/form/${formId}/`}
             slug={formId}
+            fallback={formInfo ? <Heading1>{formInfo.name}</Heading1> : null}
           />
         </div>
         <Grid justifyContent="space-between" spacing="sm">

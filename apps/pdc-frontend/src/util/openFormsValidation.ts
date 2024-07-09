@@ -7,8 +7,14 @@ import { createOpenFormsApiUrl } from './openFormsSettings';
 type OpenFormValidatorFunction = {
   formId: string;
 };
-export const openFormValidator = async ({ formId }: OpenFormValidatorFunction) => {
-  if (!formId || !process.env.OPEN_FORMS_API_TOKEN) return;
+
+interface BasicFormInfo {
+  uuid: string;
+  name: string;
+}
+
+export const openFormValidator = async ({ formId }: OpenFormValidatorFunction): Promise<BasicFormInfo | null> => {
+  if (!formId || !process.env.OPEN_FORMS_API_TOKEN) return null;
   const { origin, pathname } = createOpenFormsApiUrl() as URL;
   const openFormsURL = `${origin}${pathname.endsWith('/') ? pathname : `${pathname}/`}forms/${formId}`;
 
@@ -26,7 +32,14 @@ export const openFormValidator = async ({ formId }: OpenFormValidatorFunction) =
     redirect('/form/error/form-server-down');
   });
 
-  if (res.status === 200) return;
+  if (res.status === 200) {
+    const json = await res.json();
+
+    return {
+      uuid: json.uuid,
+      name: json.name,
+    };
+  }
   if (res.status === 404) {
     redirect('/form/error/form-not-found');
   } else if (res.status === 401) {
@@ -40,4 +53,5 @@ export const openFormValidator = async ({ formId }: OpenFormValidatorFunction) =
   } else if (res.status >= 500) {
     redirect('/form/error/form-server-down');
   }
+  return null;
 };
