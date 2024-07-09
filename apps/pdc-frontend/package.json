@@ -1,6 +1,6 @@
 {
   "name": "@frameless/pdc-frontend",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "author": "@frameless",
   "description": "Utrecht PDC frontend application",
@@ -23,7 +23,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@frameless/ui": "0.0.0-semantically-released",
+    "@frameless/ui": "0.0.0",
     "@open-formulieren/sdk": "2.1.3",
     "@tanstack/react-query": "4.29.25",
     "@utrecht/component-library-css": "4.0.0",

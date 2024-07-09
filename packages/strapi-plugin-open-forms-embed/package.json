@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-plugin-open-forms-embed",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "description": "A strapi custom field for selecting uniform product name",
   "keywords": [],
   "private": false,
