@@ -65,6 +65,57 @@ export const ogonePaymentServices = ogoneURL
     }
   : {};
 
+export const environmentVariableCsp = {
+  'connect-src':
+    typeof process.env.CSP_CONNECT_SRC_URLS === 'string'
+      ? process.env.CSP_CONNECT_SRC_URLS.split(/\s+/g)
+          .map((str) => normalizeURL(str))
+          .filter((x) => x !== null)
+      : [],
+  'font-src':
+    typeof process.env.CSP_FONT_SRC_URLS === 'string'
+      ? process.env.CSP_FONT_SRC_URLS.split(/\s+/g)
+          .map((str) => normalizeURL(str))
+          .filter((x) => x !== null)
+      : [],
+  'form-action':
+    typeof process.env.CSP_FORM_ACTION_URLS === 'string'
+      ? process.env.CSP_FORM_ACTION_URLS.split(/\s+/g)
+          .map((str) => normalizeURL(str))
+          .filter((x) => x !== null)
+      : [],
+  'frame-src':
+    typeof process.env.CSP_FRAME_SRC_URLS === 'string'
+      ? process.env.CSP_FRAME_SRC_URLS.split(/\s+/g)
+          .map((str) => normalizeURL(str))
+          .filter((x) => x !== null)
+      : [],
+  'img-src':
+    typeof process.env.CSP_IMG_SRC_URLS === 'string'
+      ? process.env.CSP_IMG_SRC_URLS.split(/\s+/g)
+          .map((str) => normalizeURL(str))
+          .filter((x) => x !== null)
+      : [],
+  'script-src':
+    typeof process.env.CSP_SCRIPT_SRC_URLS === 'string'
+      ? process.env.CSP_SCRIPT_SRC_URLS.split(/\s+/g)
+          .map((str) => normalizeURL(str))
+          .filter((x) => x !== null)
+      : [],
+  'style-src':
+    typeof process.env.CSP_STYLE_SRC_URLS === 'string'
+      ? process.env.CSP_STYLE_SRC_URLS.split(/\s+/g)
+          .map((str) => normalizeURL(str))
+          .filter((x) => x !== null)
+      : [],
+  'worker-src':
+    typeof process.env.CSP_WORKER_SRC_URLS === 'string'
+      ? process.env.CSP_WORKER_SRC_URLS.split(/\s+/g)
+          .map((str) => normalizeURL(str))
+          .filter((x) => x !== null)
+      : [],
+};
+
 export const chatWidget = {
   'connect-src': ['wss://virtuele-gemeente-assistent.nl', 'https://virtuele-gemeente-assistent.nl'],
   'img-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
@@ -154,6 +205,7 @@ export const getContentSecurityPolicy = ({ nonce: nonceValue, node_env }: { nonc
         openForms,
         siteimproveanalytics,
         youtube,
+        environmentVariableCsp,
         node_env !== 'development' ? legacyProdCsp : undefined,
         nonceValue
           ? {
