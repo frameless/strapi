@@ -35,7 +35,8 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
   });
   console.log(badDeveloperResults);
   interface Outcome {
-    title: 'Passed' | 'Failed' | 'Not present' | 'Cannot tell' | 'Not checked';
+    title: string;
+    // 'Passed' | 'Failed' | 'Not present' | 'Cannot tell' | 'Not checked';
   }
 
   interface Result {
