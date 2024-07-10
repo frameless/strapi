@@ -80,26 +80,26 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
 
   const titleMapping = {
     Passed: 'Geslaagd',
-    Failed: 'Gefaald',
-    'Not present': 'Niet aangetroffen',
-    'Cannot tell': 'Geen uitsluitsel',
-    'Not checked': 'Niet onderzocht',
+    Failed: 'Mislukt',
+    'Not present': 'Niet aanwezig',
+    'Cannot tell': 'Kan niet worden vastgesteld',
+    'Not checked': 'Niet gecontroleerd',
   };
 
   return (
     <>
       <main>
         <Article>
-          <Heading1>Toegankelijkheidsevaluatierapport</Heading1>
+          <Heading1>Toegankelijkheidsrapport</Heading1>
           <div>
             <Heading2>Over de Evaluatie</Heading2>
             <DataList>
               <DataListItem>
-                <DataListKey>Rapportmaker</DataListKey>
+                <DataListKey>Schrijver</DataListKey>
                 <DataListValue>{evaluation.reportFindings.evaluator}</DataListValue>
               </DataListItem>
               <DataListItem>
-                <DataListKey>Opdrachtgever Evaluatie</DataListKey>
+                <DataListKey>Opdrachtgever</DataListKey>
                 <DataListValue>{evaluation.reportFindings.commissioner}</DataListValue>
               </DataListItem>
               <DataListItem>
@@ -116,34 +116,36 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
           <section>
             <Heading2>Samenvatting</Heading2>
             <div>
-              <Paragraph>{evaluation.reportFindings.summary}</Paragraph>
+              <Paragraph>
+                <Markdown>{evaluation.reportFindings.summary}</Markdown>
+              </Paragraph>
             </div>
           </section>
           <section>
-            <Heading2>Scope of the Evaluation</Heading2>
+            <Heading2>Omvang van de Evaluatie</Heading2>
             <DataList>
               <DataListItem>
-                <DataListKey>Website name</DataListKey>
+                <DataListKey>Websitenaam</DataListKey>
                 <DataListValue>{evaluation.defineScope.scope.title}</DataListValue>
               </DataListItem>
               <DataListItem>
-                <DataListKey>Scope of the website</DataListKey>
+                <DataListKey>Omvang van de website</DataListKey>
                 <DataListValue>{evaluation.defineScope.scope.description}</DataListValue>
               </DataListItem>
               <DataListItem>
-                <DataListKey>WCAG Version</DataListKey>
+                <DataListKey>WCAG-versie</DataListKey>
                 <DataListValue>{evaluation.defineScope.wcagVersion}</DataListValue>
               </DataListItem>
               <DataListItem>
-                <DataListKey>Conformance target</DataListKey>
+                <DataListKey>Doel WCAG niveau</DataListKey>
                 <DataListValue>{evaluation.defineScope.conformanceTarget}</DataListValue>
               </DataListItem>
               <DataListItem>
-                <DataListKey>Accessibility support baseline</DataListKey>
+                <DataListKey>Toegankelijkheid Ondersteuningsbasis</DataListKey>
                 <DataListValue>{evaluation.defineScope.accessibilitySupportBaseline}</DataListValue>
               </DataListItem>
               <DataListItem>
-                <DataListKey>Additional evaluation requirements</DataListKey>
+                <DataListKey>Aanvullende eisten voor de evaluatie</DataListKey>
                 <DataListValue>{evaluation.defineScope.additionalEvaluationRequirements}</DataListValue>
               </DataListItem>
             </DataList>
