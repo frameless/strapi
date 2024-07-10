@@ -8,14 +8,12 @@ import {
   Heading2,
   Heading3,
   Heading4,
-  Heading5,
   Link,
   OrderedList,
   OrderedListItem,
   Paragraph,
   UnorderedList,
   UnorderedListItem,
-  URLData,
 } from '@utrecht/component-library-react';
 import { groupBy } from 'lodash';
 import { Markdown } from '@/components';
@@ -24,15 +22,16 @@ import wcagJSON from '../../../wcag-evaluation.json';
 type WcagEmJson = typeof wcagJSON;
 
 export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
-  const badDeveloperResults: DeveloperResults = groupBy(evaluation.auditSample, (auditSample: AuditSample) => {
+  const badDeveloperResults: DeveloperResults = groupBy(evaluation.auditSample, (auditSample: any) => {
     return auditSample.test.id.replace(/^([^:]+):/, (match: string, match2: string) => {
-      if (evaluation['@context'].hasOwnProperty(match2)) {
-        return evaluation['@context'][match2];
+      if (Object.prototype.hasOwnProperty.call(evaluation['@context'], match2)) {
+        return evaluation['@context'][match2 as keyof (typeof evaluation)['@context']];
       } else {
         return match;
       }
     });
   });
+  // eslint-disable-next-line no-console
   console.log(badDeveloperResults);
   interface Outcome {
     title: string;
@@ -69,7 +68,7 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
       .reduce(
         (acc: OutcomeCounts, item: Assertion) => {
           const outcome = item.result.outcome.title;
-          acc[outcome] = (acc[outcome] || 0) + 1;
+          acc[outcome as keyof typeof outcomeCounts] = (acc[outcome as keyof typeof outcomeCounts] || 0) + 1;
           return acc;
         },
         { Passed: 0, Failed: 0, 'Not present': 0, 'Cannot tell': 0, 'Not checked': 0 },
@@ -181,9 +180,15 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                     <div>
                       <Paragraph>Gevonden issues:</Paragraph>
                       <UnorderedList>
-                        {badDeveloperResults[url].map((auditSample) => (
-                          <UnorderedListItem key={auditSample.test.id}>
-                            <Paragraph>{titleMapping[badDeveloperResults[url][0].result.outcome.title]}</Paragraph>
+                        {badDeveloperResults[url].map((auditSample, index) => (
+                          <UnorderedListItem key={index}>
+                            <Paragraph>
+                              {
+                                titleMapping[
+                                  badDeveloperResults[url][0].result.outcome.title as keyof typeof titleMapping
+                                ]
+                              }
+                            </Paragraph>
                             <Markdown>{auditSample.result.description}</Markdown>
                           </UnorderedListItem>
                         ))}
@@ -192,10 +197,12 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                   ) : (
                     <div>
                       <Paragraph>
-                        <strong>{titleMapping[badDeveloperResults[url][0].result.outcome.title]}.</strong>
+                        <strong>
+                          {titleMapping[badDeveloperResults[url][0].result.outcome.title as keyof typeof titleMapping]}.
+                        </strong>
                       </Paragraph>
 
-                      {badDeveloperResults[url][0].result.outcome.title == 'Failed' ? (
+                      {badDeveloperResults[url][0].result.outcome.title === 'Failed' ? (
                         <div>
                           <Paragraph>Gevonden issue:</Paragraph>
                           <Markdown>{badDeveloperResults[url][0].result.description}</Markdown>
