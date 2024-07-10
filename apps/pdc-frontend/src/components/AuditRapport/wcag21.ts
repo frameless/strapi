@@ -722,3 +722,5 @@ export const successCriteria = [
     },
   },
 ];
+
+export const successCriteriaMap = new Map(successCriteria.map((data) => [data.url, data]));
