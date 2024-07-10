@@ -82,7 +82,7 @@
     "id": "_:exploreTarget",
     "essentialFunctionality": "- completing and submitting a form provided on the website",
     "pageTypeVariety": "",
-    "technologiesReliedUpon": ["HTML", "CSS", "WAI-ARIA", "JavaScript", "SVG"]
+    "technologiesReliedUpon": ["HTML", "CSS", "WAI-ARIA", "JavaScript", "SVG", "React", "Next.js", "NL Design System"]
   },
   "selectSample": {
     "id": "_:selectSample",
@@ -1438,6 +1438,6 @@
       { "id": "_:exploreTarget" },
       { "id": "_:selectSample" }
     ],
-    "evaluationSpecifics": "Evaluation tools used: Polypane, axe DevTools, Accessibility Insights for Web, WAVE (Web Accessibility Evaluation Tool), Landmarks preferences, HeadingsMap, Text Spacing."
+    "evaluationSpecifics": "Evaluation tools used: Polypane (versie 20.0.0), axe DevTools (versie 4.9.1), Accessibility Insights for Web (versie 2.43.0), WAVE (Web Accessibility Evaluation Tool, versie 3.2.5.3), Landmarks preferences (versie 2.12.0), HeadingsMap (4.8.4), Text Spacing (bookmarklet)."
   }
 }
