@@ -1,0 +1,8 @@
+strapi:
+  label: Strapi
+  permalink: /strapi
+  description: Strapi
+google-translate:
+  label: Google Translate
+  permalink: /google-translate
+  description: Google Translate

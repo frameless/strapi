@@ -57,6 +57,7 @@ module.exports = {
           './apps/pdc-dashboard/tsconfig.json',
           './apps/pdc-frontend/tsconfig.json',
           './apps/pdc-sc/tsconfig.json',
+          './apps/strapi.frameless.io/tsconfig.json',
           './apps/vth-dashboard/src/admin/tsconfig.json',
           './apps/vth-dashboard/tsconfig.json',
           './apps/vth-frontend/tsconfig.json',

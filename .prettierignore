@@ -10,6 +10,8 @@ dist
 build
 tmp
 .cache
+.cache-loader
+.docusaurus
 .next
 CHANGELOG.md
 package-lock.json
