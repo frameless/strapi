@@ -167,7 +167,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:25:39.650Z",
-        "description": "Issue: Sommige afbeeldingen (bijv. DigiD) hebben geen toegankelijke tekst. De knop ernaast geeft niet de informatie die door de afbeelding wordt overgebracht. De afbeelding wordt genegeerd door de schermlezer, waardoor de knoptekst (\"Geef verhuizing door\") minder begrijpelijk is voor schermlezergebruikers dan voor ziende gebruikers.  \n  Voorbeeld: [Verhuizing doorgeven - Button](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven)\n",
+        "description": "Sommige afbeeldingen (bijv. DigiD) hebben geen toegankelijke tekst. De knop ernaast geeft niet de informatie die door de afbeelding wordt overgebracht. De afbeelding wordt genegeerd door de schermlezer, waardoor de knoptekst (\"Geef verhuizing door\") minder begrijpelijk is voor schermlezergebruikers dan voor ziende gebruikers.  \n  Voorbeeld: [Verhuizing doorgeven - Button](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven)\n",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -351,7 +351,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:25:18.899Z",
-        "description": "Issue: De betekenis van de sterretjes naast de invoerveldlabels op het formulier wordt nooit uitgelegd. Gebruikers moeten maar aannemen dat de sterretjes aangeven dat het gerelateerde invoerveld verplicht is.  \n  Example: [Formulier - Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "De betekenis van de sterretjes naast de invoerveldlabels op het formulier wordt nooit uitgelegd. Gebruikers moeten maar aannemen dat de sterretjes aangeven dat het gerelateerde invoerveld verplicht is.  \n  Example: [Formulier - Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -397,7 +397,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:46:39.996Z",
-        "description": "Issue: Niet alle geschikte invoervelden op de [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet) pagina hebben het autocomplete attribuut, waardoor de browser ze niet automatisch kan invullen.",
+        "description": "Niet alle geschikte invoervelden op de [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet) pagina hebben het autocomplete attribuut, waardoor de browser ze niet automatisch kan invullen.",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -420,7 +420,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:46:48.611Z",
-        "description": "Issue: De [Overzicht (Controleer en Bevestig)](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/overzicht) pagina heeft enkele verplichte selectievakjes met een rode rand. De kleur rood is de enige indicator dat het selectievakje ongeldig is.",
+        "description": "De [Overzicht (Controleer en Bevestig)](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/overzicht) pagina heeft enkele verplichte selectievakjes met een rode rand. De kleur rood is de enige indicator dat het selectievakje ongeldig is.",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -512,7 +512,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:46:56.022Z",
-        "description": "Issue: Sommige afbeeldingen (bijv. DigiD) hebben geen toegankelijke tekst. De knop ernaast geeft niet de informatie die door de afbeelding wordt overgebracht. De afbeelding wordt genegeerd door de schermlezer, waardoor de knoptekst (\"Geef verhuizing door\") minder begrijpelijk is voor schermlezergebruikers dan voor ziende gebruikers.  \n  Voorbeeld: [Verhuizing doorgeven - Button](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven)\n",
+        "description": "Sommige afbeeldingen (bijv. DigiD) hebben geen toegankelijke tekst. De knop ernaast geeft niet de informatie die door de afbeelding wordt overgebracht. De afbeelding wordt genegeerd door de schermlezer, waardoor de knoptekst (\"Geef verhuizing door\") minder begrijpelijk is voor schermlezergebruikers dan voor ziende gebruikers.  \n  Voorbeeld: [Verhuizing doorgeven - Button](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven)\n",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -535,7 +535,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:06.514Z",
-        "description": "Issue: De visuele volgorde van de 3 knoppen (\"Tussendoor opslaan\", \"Volgende\", and \"Afbreken\") en de link (\"Vorige\") onderaan het hoofdgedeelte van het formulier verandert afhankelijk van het zoomniveau. Dit resulteert in een onverwachte tabvolgorde bij inzoomen.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "De visuele volgorde van de 3 knoppen (\"Tussendoor opslaan\", \"Volgende\", and \"Afbreken\") en de link (\"Vorige\") onderaan het hoofdgedeelte van het formulier verandert afhankelijk van het zoomniveau. Dit resulteert in een onverwachte tabvolgorde bij inzoomen.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -604,7 +604,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:14.712Z",
-        "description": "Issue: De inhoud van de tooltips op het formulier verbergt niet-decoratieve inhoud bij inzoomen en hoveren. De tooltip-inhoud kan niet worden gesloten door op de Escape-toets te drukken.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "De inhoud van de tooltips op het formulier verbergt niet-decoratieve inhoud bij inzoomen en hoveren. De tooltip-inhoud kan niet worden gesloten door op de Escape-toets te drukken.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -627,7 +627,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:27.957Z",
-        "description": "- Issue: De inhoud van de tooltips op het formulier is niet toegankelijk voor alleen-toetsenbordgebruikers (of gebruikers van schermlezers).  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)\n\n- Issue: De sluitknop van de \"Opslaan en later verdergaan\" modal, die wordt gebruikt om de voortgang van het formulier op te slaan, kan niet worden gefocust door de toetsenbordgebruiker. Als er geen inhoud is ingevuld en de gebruiker op de knop \"Later verdergaan\" drukt, wordt deze knop uitgeschakeld. Dit betekent dat de gebruiker de modal alleen kan sluiten door op de Escape-toets te drukken.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "- De inhoud van de tooltips op het formulier is niet toegankelijk voor alleen-toetsenbordgebruikers (of gebruikers van schermlezers).  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)\n\n- De sluitknop van de \"Opslaan en later verdergaan\" modal, die wordt gebruikt om de voortgang van het formulier op te slaan, kan niet worden gefocust door de toetsenbordgebruiker. Als er geen inhoud is ingevuld en de gebruiker op de knop \"Later verdergaan\" drukt, wordt deze knop uitgeschakeld. Dit betekent dat de gebruiker de modal alleen kan sluiten door op de Escape-toets te drukken.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -650,7 +650,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:39.464Z",
-        "description": "Issue: Bij het dropdownmenu \"Klacht over de gemeente doorgeven\" (geplaatst in het hoofdgedeelte van het formulier), dat verschijnt wanneer er wordt ingezoomd, blijft de focus niet binnen het menu. Wanneer men buiten het menu tabt, blijft het dropdownmenu open, waardoor de inhoud van de pagina wordt bedekt.  \n  Example: [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet)\n\n",
+        "description": "Bij het dropdownmenu \"Klacht over de gemeente doorgeven\" (geplaatst in het hoofdgedeelte van het formulier), dat verschijnt wanneer er wordt ingezoomd, blijft de focus niet binnen het menu. Wanneer men buiten het menu tabt, blijft het dropdownmenu open, waardoor de inhoud van de pagina wordt bedekt.  \n  Example: [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet)\n\n",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -811,7 +811,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:47:50.059Z",
-        "description": "Issue: De visuele volgorde van de 3 knoppen (\"Tussendoor opslaan\", \"Volgende\", and \"Afbreken\") en de link (\"Vorige\") onderaan het hoofdgedeelte van het formulier verandert afhankelijk van het zoomniveau. Dit resulteert in een onverwachte tabvolgorde bij inzoomen.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "De visuele volgorde van de 3 knoppen (\"Tussendoor opslaan\", \"Volgende\", and \"Afbreken\") en de link (\"Vorige\") onderaan het hoofdgedeelte van het formulier verandert afhankelijk van het zoomniveau. Dit resulteert in een onverwachte tabvolgorde bij inzoomen.  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -926,7 +926,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:48:02.751Z",
-        "description": "Issue: Bij het dropdownmenu \"Klacht over de gemeente doorgeven\" (geplaatst in het hoofdgedeelte van het formulier), dat verschijnt wanneer er wordt ingezoomd, blijft de focus niet binnen het menu. Wanneer men buiten het menu tabt, blijft het dropdownmenu open, waardoor de inhoud van de pagina wordt bedekt.  \n  Example: [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet)",
+        "description": "Bij het dropdownmenu \"Klacht over de gemeente doorgeven\" (geplaatst in het hoofdgedeelte van het formulier), dat verschijnt wanneer er wordt ingezoomd, blijft de focus niet binnen het menu. Wanneer men buiten het menu tabt, blijft het dropdownmenu open, waardoor de inhoud van de pagina wordt bedekt.  \n  Example: [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -1110,7 +1110,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:48:17.061Z",
-        "description": "Issue: De pagina [Verhuizing doorgeven](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven) heeft een link \"Read this information in English\" met Engelse tekst die geen lang-attribuut heeft.",
+        "description": "De pagina [Verhuizing doorgeven](https://loket.digitaal.utrecht.nl/nl/products/verhuizing-doorgeven) heeft een link \"Read this information in English\" met Engelse tekst die geen lang-attribuut heeft.",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -1248,7 +1248,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:48:34.169Z",
-        "description": "- Issue: De foutmeldingen voor de invoervelden op het formulier zijn inconsistent en onvolledig. De invoervelden op de pagina [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet) geven onvoldoende informatie over het vereiste gegevensformaat. Alleen het invoerveld \"Telefoonnummer\" biedt een nuttige foutmelding, maar deze foutmelding verschijnt alleen nadat enkele cijfers in dat invoerveld zijn ingevoerd. Als het invoerveld leeg is, is de foutmelding \"Het verplichte veld Telefoonnummer is niet ingevuld.\"\n\n- Issue: Op de eerste pagina [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht) van het formulier ontbreekt een foutmelding voor de groep radio knoppen wanneer er niets is ingevuld en op de knop \"Volgende\" wordt geklikt. De niet-behulpzame foutmelding ' \"null\" is een ongeldige keuze. ' verschijnt alleen als alle andere invoervelden op de pagina zijn ingevuld en de gebruiker op de knop \"Volgende\" klikt.\n\n\n- Issue: De foutmeldingen worden niet voorgelezen door de schermlezer.\n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)\n",
+        "description": "- De foutmeldingen voor de invoervelden op het formulier zijn inconsistent en onvolledig. De invoervelden op de pagina [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet) geven onvoldoende informatie over het vereiste gegevensformaat. Alleen het invoerveld \"Telefoonnummer\" biedt een nuttige foutmelding, maar deze foutmelding verschijnt alleen nadat enkele cijfers in dat invoerveld zijn ingevoerd. Als het invoerveld leeg is, is de foutmelding \"Het verplichte veld Telefoonnummer is niet ingevuld.\"\n\n- Op de eerste pagina [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht) van het formulier ontbreekt een foutmelding voor de groep radio knoppen wanneer er niets is ingevuld en op de knop \"Volgende\" wordt geklikt. De niet-behulpzame foutmelding ' \"null\" is een ongeldige keuze. ' verschijnt alleen als alle andere invoervelden op de pagina zijn ingevuld en de gebruiker op de knop \"Volgende\" klikt.\n\n\n- De foutmeldingen worden niet voorgelezen door de schermlezer.\n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)\n",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -1271,7 +1271,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:48:46.928Z",
-        "description": "- Issue: Er worden geen tekstinstructies gegeven aan het begin van de pagina [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet) die de vereiste invoer voor de verplichte invoervelden en hun opmaak beschrijven. Bijvoorbeeld, het invoerveld \"Telefoonnummer\" toont alleen de nuttige foutmelding \"Dit is geen geldig internationaal telefoonnummer. Een geldig voorbeeld van een internationaal telefoonnummer is +31612312312.Dit is geen geldig Nederlands telefoonnummer. Een geldig voorbeeld van een Nederlands telefoonnummer is 0612312312.\" als de gebruiker ten minste één cijfer erin schrijft. Als het invoerveld leeg is, is  \"Het verplichte veld Telefoonnummer is niet ingevuld.\"\n\n- Issue: Het invoerveld van het zoekformulier rechtsboven op de pagina heeft nu geen werkend label. Het aria-labelledby-attribuut verwijst op 2 plaatsen naar een element dat niet op de pagina bestaat.  \n  Example: [Bijlagen toevoegen](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/bijlagen-toevoegen-klacht)",
+        "description": "- Er worden geen tekstinstructies gegeven aan het begin van de pagina [Uw gegevens](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-gegevenscompleet) die de vereiste invoer voor de verplichte invoervelden en hun opmaak beschrijven. Bijvoorbeeld, het invoerveld \"Telefoonnummer\" toont alleen de nuttige foutmelding \"Dit is geen geldig internationaal telefoonnummer. Een geldig voorbeeld van een internationaal telefoonnummer is +31612312312.Dit is geen geldig Nederlands telefoonnummer. Een geldig voorbeeld van een Nederlands telefoonnummer is 0612312312.\" als de gebruiker ten minste één cijfer erin schrijft. Als het invoerveld leeg is, is  \"Het verplichte veld Telefoonnummer is niet ingevuld.\"\n\n- Het invoerveld van het zoekformulier rechtsboven op de pagina heeft nu geen werkend label. Het aria-labelledby-attribuut verwijst op 2 plaatsen naar een element dat niet op de pagina bestaat.  \n  Example: [Bijlagen toevoegen](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/bijlagen-toevoegen-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -1294,7 +1294,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:48:58.718Z",
-        "description": "Issue:  De suggesties voor het corrigeren van fouten zijn niet altijd behulpzaam. Voor de groep radio-knoppen (van de eerste pagina [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht) van het formulier), wanneer er niets is ingevuld en op de knop \"Volgende\" wordt geklikt, is de foutmelding ' \"null\" is een ongeldige keuze.'. De foutmelding wordt alleen verschijnt als de verplichte invoervelden op dezelfde pagina zijn ingevuld. Anders wordt er helemaal geen foutmelding weergegeven voor de verplichte groep radio-knoppen.",
+        "description": "De suggesties voor het corrigeren van fouten zijn niet altijd behulpzaam. Voor de groep radio-knoppen (van de eerste pagina [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht) van het formulier), wanneer er niets is ingevuld en op de knop \"Volgende\" wordt geklikt, is de foutmelding ' \"null\" is een ongeldige keuze.'. De foutmelding wordt alleen verschijnt als de verplichte invoervelden op dezelfde pagina zijn ingevuld. Anders wordt er helemaal geen foutmelding weergegeven voor de verplichte groep radio-knoppen.",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -1386,7 +1386,7 @@
       "result": {
         "type": "TestResult",
         "date": "2024-06-25T10:49:09.290Z",
-        "description": "- Issue: De inhoud van de tooltips op het formulier verbergtniet-decoratieve inhoud bij inzoomen en hoveren. De tooltip-inhoud kan niet worden gesloten door op de Escape-toets te drukken.\n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)\n\n- Issue: De inhoud van de tooltips op het formulier is niet toegankelijk voor alleen-toetsenbordgebruikers (of gebruikers van schermlezers).  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
+        "description": "- De inhoud van de tooltips op het formulier verbergt niet-decoratieve inhoud bij inzoomen en hoveren. De tooltip-inhoud kan niet worden gesloten door op de Escape-toets te drukken.\n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)\n\n- De inhoud van de tooltips op het formulier is niet toegankelijk voor alleen-toetsenbordgebruikers (of gebruikers van schermlezers).  \n  Example: [Uw Klacht](https://loket.digitaal.utrecht.nl/nl/form/klacht-over-de-gemeente-doorgeven/stap/uw-klacht)",
         "outcome": { "id": "earl:failed", "type": ["OutcomeValue", "Fail"], "title": "Failed" }
       },
       "subject": {
@@ -1428,7 +1428,7 @@
   ],
   "reportFindings": {
     "date": { "type": "http://www.w3.org/TR/NOTE-datetime", "@value": "Mon Jun 24 2024" },
-    "summary": "De toegankelijkheid van de website is aanzienlijk verbeterd sinds de laatste evaluatie. Er zijn nog enkele problemen op aantal pagina's door het herhaald gebruik van bepaalde componenten, maar de meeste problemen worden aangetroffen in het geëvalueerde formulier.\n\n Het rapport laat zien dat aan 28 succescriteria is voldaan en aan 16 niet. We nemen toegankelijkheid zeer serieus en zullen hard werken om de website te verbeteren om in de nabije toekomst een betere evaluatiescore te behalen.",
+    "summary": "De toegankelijkheid van de website is aanzienlijk verbeterd sinds de laatste evaluatie. Er zijn nog enkele problemen op aantal pagina's door het herhaald gebruik van bepaalde componenten, maar de meeste problemen worden aangetroffen in het formulier.\n\n Het rapport laat zien dat aan 28 succescriteria is voldaan en aan 16 niet. We nemen toegankelijkheid zeer serieus en zullen hard werken om de website te verbeteren om in de nabije toekomst een betere evaluatiescore te behalen.",
     "title": "",
     "commissioner": "Gemeente Utrecht",
     "evaluator": "Savitri Sepulveda van Frameless",
@@ -1438,6 +1438,6 @@
       { "id": "_:exploreTarget" },
       { "id": "_:selectSample" }
     ],
-    "evaluationSpecifics": "Evaluation tools used: Polypane (versie 20.0.0), axe DevTools (versie 4.9.1), Accessibility Insights for Web (versie 2.43.0), WAVE (Web Accessibility Evaluation Tool, versie 3.2.5.3), Landmarks preferences (versie 2.12.0), HeadingsMap (4.8.4), Text Spacing (bookmarklet)."
+    "evaluationSpecifics": "Gebruikte hulpprogramma's: Polypane (versie 20.0.0), axe DevTools (versie 4.9.1), Accessibility Insights for Web (versie 2.43.0), WAVE (Web Accessibility Evaluation Tool, versie 3.2.5.3), Landmarks preferences (versie 2.12.0), HeadingsMap (4.8.4), Text Spacing (bookmarklet)."
   }
 }
