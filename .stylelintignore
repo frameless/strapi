@@ -1,7 +1,13 @@
+<!-- Ignore Docusuarus website, for now -->
+
+apps/strapi.frameless.io/
+
 <!-- Ignore 3rd party files -->
+
 node_modules/
 
 <!-- Ignore generated files -->
+
 dist/
 tmp/
 build/
