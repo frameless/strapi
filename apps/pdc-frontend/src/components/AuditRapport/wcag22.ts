@@ -2,7 +2,19 @@
 
 import { successCriteria as wcag21 } from './wcag21';
 
-export const successCriteria = [
+interface SuccessCriterium {
+  sc: string;
+  title: string;
+  url: string;
+  conformance: string | 'A' | 'AA' | 'AAA';
+  nl: {
+    title: string;
+  };
+  nldesignsystem?: boolean;
+  since?: string | 'WCAG20' | 'WCAG21' | 'WCAG22';
+}
+
+export const successCriteria: SuccessCriterium[] = [
   ...wcag21.map((obj) => ({
     ...obj,
     url: obj.url.replace(/WCAG21/i, 'WCAG22'),
@@ -15,6 +27,7 @@ export const successCriteria = [
     nl: {
       title: 'Focus niet bedekt (minimum)',
     },
+    since: 'WCAG22',
   },
   {
     sc: '2.4.12',
@@ -24,6 +37,7 @@ export const successCriteria = [
     nl: {
       title: 'Focus niet bedekt (uitgebreid)',
     },
+    since: 'WCAG22',
   },
   {
     sc: '2.4.13',
@@ -34,6 +48,7 @@ export const successCriteria = [
     nl: {
       title: 'Focusweergave',
     },
+    since: 'WCAG22',
   },
   {
     sc: '2.5.7',
@@ -43,6 +58,7 @@ export const successCriteria = [
     nl: {
       title: 'Sleepbewegingen',
     },
+    since: 'WCAG22',
   },
   {
     sc: '2.5.8',
@@ -52,6 +68,7 @@ export const successCriteria = [
     nl: {
       title: 'Grootte van het aanwijsgebied (minimum)',
     },
+    since: 'WCAG22',
   },
   {
     sc: '3.2.6',
@@ -61,6 +78,7 @@ export const successCriteria = [
     nl: {
       title: 'Consistente hulp',
     },
+    since: 'WCAG22',
   },
   {
     sc: '3.3.7',
@@ -70,6 +88,7 @@ export const successCriteria = [
     nl: {
       title: 'Overbodige invoer',
     },
+    since: 'WCAG22',
   },
   {
     sc: '3.3.8',
@@ -79,6 +98,7 @@ export const successCriteria = [
     nl: {
       title: 'Toegankelijke authenticatie (minimum)',
     },
+    since: 'WCAG22',
   },
   {
     sc: '3.3.9',
@@ -88,5 +108,8 @@ export const successCriteria = [
     nl: {
       title: 'Toegankelijke authenticatie (uitgebreid)',
     },
+    since: 'WCAG22',
   },
 ];
+
+export const successCriteriaMap = new Map(successCriteria.map((data) => [data.url, data]));

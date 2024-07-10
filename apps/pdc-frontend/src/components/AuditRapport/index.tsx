@@ -1,26 +1,77 @@
 /* eslint-disable @next/next/no-head-element */
+/* eslint-disable react/no-unescaped-entities */
 import {
   Article,
+  DataBadge,
   DataList,
   DataListItem,
   DataListKey,
   DataListValue,
+  FormField,
+  Heading,
   Heading1,
   Heading2,
   Heading3,
-  Heading4,
+  HeadingGroup,
   Link,
-  OrderedList,
-  OrderedListItem,
+  LinkList,
+  LinkListLink,
   Paragraph,
+  PreHeading,
+  SpotlightSection,
   UnorderedList,
   UnorderedListItem,
 } from '@utrecht/component-library-react';
 import { groupBy } from 'lodash';
-import { Markdown } from '@/components';
-import { successCriteria } from './wcag22';
+import { Markdown, UtrechtIconChevronRight } from '@/components';
+import { wcagIntro } from './intro';
+import { successCriteria, successCriteriaMap } from './wcag22';
 import wcagJSON from '../../../wcag-evaluation.json';
+import { DigiToegankelijkStatus } from '../DigiToegankelijkStatus';
 type WcagEmJson = typeof wcagJSON;
+
+interface WcagSpotlightSectionProps {
+  sc: string;
+  nldesignsystem?: boolean;
+  title: string;
+}
+const WcagSpotlightSection = ({ sc, nldesignsystem, title }: WcagSpotlightSectionProps) => {
+  return (
+    <SpotlightSection type="info">
+      {sc in wcagIntro && <Markdown>{wcagIntro[sc]}</Markdown>}
+      {nldesignsystem && (
+        <>
+          <Paragraph>Lees meer bij NL Design System:</Paragraph>
+          <LinkList>
+            <LinkListLink icon={<UtrechtIconChevronRight />} href={`https://nldesignsystem.nl/wcag/${sc}`} external>
+              WCAG-succescriteria uitgelegd: {title}
+            </LinkListLink>
+          </LinkList>
+        </>
+      )}
+    </SpotlightSection>
+  );
+};
+
+const technologyUrls: { [index: string]: string } = {
+  HTML: 'https://html.spec.whatwg.org/',
+  CSS: 'https://www.w3.org/Style/CSS/Overview.en.html',
+  JavaScript: 'https://ecma-international.org/publications-and-standards/standards/ecma-262/',
+  'WAI-ARIA': 'https://www.w3.org/TR/wai-aria/',
+  'NL Design System': 'https://nldesignsystem.nl/',
+  'Next.js': 'https://nextjs.org',
+  SVG: 'https://www.w3.org/TR/SVG2/',
+  React: 'https://react.dev/',
+};
+
+const TechnologyLink = ({ technology }: { technology: string }) =>
+  typeof technology === 'string' && technology in technologyUrls ? (
+    <Link href={technologyUrls[technology]} external>
+      {technology}
+    </Link>
+  ) : (
+    <span>{technology}</span>
+  );
 
 export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
   const badDeveloperResults: DeveloperResults = groupBy(evaluation.auditSample, (auditSample: any) => {
@@ -32,9 +83,9 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
       }
     });
   });
-  // eslint-disable-next-line no-console
-  console.log(badDeveloperResults);
+
   interface Outcome {
+    id?: string;
     title: string;
     // 'Passed' | 'Failed' | 'Not present' | 'Cannot tell' | 'Not checked';
   }
@@ -80,7 +131,7 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
 
   const titleMapping = {
     Passed: 'Geslaagd',
-    Failed: 'Mislukt',
+    Failed: 'Niet goed genoeg',
     'Not present': 'Niet aanwezig',
     'Cannot tell': 'Kan niet worden vastgesteld',
     'Not checked': 'Niet gecontroleerd',
@@ -88,31 +139,27 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
 
   return (
     <>
-      <main>
+      <main className="utrecht-audit-report">
         <Article>
-          <Heading1>Toegankelijkheidsrapport</Heading1>
-          <div>
-            <Heading2>Over de Evaluatie</Heading2>
-            <DataList>
-              <DataListItem>
-                <DataListKey>Schrijver</DataListKey>
-                <DataListValue>{evaluation.reportFindings.evaluator}</DataListValue>
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>Opdrachtgever</DataListKey>
-                <DataListValue>{evaluation.reportFindings.commissioner}</DataListValue>
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>Evaluatiedatum</DataListKey>
-                <DataListValue>
-                  {new Intl.DateTimeFormat('nl-NL', {
-                    dateStyle: 'full',
-                    timeZone: 'Europe/Amsterdam',
-                  }).format(new Date(evaluation.reportFindings.date['@value']))}
-                </DataListValue>
-              </DataListItem>
-            </DataList>
-          </div>
+          <HeadingGroup>
+            <Heading1>Toegankelijkheidsrapport</Heading1>
+            <Paragraph>
+              {evaluation.reportFindings.evaluator} voor {evaluation.reportFindings.commissioner}
+              {' — '}
+              {new Intl.DateTimeFormat('nl-NL', {
+                dateStyle: 'full',
+                timeZone: 'Europe/Amsterdam',
+              }).format(new Date(evaluation.reportFindings.date['@value']))}
+            </Paragraph>
+          </HeadingGroup>
+          <Paragraph>
+            <DigiToegankelijkStatus
+              criteriaTested={50}
+              criteriaFailed={16}
+              evaluationDate={new Date(evaluation.reportFindings.date['@value']).toISOString()}
+              renderDate={new Date().toISOString()}
+            ></DigiToegankelijkStatus>
+          </Paragraph>
           <section>
             <Heading2>Samenvatting</Heading2>
             <div>
@@ -122,37 +169,52 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
             </div>
           </section>
           <section>
-            <Heading2>Omvang van de Evaluatie</Heading2>
-            <DataList>
-              <DataListItem>
-                <DataListKey>Websitenaam</DataListKey>
-                <DataListValue>{evaluation.defineScope.scope.title}</DataListValue>
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>Omvang van de website</DataListKey>
-                <DataListValue>{evaluation.defineScope.scope.description}</DataListValue>
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>WCAG-versie</DataListKey>
-                <DataListValue>{evaluation.defineScope.wcagVersion}</DataListValue>
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>Doel WCAG niveau</DataListKey>
-                <DataListValue>{evaluation.defineScope.conformanceTarget}</DataListValue>
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>Toegankelijkheid Ondersteuningsbasis</DataListKey>
-                <DataListValue>{evaluation.defineScope.accessibilitySupportBaseline}</DataListValue>
-              </DataListItem>
-              <DataListItem>
-                <DataListKey>Aanvullende eisten voor de evaluatie</DataListKey>
-                <DataListValue>{evaluation.defineScope.additionalEvaluationRequirements}</DataListValue>
-              </DataListItem>
-            </DataList>
+            <Heading2>De steekproef</Heading2>
+            <Paragraph>
+              De volgende {evaluation.selectSample.structuredSample.length} pagina's zijn onderzocht op
+              toegankelijkheid:
+            </Paragraph>
+            <UnorderedList>
+              {evaluation.selectSample.structuredSample.map(({ description, id, title }) => (
+                <UnorderedListItem key={id}>
+                  <Link href={description} external>
+                    {title}
+                  </Link>
+                </UnorderedListItem>
+              ))}
+            </UnorderedList>
           </section>
           <section>
-            <Heading2>Detailed Audit Results</Heading2>
-            <section>
+            <Heading2>Gevonden problemen</Heading2>
+            <Paragraph>
+              De website werkt op bepaalde pagina's niet goed genoeg. Voor de volgende criteria zijn nog verbeteringen
+              nodig:
+            </Paragraph>
+            <UnorderedList>
+              {Object.entries(badDeveloperResults)
+                .filter(([, samples]) => samples.some((sample) => sample.result.outcome.id === 'earl:failed'))
+                .map(([url]) => {
+                  const data = successCriteriaMap.get(url);
+                  if (data) {
+                    const {
+                      sc,
+                      nl: { title },
+                    } = data;
+                    return (
+                      <UnorderedListItem key={url}>
+                        <Link href={`#sc-${sc}`} external>
+                          {title}
+                        </Link>
+                      </UnorderedListItem>
+                    );
+                  }
+                  return null;
+                })}
+            </UnorderedList>
+          </section>
+          <section>
+            <Heading2>Alle resultaten</Heading2>
+            <section hidden>
               <Heading3>Samenvatting</Heading3>
               <Paragraph>Reported on {totalSummary} of 55 WCAG 2.2 AA Success Criteria.</Paragraph>
               <UnorderedList>
@@ -172,20 +234,29 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                   <span>{outcomeCounts['Not checked']}</span> <span>niet onderzocht</span>
                 </UnorderedListItem>
               </UnorderedList>
-              <Heading3>All Results</Heading3>
+            </section>
+            <section>
+              {/* <Heading3>Alle resultaten</Heading3> */}
               {successCriteria
                 .map((sc) => ({
                   ...sc,
                   fragment: new URL(sc.url).hash.replace(/^#/, ''),
                 }))
-                .map(({ sc, fragment, nl: { title }, url, nldesignsystem }) => (
-                  <section id={fragment} key={sc}>
-                    <Heading4>
-                      {sc} {title}
-                    </Heading4>
+                .filter(({ conformance }) => conformance !== 'AAA')
+                .filter(({ since }) => since !== 'WCAG22')
+                .map(({ sc, fragment, nl: { title }, url, conformance, nldesignsystem }) => (
+                  <section id={`sc-${sc}`} key={sc}>
+                    <HeadingGroup id={fragment} className="utrecht-heading-group--level-4">
+                      <Heading level={4} appearance="utrecht-heading-3">
+                        {title}
+                      </Heading>
+                      <PreHeading>
+                        Succescriterium {sc} <DataBadge>{conformance}</DataBadge>
+                      </PreHeading>
+                    </HeadingGroup>
                     {Array.isArray(badDeveloperResults[url]) && badDeveloperResults[url].length > 0 ? (
                       badDeveloperResults[url].length > 1 ? (
-                        <div>
+                        <FormField invalid>
                           <Paragraph>Gevonden issues:</Paragraph>
                           <UnorderedList>
                             {badDeveloperResults[url].map((auditSample, index) => (
@@ -201,7 +272,7 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                               </UnorderedListItem>
                             ))}
                           </UnorderedList>
-                        </div>
+                        </FormField>
                       ) : (
                         <div>
                           <Paragraph>
@@ -214,10 +285,10 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                           </Paragraph>
 
                           {badDeveloperResults[url][0].result.outcome.title === 'Failed' ? (
-                            <div>
+                            <FormField invalid>
                               <Paragraph>Gevonden issue:</Paragraph>
                               <Markdown>{badDeveloperResults[url][0].result.description}</Markdown>
-                            </div>
+                            </FormField>
                           ) : null}
                         </div>
                       )
@@ -225,44 +296,72 @@ export const AuditRapport = ({ evaluation }: { evaluation: WcagEmJson }) => {
                       <Paragraph>Geen problemen vastgesteld.</Paragraph>
                     )}
 
-                    {nldesignsystem && (
-                      <Paragraph>
-                        Lees meer bij NL Design System:&nbsp;
-                        <Link href={`https://nldesignsystem.nl/wcag/${sc}`} external>
-                          WCAG-succescriteria uitgelegd: {title}
-                        </Link>
-                      </Paragraph>
-                    )}
+                    <WcagSpotlightSection sc={sc} title={title} nldesignsystem={nldesignsystem} />
                   </section>
                 ))}
             </section>
           </section>
-
           <section>
-            <Heading2>Deze pagina&apos;s zijn onderzocht:</Heading2>
-            <OrderedList>
-              {evaluation.selectSample.structuredSample.map(({ description, id, title }) => (
-                <OrderedListItem key={id}>
-                  <Link href={description} external>
-                    {title}
-                  </Link>
-                </OrderedListItem>
-              ))}
-            </OrderedList>
-          </section>
-
-          <section>
-            <Heading2>Gebruikte technologie</Heading2>
+            <Heading2>Gebruikte technieken</Heading2>
+            <Paragraph>De volgende technieken zijn gebruikt om de website mee te maken:</Paragraph>
             <UnorderedList>
-              {evaluation.exploreTarget.technologiesReliedUpon.map((i) => (
-                <UnorderedListItem key={i}>{i}</UnorderedListItem>
+              {evaluation.exploreTarget.technologiesReliedUpon.sort().map((i) => (
+                <UnorderedListItem key={i}>
+                  <TechnologyLink technology={i} />
+                </UnorderedListItem>
               ))}
             </UnorderedList>
           </section>
-
           <section>
-            <Heading2>Bijzonderheden</Heading2>
-            <Paragraph>{evaluation.reportFindings.evaluationSpecifics}</Paragraph>
+            <Heading2>Over de evaluatie</Heading2>
+            <DataList>
+              <DataListItem>
+                <DataListKey>Onderzoeker</DataListKey>
+                <DataListValue>{evaluation.reportFindings.evaluator}</DataListValue>
+              </DataListItem>
+              <DataListItem>
+                <DataListKey>Opdrachtgever</DataListKey>
+                <DataListValue>{evaluation.reportFindings.commissioner}</DataListValue>
+              </DataListItem>
+              <DataListItem>
+                <DataListKey>Evaluatiedatum</DataListKey>
+                <DataListValue>
+                  {new Intl.DateTimeFormat('nl-NL', {
+                    dateStyle: 'full',
+                    timeZone: 'Europe/Amsterdam',
+                  }).format(new Date(evaluation.reportFindings.date['@value']))}
+                </DataListValue>
+              </DataListItem>
+            </DataList>
+            <section>
+              <Heading3>Uitgangspunten</Heading3>
+              <DataList>
+                <DataListItem>
+                  <DataListKey>Scope van het onderzoek</DataListKey>
+                  <DataListValue>{evaluation.defineScope.scope.description}</DataListValue>
+                </DataListItem>
+                <DataListItem>
+                  <DataListKey>WCAG-versie</DataListKey>
+                  <DataListValue>{evaluation.defineScope.wcagVersion}</DataListValue>
+                </DataListItem>
+                <DataListItem>
+                  <DataListKey>Doel WCAG niveau</DataListKey>
+                  <DataListValue>{evaluation.defineScope.conformanceTarget}</DataListValue>
+                </DataListItem>
+                <DataListItem>
+                  <DataListKey>Basiseisen voor een toegankelijke ervaring</DataListKey>
+                  <DataListValue>{evaluation.defineScope.accessibilitySupportBaseline}</DataListValue>
+                </DataListItem>
+                <DataListItem>
+                  <DataListKey>Aanvullende afspraken</DataListKey>
+                  <DataListValue>{evaluation.defineScope.additionalEvaluationRequirements}</DataListValue>
+                </DataListItem>
+              </DataList>
+            </section>
+            <section>
+              <Heading3>Bijzonderheden</Heading3>
+              <Paragraph>{evaluation.reportFindings.evaluationSpecifics}</Paragraph>
+            </section>
           </section>
         </Article>
       </main>
