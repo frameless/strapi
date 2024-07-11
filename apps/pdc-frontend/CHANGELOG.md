@@ -1,5 +1,11 @@
 # @frameless/pdc-frontend
 
+## 0.3.0
+
+### Minor Changes
+
+- 9ac8326: De website van het Digitaal Loket heeft een nieuwe pagina met de toegankelijkheidsverklaring. De pagina is bereikbaar via /toegankelijkheid/.
+
 ## 0.2.1
 
 ### Patch Changes
