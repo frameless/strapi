@@ -9,19 +9,3 @@ Er is een uitzondering voor eigennamen, technische termen, woorden in een onbeke
 Met het `lang`-attribuut breng je over welke taal (een deel van) je tekst heeft. Dan kunnen hulptechnologieën als screenreaders of vertaalsoftware daarop handelen. In het geval van screenreaders bijvoorbeeld door de tekst met de juiste stem voor te lezen.
 
 Of de juiste stem ook echt wordt gebruikt is afhankelijk van de instellingen van de gebruikte screenreader of voorleessoftware.
-
-Bijvoorbeeld `<p lang="en">Not all those who wander are lost.</p>` voor een zin in het Engels, in een verder Nederlandse tekst.
-
-Of voor een taalwisselmenu:
-
-```html
-<ul>
-  <li><a href="url" lang="nl">Nederlands</a></li>
-  <li><a href="url" lang="en">English</a></li>
-  <li><a href="url" lang="de">Deutsch</a></li>
-  <li><a href="url" lang="it">Italiano</a></li>
-  <li><a href="url" lang="fr">Français</a></li>
-</ul>
-```
-
-Bij het WCAG-succescriterium [3.1.1 Taal van de pagina](/wcag/3.1.1) staat uitgelegd hoe deze lang-code is samengesteld en wat geldige waarden zijn.
