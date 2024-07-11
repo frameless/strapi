@@ -7,3 +7,6 @@ CHANGELOG.md
 tmp
 .angular
 .next
+
+# Ignore partials
+_*.md
