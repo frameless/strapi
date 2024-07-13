@@ -48,7 +48,7 @@
     "lint:css": "stylelint '**/*.{css,scss}'",
     "lint:md": "markdownlint '**/*.md'",
     "lint:js": "NODE_OPTIONS=--max-old-space-size=16096 eslint --ext '.{js, json, jsx, ts, tsx}' --report-unused-disable-directives .",
-    "lint:package-json": "npmPkgJsonLint '**/package.json'",
+    "lint:package-json": "npmPkgJsonLint .",
     "lint:prettier": "prettier --check .",
     "lint-fix:prettier": "prettier --write .",
     "lint-fix:css": "stylelint --fix '**/*.{css,scss}'",

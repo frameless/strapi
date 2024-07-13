@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "require-private": "error",
+    "valid-values-private": ["error", [true]]
+  }
+}
