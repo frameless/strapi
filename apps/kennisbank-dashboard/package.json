@@ -1,6 +1,6 @@
 {
   "name": "@frameless/kennisbank-dashboard",
-  "private": false,
+  "private": true,
   "version": "0.1.1",
   "description": "A Strapi application",
   "keywords": [],
