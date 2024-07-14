@@ -28,3 +28,11 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 30%);
 }
+
+img {
+  /* stylelint-disable-next-line property-disallowed-list */
+  height: auto;
+
+  /* stylelint-disable-next-line property-disallowed-list */
+  width: auto;
+}
