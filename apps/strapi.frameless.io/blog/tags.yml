@@ -6,3 +6,19 @@ google-translate:
   label: Google Translate
   permalink: /google-translate
   description: Google Translate
+gebruikersonderzoeken:
+  label: Gebruikersonderzoeken
+  permalink: /gebruikersonderzoeken
+  description: Gebruikersonderzoeken
+website:
+  label: Website
+  permalink: /website
+  description: Website
+live:
+  label: Livegang
+  permalink: /live
+  description: Livegang
+toegankelijkheid:
+  label: Toegankelijkheid
+  permalink: /toegankelijkheid
+  description: Toegankelijkheid

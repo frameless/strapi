@@ -2,7 +2,7 @@
 slug: google-translate
 title: Google Translate voor nieuwe Nederlanders
 authors: robbert
-tags: [gebruikersonderzoek]
+tags: [gebruikersonderzoeken]
 ---
 
 De website Digitaal Loket van Utrecht wordt nu automatisch gespiegeld, wanneer je met Google Translate de website naar Arabisch vertaalt — of een andere taal die van rechts naar links wordt geschreven. Dat maakt de website een stuk gebruiksvriendelijker voor een significant aantal bezoekers!
