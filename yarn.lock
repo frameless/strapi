@@ -8932,12 +8932,12 @@
   resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-4.0.0.tgz#4e7a654e5ead530bb82766023090beaa6cf5c892"
   integrity sha512-QQD+/NrhTlWWBaTlivqiq4/LMoyhgR1vKjtGQh75QIphDud67Qw/PT/fq7/Poi2xasGQXgI7GIbF+aD5OSqlDQ==
 
-"@utrecht/component-library-react@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-4.0.0.tgz#5a5ef43851b285bf365294a2a3224ce6c8b91d1c"
-  integrity sha512-scrPPT3TM1ZGdTUBuQ4L72DW/dZyKacq+lrrjJfNpXB/xnSFeGLWi4gzR6xzg2c6q7ucUt0SKIYi6/W4r7USKg==
+"@utrecht/component-library-react@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-4.1.0.tgz#e630963d2d92bf95b2fefbcc3341dc8db633bec8"
+  integrity sha512-0KkJ0t7cL5IEK1LZHABHyTDNqUVHaaXXqUCipaBe0tmunsvgrnhzqVi/g4YZJiH27HcweHgN1y7VspWvD06VYg==
   dependencies:
-    clsx "1.2.1"
+    clsx "2.1.1"
     lodash.chunk "4.2.0"
 
 "@utrecht/design-tokens@1.0.0":
@@ -11203,17 +11203,12 @@ clone@^1.0.2:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==
 
-clsx@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
-  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
-
 clsx@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.0.0.tgz#12658f3fd98fafe62075595a5c30e43d18f3d00b"
   integrity sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==
 
-clsx@^2.0.0:
+clsx@2.1.1, clsx@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.1.1.tgz#eed397c9fd8bd882bfb18deab7102049a2f32999"
   integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
