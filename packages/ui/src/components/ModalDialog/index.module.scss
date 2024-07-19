@@ -1,0 +1,46 @@
+@import "@utrecht/backdrop-css/src/mixin";
+.utrecht-modal-dialog {
+  border: none;
+  border-radius: var(--utrecht-modal-dialog-border-radius, 3px);
+  min-block-size: var(--utrecht-modal-dialog-min-block-size, 200px);
+  min-inline-size: var(--utrecht-modal-dialog-min-inline-size, 50%);
+  padding-block: 0;
+  padding-inline: 0;
+  position: relative;
+}
+
+.utrecht-modal-dialog::backdrop {
+  @include utrecht-backdrop;
+
+  --utrecht-backdrop-background-color: var(--utrecht-modal-dialog-backdrop-background-color, rgb(0 0 0 / 30%));
+}
+
+.utrecht-modal-dialog__header {
+  align-items: baseline;
+  background-color: var(--utrecht-modal-dialog-header-background-color, var(--utrecht-color-white));
+  border-block-end: solid;
+  border-block-end-color: var(--utrecht-modal-dialog-header-border-block-end-color, #e4e7ec);
+  border-block-end-width: var(--utrecht-modal-dialog-header-border-block-end-width, 1px);
+  display: flex;
+  inset-block-start: 0;
+  justify-content: space-between;
+  padding-block-end: var(--utrecht-modal-dialog-header-padding-block-end, 20px);
+  padding-block-start: var(--utrecht-modal-dialog-header-padding-block-start, 20px);
+  padding-inline-end: var(--utrecht-modal-dialog-header-padding-inline-end, 16px);
+  padding-inline-start: var(--utrecht-modal-dialog-header-padding-inline-start, 16px);
+  position: sticky;
+}
+
+.utrecht-modal-dialog__body {
+  padding-block-end: var(--utrecht-modal-dialog-body-padding-block-end, 24px);
+  padding-block-start: var(--utrecht-modal-dialog-body-padding-block-start, 24px);
+  padding-inline-end: var(--utrecht-modal-dialog-body-padding-inline-end, 16px);
+  padding-inline-start: var(--utrecht-modal-dialog-body-padding-inline-start, 16px);
+}
+
+.utrecht-modal-dialog__footer {
+  padding-block-end: var(--utrecht-modal-dialog-footer-padding-block-end, 24px);
+  padding-block-start: var(--utrecht-modal-dialog-footer-padding-block-start, 24px);
+  padding-inline-end: var(--utrecht-modal-dialog-footer-padding-inline-end, 16px);
+  padding-inline-start: var(--utrecht-modal-dialog-footer-padding-inline-start, 16px);
+}
