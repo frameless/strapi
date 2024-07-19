@@ -93,7 +93,7 @@ const config: Config = {
           items: [
             {
               label: 'Handboek',
-              to: '/docs/handboek/intro',
+              to: '/docs/handboek/vth',
             },
             {
               label: 'Open source licentie',

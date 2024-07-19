@@ -1,10 +1,9 @@
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
-
+import Layout from '@theme/Layout';
+import clsx from 'clsx';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -17,7 +16,7 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/handboek/intro">
+          <Link className="button button--secondary button--lg" to="/docs/handboek/vth">
             Handboek voor de redactie - 5min ⏱️
           </Link>
         </div>
@@ -26,8 +25,7 @@ function HomepageHeader() {
   );
 }
 
-export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+export default function Home() {
   return (
     <Layout title="" description="Description will go into a meta tag in <head />">
       <HomepageHeader />
