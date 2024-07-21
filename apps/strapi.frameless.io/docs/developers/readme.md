@@ -46,6 +46,7 @@ To run the application as a Docker container on your Mac, follow these steps:
 
    - Go to the Docker [website](https://docs.docker.com/desktop/install/mac-install/) and download Docker Desktop for Mac.
    - Install Docker Desktop by following the installation instructions for macOS.
+   - Ensure you have `docker-compose` available. For example by installing [docker-compose with Homebrew](https://formulae.brew.sh/formula/docker-compose)
 
 2. **Launch Docker Desktop:**
 
@@ -54,37 +55,50 @@ To run the application as a Docker container on your Mac, follow these steps:
 3. **Add Environments variables to the project**
 
    Create two files in the project root: `.project-name.prod.env` and `.project-name.dev.env` (replace "project-name" with your specific project name, e.g., `.pdc.prod.env` and `.pdc.dev.env`). If these files don't exist already, copy the environment variables provided below into these files.
+   The project file will be copied to `.env` when starting said app.
 
    ```shell
-       ADMIN_JWT_SECRET=
-       API_TOKEN_SALT=
-       APP_KEYS=
-       DATABASE_CLIENT=
-       DATABASE_HOST=
-       DATABASE_NAME=
-       DATABASE_PASSWORD=
-       DATABASE_PORT=
-       DATABASE_SSL=
-       DATABASE_USERNAME=
-       FRONTEND_PUBLIC_URL=
-       HOST=0.0.0.0
-       JWT_SECRET=
-       MATOMO_HOST=
-       MATOMO_HOST=
-       NODE_ENV=
-       OGONE_PAYMENT_SERVICE_URL=
-       OPEN_FORMS_API_TOKEN=
-       OPEN_FORMS_API_URL=
-       OPEN_FORMS_CSS_URL=
-       OPEN_FORMS_SDK_URL=
-       PANDOSEARCH_API_URL=
-       PGADMIN_DEFAULT_EMAIL=
-       PGADMIN_DEFAULT_PASSWORD=
-       PORT=1337
-       PREVIEW_SECRET_TOKEN=
-       STRAPI_PRIVATE_URL=
-       STRAPI_PUBLIC_URL=
-       TRANSFER_TOKEN_SALT=
+      ADMIN_JWT_SECRET=someSecretKey==
+      API_TOKEN_SALT=someRandomLongString==
+      APP_KEYS=key1==,key2==,key3==,key4==
+      CSP_CONNECT_SRC_URLS=
+      CSP_FONT_SRC_URLS=
+      CSP_FORM_ACTION_URLS=
+      CSP_FRAME_SRC_URLS=
+      CSP_IMG_SRC_URLS=
+      CSP_SCRIPT_SRC_URLS=
+      CSP_STYLE_SRC_URLS=
+      CSP_WORKER_SRC_URLS=
+      DATABASE_CLIENT=postgres
+      DATABASE_HOST=0.0.0.0
+      DATABASE_NAME=postgres
+      DATABASE_PASSWORD=strapi
+      DATABASE_PORT=5432
+      DATABASE_SSL=false
+      DATABASE_USERNAME=postgres
+      FRONTEND_PUBLIC_URL=http://localhost:3000
+      FRONTEND_PUBLIC_URL=http://localhost:3000
+      HOST=0.0.0.0
+      JWT_SECRET=someOtherSecretKey==
+      MATOMO_HOST=
+      MATOMO_SITE_ID=
+      NODE_ENV=development
+      OGONE_PAYMENT_SERVICE_URL=
+      OPEN_FORMS_API_TOKEN=
+      OPEN_FORMS_API_TOKEN=
+      OPEN_FORMS_API_URL=http://localhost:8000/api/v2/
+      OPEN_FORMS_API_URL=http://localhost:8000/api/v2/
+      OPEN_FORMS_CSS_URL=http://localhost:8000/static/sdk/open-forms-sdk.css
+      OPEN_FORMS_SDK_URL=http://localhost:8000/static/sdk/open-forms-sdk.js
+      PANDOSEARCH_API_URL= # You can use the following API URL to test the functionality of the SearchBar component: https://public.pandosearch.com/developer.pandosearch.com/. Valid keys that can be used in the searchBar field include: search, server, highlighting, and help.
+      PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD=root
+      PORT=1337
+      PREVIEW_SECRET_TOKEN=someSecretToken== # gained from tribal knowledge
+      STRAPI_ENV_LABEL=
+      STRAPI_PRIVATE_URL=http://pdc_strapi:1337
+      STRAPI_PUBLIC_URL=http://pdc_strapi:1337
+      TRANSFER_TOKEN_SALT=anotherRandomLongString==
    ```
 
 4. Run the Docker Image:
@@ -121,7 +135,7 @@ To run the application as a Docker container on your Mac, follow these steps:
 | Variable name               | Description                                                                                                              | Type                          | Default Value | Application                 | Note                                                                                                                                                                                                                     |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `ADMIN_JWT_SECRET`          | Secret for signing JWTs for the Admin panel                                                                              | `String`                      |               | strapi-dashboard            | [Admin panel configuration](https://docs.strapi.io/dev-docs/configurations/admin-panel#available-options)                                                                                                                |
-| `APP_KEYS`                  | The secret key for session cookie signing                                                                                | `String`                      |               | strapi-dashboard            | [Admin panel configuration](https://docs.strapi.io/dev-docs/configurations/admin-panel#available-options)                                                                                                                |
+| `APP_KEYS`                  | The secret key for session cookie signing                                                                                | `String`                      |               | strapi-dashboard            | [Server configuration](https://docs.strapi.io/dev-docs/configurations/server#available-options)                                                                                                                          |
 | `API_TOKEN_SALT`            | Salt for generating API tokens                                                                                           | `String`                      |               | strapi-dashboard            | [Admin panel configuration](https://docs.strapi.io/dev-docs/configurations/admin-panel#available-options)                                                                                                                |
 | `CSP_CONNECT_SRC_URLS`      | Space-separated list of URLs to allow in `Content-Security-Policy` for `connect-src`                                     |                               |               |                             |                                                                                                                                                                                                                          |
 | `CSP_FONT_SRC_URLS`         | Space-separated list of URLs to allow in `Content-Security-Policy` for `font-src`                                        |                               |               |                             |                                                                                                                                                                                                                          |
