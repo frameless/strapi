@@ -12,6 +12,8 @@
   --ifm-color-primary-darker: #818181;
   --ifm-color-primary-dark: #646464;
   --ifm-color-primary: #202020;
+  --ifm-link-color: blue;
+  --ifm-link-decoration: underline;
 
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
