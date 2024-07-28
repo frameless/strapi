@@ -114,7 +114,10 @@ export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) =>
           {displaySocialMediaLinks && (
             <GridCell md={4} sm={2} className={css('utrecht-grid--justify-content-sm-flex-end')}>
               <Nav headingLevel={headingLevel} label={socialMediaLabel}>
-                <LinkList links={links} className={css('utrecht-footer__link-social-media-list')} />
+                <LinkList
+                  links={links.map(({ href, icon, children }) => ({ children, icon, href }))}
+                  className={css('utrecht-footer__link-social-media-list')}
+                />
               </Nav>
             </GridCell>
           )}
