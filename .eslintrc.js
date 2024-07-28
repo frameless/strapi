@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 module.exports = {
+  root: true,
   globals: {
     process: true,
   },
