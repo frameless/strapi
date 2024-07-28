@@ -52,9 +52,9 @@ export const Breadcrumbs = ({
     (links.length === 1 && backLinkData?.href && backLinkData.label)
   ) {
     return (
-      <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')} {...restBreadcrumbProps}>
+      <BreadcrumbNav {...restBreadcrumbProps}>
         <BreadcrumbNavLink
-          className={css('utrecht-link', 'utrecht-link--html-a', 'utrecht-breadcrumb-nav__link-custom')}
+          className={css('utrecht-link', 'utrecht-link--html-a')}
           href={backLinkData.href}
           rel={backLinkData.rel}
           current={backLinkData.current}
@@ -67,13 +67,13 @@ export const Breadcrumbs = ({
   }
 
   return (
-    <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')} {...restBreadcrumbProps}>
+    <BreadcrumbNav {...restBreadcrumbProps}>
       {linkData
         .filter(({ label }) => label)
         .map(({ href, label, current, rel }: any, index: number) => (
           <Fragment key={`${href}-${index}`}>
             <BreadcrumbNavLink
-              className={css('utrecht-link', 'utrecht-link--html-a', 'utrecht-breadcrumb-nav__link-custom')}
+              className={css('utrecht-link', 'utrecht-link--html-a')}
               href={href}
               rel={rel}
               index={index}
