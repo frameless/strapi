@@ -23,6 +23,7 @@ export function middleware(req: NextRequest) {
     'Content-Security-Policy': cspHeader,
     'Referrer-Policy': 'strict-origin',
     'X-Content-Type-Options': 'nosniff',
+    'Permissions-Policy': 'geolocation=(self)',
   };
 
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1)
