@@ -16,9 +16,12 @@ export function middleware(req: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
 
   const cspHeader = getContentSecurityPolicy({ nonce, node_env: process.env.NODE_ENV });
-  const requestHeaders = new Headers(req.headers);
-  requestHeaders.set('X-Nonce', nonce);
-  requestHeaders.set('Content-Security-Policy', cspHeader);
+  const headers = new Headers(req.headers);
+  headers.set('X-Nonce', nonce);
+
+  const responseHeaders = {
+    'Content-Security-Policy': cspHeader,
+  };
 
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1)
     return NextResponse.next();
@@ -39,16 +42,16 @@ export function middleware(req: NextRequest) {
     const refererUrl = new URL(req.headers.get('referer') as any);
     const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`));
     const response = NextResponse.next({
-      request: { headers: requestHeaders },
-      headers: { 'content-security-policy': cspHeader },
+      request: { headers },
+      headers: responseHeaders,
     });
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
     return response;
   }
-  requestHeaders.set('x-pathname', req.nextUrl.pathname);
+  headers.set('x-pathname', req.nextUrl.pathname);
 
   return NextResponse.next({
-    request: { headers: requestHeaders },
-    headers: { 'content-security-policy': cspHeader },
+    request: { headers },
+    headers: responseHeaders,
   });
 }
