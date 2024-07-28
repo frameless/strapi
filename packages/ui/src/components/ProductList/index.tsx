@@ -28,33 +28,36 @@ ProductsList.displayName = 'ProductsList';
 export interface ProductListPaginationInfoProps
   extends DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {}
 
-export const ProductListPaginationInfo = forwardRef(
-  ({ children, ...restProps }: PropsWithChildren<ProductListPaginationInfoProps>) =>
-    children ? (
-      <li
-        ref={(ref) => {
-          if (ref) {
-            ref.tabIndex = 0;
-            ref?.focus();
-          }
-        }}
-        className={css('utrecht-product-list__pagination-info')}
-        role="separator"
-        {...restProps}
-      >
-        {children}
-      </li>
-    ) : null,
-);
+export const ProductListPaginationInfo = ({
+  children,
+  ...restProps
+}: PropsWithChildren<ProductListPaginationInfoProps>) =>
+  children ? (
+    <li
+      ref={(ref) => {
+        if (ref) {
+          ref.tabIndex = 0;
+          ref?.focus();
+        }
+      }}
+      className={css('utrecht-product-list__pagination-info')}
+      role="separator"
+      {...restProps}
+    >
+      {children}
+    </li>
+  ) : null;
 
 ProductListPaginationInfo.displayName = 'ProductListPaginationInfo';
 
 export interface ProductListItemProps extends DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {}
 
-export const ProductListItem = forwardRef(({ children, ...restProps }: PropsWithChildren<ProductListItemProps>) => (
-  <li className={css('utrecht-product-list__item')} {...restProps}>
-    {children}
-  </li>
-));
+export const ProductListItem = forwardRef(
+  ({ children, ...restProps }: PropsWithChildren<ProductListItemProps>, ref: ForwardedRef<HTMLLIElement>) => (
+    <li className={css('utrecht-product-list__item')} ref={ref} {...restProps}>
+      {children}
+    </li>
+  ),
+);
 
 ProductListItem.displayName = 'ProductListItem';
