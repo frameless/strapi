@@ -9,6 +9,7 @@ import {
   UtrechtIconX,
 } from '@utrecht/web-component-library-react';
 import classnames from 'classnames/bind';
+import { Fragment } from 'react';
 import styles from './index.module.scss';
 import { Grid, GridCell } from '../Grid';
 import { Markdown } from '../Markdown';
@@ -78,7 +79,7 @@ export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) =>
                   data.list?.listItem?.length > 0 &&
                   data?.list?.listItem?.map((item) => {
                     return (
-                      <>
+                      <Fragment key={item.id}>
                         {item?.title && item?.title && (
                           <Heading3 className={css('utrecht-footer__list-title')}>{item?.title}</Heading3>
                         )}
@@ -101,7 +102,7 @@ export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) =>
                             })}
                           </LinkList>
                         )}
-                      </>
+                      </Fragment>
                     );
                   })}
               </GridCell>
