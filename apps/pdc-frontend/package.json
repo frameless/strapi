@@ -20,7 +20,7 @@
     "install-test-browsers": "playwright install",
     "lint": "next lint",
     "lint-build": "tsc --noEmit --project tsconfig.json",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:e2e": "playwright test test/e2e/",
     "watch:test": "jest --watch",
     "watch:e2e": "playwright --help test test/e2e/"

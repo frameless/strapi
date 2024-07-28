@@ -36,7 +36,7 @@
     "build": "rollup --config rollup.config.ts --configPlugin typescript --bundleConfigAsCjs",
     "watch": "rollup --config rollup.config.ts --configPlugin typescript -w --bundleConfigAsCjs",
     "clean": "rimraf dist .rollup.cache",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "lint-build": "tsc --noEmit --project tsconfig.json"
   },
