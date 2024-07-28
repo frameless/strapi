@@ -78,7 +78,7 @@ export const Breadcrumbs = ({
               rel={rel}
               index={index}
               current={current}
-              Link={UtrechtLink}
+              Link={Link}
             >
               {label}
             </BreadcrumbNavLink>
