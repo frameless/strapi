@@ -56,6 +56,10 @@ jobs:
           fail_on_empty: false
       - name: Test
         run: yarn run test
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673 # v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Build
         run: yarn run build
       - name: Lint
