@@ -21,6 +21,7 @@ export function middleware(req: NextRequest) {
 
   const responseHeaders = {
     'Content-Security-Policy': cspHeader,
+    'Referrer-Policy': 'strict-origin',
   };
 
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1)
