@@ -18,8 +18,8 @@
   "dependencies": {
     "@frameless/ui": "0.0.0",
     "@tanstack/react-query": "4.29.25",
-    "@utrecht/component-library-css": "4.0.0",
-    "@utrecht/component-library-react": "4.0.0",
+    "@utrecht/component-library-css": "4.1.0",
+    "@utrecht/component-library-react": "4.2.0",
     "@utrecht/design-tokens": "1.0.0",
     "@utrecht/web-component-library-react": "1.2.0",
     "accept-language": "3.0.18",
