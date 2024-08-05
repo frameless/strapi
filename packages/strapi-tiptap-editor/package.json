@@ -65,6 +65,7 @@
     "@utrecht/component-library-react": "4.0.0",
     "@utrecht/design-tokens": "1.0.0",
     "classnames": "2.3.3",
+    "dompurify": "3.1.3",
     "react-cool-inview": "3.0.1",
     "react-icons": "4.8.0",
     "util": "0.12.5",
@@ -74,11 +75,12 @@
   },
   "devDependencies": {
     "@strapi/typescript-utils": "4.14.6",
-    "@types/styled-components": "5.1.34",
-    "react-router-dom": "5.3.4",
+    "@types/dompurify": "3.0.5",
     "@types/react-router-dom": "5.3.3",
-    "typescript": "5.0.4",
-    "@types/uuid": "9.0.8"
+    "@types/styled-components": "5.1.34",
+    "@types/uuid": "9.0.8",
+    "react-router-dom": "5.3.4",
+    "typescript": "5.0.4"
   },
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"
