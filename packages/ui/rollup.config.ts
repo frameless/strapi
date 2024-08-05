@@ -49,8 +49,8 @@ const config: RollupOptions = {
       // Specify the output file where the bundled CSS will be written
       output: 'dist/bundle.css',
       fileName: 'bundle.css',
+      include: [/\.scss$/i],
       // To support @import statements in SCSS files
-      include: [/\.scss$/],
       includePaths: [path.resolve(__dirname, '../../node_modules/')],
     }),
     postcss({
