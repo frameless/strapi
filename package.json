@@ -108,5 +108,6 @@
     "stylelint-config-standard-scss": "10.0.0",
     "stylelint-order": "6.0.4",
     "typescript": "5.0.4"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
