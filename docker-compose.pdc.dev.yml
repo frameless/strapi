@@ -72,6 +72,9 @@ services:
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
       STRAPI_PUBLIC_URL: ${STRAPI_PUBLIC_URL}
+      SURVEY_RUN_APIKEY: ${SURVEY_RUN_APIKEY}
+      SURVEY_RUN_GUID: ${SURVEY_RUN_GUID}
+      SURVEY_RUN_URL: ${SURVEY_RUN_URL}
     volumes: # enable hot-reload
       - ./apps/pdc-frontend/src:/opt/app/apps/pdc-frontend/src
       - ./apps/pdc-frontend/public:/opt/app/apps/pdc-frontend/public

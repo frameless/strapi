@@ -10,3 +10,6 @@ export * from './getImageBaseUrl';
 export * from './mappingProducts';
 export * from './openFormsValidation';
 export * from './getDirectionFromLanguageCode';
+export * from './generateSurveyURL';
+export * from './showErrorBasedOnENV';
+export * from './setEnv';
