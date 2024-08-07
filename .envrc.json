@@ -264,6 +264,28 @@
       "description": "See: https://developer.pandosearch.com/api/",
       "required": false,
       "example": "https://public.pandosearch.com/example.com/"
+    },
+    {
+      "name": "SURVEY_RUN_URL",
+      "example": "https://viewer.example.com",
+      "type": "string",
+      "valueType": "url",
+      "description": "",
+      "required": false
+    },
+    {
+      "name": "SURVEY_RUN_APIKEY",
+      "description": "",
+      "required": false,
+      "example": "",
+      "type": "string"
+    },
+    {
+      "name": "SURVEY_RUN_GUID",
+      "description": "",
+      "required": false,
+      "example": "",
+      "type": "string"
     }
   ]
 }
