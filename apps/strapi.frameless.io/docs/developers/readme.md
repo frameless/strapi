@@ -98,6 +98,9 @@ To run the application as a Docker container on your Mac, follow these steps:
       STRAPI_ENV_LABEL=
       STRAPI_PRIVATE_URL=http://pdc_strapi:1337
       STRAPI_PUBLIC_URL=http://pdc_strapi:1337
+      SURVEY_RUN_APIKEY=
+      SURVEY_RUN_GUID=
+      SURVEY_RUN_URL=
       TRANSFER_TOKEN_SALT=anotherRandomLongString==
    ```
 
@@ -172,6 +175,9 @@ To run the application as a Docker container on your Mac, follow these steps:
 | `STRAPI_PUBLIC_URL`         |                                                                                                                          | `URL`                         |               | Frontend                    | The Strapi dashboard URL, e.g.,`http://localhost:1337/`                                                                                                                                                                  |
 | `TRANSFER_TOKEN_SALT`       | Salt for generating Transfer tokens. If no transfer token salt is defined, transfer features will be disabled.           | `String`                      |               | strapi-dashboard            | [Admin panel configuration](https://docs.strapi.io/dev-docs/configurations/admin-panel#available-options) Secrets can be generated manually by running `node -p "require('crypto').randomBytes(48).toString('base64');"` |
 | `OGONE_PAYMENT_SERVICE_URL` | PDC ONLY: URL for Open Forms/Payment                                                                                     | `URL`                         |               | Frontend                    |                                                                                                                                                                                                                          |
+| `SURVEY_RUN_GUID`           | PDC ONLY: Used for the Survey service                                                                                    | `String`                      |               | Fronend                     |                                                                                                                                                                                                                          |
+| `SURVEY_RUN_APIKEY`         | PDC ONLY: Used for the Survey service                                                                                    | `String`                      |               | Fronend                     |                                                                                                                                                                                                                          |
+| `SURVEY_RUN_URL`            | PDC ONLY: Used for the Survey service                                                                                    | `URL`                         |               | Fronend                     |                                                                                                                                                                                                                          |
 
 ## Start the server without Docker
 
@@ -190,6 +196,9 @@ PANDOSEARCH_API_URL= # You can use the following API URL to test the functionali
 PREVIEW_SECRET_TOKEN= # the value should matched the same environment variable on the Strapi dashboard
 STRAPI_PRIVATE_URL=http://0.0.0.0:1337/
 STRAPI_PUBLIC_URL=http://0.0.0.0:1337/
+SURVEY_RUN_APIKEY=
+SURVEY_RUN_GUID=
+SURVEY_RUN_URL=
 ```
 
 **Strapi Dashboard env:**
