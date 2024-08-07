@@ -1,6 +1,7 @@
 import React, { type ReactNode, useId } from 'react';
 import { OpenFormsScript } from './OpenFormsScript';
 import '@open-formulieren/sdk/styles.css';
+import './OpenFormsEmbed.scss';
 
 export type OpenFormsEmbedProps = {
   nonce: string;
