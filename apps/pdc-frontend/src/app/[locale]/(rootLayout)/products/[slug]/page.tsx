@@ -25,6 +25,7 @@ import {
   SpotlightSection,
   UtrechtIconChevronUp,
 } from '@/components';
+import { SurveyLink } from '@/components/SurveyLink';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
 import { buildAlternateLinks, createStrapiURL, fetchData, getDirectionFromLanguageCode, getImageBaseUrl } from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
@@ -265,7 +266,6 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const priceData: any = product?.attributes?.price && product?.attributes?.price?.data?.attributes?.price;
 
   const { t } = await useTranslation(locale, 'common');
-
   return (
     <>
       <Breadcrumbs
@@ -316,15 +316,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         </Article>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <AdvancedLink
-              rel="noopener noreferrer"
-              external
-              icon="arrow"
-              color="red"
-              href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
-            >
-              {t('actions.reaction-link')}
-            </AdvancedLink>
+            <SurveyLink segment={`${locale}/products/${slug}`} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

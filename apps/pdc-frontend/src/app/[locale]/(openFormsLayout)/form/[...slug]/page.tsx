@@ -2,16 +2,9 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
-import {
-  AdvancedLink,
-  Breadcrumbs,
-  Grid,
-  GridCell,
-  Heading1,
-  ScrollToTopButton,
-  UtrechtIconChevronUp,
-} from '@/components';
+import { Breadcrumbs, Grid, GridCell, Heading1, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
+import { SurveyLink } from '@/components/SurveyLink';
 import { openFormValidator } from '@/util';
 import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
 
@@ -30,7 +23,6 @@ const FormPage = async ({
 }: FormPageProps) => {
   const { t } = await useTranslation(locale, 'common');
   const nonce = headers().get('x-nonce') || '';
-
   const formInfo = await openFormValidator({ formId });
 
   return (
@@ -74,15 +66,7 @@ const FormPage = async ({
         </div>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <AdvancedLink
-              rel="noopener noreferrer"
-              external
-              icon="arrow"
-              color="red"
-              href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
-            >
-              {t('actions.reaction-link')}
-            </AdvancedLink>
+            <SurveyLink segment={`${locale}/form/${formId}`} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

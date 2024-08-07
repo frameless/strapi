@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
 import {
-  AdvancedLink,
   Breadcrumbs,
   Grid,
   GridCell,
@@ -15,6 +14,7 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
+import { SurveyLink } from '@/components/SurveyLink';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
 import {
   alphabet,
@@ -152,15 +152,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         )}
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <AdvancedLink
-              rel="noopener noreferrer"
-              external
-              icon="arrow"
-              color="red"
-              href="https://www.kcmsurvey.com/qSwudd733b9c27c2e91ba8c7b598MaSd?webpagina=Alle%20producten"
-            >
-              {t('actions.reaction-link')}
-            </AdvancedLink>
+            <SurveyLink segment={`${locale}/products/alphabet/${q}`} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
