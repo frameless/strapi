@@ -8,7 +8,6 @@ export const subdomainWildcard = (url: string): string => {
 
 type Object = Record<string, any>;
 
-// eslint-disable-next-line no-unused-vars
 type MergeCustomizer = (objValue: Object, srcValue: Object) => any;
 
 export const mergeCustomizer: MergeCustomizer = (objValue, srcValue) =>

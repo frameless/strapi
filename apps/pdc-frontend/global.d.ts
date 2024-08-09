@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { ReactNode, Ref } from 'react';
 
 declare module 'react' {

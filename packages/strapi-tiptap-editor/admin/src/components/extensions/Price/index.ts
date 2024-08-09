@@ -5,10 +5,8 @@ import './price.css';
 import { PriceTypes } from '../../../types';
 
 declare module '@tiptap/core' {
-  // eslint-disable-next-line no-unused-vars
   interface Commands<ReturnType> {
     reactComponent: {
-      // eslint-disable-next-line no-unused-vars
       insertReactComponent: (price: PriceTypes) => ReturnType;
     };
   }

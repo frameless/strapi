@@ -1,7 +1,6 @@
 import { Paragraph } from '@tiptap/extension-paragraph';
 
 declare module '@tiptap/core' {
-  // eslint-disable-next-line no-unused-vars
   interface Commands<ReturnType> {
     leadParagraph: {
       setLeadParagraph: () => ReturnType;
