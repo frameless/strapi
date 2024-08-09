@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import type { Editor as EditorTypes } from '@tiptap/react';
 import { useReducer } from 'react';
 import { isValidURL } from '../../../utils/helpers';

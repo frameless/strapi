@@ -63,7 +63,6 @@ declare module 'editoria11y/dist/editoria11y.min.js' {
   }
 
   export class Ed11y {
-    // eslint-disable-next-line no-unused-vars
     constructor(options: Ed11yOptions);
     // TODO Add other methods and properties as needed
   }

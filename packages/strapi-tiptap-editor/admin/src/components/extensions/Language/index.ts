@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Mark, markInputRule, markPasteRule, mergeAttributes } from '@tiptap/core';
 
 export interface LanguageOptions {
