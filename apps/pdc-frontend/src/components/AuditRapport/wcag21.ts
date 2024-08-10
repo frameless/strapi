@@ -14,6 +14,7 @@ export const successCriteria = [
     title: 'Audio-only and Video-only (Prerecorded)',
     url: 'https://www.w3.org/TR/WCAG21/#audio-only-and-video-only-prerecorded',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Louter-geluid en louter-videobeeld (vooraf opgenomen)',
     },
@@ -23,6 +24,7 @@ export const successCriteria = [
     title: 'Captions (Prerecorded)',
     url: 'https://www.w3.org/TR/WCAG21/#captions-prerecorded',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Ondertitels voor doven en slechthorenden (vooraf opgenomen)',
     },
@@ -32,6 +34,7 @@ export const successCriteria = [
     title: 'Audio Description or Media Alternative (Prerecorded)',
     url: 'https://www.w3.org/TR/WCAG21/#audio-description-or-media-alternative-prerecorded',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Audiodescriptie of media-alternatief (vooraf opgenomen)',
     },
@@ -41,6 +44,7 @@ export const successCriteria = [
     title: 'Captions (Live)',
     url: 'https://www.w3.org/TR/WCAG21/#captions-live',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Ondertitels voor doven en slechthorenden (live)',
     },
@@ -50,6 +54,7 @@ export const successCriteria = [
     title: 'Audio Description (Prerecorded)',
     url: 'https://www.w3.org/TR/WCAG21/#audio-description-prerecorded',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Audiodescriptie (vooraf opgenomen)',
     },
@@ -105,6 +110,7 @@ export const successCriteria = [
     title: 'Meaningful Sequence',
     url: 'https://www.w3.org/TR/WCAG21/#meaningful-sequence',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Betekenisvolle volgorde',
     },
@@ -114,6 +120,7 @@ export const successCriteria = [
     title: 'Sensory Characteristics',
     url: 'https://www.w3.org/TR/WCAG21/#sensory-characteristics',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Zintuiglijke eigenschappen',
     },
@@ -123,6 +130,7 @@ export const successCriteria = [
     title: 'Orientation',
     url: 'https://www.w3.org/TR/WCAG21/#orientation',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Weergavestand',
     },
@@ -151,6 +159,7 @@ export const successCriteria = [
     title: 'Use of Color',
     url: 'https://www.w3.org/TR/WCAG21/#use-of-color',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Gebruik van kleur',
     },
@@ -160,6 +169,7 @@ export const successCriteria = [
     title: 'Audio Control',
     url: 'https://www.w3.org/TR/WCAG21/#audio-control',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Geluidsbediening',
     },
@@ -169,6 +179,7 @@ export const successCriteria = [
     title: 'Contrast (Minimum)',
     url: 'https://www.w3.org/TR/WCAG21/#contrast-minimum',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Contrast (minimum)',
     },
@@ -178,6 +189,7 @@ export const successCriteria = [
     title: 'Resize text',
     url: 'https://www.w3.org/TR/WCAG21/#resize-text',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Herschalen van tekst',
     },
@@ -187,6 +199,7 @@ export const successCriteria = [
     title: 'Images of Text',
     url: 'https://www.w3.org/TR/WCAG21/#images-of-text',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Afbeeldingen van tekst',
     },
@@ -232,6 +245,7 @@ export const successCriteria = [
     title: 'Reflow',
     url: 'https://www.w3.org/TR/WCAG21/#reflow',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Reflow',
     },
@@ -241,6 +255,7 @@ export const successCriteria = [
     title: 'Non-text Contrast',
     url: 'https://www.w3.org/TR/WCAG21/#non-text-contrast',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Contrast van niet-tekstuele content',
     },
@@ -250,6 +265,7 @@ export const successCriteria = [
     title: 'Text Spacing',
     url: 'https://www.w3.org/TR/WCAG21/#text-spacing',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Tekstafstand',
     },
@@ -259,6 +275,7 @@ export const successCriteria = [
     title: 'Content on Hover or Focus',
     url: 'https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Content bij hover of focus',
     },
@@ -278,6 +295,7 @@ export const successCriteria = [
     title: 'No Keyboard Trap',
     url: 'https://www.w3.org/TR/WCAG21/#no-keyboard-trap',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Geen toetsenbordval',
     },
@@ -296,6 +314,7 @@ export const successCriteria = [
     title: 'Character Key Shortcuts',
     url: 'https://www.w3.org/TR/WCAG21/#character-key-shortcuts',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Enkel teken sneltoetsen',
     },
@@ -305,6 +324,7 @@ export const successCriteria = [
     title: 'Timing Adjustable',
     url: 'https://www.w3.org/TR/WCAG21/#timing-adjustable',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Timing aanpasbaar',
     },
@@ -314,6 +334,7 @@ export const successCriteria = [
     title: 'Pause, Stop, Hide',
     url: 'https://www.w3.org/TR/WCAG21/#pause-stop-hide',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Pauzeren, stoppen, verbergen',
     },
@@ -359,6 +380,7 @@ export const successCriteria = [
     title: 'Three Flashes or Below Threshold',
     url: 'https://www.w3.org/TR/WCAG21/#three-flashes-or-below-threshold',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Drie flitsen of beneden drempelwaarde',
     },
@@ -406,6 +428,7 @@ export const successCriteria = [
     title: 'Focus Order',
     url: 'https://www.w3.org/TR/WCAG21/#focus-order',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Focus volgorde',
     },
@@ -425,6 +448,7 @@ export const successCriteria = [
     title: 'Multiple Ways',
     url: 'https://www.w3.org/TR/WCAG21/#multiple-ways',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Meerdere manieren',
     },
@@ -482,6 +506,7 @@ export const successCriteria = [
     title: 'Pointer Gestures',
     url: 'https://www.w3.org/TR/WCAG21/#pointer-gestures',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Aanwijzergebaren',
     },
@@ -491,6 +516,7 @@ export const successCriteria = [
     title: 'Pointer Cancellation',
     url: 'https://www.w3.org/TR/WCAG21/#pointer-cancellation',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Aanwijzerannulering',
     },
@@ -500,6 +526,7 @@ export const successCriteria = [
     title: 'Label in Name',
     url: 'https://www.w3.org/TR/WCAG21/#label-in-name',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Label in naam',
     },
@@ -509,6 +536,7 @@ export const successCriteria = [
     title: 'Motion Actuation',
     url: 'https://www.w3.org/TR/WCAG21/#motion-actuation',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Bewegingsactivering',
     },
@@ -612,6 +640,7 @@ export const successCriteria = [
     title: 'Consistent Navigation',
     url: 'https://www.w3.org/TR/WCAG21/#consistent-navigation',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Consistente navigatie',
     },
@@ -621,6 +650,7 @@ export const successCriteria = [
     title: 'Consistent Identification',
     url: 'https://www.w3.org/TR/WCAG21/#consistent-identification',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Consistente identificatie',
     },
@@ -649,6 +679,7 @@ export const successCriteria = [
     title: 'Labels or Instructions',
     url: 'https://www.w3.org/TR/WCAG21/#labels-or-instructions',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Labels of instructies',
     },
