@@ -55,6 +55,7 @@ export const successCriteria: SuccessCriterium[] = [
     title: 'Dragging Movements',
     url: 'https://www.w3.org/TR/WCAG22/#dragging-movements',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Sleepbewegingen',
     },
@@ -65,6 +66,7 @@ export const successCriteria: SuccessCriterium[] = [
     title: 'Target Size (minimum)',
     url: 'https://www.w3.org/TR/WCAG22/#target-size-minimum',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Grootte van het aanwijsgebied (minimum)',
     },
@@ -75,6 +77,7 @@ export const successCriteria: SuccessCriterium[] = [
     title: 'Consistent Help',
     url: 'https://www.w3.org/TR/WCAG22/#consistent-help',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Consistente hulp',
     },
@@ -85,6 +88,7 @@ export const successCriteria: SuccessCriterium[] = [
     title: 'Redundant Entry',
     url: 'https://www.w3.org/TR/WCAG22/#redundant-entry',
     conformance: 'A',
+    nldesignsystem: true,
     nl: {
       title: 'Overbodige invoer',
     },
@@ -95,6 +99,7 @@ export const successCriteria: SuccessCriterium[] = [
     title: 'Accessible Authentication (Minimum)',
     url: 'https://www.w3.org/TR/WCAG22/#accessible-authentication-minimum',
     conformance: 'AA',
+    nldesignsystem: true,
     nl: {
       title: 'Toegankelijke authenticatie (minimum)',
     },
