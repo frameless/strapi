@@ -1,5 +1,23 @@
 # @frameless/pdc-frontend
 
+## 0.4.0
+
+### Minor Changes
+
+- 15240ab: Support `Permissions-Policy` HTTP header.
+- c723791: Support `X-Content-Type-Options` header to increase security.
+- b67a3fb: Support `Referrer-Policy` header for increased privacy.
+
+### Patch Changes
+
+- 22ebe7b: Probleem opgelost met 'Wat vindt u van deze pagina'-link, zodat het formulier nu correct wordt weergegeven.
+
+  [link naar het issue](https://github.com/frameless/strapi/issues/813)
+
+- 3281b25: Probleem opgelost waarbij de Combobox geeft lange teksten niet correct weergeft bij het selecteren van een optie.
+
+  [link naar het issue](https://github.com/frameless/strapi/issues/847 "link naar het issue")
+
 ## 0.3.0
 
 ### Minor Changes
