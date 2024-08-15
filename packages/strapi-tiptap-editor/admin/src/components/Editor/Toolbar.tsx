@@ -43,6 +43,7 @@ import { localizeLanguagesNames } from '../../utils/localizeLanguagesNames';
 import { LinkDialog } from '../LinkDialog';
 import initialTableWithCaption from '../extensions/schema/initialTableWithCaptionData';
 
+type SetYouTubeVideoOptions = { src: string; width?: number; height?: number; start?: number; 'data-title': string };
 type HeadingEventsTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'paragraph' | 'leadParagraph';
 
 interface ToolbarProps {
@@ -110,12 +111,12 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
   const [youTubeInput, setYouTubeInput] = useState('');
   const [youTubeHeightInput, setYouTubeHeightInput] = useState(settings.youtube.height);
   const [youTubeWidthInput, setYouTubeWidthInput] = useState(settings.youtube.width);
+  const [youTubeTitleInput, setYouTubeTitleInput] = useState('');
   const { formatMessage } = useIntl();
   const { observe, inView } = useInView({
     rootMargin: '-1px 0px 0px 0px',
     threshold: [1],
   });
-
   const onInsertYouTubeEmbed = () => {
     editor
       .chain()
@@ -124,10 +125,12 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
         src: youTubeInput,
         width: youTubeWidthInput,
         height: youTubeHeightInput,
-      })
+        'data-title': youTubeTitleInput,
+      } as SetYouTubeVideoOptions)
       .run();
     setYouTubeInput('');
     setIsVisibleYouTubeDialog(false);
+    setYouTubeTitleInput('');
   };
   // Base64 Image dialog
   const [base64MediaLibVisible, setBase64MediaLibVisible] = useState(false);
@@ -617,7 +620,15 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                     defaultMessage: 'Insert YouTube video',
                   })}
                   className={classnames('large-icon', { 'is-active': editor.isActive('youtube') })}
-                  onClick={() => setIsVisibleYouTubeDialog(true)}
+                  onClick={() => {
+                    if (editor.getAttributes('youtube').src) {
+                      setYouTubeInput(editor.getAttributes('youtube').src);
+                    }
+                    if (editor.getAttributes('youtube')['aria-label']) {
+                      setYouTubeTitleInput(editor.getAttributes('youtube')['aria-label']);
+                    }
+                    setIsVisibleYouTubeDialog(true);
+                  }}
                 />
               ) : null}
               {settings.horizontal ? (
@@ -658,7 +669,29 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                         defaultMessage: 'YouTube URL',
                       })}
                     />
-
+                    <TextInput
+                      label={formatMessage({
+                        id: getTrad('components.toolbar.youtubeDialog.titleInput.label'),
+                        defaultMessage: 'YouTube video Title',
+                      })}
+                      placeholder={
+                        formatMessage({
+                          id: getTrad('components.toolbar.youtubeDialog.titleInput.placeholder'),
+                          defaultMessage: 'Enter YouTube video Title',
+                        }) as string
+                      }
+                      name="title"
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        setYouTubeTitleInput(event.target.value);
+                      }}
+                      value={youTubeTitleInput}
+                      aria-label={
+                        formatMessage({
+                          id: getTrad('components.toolbar.youtubeDialog.titleInput.AriaLabel'),
+                          defaultMessage: 'YouTube video Title',
+                        }) as string
+                      }
+                    />
                     <Stack horizontal spacing={2}>
                       <TextInput
                         label={formatMessage({
@@ -721,7 +754,7 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
                   }
                   endAction={
                     <Button
-                      disabled={youTubeInput.length === 0}
+                      disabled={youTubeInput.length === 0 || youTubeTitleInput.length === 0}
                       onClick={() => onInsertYouTubeEmbed()}
                       variant="success-light"
                     >

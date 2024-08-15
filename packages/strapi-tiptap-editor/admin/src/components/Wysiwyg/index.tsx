@@ -208,7 +208,23 @@ const WysiwygContent = ({
       : null,
     settings.other && settings.other.wordcount ? CharacterCountExtension.configure() : null,
     settings.youtube.enabled
-      ? YouTubeExtension.configure({
+      ? YouTubeExtension.extend({
+          addAttributes() {
+            return {
+              ...this.parent?.(),
+              'data-title': {
+                default: null,
+                parseHTML: (element) => element.getAttribute('data-title'),
+                renderHTML: (attributes) => {
+                  if (!attributes['data-title']) return {};
+                  return {
+                    'data-title': attributes['data-title'],
+                  };
+                },
+              },
+            };
+          },
+        }).configure({
           inline: false,
         })
       : null,
