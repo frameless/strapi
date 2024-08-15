@@ -134,6 +134,11 @@ const defaultComponents = (config?: Components) => {
         </figcaption>
       );
     },
+    iframe: ({ node }) => {
+      delete node.properties?.style;
+      const ariaLabel = node.properties?.dataTitle;
+      return <iframe aria-label={ariaLabel} {...node.properties} />;
+    },
   };
 
   // Merge the provided config with the default component mapping
