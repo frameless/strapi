@@ -1,14 +1,18 @@
 import { Box } from '@strapi/design-system/Box';
 import { EditorContent } from '@tiptap/react';
 import type { Editor as EditorTypes } from '@tiptap/react';
+import { Document } from '@utrecht/component-library-react';
+import clsx from 'clsx';
 import React, { useState } from 'react';
 import { BubbleMenuComponent } from './BubbleMenuComponent';
 import { Toolbar } from './Toolbar';
 import Wrapper from './styles';
 import defaultSettings from '../../../../utils/defaults';
 import { PriceListTypes } from '../../types';
+import { getLocalStorage } from '../../utils';
 import MediaLib from '../MediaLib';
 import { OnChangeParamTypes } from '../Wysiwyg';
+import './editor.scss';
 
 interface EditorProps {
   editor: EditorTypes;
@@ -60,6 +64,10 @@ const Editor = ({ editor, settings, productPrice }: EditorProps) => {
   if (!settings) {
     return null;
   }
+  type Theme = 'light' | 'dark';
+  const availableThemes: Theme[] = ['light', 'dark'];
+  const isTheme = (arg: any): arg is Theme => availableThemes.some((x) => x === arg);
+  const localStorageTheme = getLocalStorage('STRAPI_THEME', isTheme);
 
   return (
     <Wrapper>
@@ -71,10 +79,13 @@ const Editor = ({ editor, settings, productPrice }: EditorProps) => {
           productPrice={productPrice}
         />
         <BubbleMenuComponent editor={editor} />
-
-        <Box padding={2} background="neutral0" maxHeight="600px" style={{ resize: 'vertical', overflow: 'auto' }}>
+        <Document
+          className={clsx('utrecht-document--surface', 'utrecht-theme--media-query-color-scheme', {
+            'utrecht-strapi-editor-content--dark': localStorageTheme === 'dark',
+          })}
+        >
           <EditorContent editor={editor} />
-        </Box>
+        </Document>
       </Box>
 
       {settings.other && settings.other.wordcount ? (

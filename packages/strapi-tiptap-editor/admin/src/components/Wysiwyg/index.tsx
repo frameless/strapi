@@ -49,6 +49,7 @@ import { Price } from '../extensions/Price/index';
 import '@utrecht/component-library-css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/design-tokens/dist/index.css';
+import './RichTextEditorCanvas.scss';
 interface Target {
   name: string;
   value: string;
@@ -224,7 +225,7 @@ const WysiwygContent = ({
     injectCSS: false,
     editorProps: {
       attributes: {
-        class: 'utrecht-theme utrecht-theme--media-query-color-scheme utrecht-html utrecht-document',
+        class: 'utrecht-html utrecht-rich-text-editor-canvas',
       },
     },
     onUpdate: ({ editor }) => {
@@ -258,7 +259,7 @@ const WysiwygContent = ({
   }, [currentContent, editor, value]);
 
   return (
-    <Field required={required}>
+    <Field required={required} className="utrecht-theme">
       <Stack spacing={1}>
         <Box>
           <FieldLabel action={labelAction}> {formatMessage(intlLabel)}</FieldLabel>

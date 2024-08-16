@@ -1,0 +1,5 @@
+@import "@utrecht/design-tokens/dist/dark/mixin-theme";
+
+.utrecht-strapi-editor-content--dark {
+  @include utrecht-theme--dark;
+}
