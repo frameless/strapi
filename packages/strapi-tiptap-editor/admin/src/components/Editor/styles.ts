@@ -46,9 +46,6 @@ export default styled(Box)`
 
   .ProseMirror {
     outline: none;
-    line-height: 1.25rem;
-    color: ${({ theme }) => theme.colors.neutral800};
-    min-height: 80px;
 
     figure {
       inline-size: fit-content;
