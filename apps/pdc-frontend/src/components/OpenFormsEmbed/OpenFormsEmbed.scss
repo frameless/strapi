@@ -38,10 +38,13 @@
   max-inline-size: calc(100% - 44px);
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
-.utrecht-form-field.utrecht-form-field--select .selection .choices__item {
+/* stylelint-disable selector-class-pattern */
+.utrecht-form-field.utrecht-form-field--select .selection .choices__item,
+.utrecht-form-field.utrecht-form-field--select .selection + .choices__list .choices__item {
   block-size: fit-content !important;
+  text-wrap: wrap;
 }
+/* stylelint-enable selector-class-pattern */
 
 /* openforms datalist */
 .openforms-app > .openforms-app__body > .openforms-card {
