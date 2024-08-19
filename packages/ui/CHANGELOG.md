@@ -1,5 +1,11 @@
 ## @frameless/ui [2.23.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.23.1...@frameless/ui@2.23.2) (2024-07-04)
 
+## 0.0.1
+
+### Patch Changes
+
+- 06c52b9: Add Title to YouTube Video via Strapi Dashboard ([GitHub Issue frameless/strapi#859](https://github.com/frameless/strapi/issues/859))
+
 ## 0.0.0
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-tiptap-editor",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A drop-in replacement for the strapi editor",
   "strapi": {
     "name": "strapi-tiptap-editor",

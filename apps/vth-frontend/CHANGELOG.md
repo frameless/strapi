@@ -1,5 +1,12 @@
 # @frameless/vth-frontend
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [06c52b9]
+  - @frameless/ui@0.0.1
+
 ## 0.2.0
 
 ### Minor Changes
