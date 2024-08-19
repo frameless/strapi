@@ -1,5 +1,13 @@
 # @frameless/pdc-frontend
 
+## 0.4.1
+
+### Patch Changes
+
+- 36ba214: Probleem opgelost waarbij de Combobox geeft lange teksten niet weergeft bij het selecteren van een optie en de dropdown ook.
+- Updated dependencies [06c52b9]
+  - @frameless/ui@0.0.1
+
 ## 0.4.0
 
 ### Minor Changes

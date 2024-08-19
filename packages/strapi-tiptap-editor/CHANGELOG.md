@@ -1,5 +1,11 @@
 # @frameless/strapi-tiptap-editor [2.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.2.0...@frameless/strapi-tiptap-editor@2.3.0) (2024-06-12)
 
+## 0.1.0
+
+### Minor Changes
+
+- 06c52b9: Add Title to YouTube Video via Strapi Dashboard ([GitHub Issue frameless/strapi#859](https://github.com/frameless/strapi/issues/859))
+
 ## 0.0.0
 
 ### Minor Changes
