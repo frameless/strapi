@@ -7,6 +7,7 @@ import {
   Heading5,
   Heading6,
   Paragraph,
+  RichText,
   Table,
   TableBody,
   TableCaption,
@@ -21,7 +22,6 @@ import React from 'react';
 import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
 import type { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import { RichText } from '../RichText';
 import { isYouTubeURL, YouTubeVideo } from '../YouTubeVideo';
 
 const defaultComponents = (config?: Components) => {
