@@ -118,6 +118,7 @@ build
 dist/*
 tsconfig.tsbuildinfo
 generated
+.strapi/
 ############################
 # samenwerkende-catalogi
 ############################
