@@ -22,6 +22,7 @@ import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
 import type { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { RichText } from '../RichText';
+import { isYouTubeURL, YouTubeVideo } from '../YouTubeVideo';
 
 const defaultComponents = (config?: Components) => {
   const componentMap: { [key: string]: React.ComponentType<any> } = {
@@ -135,9 +136,11 @@ const defaultComponents = (config?: Components) => {
       );
     },
     iframe: ({ node }) => {
-      delete node.properties?.style;
-      const ariaLabel = node.properties?.dataTitle;
-      return <iframe aria-label={ariaLabel} {...node.properties} />;
+      if (isYouTubeURL(node.properties.src)) {
+        return <YouTubeVideo title={node.properties?.dataTitle} {...node.properties} />;
+      } else {
+        return null;
+      }
     },
   };
 

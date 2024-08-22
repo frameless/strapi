@@ -24,6 +24,16 @@ describe('Markdown', () => {
     const text = container.querySelector('.custom-component');
     expect(text).toBeInTheDocument();
   });
+
+  describe('iframe', () => {
+    const exampleIframe = '<iframe width="640" height="480" src="https://example.com/"></iframe>';
+    it('should not render iframe elements', () => {
+      const { container } = render(<Markdown>{exampleIframe}</Markdown>);
+      const iframe = container.querySelector('iframe');
+      expect(iframe).not.toBeInTheDocument();
+    });
+  });
+
   describe('Youtube iframe', () => {
     const youtubeIframe =
       '<div data-youtube-video=""> <iframe loop="false" width="640" height="480" allowfullscreen="true" autoplay="false" disablekbcontrols="false" enableiframeapi="false" endtime="0" ivloadpolicy="0"  modestbranding="false" origin="" playlist="" src="https://www.youtube.com/watch?v=X5rRDtSH-WM" start="0" data-title="Inkoop & Contractmanagement l Werken bij Utrecht"></iframe></div>';
@@ -35,77 +45,13 @@ describe('Markdown', () => {
     it('should render Youtube iframe with correct src', () => {
       const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
       const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('src', 'https://www.youtube.com/watch?v=X5rRDtSH-WM');
+      expect(iframe).toHaveAttribute('src', 'https://www.youtube.com/watch?v=X5rRDtSH-WM&loop=false');
     });
     it('should render Youtube iframe with correct width and height', () => {
       const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
       const iframe = container.querySelector('iframe');
       expect(iframe).toHaveAttribute('width', '640');
       expect(iframe).toHaveAttribute('height', '480');
-    });
-    it('should render Youtube iframe with correct allowfullscreen', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('allowfullscreen');
-      /*
-      For some reason the Markdown component rendered the allowfullscreen attribute without value, but in the browser it seems working.
-      */
-    });
-    it('should render Youtube iframe with correct autoplay', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('autoplay');
-      /*
-      For some reason the Markdown component rendered the autoplay attribute without value, but in the browser it seems working.
-      */
-    });
-    it('should render Youtube iframe with correct disablekbcontrols', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('disablekbcontrols', 'false');
-    });
-    it('should render Youtube iframe with correct enableiframeapi', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('enableiframeapi', 'false');
-    });
-    it('should render Youtube iframe with correct endtime', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('endtime', '0');
-    });
-    it('should render Youtube iframe with correct ivloadpolicy', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('ivloadpolicy', '0');
-    });
-    it('should render Youtube iframe with correct loop', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('loop');
-      /*
-      For some reason the Markdown component rendered the loop attribute without value, but in the browser it seems working.
-      */
-    });
-    it('should render Youtube iframe with correct modestbranding', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('modestbranding', 'false');
-    });
-    it('should render Youtube iframe with correct origin', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('origin', '');
-    });
-    it('should render Youtube iframe with correct playlist', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('playlist', '');
-    });
-    it('should render Youtube iframe with correct start', () => {
-      const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
-      const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('start', '0');
     });
     it('should render Youtube iframe with correct aria-label', () => {
       const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
