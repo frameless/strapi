@@ -119,7 +119,7 @@ export const UtrechtSearchBar: React.FC<SearchBarProps> = ({
   return (
     <Downshift itemToString={itemToString} {...rest}>
       {({ getInputProps, getItemProps, isOpen, selectedItem, highlightedIndex, getMenuProps }) => (
-        <div>
+        <div aria-labelledby={buttonId}>
           <div className={clsx('utrecht-search-bar')}>
             <Textbox
               {...getInputProps()}
