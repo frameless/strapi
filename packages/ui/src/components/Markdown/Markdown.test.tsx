@@ -45,7 +45,7 @@ describe('Markdown', () => {
     it('should render Youtube iframe with correct src', () => {
       const { container } = render(<Markdown>{youtubeIframe}</Markdown>);
       const iframe = container.querySelector('iframe');
-      expect(iframe).toHaveAttribute('src', 'https://www.youtube.com/watch?v=X5rRDtSH-WM&loop=false');
+      expect(iframe).toHaveAttribute('src', 'https://www.youtube.com/watch?v=X5rRDtSH-WM&disablekb=1&loop=false');
     });
     it('should render Youtube iframe with correct width and height', () => {
       const { container } = render(<Markdown>{youtubeIframe}</Markdown>);

@@ -56,7 +56,7 @@ export const YouTubeVideo = forwardRef(
       cc_load_policy,
       color,
       controls,
-      disablekb,
+      disablekb = '1',
       enablejsapi,
       end,
       fs,
