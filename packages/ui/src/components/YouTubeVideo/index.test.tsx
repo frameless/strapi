@@ -28,6 +28,12 @@ describe('Embedded YouTube video', () => {
     expect(iframe).toBeInTheDocument();
   });
 
+  it('should disable keyboard controls by default (WCAG 2.1.4)', () => {
+    const { container } = render(<YouTubeVideo src="https://www.youtube.com/watch?v=GFq6wH5JR2A" />);
+    const iframe = container.querySelector('iframe');
+    expect(iframe?.getAttribute('src')).toContain('disablekb=1');
+  });
+
   it('should set render width and height', () => {
     const { container } = render(
       <YouTubeVideo src="https://www.youtube.com/watch?v=GFq6wH5JR2A" height="320" width="480" />,
