@@ -21,6 +21,7 @@ import {
   LogoButton,
   Markdown,
   MultiColumnsButton,
+  RichText,
   ScrollToTopButton,
   SpotlightSection,
   UtrechtIconChevronUp,
@@ -300,19 +301,21 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
       />
       <main id="main">
         <Article>
-          <Heading level={1}>{product?.attributes?.title}</Heading>
-          {product?.attributes?.content && (
-            <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
-              {product?.attributes?.content}
-            </Markdown>
-          )}
-          {product?.attributes?.sections && product.attributes.sections.length > 0 && (
-            <Sections
-              sections={product.attributes.sections as ProductSectionsDynamicZone[]}
-              locale={locale}
-              priceData={priceData}
-            />
-          )}
+          <RichText>
+            <Heading level={1}>{product?.attributes?.title}</Heading>
+            {product?.attributes?.content && (
+              <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                {product?.attributes?.content}
+              </Markdown>
+            )}
+            {product?.attributes?.sections && product.attributes.sections.length > 0 && (
+              <Sections
+                sections={product.attributes.sections as ProductSectionsDynamicZone[]}
+                locale={locale}
+                priceData={priceData}
+              />
+            )}
+          </RichText>
         </Article>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
