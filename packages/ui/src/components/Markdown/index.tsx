@@ -1,4 +1,4 @@
-import { Figure, OrderedList, RichText, TableContainer } from '@utrecht/component-library-react';
+import { Figure, OrderedList, TableContainer } from '@utrecht/component-library-react';
 import {
   Heading1,
   Heading2,
@@ -171,9 +171,7 @@ interface MarkdownProps {
 }
 
 export const Markdown: React.FC<MarkdownProps> = ({ children, components }) => (
-  <RichText>
-    <ReactMarkdown urlTransform={transformUri} components={defaultComponents(components)} rehypePlugins={[rehypeRaw]}>
-      {children}
-    </ReactMarkdown>
-  </RichText>
+  <ReactMarkdown urlTransform={transformUri} components={defaultComponents(components)} rehypePlugins={[rehypeRaw]}>
+    {children}
+  </ReactMarkdown>
 );
