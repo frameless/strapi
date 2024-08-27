@@ -1,4 +1,12 @@
-import { Emphasis, Heading1, Heading2, Heading3, Heading4, Paragraph } from '@utrecht/component-library-react';
+import {
+  Emphasis,
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Paragraph,
+  RichText,
+} from '@utrecht/component-library-react';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { AccordionProvider, Grid, GridCell, Markdown, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
@@ -202,7 +210,7 @@ const NavigationPageDisplay = (navigationPage: NavigationPage, indexString: stri
   let levelIndex = 0;
 
   return (
-    <div>
+    <RichText>
       <Heading2 id={`navigation-page-${navigationPage.title}`}>
         {indexString}. {navigationPage.title}
       </Heading2>
@@ -215,13 +223,13 @@ const NavigationPageDisplay = (navigationPage: NavigationPage, indexString: stri
         navigationPage.article_pages.data.map(({ attributes: articlePage }) => {
           return ArticlePageDisplay(articlePage, `${indexString}.${++levelIndex}`);
         })}
-    </div>
+    </RichText>
   );
 };
 
 const ThemePageDisplay = (themePage: ThemePage, indexString: string) => {
   return (
-    <div>
+    <RichText>
       <Heading3 id={`theme-page-${themePage.title}`}>
         {indexString}. {themePage.title}
       </Heading3>
@@ -230,18 +238,18 @@ const ThemePageDisplay = (themePage: ThemePage, indexString: string) => {
         themePage.article_pages.data.map(({ attributes: articlePage }, index) => {
           return ArticlePageDisplay(articlePage, `${indexString}.${index + 1}`);
         })}
-    </div>
+    </RichText>
   );
 };
 
 const ArticlePageDisplay = (articlePage: ArticlePage, indexString: string) => {
   return (
-    <div>
+    <RichText>
       <Heading4 id={`article-page-${articlePage.title}`}>
         {indexString}. {articlePage.title}
       </Heading4>
       <DynamicContent content={articlePage.content} />
-    </div>
+    </RichText>
   );
 };
 export default PrintPage;
