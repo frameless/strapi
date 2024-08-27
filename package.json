@@ -45,6 +45,7 @@
     "clean-node_modules": "npm exec --workspaces --include-workspace-root -- rimraf node_modules",
     "init:env": "node scripts/env-init.js",
     "lint": "npm-run-all lint:*",
+    "lint:changeset": "changeset status",
     "lint-fix": "npm-run-all lint-fix:*",
     "lint:css": "stylelint '**/*.{css,scss}'",
     "lint:env": "node scripts/env-lint.js",
