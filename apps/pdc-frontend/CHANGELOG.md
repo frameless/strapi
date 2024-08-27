@@ -1,5 +1,11 @@
 # @frameless/pdc-frontend
 
+## 0.5.0
+
+### Minor Changes
+
+- eafb6fd: Deze update zorgt er voor dat we de RichText component (het tussen ruimte component) toevoegen aan de vth en pdc, zodat de inhoud de goede ruimte krijgt.
+
 ## 0.4.2
 
 ### Patch Changes
