@@ -138,7 +138,7 @@ jobs:
           GIT_COMMITTER_EMAIL: "devops@frameless.io"
           GIT_COMMITTER_NAME: "Frameless DevOps"
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GH_CLASSIC_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         with:
           commit: "docs(release): strapi packages"
           setupGitUser: false
