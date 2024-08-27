@@ -1,5 +1,11 @@
 # @frameless/vth-frontend
 
+## 0.3.0
+
+### Minor Changes
+
+- eafb6fd: Deze update zorgt er voor dat we de RichText component (het tussen ruimte component) toevoegen aan de vth en pdc, zodat de inhoud de goede ruimte krijgt.
+
 ## 0.2.2
 
 ### Patch Changes
