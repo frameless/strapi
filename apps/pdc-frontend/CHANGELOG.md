@@ -1,5 +1,18 @@
 # @frameless/pdc-frontend
 
+## 0.4.2
+
+### Patch Changes
+
+- 045ae12: Tekstomloopprobleem van dropdown-combobox opties opgelost.
+- 349b2c1: Verbeter toegankelijkheid van het zoek-formulier op elke pagina. ([WCAG-succescriterium 4.1.2](https://nldesignsystem.nl/wcag/4.1.2/), [GitHub Issue nl-design-system/utrecht#2437](https://github.com/nl-design-system/utrecht/issues/2437))
+- 2c0382b: De YouTube-video player past het formaat nu automatisch aan, zodat de video past op kleine schermen. [GitHub Issue frameless/strapi#877](https://github.com/frameless/strapi/issues/877)
+- 2c0382b: Verbeter de toegankelijkheid door toetsenbordbediening van de YouTube-video uit te schakelen ([WCAG-successcriterium 2.1.4](http://nldesignsystem.nl/wcag/2.1.4/)).
+- Updated dependencies [8c536da]
+- Updated dependencies [2c0382b]
+- Updated dependencies [2c0382b]
+  - @frameless/ui@0.1.0
+
 ## 0.4.1
 
 ### Patch Changes

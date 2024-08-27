@@ -1,5 +1,13 @@
 # @frameless/vth-dashboard 1.0.0 (2023-08-22)
 
+## 0.2.2
+
+### Patch Changes
+
+- 981db82: Update Strapi-afhankelijkheden om het paginering probleem in het dashboard op te lossen ([GitHub Issue frameless/strapi#715](https://github.com/frameless/strapi/issues/715)).
+- Updated dependencies [f40ac6b]
+  - @frameless/strapi-tiptap-editor@0.1.1
+
 ## 0.2.1
 
 ### Patch Changes
