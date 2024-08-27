@@ -1,7 +1,7 @@
 import { cookies, draftMode } from 'next/headers';
 import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
-import { Header, Heading1, Page, PageContent } from '@/components';
+import { Header, Heading1, Page, PageContent, RichText } from '@/components';
 import { Main } from '@/components/Main';
 import { Markdown } from '@/components/Markdown';
 import { GET_NOT_FOUND_PAGE } from '@/query';
@@ -35,8 +35,10 @@ const NotFoundPage = async () => {
       <Page>
         <Main id="main">
           <PageContent className="utrecht-custom-page-content">
-            <Heading1>{data?.notFoundPage?.data?.attributes?.title}</Heading1>
-            <Markdown imageUrl={getImageBaseUrl()}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+            <RichText>
+              <Heading1>{data?.notFoundPage?.data?.attributes?.title}</Heading1>
+              <Markdown imageUrl={getImageBaseUrl()}>{data?.notFoundPage?.data?.attributes?.body}</Markdown>
+            </RichText>
           </PageContent>
         </Main>
       </Page>

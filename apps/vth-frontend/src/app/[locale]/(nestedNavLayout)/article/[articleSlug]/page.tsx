@@ -16,6 +16,7 @@ import {
   NavigationList,
   Page,
   PageContent,
+  RichText,
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
@@ -170,8 +171,10 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
           <Grid spacing="md">
             <GridCell md={8}>
               <Main id="main">
-                <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
-                <DynamicContent />
+                <RichText>
+                  <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
+                  <DynamicContent />
+                </RichText>
               </Main>
             </GridCell>
             <GridCell md={4} className="utrecht-grid-mobile-hidden">
