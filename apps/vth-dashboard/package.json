@@ -17,9 +17,9 @@
     "clean": "rimraf build .cache dist"
   },
   "dependencies": {
-    "@frameless/preview-button": "0.0.0-semantically-released",
-    "@frameless/strapi-plugin-env-label": "0.0.0-semantically-released",
-    "@frameless/strapi-tiptap-editor": "0.1.1",
+    "@frameless/preview-button": "file:../../packages/preview-button",
+    "@frameless/strapi-plugin-env-label": "file:../../packages/strapi-plugin-env-label",
+    "@frameless/strapi-tiptap-editor": "file:../../packages/strapi-tiptap-editor",
     "@strapi/plugin-graphql": "4.25.8",
     "@strapi/plugin-i18n": "4.25.8",
     "@strapi/plugin-users-permissions": "4.25.8",

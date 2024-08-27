@@ -17,7 +17,7 @@
     "clean": "rimraf build .cache dist"
   },
   "dependencies": {
-    "@frameless/strapi-tiptap-editor": "0.1.1",
+    "@frameless/strapi-tiptap-editor": "file:../../packages/strapi-tiptap-editor",
     "@strapi/plugin-graphql": "4.25.8",
     "@strapi/plugin-i18n": "4.25.8",
     "@strapi/plugin-users-permissions": "4.25.8",
