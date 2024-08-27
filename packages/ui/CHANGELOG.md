@@ -1,5 +1,16 @@
 ## @frameless/ui [2.23.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.23.1...@frameless/ui@2.23.2) (2024-07-04)
 
+## 0.1.0
+
+### Minor Changes
+
+- 8c536da: Voeg nieuwe `YouTubeVideo` React-component toe.
+
+### Patch Changes
+
+- 2c0382b: De YouTube-video player past het formaat nu automatisch aan, zodat de video past op kleine schermen. [GitHub Issue frameless/strapi#877](https://github.com/frameless/strapi/issues/877)
+- 2c0382b: Verbeter de toegankelijkheid door toetsenbordbediening van de YouTube-video uit te schakelen ([WCAG-successcriterium 2.1.4](http://nldesignsystem.nl/wcag/2.1.4/)).
+
 ## 0.0.1
 
 ### Patch Changes

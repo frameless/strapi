@@ -1,5 +1,11 @@
 # @frameless/strapi-tiptap-editor [2.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.2.0...@frameless/strapi-tiptap-editor@2.3.0) (2024-06-12)
 
+## 0.1.1
+
+### Patch Changes
+
+- f40ac6b: Los het probleem op waarbij de Strapi rich text editor niet goed zichtbaar is in dark mode.
+
 ## 0.1.0
 
 ### Minor Changes
