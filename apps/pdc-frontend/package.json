@@ -26,7 +26,7 @@
     "watch:e2e": "playwright --help test test/e2e/"
   },
   "dependencies": {
-    "@frameless/ui": "0.1.0",
+    "@frameless/ui": "file:../../packages/ui",
     "@nl-design-system-unstable/documentation": "1.1.0",
     "@open-formulieren/sdk": "2.1.3",
     "@playwright/test": "1.45.3",

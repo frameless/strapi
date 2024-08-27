@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "4.29.25",
-    "@frameless/ui": "0.1.0",
+    "@frameless/ui": "file:../../packages/ui",
     "@utrecht/component-library-css": "4.2.0",
     "@utrecht/component-library-react": "5.0.0",
     "@utrecht/design-tokens": "1.1.0",

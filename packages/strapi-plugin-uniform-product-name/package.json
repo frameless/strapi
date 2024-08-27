@@ -31,7 +31,7 @@
   "dependencies": {
     "@strapi/design-system": "1.12.2",
     "@strapi/icons": "1.12.2",
-    "@frameless/upl": "0.0.0-semantically-released"
+    "@frameless/upl": "file:../upl"
   },
   "scripts": {
     "develop": "tsc -p tsconfig.server.json -w",

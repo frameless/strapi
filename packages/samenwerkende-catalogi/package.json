@@ -22,9 +22,9 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@frameless/catalogi-data": "0.0.0-semantically-released",
+    "@frameless/catalogi-data": "file:../catalogi-data",
     "xmlbuilder2": "3.0.2",
-    "@frameless/upl": "0.0.0-semantically-released"
+    "@frameless/upl": "file:../upl"
   },
   "scripts": {
     "prebuild": "yarn clean",
