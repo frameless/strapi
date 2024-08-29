@@ -141,9 +141,12 @@ a {
 .utrecht-custom-header {
   --utrecht-page-padding-inline-start: 0;
   --utrecht-page-padding-inline-end: 0;
+  --utrecht-page-header-padding-block-end: 0;
 }
 
 .utrecht-custom-page {
+  --utrecht-page-content-padding-block-start: 0;
+
   background-color: var(--utrecht-document-background-color);
   display: flex;
   flex-direction: column;
@@ -187,6 +190,10 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
 
 .utrecht-navigation--mobile:has(button[aria-expanded="false"]) {
   padding-inline-end: var(--utrecht-navigation-toggle-button-padding-end);
+}
+
+.utrecht-breadcrumb-nav {
+  margin-block-end: var(--utrecht-rich-text-stranger-margin-block-end);
 }
 
 @media screen and (width > 360px) {
