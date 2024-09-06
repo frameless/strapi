@@ -1,5 +1,6 @@
 import { getDirectionFromLanguageCode } from '@frameless/utils';
 import { SpotlightSectionType } from '@utrecht/component-library-react/dist/SpotlightSection';
+import type { TFunction } from 'i18next';
 import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
@@ -67,10 +68,13 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
   const { product } = await getAllProducts(locale, slug);
+  const productsSegment = t('segments.products', {
+    defaultValue: 'producten',
+  });
   const title = product?.attributes?.metaTags?.title;
   const description = product?.attributes?.metaTags?.description;
   const openGraphImage = product?.attributes?.metaTags?.ogImage?.data?.attributes?.url;
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products/${slug}`;
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/${productsSegment}/${slug}`;
 
   return {
     title,
@@ -89,9 +93,9 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}/products/${slug}`,
+      canonical: `/${locale}/${productsSegment}/${slug}`,
       languages: {
-        ...buildAlternateLinks({ languages, segment: `products/${slug}` }),
+        ...buildAlternateLinks({ languages, segment: `${productsSegment}/${slug}` }),
       },
     },
   };
@@ -101,9 +105,13 @@ interface SectionsProps {
   sections: ProductSectionsDynamicZone[];
   priceData: any;
   locale: string;
+  t: TFunction<string, any, string>;
 }
 
-const Sections = ({ sections, locale, priceData }: SectionsProps) => {
+const Sections = ({ sections, locale, priceData, t }: SectionsProps) => {
+  const formSegment = t('segments.form', {
+    defaultValue: 'formulier',
+  });
   return (
     <>
       {sections &&
@@ -129,7 +137,7 @@ const Sections = ({ sections, locale, priceData }: SectionsProps) => {
                     label={component.label}
                     appearance={component?.appearance as string}
                     logo={component.logo}
-                    href={`/form/${slug}`}
+                    href={`/${formSegment}/${slug}`}
                   >
                     {component.textContent || label}
                   </LogoButton>
@@ -268,6 +276,9 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const priceData: any = product?.attributes?.price && product?.attributes?.price?.data?.attributes?.price;
 
   const { t } = await useTranslation(locale, 'common');
+  const productsSegment = t('segments.products', {
+    defaultValue: 'producten',
+  });
   return (
     <>
       <Breadcrumbs
@@ -288,7 +299,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
             current: false,
           },
           {
-            href: '/products',
+            href: `/${productsSegment}`,
             label: t('components.breadcrumbs.label.products'),
             current: true,
           },
@@ -311,6 +322,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
             )}
             {product?.attributes?.sections && product.attributes.sections.length > 0 && (
               <Sections
+                t={t}
                 sections={product.attributes.sections as ProductSectionsDynamicZone[]}
                 locale={locale}
                 priceData={priceData}
@@ -320,7 +332,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         </Article>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/products/${slug}`} t={t} env={process.env} />
+            <SurveyLink segment={`${locale}/${productsSegment}/${slug}`} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

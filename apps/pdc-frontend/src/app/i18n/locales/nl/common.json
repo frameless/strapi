@@ -33,5 +33,14 @@
   },
   "text": {
     "free-product": "gratis"
+  },
+  "segments": {
+    "products": "producten",
+    "search": "zoeken",
+    "form": "formulier",
+    "error": "fout",
+    "alphabet": "alfabet",
+    "form-server-down": "formulier-server-is-offline",
+    "form-not-found": "formulier-niet-gevonden"
   }
 }

@@ -1,9 +1,9 @@
 {
-  "form-not-found": {
+  "formulier-niet-gevonden": {
     "title": "Form Not Found",
     "message": "We apologize, but it appears that the form you are trying to access cannot be found. If you believe this is a mistake or need further assistance, please contact our support team."
   },
-  "form-server-down": {
+  "formulier-server-is-offline": {
     "title": "Uh-Oh! Something Went Wrong",
     "message": "We're experiencing some technical difficulties at the moment. Our team is working to resolve the issue as quickly as possible. Please try again later, or contact us if you need immediate assistance."
   }

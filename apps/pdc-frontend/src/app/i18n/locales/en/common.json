@@ -33,5 +33,14 @@
   },
   "text": {
     "free-product": "free"
+  },
+  "segments": {
+    "products": "Products",
+    "search": "Search",
+    "form": "Form",
+    "error": "Error",
+    "alphabet": "Alphabet",
+    "form-server-down": "form-server-down",
+    "form-not-found": "form-not-found"
   }
 }

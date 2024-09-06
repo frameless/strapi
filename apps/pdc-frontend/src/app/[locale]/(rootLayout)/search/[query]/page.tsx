@@ -30,7 +30,10 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
   const decodeQuery = decodeURIComponent(query)?.trim();
   const title = t('seo.title', { query: decodeQuery, interpolation: { escapeValue: false } });
   const description = t('seo.description');
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/search/${decodeQuery}`;
+  const searchSegment = t('segments.search', {
+    defaultValue: 'zoeken',
+  });
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/${searchSegment}/${decodeQuery}`;
   return {
     title,
     description,
@@ -44,9 +47,9 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}/search/${decodeQuery}`,
+      canonical: `/${locale}/${searchSegment}/${decodeQuery}`,
       languages: {
-        ...buildAlternateLinks({ languages, segment: `search/${decodeQuery}` }),
+        ...buildAlternateLinks({ languages, segment: `${searchSegment}/${decodeQuery}` }),
       },
     },
   };
@@ -56,8 +59,11 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
   const { t } = await useTranslation(locale, ['search-page', 'common']);
   const decodeQuery = decodeURIComponent(query)?.trim();
   const searchResults = await getSuggestedSearch(locale, decodeQuery);
+  const searchSegment = t('segments.search', {
+    defaultValue: 'zoeken',
+  });
   if (searchResults && searchResults.hits && searchResults.hits.length === 0) {
-    redirect(`/search/tips?query=${decodeQuery}`);
+    redirect(`/${searchSegment}/tips?query=${decodeQuery}`);
   }
 
   const results =
@@ -84,7 +90,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
             current: false,
           },
           {
-            href: `/search/${decodeQuery}`,
+            href: `/${searchSegment}/${decodeQuery}`,
             label: t('components.breadcrumbs.label.search'),
             current: true,
           },
@@ -108,7 +114,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
         />
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/search/${query}`} t={t} env={process.env} />
+            <SurveyLink segment={`${locale}/${searchSegment}/${query}`} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

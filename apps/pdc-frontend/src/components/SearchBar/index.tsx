@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { experimental_useOptimistic as useOptimistic } from 'react';
 import React from 'react';
+import { useTranslation } from '@/app/i18n/client';
 import { Link as UtrechtLink } from '@/components';
 import { SuggestedHits, Suggestions } from '@/types';
 import { UtrechtSearchBar } from '../UtrechtSearchBar';
@@ -51,6 +52,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       sending: true,
     };
   });
+  const { t } = useTranslation(locale, ['common']);
   const { push } = useRouter();
   const handleStateChange = (changes: any) => {
     if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
@@ -62,11 +64,15 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     }
   };
 
+  const searchSegment = t('segments.search', {
+    defaultValue: 'zoeken',
+  });
+
   const onChange = (selectedItem: any) => {
     if (selectedItem && selectedItem?.type?.toLowerCase() === 'page') {
       push(selectedItem.url);
     } else {
-      push(`/search/${selectedItem?.text}`);
+      push(`/${searchSegment}/${selectedItem?.text}`);
     }
   };
 
@@ -92,7 +98,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             option?.text && (
               <Link
                 className={classNames('utrecht-link', 'utrecht-link--external')}
-                href={`/search/${option?.text}`}
+                href={`/${searchSegment}/${option?.text}`}
                 dangerouslySetInnerHTML={{ __html: option?.text }}
               />
             )
