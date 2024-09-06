@@ -27,6 +27,9 @@ const SearchTips = async ({ params: { locale }, searchParams }: any) => {
   const query = searchParams?.query;
   const tipsList = t('body.section.unordered-list', { returnObjects: true }) as string[];
   const decodeQuery = decodeURIComponent(query);
+  const searchSegment = t('segments.search', {
+    defaultValue: 'zoeken',
+  });
   return (
     <div>
       <Breadcrumbs
@@ -42,7 +45,7 @@ const SearchTips = async ({ params: { locale }, searchParams }: any) => {
             current: false,
           },
           {
-            href: `/search/tips/${decodeQuery}`,
+            href: `/${searchSegment}/tips/${decodeQuery}`,
             label: t('components.breadcrumbs.label.search-tips'),
             current: true,
           },

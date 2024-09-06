@@ -4,11 +4,14 @@ export type MappingProductsProps = {
   attributes: ProductType;
 };
 
-export const mappingProducts = (products: MappingProductsProps[]): { title: string; url: string }[] | [] => {
+export const mappingProducts = (
+  products: MappingProductsProps[],
+  segment: string,
+): { title: string; url: string }[] | [] => {
   if (!products || products.length === 0) return [];
   return products.map(({ attributes }) => ({
     title: attributes.title,
-    url: `/products/${attributes.slug}`,
+    url: `/${segment}/${attributes.slug}`,
     body: attributes?.metaTags?.description,
   }));
 };
