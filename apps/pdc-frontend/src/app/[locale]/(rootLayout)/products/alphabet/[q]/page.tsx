@@ -45,7 +45,14 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
   const title = t('seo.title');
   const description = t('seo.description');
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products/alphabet/${q}`;
+  const productsSegment = t('segments.products', {
+    defaultValue: 'producten',
+  });
+  const alphabetSegment = t('segments.alphabet', {
+    defaultValue: 'alfabet',
+  });
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/${productsSegment}/${alphabetSegment}/${q}`;
+
   return {
     title,
     description,
@@ -59,9 +66,9 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}/products/alphabet/${q}`,
+      canonical: `/${locale}/${productsSegment}/${alphabetSegment}/${q}`,
       languages: {
-        ...buildAlternateLinks({ languages, segment: `products/alphabet/${q}` }),
+        ...buildAlternateLinks({ languages, segment: `${productsSegment}/${alphabetSegment}/${q}` }),
       },
     },
   };
@@ -91,9 +98,14 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       href: !isAvailable ? undefined : `${letter.toLocaleLowerCase()}`,
     };
   });
+  const productsSegment = t('segments.products', {
+    defaultValue: 'producten',
+  });
+  const alphabetSegment = t('segments.alphabet', {
+    defaultValue: 'alfabet',
+  });
   const alphabetAvailability = await Promise.all(productsAvailability);
-  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[]);
-
+  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productsSegment);
   return (
     <>
       <Breadcrumbs
@@ -114,18 +126,18 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
             current: false,
           },
           {
-            href: '/products',
+            href: `/${productsSegment}`,
             label: t('components.breadcrumbs.label.products'),
             current: false,
           },
           {
-            href: `/products/alphabet/${q}`,
+            href: `/${productsSegment}/${alphabetSegment}/${q}`,
             label: t('components.breadcrumbs.label.alphabet'),
             current: true,
           },
         ]}
         backLink={{
-          href: '/products',
+          href: `/${productsSegment}`,
           label: t('components.breadcrumbs.label.products'),
           current: false,
         }}
@@ -152,7 +164,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         )}
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/products/alphabet/${q}`} t={t} env={process.env} />
+            <SurveyLink segment={`${locale}/${productsSegment}/${alphabetSegment}/${q}`} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

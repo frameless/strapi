@@ -1,9 +1,9 @@
 {
-  "form-not-found": {
+  "formulier-niet-gevonden": {
     "title": "Formulier Niet Gevonden",
     "message": "Onze excuses, maar het lijkt erop dat het formulier dat u probeert te openen niet kan worden gevonden. Als u denkt dat dit een vergissing is of verdere hulp nodig heeft, neem dan contact op met ons ondersteuningsteam."
   },
-  "form-server-down": {
+  "formulier-server-is-offline": {
     "title": "Server Niet Beschikbaar",
     "message": "Het spijt ons, maar de service die onze formulieren verwerkt, is momenteel niet beschikbaar. Ons team is op de hoogte van het probleem en werkt actief aan het herstellen van de toegang. We waarderen uw geduld."
   }

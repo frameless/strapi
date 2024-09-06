@@ -59,9 +59,11 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Products = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { t } = await useTranslation(locale, ['products-page', 'common']);
-
+  const productsSegment = t('segments.products', {
+    defaultValue: 'producten',
+  });
   const { products } = await fetchAllProducts({ locale });
-  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[]);
+  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productsSegment);
 
   return (
     <>
@@ -83,7 +85,7 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
             current: false,
           },
           {
-            href: '/products',
+            href: `/${productsSegment}`,
             label: t('components.breadcrumbs.label.products'),
             current: false,
           },
@@ -102,7 +104,7 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
         )}
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/products`} t={t} env={process.env} />
+            <SurveyLink segment={`${locale}/${productsSegment}`} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

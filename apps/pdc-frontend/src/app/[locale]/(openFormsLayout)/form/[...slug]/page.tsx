@@ -24,7 +24,9 @@ const FormPage = async ({
   const { t } = await useTranslation(locale, 'common');
   const nonce = headers().get('x-nonce') || '';
   const formInfo = await openFormValidator({ formId });
-
+  const formSegment = t('segments.form', {
+    defaultValue: 'formulier',
+  });
   return (
     <>
       <Breadcrumbs
@@ -59,14 +61,14 @@ const FormPage = async ({
             sdkUrl={createOpenFormsSdkUrl()?.href || ''}
             cssUrl={createOpenFormsCssUrl()?.href || ''}
             nonce={nonce}
-            basePath={`/${locale}/form/${formId}/`}
+            basePath={`/${locale}/${formSegment}/${formId}/`}
             slug={formId}
             fallback={formInfo ? <Heading1>{formInfo.name}</Heading1> : null}
           />
         </div>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/form/${formId}`} t={t} env={process.env} />
+            <SurveyLink segment={`${locale}/${formSegment}/${formId}`} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

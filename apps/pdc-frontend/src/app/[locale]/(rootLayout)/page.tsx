@@ -57,6 +57,12 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Home = async ({ params: { locale } }: { params: any }) => {
   const { t } = await useTranslation(locale, ['home-page', 'common']);
+  const productsSegment = t('segments.products', {
+    defaultValue: 'producten',
+  });
+  const alphabetSegment = t('segments.alphabet', {
+    defaultValue: 'alfabet',
+  });
   const { data } = await fetchData<{ data: GetPdcHomePageQuery }>({
     url: createStrapiURL(),
     query: GET_PDC_HOME_PAGE,
@@ -79,7 +85,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
     return {
       char: letter,
       disabled: !isAvailable,
-      href: !isAvailable ? undefined : `products/alphabet/${letter.toLocaleLowerCase()}`,
+      href: !isAvailable ? undefined : `${productsSegment}/${alphabetSegment}/${letter.toLocaleLowerCase()}`,
     };
   });
 

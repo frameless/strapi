@@ -9,6 +9,7 @@ import {
   mappingProducts,
   MappingProductsProps,
 } from '@/util';
+import { useTranslation } from '../i18n';
 
 type Params = {
   pageSize?: number;
@@ -47,12 +48,17 @@ export const getSuggestedSearch = async (
 };
 
 export const onSearchSubmitAction = async (formData: FormData, locale: string) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(locale, ['common']);
+  const searchSegment = t('segments.search', {
+    defaultValue: 'zoeken',
+  });
   const value = formData.get('search') as string;
   const result = await getSuggestedSearch(value, locale);
   if (result?.total && value.trim()) {
-    redirect(`/${locale}/search/${value}`);
+    redirect(`/${locale}/${searchSegment}/${value}`);
   }
-  redirect(`/${locale}/search/tips?query=`);
+  redirect(`/${locale}/${searchSegment}/tips?query=`);
 };
 
 export const getLiveSuggestions = async (value: string) => {
@@ -71,6 +77,11 @@ export const getLiveSuggestions = async (value: string) => {
 };
 
 export const setPageIndex = async (pageIndex: string, currentQuery: string, locale: string, segment?: string) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(locale, ['common']);
+  const productsSegment = t('segments.products', {
+    defaultValue: 'producten',
+  });
   if (segment === 'search') {
     const searchResults = await getSuggestedSearch(locale, currentQuery, {
       page: Number(pageIndex) + 1,
@@ -104,7 +115,7 @@ export const setPageIndex = async (pageIndex: string, currentQuery: string, loca
   });
 
   return {
-    data: mappingProducts(products?.data as MappingProductsProps[]),
+    data: mappingProducts(products?.data as MappingProductsProps[], productsSegment),
     pagination: products?.meta.pagination,
   };
 };
