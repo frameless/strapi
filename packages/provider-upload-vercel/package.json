@@ -1,6 +1,6 @@
 {
   "name": "@frameless/provider-upload-vercel",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "description": "Vercel provider for strapi upload",
   "private": true,
   "keywords": [

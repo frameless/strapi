@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-plugin-uuid-field",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "description": "A strapi custom field for generating an UUID for each document",
   "keywords": [],
   "private": false,
