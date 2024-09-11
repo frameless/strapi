@@ -1,6 +1,6 @@
 {
   "name": "@frameless/samenwerkende-catalogi",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "private": false,
   "sideEffects": true,
   "author": "@frameless",
@@ -22,9 +22,9 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@frameless/catalogi-data": "file:../catalogi-data",
+    "@frameless/catalogi-data": "0.0.0",
     "xmlbuilder2": "3.0.2",
-    "@frameless/upl": "file:../upl"
+    "@frameless/upl": "0.0.0"
   },
   "scripts": {
     "prebuild": "yarn clean",
