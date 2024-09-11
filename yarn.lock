@@ -8011,33 +8011,33 @@
   resolved "https://registry.yarnpkg.com/@utrecht/backdrop-css/-/backdrop-css-1.1.0.tgz#08f8f9efbfdf87866216c03f17a74ac56d0a9bba"
   integrity sha512-oTGdo7OdFH4FJRqcwJp1DpxZQAR5LQWITYe1IJ7X+px9Wuu+9zSabYGn2dfIZgWaPYUAvAboiUtMpn21Z9yE3g==
 
-"@utrecht/component-library-css@4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-4.2.0.tgz#16475b4af03daf238a4fac58b8b2a4b320286657"
-  integrity sha512-QvN0QEfVF9KJh8WD7gKJPhxMO1Eq8leB/x6h0JdkDrK7iRP+bceQtV74tn3JzkeP5LGZUsYulWXPhb6Hk6NKdw==
-
-"@utrecht/component-library-react@5.0.0":
+"@utrecht/component-library-css@5.0.0":
   version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-5.0.0.tgz#35eaa77da0a77fb0bd53774e0b857104ba2d09cc"
-  integrity sha512-D8wSfBl1rCLA5zNj1wND2QaHBrlW5T5qZjlqvcYmQdvOOF+L+aQ8gxg3uo30FBvugvH2HDfOCc6qD8z7/+R+0A==
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-5.0.0.tgz#50d5224077630f7e96561eb0912dcb4a261e8796"
+  integrity sha512-U2Stwnc5KKIrJSWBpF3wgvQplfo83VV5cfFKM+XHy78sVGgN+vShFSoTcuwS96OH9QhcJpKxvbTBLvLXR8GrHg==
+
+"@utrecht/component-library-react@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-6.0.0.tgz#62aa96967fdb13b551dcc78d878b8840958c6d34"
+  integrity sha512-GSPZS5JBTadLE/L3EQ/ZTy7zi9pTcntslvuId7e7ZGCsOlzT06GhzVRvAaCJ5l7FF1zExz9eOYf/NiUSFTrk5g==
   dependencies:
     clsx "2.1.1"
     lodash.chunk "4.2.0"
 
-"@utrecht/design-tokens@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.1.0.tgz#0377dbfac70564fc8fc33f9ad53323351f83004e"
-  integrity sha512-1P9aVSL5xlBx2sFEzm1v+obgAPvwiLj4dg0vAZnFxLF6ZLbPPu0kP+tQhW3Gj945DU3qkwL/tIuimObYulYVAg==
+"@utrecht/design-tokens@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-2.0.0.tgz#fe60f75663dd149e6f33516fc826426767cc3df7"
+  integrity sha512-A3vLXUeWkeZhMj4A0LpCPBwb18P8RrV2XgTI7j/uqDPXbyM/Hq93YnwvKCHLzj6P26nzImTFVTa8YDHw7GGjFA==
 
 "@utrecht/focus-ring-css@1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@utrecht/focus-ring-css/-/focus-ring-css-1.1.0.tgz#3a3b426b81d9aefc792288287e7ffc6981ab1ed6"
   integrity sha512-MDxrC7b1AZ+S0+oqfMA/QD05GDhBTnc7q5VR3a+39jwJkgXtG7gJSQ7Pr8kdK8/Brx94SayIAEP5vAjuBee6bQ==
 
-"@utrecht/form-label-css@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-label-css/-/form-label-css-1.1.0.tgz#aa611c084fff3157b345e4b5c0ac3756d59b1163"
-  integrity sha512-6DeD2tLgSm8PiflP4jCk5D70H4RptEP6aJnHmXJCc0mbhHz0obONkrcl9pf4urRLQ+DuYa8x9fiHQHvjNCTeRg==
+"@utrecht/form-label-css@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/form-label-css/-/form-label-css-1.2.0.tgz#d4bda0fe65f0c2247558fafb942f51951066aeff"
+  integrity sha512-QX0TuK0dck5TwnlBnEqU+Roj3k1/B01L7sv7XDzXyuQze0FbX0lOZJ7sSEEfJ/91pxewshg22fy6GlHXIsB2uQ==
 
 "@utrecht/multiline-data-css@1.1.0":
   version "1.1.0"
@@ -8049,17 +8049,17 @@
   resolved "https://registry.yarnpkg.com/@utrecht/textbox-css/-/textbox-css-1.2.0.tgz#41be4783d178ab227b9bd188253407a688e69226"
   integrity sha512-b7bfn3Vo/iSepcglS1+jGyoUMpSfL0N7Dc0J8HKpAZSm8452I5s3SUHJyCiB/fsbM2F4ZFafwYT5n0rKucKZLQ==
 
-"@utrecht/web-component-library-react@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.3.0.tgz#5caae1ace5a76ea987f95c31ea9d69c045c8d99e"
-  integrity sha512-Ca5+2XPvB4EME/wtn4eMLIQyG6r5Zn/FR6Kj0q8AXF3gjF+qZVVEzfHUfU/8TfbSeVFE8UV9R0PdNmKVUd13dw==
+"@utrecht/web-component-library-react@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-2.0.0.tgz#5c91d9932b2ac5297d302d570a54fca68edab0b4"
+  integrity sha512-G39zklTxW6IpqGz0bJLBKKWypg+ai0PEUCtAVc9qlqMc3MqvhUcoSD8+1O626XbFWMUxP2u4sw8lEniEcswi0Q==
   dependencies:
-    "@utrecht/web-component-library-stencil" "1.4.0"
+    "@utrecht/web-component-library-stencil" "2.0.0"
 
-"@utrecht/web-component-library-stencil@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.4.0.tgz#a880bea2e9f2ffb4375c43fa248b79233ef4c027"
-  integrity sha512-1yoTlgjVo8LQpB5pq5T+aRgSjYgLi0lVB2OtHVPXiLN/xBi7JJSzwZBfFZuKwWUPJZCgJxxnL72GxfP+K/0uaA==
+"@utrecht/web-component-library-stencil@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-2.0.0.tgz#3895578ed175ca3e8fb12a09e194f91395b40215"
+  integrity sha512-tl4YctoEi9nzSrbFLgmIm/BOJzke82NF7TJcmNgzQhBDmWykZNbeNHdx7CE07+TmMR81ZWs8s/umiTCTC6pRUQ==
   dependencies:
     "@stencil/core" "4.18.3"
 
@@ -25383,7 +25383,16 @@ string-length@^4.0.1:
     char-regex "^1.0.2"
     strip-ansi "^6.0.0"
 
-"string-width-cjs@npm:string-width@^4.2.0", "string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.2, string-width@^4.2.3:
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.2, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -25509,7 +25518,7 @@ stringify-object@^3.3.0:
     is-obj "^1.0.1"
     is-regexp "^1.0.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -25529,6 +25538,13 @@ strip-ansi@^5.2.0:
   integrity sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==
   dependencies:
     ansi-regex "^4.1.0"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
 
 strip-ansi@^7.0.1, strip-ansi@^7.1.0:
   version "7.1.0"
@@ -27612,7 +27628,7 @@ wordwrap@^1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
@@ -27625,6 +27641,15 @@ wrap-ansi@^6.0.1, wrap-ansi@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-6.2.0.tgz#e9393ba07102e6c91a3b221478f0257cd2856e53"
   integrity sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
   dependencies:
     ansi-styles "^4.0.0"
     string-width "^4.1.0"
