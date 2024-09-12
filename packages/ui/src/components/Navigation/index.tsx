@@ -1,20 +1,13 @@
 import { Drawer } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
 import FocusTrap from 'focus-trap-react';
-import {
-  createRef,
-  ForwardedRef,
-  forwardRef,
-  HTMLAttributes,
-  PropsWithChildren,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react';
+import { forwardRef, useLayoutEffect, useRef, useState } from 'react';
 import { NavigationList } from './NavigationList';
 import { NavToggleButton } from './NavigationToggleButton';
 import styles from './index.module.scss';
 import { useClickOutside, useScreenSize } from '../../hooks';
+import { useLockBody } from '../../hooks/useLockBody';
 const css = classnames.bind(styles);
 
 export type NavigationListType = {
@@ -42,7 +35,7 @@ export const Navigation = forwardRef(
     const screenSize = useScreenSize();
     const [visible, setVisible] = useState<boolean>(false);
     const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
-    const navigationListRef = createRef<HTMLUListElement>();
+    const navigationListRef = useRef<HTMLUListElement>(null);
     const drawerRef = useRef<HTMLDialogElement>(null);
     const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -64,31 +57,12 @@ export const Navigation = forwardRef(
       }
     }, [screenSize, mobileBreakpoint]);
 
+    useLockBody({
+      elementRef: navigationListRef,
+      visible: drawerVisible && visible,
+    });
     useLayoutEffect(() => {
-      // TODO improve the scroll body lock when the menu is open
-      // this is one of the packages that maybe fix the issue https://github.com/willmcpo/body-scroll-lock#readme
-      if (drawerVisible && visible) {
-        if (typeof window === 'undefined') return () => {};
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-        document.body.style.overflow = 'hidden';
-        if (navigationListRef.current) {
-          navigationListRef.current.style.overflow = 'auto';
-        }
-      } else {
-        document.body.style.overflow = 'auto';
-      }
-      return () => {
-        if (drawerVisible && visible) {
-          document.body.style.overflow = 'auto';
-        }
-      };
-    }, [visible, drawerVisible]);
-
-    useLayoutEffect(() => {
-      if (!visible && drawerRef.current) {
+      if (!visible && drawerRef?.current) {
         setDrawerVisible(false);
         drawerRef.current.close();
       }
