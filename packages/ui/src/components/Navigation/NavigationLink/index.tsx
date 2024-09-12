@@ -4,7 +4,6 @@ import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren, Reac
 import styles from './index.module.scss';
 
 interface NavigationLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
-  placeholder?: boolean;
   mobile?: boolean;
   isCurrent?: boolean;
   marker?: ReactNode;
