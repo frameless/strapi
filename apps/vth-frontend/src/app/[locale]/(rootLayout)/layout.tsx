@@ -37,6 +37,35 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
       template: `%s | ${t('website-setting.website-name')}`,
       default: `${t('website-setting.website-name')}`,
     },
+    icons: {
+      icon: [
+        {
+          url: '/favicon/favicon.ico',
+        },
+        {
+          url: '/favicon/android-chrome-192x192.png',
+          type: 'image/png',
+          sizes: '192x192',
+        },
+        {
+          url: '/favicon/android-chrome-512x512.png',
+          type: 'image/png',
+          sizes: '512x512',
+        },
+        {
+          url: '/favicon/favicon-32x32.png',
+          type: 'image/png',
+          sizes: '32x32',
+        },
+        {
+          url: '/favicon/favicon-16x16.png',
+          type: 'image/png',
+          sizes: '16x16',
+        },
+      ],
+      apple: [{ url: '/favicon/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }],
+    },
+    manifest: '/favicon/site.webmanifest',
   };
 }
 
