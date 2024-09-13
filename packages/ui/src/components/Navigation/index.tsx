@@ -1,19 +1,13 @@
 import { Drawer } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
-import {
-  createRef,
-  ForwardedRef,
-  forwardRef,
-  HTMLAttributes,
-  PropsWithChildren,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import FocusTrap from 'focus-trap-react';
+import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react';
+import { forwardRef, useLayoutEffect, useRef, useState } from 'react';
 import { NavigationList } from './NavigationList';
 import { NavToggleButton } from './NavigationToggleButton';
 import styles from './index.module.scss';
 import { useClickOutside, useScreenSize } from '../../hooks';
+import { useLockBody } from '../../hooks/useLockBody';
 const css = classnames.bind(styles);
 
 export type NavigationListType = {
@@ -41,11 +35,9 @@ export const Navigation = forwardRef(
     const screenSize = useScreenSize();
     const [visible, setVisible] = useState<boolean>(false);
     const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
-    const navigationListRef = createRef<HTMLUListElement>();
+    const navigationListRef = useRef<HTMLUListElement>(null);
     const drawerRef = useRef<HTMLDialogElement>(null);
     const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
-
-    useClickOutside(drawerRef, hamburgerButtonRef);
 
     const showModal = () => {
       if (drawerRef.current) {
@@ -58,38 +50,19 @@ export const Navigation = forwardRef(
         }
       }
     };
-
+    useClickOutside(drawerRef, showModal);
     useLayoutEffect(() => {
       if (mobileBreakpoint && screenSize) {
         setVisible(screenSize < mobileBreakpoint);
       }
     }, [screenSize, mobileBreakpoint]);
 
+    useLockBody({
+      elementRef: navigationListRef,
+      visible: drawerVisible && visible,
+    });
     useLayoutEffect(() => {
-      // TODO improve the scroll body lock when the menu is open
-      // this is one of the packages that maybe fix the issue https://github.com/willmcpo/body-scroll-lock#readme
-      if (drawerVisible && visible) {
-        if (typeof window === 'undefined') return () => {};
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-        document.body.style.overflow = 'hidden';
-        if (navigationListRef.current) {
-          navigationListRef.current.style.overflow = 'auto';
-        }
-      } else {
-        document.body.style.overflow = 'auto';
-      }
-      return () => {
-        if (drawerVisible && visible) {
-          document.body.style.overflow = 'auto';
-        }
-      };
-    }, [visible, drawerVisible]);
-
-    useLayoutEffect(() => {
-      if (!visible && drawerRef.current) {
+      if (!visible && drawerRef?.current) {
         setDrawerVisible(false);
         drawerRef.current.close();
       }
@@ -121,25 +94,35 @@ export const Navigation = forwardRef(
             />
           )}
         </nav>
-        <Drawer align="inline-end" className={css('utrecht-drawer--nav')} ref={drawerRef}>
-          <nav
-            className={css('utrecht-navigation', {
-              'utrecht-navigation--mobile': visible,
-            })}
-            ref={ref}
-            {...restProps}
-          >
-            <NavigationList list={list} mobile={visible} ref={navigationListRef}>
-              <NavToggleButton
-                text={toggleButton?.closeText}
-                id="nav-toggle-button-close"
-                icon="close"
-                aria-expanded={drawerVisible}
-                onClick={showModal}
-              />
-            </NavigationList>
-          </nav>
-        </Drawer>
+        <FocusTrap
+          active={drawerVisible}
+          focusTrapOptions={{
+            escapeDeactivates: () => {
+              showModal();
+              return true;
+            },
+          }}
+        >
+          <Drawer align="inline-end" className={css('utrecht-drawer--nav')} ref={drawerRef}>
+            <nav
+              className={css('utrecht-navigation', {
+                'utrecht-navigation--mobile': visible,
+              })}
+              ref={ref}
+              {...restProps}
+            >
+              <NavigationList list={list} mobile={visible} ref={navigationListRef}>
+                <NavToggleButton
+                  text={toggleButton?.closeText}
+                  id="nav-toggle-button-close"
+                  icon="close"
+                  aria-expanded={drawerVisible}
+                  onClick={showModal}
+                />
+              </NavigationList>
+            </nav>
+          </Drawer>
+        </FocusTrap>
       </>
     );
   },
