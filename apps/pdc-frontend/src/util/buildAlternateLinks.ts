@@ -6,7 +6,7 @@ export const buildAlternateLinks = ({ segment, languages }: BuildAlternateLinksP
   languages.reduce(
     (languageLinks, language) => ({
       ...languageLinks,
-      [language]: `${language}${segment ? `/${segment}` : ''}`,
+      [language]: segment,
     }),
     {},
   );

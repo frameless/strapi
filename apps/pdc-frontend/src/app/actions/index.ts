@@ -3,9 +3,10 @@ import { redirect } from 'next/navigation';
 import { GetLiveSuggestionsData, SearchResult } from '@/types';
 import {
   apiSettings,
-  createURL,
+  buildURL,
   fetchData,
   getAlphabeticallyProductsByLetter,
+  getPathAndSearchParams,
   mappingProducts,
   MappingProductsProps,
 } from '@/util';
@@ -14,15 +15,6 @@ import { useTranslation } from '../i18n';
 type Params = {
   pageSize?: number;
   page?: number;
-};
-
-const getPandoSearchURL = (route: string) => {
-  if (!process.env.PANDOSEARCH_API_URL) {
-    //TODO: Enable the line below when PandoSearch implements an API for gemeente Utrecht.
-    // throw new Error('PANDOSEARCH_API_URL is not defined');
-    return `https://public.pandosearch.com/developer.pandosearch.com/${route}`;
-  }
-  return `${process.env.PANDOSEARCH_API_URL}/${route}`;
 };
 
 export const getSuggestedSearch = async (
@@ -36,11 +28,17 @@ export const getSuggestedSearch = async (
     size: params.pageSize,
     page: params.page,
   };
-  const pandosearchURL = getPandoSearchURL('search');
-  const url = createURL(pandosearchURL, urlParams);
+
+  const url = buildURL({
+    env: process.env,
+    key: 'PANDOSEARCH_API_URL',
+    segments: ['search'],
+    isOrigin: false,
+    queryParams: urlParams as any,
+  });
 
   const searchResult = await fetchData<SearchResult>({
-    url,
+    url: url.href,
     method: 'GET',
   });
 
@@ -50,15 +48,28 @@ export const getSuggestedSearch = async (
 export const onSearchSubmitAction = async (formData: FormData, locale: string) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
-  const searchSegment = t('segments.search', {
-    defaultValue: 'zoeken',
-  });
+
   const value = formData.get('search') as string;
   const result = await getSuggestedSearch(value, locale);
+
+  const { pathSegments: searchSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.search', value],
+    locale,
+  });
+
+  const { pathSegments: tipsSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.search', 'tips'],
+    queryParams: { query: '' },
+    locale,
+  });
+
   if (result?.total && value.trim()) {
-    redirect(`/${locale}/${searchSegment}/${value}`);
+    redirect(`/${searchSegment}`);
   }
-  redirect(`/${locale}/${searchSegment}/tips?query=`);
+
+  redirect(`/${tipsSegment}`);
 };
 
 export const getLiveSuggestions = async (value: string) => {
@@ -66,11 +77,17 @@ export const getLiveSuggestions = async (value: string) => {
     q: encodeURIComponent(value),
     track: false,
   };
-  const pandosearchURL = getPandoSearchURL('suggest');
-  const url = createURL(pandosearchURL, urlParams);
+
+  const url = buildURL({
+    env: process.env,
+    key: 'PANDOSEARCH_API_URL',
+    segments: ['suggest'],
+    isOrigin: false,
+    queryParams: urlParams as any,
+  });
 
   const searchResult = await fetchData<GetLiveSuggestionsData>({
-    url,
+    url: url.href,
     method: 'GET',
   });
   return searchResult;
@@ -79,8 +96,10 @@ export const getLiveSuggestions = async (value: string) => {
 export const setPageIndex = async (pageIndex: string, currentQuery: string, locale: string, segment?: string) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
-  const productsSegment = t('segments.products', {
-    defaultValue: 'producten',
+  const { pathSegments: productSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.products'],
+    locale,
   });
   if (segment === 'search') {
     const searchResults = await getSuggestedSearch(locale, currentQuery, {
@@ -115,7 +134,7 @@ export const setPageIndex = async (pageIndex: string, currentQuery: string, loca
   });
 
   return {
-    data: mappingProducts(products?.data as MappingProductsProps[], productsSegment),
+    data: mappingProducts(products?.data as MappingProductsProps[], productSegment),
     pagination: products?.meta.pagination,
   };
 };

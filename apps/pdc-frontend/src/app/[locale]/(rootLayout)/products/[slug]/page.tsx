@@ -30,13 +30,20 @@ import {
 } from '@/components';
 import { SurveyLink } from '@/components/SurveyLink';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
-import { buildAlternateLinks, createStrapiURL, fetchData, getImageBaseUrl } from '@/util';
+import {
+  buildAlternateLinks,
+  buildURL,
+  fetchData,
+  getImageBaseUrl,
+  getPathAndSearchParams,
+  getStrapiGraphqlURL,
+} from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
 
 const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData<{ data: GetProductBySlugQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_PRODUCT_BY_SLUG,
     variables: {
       slug,
@@ -68,13 +75,18 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
   const { product } = await getAllProducts(locale, slug);
-  const productsSegment = t('segments.products', {
-    defaultValue: 'producten',
+
+  const url = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.products', slug],
+    locale,
   });
+
   const title = product?.attributes?.metaTags?.title;
   const description = product?.attributes?.metaTags?.description;
-  const openGraphImage = product?.attributes?.metaTags?.ogImage?.data?.attributes?.url;
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/${productsSegment}/${slug}`;
+  const openGraphImage = getImageBaseUrl(product?.attributes?.metaTags?.ogImage?.data?.attributes?.url);
 
   return {
     title,
@@ -85,17 +97,17 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
     openGraph: {
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
-      images: openGraphImage && getImageBaseUrl() && `${getImageBaseUrl()}${openGraphImage}`,
+      images: openGraphImage,
       locale,
-      url,
+      url: url?.href,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}/${productsSegment}/${slug}`,
+      canonical: url?.href,
       languages: {
-        ...buildAlternateLinks({ languages, segment: `${productsSegment}/${slug}` }),
+        ...buildAlternateLinks({ languages, segment: url?.href }),
       },
     },
   };
@@ -108,167 +120,169 @@ interface SectionsProps {
   t: TFunction<string, any, string>;
 }
 
-const Sections = ({ sections, locale, priceData, t }: SectionsProps) => {
-  const formSegment = t('segments.form', {
-    defaultValue: 'formulier',
-  });
-  return (
-    <>
-      {sections &&
-        sections.map((component, index: number) => {
-          switch (component?.__typename) {
-            case 'ComponentComponentsUtrechtRichText':
+const Sections = ({ sections, locale, priceData, t }: SectionsProps) => (
+  <>
+    {sections &&
+      sections.map((component, index: number) => {
+        switch (component?.__typename) {
+          case 'ComponentComponentsUtrechtRichText':
+            return (
+              component.content && (
+                <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale} key={index}>
+                  {component.content}
+                </Markdown>
+              )
+            );
+          case 'ComponentComponentsUtrechtLogoButton':
+            if (component.openFormsEmbed) {
+              const parsOpenFormsEmbedData = new URLSearchParams(component.openFormsEmbed);
+              const slug = parsOpenFormsEmbedData.get('slug');
+              const uuid = parsOpenFormsEmbedData.get('uuid');
+              const label = parsOpenFormsEmbedData.get('label');
+              const { pathSegments } = getPathAndSearchParams({
+                locale,
+                translations: t,
+                segments: ['segments.form', slug as string],
+              });
+
               return (
-                component.content && (
-                  <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale} key={index}>
+                <LogoButton
+                  key={uuid}
+                  label={component.label}
+                  appearance={component?.appearance as string}
+                  logo={component.logo}
+                  href={`/${pathSegments}`}
+                >
+                  {component.textContent || label}
+                </LogoButton>
+              );
+            }
+            if (component && component.href && component.textContent) {
+              return (
+                <LogoButton
+                  key={index}
+                  href={component.href}
+                  appearance={component.appearance as string}
+                  label={component.label}
+                  logo={component.logo}
+                >
+                  {component.textContent}
+                </LogoButton>
+              );
+            }
+            return <></>;
+          case 'ComponentComponentsFaq':
+            if (
+              component.pdc_faq?.data?.attributes &&
+              component.pdc_faq.data.attributes.faq &&
+              component.pdc_faq.data.attributes.faq.length > 0
+            ) {
+              return (
+                <AccordionProvider
+                  sections={component.pdc_faq.data.attributes.faq.map((faqItem) => ({
+                    id: faqItem?.id,
+                    label: faqItem?.label as string,
+                    headingLevel: faqItem?.headingLevel || 2,
+                    body: faqItem?.body && (
+                      <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                        {faqItem.body}
+                      </Markdown>
+                    ),
+                  }))}
+                />
+              );
+            }
+            return <></>;
+          case 'ComponentComponentsUtrechtAccordion':
+            if (component?.item && component.item.length > 0) {
+              return (
+                <AccordionProvider
+                  sections={component.item.map((accordionItem) => ({
+                    id: accordionItem?.id,
+                    label: accordionItem?.label as string,
+                    headingLevel: accordionItem?.headingLevel || 2,
+                    body: accordionItem?.body && (
+                      <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                        {accordionItem.body}
+                      </Markdown>
+                    ),
+                  }))}
+                />
+              );
+            }
+            return <></>;
+          case 'ComponentComponentsUtrechtImage':
+            if (
+              component.imageData?.data?.attributes?.width &&
+              component.imageData?.data?.attributes?.height &&
+              component?.imageData?.data?.attributes?.url
+            ) {
+              const imageURL = getImageBaseUrl(component?.imageData?.data?.attributes?.url);
+              return (
+                <Img
+                  Image={Image}
+                  src={imageURL}
+                  width={component?.imageData?.data?.attributes?.width}
+                  height={component?.imageData?.data?.attributes?.height}
+                  alt={component?.imageData?.data?.attributes?.alternativeText || ''}
+                  figure={component?.imageData?.data?.attributes?.caption || ''}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              );
+            }
+            return <></>;
+          case 'ComponentComponentsUtrechtSpotlight':
+            return (
+              component.content && (
+                <SpotlightSection type={component.type as SpotlightSectionType}>
+                  <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
                     {component.content}
                   </Markdown>
-                )
-              );
-            case 'ComponentComponentsUtrechtLogoButton':
-              if (component.openFormsEmbed) {
-                const parsOpenFormsEmbedData = new URLSearchParams(component.openFormsEmbed);
-                const slug = parsOpenFormsEmbedData.get('slug');
-                const uuid = parsOpenFormsEmbedData.get('uuid');
-                const label = parsOpenFormsEmbedData.get('label');
-                return (
-                  <LogoButton
-                    key={uuid}
-                    label={component.label}
-                    appearance={component?.appearance as string}
-                    logo={component.logo}
-                    href={`/${formSegment}/${slug}`}
+                  {component?.logoButton &&
+                    component?.logoButton.length > 0 &&
+                    component?.logoButton?.map(
+                      (button) =>
+                        button?.href && (
+                          <LogoButton
+                            key={button?.id}
+                            href={button?.href}
+                            appearance={button?.appearance as string}
+                            label={button?.label}
+                            logo={button?.logo}
+                          >
+                            {button?.textContent}
+                          </LogoButton>
+                        ),
+                    )}
+                </SpotlightSection>
+              )
+            );
+          case 'ComponentComponentsUtrechtMultiColumnsButton':
+            return <MultiColumnsButton columns={component.column as any} />;
+          case 'ComponentComponentsUtrechtLink':
+            return (
+              component?.href &&
+              component?.textContent && (
+                <ButtonGroup className="utrecht-link-group">
+                  <AdvancedLink
+                    key={component?.href}
+                    href={component?.href}
+                    external={isAbsoluteUrl(component?.href)}
+                    icon={component?.icon as 'arrow'}
+                    lang={component?.language ?? undefined}
+                    dir={component?.language ? getDirectionFromLanguageCode(component.language) : undefined}
                   >
-                    {component.textContent || label}
-                  </LogoButton>
-                );
-              }
-              if (component && component.href && component.textContent) {
-                return (
-                  <LogoButton
-                    key={index}
-                    href={component.href}
-                    appearance={component.appearance as string}
-                    label={component.label}
-                    logo={component.logo}
-                  >
-                    {component.textContent}
-                  </LogoButton>
-                );
-              }
-              return <></>;
-            case 'ComponentComponentsFaq':
-              if (
-                component.pdc_faq?.data?.attributes &&
-                component.pdc_faq.data.attributes.faq &&
-                component.pdc_faq.data.attributes.faq.length > 0
-              ) {
-                return (
-                  <AccordionProvider
-                    sections={component.pdc_faq.data.attributes.faq.map((faqItem) => ({
-                      id: faqItem?.id,
-                      label: faqItem?.label as string,
-                      headingLevel: faqItem?.headingLevel || 2,
-                      body: faqItem?.body && (
-                        <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
-                          {faqItem.body}
-                        </Markdown>
-                      ),
-                    }))}
-                  />
-                );
-              }
-              return <></>;
-            case 'ComponentComponentsUtrechtAccordion':
-              if (component?.item && component.item.length > 0) {
-                return (
-                  <AccordionProvider
-                    sections={component.item.map((accordionItem) => ({
-                      id: accordionItem?.id,
-                      label: accordionItem?.label as string,
-                      headingLevel: accordionItem?.headingLevel || 2,
-                      body: accordionItem?.body && (
-                        <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
-                          {accordionItem.body}
-                        </Markdown>
-                      ),
-                    }))}
-                  />
-                );
-              }
-              return <></>;
-            case 'ComponentComponentsUtrechtImage':
-              if (
-                component.imageData?.data?.attributes?.width &&
-                component.imageData?.data?.attributes?.height &&
-                component?.imageData?.data?.attributes?.url
-              ) {
-                return (
-                  <Img
-                    Image={Image}
-                    src={`${getImageBaseUrl()}${component?.imageData?.data?.attributes?.url}`}
-                    width={component?.imageData?.data?.attributes?.width}
-                    height={component?.imageData?.data?.attributes?.height}
-                    alt={component?.imageData?.data?.attributes?.alternativeText || ''}
-                    figure={component?.imageData?.data?.attributes?.caption || ''}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                );
-              }
-              return <></>;
-            case 'ComponentComponentsUtrechtSpotlight':
-              return (
-                component.content && (
-                  <SpotlightSection type={component.type as SpotlightSectionType}>
-                    <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
-                      {component.content}
-                    </Markdown>
-                    {component?.logoButton &&
-                      component?.logoButton.length > 0 &&
-                      component?.logoButton?.map(
-                        (button) =>
-                          button?.href && (
-                            <LogoButton
-                              key={button?.id}
-                              href={button?.href}
-                              appearance={button?.appearance as string}
-                              label={button?.label}
-                              logo={button?.logo}
-                            >
-                              {button?.textContent}
-                            </LogoButton>
-                          ),
-                      )}
-                  </SpotlightSection>
-                )
-              );
-            case 'ComponentComponentsUtrechtMultiColumnsButton':
-              return <MultiColumnsButton columns={component.column as any} />;
-            case 'ComponentComponentsUtrechtLink':
-              return (
-                component?.href &&
-                component?.textContent && (
-                  <ButtonGroup className="utrecht-link-group">
-                    <AdvancedLink
-                      key={component?.href}
-                      href={component?.href}
-                      external={isAbsoluteUrl(component?.href)}
-                      icon={component?.icon as 'arrow'}
-                      lang={component?.language ?? undefined}
-                      dir={component?.language ? getDirectionFromLanguageCode(component.language) : undefined}
-                    >
-                      {component?.textContent}
-                    </AdvancedLink>
-                  </ButtonGroup>
-                )
-              );
-            default:
-              return <></>;
-          }
-        })}
-    </>
-  );
-};
+                    {component?.textContent}
+                  </AdvancedLink>
+                </ButtonGroup>
+              )
+            );
+          default:
+            return <></>;
+        }
+      })}
+  </>
+);
 
 const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const { product } = await getAllProducts(locale, slug);
@@ -276,9 +290,21 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const priceData: any = product?.attributes?.price && product?.attributes?.price?.data?.attributes?.price;
 
   const { t } = await useTranslation(locale, 'common');
-  const productsSegment = t('segments.products', {
-    defaultValue: 'producten',
+
+  const { pathSegments: productsSegment } = getPathAndSearchParams({
+    locale,
+    translations: t,
+    segments: ['segments.products'],
   });
+
+  const surveyLinkURL = buildURL({
+    env: process.env,
+    translations: t,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.products', slug],
+    locale,
+  });
+
   return (
     <>
       <Breadcrumbs
@@ -332,7 +358,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         </Article>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/${productsSegment}/${slug}`} t={t} env={process.env} />
+            <SurveyLink segment={surveyLinkURL.href} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

@@ -3,9 +3,7 @@ import Link from 'next/link';
 import { Heading, Markdown } from '@/components';
 import { Breadcrumbs } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
-import { getImageBaseUrl } from '@/util';
-import { createStrapiURL } from '@/util/createStrapiURL';
-import { fetchData } from '@/util/fetchData';
+import { fetchData, getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
 import { GetNotFoundPageQuery } from '../../../../gql/graphql';
 import { useTranslation } from '../../i18n';
 import { fallbackLng } from '../../i18n/settings';
@@ -15,7 +13,7 @@ const NotFoundPage = async () => {
   const locale = cookies().get('i18next')?.value;
   const { t } = await useTranslation(locale || fallbackLng, ['common']);
   const { data } = await fetchData<{ data: GetNotFoundPageQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_NOT_FOUND_PAGE,
     variables: { locale: locale },
   });

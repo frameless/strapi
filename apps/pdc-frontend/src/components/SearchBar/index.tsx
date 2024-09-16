@@ -8,6 +8,7 @@ import React from 'react';
 import { useTranslation } from '@/app/i18n/client';
 import { Link as UtrechtLink } from '@/components';
 import { SuggestedHits, Suggestions } from '@/types';
+import { getPathAndSearchParams } from '@/util';
 import { UtrechtSearchBar } from '../UtrechtSearchBar';
 
 export interface SearchBarProps {
@@ -63,16 +64,19 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       }
     }
   };
-
-  const searchSegment = t('segments.search', {
-    defaultValue: 'zoeken',
-  });
-
+  const getSearchSegment = (segment: string) => {
+    const { pathSegments } = getPathAndSearchParams({
+      translations: t,
+      segments: ['segments.search', segment],
+      locale,
+    });
+    return pathSegments;
+  };
   const onChange = (selectedItem: any) => {
     if (selectedItem && selectedItem?.type?.toLowerCase() === 'page') {
       push(selectedItem.url);
     } else {
-      push(`/${searchSegment}/${selectedItem?.text}`);
+      push(`/${getSearchSegment(selectedItem?.text)}`);
     }
   };
 
@@ -98,7 +102,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             option?.text && (
               <Link
                 className={classNames('utrecht-link', 'utrecht-link--external')}
-                href={`/${searchSegment}/${option?.text}`}
+                href={`/${getSearchSegment(option?.text)}`}
                 dangerouslySetInnerHTML={{ __html: option?.text }}
               />
             )

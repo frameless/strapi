@@ -29,6 +29,53 @@ export type Scalars = {
   Upload: { input: any; output: any; }
 };
 
+export type AdditionalInformation = {
+  __typename?: 'AdditionalInformation';
+  content?: Maybe<ComponentComponentsAdditionalInformationField>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  product?: Maybe<ProductEntityResponse>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title: Scalars['String']['output'];
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type AdditionalInformationEntity = {
+  __typename?: 'AdditionalInformationEntity';
+  attributes?: Maybe<AdditionalInformation>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type AdditionalInformationEntityResponse = {
+  __typename?: 'AdditionalInformationEntityResponse';
+  data?: Maybe<AdditionalInformationEntity>;
+};
+
+export type AdditionalInformationEntityResponseCollection = {
+  __typename?: 'AdditionalInformationEntityResponseCollection';
+  data: Array<AdditionalInformationEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type AdditionalInformationFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<AdditionalInformationFiltersInput>>>;
+  content?: InputMaybe<ComponentComponentsAdditionalInformationFieldFiltersInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<AdditionalInformationFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<AdditionalInformationFiltersInput>>>;
+  product?: InputMaybe<ProductFiltersInput>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type AdditionalInformationInput = {
+  content?: InputMaybe<ComponentComponentsAdditionalInformationFieldInput>;
+  product?: InputMaybe<Scalars['ID']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type BooleanFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
@@ -52,6 +99,87 @@ export type BooleanFilterInput = {
   null?: InputMaybe<Scalars['Boolean']['input']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
   startsWith?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ComponentComponentsAdditionalInformation = {
+  __typename?: 'ComponentComponentsAdditionalInformation';
+  additional_information?: Maybe<AdditionalInformationEntityResponse>;
+  id: Scalars['ID']['output'];
+};
+
+export type ComponentComponentsAdditionalInformationField = {
+  __typename?: 'ComponentComponentsAdditionalInformationField';
+  contentBlock?: Maybe<Array<Maybe<ComponentComponentsUtrechtRichText>>>;
+  id: Scalars['ID']['output'];
+  uuid?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentComponentsAdditionalInformationFieldContentBlockArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtRichTextFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsAdditionalInformationFieldFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsAdditionalInformationFieldFiltersInput>>>;
+  contentBlock?: InputMaybe<ComponentComponentsUtrechtRichTextFiltersInput>;
+  not?: InputMaybe<ComponentComponentsAdditionalInformationFieldFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsAdditionalInformationFieldFiltersInput>>>;
+  uuid?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsAdditionalInformationFieldInput = {
+  contentBlock?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtRichTextInput>>>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  uuid?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentComponentsAfdelingen = {
+  __typename?: 'ComponentComponentsAfdelingen';
+  afdelingId: Scalars['String']['output'];
+  afdelingNaam: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+};
+
+export type ComponentComponentsAfdelingenFiltersInput = {
+  afdelingId?: InputMaybe<StringFilterInput>;
+  afdelingNaam?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsAfdelingenFiltersInput>>>;
+  contact?: InputMaybe<ComponentComponentsContactFiltersInput>;
+  not?: InputMaybe<ComponentComponentsAfdelingenFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsAfdelingenFiltersInput>>>;
+};
+
+export type ComponentComponentsAfdelingenInput = {
+  afdelingId?: InputMaybe<Scalars['String']['input']>;
+  afdelingNaam?: InputMaybe<Scalars['String']['input']>;
+  contact?: InputMaybe<Array<InputMaybe<ComponentComponentsContactInput>>>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type ComponentComponentsAntwoord = {
+  __typename?: 'ComponentComponentsAntwoord';
+  content?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsantwoord_Kennisartikelcategorie>;
+  label?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentComponentsAntwoordFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsAntwoordFiltersInput>>>;
+  content?: InputMaybe<StringFilterInput>;
+  kennisartikelCategorie?: InputMaybe<StringFilterInput>;
+  label?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsAntwoordFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsAntwoordFiltersInput>>>;
+};
+
+export type ComponentComponentsAntwoordInput = {
+  content?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  kennisartikelCategorie?: InputMaybe<Enum_Componentcomponentsantwoord_Kennisartikelcategorie>;
+  label?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentComponentsAudience = {
@@ -270,7 +398,100 @@ export type ComponentComponentsEFormInput = {
 export type ComponentComponentsFaq = {
   __typename?: 'ComponentComponentsFaq';
   id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsfaq_Kennisartikelcategorie>;
   pdc_faq?: Maybe<PdcFaqEntityResponse>;
+};
+
+export type ComponentComponentsInternalBlockContent = {
+  __typename?: 'ComponentComponentsInternalBlockContent';
+  id: Scalars['ID']['output'];
+  internal_field?: Maybe<InternalFieldEntityResponse>;
+};
+
+export type ComponentComponentsInternalContentBlock = {
+  __typename?: 'ComponentComponentsInternalContentBlock';
+  id: Scalars['ID']['output'];
+};
+
+export type ComponentComponentsInternalContentBlockComponent = {
+  __typename?: 'ComponentComponentsInternalContentBlockComponent';
+  content?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsinternalcontentblockcomponent_Kennisartikelcategorie>;
+};
+
+export type ComponentComponentsInternalField = {
+  __typename?: 'ComponentComponentsInternalField';
+  contentBlock?: Maybe<Array<Maybe<ComponentComponentsUtrechtRichText>>>;
+  id: Scalars['ID']['output'];
+  keywords?: Maybe<Scalars['String']['output']>;
+  uuid?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentComponentsInternalFieldContentBlockArgs = {
+  filters?: InputMaybe<ComponentComponentsUtrechtRichTextFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsInternalFieldFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsInternalFieldFiltersInput>>>;
+  contentBlock?: InputMaybe<ComponentComponentsUtrechtRichTextFiltersInput>;
+  keywords?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsInternalFieldFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsInternalFieldFiltersInput>>>;
+  uuid?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsInternalFieldInput = {
+  contentBlock?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtRichTextInput>>>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  keywords?: InputMaybe<Scalars['String']['input']>;
+  uuid?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentComponentsKennisartikel = {
+  __typename?: 'ComponentComponentsKennisartikel';
+  afdelingen?: Maybe<Array<Maybe<ComponentComponentsAfdelingen>>>;
+  doelgroep: Enum_Componentcomponentskennisartikel_Doelgroep;
+  id: Scalars['ID']['output'];
+  productAanwezig: Scalars['Boolean']['output'];
+  productValtOnder?: Maybe<Scalars['String']['output']>;
+  upnUri: Scalars['String']['output'];
+  uuid?: Maybe<Scalars['String']['output']>;
+  verantwoordelijkeOrganisatie?: Maybe<ComponentComponentsVerantwoordelijkeOrganisatie>;
+};
+
+
+export type ComponentComponentsKennisartikelAfdelingenArgs = {
+  filters?: InputMaybe<ComponentComponentsAfdelingenFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsKennisartikelFiltersInput = {
+  afdelingen?: InputMaybe<ComponentComponentsAfdelingenFiltersInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsKennisartikelFiltersInput>>>;
+  doelgroep?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsKennisartikelFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsKennisartikelFiltersInput>>>;
+  productAanwezig?: InputMaybe<BooleanFilterInput>;
+  productValtOnder?: InputMaybe<StringFilterInput>;
+  upnUri?: InputMaybe<StringFilterInput>;
+  uuid?: InputMaybe<StringFilterInput>;
+  verantwoordelijkeOrganisatie?: InputMaybe<ComponentComponentsVerantwoordelijkeOrganisatieFiltersInput>;
+};
+
+export type ComponentComponentsKennisartikelInput = {
+  afdelingen?: InputMaybe<Array<InputMaybe<ComponentComponentsAfdelingenInput>>>;
+  doelgroep?: InputMaybe<Enum_Componentcomponentskennisartikel_Doelgroep>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  productAanwezig?: InputMaybe<Scalars['Boolean']['input']>;
+  productValtOnder?: InputMaybe<Scalars['String']['input']>;
+  upnUri?: InputMaybe<Scalars['String']['input']>;
+  uuid?: InputMaybe<Scalars['String']['input']>;
+  verantwoordelijkeOrganisatie?: InputMaybe<ComponentComponentsVerantwoordelijkeOrganisatieInput>;
 };
 
 export type ComponentComponentsMetadata = {
@@ -363,6 +584,19 @@ export type ComponentComponentsSpatialInput = {
   scheme?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ComponentComponentsTrefwoorden = {
+  __typename?: 'ComponentComponentsTrefwoorden';
+  id: Scalars['ID']['output'];
+  trefwoord?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentComponentsTrefwoordenFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsTrefwoordenFiltersInput>>>;
+  not?: InputMaybe<ComponentComponentsTrefwoordenFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsTrefwoordenFiltersInput>>>;
+  trefwoord?: InputMaybe<StringFilterInput>;
+};
+
 export type ComponentComponentsUrl = {
   __typename?: 'ComponentComponentsUrl';
   id: Scalars['ID']['output'];
@@ -373,6 +607,7 @@ export type ComponentComponentsUtrechtAccordion = {
   __typename?: 'ComponentComponentsUtrechtAccordion';
   id: Scalars['ID']['output'];
   item?: Maybe<Array<Maybe<ComponentComponentsUtrechtAccordionSection>>>;
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtaccordion_Kennisartikelcategorie>;
 };
 
 
@@ -387,6 +622,7 @@ export type ComponentComponentsUtrechtAccordionSection = {
   body?: Maybe<Scalars['String']['output']>;
   headingLevel?: Maybe<Scalars['Int']['output']>;
   id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtaccordionsection_Kennisartikelcategorie>;
   label?: Maybe<Scalars['String']['output']>;
 };
 
@@ -394,6 +630,7 @@ export type ComponentComponentsUtrechtAccordionSectionFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>>>;
   body?: InputMaybe<StringFilterInput>;
   headingLevel?: InputMaybe<IntFilterInput>;
+  kennisartikelCategorie?: InputMaybe<StringFilterInput>;
   label?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtAccordionSectionFiltersInput>>>;
@@ -403,6 +640,7 @@ export type ComponentComponentsUtrechtAccordionSectionInput = {
   body?: InputMaybe<Scalars['String']['input']>;
   headingLevel?: InputMaybe<Scalars['Int']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
+  kennisartikelCategorie?: InputMaybe<Enum_Componentcomponentsutrechtaccordionsection_Kennisartikelcategorie>;
   label?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -469,6 +707,7 @@ export type ComponentComponentsUtrechtImage = {
   __typename?: 'ComponentComponentsUtrechtImage';
   id: Scalars['ID']['output'];
   imageData?: Maybe<UploadFileEntityResponse>;
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtimage_Kennisartikelcategorie>;
 };
 
 export type ComponentComponentsUtrechtLink = {
@@ -476,6 +715,7 @@ export type ComponentComponentsUtrechtLink = {
   href?: Maybe<Scalars['String']['output']>;
   icon?: Maybe<Enum_Componentcomponentsutrechtlink_Icon>;
   id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtlink_Kennisartikelcategorie>;
   language?: Maybe<Scalars['String']['output']>;
   textContent?: Maybe<Scalars['String']['output']>;
 };
@@ -485,6 +725,7 @@ export type ComponentComponentsUtrechtLogoButton = {
   appearance?: Maybe<Enum_Componentcomponentsutrechtlogobutton_Appearance>;
   href?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtlogobutton_Kennisartikelcategorie>;
   label?: Maybe<Scalars['String']['output']>;
   logo?: Maybe<Enum_Componentcomponentsutrechtlogobutton_Logo>;
   openFormsEmbed?: Maybe<Scalars['String']['output']>;
@@ -495,6 +736,7 @@ export type ComponentComponentsUtrechtLogoButtonFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtLogoButtonFiltersInput>>>;
   appearance?: InputMaybe<StringFilterInput>;
   href?: InputMaybe<StringFilterInput>;
+  kennisartikelCategorie?: InputMaybe<StringFilterInput>;
   label?: InputMaybe<StringFilterInput>;
   logo?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ComponentComponentsUtrechtLogoButtonFiltersInput>;
@@ -507,6 +749,7 @@ export type ComponentComponentsUtrechtMultiColumnsButton = {
   __typename?: 'ComponentComponentsUtrechtMultiColumnsButton';
   column?: Maybe<Array<Maybe<ComponentComponentsUtrechtMultiColumnsButtonItem>>>;
   id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtmulticolumnsbutton_Kennisartikelcategorie>;
 };
 
 
@@ -519,6 +762,7 @@ export type ComponentComponentsUtrechtMultiColumnsButtonColumnArgs = {
 export type ComponentComponentsUtrechtMultiColumnsButtonItem = {
   __typename?: 'ComponentComponentsUtrechtMultiColumnsButtonItem';
   id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtmulticolumnsbuttonitem_Kennisartikelcategorie>;
   logoButton?: Maybe<Array<Maybe<ComponentComponentsUtrechtLogoButton>>>;
   title?: Maybe<Scalars['String']['output']>;
 };
@@ -532,6 +776,7 @@ export type ComponentComponentsUtrechtMultiColumnsButtonItemLogoButtonArgs = {
 
 export type ComponentComponentsUtrechtMultiColumnsButtonItemFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtMultiColumnsButtonItemFiltersInput>>>;
+  kennisartikelCategorie?: InputMaybe<StringFilterInput>;
   logoButton?: InputMaybe<ComponentComponentsUtrechtLogoButtonFiltersInput>;
   not?: InputMaybe<ComponentComponentsUtrechtMultiColumnsButtonItemFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtMultiColumnsButtonItemFiltersInput>>>;
@@ -571,6 +816,23 @@ export type ComponentComponentsUtrechtRichText = {
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie>;
+  label?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentComponentsUtrechtRichTextFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtRichTextFiltersInput>>>;
+  content?: InputMaybe<StringFilterInput>;
+  kennisartikelCategorie?: InputMaybe<StringFilterInput>;
+  label?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsUtrechtRichTextFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsUtrechtRichTextFiltersInput>>>;
+};
+
+export type ComponentComponentsUtrechtRichTextInput = {
+  content?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  kennisartikelCategorie?: InputMaybe<Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie>;
+  label?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentComponentsUtrechtSocialMediaLink = {
@@ -607,6 +869,7 @@ export type ComponentComponentsUtrechtSpotlight = {
   __typename?: 'ComponentComponentsUtrechtSpotlight';
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
+  kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtspotlight_Kennisartikelcategorie>;
   logoButton?: Maybe<Array<Maybe<ComponentComponentsUtrechtLogoButton>>>;
   type?: Maybe<Enum_Componentcomponentsutrechtspotlight_Type>;
 };
@@ -646,6 +909,111 @@ export type ComponentComponentsUtrechtTopTasksLinkArgs = {
   filters?: InputMaybe<ComponentComponentsUtrechtTopTaskLinkFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsVac = {
+  __typename?: 'ComponentComponentsVac';
+  afdelingen?: Maybe<Array<Maybe<ComponentComponentsAfdelingen>>>;
+  antwoord?: Maybe<Array<Maybe<ComponentComponentsAntwoord>>>;
+  doelgroep?: Maybe<Enum_Componentcomponentsvac_Doelgroep>;
+  id: Scalars['ID']['output'];
+  keywords?: Maybe<Scalars['String']['output']>;
+  status?: Maybe<Enum_Componentcomponentsvac_Status>;
+  toelichting?: Maybe<Scalars['String']['output']>;
+  uuid?: Maybe<Scalars['String']['output']>;
+  vraag?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentComponentsVacAfdelingenArgs = {
+  filters?: InputMaybe<ComponentComponentsAfdelingenFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ComponentComponentsVacAntwoordArgs = {
+  filters?: InputMaybe<ComponentComponentsAntwoordFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsVacFiltersInput = {
+  afdelingen?: InputMaybe<ComponentComponentsAfdelingenFiltersInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsVacFiltersInput>>>;
+  antwoord?: InputMaybe<ComponentComponentsAntwoordFiltersInput>;
+  doelgroep?: InputMaybe<StringFilterInput>;
+  keywords?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentComponentsVacFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsVacFiltersInput>>>;
+  status?: InputMaybe<StringFilterInput>;
+  toelichting?: InputMaybe<StringFilterInput>;
+  uuid?: InputMaybe<StringFilterInput>;
+  vraag?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsVacInput = {
+  afdelingen?: InputMaybe<Array<InputMaybe<ComponentComponentsAfdelingenInput>>>;
+  antwoord?: InputMaybe<Array<InputMaybe<ComponentComponentsAntwoordInput>>>;
+  doelgroep?: InputMaybe<Enum_Componentcomponentsvac_Doelgroep>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  keywords?: InputMaybe<Scalars['String']['input']>;
+  status?: InputMaybe<Enum_Componentcomponentsvac_Status>;
+  toelichting?: InputMaybe<Scalars['String']['input']>;
+  uuid?: InputMaybe<Scalars['String']['input']>;
+  vraag?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentComponentsVacUitklapmenu = {
+  __typename?: 'ComponentComponentsVacUitklapmenu';
+  afdelingen?: Maybe<Array<Maybe<ComponentComponentsAfdelingen>>>;
+  body?: Maybe<Scalars['String']['output']>;
+  doelgroep?: Maybe<Enum_Componentcomponentsvacuitklapmenu_Doelgroep>;
+  headingLevel?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['ID']['output'];
+  label?: Maybe<Scalars['String']['output']>;
+  status?: Maybe<Enum_Componentcomponentsvacuitklapmenu_Status>;
+  toelichting?: Maybe<Scalars['String']['output']>;
+  trefwoorden?: Maybe<Array<Maybe<ComponentComponentsTrefwoorden>>>;
+  uuid?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentComponentsVacUitklapmenuAfdelingenArgs = {
+  filters?: InputMaybe<ComponentComponentsAfdelingenFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ComponentComponentsVacUitklapmenuTrefwoordenArgs = {
+  filters?: InputMaybe<ComponentComponentsTrefwoordenFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentComponentsVerantwoordelijkeOrganisatie = {
+  __typename?: 'ComponentComponentsVerantwoordelijkeOrganisatie';
+  id: Scalars['ID']['output'];
+  owmsEndDate: Scalars['DateTime']['output'];
+  owmsIdentifier: Scalars['String']['output'];
+  owmsPrefLabel?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentComponentsVerantwoordelijkeOrganisatieFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentComponentsVerantwoordelijkeOrganisatieFiltersInput>>>;
+  not?: InputMaybe<ComponentComponentsVerantwoordelijkeOrganisatieFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentComponentsVerantwoordelijkeOrganisatieFiltersInput>>>;
+  owmsEndDate?: InputMaybe<DateTimeFilterInput>;
+  owmsIdentifier?: InputMaybe<StringFilterInput>;
+  owmsPrefLabel?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentComponentsVerantwoordelijkeOrganisatieInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  owmsEndDate?: InputMaybe<Scalars['DateTime']['input']>;
+  owmsIdentifier?: InputMaybe<Scalars['String']['input']>;
+  owmsPrefLabel?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentSeoMeta = {
@@ -724,6 +1092,19 @@ export type DateTimeFilterInput = {
   startsWith?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
+export enum Enum_Componentcomponentsantwoord_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
+}
+
 export enum Enum_Componentcomponentsaudience_Type {
   Ondernemer = 'ondernemer',
   Particulier = 'particulier'
@@ -754,6 +1135,37 @@ export enum Enum_Componentcomponentseform_Linkedeform {
   Nee = 'nee'
 }
 
+export enum Enum_Componentcomponentsfaq_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
+}
+
+export enum Enum_Componentcomponentsinternalcontentblockcomponent_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
+}
+
+export enum Enum_Componentcomponentskennisartikel_Doelgroep {
+  EuBedrijf = 'eu_bedrijf',
+  EuBurger = 'eu_burger'
+}
+
 export enum Enum_Componentcomponentsmetadata_Attachementadded {
   Ja = 'ja',
   Nee = 'nee'
@@ -775,8 +1187,60 @@ export enum Enum_Componentcomponentsprice_Currency {
   Usd = 'USD'
 }
 
+export enum Enum_Componentcomponentsutrechtaccordionsection_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
+}
+
+export enum Enum_Componentcomponentsutrechtaccordion_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
+}
+
+export enum Enum_Componentcomponentsutrechtimage_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
+}
+
 export enum Enum_Componentcomponentsutrechtlink_Icon {
   Arrow = 'arrow'
+}
+
+export enum Enum_Componentcomponentsutrechtlink_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
 }
 
 export enum Enum_Componentcomponentsutrechtlogobutton_Appearance {
@@ -785,11 +1249,50 @@ export enum Enum_Componentcomponentsutrechtlogobutton_Appearance {
   SecondaryActionButton = 'secondary_action_button'
 }
 
+export enum Enum_Componentcomponentsutrechtlogobutton_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
+}
+
 export enum Enum_Componentcomponentsutrechtlogobutton_Logo {
   Digid = 'digid',
   Eherkenning = 'eherkenning',
   Eidas = 'eidas',
   WithoutLogo = 'without_logo'
+}
+
+export enum Enum_Componentcomponentsutrechtmulticolumnsbuttonitem_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
+}
+
+export enum Enum_Componentcomponentsutrechtmulticolumnsbutton_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
 }
 
 export enum Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie {
@@ -812,6 +1315,19 @@ export enum Enum_Componentcomponentsutrechtsocialmedialink_Icon {
   Newsletter = 'newsletter',
   Whatsapp = 'whatsapp',
   X = 'x'
+}
+
+export enum Enum_Componentcomponentsutrechtspotlight_Kennisartikelcategorie {
+  Aanvraag = 'aanvraag',
+  Bewijs = 'bewijs',
+  Bezwaar = 'bezwaar',
+  Bijzonderheden = 'bijzonderheden',
+  Contact = 'contact',
+  Inleiding = 'inleiding',
+  Kosten = 'kosten',
+  Termijn = 'termijn',
+  Voorwaarden = 'voorwaarden',
+  WatTeDoenBijGeenReactie = 'wat_te_doen_bij_geen_reactie'
 }
 
 export enum Enum_Componentcomponentsutrechtspotlight_Type {
@@ -843,6 +1359,30 @@ export enum Enum_Componentcomponentsutrechttoptasklink_Toptaskicons {
   Subsidie = 'subsidie',
   Verhuizen = 'verhuizen',
   Werkzaamheden = 'werkzaamheden'
+}
+
+export enum Enum_Componentcomponentsvacuitklapmenu_Doelgroep {
+  EuBedrijf = 'eu_bedrijf',
+  EuBurger = 'eu_burger',
+  EuBurgerBedrijf = 'eu_burger_bedrijf'
+}
+
+export enum Enum_Componentcomponentsvacuitklapmenu_Status {
+  Actief = 'actief',
+  NonActief = 'non_actief',
+  TeVerwijderen = 'te_verwijderen'
+}
+
+export enum Enum_Componentcomponentsvac_Doelgroep {
+  EuBedrijf = 'eu_bedrijf',
+  EuBurger = 'eu_burger',
+  EuBurgerBedrijf = 'eu_burger_bedrijf'
+}
+
+export enum Enum_Componentcomponentsvac_Status {
+  Actief = 'actief',
+  NonActief = 'non_actief',
+  TeVerwijderen = 'te_verwijderen'
 }
 
 export enum Enum_Productencatalogus_Doelgroep {
@@ -939,7 +1479,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentSeoMeta | EntityNotesNote | I18NLocale | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | PdcTemplate | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = AdditionalInformation | ComponentComponentsAdditionalInformation | ComponentComponentsAdditionalInformationField | ComponentComponentsAfdelingen | ComponentComponentsAntwoord | ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsInternalBlockContent | ComponentComponentsInternalContentBlock | ComponentComponentsInternalContentBlockComponent | ComponentComponentsInternalField | ComponentComponentsKennisartikel | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsTrefwoorden | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentComponentsVac | ComponentComponentsVacUitklapmenu | ComponentComponentsVerantwoordelijkeOrganisatie | ComponentSeoMeta | EntityNotesNote | I18NLocale | InternalField | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | PdcTemplate | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Vac;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -1027,6 +1567,53 @@ export type IntFilterInput = {
   startsWith?: InputMaybe<Scalars['Int']['input']>;
 };
 
+export type InternalField = {
+  __typename?: 'InternalField';
+  content?: Maybe<ComponentComponentsInternalField>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  product?: Maybe<ProductEntityResponse>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title: Scalars['String']['output'];
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type InternalFieldEntity = {
+  __typename?: 'InternalFieldEntity';
+  attributes?: Maybe<InternalField>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type InternalFieldEntityResponse = {
+  __typename?: 'InternalFieldEntityResponse';
+  data?: Maybe<InternalFieldEntity>;
+};
+
+export type InternalFieldEntityResponseCollection = {
+  __typename?: 'InternalFieldEntityResponseCollection';
+  data: Array<InternalFieldEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type InternalFieldFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<InternalFieldFiltersInput>>>;
+  content?: InputMaybe<ComponentComponentsInternalFieldFiltersInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<InternalFieldFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<InternalFieldFiltersInput>>>;
+  product?: InputMaybe<ProductFiltersInput>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type InternalFieldInput = {
+  content?: InputMaybe<ComponentComponentsInternalFieldInput>;
+  product?: InputMaybe<Scalars['ID']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type JsonFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>;
@@ -1056,7 +1643,9 @@ export type Mutation = {
   __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
   changePassword?: Maybe<UsersPermissionsLoginPayload>;
+  createAdditionalInformation?: Maybe<AdditionalInformationEntityResponse>;
   createEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
+  createInternalField?: Maybe<InternalFieldEntityResponse>;
   createNotFoundPageLocalization?: Maybe<NotFoundPageEntityResponse>;
   createPdcCategory?: Maybe<PdcCategoryEntityResponse>;
   createPdcFaq?: Maybe<PdcFaqEntityResponse>;
@@ -1076,7 +1665,10 @@ export type Mutation = {
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  createVac?: Maybe<VacEntityResponse>;
+  deleteAdditionalInformation?: Maybe<AdditionalInformationEntityResponse>;
   deleteEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
+  deleteInternalField?: Maybe<InternalFieldEntityResponse>;
   deleteNotFoundPage?: Maybe<NotFoundPageEntityResponse>;
   deletePdcCategory?: Maybe<PdcCategoryEntityResponse>;
   deletePdcFaq?: Maybe<PdcFaqEntityResponse>;
@@ -1094,6 +1686,7 @@ export type Mutation = {
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
   /** Delete an existing user */
   deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteVac?: Maybe<VacEntityResponse>;
   /** Confirm an email users email address */
   emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
   /** Request a reset password token */
@@ -1105,8 +1698,10 @@ export type Mutation = {
   removeFile?: Maybe<UploadFileEntityResponse>;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
+  updateAdditionalInformation?: Maybe<AdditionalInformationEntityResponse>;
   updateEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
+  updateInternalField?: Maybe<InternalFieldEntityResponse>;
   updateNotFoundPage?: Maybe<NotFoundPageEntityResponse>;
   updatePdcCategory?: Maybe<PdcCategoryEntityResponse>;
   updatePdcFaq?: Maybe<PdcFaqEntityResponse>;
@@ -1124,6 +1719,7 @@ export type Mutation = {
   updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
   /** Update an existing user */
   updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  updateVac?: Maybe<VacEntityResponse>;
   upload: UploadFileEntityResponse;
 };
 
@@ -1135,8 +1731,18 @@ export type MutationChangePasswordArgs = {
 };
 
 
+export type MutationCreateAdditionalInformationArgs = {
+  data: AdditionalInformationInput;
+};
+
+
 export type MutationCreateEntityNotesNoteArgs = {
   data: EntityNotesNoteInput;
+};
+
+
+export type MutationCreateInternalFieldArgs = {
+  data: InternalFieldInput;
 };
 
 
@@ -1237,7 +1843,22 @@ export type MutationCreateUsersPermissionsUserArgs = {
 };
 
 
+export type MutationCreateVacArgs = {
+  data: VacInput;
+};
+
+
+export type MutationDeleteAdditionalInformationArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationDeleteEntityNotesNoteArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteInternalFieldArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -1319,6 +1940,11 @@ export type MutationDeleteUsersPermissionsUserArgs = {
 };
 
 
+export type MutationDeleteVacArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationEmailConfirmationArgs = {
   confirmation: Scalars['String']['input'];
 };
@@ -1359,6 +1985,12 @@ export type MutationResetPasswordArgs = {
 };
 
 
+export type MutationUpdateAdditionalInformationArgs = {
+  data: AdditionalInformationInput;
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationUpdateEntityNotesNoteArgs = {
   data: EntityNotesNoteInput;
   id: Scalars['ID']['input'];
@@ -1368,6 +2000,12 @@ export type MutationUpdateEntityNotesNoteArgs = {
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID']['input'];
   info?: InputMaybe<FileInfoInput>;
+};
+
+
+export type MutationUpdateInternalFieldArgs = {
+  data: InternalFieldInput;
+  id: Scalars['ID']['input'];
 };
 
 
@@ -1459,6 +2097,12 @@ export type MutationUpdateUsersPermissionsRoleArgs = {
 
 export type MutationUpdateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateVacArgs = {
+  data: VacInput;
   id: Scalars['ID']['input'];
 };
 
@@ -1847,9 +2491,11 @@ export type PriceInput = {
 
 export type Product = {
   __typename?: 'Product';
+  additional_information?: Maybe<AdditionalInformationEntityResponse>;
   catalogiMeta?: Maybe<ComponentComponentsCatalogiMeta>;
   content?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  kennisartikelMetadata?: Maybe<ComponentComponentsKennisartikel>;
   locale?: Maybe<Scalars['String']['output']>;
   localizations?: Maybe<ProductRelationResponseCollection>;
   metaTags?: Maybe<ComponentSeoMeta>;
@@ -1900,11 +2546,13 @@ export type ProductEntityResponseCollection = {
 };
 
 export type ProductFiltersInput = {
+  additional_information?: InputMaybe<AdditionalInformationFiltersInput>;
   and?: InputMaybe<Array<InputMaybe<ProductFiltersInput>>>;
   catalogiMeta?: InputMaybe<ComponentComponentsCatalogiMetaFiltersInput>;
   content?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
+  kennisartikelMetadata?: InputMaybe<ComponentComponentsKennisartikelFiltersInput>;
   locale?: InputMaybe<StringFilterInput>;
   localizations?: InputMaybe<ProductFiltersInput>;
   metaTags?: InputMaybe<ComponentSeoMetaFiltersInput>;
@@ -1924,8 +2572,10 @@ export type ProductFiltersInput = {
 };
 
 export type ProductInput = {
+  additional_information?: InputMaybe<Scalars['ID']['input']>;
   catalogiMeta?: InputMaybe<ComponentComponentsCatalogiMetaInput>;
   content?: InputMaybe<Scalars['String']['input']>;
+  kennisartikelMetadata?: InputMaybe<ComponentComponentsKennisartikelInput>;
   metaTags?: InputMaybe<ComponentSeoMetaInput>;
   metadata?: InputMaybe<ComponentComponentsMetadataInput>;
   oldSlugs?: InputMaybe<Scalars['JSON']['input']>;
@@ -1945,7 +2595,7 @@ export type ProductRelationResponseCollection = {
   data: Array<ProductEntity>;
 };
 
-export type ProductSectionsDynamicZone = ComponentComponentsFaq | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSpotlight | Error;
+export type ProductSectionsDynamicZone = ComponentComponentsFaq | ComponentComponentsInternalBlockContent | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSpotlight | Error;
 
 export type Productencatalogus = {
   __typename?: 'Productencatalogus';
@@ -2091,11 +2741,15 @@ export type PublisherActionInput = {
 
 export type Query = {
   __typename?: 'Query';
+  additionalInformation?: Maybe<AdditionalInformationEntityResponse>;
+  additionalInformations?: Maybe<AdditionalInformationEntityResponseCollection>;
   entityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
   entityNotesNotes?: Maybe<EntityNotesNoteEntityResponseCollection>;
   findSlug?: Maybe<FindSlugResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
+  internalField?: Maybe<InternalFieldEntityResponse>;
+  internalFields?: Maybe<InternalFieldEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
   notFoundPage?: Maybe<NotFoundPageEntityResponse>;
   pdcCategories?: Maybe<PdcCategoryEntityResponseCollection>;
@@ -2124,6 +2778,21 @@ export type Query = {
   usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
   usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
   usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
+  vac?: Maybe<VacEntityResponse>;
+  vacs?: Maybe<VacEntityResponseCollection>;
+};
+
+
+export type QueryAdditionalInformationArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryAdditionalInformationsArgs = {
+  filters?: InputMaybe<AdditionalInformationFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -2154,6 +2823,19 @@ export type QueryI18NLocaleArgs = {
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryInternalFieldArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryInternalFieldsArgs = {
+  filters?: InputMaybe<InternalFieldFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -2326,6 +3008,19 @@ export type QueryUsersPermissionsUserArgs = {
 export type QueryUsersPermissionsUsersArgs = {
   filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryVacArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryVacsArgs = {
+  filters?: InputMaybe<VacFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -2773,6 +3468,50 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type Vac = {
+  __typename?: 'Vac';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  vac?: Maybe<ComponentComponentsVac>;
+};
+
+export type VacEntity = {
+  __typename?: 'VacEntity';
+  attributes?: Maybe<Vac>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type VacEntityResponse = {
+  __typename?: 'VacEntityResponse';
+  data?: Maybe<VacEntity>;
+};
+
+export type VacEntityResponseCollection = {
+  __typename?: 'VacEntityResponseCollection';
+  data: Array<VacEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type VacFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<VacFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<VacFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<VacFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  vac?: InputMaybe<ComponentComponentsVacFiltersInput>;
+};
+
+export type VacInput = {
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  vac?: InputMaybe<ComponentComponentsVacInput>;
+};
+
 export type GetPdcHomePageQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   pageMode?: InputMaybe<PublicationState>;
@@ -2820,7 +3559,7 @@ export type GetProductBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetProductBySlugQuery = { __typename?: 'Query', products?: { __typename?: 'ProductEntityResponseCollection', data: Array<{ __typename?: 'ProductEntity', id?: string | null, attributes?: { __typename?: 'Product', title: string, slug: string, content?: string | null, locale?: string | null, metaTags?: { __typename?: 'ComponentSeoMeta', title: string, description: string, keymatch: string, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null, sections?: Array<{ __typename: 'ComponentComponentsFaq', pdc_faq?: { __typename?: 'PdcFaqEntityResponse', data?: { __typename?: 'PdcFaqEntity', attributes?: { __typename?: 'PdcFaq', title?: string | null, faq?: Array<{ __typename?: 'ComponentComponentsUtrechtAccordionSection', body?: string | null, headingLevel?: number | null, id: string, label?: string | null } | null> | null } | null } | null } | null } | { __typename: 'ComponentComponentsUtrechtAccordion', item?: Array<{ __typename?: 'ComponentComponentsUtrechtAccordionSection', body?: string | null, headingLevel?: number | null, id: string, label?: string | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtImage', imageData?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', name: string, alternativeText?: string | null, caption?: string | null, width?: number | null, height?: number | null, formats?: any | null, url: string } | null } | null } | null } | { __typename: 'ComponentComponentsUtrechtLink', href?: string | null, textContent?: string | null, icon?: Enum_Componentcomponentsutrechtlink_Icon | null, language?: string | null } | { __typename: 'ComponentComponentsUtrechtLogoButton', appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null } | { __typename: 'ComponentComponentsUtrechtMultiColumnsButton', column?: Array<{ __typename?: 'ComponentComponentsUtrechtMultiColumnsButtonItem', id: string, title?: string | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null } | null> | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtRichText', content: string } | { __typename: 'ComponentComponentsUtrechtSpotlight', content: string, type?: Enum_Componentcomponentsutrechtspotlight_Type | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', id: string, label?: string | null, href?: string | null, textContent?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | { __typename?: 'Error' } | null> | null, price?: { __typename?: 'PriceEntityResponse', data?: { __typename?: 'PriceEntity', attributes?: { __typename?: 'Price', price?: Array<{ __typename?: 'ComponentComponentsPrice', currency: Enum_Componentcomponentsprice_Currency, id: string, label: string, uuid?: string | null, value: number } | null> | null } | null } | null } | null, localizations?: { __typename?: 'ProductRelationResponseCollection', data: Array<{ __typename?: 'ProductEntity', attributes?: { __typename?: 'Product', locale?: string | null, slug: string } | null }> } | null } | null }> } | null };
+export type GetProductBySlugQuery = { __typename?: 'Query', products?: { __typename?: 'ProductEntityResponseCollection', data: Array<{ __typename?: 'ProductEntity', id?: string | null, attributes?: { __typename?: 'Product', title: string, slug: string, content?: string | null, locale?: string | null, metaTags?: { __typename?: 'ComponentSeoMeta', title: string, description: string, keymatch: string, ogImage?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null, sections?: Array<{ __typename: 'ComponentComponentsFaq', pdc_faq?: { __typename?: 'PdcFaqEntityResponse', data?: { __typename?: 'PdcFaqEntity', attributes?: { __typename?: 'PdcFaq', title?: string | null, faq?: Array<{ __typename?: 'ComponentComponentsUtrechtAccordionSection', body?: string | null, headingLevel?: number | null, id: string, label?: string | null } | null> | null } | null } | null } | null } | { __typename?: 'ComponentComponentsInternalBlockContent' } | { __typename: 'ComponentComponentsUtrechtAccordion', item?: Array<{ __typename?: 'ComponentComponentsUtrechtAccordionSection', body?: string | null, headingLevel?: number | null, id: string, label?: string | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtImage', imageData?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', name: string, alternativeText?: string | null, caption?: string | null, width?: number | null, height?: number | null, formats?: any | null, url: string } | null } | null } | null } | { __typename: 'ComponentComponentsUtrechtLink', href?: string | null, textContent?: string | null, icon?: Enum_Componentcomponentsutrechtlink_Icon | null, language?: string | null } | { __typename: 'ComponentComponentsUtrechtLogoButton', appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null } | { __typename: 'ComponentComponentsUtrechtMultiColumnsButton', column?: Array<{ __typename?: 'ComponentComponentsUtrechtMultiColumnsButtonItem', id: string, title?: string | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null } | null> | null } | null> | null } | { __typename: 'ComponentComponentsUtrechtRichText', content: string } | { __typename: 'ComponentComponentsUtrechtSpotlight', content: string, type?: Enum_Componentcomponentsutrechtspotlight_Type | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', id: string, label?: string | null, href?: string | null, textContent?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | { __typename?: 'Error' } | null> | null, price?: { __typename?: 'PriceEntityResponse', data?: { __typename?: 'PriceEntity', attributes?: { __typename?: 'Price', price?: Array<{ __typename?: 'ComponentComponentsPrice', currency: Enum_Componentcomponentsprice_Currency, id: string, label: string, uuid?: string | null, value: number } | null> | null } | null } | null } | null, localizations?: { __typename?: 'ProductRelationResponseCollection', data: Array<{ __typename?: 'ProductEntity', attributes?: { __typename?: 'Product', locale?: string | null, slug: string } | null }> } | null } | null }> } | null };
 
 export type GetProductsOldSlugsQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
