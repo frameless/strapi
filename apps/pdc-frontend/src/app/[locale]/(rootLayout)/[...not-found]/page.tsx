@@ -2,8 +2,7 @@ import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, Markdown } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
-import { getImageBaseUrl } from '@/util';
-import { createStrapiURL } from '@/util/createStrapiURL';
+import { getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
 import { fetchData } from '@/util/fetchData';
 import { GetNotFoundPageQuery } from '../../../../../gql/graphql';
 
@@ -11,7 +10,7 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
   new Response(null, { status: 404 });
   const { t } = await useTranslation(locale, ['common']);
   const { data } = await fetchData<{ data: GetNotFoundPageQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_NOT_FOUND_PAGE,
     variables: { locale },
   });

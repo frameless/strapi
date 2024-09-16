@@ -6,7 +6,7 @@ import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { SurveyLink } from '@/components/SurveyLink';
-import { buildAlternateLinks } from '@/util';
+import { buildAlternateLinks, buildURL, getPathAndSearchParams } from '@/util';
 import { useTranslation } from '../../../../i18n/index';
 type ParamsType = {
   locale: string;
@@ -30,10 +30,15 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
   const decodeQuery = decodeURIComponent(query)?.trim();
   const title = t('seo.title', { query: decodeQuery, interpolation: { escapeValue: false } });
   const description = t('seo.description');
-  const searchSegment = t('segments.search', {
-    defaultValue: 'zoeken',
+
+  const url = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.search', decodeQuery],
+    locale,
   });
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/${searchSegment}/${decodeQuery}`;
+
   return {
     title,
     description,
@@ -41,15 +46,15 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
       locale,
-      url,
+      url: url?.href,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}/${searchSegment}/${decodeQuery}`,
+      canonical: url?.href,
       languages: {
-        ...buildAlternateLinks({ languages, segment: `${searchSegment}/${decodeQuery}` }),
+        ...buildAlternateLinks({ languages, segment: url?.href }),
       },
     },
   };
@@ -59,11 +64,22 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
   const { t } = await useTranslation(locale, ['search-page', 'common']);
   const decodeQuery = decodeURIComponent(query)?.trim();
   const searchResults = await getSuggestedSearch(locale, decodeQuery);
-  const searchSegment = t('segments.search', {
-    defaultValue: 'zoeken',
+
+  const { fullURL: tipsSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.search', 'tips'],
+    queryParams: { query: decodeQuery },
+    locale,
   });
+
+  const { pathSegments: searchSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.search', decodeQuery],
+    locale,
+  });
+
   if (searchResults && searchResults.hits && searchResults.hits.length === 0) {
-    redirect(`/${searchSegment}/tips?query=${decodeQuery}`);
+    redirect(`/${tipsSegment}`);
   }
 
   const results =
@@ -74,6 +90,13 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           body: fields.body,
         }))
       : [];
+  const surveyLinkURL = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.search', query],
+    locale,
+  });
 
   return (
     <>
@@ -90,7 +113,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
             current: false,
           },
           {
-            href: `/${searchSegment}/${decodeQuery}`,
+            href: `/${searchSegment}`,
             label: t('components.breadcrumbs.label.search'),
             current: true,
           },
@@ -114,7 +137,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
         />
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/${searchSegment}/${query}`} t={t} env={process.env} />
+            <SurveyLink segment={surveyLinkURL.href} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

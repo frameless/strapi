@@ -29,7 +29,7 @@ import { GoogleTranslate } from '@/components/GoogleTranslate';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import { GET_TEMPLATE } from '@/query';
-import { buildAlternateLinks, config, createStrapiURL, fetchData } from '@/util';
+import { buildAlternateLinks, buildURL, config, fetchData, getStrapiGraphqlURL } from '@/util';
 import {
   ComponentComponentsUtrechtFooter,
   ComponentComponentsUtrechtNavigation,
@@ -60,7 +60,12 @@ type Params = {
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}`;
+  const url = buildURL({
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    locale,
+  });
+
   return {
     title: {
       template: `%s | ${t('website-setting.website-name')}`,
@@ -100,13 +105,13 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
       locale,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
-      url,
+      url: url?.href,
     },
-    metadataBase: new URL(process.env.FRONTEND_PUBLIC_URL || 'http://localhost:3000'),
+    metadataBase: new URL(url?.href || 'http://localhost:3000'),
     alternates: {
-      canonical: `/${locale}`,
+      canonical: '/',
       languages: {
-        ...buildAlternateLinks({ languages }),
+        ...buildAlternateLinks({ languages, segment: '/' }),
       },
     },
   };
@@ -117,11 +122,10 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
   const { data } = await fetchData<{ data: GetTemplateDataQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_TEMPLATE,
     variables: { locale },
   });
-
   const navigationData = data.pdcTemplate?.data?.attributes?.sections?.find(
     (component) => component?.__typename === 'ComponentComponentsUtrechtNavigation',
   ) as ComponentComponentsUtrechtNavigation;
@@ -130,6 +134,11 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
     (component) => component?.__typename === 'ComponentComponentsUtrechtFooter',
   ) as ComponentComponentsUtrechtFooter;
 
+  const matomoHost = buildURL({
+    env: process.env,
+    key: 'MATOMO_HOST',
+    segments: ['analytics', 'js', `container_${process.env.MATOMO_SITE_ID}.js`],
+  });
   return (
     <html lang={locale} dir={dir(locale)} id="top" className="utrecht-scroll-to-top-container">
       <body
@@ -229,11 +238,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
             />
           </Surface>
         </QueryClientProvider>
-        <MatomoTagManager
-          strategy="afterInteractive"
-          nonce={nonce}
-          src={`${process.env.MATOMO_HOST}/analytics/js/container_${process.env.MATOMO_SITE_ID}.js`}
-        />
+        <MatomoTagManager strategy="afterInteractive" nonce={nonce} src={matomoHost?.href} />
         <SiteImproveAnalytics nonce={nonce} strategy="lazyOnload" />
         <Script
           strategy="afterInteractive"

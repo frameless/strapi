@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, UnorderedList, UnorderedListItem } from '@/components';
+import { getPathAndSearchParams } from '@/util';
 
 type Params = {
   params: {
@@ -27,8 +28,12 @@ const SearchTips = async ({ params: { locale }, searchParams }: any) => {
   const query = searchParams?.query;
   const tipsList = t('body.section.unordered-list', { returnObjects: true }) as string[];
   const decodeQuery = decodeURIComponent(query);
-  const searchSegment = t('segments.search', {
-    defaultValue: 'zoeken',
+
+  const { fullURL: tipsSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.search', 'tips'],
+    queryParams: { query: decodeQuery },
+    locale,
   });
   return (
     <div>
@@ -45,7 +50,7 @@ const SearchTips = async ({ params: { locale }, searchParams }: any) => {
             current: false,
           },
           {
-            href: `/${searchSegment}/tips/${decodeQuery}`,
+            href: `/${tipsSegment}`,
             label: t('components.breadcrumbs.label.search-tips'),
             current: true,
           },

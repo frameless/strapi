@@ -14,8 +14,7 @@ import {
 import { SurveyLink } from '@/components/SurveyLink';
 import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_PDC_HOME_PAGE } from '@/query';
-import { alphabet } from '@/util';
-import { createStrapiURL } from '@/util/createStrapiURL';
+import { alphabet, buildURL, getPathAndSearchParams, getStrapiGraphqlURL } from '@/util';
 import { fetchData } from '@/util/fetchData';
 import {
   CheckAlphabeticallyProductsAvailabilityQuery,
@@ -40,6 +39,13 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   const { t } = await useTranslation(locale, ['home-page', 'common']);
   const title = t('seo.title');
   const description = t('seo.description');
+  const url = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    locale,
+  });
+
   return {
     title: `${title} | ${t('website-setting.website-name')}`,
     description,
@@ -47,7 +53,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
       title: `${title} | ${t('website-setting.website-name')} `,
       description,
       locale,
-      url: `${process.env.FRONTEND_PUBLIC_URL}/${locale}`,
+      url: url?.href,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
@@ -57,14 +63,8 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Home = async ({ params: { locale } }: { params: any }) => {
   const { t } = await useTranslation(locale, ['home-page', 'common']);
-  const productsSegment = t('segments.products', {
-    defaultValue: 'producten',
-  });
-  const alphabetSegment = t('segments.alphabet', {
-    defaultValue: 'alfabet',
-  });
   const { data } = await fetchData<{ data: GetPdcHomePageQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_PDC_HOME_PAGE,
     variables: { locale },
   });
@@ -75,17 +75,22 @@ const Home = async ({ params: { locale } }: { params: any }) => {
 
   const productsAvailability = alphabet.map(async (letter) => {
     const { data } = await fetchData<{ data: CheckAlphabeticallyProductsAvailabilityQuery }>({
-      url: createStrapiURL(),
+      url: getStrapiGraphqlURL(),
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
 
     const isAvailable = data.products?.data && data.products?.data.length > 0;
+    const { pathSegments } = getPathAndSearchParams({
+      translations: t,
+      segments: ['segments.products', 'segments.alphabet', letter.toLocaleLowerCase()],
+      locale,
+    });
 
     return {
       char: letter,
       disabled: !isAvailable,
-      href: !isAvailable ? undefined : `${productsSegment}/${alphabetSegment}/${letter.toLocaleLowerCase()}`,
+      href: !isAvailable ? undefined : pathSegments,
     };
   });
 

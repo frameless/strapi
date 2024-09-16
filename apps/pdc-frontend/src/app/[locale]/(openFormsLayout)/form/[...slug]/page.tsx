@@ -5,7 +5,7 @@ import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Grid, GridCell, Heading1, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
 import { SurveyLink } from '@/components/SurveyLink';
-import { openFormValidator } from '@/util';
+import { buildURL, getPathAndSearchParams, openFormValidator } from '@/util';
 import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
 
 type FormPageProps = {
@@ -24,9 +24,20 @@ const FormPage = async ({
   const { t } = await useTranslation(locale, 'common');
   const nonce = headers().get('x-nonce') || '';
   const formInfo = await openFormValidator({ formId });
-  const formSegment = t('segments.form', {
-    defaultValue: 'formulier',
+
+  const { pathSegments: formPathSegments } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.form', formId],
+    locale,
   });
+  const surveyLinkURL = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.form', formId],
+    locale,
+  });
+
   return (
     <>
       <Breadcrumbs
@@ -61,14 +72,14 @@ const FormPage = async ({
             sdkUrl={createOpenFormsSdkUrl()?.href || ''}
             cssUrl={createOpenFormsCssUrl()?.href || ''}
             nonce={nonce}
-            basePath={`/${locale}/${formSegment}/${formId}/`}
+            basePath={`/${formPathSegments}`}
             slug={formId}
             fallback={formInfo ? <Heading1>{formInfo.name}</Heading1> : null}
           />
         </div>
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/${formSegment}/${formId}`} t={t} env={process.env} />
+            <SurveyLink segment={surveyLinkURL.href} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

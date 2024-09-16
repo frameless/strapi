@@ -1,8 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
-import { createStrapiURL } from '@/util/createStrapiURL';
-import { fetchData } from '@/util/fetchData';
+import { fetchData, getStrapiGraphqlURL } from '@/util';
 import { GetProductBySlugQuery } from '../../../../gql/graphql';
 
 export async function GET(request: Request) {
@@ -18,7 +17,7 @@ export async function GET(request: Request) {
   const cookieStore = cookies();
   cookieStore.set('slug', slug);
   const { data } = await fetchData<{ data: GetProductBySlugQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_PRODUCT_BY_SLUG,
     variables: {
       slug: slug,

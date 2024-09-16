@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getContentSecurityPolicy } from '@/util/cspConfig';
 import { fallbackLng, languages } from './app/i18n/settings';
 import { GET_PRODUCTS_OLD_SLUGS } from './query';
-import { createStrapiURL, fetchData, getRedirectURL } from './util';
+import { fetchData, getRedirectURL, getStrapiGraphqlURL } from './util';
 import { GetProductsOldSlugsQuery } from '../gql/graphql';
 
 acceptLanguage.languages(languages);
@@ -23,7 +23,7 @@ export async function middleware(req: NextRequest) {
   if (!locale) locale = fallbackLng;
 
   const { data } = await fetchData<{ data: GetProductsOldSlugsQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_PRODUCTS_OLD_SLUGS,
     variables: {
       locale,

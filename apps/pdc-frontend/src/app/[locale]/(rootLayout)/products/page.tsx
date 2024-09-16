@@ -4,8 +4,15 @@ import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { SurveyLink } from '@/components/SurveyLink';
-import { apiSettings, mappingProducts, MappingProductsProps } from '@/util';
-import { buildAlternateLinks, createStrapiURL, fetchData } from '@/util';
+import {
+  apiSettings,
+  buildURL,
+  getPathAndSearchParams,
+  getStrapiGraphqlURL,
+  mappingProducts,
+  MappingProductsProps,
+} from '@/util';
+import { buildAlternateLinks, fetchData } from '@/util';
 import { GetAllProductsSlugQueryQuery } from '../../../../../gql/graphql';
 import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
 import { useTranslation } from '../../../i18n';
@@ -22,7 +29,7 @@ type Params = {
 
 const fetchAllProducts = async ({ locale }: { locale: string }) => {
   const { data } = await fetchData<{ data: GetAllProductsSlugQueryQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_ALL_PRODUCTS_SLUG,
     variables: { locale, page: 1, pageSize: apiSettings.pagination.pageSize },
   });
@@ -34,7 +41,13 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   const { t } = await useTranslation(locale, ['products-page', 'common']);
   const title = t('seo.title');
   const description = t('seo.description');
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products`;
+  const url = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.products'],
+    locale,
+  });
 
   return {
     title,
@@ -43,15 +56,15 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
       locale,
-      url,
+      url: url?.href,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}/products`,
+      canonical: url?.href,
       languages: {
-        ...buildAlternateLinks({ languages, segment: 'products' }),
+        ...buildAlternateLinks({ languages, segment: url?.href }),
       },
     },
   };
@@ -59,11 +72,21 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Products = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { t } = await useTranslation(locale, ['products-page', 'common']);
-  const productsSegment = t('segments.products', {
-    defaultValue: 'producten',
+  const { pathSegments: productSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.products'],
+    locale,
   });
+  const surveyLinkURL = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.products'],
+    locale,
+  });
+
   const { products } = await fetchAllProducts({ locale });
-  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productsSegment);
+  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productSegment);
 
   return (
     <>
@@ -85,7 +108,7 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
             current: false,
           },
           {
-            href: `/${productsSegment}`,
+            href: `/${productSegment}`,
             label: t('components.breadcrumbs.label.products'),
             current: false,
           },
@@ -104,7 +127,7 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
         )}
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/${productsSegment}`} t={t} env={process.env} />
+            <SurveyLink segment={surveyLinkURL.href} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>

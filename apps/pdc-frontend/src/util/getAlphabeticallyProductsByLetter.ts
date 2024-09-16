@@ -1,6 +1,6 @@
 import { GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
-import { createStrapiURL } from './createStrapiURL';
 import { fetchData } from './fetchData';
+import { getStrapiGraphqlURL } from './getStrapiGraphqlURL';
 import { GetAlphabeticallyProductsByLetterQueryQuery } from '../../gql/graphql';
 
 type GetAlphabeticallyProductsByLetterProps = {
@@ -17,7 +17,7 @@ export const getAlphabeticallyProductsByLetter = async ({
   startsWith,
 }: GetAlphabeticallyProductsByLetterProps) => {
   const { data } = await fetchData<{ data: GetAlphabeticallyProductsByLetterQueryQuery }>({
-    url: createStrapiURL(),
+    url: getStrapiGraphqlURL(),
     query: GET_ALPHABETICALLY_PRODUCTS_BY_LETTER,
     variables: { locale, page, pageSize, startsWith },
   });
