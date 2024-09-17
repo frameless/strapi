@@ -60,10 +60,11 @@ export const Markdown = ({
         img: ({ node }) => {
           const { src, alt, width, height, dataFigcaption } = node?.properties as ImageProperties;
 
+          const url = new URL(src, imageUrl);
           return imageUrl ? (
             <Img
               Image={Image}
-              src={`${imageUrl}${src}`}
+              src={url.href}
               alt={alt || ''}
               width={Number(width)}
               height={Number(height)}

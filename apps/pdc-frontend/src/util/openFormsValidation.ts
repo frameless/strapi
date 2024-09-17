@@ -1,8 +1,10 @@
 'use server';
 
+import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { useTranslation } from '@/app/i18n';
+import { buildURL, getPathAndSearchParams } from './buildURL';
 import { ErrorHandler } from './fetchData';
-import { createOpenFormsApiUrl } from './openFormsSettings';
 
 type OpenFormValidatorFunction = {
   formId: string;
@@ -15,10 +17,28 @@ interface BasicFormInfo {
 
 export const openFormValidator = async ({ formId }: OpenFormValidatorFunction): Promise<BasicFormInfo | null> => {
   if (!formId || !process.env.OPEN_FORMS_API_TOKEN) return null;
-  const { origin, pathname } = createOpenFormsApiUrl() as URL;
-  const openFormsURL = `${origin}${pathname.endsWith('/') ? pathname : `${pathname}/`}forms/${formId}`;
 
-  const res = await fetch(openFormsURL, {
+  const openFormsURL = buildURL({
+    env: process.env,
+    key: 'OPEN_FORMS_API_URL',
+    segments: ['forms', formId],
+    isOrigin: false,
+  });
+
+  const locale = cookies().get('i18nextLng')?.value || 'nl';
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(locale, ['common']);
+  const { pathSegments: formServerDownSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.form', 'segments.error', 'segments.form-server-down'],
+  });
+  const { pathSegments: formNotFoundSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.form', 'segments.error', 'segments.form-not-found'],
+  });
+
+  const res = await fetch(openFormsURL?.href as string, {
     mode: 'cors',
     cache: 'no-store',
     headers: {
@@ -29,7 +49,7 @@ export const openFormValidator = async ({ formId }: OpenFormValidatorFunction): 
   }).catch((error) => {
     // eslint-disable-next-line no-console
     console.error(error);
-    redirect('/form/error/form-server-down');
+    redirect(`/${formServerDownSegment}`);
   });
 
   if (res.status === 200) {
@@ -41,7 +61,7 @@ export const openFormValidator = async ({ formId }: OpenFormValidatorFunction): 
     };
   }
   if (res.status === 404) {
-    redirect('/form/error/form-not-found');
+    redirect(`/${formNotFoundSegment}`);
   } else if (res.status === 401) {
     throw new ErrorHandler('Unauthorized', {
       statusCode: 401,
@@ -51,7 +71,7 @@ export const openFormValidator = async ({ formId }: OpenFormValidatorFunction): 
       statusCode: 403,
     });
   } else if (res.status >= 500) {
-    redirect('/form/error/form-server-down');
+    redirect(`/${formServerDownSegment}`);
   }
   return null;
 };

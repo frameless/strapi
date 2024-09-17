@@ -19,11 +19,14 @@ import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
 import {
   alphabet,
   apiSettings,
+  buildURL,
   getAlphabeticallyProductsByLetter,
+  getPathAndSearchParams,
+  getStrapiGraphqlURL,
   mappingProducts,
   MappingProductsProps,
 } from '@/util';
-import { buildAlternateLinks, createStrapiURL } from '@/util';
+import { buildAlternateLinks } from '@/util';
 import { fetchData } from '@/util/fetchData';
 import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../../../../../gql/graphql';
 export const revalidate = 3600; // revalidate the data at most every hour
@@ -45,7 +48,14 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
   const title = t('seo.title');
   const description = t('seo.description');
-  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}/products/alphabet/${q}`;
+  const url = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.products', 'segments.alphabet', q],
+    locale,
+  });
+
   return {
     title,
     description,
@@ -53,15 +63,15 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
       locale,
-      url,
+      url: url?.href,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
       countryName: 'NL',
       type: 'website',
     },
     alternates: {
-      canonical: `/${locale}/products/alphabet/${q}`,
+      canonical: url?.href,
       languages: {
-        ...buildAlternateLinks({ languages, segment: `products/alphabet/${q}` }),
+        ...buildAlternateLinks({ languages, segment: url?.href }),
       },
     },
   };
@@ -79,7 +89,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
 
   const productsAvailability = alphabet.map(async (letter) => {
     const { data } = await fetchData<{ data: CheckAlphabeticallyProductsAvailabilityQuery }>({
-      url: createStrapiURL(),
+      url: getStrapiGraphqlURL() as string,
       query: CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY,
       variables: { locale, startsWith: letter },
     });
@@ -91,8 +101,26 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       href: !isAvailable ? undefined : `${letter.toLocaleLowerCase()}`,
     };
   });
+  const { pathSegments: productSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.products'],
+    locale,
+  });
+  const { pathSegments: alphabetSegment } = getPathAndSearchParams({
+    translations: t,
+    segments: ['segments.products', 'segments.alphabet', q],
+    locale,
+  });
+  const surveyLinkURL = buildURL({
+    translations: t,
+    env: process.env,
+    key: 'FRONTEND_PUBLIC_URL',
+    segments: ['segments.products', 'segments.alphabet', q],
+    locale,
+  });
+
   const alphabetAvailability = await Promise.all(productsAvailability);
-  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[]);
+  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productSegment);
 
   return (
     <>
@@ -114,18 +142,18 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
             current: false,
           },
           {
-            href: '/products',
+            href: `/${productSegment}`,
             label: t('components.breadcrumbs.label.products'),
             current: false,
           },
           {
-            href: `/products/alphabet/${q}`,
+            href: `/${alphabetSegment}`,
             label: t('components.breadcrumbs.label.alphabet'),
             current: true,
           },
         ]}
         backLink={{
-          href: '/products',
+          href: `/${productSegment}`,
           label: t('components.breadcrumbs.label.products'),
           current: false,
         }}
@@ -152,7 +180,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         )}
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/products/alphabet/${q}`} t={t} env={process.env} />
+            <SurveyLink segment={surveyLinkURL?.href as string} t={t} env={process.env} />
           </GridCell>
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
