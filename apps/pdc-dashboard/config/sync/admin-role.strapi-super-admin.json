@@ -75,8 +75,8 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
-          "content.keywords",
           "content.contentBlock.label",
+          "content.keywords",
           "product"
         ]
       },
@@ -106,8 +106,8 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
-          "content.keywords",
           "content.contentBlock.label",
+          "content.keywords",
           "product"
         ]
       },
@@ -123,8 +123,8 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
-          "content.keywords",
           "content.contentBlock.label",
+          "content.keywords",
           "product"
         ]
       },
@@ -506,7 +506,8 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
-          "additional_information"
+          "additional_information",
+          "oldSlugs"
         ],
         "locales": ["en", "nl"]
       },
@@ -591,7 +592,8 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
-          "additional_information"
+          "additional_information",
+          "oldSlugs"
         ],
         "locales": ["en", "nl"]
       },
@@ -658,7 +660,8 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
-          "additional_information"
+          "additional_information",
+          "oldSlugs"
         ],
         "locales": ["en", "nl"]
       },

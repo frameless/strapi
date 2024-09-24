@@ -220,6 +220,20 @@
           "sortable": true
         }
       },
+      "oldSlugs": {
+        "edit": {
+          "label": "Vorige Slugs",
+          "description": "Lijst van oude URL's om te herleiden naar deze pagina",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "oldSlugs",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -357,6 +371,12 @@
           {
             "name": "uuid",
             "size": 4
+          }
+        ],
+        [
+          {
+            "name": "oldSlugs",
+            "size": 12
           }
         ]
       ],

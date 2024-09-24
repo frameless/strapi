@@ -148,6 +148,14 @@
       "relation": "oneToOne",
       "target": "api::additional-information.additional-information",
       "mappedBy": "product"
+    },
+    "oldSlugs": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
     }
   }
 }
