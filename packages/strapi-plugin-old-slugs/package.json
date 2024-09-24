@@ -1,0 +1,54 @@
+{
+  "name": "@frameless/strapi-plugin-old-slugs",
+  "version": "0.0.0",
+  "description": "This is a customField to store old slugs for content types",
+  "keywords": [
+    "strapi",
+    "plugin",
+    "customField",
+    "old-slugs"
+  ],
+  "strapi": {
+    "name": "old-slugs",
+    "description": "This is a customField to store old slugs for content types",
+    "kind": "plugin"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/strapi-plugin-old-slugs"
+  },
+  "dependencies": {
+    "@strapi/design-system": "1.19.0",
+    "@strapi/helper-plugin": "4.25.11",
+    "@strapi/icons": "1.19.0"
+  },
+  "devDependencies": {
+    "@strapi/typescript-utils": "4.25.11",
+    "@types/react": "18.2.19",
+    "@types/react-dom": "18.2.19",
+    "@types/react-router-dom": "5.3.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "5.3.4",
+    "typescript": "5.0.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "author": {
+    "name": "@frameless"
+  },
+  "engines": {
+    "node": "20.x.x"
+  },
+  "scripts": {
+    "watch": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json",
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean"
+  },
+  "license": "EUPL-1.2"
+}
