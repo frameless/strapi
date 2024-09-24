@@ -143,7 +143,8 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
-          "additional_information"
+          "additional_information",
+          "oldSlugs"
         ],
         "locales": ["en", "nl"]
       },
