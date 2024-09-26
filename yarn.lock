@@ -8252,6 +8252,11 @@
   resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.1.0.tgz#0377dbfac70564fc8fc33f9ad53323351f83004e"
   integrity sha512-1P9aVSL5xlBx2sFEzm1v+obgAPvwiLj4dg0vAZnFxLF6ZLbPPu0kP+tQhW3Gj945DU3qkwL/tIuimObYulYVAg==
 
+"@utrecht/design-tokens@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-2.4.0.tgz#e72ac3b1b2ae0f0794c79d249a1c475480caf222"
+  integrity sha512-TPLbXIgNOmoNbl6eTibBGkJ8sIH/8C77Bgot0LyLBe95/CQMCy9t172uB8C2SrtTKBsrxJwQhIUkHZ3YCGPvyA==
+
 "@utrecht/fieldset-react@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@utrecht/fieldset-react/-/fieldset-react-1.0.2.tgz#b126b7bc0c77c6037dc7e06812002096efbd600f"
@@ -8334,6 +8339,11 @@
   integrity sha512-y4r3913L0PxIZqVQbjs1bV8cuiez6X4Oaqhjo7d8tdeOtnMjIjvv2s8tyRzDuyU8PioGXcMjtfavY+bDdrfc7g==
   dependencies:
     clsx "2.1.1"
+
+"@utrecht/spotlight-section-css@1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/spotlight-section-css/-/spotlight-section-css-1.6.0.tgz#4966e3e6eba2eda10d2dd357bc12f65455de221e"
+  integrity sha512-dUKcskHCIbzbJKjsd591ogKqfbQeoDVgOnNUZcT80hz3Fdj+84/axQF4ZccuxyhJ7oRNdJlr2wnx9BzvkQCfJg==
 
 "@utrecht/table-css@1.4.0":
   version "1.4.0"
