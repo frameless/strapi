@@ -1,6 +1,7 @@
 @import "~@utrecht/multiline-data-css/src/mixin";
 @import "~@utrecht/form-label-css/src/mixin";
 @import "~@utrecht/textbox-css/src/mixin";
+@import "~@utrecht/alert-css/src/mixin";
 
 :root {
   --of-progress-indicator-padding-block-end: 0;
@@ -65,4 +66,33 @@
 
 .utrecht-form-container--openforms {
   flex: 1 1;
+}
+
+.openforms-formio-content {
+  &--info {
+    --of-formio-content-info-border-inline-start-style: none;
+    @include utrecht-alert;
+    @include utrecht-alert-type("info");
+  }
+  &--warning {
+    --of-formio-content-warning-border-inline-start-style: none;
+    @include utrecht-alert;
+    @include utrecht-alert-type("warning");
+  }
+  &--error {
+    --of-formio-content-error-border-inline-start-style: none;
+    @include utrecht-alert;
+    @include utrecht-alert-type("error");
+  }
+  &--success {
+    --of-formio-content-success-border-inline-start-style: none;
+    @include utrecht-alert;
+    @include utrecht-alert-type("ok");
+  }
+  &--success,
+  &--info,
+  &--warning,
+  &--error {
+    flex-direction: column;
+  }
 }
