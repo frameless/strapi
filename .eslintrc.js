@@ -75,6 +75,7 @@ module.exports = {
           './packages/strapi-plugin-language/tsconfig.server.json',
           './packages/strapi-plugin-old-slugs/tsconfig.json',
           './packages/strapi-plugin-old-slugs/tsconfig.server.json',
+          './packages/strapi-plugin-old-slugs/tsconfig.test.json',
           './packages/strapi-plugin-open-forms-embed/tsconfig.json',
           './packages/strapi-plugin-open-forms-embed/tsconfig.server.json',
           './packages/strapi-plugin-uniform-product-name/tsconfig.json',
