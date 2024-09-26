@@ -1,4 +1,3 @@
-import { URL } from 'url';
 export const createStrapiURL = () => {
   if (!process.env.STRAPI_PRIVATE_URL) {
     throw new Error('STRAPI_PRIVATE_URL is not defined');

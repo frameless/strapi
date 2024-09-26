@@ -131,6 +131,14 @@
       },
       "type": "customField",
       "customField": "plugin::uuid-field.uuid-field"
+    },
+    "oldSlugs": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
     }
   }
 }

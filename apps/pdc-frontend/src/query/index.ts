@@ -250,6 +250,22 @@ export const GET_PRODUCT_BY_SLUG = gql(`
 }
 
 `);
+export const GET_PRODUCTS_OLD_SLUGS = gql(`
+query getProductsOldSlugs($locale: I18NLocaleCode) {
+  products(
+    pagination: { start: 0, limit: -1 }
+    filters: { oldSlugs: { ne: null } }
+    locale: $locale
+  ) {
+    data {
+      attributes {
+        slug
+        oldSlugs
+      }
+    }
+  }
+}
+`);
 
 export const GET_PRODUCT_BY_SLUG_AND_LOCALE = gql(`
   query getProductBySlugAndLocale($slug: String, $locale: I18NLocaleCode, $pageMode: PublicationState) {

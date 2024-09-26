@@ -118,4 +118,14 @@ export default ({ env }) => ({
       },
     },
   },
+  'old-slugs': {
+    enabled: true,
+    config: {
+      contentTypes: [
+        {
+          uid: 'api::product.product',
+        },
+      ],
+    },
+  },
 });
