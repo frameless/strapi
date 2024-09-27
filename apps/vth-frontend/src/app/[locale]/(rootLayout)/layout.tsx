@@ -130,7 +130,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               <Header
                 navList={navList}
                 logo={{
-                  href: `https://www.utrecht.nl/`,
+                  href: 'https://www.utrecht.nl/',
                   ariaLabel:
                     t('logo.aria-label', {
                       defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',
