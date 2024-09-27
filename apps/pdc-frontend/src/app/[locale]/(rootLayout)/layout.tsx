@@ -163,7 +163,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   <GridCell xs={6}>
                     <div className="utrecht-logo-wrapper">
                       <Link
-                        href={`https://www.utrecht.nl/`}
+                        href={'https://www.utrecht.nl/'}
                         className="utrecht-link utrecht-link--html-a utrecht-link--box-content"
                         prefetch={false}
                         aria-label={
