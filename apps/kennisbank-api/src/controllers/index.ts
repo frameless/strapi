@@ -1,0 +1,1 @@
+export { kennisartikelController } from './kennisartikel';
