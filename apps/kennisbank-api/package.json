@@ -1,0 +1,32 @@
+{
+  "name": "@frameless/kennisbank-api",
+  "version": "0.0.0",
+  "private": true,
+  "author": "@frameless",
+  "description": "Kennisbank API for PDC",
+  "license": "EUPL-1.2",
+  "keywords": [],
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "tsc -p ./tsconfig.json",
+    "watch": "tsc -p ./tsconfig.json  -w",
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "clean": "rimraf dist",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
+  },
+  "dependencies": {
+    "dotenv": "16.4.5",
+    "express": "4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "3.1.7",
+    "rimraf": "6.0.1",
+    "typescript": "5.0.4"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "apps/kennisbank-api"
+  }
+}
