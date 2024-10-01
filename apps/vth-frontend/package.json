@@ -13,7 +13,10 @@
     "build": "next build",
     "start": "next start -p 3000",
     "lint": "next lint",
-    "lint-build": "tsc --noEmit --project tsconfig.json"
+    "lint-build": "tsc --noEmit --project tsconfig.json",
+    "development-env": "STRAPI_PRIVATE_URL=https://vth-api.cg-intern.ont.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://vth-api.cg-intern.ont.utrecht.nl next dev -p 9000",
+    "acceptance-env": "STRAPI_PRIVATE_URL=https://vth-api.cg-intern.acc.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://vth-api.cg-intern.acc.utrecht.nl next dev -p 8000",
+    "prod-env": "STRAPI_PRIVATE_URL=https://vth-api.cg-intern.utrecht.nl/graphql STRAPI_PUBLIC_URL=https://vth-api.cg-intern.utrecht.nl next dev -p 3000"
   },
   "dependencies": {
     "@frameless/ui": "0.1.0",

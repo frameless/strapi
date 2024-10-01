@@ -13,9 +13,18 @@ type ImageProperties = {
   dataFigcaption?: string;
 };
 
-export const Markdown = ({ children, imageUrl }: { children: string; imageUrl?: string }) => {
+export const Markdown = ({
+  children,
+  imageUrl,
+  headingLevel,
+}: {
+  children: string;
+  imageUrl?: string;
+  headingLevel?: number;
+}) => {
   return (
     <BaseMarkdown
+      headingLevel={headingLevel}
       components={{
         img: ({ node }) => {
           const { src, alt, width, height, dataFigcaption } = node?.properties as ImageProperties;

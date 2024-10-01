@@ -1,16 +1,13 @@
-import { Figure, OrderedList, TableContainer } from '@utrecht/component-library-react';
 import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Heading5,
-  Heading6,
+  Figure,
+  Heading,
+  OrderedList,
   Paragraph,
   Table,
   TableBody,
   TableCaption,
   TableCell,
+  TableContainer,
   TableFooter,
   TableHeader,
   TableHeaderCell,
@@ -23,31 +20,55 @@ import type { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { isYouTubeURL, YouTubeVideo } from '../YouTubeVideo';
 
-const defaultComponents = (config?: Components) => {
+const defaultComponents = (config?: Components, headingLevel = 1) => {
   const componentMap: { [key: string]: React.ComponentType<any> } = {
     h1: ({ children, node }) => {
       delete node.properties?.style;
-      return <Heading1 {...node.properties}>{children}</Heading1>;
+      return (
+        <Heading level={headingLevel} {...node.properties}>
+          {children}
+        </Heading>
+      );
     },
     h2: ({ children, node }) => {
       delete node.properties?.style;
-      return <Heading2 {...node.properties}>{children}</Heading2>;
+      return (
+        <Heading level={headingLevel + 1} {...node.properties}>
+          {children}
+        </Heading>
+      );
     },
     h3: ({ children, node }) => {
       delete node.properties?.style;
-      return <Heading3 {...node.properties}>{children}</Heading3>;
+      return (
+        <Heading level={headingLevel + 2} {...node.properties}>
+          {children}
+        </Heading>
+      );
     },
     h4: ({ children, node }) => {
       delete node.properties?.style;
-      return <Heading4 {...node.properties}>{children}</Heading4>;
+      return (
+        <Heading level={headingLevel + 3} {...node.properties}>
+          {children}
+        </Heading>
+      );
     },
     h5: ({ children, node }) => {
       delete node.properties?.style;
-      return <Heading5 {...node.properties}>{children}</Heading5>;
+      return (
+        <Heading level={headingLevel + 4} {...node.properties}>
+          {children}
+        </Heading>
+      );
     },
     h6: ({ children, node }) => {
       delete node.properties?.style;
-      return <Heading6 {...node.properties}>{children}</Heading6>;
+      return (
+        <Heading level={headingLevel + 5} {...node.properties}>
+          {children}
+        </Heading>
+      );
     },
     p: ({ children, node }) => {
       delete node.properties?.style;
@@ -168,10 +189,15 @@ const transformUri = (url: string) => {
 interface MarkdownProps {
   children: string;
   components?: Components;
+  headingLevel?: number;
 }
 
-export const Markdown: React.FC<MarkdownProps> = ({ children, components }) => (
-  <ReactMarkdown urlTransform={transformUri} components={defaultComponents(components)} rehypePlugins={[rehypeRaw]}>
+export const Markdown: React.FC<MarkdownProps> = ({ children, components, headingLevel }) => (
+  <ReactMarkdown
+    urlTransform={transformUri}
+    components={defaultComponents(components, headingLevel)}
+    rehypePlugins={[rehypeRaw]}
+  >
     {children}
   </ReactMarkdown>
 );

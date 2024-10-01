@@ -1,13 +1,19 @@
 import {
+  Article,
   Emphasis,
+  Heading,
   Heading1,
   Heading2,
   Heading3,
   Heading4,
+  Link,
+  LinkProps,
   Paragraph,
   RichText,
 } from '@utrecht/component-library-react';
-import React from 'react';
+import { clsx } from 'clsx';
+import React, { ReactNode } from 'react';
+import { HTMLAttributes, LiHTMLAttributes, type PropsWithChildren } from 'react';
 import { useTranslation } from '@/app/i18n';
 import { AccordionProvider, Grid, GridCell, Markdown, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { Page, PageContent } from '@/components';
@@ -96,20 +102,15 @@ const PrintPage = async ({ params: { locale } }: { params: { locale: string } })
       <PageContent className="utrecht-custom-page-content">
         <div className="utrecht-print-page">
           <PrintButton />
-          <Grid spacing="lg">
-            <GridCell sm={12}>
-              <section>
-                <Heading1>{printPageData?.title}</Heading1>
+          <Article>
+            <header className="utrecht-document-header">
+              <Heading1>{printPageData?.title}</Heading1>
+              <Paragraph>
                 <Emphasis>Versiedatum: {printPageData?.versiondate}</Emphasis>
-                <Paragraph>{printPageData?.introductionBody}</Paragraph>
-              </section>
-              <section>
-                <Heading2>Inhoudsopgave</Heading2>
-                <TableOfContents navigationPagesResponse={navigationPagesResponse} />
-              </section>
-            </GridCell>
-          </Grid>
-          <Grid spacing="lg">
+              </Paragraph>
+              <Paragraph>{printPageData?.introductionBody}</Paragraph>
+            </header>
+            <TableOfContentsWithData heading="Inhoudsopgave" navigationPagesResponse={navigationPagesResponse} />
             {navigationPagesResponse.data[0] &&
               navigationPagesResponse.data.map(({ attributes: navigationPage }, index) => {
                 return (
@@ -118,7 +119,7 @@ const PrintPage = async ({ params: { locale } }: { params: { locale: string } })
                   </GridCell>
                 );
               })}
-          </Grid>
+          </Article>
         </div>
         <Grid spacing="lg">
           <GridCell md={12} justifyContent="flex-end">
@@ -130,52 +131,127 @@ const PrintPage = async ({ params: { locale } }: { params: { locale: string } })
   );
 };
 
-const TableOfContents = ({ navigationPagesResponse }: { navigationPagesResponse: NavigationPagesResponse }) => {
+export type TableOfContentsProps = HTMLAttributes<HTMLElement>;
+
+export const TableOfContents = ({ children, className, ...restProps }: PropsWithChildren<TableOfContentsProps>) => (
+  <section className={clsx('utrecht-table-of-contents', className)} {...restProps}>
+    {children}
+  </section>
+);
+
+export type TableOfContentsListProps = HTMLAttributes<HTMLElement>;
+
+export const TableOfContentsList = ({
+  children,
+  className,
+  ...restProps
+}: PropsWithChildren<TableOfContentsListProps>) => (
+  <ul className={clsx('utrecht-table-of-contents__list', className)} {...restProps}>
+    {children}
+  </ul>
+);
+
+export type TableOfContentsListItemProps = LiHTMLAttributes<HTMLLIElement>;
+
+export const TableOfContentsListItem = ({
+  children,
+  className,
+  ...restProps
+}: PropsWithChildren<TableOfContentsListItemProps>) => (
+  <li className={clsx('utrecht-table-of-contents__list-item', className)} {...restProps}>
+    <span className="utrecht-table-of-contents__list-item-body">{children}</span>
+  </li>
+);
+
+export interface TableOfContentsLinkProps extends LinkProps {
+  href: string;
+  label?: string;
+}
+
+export const TableOfContentsLink = ({
+  children,
+  className,
+  label,
+  ...restProps
+}: PropsWithChildren<TableOfContentsLinkProps>) => (
+  <Link className={clsx('utrecht-table-of-contents__link', className)} {...restProps}>
+    {label && <span className="utrecht-table-of-contents__list-item-label">{label}</span>}
+    <span className="utrecht-table-of-contents__list-item-title">{children}</span>
+  </Link>
+);
+
+const formatChapter = (...levels: number[]): string => `${levels.map((n) => n + 1).join('.')}. `;
+
+const TableOfContentsWithData = ({
+  heading,
+  navigationPagesResponse,
+}: {
+  heading?: ReactNode;
+  navigationPagesResponse: NavigationPagesResponse;
+}) => {
   return (
-    <ol>
-      {navigationPagesResponse.data[0] &&
-        navigationPagesResponse.data.map(({ attributes: navigationPage }, index) => {
-          return (
-            <li key={index}>
-              <a href={`#navigation-page-${navigationPage.title}`}>{navigationPage.title}</a>
-              <ol>
-                {navigationPage.theme_pages.data &&
-                  navigationPage.theme_pages.data.map(({ attributes: themePage }, index) => {
-                    return (
-                      <li key={index}>
-                        <a href={`#theme-page-${themePage.title}`}>{themePage.title}</a>
-                        <ol>
-                          {themePage.article_pages.data &&
-                            themePage.article_pages.data.map(({ attributes: articlePage }, index) => {
-                              return (
-                                <li key={index}>
-                                  <a href={`#article-page-${articlePage.title}`}>{articlePage.title}</a>
-                                </li>
-                              );
-                            })}
-                        </ol>
-                      </li>
-                    );
-                  })}
-                {navigationPage.article_pages.data &&
-                  navigationPage.article_pages.data.map(({ attributes: articlePage }, index) => {
-                    return (
-                      <li key={index}>
-                        <a href={`#article-page-${articlePage.title}`}>{articlePage.title}</a>
-                      </li>
-                    );
-                  })}
-              </ol>
-            </li>
-          );
-        })}
-    </ol>
+    <TableOfContents>
+      {heading ? <Heading level={2}>{heading}</Heading> : null}
+      <TableOfContentsList>
+        {navigationPagesResponse.data[0] &&
+          navigationPagesResponse.data.map(({ attributes: navigationPage }, indexA) => {
+            return (
+              <TableOfContentsListItem key={indexA}>
+                <TableOfContentsLink href={`#navigation-page-${navigationPage.title}`} label={formatChapter(indexA)}>
+                  {navigationPage.title}
+                </TableOfContentsLink>
+                <TableOfContentsList>
+                  {navigationPage.theme_pages.data &&
+                    navigationPage.theme_pages.data.map(({ attributes: themePage }, indexB) => {
+                      return (
+                        <TableOfContentsListItem key={indexB}>
+                          <TableOfContentsLink
+                            href={`#theme-page-${themePage.title}`}
+                            label={formatChapter(indexA, indexB)}
+                          >
+                            {themePage.title}
+                          </TableOfContentsLink>
+                          <TableOfContentsList>
+                            {themePage.article_pages.data &&
+                              themePage.article_pages.data.map(({ attributes: articlePage }, indexC) => {
+                                return (
+                                  <TableOfContentsListItem key={indexC}>
+                                    <TableOfContentsLink
+                                      href={`#article-page-${articlePage.title}`}
+                                      label={formatChapter(indexA, indexB, indexC)}
+                                    >
+                                      {articlePage.title}
+                                    </TableOfContentsLink>
+                                  </TableOfContentsListItem>
+                                );
+                              })}
+                          </TableOfContentsList>
+                        </TableOfContentsListItem>
+                      );
+                    })}
+                  {navigationPage.article_pages.data &&
+                    navigationPage.article_pages.data.map(({ attributes: articlePage }, indexB) => {
+                      return (
+                        <TableOfContentsListItem key={indexB}>
+                          <TableOfContentsLink
+                            href={`#article-page-${articlePage.title}`}
+                            label={formatChapter(indexA, indexB)}
+                          >
+                            {articlePage.title}
+                          </TableOfContentsLink>
+                        </TableOfContentsListItem>
+                      );
+                    })}
+                </TableOfContentsList>
+              </TableOfContentsListItem>
+            );
+          })}
+      </TableOfContentsList>
+    </TableOfContents>
   );
 };
 
-const DynamicContent: React.FC<{
-  content: any[];
-}> = ({ content }) => (
+const DynamicContent = ({ content, headingLevel }: { content: any[]; headingLevel: number }) => (
   <>
     {content &&
       content.length > 0 &&
@@ -189,15 +265,16 @@ const DynamicContent: React.FC<{
             ) : null;
           case 'ComponentComponentsUtrechtAccordion':
             return (
-              <AccordionProvider
-                key={index}
-                sections={component.item?.map(({ id, label, body, headingLevel }: any) => ({
-                  id,
-                  label,
-                  headingLevel,
-                  body: <Markdown imageUrl={getImageBaseUrl()}>{body}</Markdown>,
-                }))}
-              />
+              <div key={index} className="utrecht-used-to-be-an-accordion">
+                {component.item?.map(({ id, label, body }: any) => (
+                  <section id={id} key={id} className="utrecht-used-to-be-an-accordion-section">
+                    <Heading level={headingLevel}>{label}</Heading>
+                    <Markdown headingLevel={headingLevel} imageUrl={getImageBaseUrl()}>
+                      {body}
+                    </Markdown>
+                  </section>
+                ))}
+              </div>
             );
           default:
             return null;
@@ -210,11 +287,11 @@ const NavigationPageDisplay = (navigationPage: NavigationPage, indexString: stri
   let levelIndex = 0;
 
   return (
-    <RichText>
+    <>
       <Heading2 id={`navigation-page-${navigationPage.title}`}>
         {indexString}. {navigationPage.title}
       </Heading2>
-      <DynamicContent content={navigationPage.content} />
+      <DynamicContent headingLevel={3} content={navigationPage.content} />
       {navigationPage.theme_pages.data &&
         navigationPage.theme_pages.data.map(({ attributes: themePage }) => {
           return ThemePageDisplay(themePage, `${indexString}.${++levelIndex}`);
@@ -223,33 +300,33 @@ const NavigationPageDisplay = (navigationPage: NavigationPage, indexString: stri
         navigationPage.article_pages.data.map(({ attributes: articlePage }) => {
           return ArticlePageDisplay(articlePage, `${indexString}.${++levelIndex}`);
         })}
-    </RichText>
+    </>
   );
 };
 
 const ThemePageDisplay = (themePage: ThemePage, indexString: string) => {
   return (
-    <RichText>
+    <>
       <Heading3 id={`theme-page-${themePage.title}`}>
         {indexString}. {themePage.title}
       </Heading3>
-      <DynamicContent content={themePage.content} />
+      <DynamicContent headingLevel={4} content={themePage.content} />
       {themePage.article_pages.data &&
         themePage.article_pages.data.map(({ attributes: articlePage }, index) => {
           return ArticlePageDisplay(articlePage, `${indexString}.${index + 1}`);
         })}
-    </RichText>
+    </>
   );
 };
 
 const ArticlePageDisplay = (articlePage: ArticlePage, indexString: string) => {
   return (
-    <RichText>
+    <>
       <Heading4 id={`article-page-${articlePage.title}`}>
         {indexString}. {articlePage.title}
       </Heading4>
-      <DynamicContent content={articlePage.content} />
-    </RichText>
+      <DynamicContent headingLevel={5} content={articlePage.content} />
+    </>
   );
 };
 export default PrintPage;
