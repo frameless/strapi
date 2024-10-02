@@ -91,7 +91,7 @@ services:
     container_name: pdc_samenwerkende-catalogi
     build:
       context: .
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile.dev
     restart: unless-stopped
     command: npm run start:pdc-sc
     environment:
@@ -99,6 +99,25 @@ services:
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
     ports:
       - "4000:4000"
+    networks:
+      - pdc_strapi_network
+    depends_on:
+      - pdc_strapi
+      - pdc_strapi_db
+  kennisbank-api:
+    container_name: kennisbank-api
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    command: yarn workspace @frameless/kennisbank-api start
+    environment:
+      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
+      PDC_STRAPI_API_TOKEN: ${PDC_STRAPI_API_TOKEN}
+      KENNIS_BANK_API_PORT: ${KENNIS_BANK_API_PORT}
+    ports:
+      - "4001:4001"
     networks:
       - pdc_strapi_network
     depends_on:
