@@ -29,6 +29,7 @@
     "start:kennisbank-frontend": "npm run --workspace @frameless/kennisbank-frontend start",
     "start:kennisbank-dashboard": "npm run --workspace @frameless/kennisbank-dashboard start",
     "start:pdc-sc": "npm run --workspace @frameless/pdc-sc start",
+    "start:overige-object-api": "yarn workspace @frameless/overige-object-api start",
     "build": "npm run --workspaces build --if-present",
     "build:frontend": "npm run build --workspace @frameless/${APP}",
     "build:strapi": "npm run build --workspace @frameless/${APP}",
