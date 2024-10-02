@@ -1,3 +1,5 @@
+import type { CorsOptions } from 'cors';
+import cors from 'cors';
 import { config } from 'dotenv';
 import express from 'express';
 import { NextFunction, Request, Response } from 'express';
@@ -10,7 +12,21 @@ envAvailability({
   env: process.env,
   keys: ['STRAPI_PRIVATE_URL', 'PDC_STRAPI_API_TOKEN', 'FRONTEND_PUBLIC_URL', 'KENNIS_BANK_API_PORT'],
 });
-
+const whitelist = process.env.KENNIS_BANK_CORS?.split(', ') || [];
+const corsOption: CorsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(
+        new ErrorHandler('Not allowed by CORS', {
+          statusCode: 403,
+        }),
+      );
+    }
+  },
+  optionsSuccessStatus: 200,
+};
 const app = express();
 
 const port = process.env.KENNIS_BANK_API_PORT;
@@ -33,6 +49,11 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
 };
 // Use global error handler middleware
 app.use(globalErrorHandler);
+/**
+ * CORS
+ * Enable CORS with a whitelist of allowed origins
+ */
+app.use(cors(corsOption));
 /**
  * Routes
  * /api/v1/kennisartikel

@@ -17,12 +17,14 @@
   },
   "dependencies": {
     "dotenv": "16.4.5",
-    "express": "4.21.0"
+    "express": "4.21.0",
+    "cors": "2.8.5"
   },
   "devDependencies": {
     "nodemon": "3.1.7",
     "rimraf": "6.0.1",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "@types/cors": "2.8.17"
   },
   "repository": {
     "type": "git+ssh",
