@@ -91,6 +91,25 @@ services:
     depends_on:
       - pdc_strapi
       - pdc_strapi_db
+  overige-object-api:
+    container_name: overige-object-api
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    command: yarn start:overige-object-api
+    environment:
+      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
+      OVERIGE_OBJECT_API_PORT: ${OVERIGE_OBJECT_API_PORT}
+      OVERIGE_OBJECT_API_CORS: ${OVERIGE_OBJECT_API_CORS}
+    ports:
+      - "4001:4001"
+    networks:
+      - pdc_strapi_network
+    depends_on:
+      - pdc_strapi
+      - pdc_strapi_db
   pdc_strapi_db:
     container_name: pdc_strapi_db
     platform: linux/amd64 #for platform error on Apple M1 chips
