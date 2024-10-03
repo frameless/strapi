@@ -1,6 +1,9 @@
 import type { RequestHandler } from 'express';
 import { SEARCH_PRODUCT } from '../../queries';
+import { paths } from '../../types/openapi';
 import { fetchData } from '../../utils';
+
+type SuccessResponse = paths['/kennisartikel']['get']['responses'][200]['content']['application/json'][0];
 
 export const kennisartikelController: RequestHandler = async (req, res, next) => {
   const locale = (req.query?.locale as string) || 'nl';
