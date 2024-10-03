@@ -3,10 +3,10 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import express from 'express';
 import { NextFunction, Request, Response } from 'express';
-import { kennisartikel } from './routers';
+import { kennisartikel, openapi } from './routers';
 import { envAvailability, ErrorHandler } from './utils';
-
 config();
+
 // Validate environment variables
 envAvailability({
   env: process.env,
@@ -47,8 +47,12 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
     message: 'An unexpected error occurred.',
   });
 };
-// Use global error handler middleware
-app.use(globalErrorHandler);
+
+/**
+ * OpenAPI
+ * Serve the OpenAPI documentation
+ */
+app.use('/api/v1', openapi);
 /**
  * CORS
  * Enable CORS with a whitelist of allowed origins

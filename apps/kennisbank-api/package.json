@@ -7,8 +7,10 @@
   "license": "EUPL-1.2",
   "keywords": [],
   "scripts": {
-    "prebuild": "yarn clean",
-    "build": "tsc -p ./tsconfig.json",
+    "prebuild": "yarn clean && yarn generate-types",
+    "build": "npm-run-all --parallel build:*",
+    "build:server": "tsc -p ./tsconfig.json",
+    "build:openapi": "mkdir -p dist/docs && cp -R src/docs/openapi.yaml dist/docs/openapi.yaml",
     "watch": "tsc -p ./tsconfig.json  -w",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
@@ -16,15 +18,19 @@
     "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
+    "cors": "2.8.5",
     "dotenv": "16.4.5",
     "express": "4.21.0",
-    "cors": "2.8.5"
+    "js-yaml": "4.1.0",
+    "swagger-ui-express": "5.0.1"
   },
   "devDependencies": {
+    "@types/cors": "2.8.17",
+    "@types/swagger-ui-express": "4.1.6",
+    "@types/yamljs": "0.2.34",
     "nodemon": "3.1.7",
     "rimraf": "6.0.1",
-    "typescript": "5.0.4",
-    "@types/cors": "2.8.17"
+    "typescript": "5.0.4"
   },
   "repository": {
     "type": "git+ssh",
