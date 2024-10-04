@@ -1,12 +1,17 @@
 const gql = (query: any) => query;
 export const SEARCH_PRODUCT = gql(`
-    query searchProduct($locale: I18NLocaleCode, $query: String) {
-        products(locale: $locale, pagination: {start: 0, limit: -1}, filters: { title: {containsi: $query}}) {
+    query searchProduct($locale: I18NLocaleCode) {
+        products(
+        locale: $locale, 
+        pagination: {start: 0, limit: -1}, 
+        filters: { slug: {eq: "aansprakelijk-stellen-gemeente-schade-melden"}}
+        ) {
           data {
             id
             attributes {
               title
               slug
+              uuid
               locale
               updatedAt
               createdAt
@@ -44,6 +49,9 @@ export const SEARCH_PRODUCT = gql(`
               }
               pdc_metadata {
                 uplProductNaam
+                productCode
+                uitvoeringsorganisatie
+                doelgroep
               }
             }
           }
