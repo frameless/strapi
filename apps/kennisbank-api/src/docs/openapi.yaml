@@ -1,10 +1,10 @@
-openapi: 3.0.3
+openapi: "3.0.0"
 info:
   title: Kennisbank API
   description: API to manage Kennisbank resources
   version: 1.0.0
 servers:
-  - url: http://localhost:4001
+  - url: http://localhost:4001/api/v1
     description: Example server
 
 paths:
