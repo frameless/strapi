@@ -1,3 +1,8 @@
+export { envAvailability } from './envAvailability';
 export { ErrorHandler } from './errorHandler';
 export { fetchData } from './fetchData';
-export { envAvailability } from './envAvailability';
+export { getTheServerURL } from './getTheServerURL';
+export { vacData } from './vacData';
+export type { VACType } from './vacData';
+export { generateKennisartikelObject } from './generateKennisartikelObject';
+export { readFile } from './readFile';

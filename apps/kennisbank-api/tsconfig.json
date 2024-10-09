@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "jsx": "react",
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -11,8 +10,9 @@
     "skipLibCheck": true,
     "declaration": true,
     "module": "commonjs",
-    "outDir": "dist"
+    "outDir": "dist",
+    "lib": ["ES2021", "DOM"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "./jest.config.ts"],
   "exclude": ["node_modules", "**/*.test.ts", "./src/types/openapi.ts"]
 }
