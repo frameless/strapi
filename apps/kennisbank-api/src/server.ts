@@ -8,7 +8,7 @@ import yaml from 'js-yaml';
 import fs from 'node:fs';
 import path from 'node:path';
 import swaggerUi from 'swagger-ui-express';
-import { kennisartikel, openapi } from './routers';
+import { objecttypes, openapi } from './routers';
 import { envAvailability, ErrorHandler } from './utils';
 config();
 
@@ -79,7 +79,11 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
 if (process.env.NODE_ENV === 'development') {
   app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 }
-
+/**
+ * Objecttypes
+ * /api/v1/objecttypes/:type
+ */
+app.use('/api/v1', objecttypes);
 /**
  * OpenAPI
  * Serve the OpenAPI documentation
