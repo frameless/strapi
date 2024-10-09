@@ -4,7 +4,10 @@ import { config } from 'dotenv';
 import express from 'express';
 import { NextFunction, Request, Response } from 'express';
 import * as OpenApiValidator from 'express-openapi-validator';
+import yaml from 'js-yaml';
+import fs from 'node:fs';
 import path from 'node:path';
+import swaggerUi from 'swagger-ui-express';
 import { kennisartikel, openapi } from './routers';
 import { envAvailability, ErrorHandler } from './utils';
 config();
@@ -23,6 +26,8 @@ envAvailability({
   env: process.env,
   keys: ['STRAPI_PRIVATE_URL', 'PDC_STRAPI_API_TOKEN', 'FRONTEND_PUBLIC_URL', 'KENNIS_BANK_API_PORT'],
 });
+
+const swaggerDocument = yaml.load(fs.readFileSync(path.join(__dirname, './docs/openapi.yaml'), 'utf8'));
 const whitelist = process.env.KENNIS_BANK_CORS?.split(', ') || [];
 const corsOption: CorsOptions = {
   origin: (origin, callback) => {
@@ -66,6 +71,14 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
     message: 'An unexpected error occurred.',
   });
 };
+/**
+ * Swagger
+ * Serve the Swagger UI for testing and documentation
+ * This is only available in development mode
+ */
+if (process.env.NODE_ENV === 'development') {
+  app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+}
 
 /**
  * OpenAPI
