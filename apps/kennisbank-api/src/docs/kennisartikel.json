@@ -1,0 +1,230 @@
+{
+  "type": "object",
+  "title": "SDG Kennisartikel",
+  "required": [
+    "url",
+    "uuid",
+    "upnUri",
+    "publicatieDatum",
+    "productValtOnder",
+    "productAanwezig",
+    "verantwoordelijkeOrganisatie",
+    "locaties",
+    "doelgroep",
+    "vertalingen",
+    "beschikbareTalen"
+  ],
+  "properties": {
+    "url": {
+      "type": "string",
+      "title": "URL",
+      "description": "De unieke URL van dit object binnen deze API.",
+      "format": "uri"
+    },
+    "uuid": {
+      "type": "string",
+      "title": "UUID",
+      "description": "De identificatie die binnen deze API gebruikt wordt voor de resource.",
+      "format": "uuid"
+    },
+    "upnUri": {
+      "type": "string",
+      "title": "UPN URI",
+      "description": "De UPN URI van het specifieke product.",
+      "format": "uri"
+    },
+    "publicatieDatum": {
+      "type": "string",
+      "format": "date",
+      "title": "Publicatiedatum",
+      "description": "De datum die aangeeft wanneer het product gepubliceerd is/wordt.",
+      "nullable": true
+    },
+    "productAanwezig": {
+      "type": "boolean",
+      "title": "Product Aanwezig",
+      "description": "Een boolean die aangeeft of de organisatie dit product levert of niet.",
+      "nullable": true
+    },
+    "productValtOnder": {
+      "type": "string",
+      "title": "Product Valt Onder",
+      "description": "Als een product valt onder een ander product, dan staat deze hier vermeld.",
+      "nullable": true
+    },
+    "verantwoordelijkeOrganisatie": {
+      "type": "object",
+      "title": "De Leverende Organisatie",
+      "description": "De organisatie die dit product levert en de teksten hiervan beheert.",
+      "required": ["url", "owmsIdentifier", "owmsEndDate"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "URL van object",
+          "description": "De unieke URL van dit object binnen deze API.",
+          "format": "uri"
+        },
+        "owmsIdentifier": {
+          "type": "string",
+          "title": "OWMS Identifier",
+          "description": "De OWMS Identifier van de hoofdorganisatie van deze lokale overheid.",
+          "format": "uri"
+        },
+        "owmsPrefLabel": {
+          "type": "string",
+          "title": "OWMS label",
+          "description": "OWMS label van de hoofdorganisatie van deze lokale overheid."
+        },
+        "owmsEndDate": {
+          "type": "string",
+          "title": "Einddatum",
+          "description": "De einddatum, zoals gevonden in het OWMS-model.",
+          "format": "date-time"
+        }
+      }
+    },
+    "locaties": {
+      "type": "array",
+      "title": "Locaties waar Beschikbaar",
+      "description": "Een lijst met locaties waarop dit product beschikbaar is. Deze is nog niet nodig voor KISS en mag null zijn.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true
+    },
+    "doelgroep": {
+      "type": "string",
+      "title": "Doelgroep",
+      "description": "De doelgroep van dit product.",
+      "enum": ["eu-burger", "eu-bedrijf"]
+    },
+    "afdelingen": {
+      "type": "array",
+      "title": "Afdeling of Afdelingen",
+      "description": "De afdeling of afdelingen die de teksten van dit product beheert.",
+      "items": {
+        "type": "object",
+        "required": ["afdelingnaam"],
+        "properties": {
+          "afdelingId": {
+            "type": "string",
+            "title": "Identifier Afdeling",
+            "description": "De unieke identifier van de afdeling."
+          },
+          "afdelingnaam": {
+            "type": "string",
+            "title": "Naam Afdeling",
+            "description": "De naam van de afdeling."
+          }
+        }
+      }
+    },
+    "vertalingen": {
+      "type": "array",
+      "title": "Vertalingen",
+      "description": "Een lijst met specifieke teksten op basis van taal.",
+      "items": {
+        "type": "object",
+        "required": ["taal", "datumWijziging"],
+        "properties": {
+          "taal": {
+            "type": "string",
+            "enum": ["nl", "en"],
+            "title": "Weergavetaal",
+            "description": "De taal waarin het kennisartikel is geschreven."
+          },
+          "titel": {
+            "type": "string",
+            "title": "Titel van het Kennisartikel",
+            "description": "Een korte herkenbare titel van het kennisartikel."
+          },
+          "tekst": {
+            "type": "string",
+            "title": "Inleiding",
+            "description": "Inleidende tekst voor het product."
+          },
+          "procedureBeschrijving": {
+            "type": "string",
+            "title": "Aanvraag",
+            "description": "De beschrijving van hoe het product wordt aangevraagd. Aanpak."
+          },
+          "bewijs": {
+            "type": "string",
+            "title": "Bewijs",
+            "description": "Dit bevat de bewijsstukken die de burger of ondernemer nodig heeft om dit product aan te vragen."
+          },
+          "vereisten": {
+            "type": "string",
+            "title": "Eisen",
+            "description": "Dit beschrijft de vereisten waar een burger of ondernemer aan moet voldoen om gebruik te kunnen maken van het product."
+          },
+          "bezwaarEnBeroep": {
+            "type": "string",
+            "title": "Bezwaar",
+            "description": "Beschrijft hoe de burger of ondernemer bezwaar kan maken, tegen een besluit over dit product."
+          },
+          "kostenEnBetaalmethoden": {
+            "type": "string",
+            "title": "Kosten",
+            "description": "Beschrijft hoe de burger of ondernemer kan betalen en wat de kosten zijn."
+          },
+          "uitersteTermijn": {
+            "type": "string",
+            "title": "Termijn",
+            "description": "De informatie over hoe hoelang het duurt voor het aanvragen van dit product, de termijn."
+          },
+          "wtdBijGeenReactie": {
+            "type": "string",
+            "title": "Wat te doen bij geen reactie",
+            "description": "Beschrijft wat de aanvrager moet doen bij geen reactie."
+          },
+          "notice": {
+            "type": "string",
+            "title": "Bijzonderheden",
+            "description": "Bijzonderheden rondom het product, die nog niet is vermeld bij één van de andere onderdelen."
+          },
+          "contact": {
+            "type": "string",
+            "title": "Contact",
+            "description": "Beschrijving van hoe en waar de burger of ondernemer contact op kan nemen over dit product."
+          },
+          "deskMemo": {
+            "type": "string",
+            "title": "Interne Informatie",
+            "description": "Interne informatie, alleen bestemd voor de Balie- of KCC-medewerker."
+          },
+          "trefwoorden": {
+            "type": "array",
+            "title": "Trefwoorden",
+            "description": "Trefwoorden die passen bij het Kennisartikel/product.",
+            "items": {
+              "type": "object",
+              "required": ["trefwoord"],
+              "properties": {
+                "trefwoord": {
+                  "type": "string",
+                  "title": "Trefwoord",
+                  "description": "Een trefwoord."
+                }
+              }
+            }
+          },
+          "datumWijziging": {
+            "type": "string",
+            "title": "Datum Laatste Wijziging",
+            "description": "Datum wanneer dit product voor het laatst is gewijzigd.",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "beschikbareTalen": {
+      "type": "array",
+      "title": "Beschikbare Talen",
+      "description": "Alle beschikbare talen.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

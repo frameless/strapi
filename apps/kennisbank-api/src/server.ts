@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import type { CorsOptions } from 'cors';
 import cors from 'cors';
 import { config } from 'dotenv';
@@ -8,8 +9,8 @@ import yaml from 'js-yaml';
 import fs from 'node:fs';
 import path from 'node:path';
 import swaggerUi from 'swagger-ui-express';
-import { objecttypes, openapi } from './routers';
-import { envAvailability, ErrorHandler } from './utils';
+import { objects, objecttypes, openapi } from './routers';
+import { envAvailability, ErrorHandler, getTheServerURL } from './utils';
 config();
 
 type OpenOpenApiValidationError = {
@@ -27,7 +28,7 @@ envAvailability({
   keys: ['STRAPI_PRIVATE_URL', 'PDC_STRAPI_API_TOKEN', 'FRONTEND_PUBLIC_URL', 'KENNIS_BANK_API_PORT'],
 });
 
-const swaggerDocument = yaml.load(fs.readFileSync(path.join(__dirname, './docs/openapi.yaml'), 'utf8'));
+const swaggerDocument: any = yaml.load(fs.readFileSync(path.join(__dirname, './docs/openapi.yaml'), 'utf8'));
 const whitelist = process.env.KENNIS_BANK_CORS?.split(', ') || [];
 const corsOption: CorsOptions = {
   origin: (origin, callback) => {
@@ -43,7 +44,6 @@ const corsOption: CorsOptions = {
   },
   optionsSuccessStatus: 200,
 };
-// eslint-disable-next-line no-undef
 const apiSpec = path.join(__dirname, './docs/openapi.yaml');
 const app = express();
 app.use(express.json());
@@ -58,11 +58,9 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
     });
   }
 
-  const isOpenApiValidatorError = (err as OpenApiValidationErrorTypes)?.errors?.find(
-    ({ errorCode }) => errorCode?.includes('format.openapi.validation'),
-  );
+  const isOpenApiValidatorError = (err as OpenApiValidationErrorTypes)?.errors;
   if (isOpenApiValidatorError) {
-    return res.status(400).json((err as OpenApiValidationErrorTypes).errors);
+    return res.status((err as any)?.status || 400).json((err as OpenApiValidationErrorTypes).errors);
   }
   // If it's an unknown error (not an operational error), log it and send a generic response
   // eslint-disable-next-line no-console
@@ -77,7 +75,26 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
  * This is only available in development mode
  */
 if (process.env.NODE_ENV === 'development') {
-  app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  app.use(
+    '/api/v1/api-docs',
+    (req: Request, _res: Response, next: NextFunction) => {
+      const openapiComponents = {
+        schemas: {
+          kennisartikel: {
+            $ref: new URL('api/v1/objecttypes/kennisartikel', getTheServerURL(req)),
+          },
+          vac: {
+            $ref: new URL('api/v1/objecttypes/vac', getTheServerURL(req)),
+          },
+        },
+      };
+
+      (req as any).swaggerDoc = { ...swaggerDocument, components: openapiComponents };
+      next();
+    },
+    swaggerUi.serveFiles(),
+    swaggerUi.setup(),
+  );
 }
 /**
  * Objecttypes
@@ -106,16 +123,21 @@ app.use(
 app.use(cors(corsOption));
 /**
  * Routes
- * /api/v1/kennisartikel
+ * /api/v1/objects
+ * /api/v1/objects/:uuid
  */
-app.use('/api/v1', kennisartikel);
+app.use('/api/v1', objects);
 // handle non existing routes
 app.use((_req, res) => {
   res.status(404).send('Route not found');
 });
 // Use global error handler middleware
 app.use(globalErrorHandler);
+/**
+ * Start the server
+ */
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`kennisbank app listening on port ${port}!`);
 });
+export default app;
