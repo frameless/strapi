@@ -12,8 +12,8 @@
     "build:server": "tsc -p ./tsconfig.json",
     "build:openapi": "mkdir -p dist/docs && cp -R src/docs/openapi.yaml dist/docs/openapi.yaml",
     "watch": "tsc -p ./tsconfig.json  -w",
-    "start": "node dist/server.js",
-    "dev": "nodemon src/server.ts",
+    "start": "NODE_ENV=production node dist/server.js",
+    "dev": "NODE_ENV=development nodemon src/server.ts",
     "clean": "rimraf dist src/types",
     "generate-types": "openapi-typescript src/docs/openapi.yaml --output src/types/openapi.ts"
   },
