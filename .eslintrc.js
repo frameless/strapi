@@ -51,6 +51,7 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: [
+          './apps/kennisbank-api/tsconfig.json',
           './apps/kennisbank-dashboard/src/admin/tsconfig.json',
           './apps/kennisbank-dashboard/tsconfig.json',
           './apps/kennisbank-frontend/tsconfig.json',

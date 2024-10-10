@@ -130,3 +130,8 @@ dist/
 # Sitemap plugin
 **/**/public/*.xml
 **/**/public/*.txt
+
+############################
+# kennisbank-api
+############################
+apps/kennisbank-api/src/types
