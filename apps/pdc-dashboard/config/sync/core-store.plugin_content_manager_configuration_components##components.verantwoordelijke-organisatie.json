@@ -1,0 +1,92 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.verantwoordelijke-organisatie",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "owmsIdentifier",
+      "defaultSortBy": "owmsIdentifier",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "owmsIdentifier": {
+        "edit": {
+          "label": "OWMS Identifier",
+          "description": "De OWMS Identifier van de hoofdorganisatie van deze lokale overheid.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "owmsIdentifier",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "owmsPrefLabel": {
+        "edit": {
+          "label": "OWMS label",
+          "description": "OWMS label van de hoofdorganisatie van deze lokale overheid.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "owmsPrefLabel",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "owmsEndDate": {
+        "edit": {
+          "label": "Einddatum",
+          "description": "De einddatum, zoals gevonden in het OWMS-model.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "owmsEndDate",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "owmsIdentifier", "owmsPrefLabel", "owmsEndDate"],
+      "edit": [
+        [
+          {
+            "name": "owmsIdentifier",
+            "size": 6
+          },
+          {
+            "name": "owmsPrefLabel",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "owmsEndDate",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "components.verantwoordelijke-organisatie",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

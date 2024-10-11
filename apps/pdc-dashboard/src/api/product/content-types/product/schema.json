@@ -131,6 +131,16 @@
       },
       "type": "customField",
       "customField": "plugin::uuid-field.uuid-field"
+    },
+    "kennisartikelMetadata": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.kennisartikel"
     }
   }
 }

@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_components_kennisartikels",
+  "info": {
+    "displayName": "Kennisartikel",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "doelgroep": {
+      "type": "enumeration",
+      "enum": ["eu-burger", "eu-bedrijf"],
+      "required": true
+    },
+    "productAanwezig": {
+      "type": "boolean",
+      "required": true
+    },
+    "productValtOnder": {
+      "type": "string"
+    },
+    "afdelingen": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.afdelingen"
+    },
+    "verantwoordelijkeOrganisatie": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.verantwoordelijke-organisatie"
+    },
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::uuid-field.uuid-field"
+    },
+    "upnUri": {
+      "type": "customField",
+      "customField": "plugin::uniform-product-name.uniform-product-name",
+      "required": true
+    }
+  }
+}
