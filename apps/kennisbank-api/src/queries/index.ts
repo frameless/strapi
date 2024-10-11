@@ -29,29 +29,21 @@ export const GET_ALL_PRODUCTS = gql(`
                   component:__typename
                 }
               }
-              catalogiMeta {
-                abstract
-                spatial {
-                  scheme
-                  resourceIdentifier
-                }
-                authority {
-                  scheme
-                  resourceIdentifier
-                }
-                audience {
-                  id
-                  type
-                }
-                onlineRequest {
-                  type
-                }
-              }
-              pdc_metadata {
-                uplProductNaam
-                productCode
-                uitvoeringsorganisatie
+              kennisartikelMetadata {
+                uuid
                 doelgroep
+                productAanwezig
+                productValtOnder
+                afdelingen {
+                  afdelingId
+                  afdelingnaam
+                }
+                verantwoordelijkeOrganisatie {
+                  owmsIdentifier
+                  owmsPrefLabel
+                  owmsEndDate
+                }
+                upnUri
               }
             }
           }
@@ -88,30 +80,22 @@ export const GET_PRODUCT_BY_UUID = gql(`
                 component:__typename
               }
             }
-            catalogiMeta {
-              abstract
-              spatial {
-                scheme
-                resourceIdentifier
+            kennisartikelMetadata {
+                uuid
+                doelgroep
+                productAanwezig
+                productValtOnder
+                afdelingen {
+                  afdelingId
+                  afdelingnaam
+                }
+                verantwoordelijkeOrganisatie {
+                  owmsIdentifier
+                  owmsPrefLabel
+                  owmsEndDate
+                }
+                upnUri
               }
-              authority {
-                scheme
-                resourceIdentifier
-              }
-              audience {
-                id
-                type
-              }
-              onlineRequest {
-                type
-              }
-            }
-            pdc_metadata {
-              uplProductNaam
-              productCode
-              uitvoeringsorganisatie
-              doelgroep
-            }
           }
         }
       }
