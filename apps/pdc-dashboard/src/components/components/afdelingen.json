@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_afdelingens",
+  "info": {
+    "displayName": "afdelingen",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "afdelingId": {
+      "type": "customField",
+      "customField": "plugin::uuid-field.uuid-field",
+      "required": true
+    },
+    "afdelingnaam": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
