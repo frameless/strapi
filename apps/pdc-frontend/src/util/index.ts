@@ -13,3 +13,4 @@ export * from './getDirectionFromLanguageCode';
 export * from './generateSurveyURL';
 export * from './showErrorBasedOnENV';
 export * from './setEnv';
+export * from './siteSetting';
