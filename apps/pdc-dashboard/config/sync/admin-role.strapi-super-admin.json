@@ -366,7 +366,17 @@
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
           "productencatalogus",
-          "uuid"
+          "uuid",
+          "kennisartikelMetadata.doelgroep",
+          "kennisartikelMetadata.productAanwezig",
+          "kennisartikelMetadata.productValtOnder",
+          "kennisartikelMetadata.afdelingen.afdelingId",
+          "kennisartikelMetadata.afdelingen.afdelingnaam",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
+          "kennisartikelMetadata.uuid",
+          "kennisartikelMetadata.upnUri"
         ],
         "locales": ["en", "nl"]
       },
@@ -438,7 +448,17 @@
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
           "productencatalogus",
-          "uuid"
+          "uuid",
+          "kennisartikelMetadata.doelgroep",
+          "kennisartikelMetadata.productAanwezig",
+          "kennisartikelMetadata.productValtOnder",
+          "kennisartikelMetadata.afdelingen.afdelingId",
+          "kennisartikelMetadata.afdelingen.afdelingnaam",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
+          "kennisartikelMetadata.uuid",
+          "kennisartikelMetadata.upnUri"
         ],
         "locales": ["en", "nl"]
       },
@@ -492,7 +512,17 @@
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
           "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
           "productencatalogus",
-          "uuid"
+          "uuid",
+          "kennisartikelMetadata.doelgroep",
+          "kennisartikelMetadata.productAanwezig",
+          "kennisartikelMetadata.productValtOnder",
+          "kennisartikelMetadata.afdelingen.afdelingId",
+          "kennisartikelMetadata.afdelingen.afdelingnaam",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
+          "kennisartikelMetadata.uuid",
+          "kennisartikelMetadata.upnUri"
         ],
         "locales": ["en", "nl"]
       },
