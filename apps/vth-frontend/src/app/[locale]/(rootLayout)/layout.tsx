@@ -12,6 +12,7 @@ import '@utrecht/design-tokens/dist/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Editoria11y } from '@/components/Editoria11y';
 import { Main } from '@/components/Main';
+import { config } from '@/util';
 import { getNavData } from '@/util/getNavData';
 import '@frameless/ui/dist/bundle.css';
 import '../../../styles/globals.css';
@@ -130,7 +131,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               <Header
                 navList={navList}
                 logo={{
-                  href: 'https://www.utrecht.nl/',
+                  href: config.homePageURL,
                   ariaLabel:
                     t('logo.aria-label', {
                       defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',

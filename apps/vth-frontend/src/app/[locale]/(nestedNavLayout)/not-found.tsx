@@ -5,6 +5,7 @@ import { Header, Heading1, Page, PageContent } from '@/components';
 import { Main } from '@/components/Main';
 import { Markdown } from '@/components/Markdown';
 import { GET_NOT_FOUND_PAGE } from '@/query';
+import { config } from '@/util';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
@@ -25,7 +26,7 @@ const NotFoundPage = async () => {
       <Header
         navList={navList}
         logo={{
-          href: 'https://www.utrecht.nl/',
+          href: config.homePageURL,
           ariaLabel:
             t('logo.aria-label', {
               defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',

@@ -24,6 +24,7 @@ import { Card } from '@/components/Card';
 import { Main } from '@/components/Main';
 import { GET_THEME_BY_SLUG } from '@/query';
 import { SiblingData } from '@/types';
+import { config } from '@/util';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { getNavData } from '@/util/getNavData';
 
@@ -130,7 +131,7 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
       <Header
         navList={navList}
         logo={{
-          href: 'https://www.utrecht.nl/',
+          href: config.homePageURL,
           ariaLabel:
             t('logo.aria-label', {
               defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',

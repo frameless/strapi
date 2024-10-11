@@ -29,7 +29,7 @@ import { GoogleTranslate } from '@/components/GoogleTranslate';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import { GET_TEMPLATE } from '@/query';
-import { buildAlternateLinks, createStrapiURL, fetchData } from '@/util';
+import { buildAlternateLinks, config, createStrapiURL, fetchData } from '@/util';
 import {
   ComponentComponentsUtrechtFooter,
   ComponentComponentsUtrechtNavigation,
@@ -163,7 +163,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   <GridCell xs={6}>
                     <div className="utrecht-logo-wrapper">
                       <Link
-                        href={'https://www.utrecht.nl/'}
+                        href={config.homePageURL}
                         className="utrecht-link utrecht-link--html-a utrecht-link--box-content"
                         prefetch={false}
                         aria-label={
