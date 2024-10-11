@@ -1,0 +1,72 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.afdelingen",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "afdelingnaam",
+      "defaultSortBy": "afdelingId",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "afdelingId": {
+        "edit": {
+          "label": "Identifier Afdeling",
+          "description": "De unieke identifier van de afdeling.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "afdelingId",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "afdelingnaam": {
+        "edit": {
+          "label": "Naam Afdeling",
+          "description": "De naam van de afdeling.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "afdelingnaam",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "afdelingId", "afdelingnaam"],
+      "edit": [
+        [
+          {
+            "name": "afdelingId",
+            "size": 6
+          },
+          {
+            "name": "afdelingnaam",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "components.afdelingen",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

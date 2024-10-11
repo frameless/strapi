@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_components_verantwoordelijke_organisaties",
+  "info": {
+    "displayName": "Verantwoordelijke Organisatie",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "owmsIdentifier": {
+      "type": "customField",
+      "customField": "plugin::gemeente-select.gemeente",
+      "default": "http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)",
+      "required": true
+    },
+    "owmsPrefLabel": {
+      "type": "string",
+      "default": "Gemeente Utrecht"
+    },
+    "owmsEndDate": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}
