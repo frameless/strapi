@@ -80,6 +80,8 @@ module.exports = {
           './packages/ui/tsconfig.json',
           './packages/ui/tsconfig.test.json',
           './packages/upl/tsconfig.json',
+          './packages/utils/tsconfig.json',
+          './packages/utils/tsconfig.test.json',
         ],
         tsconfigRootDir: __dirname,
       },
