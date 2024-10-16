@@ -52,6 +52,7 @@ module.exports = {
       parserOptions: {
         project: [
           './apps/kennisbank-api/tsconfig.json',
+          './apps/kennisbank-api/tsconfig.test.json',
           './apps/kennisbank-dashboard/src/admin/tsconfig.json',
           './apps/kennisbank-dashboard/tsconfig.json',
           './apps/kennisbank-frontend/tsconfig.json',
