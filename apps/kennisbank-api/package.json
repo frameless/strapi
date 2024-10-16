@@ -10,29 +10,38 @@
     "prebuild": "yarn clean && yarn generate-types",
     "build": "npm-run-all --parallel build:*",
     "build:server": "tsc -p ./tsconfig.json",
-    "build:openapi": "mkdir -p dist/docs && cp -R src/docs/openapi.yaml dist/docs/openapi.yaml",
+    "build:openapi": "mkdir -p dist/src/docs && cp -R src/docs/ dist/src/docs/",
     "watch": "tsc -p ./tsconfig.json  -w",
-    "start": "NODE_ENV=production node dist/server.js",
+    "start": "NODE_ENV=production node ./dist/src/server.js",
     "dev": "NODE_ENV=development nodemon src/server.ts",
     "clean": "rimraf dist src/types",
-    "generate-types": "openapi-typescript src/docs/openapi.yaml --output src/types/openapi.ts"
+    "generate-types": "openapi-typescript src/docs/openapi.yaml --output src/types/openapi.ts",
+    "test": "KENNIS_BANK_API_PORT=3000 jest --coverage --forceExit --verbose",
+    "test:watch": "KENNIS_BANK_API_PORT=3000 jest --watch"
   },
   "dependencies": {
     "cors": "2.8.5",
     "dotenv": "16.4.5",
     "express": "4.21.0",
+    "express-openapi-validator": "5.3.7",
     "js-yaml": "4.1.0",
-    "swagger-ui-express": "5.0.1",
-    "express-openapi-validator": "5.3.7"
+    "swagger-ui-express": "5.0.1"
   },
   "devDependencies": {
     "@types/cors": "2.8.17",
+    "@types/jest": "29.5.12",
+    "@types/supertest": "6.0.2",
     "@types/swagger-ui-express": "4.1.6",
     "@types/yamljs": "0.2.34",
+    "jest": "29.7.0",
     "nodemon": "3.1.7",
     "openapi-typescript": "7.4.1",
     "rimraf": "6.0.1",
-    "typescript": "5.0.4"
+    "supertest": "7.0.0",
+    "ts-jest": "29.2.3",
+    "ts-node": "10.9.2",
+    "typescript": "5.0.4",
+    "jest-fetch-mock": "3.0.3"
   },
   "repository": {
     "type": "git+ssh",
