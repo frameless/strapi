@@ -10,7 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import swaggerUi from 'swagger-ui-express';
 import { objects, objecttypes, openapi } from './routers';
-import { envAvailability, ErrorHandler, getTheServerURL } from './utils';
+import { envAvailability, ErrorHandler } from './utils';
 config();
 
 type OpenOpenApiValidationError = {
@@ -75,27 +75,9 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
  * This is only available in development mode
  */
 if (process.env.NODE_ENV === 'development') {
-  app.use(
-    '/api/v1/api-docs',
-    (req: Request, _res: Response, next: NextFunction) => {
-      const openapiComponents = {
-        schemas: {
-          kennisartikel: {
-            $ref: new URL('api/v1/objecttypes/kennisartikel', getTheServerURL(req)),
-          },
-          vac: {
-            $ref: new URL('api/v1/objecttypes/vac', getTheServerURL(req)),
-          },
-        },
-      };
-
-      (req as any).swaggerDoc = { ...swaggerDocument, components: openapiComponents };
-      next();
-    },
-    swaggerUi.serveFiles(),
-    swaggerUi.setup(),
-  );
+  app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 }
+
 /**
  * Objecttypes
  * /api/v1/objecttypes/:type
