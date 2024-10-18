@@ -1,0 +1,17 @@
+.utrecht-tiptap-bubble-menu {
+  --utrecht-button-padding-block-start: 0;
+  --utrecht-button-padding-block-end: 0;
+  --utrecht-button-padding-inline-start: 0;
+  --utrecht-button-padding-inline-end: 0;
+
+  background-color: #f6f6f9;
+  box-shadow:
+    rgb(0 0 0 / 10%) 0 10px 15px -3px,
+    rgb(0 0 0 / 5%) 0 4px 6px -2px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-block-end: 12px;
+  padding-block-start: 12px;
+  padding-inline-end: 12px;
+  padding-inline-start: 12px;
+}
