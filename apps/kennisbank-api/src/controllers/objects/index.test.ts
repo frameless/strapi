@@ -22,7 +22,7 @@ describe('Objects controller', () => {
   describe('GET /api/objects', () => {
     it('should return kennisartikel & VAC by default', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
 
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
@@ -32,7 +32,7 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       const response = await request(app)
         .get(`/api/v1/objects?type=${encodeURIComponent('http://localhost:4001/api/v1/objecttypes/kennisartikel')}`)
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
 
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
@@ -42,7 +42,7 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       const response = await request(app)
         .get(`/api/v1/objects?type=${encodeURIComponent('http://localhost:4001/api/v1/objecttypes/vac')}`)
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(objectsResponseData({ type: 'vac' }));
@@ -51,13 +51,13 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       const response = await request(app)
         .get('/api/v1/objects?type=http://localhost:4001/api/v1/objecttypes/vac')
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(400);
       expect(response.ok).toBe(false);
     });
     it('should return 400 when type is empty', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      const response = await request(app).get('/api/v1/objects?type=').set('Authorization', 'Bearer YOUR_API_TOKEN');
+      const response = await request(app).get('/api/v1/objects?type=').set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(400);
       expect(response.ok).toBe(false);
     });
@@ -65,14 +65,14 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       const response = await request(app)
         .get('/api/v1/objects?type=invalid')
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(400);
       expect(response.ok).toBe(false);
     });
     it('should return 200 and empty array when no data is returned', async () => {
       const spy = jest.spyOn(require('../../utils/vacData.ts'), 'vacData').mockImplementation(() => []);
       fetchMock.mockResponseOnce(JSON.stringify([{}]));
-      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
 
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
@@ -81,13 +81,13 @@ describe('Objects controller', () => {
     });
     it('should return 500 when fetch fails', async () => {
       fetchMock.mockRejectOnce(new Error('Fetch failed'));
-      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(500);
       expect(response.ok).toBe(false);
     });
     it('should return 500 when fetch fails with error message', async () => {
       fetchMock.mockRejectOnce(new Error('Fetch failed'));
-      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(500);
       expect(response.ok).toBe(false);
       expect(response.text).toBe(JSON.stringify({ message: 'Fetch failed' }));
@@ -98,13 +98,13 @@ describe('Objects controller', () => {
       const response = await request(app).get('/api/v1/objects');
       expect(response.status).toBe(401);
       expect(response.text).toBe(
-        JSON.stringify([{ path: '/api/v1/objects', message: 'Authorization header required' }]),
+        JSON.stringify([{ path: '/api/v1/objects', message: "'Authorization' header required" }]),
       );
       expect(response.ok).toBe(false);
     });
     it('should return 500 when fetch fails with error message', async () => {
       fetchMock.mockRejectOnce(new Error('Fetch failed'));
-      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+      const response = await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(500);
       expect(response.ok).toBe(false);
       expect(response.text).toBe(JSON.stringify({ message: 'Fetch failed' }));
@@ -122,7 +122,7 @@ describe('Objects controller', () => {
         });
         fetchMock.mockResponseOnce(JSON.stringify({ data: { products: { data } } }));
         const consoleSpy = jest.spyOn(console, 'log');
-        await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+        await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
         expect(consoleSpy).toHaveBeenCalledWith('Response body fails validation: ', [
           { errorCode: 'type.openapi.validation', message: 'must be array', path: '/response' },
           { errorCode: 'type.openapi.validation', message: 'must be array', path: '/response' },
@@ -165,7 +165,7 @@ describe('Objects controller', () => {
             doelgroep: 'eu-burger',
           },
         ]);
-        await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+        await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
         expect(consoleSpy).toHaveBeenCalledWith('Response body fails validation: ', [
           { path: '/response', message: 'must be array', errorCode: 'type.openapi.validation' },
           { path: '/response', message: 'must be array', errorCode: 'type.openapi.validation' },
@@ -201,7 +201,7 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       const response = await request(app)
         .get('/api/v1/objects/a9058a3e-6dd9-480c-a074-e38026bd4ffd')
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(kennisartikelObject());
@@ -210,7 +210,7 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       const response = await request(app)
         .get('/api/v1/objects/a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6')
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(vacObject());
@@ -219,7 +219,7 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       const response = await request(app)
         .get('/api/v1/objects/a9058a3e-6dd9-480c-a074-e38026bd4ffd')
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(kennisartikelObject());
@@ -228,7 +228,7 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       const response = await request(app)
         .get('/api/v1/objects/not-exist-uuid')
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(404);
       expect(response.ok).toBe(false);
       expect(response.body).toStrictEqual({ message: 'Object not found' });
@@ -237,7 +237,7 @@ describe('Objects controller', () => {
       fetchMock.mockRejectOnce(new Error('Fetch failed'));
       const response = await request(app)
         .get('/api/v1/objects/a9058a3e-6dd9-480c-a074-e38026bd4ffd')
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(500);
       expect(response.ok).toBe(false);
       expect(response.text).toBe(JSON.stringify({ message: 'Fetch failed' }));
@@ -246,7 +246,7 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(JSON.stringify([]));
       const response = await request(app)
         .get('/api/v1/objects/a9058a3e-6dd9-480c-a074-e38026bd4ffd')
-        .set('Authorization', 'Bearer YOUR_API_TOKEN');
+        .set('Authorization', 'Token YOUR_API_TOKEN');
 
       expect(response.status).toBe(404);
       expect(response.ok).toBe(false);
@@ -265,7 +265,7 @@ describe('Objects controller', () => {
           };
         });
         fetchMock.mockResponseOnce(JSON.stringify({ data: { products: { data } } }));
-        await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+        await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
         expect(consoleSpy).toHaveBeenCalledWith('Response body fails validation: ', [
           {
             path: '/response',
@@ -320,7 +320,7 @@ describe('Objects controller', () => {
             doelgroep: 'eu-burger',
           },
         ]);
-        await request(app).get('/api/v1/objects').set('Authorization', 'Bearer YOUR_API_TOKEN');
+        await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
 
         expect(consoleSpy).toHaveBeenCalledWith('Response body fails validation: ', [
           { path: '/response', message: 'must be array', errorCode: 'type.openapi.validation' },
