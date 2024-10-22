@@ -11,7 +11,7 @@ paths:
   /objects:
     get:
       security:
-        - BearerAuth: []
+        - TokenAuth: []
       summary: List all objects (Kennisartikelen and VAC) or filter by type
       operationId: getObjects
       parameters:
@@ -117,7 +117,7 @@ paths:
   /objects/{uuid}:
     get:
       security:
-        - BearerAuth: []
+        - TokenAuth: []
       summary: Get a specific object by ID
       operationId: getObjectById
       parameters:
@@ -183,10 +183,10 @@ paths:
                     example: "Internal Server Error"
 components:
   securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+    TokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
   schemas:
     kennisartikel:
       type: object
