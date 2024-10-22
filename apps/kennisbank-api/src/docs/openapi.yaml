@@ -10,6 +10,8 @@ servers:
 paths:
   /objects:
     get:
+      security:
+        - BearerAuth: []
       summary: List all objects (Kennisartikelen and VAC) or filter by type
       operationId: getObjects
       parameters:
@@ -114,6 +116,8 @@ paths:
                     example: "Internal Server Error"
   /objects/{uuid}:
     get:
+      security:
+        - BearerAuth: []
       summary: Get a specific object by ID
       operationId: getObjectById
       parameters:
@@ -157,7 +161,32 @@ paths:
                   error:
                     type: string
                     example: "Object not found"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Forbidden"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal Server Error"
 components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     kennisartikel:
       type: object

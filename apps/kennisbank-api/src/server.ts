@@ -25,7 +25,7 @@ interface OpenApiValidationErrorTypes {
 // Validate environment variables
 envAvailability({
   env: process.env,
-  keys: ['STRAPI_PRIVATE_URL', 'PDC_STRAPI_API_TOKEN', 'FRONTEND_PUBLIC_URL', 'KENNIS_BANK_API_PORT'],
+  keys: ['STRAPI_PRIVATE_URL', 'KENNIS_BANK_API_PORT'],
 });
 
 const swaggerDocument: any = yaml.load(fs.readFileSync(path.join(__dirname, './docs/openapi.yaml'), 'utf8'));
@@ -95,7 +95,13 @@ app.use('/api/v1', openapi);
 app.use(
   OpenApiValidator.middleware({
     apiSpec,
-    validateResponses: true, // false by default
+    validateResponses: {
+      onError: (error, _body, _req) => {
+        // Log the error from express-openapi-validator instead of returning the error and blocking the response.
+        // eslint-disable-next-line no-console
+        console.log(`Response body fails validation: `, error.errors);
+      },
+    },
   }),
 );
 /**
