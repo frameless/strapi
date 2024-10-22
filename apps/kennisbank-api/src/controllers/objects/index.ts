@@ -7,6 +7,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
   try {
     const locale = req.query?.locale || 'nl';
     const type = (req.query?.type as string) || '';
+    const bearerAuth = req.headers?.authorization?.split(' ')[1];
 
     const serverURL = getTheServerURL(req);
     const kennisartikelSchemaURL = new URL('api/v1/objecttypes/kennisartikel', serverURL).href;
@@ -20,7 +21,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       query: GET_ALL_PRODUCTS,
       variables: { locale },
       headers: {
-        Authorization: `Bearer ${process.env.PDC_STRAPI_API_TOKEN}`,
+        Authorization: `Bearer ${bearerAuth}`,
       },
     });
 
@@ -53,7 +54,7 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     const uuid = req.params?.uuid;
     const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
     const serverURL = getTheServerURL(req);
-
+    const bearerAuth = req.headers?.authorization?.split(' ')[1];
     const kennisartikelSchemaURL = new URL('api/v1/objecttypes/kennisartikel', serverURL).href;
     const vacSchemaURL = new URL('api/v1/objecttypes/vac', serverURL).href;
 
@@ -66,7 +67,7 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
       query: GET_PRODUCT_BY_UUID,
       variables: { locale, uuid },
       headers: {
-        Authorization: `Bearer ${process.env.PDC_STRAPI_API_TOKEN}`,
+        Authorization: `Bearer ${bearerAuth}`,
       },
     });
 

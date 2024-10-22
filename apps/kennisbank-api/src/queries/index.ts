@@ -4,7 +4,6 @@ export const GET_ALL_PRODUCTS = gql(`
         products(
         locale: $locale, 
         pagination: {start: 0, limit: -1}, 
-        filters: { slug: {eq: "aansprakelijk-stellen-gemeente-schade-melden"}}
         ) {
           data {
             id
