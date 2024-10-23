@@ -1,9 +1,9 @@
 {
-  "name": "@frameless/kennisbank-api",
+  "name": "@frameless/overige-object-api",
   "version": "0.0.0",
   "private": true,
   "author": "@frameless",
-  "description": "Kennisbank API for PDC",
+  "description": "Overige Object API for PDC",
   "license": "EUPL-1.2",
   "keywords": [],
   "scripts": {
@@ -16,8 +16,8 @@
     "dev": "NODE_ENV=development nodemon src/server.ts",
     "clean": "rimraf dist src/types",
     "generate-types": "openapi-typescript src/docs/openapi.yaml --output src/types/openapi.ts",
-    "test": "KENNIS_BANK_API_PORT=3000 jest --coverage --forceExit --verbose",
-    "test:watch": "KENNIS_BANK_API_PORT=3000 jest --watch"
+    "test": "OVERIGE_OBJECT_API_PORT=3000 jest --coverage --forceExit --verbose",
+    "test:watch": "OVERIGE_OBJECT_API_PORT=3000 jest --watch"
   },
   "dependencies": {
     "cors": "2.8.5",
@@ -46,6 +46,6 @@
   "repository": {
     "type": "git+ssh",
     "url": "git@github.com:frameless/strapi.git",
-    "directory": "apps/kennisbank-api"
+    "directory": "apps/overige-object-api"
   }
 }
