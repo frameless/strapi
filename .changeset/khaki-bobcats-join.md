@@ -1,5 +1,5 @@
 ---
-"@frameless/kennisbank-api": major
+"@frameless/overige-object-api": major
 ---
 
 Create Overige Objecten API applicatie

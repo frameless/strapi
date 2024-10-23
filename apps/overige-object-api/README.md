@@ -1,6 +1,6 @@
-# kennisbank-api
+# overige-object-api
 
-The **kennisbank-api** is a microservice built with Node.js that maps certain PDC product fields to the **kennisartikel** and **VAC** fields.
+The **overige-object-api** is a microservice built with Node.js that maps certain PDC product fields to the **kennisartikel** and **VAC** fields.
 
 ## Features
 
@@ -31,8 +31,8 @@ Authorization: Bearer API_TOKEN
 Ensure that you have the following environment variables in the `.pdc.prod.env` file before starting:
 
 ```shell
-KENNIS_BANK_API_PORT=4001
-KENNIS_BANK_CORS=http://localhost:3000 # If using multiple domains, separate them with a comma (e.g., 'http://localhost:3000, http://localhost:3001').
+OVERIGE_OBJECT_API_PORT=4001
+OVERIGE_OBJECT_API_CORS=http://localhost:3000 # If using multiple domains, separate them with a comma (e.g., 'http://localhost:3000, http://localhost:3001').
 ```
 
 To start the service, open a terminal in the project root and run:
@@ -43,12 +43,12 @@ cd bin && bash ./deploy.sh pdc-dashboard prod up --build
 
 ### 2. Start without Docker
 
-Create an .env file in the apps/kennisbank-api directory with the following environment variables:
+Create an .env file in the apps/overige-object-api directory with the following environment variables:
 
 ```shell
 STRAPI_PRIVATE_URL=http://127.0.0.1:1337/
-KENNIS_BANK_API_PORT=4001
-KENNIS_BANK_CORS='' # Required for client-side application
+OVERIGE_OBJECT_API_PORT=4001
+OVERIGE_OBJECT_API_CORS='' # Required for client-side application
 ```
 
 Then, follow these steps:
@@ -67,10 +67,10 @@ Then, follow these steps:
 
    ```
 
-3. Start the kennisbank-api server:
+3. Start the overige-object-api server:
 
    ```shell
-   yarn workspace @frameless/kennisbank-api dev
+   yarn workspace @frameless/overige-object-api dev
 
    ```
 
