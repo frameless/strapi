@@ -29,4 +29,4 @@ gql
 **/yarn-error.log
 **/.strapi-updater.json
 **/generated
-apps/kennisbank-api/src/types
+apps/overige-object-api/src/types

@@ -132,6 +132,6 @@ dist/
 **/**/public/*.txt
 
 ############################
-# kennisbank-api
+# overige-object-api
 ############################
-apps/kennisbank-api/src/types
+apps/overige-object-api/src/types

@@ -19,4 +19,4 @@ yarn.lock
 .strapi-updater.json
 generated
 gql
-apps/kennisbank-api/src/types
+apps/overige-object-api/src/types

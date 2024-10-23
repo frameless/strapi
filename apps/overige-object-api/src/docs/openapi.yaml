@@ -1,7 +1,7 @@
 openapi: "3.0.0"
 info:
-  title: Kennisbank API
-  description: API to manage Kennisbank resources
+  title: Overige Object API
+  description: API to manage Overige Object resources
   version: 1.0.0
 servers:
   - url: http://localhost:4001/api/v1
