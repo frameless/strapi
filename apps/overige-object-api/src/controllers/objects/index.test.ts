@@ -7,6 +7,8 @@ jest.mock('../../utils/getTheServerURL.ts', () => ({
   getTheServerURL: () => 'http://localhost:3000',
 }));
 
+jest.mock('../../utils/getPaginatedResponse.ts');
+
 fetchMock.enableMocks();
 describe('Objects controller', () => {
   beforeAll(() => {
@@ -27,6 +29,65 @@ describe('Objects controller', () => {
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(objectsResponseData({}));
+    });
+    describe('pagination', () => {
+      it('should response the whole data by default', async () => {
+        const spy = jest
+          .spyOn(require('../../utils/getPaginatedResponse'), 'getPaginatedResponse')
+          .mockImplementation(() =>
+            Promise.resolve({
+              page: 1,
+              pageSize: 10,
+              count: 1,
+              total: 100,
+              next: null,
+              previous: null,
+            }),
+          );
+        fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
+        const response = await request(app).get('/api/v1/objects').set('Authorization', 'Token YOUR_API_TOKEN');
+        expect(response.status).toBe(200);
+        expect(response.ok).toBe(true);
+        expect(response.body).toStrictEqual({
+          ...objectsResponseData({}),
+          page: 1,
+          pageSize: 10,
+          count: 1,
+          total: 100,
+          next: null,
+          previous: null,
+        });
+      });
+      it('should response the second page when page=2&pageSize=10', async () => {
+        const spy = jest
+          .spyOn(require('../../utils/getPaginatedResponse'), 'getPaginatedResponse')
+          .mockImplementation(() =>
+            Promise.resolve({
+              page: 2,
+              pageSize: 10,
+              count: 1,
+              total: 100,
+              next: 'http://localhost:4001/api/v1/objects?page=2&pageSize=10',
+              previous: null,
+            }),
+          );
+        fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
+        const response = await request(app)
+          .get('/api/v1/objects?page=2&pageSize=10')
+          .set('Authorization', 'Token YOUR_API_TOKEN');
+        expect(response.status).toBe(200);
+        expect(response.ok).toBe(true);
+        expect(response.body).toStrictEqual({
+          ...objectsResponseData({}),
+          page: 2,
+          pageSize: 10,
+          count: 1,
+          total: 100,
+          next: 'http://localhost:4001/api/v1/objects?page=2&pageSize=10',
+          previous: null,
+        });
+        spy.mockRestore();
+      });
     });
     it('should return kennisartikel objects when type is kennisartikel', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));

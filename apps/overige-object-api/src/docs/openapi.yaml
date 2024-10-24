@@ -24,7 +24,22 @@ paths:
             enum:
               - "http://localhost:4001/api/v1/objecttypes/kennisartikel"
               - "http://localhost:4001/api/v1/objecttypes/vac"
-            description: Optional parameter to filter by object type. If not specified, both types will be returned.
+          description: Optional parameter to filter by object type. If not specified, both types will be returned.
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+            default: null
+          description: Page number for pagination.
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            default: null
+          description: Number of items per page for pagination.
+
       responses:
         "200":
           description: A list of objects (Kennisartikelen and/or VAC)
@@ -44,6 +59,28 @@ paths:
                       additionalProperties: false
                   - type: object
                     properties:
+                      page:
+                        type: integer
+                        example: 1
+                      pageSize:
+                        type: integer
+                        example: 1
+                      count:
+                        type: integer
+                        example: 284
+                      total:
+                        type: integer
+                        example: 284
+                      next:
+                        type: string
+                        format: uri
+                        nullable: true
+                        example: "http://localhost:4001/api/v1/objects?type=http%3A%2F%2Flocalhost%3A4001%2Fapi%2Fv1%2Fobjecttypes%2Fkennisartikel&page=2&pageSize=1"
+                      previous:
+                        type: string
+                        format: uri
+                        nullable: true
+                        example: null
                       results:
                         type: array
                         items:
@@ -51,6 +88,12 @@ paths:
                             - $ref: "#/components/schemas/kennisartikel"
                             - $ref: "#/components/schemas/vac"
               example:
+                page: 1
+                pageSize: 10
+                count: 29
+                total: 284
+                next: "http://localhost:4001/api/v1/objects?page=2&pageSize=10"
+                previous: null
                 results:
                   - url: "http://localhost:4001/api/v1/objecttypes/kennisartikel"
                     uuid: "123e4567-e89b-12d3-a456-426614174000"

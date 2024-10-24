@@ -2,6 +2,14 @@ export const getStrapiKennisartikelData = () => {
   return {
     data: {
       products: {
+        meta: {
+          pagination: {
+            total: 1,
+            page: 1,
+            pageSize: 10,
+            pageCount: 1,
+          },
+        },
         data: [
           {
             id: '50',
