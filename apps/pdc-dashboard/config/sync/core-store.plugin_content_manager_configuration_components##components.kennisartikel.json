@@ -1,0 +1,170 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.kennisartikel",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "productValtOnder",
+      "defaultSortBy": "productValtOnder",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "doelgroep": {
+        "edit": {
+          "label": "Doelgroep",
+          "description": "De doelgroep van dit product.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "doelgroep",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "productAanwezig": {
+        "edit": {
+          "label": "Product Aanwezig",
+          "description": "Een boolean die aangeeft of de organisatie dit product levert of niet.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "productAanwezig",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "productValtOnder": {
+        "edit": {
+          "label": "Product Valt Onder",
+          "description": "Als een product valt onder een ander product, dan staat deze hier vermeld.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "productValtOnder",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "afdelingen": {
+        "edit": {
+          "label": "Afdeling of Afdelingen",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "afdelingen",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "verantwoordelijkeOrganisatie": {
+        "edit": {
+          "label": "De Leverende Organisatie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "verantwoordelijkeOrganisatie",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "uuid": {
+        "edit": {
+          "label": "UUID",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uuid",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "upnUri": {
+        "edit": {
+          "label": "UPN URI",
+          "description": "De UPN URI van het specifieke product.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "upnUri",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "doelgroep", "productAanwezig", "productValtOnder"],
+      "edit": [
+        [
+          {
+            "name": "doelgroep",
+            "size": 6
+          },
+          {
+            "name": "productAanwezig",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "productValtOnder",
+            "size": 6
+          },
+          {
+            "name": "upnUri",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "afdelingen",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "verantwoordelijkeOrganisatie",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "uuid",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "components.kennisartikel",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

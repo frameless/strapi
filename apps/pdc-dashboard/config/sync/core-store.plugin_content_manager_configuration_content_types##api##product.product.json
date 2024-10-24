@@ -191,6 +191,20 @@
           "sortable": true
         }
       },
+      "kennisartikelMetadata": {
+        "edit": {
+          "label": "Kennisartikel Metadata",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "kennisartikelMetadata",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -251,7 +265,6 @@
       }
     },
     "layouts": {
-      "list": ["title", "metaTags", "price", "uuid"],
       "edit": [
         [
           {
@@ -303,6 +316,12 @@
         ],
         [
           {
+            "name": "kennisartikelMetadata",
+            "size": 12
+          }
+        ],
+        [
+          {
             "name": "pdc_subcategories",
             "size": 6
           }
@@ -325,7 +344,8 @@
             "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["title", "metaTags", "price", "uuid"]
     }
   },
   "type": "object",

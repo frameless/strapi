@@ -130,3 +130,8 @@ dist/
 # Sitemap plugin
 **/**/public/*.xml
 **/**/public/*.txt
+
+############################
+# overige-object-api
+############################
+apps/overige-object-api/src/types
