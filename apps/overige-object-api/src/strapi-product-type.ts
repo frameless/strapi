@@ -1,13 +1,22 @@
 export interface StrapiProductType {
   data: Data;
 }
-
+export interface Meta {
+  pagination: Pagination;
+}
+export interface Pagination {
+  total: number;
+  page: number;
+  pageSize: number;
+  pageCount: number;
+}
 export interface Data {
   products: Products;
 }
 
 export interface Products {
   data: Datum[];
+  meta: Meta;
 }
 
 export interface Datum {

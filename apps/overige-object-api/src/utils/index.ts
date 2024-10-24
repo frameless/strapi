@@ -6,3 +6,4 @@ export { vacData } from './vacData';
 export type { VACType } from './vacData';
 export { generateKennisartikelObject } from './generateKennisartikelObject';
 export { readFile } from './readFile';
+export { getPaginatedResponse } from './getPaginatedResponse';
