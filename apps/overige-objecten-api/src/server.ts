@@ -25,11 +25,11 @@ interface OpenApiValidationErrorTypes {
 // Validate environment variables
 envAvailability({
   env: process.env,
-  keys: ['STRAPI_PRIVATE_URL', 'OVERIGE_OBJECT_API_PORT'],
+  keys: ['STRAPI_PRIVATE_URL', 'OVERIGE_OBJECTEN_API_PORT'],
 });
 
 const swaggerDocument: any = yaml.load(fs.readFileSync(path.join(__dirname, './docs/openapi.yaml'), 'utf8'));
-const whitelist = process.env.OVERIGE_OBJECT_API_CORS?.split(', ') || [];
+const whitelist = process.env.OVERIGE_OBJECTEN_API_CORS?.split(', ') || [];
 const corsOption: CorsOptions = {
   origin: (origin, callback) => {
     if (!origin || whitelist.indexOf(origin) !== -1) {
@@ -48,7 +48,7 @@ const apiSpec = path.join(__dirname, './docs/openapi.yaml');
 const app = express();
 app.use(express.json());
 
-const port = process.env.OVERIGE_OBJECT_API_PORT;
+const port = process.env.OVERIGE_OBJECTEN_API_PORT;
 // Centralized error handler middleware
 const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof ErrorHandler || (err as ErrorHandler)?.isOperational) {
@@ -127,7 +127,7 @@ app.use(globalErrorHandler);
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => {
     // eslint-disable-next-line no-console
-    console.log(`Overige Object app listening on port ${port}!`);
+    console.log(`Overige Objecten app listening on port ${port}!`);
   });
 }
 
