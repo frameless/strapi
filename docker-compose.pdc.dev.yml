@@ -104,18 +104,19 @@ services:
     depends_on:
       - pdc_strapi
       - pdc_strapi_db
-  overige-object-api:
-    container_name: overige-object-api
+  overige-objecten-api:
+    container_name: overige-objecten-api
     build:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
-    command: yarn workspace @frameless/overige-object-api start
+    volumes:
+      - ./apps/overige-objecten-api/src/docs:/opt/app/apps/overige-objecten-api/dist/src/docs
+    command: yarn workspace @frameless/overige-objecten-api start
     environment:
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
-      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
-      OVERIGE_OBJECT_API_PORT: ${OVERIGE_OBJECT_API_PORT}
-      OVERIGE_OBJECT_API_CORS: ${OVERIGE_OBJECT_API_CORS}
+      OVERIGE_OBJECTEN_API_PORT: ${OVERIGE_OBJECTEN_API_PORT}
+      OVERIGE_OBJECTEN_API_CORS: ${OVERIGE_OBJECTEN_API_CORS}
     ports:
       - "4001:4001"
     networks:

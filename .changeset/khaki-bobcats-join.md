@@ -1,5 +1,5 @@
 ---
-"@frameless/overige-object-api": major
+"@frameless/overige-objecten-api": major
 ---
 
 Create Overige Objecten API applicatie

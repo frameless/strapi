@@ -132,6 +132,6 @@ dist/
 **/**/public/*.txt
 
 ############################
-# overige-object-api
+# overige-objecten-api
 ############################
-apps/overige-object-api/src/types
+apps/overige-objecten-api/src/types
