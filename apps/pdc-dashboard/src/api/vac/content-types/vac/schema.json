@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vacs",
+  "info": {
+    "singularName": "vac",
+    "pluralName": "vacs",
+    "displayName": "VAC",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "vac": {
+      "displayName": "vac",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.vac"
+    }
+  }
+}

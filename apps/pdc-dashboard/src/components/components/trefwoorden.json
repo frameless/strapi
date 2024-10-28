@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_components_trefwoordens",
+  "info": {
+    "displayName": "Trefwoorden"
+  },
+  "options": {},
+  "attributes": {
+    "trefwoord": {
+      "type": "string"
+    }
+  }
+}
