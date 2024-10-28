@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_components_vac_uitklapmenus",
+  "info": {
+    "displayName": "VAC Uitklapmenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "headingLevel": {
+      "type": "integer",
+      "default": 2
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["actief", "non-actief", "te-verwijderen"]
+    },
+    "doelgroep": {
+      "type": "enumeration",
+      "enum": ["eu-burger", "eu-bedrijf", "eu-burger-bedrijf"]
+    },
+    "afdelingen": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.afdelingen"
+    },
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::uuid-field.uuid-field"
+    },
+    "toelichting": {
+      "type": "richtext"
+    },
+    "trefwoorden": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.trefwoorden"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kennisartikelen",
+  "info": {
+    "singularName": "kennisartikel",
+    "pluralName": "kennisartikelen",
+    "displayName": "Kennisartikel (intern)",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internalSections": {
+      "type": "dynamiczone",
+      "components": ["components.utrecht-rich-text"]
+    },
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product",
+      "inversedBy": "kennisartikel"
+    },
+    "vacUitklapmenu": {
+      "displayName": "VAC Uitklapmenu",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.vac-uitklapmenu"
+    }
+  }
+}

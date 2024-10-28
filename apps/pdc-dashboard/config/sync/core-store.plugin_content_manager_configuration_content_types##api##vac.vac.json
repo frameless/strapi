@@ -1,13 +1,13 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::kennisartikel.kennisartikel",
+  "key": "plugin_content_manager_configuration_content_types::api::vac.vac",
   "value": {
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "title",
-      "defaultSortBy": "title",
+      "mainField": "id",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -19,59 +19,16 @@
           "sortable": true
         }
       },
-      "internalSections": {
+      "vac": {
         "edit": {
-          "label": "internalSections",
+          "label": "VAC",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "internalSections",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "title": {
-        "edit": {
-          "label": "title",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "title",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "product": {
-        "edit": {
-          "label": "product",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "product",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "vacUitklapmenu": {
-        "edit": {
-          "label": "vacUitklapmenu",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "vacUitklapmenu",
+          "label": "vac",
           "searchable": false,
           "sortable": false
         }
@@ -136,33 +93,17 @@
       }
     },
     "layouts": {
-      "list": ["id", "title", "product", "createdAt"],
       "edit": [
         [
           {
-            "name": "internalSections",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "title",
-            "size": 6
-          },
-          {
-            "name": "product",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "vacUitklapmenu",
+            "name": "vac",
             "size": 12
           }
         ]
-      ]
+      ],
+      "list": ["id", "createdAt"]
     },
-    "uid": "api::kennisartikel.kennisartikel"
+    "uid": "api::vac.vac"
   },
   "type": "object",
   "environment": null,

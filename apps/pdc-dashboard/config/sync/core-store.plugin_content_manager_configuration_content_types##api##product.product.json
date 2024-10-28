@@ -205,21 +205,6 @@
           "sortable": false
         }
       },
-      "vac": {
-        "edit": {
-          "label": "vac",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "vac",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "internalContentBlock": {
         "edit": {
           "label": "Interne content blok",
@@ -340,12 +325,6 @@
         ],
         [
           {
-            "name": "slug",
-            "size": 6
-          }
-        ],
-        [
-          {
             "name": "kennisartikelMetadata",
             "size": 12
           }
@@ -364,18 +343,22 @@
         ],
         [
           {
-            "name": "uuid",
+            "name": "slug",
             "size": 6
           },
           {
-            "name": "kennisartikel",
-            "size": 6
+            "name": "pdc_subcategories",
+            "size": 4
           }
         ],
         [
           {
-            "name": "vac",
-            "size": 6
+            "name": "productencatalogus",
+            "size": 4
+          },
+          {
+            "name": "uuid",
+            "size": 4
           }
         ]
       ]

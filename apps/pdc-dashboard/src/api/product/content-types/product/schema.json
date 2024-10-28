@@ -142,12 +142,6 @@
       },
       "component": "components.kennisartikel"
     },
-    "vac": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::vac.vac",
-      "mappedBy": "product"
-    },
     "internalContentBlock": {
       "type": "component",
       "repeatable": true,

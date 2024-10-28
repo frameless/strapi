@@ -1,0 +1,54 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.trefwoorden",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "trefwoord",
+      "defaultSortBy": "trefwoord",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "trefwoord": {
+        "edit": {
+          "label": "Trefwoord",
+          "description": "Trefwoorden die passen bij de VAC.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "trefwoord",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "trefwoord"],
+      "edit": [
+        [
+          {
+            "name": "trefwoord",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "components.trefwoorden",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

@@ -377,7 +377,6 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
-          "vac",
           "internalContentBlock.content",
           "internalContentBlock.kennisartikelCategorie"
         ],
@@ -462,7 +461,6 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
-          "vac",
           "internalContentBlock.content",
           "internalContentBlock.kennisartikelCategorie"
         ],
@@ -529,7 +527,6 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
-          "vac",
           "internalContentBlock.content",
           "internalContentBlock.kennisartikelCategorie"
         ],
@@ -616,6 +613,77 @@
           "referentiePDC",
           "doelgroep",
           "referentieCatalogus"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::vac.vac",
+      "properties": {
+        "fields": [
+          "vac.label",
+          "vac.body",
+          "vac.status",
+          "vac.doelgroep",
+          "vac.afdelingen.afdelingId",
+          "vac.afdelingen.afdelingnaam",
+          "vac.uuid",
+          "vac.toelichting",
+          "vac.trefwoorden.trefwoord"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::vac.vac",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::vac.vac",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::vac.vac",
+      "properties": {
+        "fields": [
+          "vac.label",
+          "vac.body",
+          "vac.status",
+          "vac.doelgroep",
+          "vac.afdelingen.afdelingId",
+          "vac.afdelingen.afdelingnaam",
+          "vac.uuid",
+          "vac.toelichting",
+          "vac.trefwoorden.trefwoord"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::vac.vac",
+      "properties": {
+        "fields": [
+          "vac.label",
+          "vac.body",
+          "vac.status",
+          "vac.doelgroep",
+          "vac.afdelingen.afdelingId",
+          "vac.afdelingen.afdelingnaam",
+          "vac.uuid",
+          "vac.toelichting",
+          "vac.trefwoorden.trefwoord"
         ]
       },
       "conditions": []
