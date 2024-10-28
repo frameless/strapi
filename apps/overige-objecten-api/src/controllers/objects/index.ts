@@ -7,7 +7,8 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
   try {
     const locale = req.query?.locale || 'nl';
     const type = (req.query?.type as string) || '';
-    const tokenAuth = req.headers?.authorization?.split(' ')[1];
+    const isAuthHasToken = req.headers?.authorization?.startsWith('Token');
+    const tokenAuth = isAuthHasToken ? req.headers?.authorization?.split(' ')[1] : req.headers?.authorization;
     const serverURL = getTheServerURL(req);
     const kennisartikelSchemaURL = new URL('api/v2/objecttypes/kennisartikel', serverURL).href;
     const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
@@ -33,7 +34,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       query: GET_ALL_PRODUCTS,
       variables: { locale, ...paginationParams },
       headers: {
-        Authorization: tokenAuth?.startsWith('Token') ? tokenAuth : `Token ${tokenAuth}`,
+        Authorization: `Bearer ${tokenAuth}`,
       },
     });
 
@@ -70,7 +71,8 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     const uuid = req.params?.uuid;
     const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
     const serverURL = getTheServerURL(req);
-    const tokenAuth = req.headers?.authorization?.split(' ')[1];
+    const isAuthHasToken = req.headers?.authorization?.startsWith('Token');
+    const tokenAuth = isAuthHasToken ? req.headers?.authorization?.split(' ')[1] : req.headers?.authorization;
     const kennisartikelSchemaURL = new URL('api/v2/objecttypes/kennisartikel', serverURL).href;
     const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
 
@@ -83,7 +85,7 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
       query: GET_PRODUCT_BY_UUID,
       variables: { locale, uuid },
       headers: {
-        Authorization: tokenAuth?.startsWith('Token') ? tokenAuth : `Token ${tokenAuth}`,
+        Authorization: `Bearer ${tokenAuth}`,
       },
     });
 
