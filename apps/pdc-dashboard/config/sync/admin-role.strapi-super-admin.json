@@ -376,7 +376,10 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri"
+          "kennisartikelMetadata.upnUri",
+          "vac",
+          "internalContentBlock.content",
+          "internalContentBlock.kennisartikelCategorie"
         ],
         "locales": ["en", "nl"]
       },
@@ -458,7 +461,10 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri"
+          "kennisartikelMetadata.upnUri",
+          "vac",
+          "internalContentBlock.content",
+          "internalContentBlock.kennisartikelCategorie"
         ],
         "locales": ["en", "nl"]
       },
@@ -522,7 +528,10 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri"
+          "kennisartikelMetadata.upnUri",
+          "vac",
+          "internalContentBlock.content",
+          "internalContentBlock.kennisartikelCategorie"
         ],
         "locales": ["en", "nl"]
       },

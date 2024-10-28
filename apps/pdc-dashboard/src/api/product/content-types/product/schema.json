@@ -141,6 +141,22 @@
         }
       },
       "component": "components.kennisartikel"
+    },
+    "vac": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::vac.vac",
+      "mappedBy": "product"
+    },
+    "internalContentBlock": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.internal-content-block-component"
     }
   }
 }

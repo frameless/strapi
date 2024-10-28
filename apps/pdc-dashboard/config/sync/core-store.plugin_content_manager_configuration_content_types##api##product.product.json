@@ -205,6 +205,35 @@
           "sortable": false
         }
       },
+      "vac": {
+        "edit": {
+          "label": "vac",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "vac",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "internalContentBlock": {
+        "edit": {
+          "label": "Interne content blok",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "internalContentBlock",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -265,6 +294,7 @@
       }
     },
     "layouts": {
+      "list": ["title", "metaTags", "price", "uuid"],
       "edit": [
         [
           {
@@ -304,7 +334,7 @@
         ],
         [
           {
-            "name": "metadata",
+            "name": "internalContentBlock",
             "size": 12
           }
         ],
@@ -322,14 +352,8 @@
         ],
         [
           {
-            "name": "pdc_subcategories",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "productencatalogus",
-            "size": 6
+            "name": "metadata",
+            "size": 12
           }
         ],
         [
@@ -342,10 +366,19 @@
           {
             "name": "uuid",
             "size": 6
+          },
+          {
+            "name": "kennisartikel",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "vac",
+            "size": 6
           }
         ]
-      ],
-      "list": ["title", "metaTags", "price", "uuid"]
+      ]
     }
   },
   "type": "object",
