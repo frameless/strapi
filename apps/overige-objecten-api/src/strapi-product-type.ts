@@ -34,8 +34,19 @@ export interface Attributes {
   metaTags: MetaTags;
   sections: Section[];
   kennisartikelMetadata: KennisartikelMetadata;
+  internalContentBlock?: {
+    content: string;
+    kennisartikelCategorie: string;
+  }[];
+  kennisartikel: Kennisartikel;
 }
-
+export interface Kennisartikel {
+  data: {
+    attributes: {
+      internalSections: Section[];
+    };
+  };
+}
 export interface KennisartikelMetadata {
   uuid: string;
   doelgroep: 'eu-burger' | 'eu-bedrijf';

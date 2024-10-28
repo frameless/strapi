@@ -1,9 +1,14 @@
+export { combineSimilarCategories } from './combineSimilarCategories';
 export { envAvailability } from './envAvailability';
 export { ErrorHandler } from './errorHandler';
 export { fetchData } from './fetchData';
-export { getTheServerURL } from './getTheServerURL';
-export { vacData } from './vacData';
-export type { VACType } from './vacData';
 export { generateKennisartikelObject } from './generateKennisartikelObject';
-export { readFile } from './readFile';
 export { getPaginatedResponse } from './getPaginatedResponse';
+export { getTheServerURL } from './getTheServerURL';
+export { mapContentByCategory } from './mapContentByCategory';
+export { processToDeskMemo } from './processToDeskMemo';
+export { readFile } from './readFile';
+export { vacData } from './vacData';
+export type { CombineSimilarCategoriesProps } from './combineSimilarCategories';
+export type { ProcessToDeskMemoData } from './processToDeskMemo';
+export type { VACType } from './vacData';
