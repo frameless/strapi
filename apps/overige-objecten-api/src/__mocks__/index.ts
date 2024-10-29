@@ -1,4 +1,5 @@
 export { getStrapiKennisartikelData } from './getStrapiKennisartikelData';
-export { objectsResponseData } from './objectsResponseData';
+export { getStrapiVacData } from './getStrapiVacData';
 export { kennisartikelObject } from './kennisartikelObject';
+export { objectsResponseData } from './objectsResponseData';
 export { vacObject } from './vacObject';

@@ -1,3 +1,29 @@
+export interface VacItem {
+  uuid: string;
+  vraag: string | null;
+  antwoord: string | null;
+  status: string | null;
+  doelgroep: string | null;
+  afdelingen: string[];
+  toelichting: string | null;
+  trefwoorden: string[];
+}
+
+export interface AttributesVacItem {
+  vac: VacItem;
+}
+
+export interface DataVacItem {
+  attributes: AttributesVacItem;
+}
+
+export interface RootObjectVacItem {
+  data: DataVacItem[];
+}
+
+export interface VACSData {
+  vacs: RootObjectVacItem;
+}
 export interface StrapiProductType {
   data: Data;
 }
@@ -39,6 +65,7 @@ export interface Attributes {
     kennisartikelCategorie: string;
   }[];
   kennisartikel: Kennisartikel;
+  vac: RootObjectVacItem;
 }
 export interface Kennisartikel {
   data: {
