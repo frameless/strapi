@@ -1,7 +1,7 @@
 import type { RequestHandler } from 'express';
-import { GET_ALL_PRODUCTS, GET_PRODUCT_BY_UUID } from '../../queries';
-import type { StrapiProductType } from '../../strapi-product-type';
-import { fetchData, generateKennisartikelObject, getPaginatedResponse, getTheServerURL, vacData } from '../../utils';
+import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS, GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../../queries';
+import type { StrapiProductType, VACSData } from '../../strapi-product-type';
+import { fetchData, generateKennisartikelObject, getPaginatedResponse, getTheServerURL } from '../../utils';
 
 export const getAllObjectsController: RequestHandler = async (req, res, next) => {
   try {
@@ -12,7 +12,6 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     const serverURL = getTheServerURL(req);
     const kennisartikelSchemaURL = new URL('api/v2/objecttypes/kennisartikel', serverURL).href;
     const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
-    const vacObjects = vacData({ url: vacSchemaURL });
     const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
     // default pagination prams
     const limit = parseInt(req.query?.limit as string, 10) || -1;
@@ -37,6 +36,16 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
         Authorization: `Bearer ${tokenAuth}`,
       },
     });
+    // Fetch VACs data from GraphQL
+    const { data: vacData } = await fetchData<{ data: VACSData }>({
+      url: graphqlURL.href,
+      query: GET_ALL_VAC_ITEMS,
+      variables: { ...paginationParams },
+      headers: {
+        Authorization: `Bearer ${tokenAuth}`,
+      },
+    });
+    const vac = vacData?.vacs?.data?.map((item) => ({ ...item.attributes.vac, url: vacSchemaURL }));
 
     const pagination = await getPaginatedResponse(req, data?.products);
 
@@ -54,10 +63,14 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     // Send results based on the requested type
     if (type.endsWith('kennisartikel')) return res.status(200).json(kennisartikel);
 
-    if (type.endsWith('vac')) return res.status(200).json(vacObjects);
+    if (type.endsWith('vac')) return res.status(200).json(vac);
 
     // If no specific type, return both kennisartikel and vac objects
-    return res.status(200).json({ ...pagination, results: [...kennisartikel, ...vacObjects] });
+    if (vac.length > 0 && kennisartikel.length > 0)
+      return res.status(200).json({ ...pagination, results: [...kennisartikel, ...vac] });
+    if (vac.length > 0) return res.status(200).json({ ...pagination, results: [...vac] });
+    if (kennisartikel.length > 0) return res.status(200).json({ ...pagination, results: [...kennisartikel] });
+    return res.status(200).json({ ...pagination, results: [] });
   } catch (error) {
     // Forward any errors to the error handler middleware
     next(error);
@@ -69,16 +82,18 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
   try {
     const locale = req.query?.locale || 'nl';
     const uuid = req.params?.uuid;
+
+    // Check if UUID is provided
+    if (!uuid) {
+      return res.status(404).json({ message: 'UUID not provided' });
+    }
+
     const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
     const serverURL = getTheServerURL(req);
     const isAuthHasToken = req.headers?.authorization?.startsWith('Token');
     const tokenAuth = isAuthHasToken ? req.headers?.authorization?.split(' ')[1] : req.headers?.authorization;
     const kennisartikelSchemaURL = new URL('api/v2/objecttypes/kennisartikel', serverURL).href;
     const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
-
-    // Fetch vac object based on UUID
-    const vac = vacData({ url: vacSchemaURL }).find((item) => item.uuid === uuid);
-
     // Fetch product data from GraphQL
     const { data } = await fetchData<StrapiProductType>({
       url: graphqlURL.href,
@@ -88,7 +103,15 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
         Authorization: `Bearer ${tokenAuth}`,
       },
     });
-
+    // Fetch VACs data from GraphQL
+    const { data: vacData } = await fetchData<{ data: VACSData }>({
+      url: graphqlURL.href,
+      query: GET_VAC_ITEM_BY_UUID,
+      variables: { uuid },
+      headers: {
+        Authorization: `Bearer ${tokenAuth}`,
+      },
+    });
     res.set('Content-Type', 'application/json');
 
     // Handle the case for a knowledge article (kennisartikel)
@@ -97,10 +120,17 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
       .map(({ attributes }) => generateKennisartikelObject({ attributes, url: kennisartikelSchemaURL }))
       .find((item: { uuid: string }) => item.uuid === uuid);
 
-    if (kennisartikel) return res.status(200).json(kennisartikel);
+    if (kennisartikel) {
+      return res.status(200).json(kennisartikel); // Return to prevent further execution
+    }
 
-    // Handle the case for vac data
-    if (vac) return res.status(200).json(vac);
+    // Handle the case for VAC data
+    if (Array.isArray(vacData?.vacs?.data) && vacData.vacs.data.length > 0) {
+      const vac = vacData.vacs.data.map((item) => {
+        return { ...item.attributes.vac, url: vacSchemaURL };
+      });
+      return res.status(200).json(vac); // Return to prevent further execution
+    }
 
     // If no matching object found, return 404
     return res.status(404).json({ message: 'Object not found' });
@@ -108,6 +138,5 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     // Forward any errors to the error handler middleware
     next(error);
     return null;
-    // Ensure function returns after calling next()
   }
 };

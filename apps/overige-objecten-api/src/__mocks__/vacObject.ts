@@ -1,9 +1,26 @@
-export const vacObject = () => ({
-  url: 'http://localhost:3000/api/v2/objecttypes/vac',
-  uuid: 'a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6',
-  vraag: 'Wat is het proces om een paspoort aan te vragen?',
-  status: 'actief',
-  antwoord:
-    'U moet een afspraak maken bij de gemeente, uw identiteitsbewijs meenemen en een recente pasfoto aanleveren.',
-  doelgroep: 'eu-burger',
-});
+export const vacObject = () => [
+  {
+    uuid: '22D89EB2-2238-4885-A352-07C02CF8FCDF',
+    vraag: 'Wat is het proces om een paspoort aan te vragen?',
+    antwoord:
+      'U moet een afspraak maken bij de gemeente, uw identiteitsbewijs meenemen en een recente pasfoto aanleveren.',
+    status: 'actief',
+    doelgroep: 'eu_burger',
+    afdelingen: [
+      {
+        afdelingId: '4DFE293E-FCDE-4913-81E5-E82F92CC8DB6',
+        afdelingnaam: 'Demo Afdeling',
+      },
+    ],
+    toelichting: null,
+    trefwoorden: [
+      {
+        trefwoord: 'paspoort',
+      },
+      {
+        trefwoord: 'aanvraag',
+      },
+    ],
+    url: 'http://localhost:3000/api/v2/objecttypes/vac',
+  },
+];

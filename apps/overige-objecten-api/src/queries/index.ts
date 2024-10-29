@@ -127,3 +127,64 @@ export const GET_PRODUCT_BY_UUID = gql(`
       }
     }
 `);
+export const GET_ALL_VAC_ITEMS = gql(`
+query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
+  vacs(
+    pagination: {
+      start: $start
+      limit: $limit
+      page: $page
+      pageSize: $pageSize
+    }
+  ) {
+    data {
+      id
+      attributes {
+        vac {
+          uuid
+          vraag: label
+          antwoord: body
+          status
+          doelgroep
+          afdelingen {
+            afdelingId
+            afdelingnaam
+          }
+          toelichting
+          trefwoorden {
+            trefwoord
+          }
+        }
+      }
+    }
+  }
+}
+`);
+export const GET_VAC_ITEM_BY_UUID = gql(`
+query getVacItemByUUID($uuid: String) {
+  vacs(
+    filters: { vac: { uuid: { eq: $uuid }}}
+  ) {
+    data {
+      id
+      attributes {
+        vac {
+          uuid
+          vraag: label
+          antwoord: body
+          status
+          doelgroep
+          afdelingen {
+            afdelingId
+            afdelingnaam
+          }
+          toelichting
+          trefwoorden {
+            trefwoord
+          }
+        }
+      }
+    }
+  }
+}
+`);
