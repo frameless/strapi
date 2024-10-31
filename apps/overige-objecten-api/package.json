@@ -10,7 +10,7 @@
     "prebuild": "yarn clean && yarn generate-types",
     "build": "npm-run-all --parallel build:*",
     "build:server": "tsc -p ./tsconfig.json",
-    "build:openapi": "mkdir -p dist/src/docs && cp -R src/docs/ dist/src/docs/",
+    "build:openapi": "mkdir -p dist/src/docs && cp -R src/docs/* dist/src/docs/",
     "watch": "tsc -p ./tsconfig.json  -w",
     "start": "NODE_ENV=production node ./dist/src/server.js",
     "dev": "NODE_ENV=development nodemon src/server.ts",
