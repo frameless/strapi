@@ -11,7 +11,8 @@
     "declaration": true,
     "module": "commonjs",
     "outDir": "dist",
-    "lib": ["ES2021", "DOM"]
+    "lib": ["ES2021", "DOM"],
+    "strict": true
   },
   "include": ["src/**/*", "./jest.config.ts"],
   "exclude": ["node_modules", "**/*.test.ts", "./src/types/openapi.ts"]
