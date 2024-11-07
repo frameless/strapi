@@ -75,19 +75,19 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
  * This is only available in development mode
  */
 if (process.env.NODE_ENV === 'development') {
-  app.use('/api/v1/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  app.use('/api/v2/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 }
 
 /**
  * Objecttypes
- * /api/v1/objecttypes/:type
+ * /api/v2/objecttypes/:type
  */
-app.use('/api/v1', objecttypes);
+app.use('/api/v2', objecttypes);
 /**
  * OpenAPI
  * Serve the OpenAPI documentation
  */
-app.use('/api/v1', openapi);
+app.use('/api/v2', openapi);
 /**
  * OpenAPI Validator
  * Validate requests and responses according to the OpenAPI specification
@@ -111,10 +111,10 @@ app.use(
 app.use(cors(corsOption));
 /**
  * Routes
- * /api/v1/objects
- * /api/v1/objects/:uuid
+ * /api/v2/objects
+ * /api/v2/objects/:uuid
  */
-app.use('/api/v1', objects);
+app.use('/api/v2', objects);
 // handle non existing routes
 app.use((_req, res) => {
   res.status(404).send('Route not found');

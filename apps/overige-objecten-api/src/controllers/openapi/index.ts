@@ -17,7 +17,7 @@ export const openAPIController: RequestHandler = async (req, res, next) => {
 
     const openAPIDocument: any = yaml.load(openapiYAML);
     const openapiServers = openAPIDocument.servers.map((server: Server) => ({
-      url: new URL('api/v1', getTheServerURL(req)),
+      url: new URL('api/v2', getTheServerURL(req)),
       description: server.description,
     }));
     res.setHeader('Content-Type', 'application/json');

@@ -9,8 +9,8 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     const type = (req.query?.type as string) || '';
     const tokenAuth = req.headers?.authorization?.split(' ')[1];
     const serverURL = getTheServerURL(req);
-    const kennisartikelSchemaURL = new URL('api/v1/objecttypes/kennisartikel', serverURL).href;
-    const vacSchemaURL = new URL('api/v1/objecttypes/vac', serverURL).href;
+    const kennisartikelSchemaURL = new URL('api/v2/objecttypes/kennisartikel', serverURL).href;
+    const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
     const vacObjects = vacData({ url: vacSchemaURL });
     const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
     // default pagination prams
@@ -71,8 +71,8 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
     const serverURL = getTheServerURL(req);
     const tokenAuth = req.headers?.authorization?.split(' ')[1];
-    const kennisartikelSchemaURL = new URL('api/v1/objecttypes/kennisartikel', serverURL).href;
-    const vacSchemaURL = new URL('api/v1/objecttypes/vac', serverURL).href;
+    const kennisartikelSchemaURL = new URL('api/v2/objecttypes/kennisartikel', serverURL).href;
+    const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
 
     // Fetch vac object based on UUID
     const vac = vacData({ url: vacSchemaURL }).find((item) => item.uuid === uuid);

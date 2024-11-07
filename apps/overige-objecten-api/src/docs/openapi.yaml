@@ -4,7 +4,7 @@ info:
   description: API to manage Overige Objecten resources
   version: 1.0.0
 servers:
-  - url: http://localhost:4001/api/v1
+  - url: http://localhost:4001/api/v2
     description: Example server
 
 paths:
@@ -22,8 +22,8 @@ paths:
             type: string
             format: uri
             enum:
-              - "http://localhost:4001/api/v1/objecttypes/kennisartikel"
-              - "http://localhost:4001/api/v1/objecttypes/vac"
+              - "http://localhost:4001/api/v2/objecttypes/kennisartikel"
+              - "http://localhost:4001/api/v2/objecttypes/vac"
           description: Optional parameter to filter by object type. If not specified, both types will be returned.
         - in: query
           name: page
@@ -75,7 +75,7 @@ paths:
                         type: string
                         format: uri
                         nullable: true
-                        example: "http://localhost:4001/api/v1/objects?type=http%3A%2F%2Flocalhost%3A4001%2Fapi%2Fv1%2Fobjecttypes%2Fkennisartikel&page=2&pageSize=1"
+                        example: "http://localhost:4001/api/v2/objects?type=http%3A%2F%2Flocalhost%3A4001%2Fapi%2Fv2%2Fobjecttypes%2Fkennisartikel&page=2&pageSize=1"
                       previous:
                         type: string
                         format: uri
@@ -92,10 +92,10 @@ paths:
                 pageSize: 10
                 count: 29
                 total: 284
-                next: "http://localhost:4001/api/v1/objects?page=2&pageSize=10"
+                next: "http://localhost:4001/api/v2/objects?page=2&pageSize=10"
                 previous: null
                 results:
-                  - url: "http://localhost:4001/api/v1/objecttypes/kennisartikel"
+                  - url: "http://localhost:4001/api/v2/objecttypes/kennisartikel"
                     uuid: "123e4567-e89b-12d3-a456-426614174000"
                     upnUri: "http://example.com/upn/1"
                     publicatieDatum: "2023-01-01"
@@ -180,7 +180,7 @@ paths:
                   - $ref: "#/components/schemas/kennisartikel"
                   - $ref: "#/components/schemas/vac"
               example:
-                url: "http://localhost:4001/api/v1/objecttypes/vac"
+                url: "http://localhost:4001/api/v2/objecttypes/vac"
                 vraag: "Wat is het proces om een paspoort aan te vragen?"
                 status: "actief"
                 antwoord: "U moet een afspraak maken bij de gemeente, uw identiteitsbewijs meenemen en een recente pasfoto aanleveren."

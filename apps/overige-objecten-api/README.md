@@ -76,5 +76,5 @@ Then, follow these steps:
 
 ## API Endpoints
 
-- Kennisartikel API: [http://localhost:4001/api/v1/objects](http://localhost:4001/api/v1/objects)
-- OpenAPI specification: [http://localhost:4001/api/v1/openapi.json](http://localhost:4001/api/v1/openapi.json)
+- Kennisartikel API: [http://localhost:4001/api/v2/objects](http://localhost:4001/api/v2/objects)
+- OpenAPI specification: [http://localhost:4001/api/v2/openapi.json](http://localhost:4001/api/v2/openapi.json)
