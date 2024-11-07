@@ -1,12 +1,12 @@
 export const kennisartikelObject = () => ({
-  url: 'http://localhost:3000/api/v1/objecttypes/kennisartikel',
+  url: 'http://localhost:3000/api/v2/objecttypes/kennisartikel',
   uuid: 'a9058a3e-6dd9-480c-a074-e38026bd4ffd',
   upnUri: 'http://standaarden.overheid.nl/owms/terms/UPL-naam_nog_niet_beschikbaar',
   publicatieDatum: '2024-04-02',
   productAanwezig: true,
   productValtOnder: null,
   verantwoordelijkeOrganisatie: {
-    url: 'http://localhost:3000/api/v1/objecttypes/kennisartikel#verantwoordelijkeOrganisatie',
+    url: 'http://localhost:3000/api/v2/objecttypes/kennisartikel#verantwoordelijkeOrganisatie',
     owmsIdentifier: 'http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)',
     owmsPrefLabel: 'Gemeente Utrecht',
     owmsEndDate: '2024-10-13T22:00:00.000Z',

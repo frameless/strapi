@@ -18,42 +18,42 @@ describe('objecttypesController', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  it('GET /api/v1/objecttypes/:type should return 200 and kennisartikel.json', async () => {
-    const response = await request(app).get('/api/v1/objecttypes/kennisartikel');
+  it('GET /api/v2/objecttypes/:type should return 200 and kennisartikel.json', async () => {
+    const response = await request(app).get('/api/v2/objecttypes/kennisartikel');
     expect(response.status).toBe(200);
     expect(response.body).toEqual(kennisartikelObjectTypes);
   });
-  it('GET /api/v1/objecttypes/:type should return 200 and VAC.json', async () => {
-    const response = await request(app).get('/api/v1/objecttypes/vac');
+  it('GET /api/v2/objecttypes/:type should return 200 and VAC.json', async () => {
+    const response = await request(app).get('/api/v2/objecttypes/vac');
     expect(response.status).toBe(200);
     expect(response.body).toEqual(vacObjectTypes);
   });
-  it('GET /api/v1/objecttypes/:type should return 400 when type is invalid', async () => {
-    const response = await request(app).get('/api/v1/objecttypes/invalid-type');
+  it('GET /api/v2/objecttypes/:type should return 400 when type is invalid', async () => {
+    const response = await request(app).get('/api/v2/objecttypes/invalid-type');
     expect(response.status).toBe(400);
     expect(response.body).toEqual({ error: 'Invalid type parameter' });
   });
-  it('GET /api/v1/objecttypes/:type should return 404 when type is not found', async () => {
-    const response = await request(app).get('/api/v1/objecttypes');
+  it('GET /api/v2/objecttypes/:type should return 404 when type is not found', async () => {
+    const response = await request(app).get('/api/v2/objecttypes');
     expect(response.status).toBe(404);
   });
-  it('GET /api/v1/objecttypes/:type should return 500 when an error occurs', async () => {
+  it('GET /api/v2/objecttypes/:type should return 500 when an error occurs', async () => {
     const spy = jest.spyOn(require('../../utils/readFile'), 'readFile').mockImplementation(() => 'invalid-path');
-    const response = await request(app).get('/api/v1/objecttypes/kennisartikel');
+    const response = await request(app).get('/api/v2/objecttypes/kennisartikel');
     expect(response.status).toBe(500);
     spy.mockRestore();
   });
 
-  it('GET /api/v1/objecttypes/:type should return 500 when kennisartikel.json is not found', async () => {
+  it('GET /api/v2/objecttypes/:type should return 500 when kennisartikel.json is not found', async () => {
     const spy = jest.spyOn(require('../../utils/readFile'), 'readFile').mockImplementation(() => false);
-    const response = await request(app).get('/api/v1/objecttypes/kennisartikel');
+    const response = await request(app).get('/api/v2/objecttypes/kennisartikel');
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ message: 'An unexpected error occurred.' });
     spy.mockRestore();
   });
-  it('GET /api/v1/objecttypes/:type should return 500 when VAC.json is not found', async () => {
+  it('GET /api/v2/objecttypes/:type should return 500 when VAC.json is not found', async () => {
     const spy = jest.spyOn(require('../../utils/readFile'), 'readFile').mockImplementation(() => false);
-    const response = await request(app).get('/api/v1/objecttypes/vac');
+    const response = await request(app).get('/api/v2/objecttypes/vac');
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ message: 'An unexpected error occurred.' });
     spy.mockRestore();

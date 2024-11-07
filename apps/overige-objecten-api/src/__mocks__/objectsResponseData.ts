@@ -2,14 +2,14 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
   const data = {
     results: [
       {
-        url: 'http://localhost:3000/api/v1/objecttypes/kennisartikel',
+        url: 'http://localhost:3000/api/v2/objecttypes/kennisartikel',
         uuid: 'a9058a3e-6dd9-480c-a074-e38026bd4ffd',
         upnUri: 'http://standaarden.overheid.nl/owms/terms/UPL-naam_nog_niet_beschikbaar',
         publicatieDatum: '2024-04-02',
         productAanwezig: true,
         productValtOnder: null,
         verantwoordelijkeOrganisatie: {
-          url: 'http://localhost:3000/api/v1/objecttypes/kennisartikel#verantwoordelijkeOrganisatie',
+          url: 'http://localhost:3000/api/v2/objecttypes/kennisartikel#verantwoordelijkeOrganisatie',
           owmsIdentifier: 'http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)',
           owmsPrefLabel: 'Gemeente Utrecht',
           owmsEndDate: '2024-10-13T22:00:00.000Z',
@@ -35,7 +35,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
         ],
       },
       {
-        url: 'http://localhost:3000/api/v1/objecttypes/vac',
+        url: 'http://localhost:3000/api/v2/objecttypes/vac',
         uuid: 'a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6',
         vraag: 'Wat is het proces om een paspoort aan te vragen?',
         status: 'actief',
@@ -44,7 +44,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
         doelgroep: 'eu-burger',
       },
       {
-        url: 'http://localhost:3000/api/v1/objecttypes/vac',
+        url: 'http://localhost:3000/api/v2/objecttypes/vac',
         uuid: 'b2c3d4e5-f6g7-8h9i-0j1k-l2m3n4o5p6q7',
         vraag: 'Hoe kan ik een rijbewijs aanvragen?',
         status: 'actief',
@@ -53,7 +53,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
         doelgroep: 'eu-burger',
       },
       {
-        url: 'http://localhost:3000/api/v1/objecttypes/vac',
+        url: 'http://localhost:3000/api/v2/objecttypes/vac',
         uuid: 'c3d4e5f6-g7h8-9i0j-k1l2-m3n4o5p6q7r8',
         vraag: 'Wat moet ik doen bij verhuizing?',
         status: 'actief',
