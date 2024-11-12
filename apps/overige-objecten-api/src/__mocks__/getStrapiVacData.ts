@@ -6,6 +6,8 @@ export const getStrapiVacData = () => {
           {
             id: '1',
             attributes: {
+              createdAt: '2024-11-05T16:03:50.975Z',
+              updatedAt: '2024-11-05T16:03:50.975Z',
               vac: {
                 uuid: '22D89EB2-2238-4885-A352-07C02CF8FCDF',
                 vraag: 'Wat is het proces om een paspoort aan te vragen?',
@@ -34,6 +36,8 @@ export const getStrapiVacData = () => {
           {
             id: '2',
             attributes: {
+              createdAt: '2024-11-05T16:03:50.975Z',
+              updatedAt: '2024-11-05T16:03:50.975Z',
               vac: {
                 uuid: 'b2c3d4e5-f6g7-8h9i-0j1k-l2m3n4o5p6q7',
                 vraag: 'Hoe kan ik een rijbewijs aanvragen?',
@@ -62,6 +66,8 @@ export const getStrapiVacData = () => {
           {
             id: '3',
             attributes: {
+              createdAt: '2024-11-05T16:03:50.975Z',
+              updatedAt: '2024-11-05T16:03:50.975Z',
               vac: {
                 uuid: 'c3d4e5f6-g7h8-9i0j-k1l2-m3n4o5p6q7r8',
                 vraag: 'Wat moet ik doen bij verhuizing?',

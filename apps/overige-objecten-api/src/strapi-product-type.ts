@@ -10,11 +10,14 @@ export interface VacItem {
 }
 
 export interface AttributesVacItem {
+  createdAt: string;
+  updatedAt: string;
   vac: VacItem;
 }
 
 export interface DataVacItem {
   attributes: AttributesVacItem;
+  id: string;
 }
 
 export interface RootObjectVacItem {

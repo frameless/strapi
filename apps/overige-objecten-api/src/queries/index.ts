@@ -140,6 +140,8 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
     data {
       id
       attributes {
+        createdAt
+        updatedAt
         vac {
           uuid
           vraag: label
@@ -168,6 +170,8 @@ query getVacItemByUUID($uuid: String) {
     data {
       id
       attributes {
+        createdAt
+        updatedAt
         vac {
           uuid
           vraag: label

@@ -210,29 +210,25 @@ describe('Objects controller', () => {
         const vacResponse = { data: { vacs: { data: vacData } } };
         fetchMock.mockResponseOnce(JSON.stringify({ data: { products: { data: kennisartikelData } } }));
         fetchMock.mockResponseOnce(JSON.stringify(vacResponse));
-
         await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
-        const consoleSpyKennisartikelValue = consoleSpy.mock.calls[0][1].filter(
-          (item: any) => item.path === '/response/results/0/vertalingen/0/titel',
+
+        const consoleSpyKennisartikelValue = consoleSpy.mock.calls[0][1].find(
+          (item: any) => item.path === '/response/results/0/record/data/vertalingen/0/titel',
+        );
+        const consoleSpayVacValue = consoleSpy.mock.calls[0][1].find(
+          (item: any) => item.path === '/response/results/0/record/data/vraag',
         );
 
-        const consoleSpayVacValue = consoleSpy.mock.calls[0][1].filter(
-          (item: any) => item.path === '/response/results/0/vraag',
-        );
-        expect(consoleSpyKennisartikelValue).toEqual([
-          {
-            path: '/response/results/0/vertalingen/0/titel',
-            message: 'must be string',
-            errorCode: 'type.openapi.validation',
-          },
-        ]);
-        expect(consoleSpayVacValue).toEqual([
-          {
-            path: '/response/results/0/vraag',
-            message: "must have required property 'vraag'",
-            errorCode: 'required.openapi.validation',
-          },
-        ]);
+        expect(consoleSpyKennisartikelValue).toEqual({
+          path: '/response/results/0/record/data/vertalingen/0/titel',
+          message: 'must be string',
+          errorCode: 'type.openapi.validation',
+        });
+        expect(consoleSpayVacValue).toEqual({
+          path: '/response/results/0/record/data/vraag',
+          message: "must have required property 'vraag'",
+          errorCode: 'required.openapi.validation',
+        });
         consoleSpy.mockRestore();
       });
     });
