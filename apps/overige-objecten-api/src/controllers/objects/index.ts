@@ -2,7 +2,6 @@ import type { RequestHandler } from 'express';
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS, GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../../queries';
 import type { StrapiProductType, VACSData } from '../../strapi-product-type';
 import { fetchData, generateKennisartikelObject, getPaginatedResponse, getTheServerURL } from '../../utils';
-
 export const getAllObjectsController: RequestHandler = async (req, res, next) => {
   try {
     const locale = req.query?.locale || 'nl';
@@ -10,7 +9,6 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     const isAuthHasToken = req.headers?.authorization?.startsWith('Token');
     const tokenAuth = isAuthHasToken ? req.headers?.authorization?.split(' ')[1] : req.headers?.authorization;
     const serverURL = getTheServerURL(req);
-    const kennisartikelSchemaURL = new URL('api/v2/objecttypes/kennisartikel', serverURL).href;
     const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
     const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
     // default pagination prams
@@ -45,7 +43,27 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
         Authorization: `Bearer ${tokenAuth}`,
       },
     });
-    const vac = vacData?.vacs?.data?.map((item) => ({ ...item.attributes.vac, url: vacSchemaURL }));
+
+    const vac = vacData?.vacs?.data?.map((item) => {
+      const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
+      return {
+        uuid: item.attributes.vac.uuid,
+        type: vacSchemaURL,
+        url: vacUrl,
+        record: {
+          index: parseInt(item.id, 10),
+          startAt: item.attributes.createdAt,
+          typeVersion: 1,
+          data: {
+            ...item.attributes.vac,
+            url: vacUrl,
+          },
+          geometry: null,
+          endAt: null,
+          registrationAt: item.attributes.createdAt,
+        },
+      };
+    });
 
     const pagination = await getPaginatedResponse(req, data?.products);
 
@@ -53,17 +71,17 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     const products = data?.products?.data || [];
 
     if (products.length === 0) return res.status(200).json({ results: [] });
-    const kennisartikel = products.map(({ attributes }) =>
-      generateKennisartikelObject({ attributes, url: kennisartikelSchemaURL }),
+    const kennisartikel = products.map(({ attributes, id }) =>
+      generateKennisartikelObject({ attributes, url: serverURL, id }),
     );
 
     // Set response content type
     res.set('Content-Type', 'application/json');
 
     // Send results based on the requested type
-    if (type.endsWith('kennisartikel')) return res.status(200).json(kennisartikel);
+    if (type.endsWith('kennisartikel')) return res.status(200).json({ ...pagination, results: kennisartikel });
 
-    if (type.endsWith('vac')) return res.status(200).json(vac);
+    if (type.endsWith('vac')) return res.status(200).json({ results: vac });
 
     // If no specific type, return both kennisartikel and vac objects
     if (vac.length > 0 && kennisartikel.length > 0)
@@ -92,10 +110,9 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     const serverURL = getTheServerURL(req);
     const isAuthHasToken = req.headers?.authorization?.startsWith('Token');
     const tokenAuth = isAuthHasToken ? req.headers?.authorization?.split(' ')[1] : req.headers?.authorization;
-    const kennisartikelSchemaURL = new URL('api/v2/objecttypes/kennisartikel', serverURL).href;
     const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
     // Fetch product data from GraphQL
-    const { data } = await fetchData<StrapiProductType>({
+    const { data } = await fetchData<any>({
       url: graphqlURL.href,
       query: GET_PRODUCT_BY_UUID,
       variables: { locale, uuid },
@@ -117,7 +134,7 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     // Handle the case for a knowledge article (kennisartikel)
     const products = data?.products?.data || [];
     const kennisartikel = products
-      .map(({ attributes }) => generateKennisartikelObject({ attributes, url: kennisartikelSchemaURL }))
+      .map(({ attributes, id }: any) => generateKennisartikelObject({ attributes, url: serverURL, id }))
       .find((item: { uuid: string }) => item.uuid === uuid);
 
     if (kennisartikel) {
@@ -126,9 +143,26 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
 
     // Handle the case for VAC data
     if (Array.isArray(vacData?.vacs?.data) && vacData.vacs.data.length > 0) {
-      const vac = vacData.vacs.data.map((item) => {
-        return { ...item.attributes.vac, url: vacSchemaURL };
-      });
+      const vac = vacData?.vacs?.data?.map((item) => {
+        const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
+        return {
+          uuid: item.attributes.vac.uuid,
+          type: vacSchemaURL,
+          url: vacUrl,
+          record: {
+            index: parseInt(item.id, 10),
+            startAt: item.attributes.createdAt,
+            typeVersion: 1,
+            data: {
+              ...item.attributes.vac,
+              url: vacUrl,
+            },
+            geometry: null,
+            endAt: null,
+            registrationAt: item.attributes.createdAt,
+          },
+        };
+      })[0];
       return res.status(200).json(vac); // Return to prevent further execution
     }
 
