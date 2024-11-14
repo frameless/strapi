@@ -64,13 +64,28 @@ export interface Attributes {
   metaTags: MetaTags;
   sections: Section[];
   kennisartikelMetadata: KennisartikelMetadata;
-  internalContentBlock?: {
-    content: string;
-    kennisartikelCategorie: string;
-  }[];
   kennisartikel: Kennisartikel;
   vac: RootObjectVacItem;
 }
+export interface InternalField {
+  data: InternalFieldData;
+}
+
+export interface InternalFieldData {
+  attributes: InternalFieldAttributes;
+}
+export interface InternalFieldAttributes {
+  content: InternalFieldAttributesContent;
+}
+export interface InternalFieldAttributesContent {
+  uuid: string;
+  contentBlock: InternalFieldAttributesContentContentBlock[];
+}
+export interface InternalFieldAttributesContentContentBlock {
+  content: string;
+  kennisartikelCategorie: string;
+}
+
 export interface Kennisartikel {
   data: {
     attributes: {
@@ -110,4 +125,5 @@ export interface Section {
   content?: string;
   kennisartikelCategorie?: null | string;
   component?: string;
+  internal_field: InternalField;
 }
