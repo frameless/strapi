@@ -50,7 +50,8 @@
         "components.utrecht-multi-columns-button",
         "components.utrecht-accordion",
         "components.utrecht-image",
-        "components.utrecht-link"
+        "components.utrecht-link",
+        "components.internal-block-content"
       ],
       "required": false
     },
@@ -141,16 +142,6 @@
         }
       },
       "component": "components.kennisartikel"
-    },
-    "internalContentBlock": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "components.internal-content-block-component"
     }
   }
 }

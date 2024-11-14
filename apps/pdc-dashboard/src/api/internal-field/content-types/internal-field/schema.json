@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "internal_fields",
+  "info": {
+    "singularName": "internal-field",
+    "pluralName": "internal-fields",
+    "displayName": "Internal field",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "displayName": "Internal field",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.internal-field"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.internal-block-content",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "id",
+      "defaultSortBy": "id",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "internal_field": {
+        "edit": {
+          "label": "internal_field",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "internal_field",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "internal_field"],
+      "edit": [
+        [
+          {
+            "name": "internal_field",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "components.internal-block-content",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

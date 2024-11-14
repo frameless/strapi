@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_components_internal_block_contents",
+  "info": {
+    "displayName": "Interne blokinhoud",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internal_field": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::internal-field.internal-field"
+    }
+  }
+}

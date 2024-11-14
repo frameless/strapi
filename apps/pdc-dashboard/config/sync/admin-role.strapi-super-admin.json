@@ -6,6 +6,65 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
+      "subject": "api::internal-field.internal-field",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::internal-field.internal-field",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::internal-field.internal-field",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::internal-field.internal-field",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::internal-field.internal-field",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
         "fields": ["title", "body"],
@@ -376,9 +435,7 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri",
-          "internalContentBlock.content",
-          "internalContentBlock.kennisartikelCategorie"
+          "kennisartikelMetadata.upnUri"
         ],
         "locales": ["en", "nl"]
       },
@@ -460,9 +517,7 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri",
-          "internalContentBlock.content",
-          "internalContentBlock.kennisartikelCategorie"
+          "kennisartikelMetadata.upnUri"
         ],
         "locales": ["en", "nl"]
       },
@@ -526,9 +581,7 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri",
-          "internalContentBlock.content",
-          "internalContentBlock.kennisartikelCategorie"
+          "kennisartikelMetadata.upnUri"
         ],
         "locales": ["en", "nl"]
       },

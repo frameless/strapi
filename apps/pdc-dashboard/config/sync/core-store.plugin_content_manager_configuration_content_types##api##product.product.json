@@ -205,20 +205,6 @@
           "sortable": false
         }
       },
-      "internalContentBlock": {
-        "edit": {
-          "label": "Interne content blok",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "internalContentBlock",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -314,12 +300,6 @@
         [
           {
             "name": "catalogiMeta",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "internalContentBlock",
             "size": 12
           }
         ],
