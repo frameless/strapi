@@ -1,14 +1,13 @@
 {
-  "key": "plugin_content_manager_configuration_components::components.utrecht-rich-text",
+  "key": "plugin_content_manager_configuration_components::components.internal-field",
   "value": {
-    "uid": "components.utrecht-rich-text",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "kennisartikelCategorie",
-      "defaultSortBy": "id",
+      "mainField": "uuid",
+      "defaultSortBy": "uuid",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,52 +19,53 @@
           "sortable": false
         }
       },
-      "content": {
+      "uuid": {
         "edit": {
-          "label": "Inhoud",
+          "label": "uuid",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "content",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "kennisartikelCategorie": {
-        "edit": {
-          "label": "Kennisartikel categorie",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "kennisartikelCategorie",
+          "label": "uuid",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "contentBlock": {
+        "edit": {
+          "label": "contentBlock",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contentBlock",
+          "searchable": false,
+          "sortable": false
         }
       }
     },
     "layouts": {
-      "list": ["id", "kennisartikelCategorie"],
+      "list": ["id", "uuid", "contentBlock"],
       "edit": [
         [
           {
-            "name": "content",
-            "size": 12
+            "name": "uuid",
+            "size": 6
           }
         ],
         [
           {
-            "name": "kennisartikelCategorie",
-            "size": 4
+            "name": "contentBlock",
+            "size": 12
           }
         ]
       ]
     },
+    "uid": "components.internal-field",
     "isComponent": true
   },
   "type": "object",
