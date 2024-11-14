@@ -18,10 +18,12 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
   const contentBlock = attributes?.sections
     .filter(({ component }) => component === 'ComponentComponentsUtrechtRichText')
     .map(({ kennisartikelCategorie, content }) => mapContentByCategory(kennisartikelCategorie, content));
+  const getInternalBlockComponent = attributes?.sections.find(
+    ({ component }) => component === 'ComponentComponentsInternalBlockContent',
+  );
 
-  const { deskMemo } = attributes?.internalContentBlock
-    ? processToDeskMemo(attributes.internalContentBlock)
-    : { deskMemo: '' };
+  const deskMemoInternalBlock = getInternalBlockComponent?.internal_field?.data?.attributes?.content?.contentBlock;
+  const { deskMemo } = deskMemoInternalBlock ? processToDeskMemo(deskMemoInternalBlock) : { deskMemo: '' };
 
   // combine similar categories
   const reducedContentBlock = combineSimilarCategories(contentBlock);

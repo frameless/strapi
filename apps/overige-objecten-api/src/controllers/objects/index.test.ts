@@ -211,7 +211,6 @@ describe('Objects controller', () => {
         fetchMock.mockResponseOnce(JSON.stringify({ data: { products: { data: kennisartikelData } } }));
         fetchMock.mockResponseOnce(JSON.stringify(vacResponse));
         await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
-
         const consoleSpyKennisartikelValue = consoleSpy.mock.calls[0][1].find(
           (item: any) => item.path === '/response/results/0/record/data/vertalingen/0/titel',
         );

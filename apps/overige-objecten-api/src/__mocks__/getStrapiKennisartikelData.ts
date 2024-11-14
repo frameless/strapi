@@ -68,8 +68,61 @@ export const getStrapiKennisartikelData = () => {
                   kennisartikelCategorie: 'kosten',
                   component: 'ComponentComponentsUtrechtRichText',
                 },
+                {
+                  component: 'ComponentComponentsInternalBlockContent',
+                  internal_field: {
+                    data: {
+                      attributes: {
+                        content: {
+                          uuid: 'e51318b2-ddb3-4e85-b746-5f29f3762a82',
+                          contentBlock: [
+                            {
+                              content: '<h2>Inleiding- 2 - internal</h2><p>Body tekst</p>',
+                              kennisartikelCategorie: 'inleiding',
+                            },
+                            {
+                              content: '<h2>Inleiding - internal</h2><p>Body tekst</p>',
+                              kennisartikelCategorie: 'inleiding',
+                            },
+                            {
+                              content: '<h2>Aanvraag - internal</h2><p>Body tekst</p>',
+                              kennisartikelCategorie: 'aanvraag',
+                            },
+                            {
+                              content: '<h2>Bewijs - internal</h2><p>body tekst</p>',
+                              kennisartikelCategorie: 'bewijs',
+                            },
+                            {
+                              content: '<h2>Voorwaarden - internal</h2><p>body tekst</p>',
+                              kennisartikelCategorie: 'voorwaarden',
+                            },
+                            {
+                              content: '<h2>Bezwaar - internal</h2><p>body tekst</p>',
+                              kennisartikelCategorie: 'bezwaar',
+                            },
+                            {
+                              content: '<h2>Kosten - internal&nbsp;</h2><p>body tekst</p>',
+                              kennisartikelCategorie: 'kosten',
+                            },
+                            {
+                              content: '<h2>Termijn - internal&nbsp;</h2><p>body tekst</p>',
+                              kennisartikelCategorie: 'termijn',
+                            },
+                            {
+                              content: '<h2>Wat te doen bij geen reactie - internal</h2><p>body tekst</p>',
+                              kennisartikelCategorie: 'wat_te_doen_bij_geen_reactie',
+                            },
+                            {
+                              content: '<h2>Bijzonderheden - internal</h2><p>Body tekst</p><p></p>',
+                              kennisartikelCategorie: 'bijzonderheden',
+                            },
+                          ],
+                        },
+                      },
+                    },
+                  },
+                },
               ],
-              internalContentBlock: [],
               kennisartikelMetadata: {
                 uuid: 'c81023c8-3653-4ce3-90c0-eee9f7a9336f',
                 doelgroep: 'eu_burger',

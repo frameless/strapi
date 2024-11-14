@@ -46,10 +46,22 @@ query getAllProducts(
             kennisartikelCategorie
             component: __typename
           }
-        }
-        internalContentBlock {
-          content
-          kennisartikelCategorie
+          ... on ComponentComponentsInternalBlockContent {
+            component: __typename
+            internal_field {
+              data {
+                attributes {
+                  content {
+                    uuid
+                    contentBlock {
+                      content
+                      kennisartikelCategorie
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
         kennisartikelMetadata {
           uuid
@@ -71,6 +83,7 @@ query getAllProducts(
     }
   }
 }
+
 `);
 
 export const GET_PRODUCT_BY_UUID = gql(`
@@ -101,10 +114,22 @@ export const GET_PRODUCT_BY_UUID = gql(`
                 kennisartikelCategorie
                 component:__typename
               }
-            }
-            internalContentBlock {
-              content
-              kennisartikelCategorie
+              ... on ComponentComponentsInternalBlockContent {
+                component: __typename
+                internal_field {
+                  data {
+                    attributes {
+                      content {
+                        uuid
+                        contentBlock {
+                          content
+                          kennisartikelCategorie
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
             kennisartikelMetadata {
                 uuid
