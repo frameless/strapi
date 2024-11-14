@@ -26,6 +26,7 @@ export interface RootObjectVacItem {
 
 export interface VACSData {
   vacs: RootObjectVacItem;
+  meta: Meta;
 }
 export interface StrapiProductType {
   data: Data;

@@ -21,10 +21,8 @@ paths:
           schema:
             type: string
             format: uri
-            enum:
-              - "http://localhost:4001/api/v2/objecttypes/kennisartikel"
-              - "http://localhost:4001/api/v2/objecttypes/vac"
           description: Optional parameter to filter by object type. If not specified, both types will be returned.
+          example: "http://localhost:4001/api/v2/objecttypes/kennisartikel"
         - in: query
           name: page
           required: false

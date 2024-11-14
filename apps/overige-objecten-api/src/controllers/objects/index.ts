@@ -1,11 +1,24 @@
 import type { RequestHandler } from 'express';
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS, GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../../queries';
 import type { StrapiProductType, VACSData } from '../../strapi-product-type';
+import type { components } from '../../types/openapi';
 import { fetchData, generateKennisartikelObject, getPaginatedResponse, getTheServerURL } from '../../utils';
+import type { PaginationType } from '../../utils';
+
+type GetKennisartikelReturnData = components['schemas']['ObjectData'];
+
+const sum = (a: number, b: number): number => a + b;
+const isFiniteNumber = (arg: unknown): arg is number => typeof arg === 'number' && isFinite(arg);
+let results: any = [];
+let pagination: PaginationType = {};
 export const getAllObjectsController: RequestHandler = async (req, res, next) => {
   try {
     const locale = req.query?.locale || 'nl';
     const type = (req.query?.type as string) || '';
+    const typeUrl = req.query?.type ? new URL(req.query?.type as string) : '';
+    const isURL = typeof typeUrl === 'object';
+    const isVac = isURL && typeUrl.pathname.split('/').includes('vac');
+    const isKennisartikel = isURL && typeUrl.pathname.split('/').includes('kennisartikel');
     const isAuthHasToken = req.headers?.authorization?.startsWith('Token');
     const tokenAuth = isAuthHasToken ? req.headers?.authorization?.split(' ')[1] : req.headers?.authorization;
     const serverURL = getTheServerURL(req);
@@ -25,70 +38,105 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       limit: !isValidPage && !isValidPageSize ? limit : undefined,
       start: !isValidPage && !isValidPageSize ? start : undefined,
     };
-    // Fetch product data from GraphQL
-    const { data } = await fetchData<StrapiProductType>({
-      url: graphqlURL.href,
-      query: GET_ALL_PRODUCTS,
-      variables: { locale, ...paginationParams },
-      headers: {
-        Authorization: `Bearer ${tokenAuth}`,
-      },
-    });
-    // Fetch VACs data from GraphQL
-    const { data: vacData } = await fetchData<{ data: VACSData }>({
-      url: graphqlURL.href,
-      query: GET_ALL_VAC_ITEMS,
-      variables: { ...paginationParams },
-      headers: {
-        Authorization: `Bearer ${tokenAuth}`,
-      },
-    });
-
-    const vac = vacData?.vacs?.data?.map((item) => {
-      const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
-      return {
-        uuid: item.attributes.vac.uuid,
-        type: vacSchemaURL,
-        url: vacUrl,
-        record: {
-          index: parseInt(item.id, 10),
-          startAt: item.attributes.createdAt,
-          typeVersion: 1,
-          data: {
-            ...item.attributes.vac,
-            url: vacUrl,
-          },
-          geometry: null,
-          endAt: null,
-          registrationAt: item.attributes.createdAt,
+    const fetchKennisartikelen = async () => {
+      // Fetch product data from GraphQL
+      const { data } = await fetchData<StrapiProductType>({
+        url: graphqlURL.href,
+        query: GET_ALL_PRODUCTS,
+        variables: { locale, ...paginationParams },
+        headers: {
+          Authorization: `Bearer ${tokenAuth}`,
         },
-      };
-    });
-
-    const pagination = await getPaginatedResponse(req, data?.products);
-
-    // Check if product data is available
-    const products = data?.products?.data || [];
-
-    if (products.length === 0) return res.status(200).json({ results: [] });
-    const kennisartikel = products.map(({ attributes, id }) =>
-      generateKennisartikelObject({ attributes, url: serverURL, id }),
-    );
-
+      });
+      return data;
+    };
+    const getKennisartikelData = ({ data }: StrapiProductType): GetKennisartikelReturnData[] | [] => {
+      const products = data?.products?.data || [];
+      if (products.length === 0) return [];
+      const kennisartikel = products.map(({ attributes, id }) =>
+        generateKennisartikelObject({ attributes, url: serverURL, id }),
+      );
+      return kennisartikel;
+    };
+    const fetchVac = async () => {
+      // Fetch VACs data from GraphQL
+      const { data } = await fetchData<{ data: VACSData }>({
+        url: graphqlURL.href,
+        query: GET_ALL_VAC_ITEMS,
+        variables: { ...paginationParams },
+        headers: {
+          Authorization: `Bearer ${tokenAuth}`,
+        },
+      });
+      return data;
+    };
+    const getVacData = (data: VACSData) => {
+      // return empty array if no VACs
+      if (!data?.vacs?.data?.length) return [];
+      const vac = data?.vacs?.data?.map((item) => {
+        const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
+        return {
+          uuid: item.attributes.vac.uuid,
+          type: vacSchemaURL,
+          url: vacUrl,
+          record: {
+            index: parseInt(item.id, 10),
+            startAt: item.attributes.createdAt,
+            typeVersion: 1,
+            data: {
+              ...item.attributes.vac,
+              url: vacUrl,
+            },
+            geometry: null,
+            endAt: null,
+            registrationAt: item.attributes.createdAt,
+          },
+        };
+      });
+      return vac;
+    };
     // Set response content type
     res.set('Content-Type', 'application/json');
-
     // Send results based on the requested type
-    if (type.endsWith('kennisartikel')) return res.status(200).json({ ...pagination, results: kennisartikel });
+    if (isKennisartikel) {
+      const data = await fetchKennisartikelen();
+      pagination = await getPaginatedResponse(req, data?.products);
+      const kennisartikelData = getKennisartikelData({ data });
+      results = kennisartikelData;
+    } else if (isVac) {
+      const data = await fetchVac();
+      const vac = getVacData(data);
+      pagination = await getPaginatedResponse(req, data?.vacs as any);
+      results = vac;
+    } else if (!type && !isVac && !isKennisartikel) {
+      const productsData = await fetchKennisartikelen();
+      const data = await fetchVac();
+      const kennisartikelPagination = await getPaginatedResponse(req, productsData?.products);
+      const vacPagination = await getPaginatedResponse(req, data?.vacs as any);
+      const count = [kennisartikelPagination?.count, vacPagination?.count].filter(isFiniteNumber).reduce(sum, 0);
+      const total = [kennisartikelPagination?.total, vacPagination?.total].filter(isFiniteNumber).reduce(sum, 0);
+      pagination = {
+        ...kennisartikelPagination,
+        ...vacPagination,
+        count,
+        total,
+      };
+      const kennisartikelData = getKennisartikelData({ data: productsData });
+      const vac = getVacData(data);
+      results = [...kennisartikelData, ...vac];
+    } else {
+      pagination = {
+        page: 0,
+        pageSize: 0,
+        total: 0,
+        count: 0,
+        next: null,
+        previous: null,
+      };
+      results = [];
+    }
 
-    if (type.endsWith('vac')) return res.status(200).json({ results: vac });
-
-    // If no specific type, return both kennisartikel and vac objects
-    if (vac.length > 0 && kennisartikel.length > 0)
-      return res.status(200).json({ ...pagination, results: [...kennisartikel, ...vac] });
-    if (vac.length > 0) return res.status(200).json({ ...pagination, results: [...vac] });
-    if (kennisartikel.length > 0) return res.status(200).json({ ...pagination, results: [...kennisartikel] });
-    return res.status(200).json({ ...pagination, results: [] });
+    return res.status(200).json({ ...pagination, results });
   } catch (error) {
     // Forward any errors to the error handler middleware
     next(error);

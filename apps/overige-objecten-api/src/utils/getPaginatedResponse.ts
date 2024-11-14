@@ -1,7 +1,19 @@
 import type { Request } from 'express';
-import type { Products } from '../strapi-product-type';
+import type { Products, VACSData } from '../strapi-product-type';
 
-export const getPaginatedResponse = async (req: Request, strapiResponse: Products) => {
+export type PaginationType = {
+  page?: number;
+  pageSize?: number;
+  count?: number;
+  total?: number;
+  next?: string | null;
+  previous?: string | null;
+};
+
+export const getPaginatedResponse = async (
+  req: Request,
+  strapiResponse: Products | VACSData,
+): Promise<PaginationType> => {
   if (!strapiResponse?.meta?.pagination) return {};
   // Get pagination info from Strapi response
   const { page, pageSize, pageCount, total } = strapiResponse.meta.pagination;

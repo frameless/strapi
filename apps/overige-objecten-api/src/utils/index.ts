@@ -3,6 +3,7 @@ export { envAvailability } from './envAvailability';
 export { ErrorHandler } from './errorHandler';
 export { fetchData } from './fetchData';
 export { generateKennisartikelObject } from './generateKennisartikelObject';
+export type { PaginationType } from './getPaginatedResponse';
 export { getPaginatedResponse } from './getPaginatedResponse';
 export { getTheServerURL } from './getTheServerURL';
 export { mapContentByCategory } from './mapContentByCategory';
