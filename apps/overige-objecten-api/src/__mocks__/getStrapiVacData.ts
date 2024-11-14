@@ -2,6 +2,14 @@ export const getStrapiVacData = () => {
   return {
     data: {
       vacs: {
+        meta: {
+          pagination: {
+            total: 3,
+            page: 1,
+            pageSize: 1,
+            pageCount: 1,
+          },
+        },
         data: [
           {
             id: '1',

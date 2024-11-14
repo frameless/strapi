@@ -6,7 +6,7 @@ export const getStrapiKennisartikelData = () => {
           pagination: {
             total: 1,
             page: 1,
-            pageSize: 10,
+            pageSize: 1,
             pageCount: 1,
           },
         },

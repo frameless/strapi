@@ -137,6 +137,14 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
       pageSize: $pageSize
     }
   ) {
+    meta {
+      pagination {
+        total
+        page
+        pageSize
+        pageCount
+      }
+    }
     data {
       id
       attributes {

@@ -29,13 +29,33 @@ describe('Objects controller', () => {
 
   describe('GET /api/objects', () => {
     it('should return kennisartikel & VAC by default', async () => {
+      const spy = jest
+        .spyOn(require('../../utils/getPaginatedResponse'), 'getPaginatedResponse')
+        .mockImplementation(() =>
+          Promise.resolve({
+            page: 1,
+            pageSize: 10,
+            count: 3,
+            total: 2,
+            next: null,
+            previous: null,
+          }),
+        );
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
       const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
-
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
-      expect(response.body).toStrictEqual(objectsResponseData({}));
+      expect(response.body).toStrictEqual({
+        page: 1,
+        pageSize: 10,
+        count: 6,
+        next: null,
+        previous: null,
+        total: 4,
+        ...objectsResponseData({}),
+      });
+      spy.mockRestore();
     });
     describe('pagination', () => {
       it('should response the whole data by default', async () => {
@@ -44,9 +64,9 @@ describe('Objects controller', () => {
           .mockImplementation(() =>
             Promise.resolve({
               page: 1,
-              pageSize: 10,
-              count: 1,
-              total: 100,
+              pageSize: 1,
+              count: 2,
+              total: 1,
               next: null,
               previous: null,
             }),
@@ -59,9 +79,9 @@ describe('Objects controller', () => {
         expect(response.body).toStrictEqual({
           ...objectsResponseData({}),
           page: 1,
-          pageSize: 10,
-          count: 1,
-          total: 100,
+          pageSize: 1,
+          count: 4,
+          total: 2,
           next: null,
           previous: null,
         });
@@ -75,7 +95,7 @@ describe('Objects controller', () => {
               page: 2,
               pageSize: 10,
               count: 1,
-              total: 100,
+              total: 1,
               next: 'http://localhost:4001/api/v2/objects?page=2&pageSize=10',
               previous: null,
             }),
@@ -91,8 +111,8 @@ describe('Objects controller', () => {
           ...objectsResponseData({}),
           page: 2,
           pageSize: 10,
-          count: 1,
-          total: 100,
+          count: 2,
+          total: 2,
           next: 'http://localhost:4001/api/v2/objects?page=2&pageSize=10',
           previous: null,
         });
@@ -101,17 +121,14 @@ describe('Objects controller', () => {
     });
     it('should return kennisartikel objects when type is kennisartikel', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
       const response = await request(app)
         .get(`/api/v2/objects?type=${encodeURIComponent('http://localhost:4001/api/v2/objecttypes/kennisartikel')}`)
         .set('Authorization', 'Token YOUR_API_TOKEN');
-
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(objectsResponseData({ type: 'kennisartikel' }));
     });
-    it('should return kennisartikel objects when type is vac', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
+    it('should return vac objects when type is vac', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
       const response = await request(app)
         .get(`/api/v2/objects?type=${encodeURIComponent('http://localhost:4001/api/v2/objecttypes/vac')}`)
@@ -146,14 +163,65 @@ describe('Objects controller', () => {
       expect(response.ok).toBe(false);
     });
     it('should return 200 and empty array when no data is returned', async () => {
-      const spy = jest.spyOn(require('../../utils/vacData.ts'), 'vacData').mockImplementation(() => []);
-      fetchMock.mockResponseOnce(JSON.stringify([{}]));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      const spy = jest
+        .spyOn(require('../../utils/getPaginatedResponse'), 'getPaginatedResponse')
+        .mockImplementation(() =>
+          Promise.resolve({
+            page: 1,
+            pageSize: 10,
+            count: 0,
+            total: 0,
+            next: null,
+            previous: null,
+          }),
+        );
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: {
+            vacs: {
+              meta: {
+                pagination: {
+                  total: 0,
+                  page: 1,
+                  pageSize: 0,
+                  pageCount: 0,
+                },
+              },
+              data: [],
+            },
+          },
+        }),
+      );
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: {
+            kennisartikels: {
+              meta: {
+                pagination: {
+                  total: 0,
+                  page: 1,
+                  pageSize: 0,
+                  pageCount: 0,
+                },
+              },
+              data: [],
+            },
+          },
+        }),
+      );
       const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
 
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
-      expect(response.body).toStrictEqual({ results: [] });
+      expect(response.body).toStrictEqual({
+        total: 0,
+        count: 0,
+        pageSize: 10,
+        page: 1,
+        next: null,
+        previous: null,
+        results: [],
+      });
       spy.mockRestore();
     });
     it('should return 500 when fetch fails', async () => {
@@ -208,7 +276,23 @@ describe('Objects controller', () => {
           };
         });
         const vacResponse = { data: { vacs: { data: vacData } } };
-        fetchMock.mockResponseOnce(JSON.stringify({ data: { products: { data: kennisartikelData } } }));
+        fetchMock.mockResponseOnce(
+          JSON.stringify({
+            data: {
+              products: {
+                data: kennisartikelData,
+                meta: {
+                  pagination: {
+                    total: 1,
+                    page: 1,
+                    pageSize: 1,
+                    pageCount: 1,
+                  },
+                },
+              },
+            },
+          }),
+        );
         fetchMock.mockResponseOnce(JSON.stringify(vacResponse));
         await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
 
