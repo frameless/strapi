@@ -25,7 +25,9 @@
     "express": "4.21.0",
     "express-openapi-validator": "5.3.7",
     "js-yaml": "4.1.0",
-    "swagger-ui-express": "5.0.1"
+    "swagger-ui-express": "5.0.1",
+    "lodash.merge": "4.6.2",
+    "lodash.snakecase": "4.1.1"
   },
   "devDependencies": {
     "@types/cors": "2.8.17",
@@ -41,7 +43,9 @@
     "ts-jest": "29.2.3",
     "ts-node": "10.9.2",
     "typescript": "5.0.4",
-    "jest-fetch-mock": "3.0.3"
+    "jest-fetch-mock": "3.0.3",
+    "@types/lodash.merge": "4.6.9",
+    "@types/lodash.snakecase": "4.1.9"
   },
   "repository": {
     "type": "git+ssh",
