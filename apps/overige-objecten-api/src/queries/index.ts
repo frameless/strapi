@@ -70,7 +70,7 @@ query getAllProducts(
           productValtOnder
           afdelingen {
             afdelingId
-            afdelingnaam
+            afdelingNaam
           }
           verantwoordelijkeOrganisatie {
             owmsIdentifier
@@ -138,7 +138,7 @@ export const GET_PRODUCT_BY_UUID = gql(`
                 productValtOnder
                 afdelingen {
                   afdelingId
-                  afdelingnaam
+                  afdelingNaam
                 }
                 verantwoordelijkeOrganisatie {
                   owmsIdentifier
@@ -177,13 +177,13 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
         updatedAt
         vac {
           uuid
-          vraag: label
-          antwoord: body
+          vraag
+          antwoord
           status
           doelgroep
           afdelingen {
             afdelingId
-            afdelingnaam
+            afdelingNaam
           }
           toelichting
           trefwoorden {
@@ -207,13 +207,13 @@ query getVacItemByUUID($uuid: String) {
         updatedAt
         vac {
           uuid
-          vraag: label
-          antwoord: body
+          vraag
+          antwoord
           status
           doelgroep
           afdelingen {
             afdelingId
-            afdelingnaam
+            afdelingNaam
           }
           toelichting
           trefwoorden {

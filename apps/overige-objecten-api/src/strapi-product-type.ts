@@ -105,7 +105,7 @@ export interface KennisartikelMetadata {
 
 export interface Afdelingen {
   afdelingId: string;
-  afdelingnaam: string;
+  afdelingNaam: string;
 }
 
 export interface VerantwoordelijkeOrganisatie {

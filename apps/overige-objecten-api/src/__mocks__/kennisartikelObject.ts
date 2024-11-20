@@ -27,7 +27,7 @@ export const kennisartikelObject = () => ({
       afdelingen: [
         {
           afdelingId: '463de311-fbe3-48d8-bd87-722de5c80b04',
-          afdelingnaam: 'Demo Afdeling',
+          afdelingNaam: 'Demo Afdeling',
         },
       ],
       beschikbareTalen: ['nl'],
