@@ -114,6 +114,56 @@ paths:
                       registrationAt: "2024-08-05"
                       correctionFor: null
                       correctedBy: null
+    post:
+      security:
+        - TokenAuth: []
+      summary: Create a new object
+      operationId: createObject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "#/components/schemas/postObject"
+      responses:
+        "201":
+          description: Object created successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ObjectData"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Bad Request"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Forbidden"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal Server Error"
 
   /objects/{uuid}:
     get:
@@ -183,6 +233,73 @@ paths:
                   error:
                     type: string
                     example: "Internal Server Error"
+    put:
+      security:
+        - TokenAuth: []
+      summary: Update an existing object
+      operationId: updateObject
+      parameters:
+        - in: path
+          name: uuid
+          required: true
+          description: The unique identifier of the object
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "#/components/schemas/PatchedObject"
+      responses:
+        "200":
+          description: Object updated successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ObjectData"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Bad Request"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Forbidden"
+        "404":
+          description: Object not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Object not found"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal Server Error"
 
 components:
   securitySchemes:
@@ -218,8 +335,8 @@ components:
             data:
               description: Object data, based on OBJECTTYPE
               oneOf:
-                - $ref: "#/components/schemas/kennisartikel"
                 - $ref: "#/components/schemas/vac"
+                - $ref: "#/components/schemas/kennisartikel"
             geometry:
               allOf:
                 - $ref: "#/components/schemas/GeoJSONGeometry"
@@ -260,6 +377,69 @@ components:
           required:
             - startAt
             - typeVersion
+    PatchedObject:
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          description: The OBJECTTYPE of the object
+        record:
+          type: object
+          properties:
+            index:
+              type: integer
+              readOnly: true
+              description: Incremental index number of the object record.
+            typeVersion:
+              type: integer
+              maximum: 32767
+              minimum: 0
+              description: Version of the OBJECTTYPE for data in the object record
+            data:
+              description: Object data, based on OBJECTTYPE
+              oneOf:
+                - $ref: "#/components/schemas/vacObject"
+                - $ref: "#/components/schemas/kennisartikel"
+            geometry:
+              allOf:
+                - $ref: "#/components/schemas/GeoJSONGeometry"
+              nullable: true
+              type: object
+              description:
+                Point, linestring or polygon object which represents the coordinates
+                of the object. Geometry can be added only if the related OBJECTTYPE allows
+                this (`OBJECTTYPE.allowGeometry = true` or `OBJECTTYPE.allowGeometry`
+                doesn't exist)
+            startAt:
+              type: string
+              format: date
+              description: Legal start date of the object record
+            endAt:
+              type: string
+              format: date
+              readOnly: true
+              nullable: true
+              description: Legal end date of the object record
+            registrationAt:
+              type: string
+              format: date
+              readOnly: true
+              description: The date when the record was registered in the system
+            correctionFor:
+              type: integer
+              maximum: 2147483647
+              minimum: 0
+              description: Index of the record corrected by the current record
+              readOnly: true
+            correctedBy:
+              type: integer
+              maximum: 2147483647
+              minimum: 0
+              description: Index of the record, which corrects the current record
+              readOnly: true
+      required:
+        - type
     kennisartikel:
       type: object
       title: SDG Kennisartikel
@@ -362,13 +542,13 @@ components:
           items:
             type: object
             required:
-              - afdelingnaam
+              - afdelingNaam
             properties:
               afdelingId:
                 type: string
                 title: Identifier Afdeling
                 description: De unieke identifier van de afdeling.
-              afdelingnaam:
+              afdelingNaam:
                 type: string
                 title: Naam Afdeling
                 description: De naam van de afdeling.
@@ -476,7 +656,6 @@ components:
           items:
             type: string
     vac:
-      type: object
       title: VAC
       required:
         - vraag
@@ -484,98 +663,9 @@ components:
         - antwoord
         - doelgroep
         - url
-      properties:
-        url:
-          type: string
-          title: JSON Schema
-          description: De URI van het JSON Schema van dit object.
-          format: uri
-          nullable: true
-        vraag:
-          type: string
-          title: De vraag
-          description: De vraag waar de VAC antwoord op geeft.
-        status:
-          enum:
-            - actief
-            - non-actief
-            - te-verwijderen
-          type: string
-          title: Status van de VAC
-          description: De actuele status van de VAC, is deze nog actueel of niet.
-        antwoord:
-          type: string
-          description: Het antwoord op de bij 'vraag' gestelde vraag.
-        doelgroep:
-          type: string
-          enum:
-            - eu-burger
-            - eu-bedrijf
-            - eu-burger-bedrijf
-          description: De doelgroep van de VAC.
-        afdelingen:
-          type: array
-          title: Gerelateerde Afdelingen
-          description: Afdelingen aan wie de VAC gerelateerd is.
-          items:
-            type: object
-            required:
-              - afdelingId
-              - afdelingNaam
-            properties:
-              afdelingId:
-                type: string
-                description: De unieke identifier van de afdeling.
-              afdelingNaam:
-                type: string
-                description: De naam van de afdeling.
-        toelichting:
-          type: string
-          description:
-            Een toelichting bij de VAC ten behoeve van de medewerker van het
-            contactcentrum.
-        trefwoorden:
-          type: array
-          title: Trefwoorden
-          description: Trefwoorden die passen bij de VAC.
-          items:
-            type: object
-            required:
-              - trefwoord
-            properties:
-              trefwoord:
-                type: string
-                description: Een trefwoord.
-        gerelateerdeVACs:
-          type: array
-          title: Gerelateerde VACs
-          description: VACs die gerelateerd zijn aan de VAC.
-          items:
-            type: object
-            required:
-              - VAC
-            properties:
-              VAC:
-                type: string
-                format: uri
-                description: De URI van de gerelateerde VAC.
-        gerelateerdeProducten:
-          type: array
-          items:
-            type: object
-            required:
-              - product
-              - productNaam
-            properties:
-              product:
-                type: string
-                format: uri
-                description: De URI van het gerelateerde product.
-              productNaam:
-                type: string
-                description: De naam van het gerelateerde product.
-          title: Gerelateerde Producten
-          description: Producten die gerelateerd zijn aan de VAC.
+      allOf:
+        - $ref: "#/components/schemas/vacObject"
+        - type: object
     GeoJSONGeometry:
       oneOf:
         - $ref: "#/components/schemas/Point"
@@ -727,3 +817,156 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/Geometry"
+    vacObject:
+      type: object
+      title: VAC Object
+      properties:
+        url:
+          type: string
+          title: JSON Schema
+          description: De URI van het JSON Schema van dit object.
+          format: uri
+          nullable: true
+        vraag:
+          type: string
+          title: De vraag
+          description: De vraag waar de VAC antwoord op geeft.
+        status:
+          enum:
+            - actief
+            - non-actief
+            - te-verwijderen
+          type: string
+          title: Status van de VAC
+          description: De actuele status van de VAC, is deze nog actueel of niet.
+        antwoord:
+          type: string
+          description: Het antwoord op de bij 'vraag' gestelde vraag.
+        doelgroep:
+          type: string
+          enum:
+            - eu-burger
+            - eu-bedrijf
+            - eu-burger-bedrijf
+          description: De doelgroep van de VAC.
+        afdelingen:
+          type: array
+          title: Gerelateerde Afdelingen
+          description: Afdelingen aan wie de VAC gerelateerd is.
+          items:
+            type: object
+            required:
+              - afdelingNaam
+            properties:
+              afdelingId:
+                type: string
+                description: De unieke identifier van de afdeling.
+              afdelingNaam:
+                type: string
+                description: De naam van de afdeling.
+        toelichting:
+          type: string
+          description:
+            Een toelichting bij de VAC ten behoeve van de medewerker van het
+            contactcentrum.
+        trefwoorden:
+          type: array
+          title: Trefwoorden
+          description: Trefwoorden die passen bij de VAC.
+          items:
+            type: object
+            required:
+              - trefwoord
+            properties:
+              trefwoord:
+                type: string
+                description: Een trefwoord.
+        gerelateerdeVACs:
+          type: array
+          title: Gerelateerde VACs
+          description: VACs die gerelateerd zijn aan de VAC.
+          items:
+            type: object
+            required:
+              - VAC
+            properties:
+              VAC:
+                type: string
+                format: uri
+                description: De URI van de gerelateerde VAC.
+        gerelateerdeProducten:
+          type: array
+          items:
+            type: object
+            required:
+              - product
+              - productNaam
+            properties:
+              product:
+                type: string
+                format: uri
+                description: De URI van het gerelateerde product.
+              productNaam:
+                type: string
+                description: De naam van het gerelateerde product.
+          title: Gerelateerde Producten
+          description: Producten die gerelateerd zijn aan de VAC.
+    postObject:
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          description: The OBJECTTYPE of the object
+        record:
+          type: object
+          properties:
+            typeVersion:
+              type: integer
+              maximum: 32767
+              minimum: 0
+              description: Version of the OBJECTTYPE for data in the object record
+            data:
+              description: Object data, based on OBJECTTYPE
+              oneOf:
+                - $ref: "#/components/schemas/vacObject"
+                - $ref: "#/components/schemas/kennisartikel"
+            geometry:
+              allOf:
+                - $ref: "#/components/schemas/GeoJSONGeometry"
+              nullable: true
+              type: object
+              description:
+                Point, linestring or polygon object which represents the coordinates
+                of the object. Geometry can be added only if the related OBJECTTYPE allows
+                this (`OBJECTTYPE.allowGeometry = true` or `OBJECTTYPE.allowGeometry`
+                doesn't exist)
+            startAt:
+              type: string
+              format: date
+              description: Legal start date of the object record
+            endAt:
+              type: string
+              format: date
+              readOnly: true
+              nullable: true
+              description: Legal end date of the object record
+            registrationAt:
+              type: string
+              format: date
+              readOnly: true
+              description: The date when the record was registered in the system
+            correctionFor:
+              type: integer
+              maximum: 2147483647
+              minimum: 0
+              description: Index of the record corrected by the current record
+              readOnly: true
+            correctedBy:
+              type: integer
+              maximum: 2147483647
+              minimum: 0
+              description: Index of the record, which corrects the current record
+              readOnly: true
+      required:
+        - type

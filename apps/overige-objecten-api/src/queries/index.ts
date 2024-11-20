@@ -225,3 +225,64 @@ query getVacItemByUUID($uuid: String) {
   }
 }
 `);
+export const CREATE_VAC = gql(`
+  mutation createVac($data: VacInput!) {
+  createVac(data: $data){
+    data {
+      id
+      attributes {
+        createdAt
+        publishedAt
+        vac {
+          id
+          vraag
+					antwoord
+          status
+          doelgroep
+          uuid
+          toelichting
+          afdelingen {
+            afdelingId
+            afdelingNaam
+          }
+          trefwoorden {
+             id
+            trefwoord
+          }
+        }
+      }
+    }
+  }
+}
+`);
+
+export const UPDATE_VAC = gql(`
+mutation updateVac ($data: VacInput!, $id: ID!){
+  updateVac(id: $id, data: $data){
+    data {
+      id
+      attributes {
+        createdAt
+        publishedAt
+        vac {
+          id
+          vraag
+					antwoord
+          status
+          doelgroep
+          uuid
+          toelichting
+          afdelingen {
+            afdelingId
+            afdelingNaam
+          }
+          trefwoorden {
+             id
+            trefwoord
+          }
+        }
+      }
+    }
+  }
+}
+`);
