@@ -6,10 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "label": {
+    "vraag": {
       "type": "string"
     },
-    "body": {
+    "antwoord": {
       "type": "richtext"
     },
     "status": {

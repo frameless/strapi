@@ -430,7 +430,7 @@
           "kennisartikelMetadata.productAanwezig",
           "kennisartikelMetadata.productValtOnder",
           "kennisartikelMetadata.afdelingen.afdelingId",
-          "kennisartikelMetadata.afdelingen.afdelingnaam",
+          "kennisartikelMetadata.afdelingen.afdelingNaam",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
@@ -512,7 +512,7 @@
           "kennisartikelMetadata.productAanwezig",
           "kennisartikelMetadata.productValtOnder",
           "kennisartikelMetadata.afdelingen.afdelingId",
-          "kennisartikelMetadata.afdelingen.afdelingnaam",
+          "kennisartikelMetadata.afdelingen.afdelingNaam",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
@@ -576,7 +576,7 @@
           "kennisartikelMetadata.productAanwezig",
           "kennisartikelMetadata.productValtOnder",
           "kennisartikelMetadata.afdelingen.afdelingId",
-          "kennisartikelMetadata.afdelingen.afdelingnaam",
+          "kennisartikelMetadata.afdelingen.afdelingNaam",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
@@ -676,12 +676,12 @@
       "subject": "api::vac.vac",
       "properties": {
         "fields": [
-          "vac.label",
-          "vac.body",
+          "vac.vraag",
+          "vac.antwoord",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
-          "vac.afdelingen.afdelingnaam",
+          "vac.afdelingen.afdelingNaam",
           "vac.uuid",
           "vac.toelichting",
           "vac.trefwoorden.trefwoord"
@@ -709,12 +709,12 @@
       "subject": "api::vac.vac",
       "properties": {
         "fields": [
-          "vac.label",
-          "vac.body",
+          "vac.vraag",
+          "vac.antwoord",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
-          "vac.afdelingen.afdelingnaam",
+          "vac.afdelingen.afdelingNaam",
           "vac.uuid",
           "vac.toelichting",
           "vac.trefwoorden.trefwoord"
@@ -728,12 +728,12 @@
       "subject": "api::vac.vac",
       "properties": {
         "fields": [
-          "vac.label",
-          "vac.body",
+          "vac.vraag",
+          "vac.antwoord",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
-          "vac.afdelingen.afdelingnaam",
+          "vac.afdelingen.afdelingNaam",
           "vac.uuid",
           "vac.toelichting",
           "vac.trefwoorden.trefwoord"
