@@ -104,14 +104,14 @@
       "description": "De afdeling of afdelingen die de teksten van dit product beheert.",
       "items": {
         "type": "object",
-        "required": ["afdelingnaam"],
+        "required": ["afdelingNaam"],
         "properties": {
           "afdelingId": {
             "type": "string",
             "title": "Identifier Afdeling",
             "description": "De unieke identifier van de afdeling."
           },
-          "afdelingnaam": {
+          "afdelingNaam": {
             "type": "string",
             "title": "Naam Afdeling",
             "description": "De naam van de afdeling."

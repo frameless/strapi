@@ -36,7 +36,7 @@
       "description": "Afdelingen aan wie de VAC gerelateerd is.",
       "items": {
         "type": "object",
-        "required": ["afdelingId", "afdelingNaam"],
+        "required": ["afdelingNaam"],
         "properties": {
           "afdelingId": {
             "type": "string",
