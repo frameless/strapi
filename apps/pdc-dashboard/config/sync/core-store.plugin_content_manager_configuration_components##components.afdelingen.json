@@ -6,7 +6,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "afdelingnaam",
+      "mainField": "afdelingNaam",
       "defaultSortBy": "afdelingId",
       "defaultSortOrder": "ASC"
     },
@@ -33,23 +33,23 @@
           "sortable": true
         }
       },
-      "afdelingnaam": {
+      "afdelingNaam": {
         "edit": {
-          "label": "Naam Afdeling",
-          "description": "De naam van de afdeling.",
+          "label": "Afdeling Naam",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "afdelingnaam",
+          "label": "afdelingNaam",
           "searchable": true,
           "sortable": true
         }
       }
     },
     "layouts": {
-      "list": ["id", "afdelingId", "afdelingnaam"],
+      "list": ["id", "afdelingId", "afdelingNaam"],
       "edit": [
         [
           {
@@ -57,7 +57,7 @@
             "size": 6
           },
           {
-            "name": "afdelingnaam",
+            "name": "afdelingNaam",
             "size": 6
           }
         ]
