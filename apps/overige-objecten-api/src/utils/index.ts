@@ -9,8 +9,6 @@ export { getTheServerURL } from './getTheServerURL';
 export { mapContentByCategory } from './mapContentByCategory';
 export { processToDeskMemo } from './processToDeskMemo';
 export { readFile } from './readFile';
-export { vacData } from './vacData';
 export type { CombineSimilarCategoriesProps } from './combineSimilarCategories';
 export type { PaginationType } from './getPaginatedResponse';
 export type { ProcessToDeskMemoData } from './processToDeskMemo';
-export type { VACType } from './vacData';
