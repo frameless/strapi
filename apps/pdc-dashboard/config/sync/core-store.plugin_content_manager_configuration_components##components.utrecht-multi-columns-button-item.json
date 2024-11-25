@@ -34,6 +34,20 @@
           "sortable": true
         }
       },
+      "kennisartikelCategorie": {
+        "edit": {
+          "label": "kennisartikelCategorie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "kennisartikelCategorie",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "logoButton": {
         "edit": {
           "label": "CTA-knop",
@@ -50,7 +64,7 @@
       }
     },
     "layouts": {
-      "list": ["id", "title", "logoButton"],
+      "list": ["id", "title", "logoButton", "kennisartikelCategorie"],
       "edit": [
         [
           {
@@ -62,6 +76,12 @@
           {
             "name": "logoButton",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "kennisartikelCategorie",
+            "size": 6
           }
         ]
       ]

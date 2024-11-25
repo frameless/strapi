@@ -6,7 +6,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "afdelingNaam",
+      "mainField": "afdelingId",
       "defaultSortBy": "afdelingId",
       "defaultSortOrder": "ASC"
     },
@@ -35,7 +35,7 @@
       },
       "afdelingNaam": {
         "edit": {
-          "label": "Afdeling Naam",
+          "label": "afdelingNaam",
           "description": "",
           "placeholder": "",
           "visible": true,
