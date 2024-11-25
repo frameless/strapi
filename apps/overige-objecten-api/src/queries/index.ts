@@ -40,26 +40,125 @@ query getAllProducts(
           description
         }
         sections {
+          ... on ComponentComponentsInternalBlockContent {
+                component: __typename
+                internal_field {
+                  data {
+                    attributes {
+                      content {
+                        uuid
+                        contentBlock {
+                          content
+                          kennisartikelCategorie
+                        }
+                      }
+                    }
+                  }
+                }
+              }
           ... on ComponentComponentsUtrechtRichText {
             id
             content
             kennisartikelCategorie
             component: __typename
           }
-          ... on ComponentComponentsInternalBlockContent {
+          ... on ComponentComponentsUtrechtImage {
             component: __typename
-            internal_field {
+            categorie2:kennisartikelCategorie
+            imageData {
               data {
                 attributes {
-                  content {
-                    uuid
-                    contentBlock {
-                      content
-                      kennisartikelCategorie
-                    }
+                  name
+                  alternativeText
+                  caption
+                  width
+                  height
+                  formats
+                  url
+                }
+              }
+            }
+          }
+          ... on ComponentComponentsUtrechtLogoButton {
+            component: __typename
+            categorie3:kennisartikelCategorie
+            appearance
+            href
+            label
+            logo
+            openFormsEmbed
+            textContent
+          }
+          ... on ComponentComponentsUtrechtSpotlight {
+            component: __typename
+            categorie4:kennisartikelCategorie
+            content
+            type
+            logoButton {
+              id
+              label
+              href
+              textContent
+              logo
+              appearance
+              __typename
+            }
+          }
+          ... on ComponentComponentsUtrechtRichText {
+            component: __typename
+            categorie5:kennisartikelCategorie
+            content
+          }
+          ... on ComponentComponentsUtrechtMultiColumnsButton {
+            component: __typename
+            categorie6:kennisartikelCategorie
+            column {
+              id
+              title
+              logoButton {
+                component: __typename
+                appearance
+                href
+                label
+                logo
+                openFormsEmbed
+                textContent
+              }
+            }
+          }
+          ... on ComponentComponentsUtrechtLink {
+            component: __typename
+            categorie7:kennisartikelCategorie
+            href
+            textContent
+            icon
+            language
+          }
+          ... on ComponentComponentsFaq {
+            component: __typename
+            categorie8:kennisartikelCategorie
+            pdc_faq {
+              data {
+                attributes {
+                  title
+                  faq(pagination: { start: 0, limit: -1 }) {
+                    body
+                    headingLevel
+                    id
+                    label
                   }
                 }
               }
+            }
+          }
+          ... on ComponentComponentsUtrechtAccordion {
+            component: __typename
+            categorie9:kennisartikelCategorie
+            item(pagination: { start: 0, limit: -1 }) {
+              body
+              headingLevel
+              id
+              label
             }
           }
         }
@@ -83,7 +182,6 @@ query getAllProducts(
     }
   }
 }
-
 `);
 
 export const GET_PRODUCT_BY_UUID = gql(`
@@ -108,12 +206,6 @@ export const GET_PRODUCT_BY_UUID = gql(`
               description
             }
             sections {
-              ... on ComponentComponentsUtrechtRichText {
-                id
-                content
-                kennisartikelCategorie
-                component:__typename
-              }
               ... on ComponentComponentsInternalBlockContent {
                 component: __typename
                 internal_field {
@@ -130,6 +222,111 @@ export const GET_PRODUCT_BY_UUID = gql(`
                   }
                 }
               }
+          ... on ComponentComponentsUtrechtRichText {
+            id
+            content
+            kennisartikelCategorie
+            component: __typename
+          }
+          ... on ComponentComponentsUtrechtImage {
+            component: __typename
+            categorie2:kennisartikelCategorie
+            imageData {
+              data {
+                attributes {
+                  name
+                  alternativeText
+                  caption
+                  width
+                  height
+                  formats
+                  url
+                }
+              }
+            }
+          }
+          ... on ComponentComponentsUtrechtLogoButton {
+            component: __typename
+            categorie3:kennisartikelCategorie
+            appearance
+            href
+            label
+            logo
+            openFormsEmbed
+            textContent
+          }
+          ... on ComponentComponentsUtrechtSpotlight {
+            component: __typename
+            categorie4:kennisartikelCategorie
+            content
+            type
+            logoButton {
+              id
+              label
+              href
+              textContent
+              logo
+              appearance
+              __typename
+            }
+          }
+          ... on ComponentComponentsUtrechtRichText {
+            component: __typename
+            categorie5:kennisartikelCategorie
+            content
+          }
+          ... on ComponentComponentsUtrechtMultiColumnsButton {
+            component: __typename
+            categorie6:kennisartikelCategorie
+            column {
+              id
+              title
+              logoButton {
+                component: __typename
+                appearance
+                href
+                label
+                logo
+                openFormsEmbed
+                textContent
+              }
+            }
+          }
+          ... on ComponentComponentsUtrechtLink {
+            component: __typename
+            categorie7:kennisartikelCategorie
+            href
+            textContent
+            icon
+            language
+          }
+          ... on ComponentComponentsFaq {
+            component: __typename
+            categorie8:kennisartikelCategorie
+            pdc_faq {
+              data {
+                attributes {
+                  title
+                  faq(pagination: { start: 0, limit: -1 }) {
+                    body
+                    headingLevel
+                    id
+                    label
+                  }
+                }
+              }
+            }
+          }
+          ... on ComponentComponentsUtrechtAccordion {
+            component: __typename
+            categorie9:kennisartikelCategorie
+            item(pagination: { start: 0, limit: -1 }) {
+              body
+              headingLevel
+              id
+              label
+            }
+          }
             }
             kennisartikelMetadata {
                 uuid
