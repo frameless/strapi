@@ -135,3 +135,4 @@ dist/
 # overige-objecten-api
 ############################
 apps/overige-objecten-api/src/types
+output-html

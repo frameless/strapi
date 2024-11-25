@@ -1,9 +1,7 @@
-import { combineSimilarCategories } from './combineSimilarCategories';
-import { mapContentByCategory } from './mapContentByCategory';
+import { combineSimilarCategories, createHTMLFiles, normalizeCategories, processData } from './index';
 import { processToDeskMemo } from './processToDeskMemo';
 import { Attributes } from '../strapi-product-type';
 import { components } from '../types/openapi';
-
 interface GenerateKennisartikelObjectTypes {
   attributes: Attributes;
   url: string;
@@ -15,19 +13,16 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
   const trefwoorden = metaTags?.keymatch?.split(', ').map((trefwoord: string) => ({ trefwoord })) || [];
   const kennisartikelMetadata = attributes.kennisartikelMetadata;
   const publicatieDatum = new Date(attributes.createdAt).toISOString().split('T')[0];
-  const contentBlock = attributes?.sections
-    .filter(({ component }) => component === 'ComponentComponentsUtrechtRichText')
-    .map(({ kennisartikelCategorie, content }) => mapContentByCategory(kennisartikelCategorie, content));
   const getInternalBlockComponent = attributes?.sections.find(
     ({ component }) => component === 'ComponentComponentsInternalBlockContent',
   );
 
   const deskMemoInternalBlock = getInternalBlockComponent?.internal_field?.data?.attributes?.content?.contentBlock;
   const { deskMemo } = deskMemoInternalBlock ? processToDeskMemo(deskMemoInternalBlock) : { deskMemo: '' };
+  const sections = combineSimilarCategories(processData(normalizeCategories(attributes?.sections)));
 
-  // combine similar categories
-  const reducedContentBlock = combineSimilarCategories(contentBlock);
-  const bothContentBlock = { ...reducedContentBlock, deskMemo };
+  const bothContentBlock = { ...sections, deskMemo };
+  createHTMLFiles(bothContentBlock);
   const vertalingen = [
     {
       ...bothContentBlock,
