@@ -61,10 +61,24 @@
           "searchable": false,
           "sortable": false
         }
+      },
+      "kennisartikelCategorie": {
+        "edit": {
+          "label": "kennisartikelCategorie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "kennisartikelCategorie",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "type", "logoButton"],
+      "list": ["id", "type", "logoButton", "kennisartikelCategorie"],
       "edit": [
         [
           {
@@ -82,6 +96,12 @@
           {
             "name": "logoButton",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "kennisartikelCategorie",
+            "size": 6
           }
         ]
       ]

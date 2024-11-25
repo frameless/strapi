@@ -156,7 +156,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"],
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel", "faq.kennisartikelCategorie"],
         "locales": ["en", "nl"]
       },
       "conditions": []
@@ -184,7 +184,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"],
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel", "faq.kennisartikelCategorie"],
         "locales": ["en", "nl"]
       },
       "conditions": []
@@ -194,7 +194,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel"],
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel", "faq.kennisartikelCategorie"],
         "locales": ["en", "nl"]
       },
       "conditions": []
