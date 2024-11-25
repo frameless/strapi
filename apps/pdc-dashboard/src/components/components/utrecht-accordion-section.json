@@ -17,6 +17,21 @@
       "default": 2,
       "max": 6,
       "min": 2
+    },
+    "kennisartikelCategorie": {
+      "type": "enumeration",
+      "enum": [
+        "inleiding",
+        "aanvraag",
+        "bewijs",
+        "voorwaarden",
+        "bezwaar",
+        "kosten",
+        "termijn",
+        "wat te doen bij geen reactie",
+        "bijzonderheden",
+        "contact"
+      ]
     }
   }
 }

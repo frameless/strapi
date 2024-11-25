@@ -33,15 +33,35 @@
           "searchable": false,
           "sortable": false
         }
+      },
+      "kennisartikelCategorie": {
+        "edit": {
+          "label": "kennisartikelCategorie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "kennisartikelCategorie",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "item"],
+      "list": ["id", "item", "kennisartikelCategorie"],
       "edit": [
         [
           {
             "name": "item",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "kennisartikelCategorie",
+            "size": 6
           }
         ]
       ]

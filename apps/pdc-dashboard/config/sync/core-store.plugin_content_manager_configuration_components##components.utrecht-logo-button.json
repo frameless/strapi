@@ -103,6 +103,20 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "kennisartikelCategorie": {
+        "edit": {
+          "label": "kennisartikelCategorie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "kennisartikelCategorie",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
@@ -135,6 +149,12 @@
           },
           {
             "name": "openFormsEmbed",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "kennisartikelCategorie",
             "size": 6
           }
         ]
