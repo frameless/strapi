@@ -53,7 +53,22 @@ export interface Datum {
   id: string;
   attributes: Attributes;
 }
+export interface Price {
+  currency: string;
+  label: string;
+  value: string;
+  uuid: string;
+}
 
+interface PriceAttributes {
+  price: Price[];
+}
+export interface PriceData {
+  data: PriceDataAttributes;
+}
+export interface PriceDataAttributes {
+  attributes: PriceAttributes;
+}
 export interface Attributes {
   title: string;
   slug: string;
@@ -66,6 +81,7 @@ export interface Attributes {
   kennisartikelMetadata: KennisartikelMetadata;
   kennisartikel: Kennisartikel;
   vac: RootObjectVacItem;
+  price: PriceData;
 }
 export interface InternalField {
   data: InternalFieldData;
