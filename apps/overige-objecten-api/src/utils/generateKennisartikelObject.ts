@@ -16,10 +16,12 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
   const getInternalBlockComponent = attributes?.sections.find(
     ({ component }) => component === 'ComponentComponentsInternalBlockContent',
   );
-
+  const priceData = attributes?.price?.data?.attributes?.price;
   const deskMemoInternalBlock = getInternalBlockComponent?.internal_field?.data?.attributes?.content?.contentBlock;
   const { deskMemo } = deskMemoInternalBlock ? processToDeskMemo(deskMemoInternalBlock) : { deskMemo: '' };
-  const sections = combineSimilarCategories(processData(normalizeCategories(attributes?.sections)));
+  const sections = combineSimilarCategories(
+    processData({ data: normalizeCategories(attributes?.sections), priceData }),
+  );
 
   const bothContentBlock = { ...sections, deskMemo };
   createHTMLFiles(bothContentBlock);

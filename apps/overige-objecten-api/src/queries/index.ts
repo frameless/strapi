@@ -162,6 +162,19 @@ query getAllProducts(
             }
           }
         }
+        price {
+          data {
+            attributes {
+              price( pagination: {start: 0, limit: -1} ) {
+                currency
+                id
+                label
+                uuid
+                value
+              }
+            }
+          }
+        }
         kennisartikelMetadata {
           uuid
           doelgroep
@@ -327,6 +340,19 @@ export const GET_PRODUCT_BY_UUID = gql(`
               label
             }
           }
+            }
+            price {
+              data {
+                attributes {
+                  price( pagination: {start: 0, limit: -1} ) {
+                    currency
+                    id
+                    label
+                    uuid
+                    value
+                  }
+                }
+              }
             }
             kennisartikelMetadata {
                 uuid
