@@ -28,13 +28,16 @@
     "swagger-ui-express": "5.0.1",
     "lodash.merge": "4.6.2",
     "lodash.snakecase": "4.1.1",
+    "lodash.memoize": "4.1.2",
     "react": "18.2.0",
     "@utrecht/web-component-library-react": "3.0.0",
     "@utrecht/component-library-react": "7.3.5",
-    "@frameless/ui": "0.1.0"
+    "@frameless/ui": "0.1.0",
+    "dompurify": "3.2.1"
   },
   "devDependencies": {
     "@types/cors": "2.8.17",
+    "@types/dompurify": "3.2.0",
     "@types/jest": "29.5.12",
     "@types/supertest": "6.0.2",
     "@types/swagger-ui-express": "4.1.6",
@@ -49,7 +52,8 @@
     "typescript": "5.0.4",
     "jest-fetch-mock": "3.0.3",
     "@types/lodash.merge": "4.6.9",
-    "@types/lodash.snakecase": "4.1.9"
+    "@types/lodash.snakecase": "4.1.9",
+    "@types/lodash.memoize": "4.1.9"
   },
   "repository": {
     "type": "git+ssh",

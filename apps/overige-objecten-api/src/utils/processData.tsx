@@ -8,11 +8,20 @@ import {
 } from './index';
 import { AccordionSection, type AccordionSectionProps } from '../components/AccordionSection';
 import { Markdown } from '../components/Markdown';
+import type { Price } from '../strapi-product-type';
 
-export const processData = (data: any) =>
+interface ProcessDataParams {
+  data: any;
+  priceData?: Price[];
+}
+
+export const processData = ({ data, priceData }: ProcessDataParams) =>
   data.map((item: any) => {
     if (item.component === 'ComponentComponentsUtrechtRichText') {
-      return mapContentByCategory(item.categorie, renderToString(<Markdown>{item?.content}</Markdown>));
+      return mapContentByCategory(
+        item.categorie,
+        renderToString(<Markdown priceData={priceData}>{item?.content}</Markdown>),
+      );
     }
     if (item.component === 'ComponentComponentsUtrechtLogoButton') {
       const mappedContent = mapContentByCategory(item.categorie, convertLogoButtonToHTML(item));
