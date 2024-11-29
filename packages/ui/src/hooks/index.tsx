@@ -1,3 +1,5 @@
+export { useClickOutside } from './useClickOutside';
 export { useDialog } from './useDialog';
-export * from './useClickOutside';
-export * from './useScreenSize';
+export { useLockBody } from './useLockBody';
+export { useScreenSize } from './useScreenSize';
+export type { UseLockBodyProps } from './useLockBody';

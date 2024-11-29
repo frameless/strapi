@@ -12,7 +12,7 @@ describe('Markdown', () => {
   });
   it('should render the Markdown component with richtext class', () => {
     const { container } = render(<Markdown>Hello World!</Markdown>);
-    const text = container.querySelector('.utrecht-rich-text');
+    const text = container.querySelector(':only-child');
     expect(text).toBeInTheDocument();
   });
   it('should render custom component', () => {
