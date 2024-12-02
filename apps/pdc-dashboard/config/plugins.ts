@@ -57,6 +57,7 @@ export default ({ env }) => ({
     config: {
       api_url: env('OPEN_FORMS_API_URL'),
       token: env('OPEN_FORMS_API_TOKEN'),
+      embed_url: env('FRONTEND_PUBLIC_URL'),
     },
   },
   upload: {
