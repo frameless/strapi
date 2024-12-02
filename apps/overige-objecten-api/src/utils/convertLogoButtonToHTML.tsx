@@ -61,9 +61,9 @@ export const LogoButton = ({ item, headingLevel, withDesignSystem = false }: Log
     const parsOpenFormsEmbedData = new URLSearchParams(openFormsEmbed);
     const slug = parsOpenFormsEmbedData.get('slug');
     const label = parsOpenFormsEmbedData.get('label');
-    const pdcFrontendURL = 'http://localhost:3000'; //TODO use env variable or update strapi-plugin-open-forms-embed package to send the frontend URL
+    const embed_url = parsOpenFormsEmbedData.get('embed_url');
     return {
-      href: `${pdcFrontendURL}/form/${slug}`,
+      href: embed_url ? new URL(`/form/${slug}`, embed_url).href : '',
       textContent: label,
     };
   };
