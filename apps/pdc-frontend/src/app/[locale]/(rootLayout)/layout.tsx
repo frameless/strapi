@@ -230,12 +230,13 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
           </Surface>
         </QueryClientProvider>
         <MatomoTagManager
+          strategy="afterInteractive"
           nonce={nonce}
           src={`${process.env.MATOMO_HOST}/analytics/js/container_${process.env.MATOMO_SITE_ID}.js`}
         />
-        <SiteImproveAnalytics nonce={nonce} />
+        <SiteImproveAnalytics nonce={nonce} strategy="lazyOnload" />
         <Script
-          defer
+          strategy="afterInteractive"
           id="chatwidget-script"
           crossOrigin="anonymous"
           src="https://virtuele-gemeente-assistent.nl/static/js/widget.js"
