@@ -1,5 +1,11 @@
 # @frameless/pdc-frontend
 
+## 0.5.1
+
+### Patch Changes
+
+- 4b8172a: Scripts worden nu slimmer geladen, waardoor pagina's sneller en soepeler werken.
+
 ## 0.5.0
 
 ### Minor Changes

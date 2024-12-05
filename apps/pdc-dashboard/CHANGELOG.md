@@ -1,5 +1,12 @@
 # @frameless/pdc-dashboard
 
+## 0.3.0
+
+### Minor Changes
+
+- 03f69a2: Voeg het VAC-schema toe aan het Strapi-dashboard.
+- 7b2d872: Voeg de velden voor interne kennisartikelen toe aan het Product-schema in Strapi.
+
 ## 0.2.2
 
 ### Patch Changes
