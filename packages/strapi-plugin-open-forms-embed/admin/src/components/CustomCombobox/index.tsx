@@ -67,7 +67,7 @@ function CustomCombobox({
     }
   }, [config]);
 
-  const generateOpenFormsData = (params) => {
+  const generateOpenFormsData = (params: any) => {
     return new URLSearchParams({ ...params }).toString();
   };
   if (!config?.api_url || !config?.token) {
@@ -114,6 +114,7 @@ function CustomCombobox({
                 uuid,
                 slug,
                 label: name,
+                embed_url: config.embed_url,
               })}
               key={uuid}
             >

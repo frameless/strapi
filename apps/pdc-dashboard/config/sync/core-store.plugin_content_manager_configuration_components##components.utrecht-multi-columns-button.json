@@ -20,6 +20,20 @@
           "sortable": false
         }
       },
+      "kennisartikelCategorie": {
+        "edit": {
+          "label": "kennisartikelCategorie",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "kennisartikelCategorie",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "column": {
         "edit": {
           "label": "Column",
@@ -36,12 +50,18 @@
       }
     },
     "layouts": {
-      "list": ["id", "column"],
+      "list": ["id", "column", "kennisartikelCategorie"],
       "edit": [
         [
           {
             "name": "column",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "kennisartikelCategorie",
+            "size": 6
           }
         ]
       ]
