@@ -1,3 +1,30 @@
+export interface CreateInternalField {
+  data: {
+    createInternalField: {
+      data: {
+        id: string;
+        attributes: InternalFieldAttributes;
+      };
+    };
+  };
+}
+export interface InternalFieldQuery {
+  internalFields: {
+    data: {
+      id: string;
+      attributes: InternalFieldAttributes;
+    }[];
+  };
+}
+export interface CreateProductData {
+  data: {
+    id: string;
+    attributes: Attributes;
+  };
+}
+export interface CreateProduct {
+  createProduct: CreateProductData;
+}
 export interface VacItem {
   uuid: string;
   vraag: string | null;
@@ -72,12 +99,15 @@ export interface InternalField {
 }
 
 export interface InternalFieldData {
+  id: string;
   attributes: InternalFieldAttributes;
 }
 export interface InternalFieldAttributes {
+  title: string;
   content: InternalFieldAttributesContent;
 }
 export interface InternalFieldAttributesContent {
+  id: string;
   uuid: string;
   contentBlock: InternalFieldAttributesContentContentBlock[];
 }
