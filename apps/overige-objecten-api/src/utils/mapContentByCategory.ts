@@ -13,8 +13,12 @@ const categoryToKeyMap: { [key: string]: string } = {
 };
 
 // Map content based on category
-export const mapContentByCategory = (kennisartikelCategorie?: string | null, content?: string | null) => {
+export const mapContentByCategory = (
+  kennisartikelCategorie?: string | null,
+  content?: string | null,
+  objectToKeyMap: { [key: string]: string } = categoryToKeyMap,
+) => {
   if (!kennisartikelCategorie || !content) return {};
-  const key = categoryToKeyMap[kennisartikelCategorie];
+  const key = objectToKeyMap[kennisartikelCategorie];
   return key ? { [key]: content } : {};
 };
