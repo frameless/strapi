@@ -133,10 +133,25 @@ const handleHttpError = (response: Response) => {
 const handleGraphqlError = (error: any) => {
   const errorMessage = error?.message || 'GraphQL error';
   const errorCode = error?.extensions?.code || 400; // Handle extensions (specific to GraphQL)
+  // Log the error for debugging purposes
+  // eslint-disable-next-line no-console
+  console.error('GraphQL Error:', JSON.stringify(error, null, 2));
   // Handle known GraphQL error messages
-  if (errorCode === 'FORBIDDEN') {
+  if (errorCode === 'BAD_USER_INPUT') {
+    throw new ErrorHandler('Bad User Input: The provided input is invalid.', {
+      statusCode: 400,
+    });
+  } else if (errorCode === 'UNAUTHENTICATED') {
+    throw new ErrorHandler('Unauthenticated: Please log in to access this resource.', {
+      statusCode: 401,
+    });
+  } else if (errorCode === 'FORBIDDEN') {
     throw new ErrorHandler('Forbidden access: You do not have the required permissions.', {
       statusCode: 403,
+    });
+  } else if (errorCode === 'INTERNAL_SERVER_ERROR') {
+    throw new ErrorHandler('Internal Server Error: An unexpected error occurred on the server.', {
+      statusCode: 500,
     });
   }
 
