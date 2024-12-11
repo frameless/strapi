@@ -10,7 +10,9 @@
       "type": "string"
     },
     "antwoord": {
-      "type": "richtext"
+      "type": "component",
+      "repeatable": true,
+      "component": "components.antwoord"
     },
     "status": {
       "type": "enumeration",
