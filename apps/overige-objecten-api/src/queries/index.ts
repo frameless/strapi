@@ -584,7 +584,10 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
         vac {
           uuid
           vraag
-          antwoord
+          antwoord(pagination: { start: 0, limit: -1 }) { 
+            content
+            kennisartikelCategorie
+          }
           status
           doelgroep
           afdelingen {
@@ -614,7 +617,10 @@ query getVacItemByUUID($uuid: String) {
         vac {
           uuid
           vraag
-          antwoord
+          antwoord(pagination: { start: 0, limit: -1 }) { 
+            content
+            kennisartikelCategorie
+          }
           status
           doelgroep
           afdelingen {
@@ -642,7 +648,10 @@ export const CREATE_VAC = gql(`
         vac {
           id
           vraag
-					antwoord
+          antwoord(pagination: { start: 0, limit: -1 }) { 
+            content
+            kennisartikelCategorie
+          }
           status
           doelgroep
           uuid
@@ -673,7 +682,10 @@ mutation updateVac ($data: VacInput!, $id: ID!){
         vac {
           id
           vraag
-					antwoord
+          antwoord(pagination: { start: 0, limit: -1 }) { 
+            content
+            kennisartikelCategorie
+          }
           status
           doelgroep
           uuid

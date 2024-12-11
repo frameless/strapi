@@ -329,17 +329,7 @@ describe('Objects controller', () => {
     });
     it('should return 200 and vac object when uuid is valid', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: {
-            vacs: {
-              data: getStrapiVacData().data.vacs.data.filter(
-                (item) => item.attributes.vac.uuid === '22D89EB2-2238-4885-A352-07C02CF8FCDF',
-              ),
-            },
-          },
-        }),
-      );
+      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
       const response = await request(app)
         .get('/api/v2/objects/22D89EB2-2238-4885-A352-07C02CF8FCDF')
         .set('Authorization', 'Token YOUR_API_TOKEN');

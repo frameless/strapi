@@ -2,7 +2,13 @@ import type { RequestHandler } from 'express';
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS, GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../../queries';
 import type { StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
-import { fetchData, generateKennisartikelObject, getPaginatedResponse, getTheServerURL } from '../../utils';
+import {
+  concatenateFieldValues,
+  fetchData,
+  generateKennisartikelObject,
+  getPaginatedResponse,
+  getTheServerURL,
+} from '../../utils';
 import type { PaginationType } from '../../utils';
 
 type GetKennisartikelReturnData = components['schemas']['ObjectData'];
@@ -75,6 +81,10 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       if (!data?.vacs?.data?.length) return [];
       const vac = data?.vacs?.data?.map((item) => {
         const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
+        const antwoord = Array.isArray(item?.attributes?.vac?.antwoord)
+          ? concatenateFieldValues(item.attributes.vac.antwoord as any)
+          : [];
+
         return {
           uuid: item.attributes.vac.uuid,
           type: vacSchemaURL,
@@ -85,6 +95,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
             typeVersion: 1,
             data: {
               ...item.attributes.vac,
+              antwoord,
               url: vacUrl,
             },
             geometry: null,
@@ -193,6 +204,10 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     if (Array.isArray(vacData?.vacs?.data) && vacData.vacs.data.length > 0) {
       const vac = vacData?.vacs?.data?.map((item) => {
         const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
+        const antwoord = Array.isArray(item?.attributes?.vac?.antwoord)
+          ? concatenateFieldValues(item.attributes.vac.antwoord as any)
+          : [];
+
         return {
           uuid: item.attributes.vac.uuid,
           type: vacSchemaURL,
@@ -203,6 +218,7 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
             typeVersion: 1,
             data: {
               ...item.attributes.vac,
+              antwoord,
               url: vacUrl,
             },
             geometry: null,

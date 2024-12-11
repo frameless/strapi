@@ -19,8 +19,13 @@ export const getStrapiVacData = () => {
               vac: {
                 uuid: '22D89EB2-2238-4885-A352-07C02CF8FCDF',
                 vraag: 'Wat is het proces om een paspoort aan te vragen?',
-                antwoord:
-                  'U moet een afspraak maken bij de gemeente, uw identiteitsbewijs meenemen en een recente pasfoto aanleveren.',
+                antwoord: [
+                  {
+                    content:
+                      'U moet een afspraak maken bij de gemeente, uw identiteitsbewijs meenemen en een recente pasfoto aanleveren.',
+                    kennisartikelCategorie: null,
+                  },
+                ],
                 status: 'actief',
                 doelgroep: 'eu_burger',
                 afdelingen: [
@@ -49,8 +54,13 @@ export const getStrapiVacData = () => {
               vac: {
                 uuid: 'b2c3d4e5-f6g7-8h9i-0j1k-l2m3n4o5p6q7',
                 vraag: 'Hoe kan ik een rijbewijs aanvragen?',
-                antwoord:
-                  'Voor het aanvragen van een rijbewijs moet u een aanvraagformulier invullen en uw identiteitsbewijs meenemen naar het gemeentehuis.',
+                antwoord: [
+                  {
+                    content:
+                      'Voor het aanvragen van een rijbewijs moet u een aanvraagformulier invullen en uw identiteitsbewijs meenemen naar het gemeentehuis.',
+                    kennisartikelCategorie: null,
+                  },
+                ],
                 status: 'actief',
                 doelgroep: 'eu_burger',
                 afdelingen: [
@@ -79,7 +89,13 @@ export const getStrapiVacData = () => {
               vac: {
                 uuid: 'c3d4e5f6-g7h8-9i0j-k1l2-m3n4o5p6q7r8',
                 vraag: 'Wat moet ik doen bij verhuizing?',
-                antwoord: 'Bij verhuizing moet u zich binnen 5 dagen inschrijven op uw nieuwe adres bij de gemeente.',
+                antwoord: [
+                  {
+                    content:
+                      'Bij verhuizing moet u zich binnen 5 dagen inschrijven op uw nieuwe adres bij de gemeente.',
+                    kennisartikelCategorie: null,
+                  },
+                ],
                 status: 'actief',
                 doelgroep: 'eu_burger',
                 afdelingen: [

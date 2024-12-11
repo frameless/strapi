@@ -6,6 +6,7 @@ import { CREATE_INTERNAL_FIELD, CREATE_KENNISARTIKEL, CREATE_VAC } from '../../q
 import type { CreateInternalField, CreateProduct, DataVacItem } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import {
+  concatenateFieldValues,
   fetchData,
   generateKennisartikelObject,
   getCurrentTypeParam,
@@ -51,7 +52,9 @@ export const createVacController: RequestHandler = async (req, res, next) => {
         publishedAt: new Date(),
         vac: {
           vraag: vac?.vraag,
-          antwoord: vac?.antwoord,
+          antwoord: {
+            content: vac?.antwoord,
+          },
           doelgroep: snakeCase(vac?.doelgroep),
           uuid: v4(),
           status: vac?.status,
@@ -74,6 +77,9 @@ export const createVacController: RequestHandler = async (req, res, next) => {
       const uuid = responseData?.createVac?.data?.attributes?.vac?.uuid;
       const createdAt = responseData?.createVac?.data?.attributes?.createdAt;
       const vacUrl = new URL(`/api/v2/objects/${uuid}`, serverURL).href;
+      const antwoord = Array.isArray(responseData?.createVac?.data?.attributes?.vac?.antwoord)
+        ? concatenateFieldValues(responseData?.createVac?.data?.attributes?.vac.antwoord as any)
+        : [];
       response = {
         uuid,
         type: vacSchemaURL,
@@ -85,6 +91,7 @@ export const createVacController: RequestHandler = async (req, res, next) => {
           data: {
             ...responseData?.createVac?.data?.attributes?.vac,
             url: vacUrl,
+            antwoord,
           },
           geometry: null,
           endAt: null,

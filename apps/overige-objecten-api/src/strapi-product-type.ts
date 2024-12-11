@@ -25,10 +25,14 @@ export interface CreateProductData {
 export interface CreateProduct {
   createProduct: CreateProductData;
 }
+export interface Antwoord {
+  content: string;
+  kennisartikelCategorie?: string;
+}
 export interface VacItem {
   uuid: string;
   vraag: string | null;
-  antwoord: string | null;
+  antwoord: Antwoord[];
   status: string | null;
   doelgroep: string | null;
   afdelingen: string[];

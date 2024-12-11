@@ -1,5 +1,5 @@
+import { concatenateFieldValues } from './concatenateFieldValues';
 import { combineSimilarCategories, createHTMLFiles, normalizeCategories, processData } from './index';
-import { processToDeskMemo } from './processToDeskMemo';
 import { Attributes } from '../strapi-product-type';
 import { components } from '../types/openapi';
 interface GenerateKennisartikelObjectTypes {
@@ -18,7 +18,9 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
   );
   const priceData = attributes?.price?.data?.attributes?.price;
   const deskMemoInternalBlock = getInternalBlockComponent?.internal_field?.data?.attributes?.content?.contentBlock;
-  const { deskMemo } = deskMemoInternalBlock ? processToDeskMemo(deskMemoInternalBlock) : { deskMemo: '' };
+  const { deskMemo } = deskMemoInternalBlock
+    ? { deskMemo: concatenateFieldValues(deskMemoInternalBlock) }
+    : { deskMemo: '' };
   const sections = combineSimilarCategories(
     processData({ data: normalizeCategories(attributes?.sections), priceData }),
   );
