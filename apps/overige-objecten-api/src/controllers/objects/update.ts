@@ -13,6 +13,7 @@ import {
 import type { DataVacItem, InternalFieldQuery, StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import {
+  concatenateFieldValues,
   fetchData,
   generateKennisartikelObject,
   getCurrentTypeParam,
@@ -89,7 +90,11 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
       const vacBody = {
         vac: {
           vraag: vac?.vraag,
-          antwoord: vac?.antwoord,
+          antwoord: [
+            {
+              content: vac?.antwoord,
+            },
+          ],
           status: vac?.status,
           doelgroep: vac?.doelgroep ? snakeCase(vac.doelgroep) : undefined,
           afdelingen: vac?.afdelingen,
@@ -106,6 +111,9 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
           Authorization: `Bearer ${tokenAuth}`,
         },
       });
+      const antwoord = Array.isArray(responseData?.updateVac?.data?.attributes?.vac?.antwoord)
+        ? concatenateFieldValues(responseData?.updateVac?.data?.attributes?.vac.antwoord as any)
+        : [];
       response = {
         uuid: body?.uuid,
         type: vacSchemaURL,
@@ -117,6 +125,7 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
           data: {
             ...responseData.updateVac.data.attributes.vac,
             url: vacUrl,
+            antwoord,
           },
           geometry: null,
           endAt: null,
