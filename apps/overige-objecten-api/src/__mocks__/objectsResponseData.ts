@@ -44,9 +44,9 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
                 bewijs: '<h2>Bewijs - 1</h2><p>Body text</p>',
                 bezwaarEnBeroep: '<h2>Bezwaar - 1</h2><p>Body text</p>',
                 deskMemo:
-                  '<h2>Inleiding- 2 - internal</h2><p>Body tekst</p><h2>Inleiding - internal</h2><p>Body tekst</p><h2>Aanvraag - internal</h2><p>Body tekst</p><h2>Bewijs - internal</h2><p>body tekst</p><h2>Voorwaarden - internal</h2><p>body tekst</p><h2>Bezwaar - internal</h2><p>body tekst</p><h2>Kosten - internal&nbsp;</h2><p>body tekst</p><h2>Termijn - internal&nbsp;</h2><p>body tekst</p><h2>Wat te doen bij geen reactie - internal</h2><p>body tekst</p><h2>Bijzonderheden - internal</h2><p>Body tekst</p><p></p>',
+                  '<h2>Inleiding- 2 - internal</h2><p>Body tekst</p><h2>Inleiding - internal</h2><p>Body tekst</p><h2>Aanvraag - internal</h2><p>Body tekst</p><h2>Bewijs - internal</h2><p>body tekst</p><h2>Voorwaarden - internal</h2><p>body tekst</p><h2>Bezwaar - internal</h2><p>body tekst</p><h2>Kosten - internal </h2><p>body tekst</p><h2>Termijn - internal </h2><p>body tekst</p><h2>Wat te doen bij geen reactie - internal</h2><p>body tekst</p><h2>Bijzonderheden - internal</h2><p>Body tekst</p><p></p>',
                 kostenEnBetaalmethoden: '<h2>Kosten - 1</h2><p></p>',
-                procedureBeschrijving: '<h2>Aanvraag&nbsp; - 1</h2><p>Body text</p>',
+                procedureBeschrijving: '<h2>Aanvraag  - 1</h2><p>Body text</p>',
                 tekst: '<h2>Inleiding  - 1</h2><p>Body text</p><h2>Inleiding  - 2</h2><p>Body text</p>',
               },
             ],

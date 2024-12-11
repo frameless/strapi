@@ -29,43 +29,43 @@ export const getStrapiKennisartikelData = () => {
                 {
                   id: '1',
                   content: '<h2>Inleiding  - 1</h2><p>Body text</p>',
-                  kennisartikelCategorie: 'inleiding',
+                  categorie5: 'inleiding',
                   component: 'ComponentComponentsUtrechtRichText',
                 },
                 {
                   id: '2',
                   content: '<h2>Inleiding  - 2</h2><p>Body text</p>',
-                  kennisartikelCategorie: 'inleiding',
+                  categorie5: 'inleiding',
                   component: 'ComponentComponentsUtrechtRichText',
                 },
                 {
                   id: '3',
-                  content: '<h2>Aanvraag&nbsp; - 1</h2><p>Body text</p>',
-                  kennisartikelCategorie: 'aanvraag',
+                  content: '<h2>Aanvraag  - 1</h2><p>Body text</p>',
+                  categorie5: 'aanvraag',
                   component: 'ComponentComponentsUtrechtRichText',
                 },
                 {
                   id: '4',
                   content: '<h2>Bewijs - 1</h2><p>Body text</p>',
-                  kennisartikelCategorie: 'bewijs',
+                  categorie5: 'bewijs',
                   component: 'ComponentComponentsUtrechtRichText',
                 },
                 {
                   id: '5',
                   content: '<h2>Voorwaarden - 1</h2><p>Body text</p><p></p>',
-                  kennisartikelCategorie: 'voorwaarden',
+                  categorie5: 'voorwaarden',
                   component: 'ComponentComponentsUtrechtRichText',
                 },
                 {
                   id: '6',
                   content: '<h2>Bezwaar - 1</h2><p>Body text</p>',
-                  kennisartikelCategorie: 'bezwaar',
+                  categorie5: 'bezwaar',
                   component: 'ComponentComponentsUtrechtRichText',
                 },
                 {
                   id: '7',
                   content: '<h2>Kosten - 1</h2><p></p>',
-                  kennisartikelCategorie: 'kosten',
+                  categorie5: 'kosten',
                   component: 'ComponentComponentsUtrechtRichText',
                 },
                 {
@@ -101,11 +101,11 @@ export const getStrapiKennisartikelData = () => {
                               kennisartikelCategorie: 'bezwaar',
                             },
                             {
-                              content: '<h2>Kosten - internal&nbsp;</h2><p>body tekst</p>',
+                              content: '<h2>Kosten - internal </h2><p>body tekst</p>',
                               kennisartikelCategorie: 'kosten',
                             },
                             {
-                              content: '<h2>Termijn - internal&nbsp;</h2><p>body tekst</p>',
+                              content: '<h2>Termijn - internal </h2><p>body tekst</p>',
                               kennisartikelCategorie: 'termijn',
                             },
                             {

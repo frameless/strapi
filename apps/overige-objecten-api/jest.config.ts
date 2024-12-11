@@ -3,7 +3,7 @@ import type { Config } from 'jest';
 const config: Config = {
   preset: 'ts-jest',
   // to obtain access to the matchers.
-  moduleFileExtensions: ['ts', 'js', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'node'],
   setupFilesAfterEnv: ['<rootDir>/src/tests/jest.setup.ts'],
   modulePaths: ['<rootDir>'],
   testEnvironment: 'node',
