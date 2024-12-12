@@ -677,7 +677,8 @@
       "properties": {
         "fields": [
           "vac.vraag",
-          "vac.antwoord",
+          "vac.antwoord.content",
+          "vac.antwoord.kennisartikelCategorie",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
@@ -710,7 +711,8 @@
       "properties": {
         "fields": [
           "vac.vraag",
-          "vac.antwoord",
+          "vac.antwoord.content",
+          "vac.antwoord.kennisartikelCategorie",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
@@ -729,7 +731,8 @@
       "properties": {
         "fields": [
           "vac.vraag",
-          "vac.antwoord",
+          "vac.antwoord.content",
+          "vac.antwoord.kennisartikelCategorie",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
