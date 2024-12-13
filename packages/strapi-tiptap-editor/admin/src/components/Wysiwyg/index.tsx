@@ -117,10 +117,10 @@ const WysiwygContent = ({
   const [currentContent, setCurrentContent] = useState('');
   const { busy, getProductPrice, productPrice } = React.useContext(ProductPriceContext);
   const data = useCMEditViewDataManager();
-
+  const internalFieldUUID = data?.initialData?.content?.uuid;
   useEffect(() => {
-    getProductPrice(data.initialData?.uuid);
-  }, [data.initialData?.uuid, getProductPrice]);
+    getProductPrice(data.initialData?.uuid, internalFieldUUID);
+  }, [data.initialData?.uuid, getProductPrice, internalFieldUUID]);
 
   const extensions: Extensions = [
     StarterKit,
