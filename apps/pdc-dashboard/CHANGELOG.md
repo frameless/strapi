@@ -1,5 +1,28 @@
 # @frameless/pdc-dashboard
 
+## 1.0.0
+
+### Major Changes
+
+- 4473f66: Maak het antwoordveld herhaalbaar in de VAC-collectie
+
+### Minor Changes
+
+- ed4d2a4: Kostenveld geïntegreerd in het interne veld
+
+  Wanneer het kostenveld aan een product is gekoppeld, wordt deze waarde nu automatisch beschikbaar in het interne veld dat al aan het product is gekoppeld.
+
+- 03f69a2: Voeg het VAC-schema toe aan het Strapi-dashboard.
+- 7b2d872: Voeg de velden voor interne kennisartikelen toe aan het Product-schema in Strapi.
+- e583b92: Kennisartikel-categorie veld toegevoegd aan alle blokken van de productcollectie in Strapi.
+
+  Met deze functie wordt het mogelijk om de inhoud van een productblok dat gebruikmaakt van dit veld zichtbaar te maken in het Kiss-dashboard.
+
+### Patch Changes
+
+- Updated dependencies [ed4d2a4]
+  - @frameless/strapi-tiptap-editor@0.2.0
+
 ## 0.2.2
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@frameless/pdc-dashboard",
   "private": true,
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "A Strapi application",
   "keywords": [],
   "scripts": {
@@ -27,7 +27,7 @@
     "@frameless/strapi-plugin-scheme-select": "0.0.0",
     "@frameless/strapi-plugin-uniform-product-name": "0.0.0",
     "@frameless/strapi-plugin-uuid-field": "0.0.0",
-    "@frameless/strapi-tiptap-editor": "0.1.1",
+    "@frameless/strapi-tiptap-editor": "0.2.0",
     "@strapi/plugin-graphql": "4.25.8",
     "@strapi/plugin-i18n": "4.25.8",
     "@strapi/plugin-users-permissions": "4.25.8",
