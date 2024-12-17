@@ -16,7 +16,7 @@ interface ProcessDataParams {
 }
 
 export const processData = ({ data, priceData }: ProcessDataParams) =>
-  data.map((item: any) => {
+  data?.map((item: any) => {
     if (item.component === 'ComponentComponentsUtrechtRichText') {
       return mapContentByCategory(
         item.categorie,
@@ -36,7 +36,7 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
       return mappedContent;
     }
     if (item.component === 'ComponentComponentsUtrechtImage') {
-      const imageUrl = item.imageData.data.attributes.url;
+      const imageUrl = item?.imageData?.data?.attributes.url;
 
       if (!imageUrl) return {};
       if (!item.categorie) return {};
