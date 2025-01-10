@@ -3,7 +3,7 @@ import snakeCase from 'lodash.snakecase';
 import slugify from 'slugify';
 import { v4 } from 'uuid';
 import { CREATE_INTERNAL_FIELD, CREATE_KENNISARTIKEL, CREATE_VAC } from '../../queries';
-import type { CreateInternalField, CreateProduct, DataVacItem } from '../../strapi-product-type';
+import type { CreateInternalField, CreateProduct, CreateVacResponse } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import {
   concatenateFieldValues,
@@ -13,13 +13,6 @@ import {
   getTheServerURL,
   mapContentByCategory,
 } from '../../utils';
-type VACData = {
-  data: {
-    createVac: {
-      data: DataVacItem;
-    };
-  };
-};
 
 const categoryToKeyMap: { [key: string]: string } = {
   bewijs: 'bewijs',
@@ -66,7 +59,7 @@ export const createVacController: RequestHandler = async (req, res, next) => {
           trefwoorden: vac?.trefwoorden,
         },
       };
-      const { data: responseData } = await fetchData<VACData>({
+      const { data: responseData } = await fetchData<CreateVacResponse>({
         url: graphqlURL.href,
         query: CREATE_VAC,
         variables: { locale, data: vacPayload },
