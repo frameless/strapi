@@ -1,23 +1,14 @@
 import { Markdown as ReactMarkdown } from '@frameless/ui';
-import DOMPurify from 'dompurify';
-import { JSDOM } from 'jsdom';
-import memoize from 'lodash.memoize';
 import React from 'react';
 import type { Price } from '../strapi-product-type';
+import { sanitizeHTML } from '../utils';
 
 export interface MarkdownProps {
   children: string;
   priceData?: Price[];
 }
 
-const createDOMPurify = memoize(() => {
-  const { window } = new JSDOM();
-  return DOMPurify(window);
-});
-
 export const Markdown = ({ children: html, priceData }: MarkdownProps) => {
-  const domPurify = createDOMPurify();
-  const sanitizeHTML = memoize((html) => domPurify.sanitize(html));
   const DOMPurifyHTML = sanitizeHTML(html);
 
   return html ? (
