@@ -177,3 +177,11 @@ export interface Section {
   component?: string;
   internal_field: InternalField;
 }
+
+export type CreateVacResponse = {
+  data: {
+    createVac: {
+      data: DataVacItem;
+    };
+  };
+};
