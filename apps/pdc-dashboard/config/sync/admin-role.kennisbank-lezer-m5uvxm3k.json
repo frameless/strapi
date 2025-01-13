@@ -1,0 +1,51 @@
+{
+  "name": "Kennisbank Lezer ",
+  "code": "kennisbank-lezer-m5uvxm3k",
+  "description": "Alleen-lezen rechten op de Kennisbank, inclusief VAC en interne velden.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::internal-field.internal-field",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::price.price",
+      "properties": {
+        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::vac.vac",
+      "properties": {
+        "fields": [
+          "vac.vraag",
+          "vac.antwoord.content",
+          "vac.antwoord.kennisartikelCategorie",
+          "vac.status",
+          "vac.doelgroep",
+          "vac.afdelingen.afdelingId",
+          "vac.afdelingen.afdelingNaam",
+          "vac.uuid",
+          "vac.toelichting",
+          "vac.trefwoorden.trefwoord"
+        ]
+      },
+      "conditions": []
+    }
+  ]
+}
