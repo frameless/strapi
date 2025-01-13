@@ -7,7 +7,7 @@
       "searchable": true,
       "pageSize": 10,
       "mainField": "id",
-      "defaultSortBy": "id",
+      "defaultSortBy": "createdAt",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -101,7 +101,7 @@
           }
         ]
       ],
-      "list": ["id", "createdAt"]
+      "list": ["vac", "id", "createdAt"]
     },
     "uid": "api::vac.vac"
   },

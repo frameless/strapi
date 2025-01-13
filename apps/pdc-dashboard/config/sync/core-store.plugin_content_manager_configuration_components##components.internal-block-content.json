@@ -21,9 +21,9 @@
       },
       "internal_field": {
         "edit": {
-          "label": "internal_field",
+          "label": "Gekoppelde interne informatie",
           "description": "",
-          "placeholder": "",
+          "placeholder": "Kies interne informatie",
           "visible": true,
           "editable": true,
           "mainField": "title"

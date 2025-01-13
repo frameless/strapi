@@ -15,13 +15,13 @@
         "edit": {},
         "list": {
           "label": "id",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "content": {
         "edit": {
-          "label": "content",
+          "label": "Inhoud",
           "description": "",
           "placeholder": "",
           "visible": true,
