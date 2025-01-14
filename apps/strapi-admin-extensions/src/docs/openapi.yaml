@@ -1,0 +1,149 @@
+openapi: 3.0.3
+info:
+  title: Import API
+  description: API for importing CSV data to create VAC entries.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+paths:
+  /import:
+    post:
+      summary: Import CSV data to create VAC entries
+      description: Uploads a CSV file, processes its contents, and creates VAC items.
+      operationId: importVacItems
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: CSV file containing 'vraag' and 'antwoord' columns.
+                type:
+                  type: string
+                  enum: [vac]
+                  description: Type of import (only 'vac' is supported).
+              required:
+                - file
+                - type
+      parameters:
+        - name: locale
+          in: query
+          description: Locale for the imported data (default is 'nl').
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Import successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: CSV converted to JSON
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Invalid import type or no file uploaded.
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Internal server error
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Antwoord:
+      type: object
+      properties:
+        content:
+          type: string
+        kennisartikelCategorie:
+          type: string
+          nullable: true
+    VacItem:
+      type: object
+      properties:
+        uuid:
+          type: string
+        vraag:
+          type: string
+          nullable: true
+        antwoord:
+          type: array
+          items:
+            $ref: "#/components/schemas/Antwoord"
+        status:
+          type: string
+          nullable: true
+        doelgroep:
+          type: string
+          nullable: true
+        afdelingen:
+          type: array
+          items:
+            type: string
+        toelichting:
+          type: string
+          nullable: true
+        trefwoorden:
+          type: array
+          items:
+            type: string
+    AttributesVacItem:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        vac:
+          $ref: "#/components/schemas/VacItem"
+    DataVacItem:
+      type: object
+      properties:
+        attributes:
+          $ref: "#/components/schemas/AttributesVacItem"
+        id:
+          type: string
+    CreateVacResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            createVac:
+              type: object
+              properties:
+                data:
+                  $ref: "#/components/schemas/DataVacItem"

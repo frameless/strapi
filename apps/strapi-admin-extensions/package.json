@@ -1,0 +1,52 @@
+{
+  "name": "@frameless/strapi-admin-extensions",
+  "version": "0.0.0",
+  "private": true,
+  "author": "@frameless",
+  "description": "Strapi Admin Extensions",
+  "license": "EUPL-1.2",
+  "keywords": [],
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "npm-run-all --parallel build:*",
+    "build:server": "tsc -p ./tsconfig.json",
+    "watch": "tsc -p ./tsconfig.json  -w",
+    "start": "NODE_ENV=production node ./dist/src/server.js",
+    "dev": "NODE_ENV=development nodemon src/server.ts",
+    "clean": "rimraf dist src/types tmp",
+    "test": "STRAPI_ADMIN_EXTENSIONS_PORT=3000 jest --coverage --forceExit --verbose",
+    "test:watch": "STRAPI_ADMIN_EXTENSIONS_PORT=3000 jest --watch"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "csv-parser": "3.0.0",
+    "dompurify": "3.2.1",
+    "dotenv": "16.4.5",
+    "express": "4.21.0",
+    "lodash.memoize": "4.1.2",
+    "p-limit": "3.0.0",
+    "morgan": "1.10.0",
+    "js-yaml": "4.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.17",
+    "@types/dompurify": "3.2.0",
+    "@types/jest": "29.5.12",
+    "@types/lodash.memoize": "4.1.9",
+    "@types/supertest": "6.0.2",
+    "jest": "29.7.0",
+    "jest-fetch-mock": "3.0.3",
+    "nodemon": "3.1.7",
+    "rimraf": "6.0.1",
+    "supertest": "7.0.0",
+    "ts-jest": "29.2.3",
+    "ts-node": "10.9.2",
+    "typescript": "5.0.4",
+    "@types/morgan": "1.9.9"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "apps/strapi-admin-extensio0s"
+  }
+}

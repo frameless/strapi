@@ -16,6 +16,7 @@ COPY ./apps/vth-dashboard/package.json apps/vth-dashboard/package.json
 COPY ./apps/vth-frontend/package.json apps/vth-frontend/package.json
 COPY ./apps/kennisbank-dashboard/package.json apps/kennisbank-dashboard/package.json
 COPY ./apps/overige-objecten-api/package.json apps/overige-objecten-api/package.json
+COPY ./apps/strapi-admin-extensions/package.json apps/strapi-admin-extensions/package.json
 COPY ./apps/kennisbank-frontend/package.json apps/kennisbank-frontend/package.json
 COPY ./packages/catalogi-data/package.json packages/catalogi-data/package.json
 COPY ./packages/preview-button/package.json packages/preview-button/package.json
@@ -37,7 +38,7 @@ COPY ./packages/strapi-plugin-language/package.json packages/strapi-plugin-langu
 FROM build AS dependencies
 # Install prod dependencies
 COPY ./patches /opt/app/patches
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 # Build target builder #
 ########################
@@ -55,7 +56,8 @@ RUN  npm run build --workspace @frameless/upl && \
     npm run build --workspace @frameless/strapi-plugin-uuid-field && \
     npm run build --workspace @frameless/strapi-plugin-env-label && \
     npm run build --workspace @frameless/strapi-plugin-language && \
-    npm run build --workspace @frameless/overige-objecten-api
+    npm run build --workspace @frameless/overige-objecten-api && \
+    npm run build --workspace @frameless/strapi-admin-extensions
 
 # Build target production #
 ###########################
