@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.test.json",
+  "compilerOptions": {},
+  "include": ["**/*.test.tsx", "**/*.test.ts", "tests"]
+}
