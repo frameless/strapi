@@ -8328,6 +8328,11 @@
   dependencies:
     clsx "2.1.1"
 
+"@utrecht/table-css@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/table-css/-/table-css-1.4.0.tgz#fc675468cd887f301af895f72f26cc4d69fd857d"
+  integrity sha512-D2JvmGY9uf2/N/wiq4XbX5/9Gz5iTIsjiJF4huFmP+XRB7zzSwPTWgC/AdQWtIUiYlWQMFvvB6bOMtCIUq9eKA==
+
 "@utrecht/textbox-css@1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@utrecht/textbox-css/-/textbox-css-1.2.0.tgz#41be4783d178ab227b9bd188253407a688e69226"
