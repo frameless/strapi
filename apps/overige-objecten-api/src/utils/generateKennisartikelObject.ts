@@ -1,5 +1,11 @@
 import { concatenateFieldValues } from './concatenateFieldValues';
-import { combineSimilarCategories, createHTMLFiles, normalizeCategories, processData } from './index';
+import {
+  combineSimilarCategories,
+  createHTMLFiles,
+  normalizeCategories,
+  processData,
+  renderMarkdownToString,
+} from './index';
 import { Attributes } from '../strapi-product-type';
 import { components } from '../types/openapi';
 interface GenerateKennisartikelObjectTypes {
@@ -26,11 +32,11 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
   );
 
   const bothContentBlock = { ...sections, deskMemo };
-  createHTMLFiles(bothContentBlock);
+  createHTMLFiles(bothContentBlock, priceData);
   const vertalingen = [
     {
       ...bothContentBlock,
-      deskMemo,
+      deskMemo: renderMarkdownToString({ priceData, children: deskMemo }),
       trefwoorden,
       taal: attributes?.locale,
       titel: attributes?.title,
