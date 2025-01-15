@@ -4,93 +4,106 @@ import path from 'node:path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Markdown } from '../components/Markdown';
+import type { Price } from '../strapi-product-type';
 
 const categoryStyle = { border: '1px solid #ccc', padding: '10px', marginBottom: '10px' };
-const Category = ({ data }: { data: any }) => {
+interface CategoryTypes {
+  [key: string]: string;
+}
+
+interface CategoryProps {
+  data: CategoryTypes;
+  priceData?: Price[];
+}
+
+const Category = ({ data, priceData }: CategoryProps) => {
+  const markdownProps = { priceData };
   return (
     <>
       {data?.tekst && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Tekst</Heading>
           <Separator />
-          <Markdown>{data?.tekst}</Markdown>
+          <Markdown {...markdownProps}>{data?.tekst}</Markdown>
         </div>
       )}
       {data?.procedureBeschrijving && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Procedure Beschrijving</Heading>
           <Separator />
-          <Markdown>{data?.procedureBeschrijving}</Markdown>
+          <Markdown {...markdownProps}>{data?.procedureBeschrijving}</Markdown>
         </div>
       )}
       {data?.bewijs && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Bewijs</Heading>
           <Separator />
-          <Markdown>{data?.bewijs}</Markdown>
+          <Markdown {...markdownProps}>{data?.bewijs}</Markdown>
         </div>
       )}
       {data?.uitvoeringsinstructies && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Uitvoeringsinstructies</Heading>
           <Separator />
-          <Markdown>{data?.uitvoeringsinstructies}</Markdown>
+          <Markdown {...markdownProps}>{data?.uitvoeringsinstructies}</Markdown>
         </div>
       )}
       {data?.bezwaarEnBeroep && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Bezwaar</Heading>
           <Separator />
-          <Markdown>{data?.bezwaarEnBeroep}</Markdown>
+          <Markdown {...markdownProps}>{data?.bezwaarEnBeroep}</Markdown>
         </div>
       )}
       {data?.vereisten && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Vereisten</Heading>
           <Separator />
-          <Markdown>{data?.vereisten}</Markdown>
+          <Markdown {...markdownProps}>{data?.vereisten}</Markdown>
         </div>
       )}
       {data?.kostenEnBetaalmethoden && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Kosten en betaalmethoden</Heading>
           <Separator />
-          <Markdown>{data?.kostenEnBetaalmethoden}</Markdown>
+          <Markdown {...markdownProps}>{data?.kostenEnBetaalmethoden}</Markdown>
         </div>
       )}
       {data?.contact && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Contact</Heading>
           <Separator />
-          <Markdown>{data?.contact}</Markdown>
+          <Markdown {...markdownProps}>{data?.contact}</Markdown>
         </div>
       )}
       {data?.wtdBijGeenReactie && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - WTD Bij Geen Reactie</Heading>
           <Separator />
-          <Markdown>{data?.wtdBijGeenReactie}</Markdown>
+          <Markdown {...markdownProps}>{data?.wtdBijGeenReactie}</Markdown>
         </div>
       )}
       {data?.notice && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Notice</Heading>
           <Separator />
-          <Markdown>{data?.notice}</Markdown>
+          <Markdown {...markdownProps}>{data?.notice}</Markdown>
         </div>
       )}
       {data?.deskMemo && (
         <div style={categoryStyle}>
           <Heading level={2}>Categorie - Desk Memo (Interne velden)</Heading>
           <Separator />
-          <Markdown>{data?.deskMemo}</Markdown>
+          <Markdown {...markdownProps}>{data?.deskMemo}</Markdown>
         </div>
       )}
     </>
   );
 };
 
-const PageComponent = ({ data }: { data: any }) => (
+interface PageComponentProps extends CategoryProps {}
+
+const PageComponent = ({ data, priceData }: PageComponentProps) => (
   <html lang="nl">
     <head>
       <meta charSet="utf-8" />
@@ -121,7 +134,7 @@ const PageComponent = ({ data }: { data: any }) => (
           <PageContent>
             <Heading level={1}>Kennisartikelen Categories</Heading>
             <Separator />
-            <Category data={data} />
+            <Category data={data} priceData={priceData} />
           </PageContent>
         </Page>
       </Document>
@@ -129,12 +142,12 @@ const PageComponent = ({ data }: { data: any }) => (
   </html>
 );
 
-export const createHTMLFiles = (data: any) => {
+export const createHTMLFiles = (data: CategoryTypes, priceData: Price[]) => {
   const outputDir = './tmp/output-html';
 
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
   const filePath = path.join(outputDir, `preview.html`);
-  fs.writeFileSync(filePath, renderToString(<PageComponent data={data} />), 'utf8');
+  fs.writeFileSync(filePath, renderToString(<PageComponent data={data} priceData={priceData} />), 'utf8');
 };

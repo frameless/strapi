@@ -18,3 +18,4 @@ export { processData } from './processData';
 export { convertSpotlightToHTML } from './convertSpotlightToHTML';
 export { convertMultiColumnsButtonToHTML } from './convertMultiColumnsButtonToHTML';
 export { createHTMLFiles } from './createHTMLFiles';
+export { renderMarkdownToString } from './renderMarkdownToString';
