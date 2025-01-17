@@ -1,7 +1,6 @@
 @import "~@utrecht/multiline-data-css/src/mixin";
 @import "~@utrecht/form-label-css/src/mixin";
 @import "~@utrecht/textbox-css/src/mixin";
-@import "~@utrecht/table-css/src/html/mixin";
 @import "~@utrecht/spotlight-section-css/src/mixin";
 
 :root {
@@ -67,10 +66,6 @@
 
 .utrecht-form-container--openforms {
   flex: 1 1;
-}
-
-.openforms-body .openforms-body--wysiwyg {
-  @include utrecht-html-table;
 }
 
 .openforms-formio-content {
