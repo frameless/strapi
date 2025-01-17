@@ -1,5 +1,12 @@
 # @frameless/pdc-frontend
 
+## 0.5.1
+
+### Patch Changes
+
+- 4b8172a: Scripts worden nu slimmer geladen, waardoor pagina's sneller en soepeler werken.
+- cc0e667: Los de tabelstijl op de OpenForms-pagina op.
+
 ## 0.5.0
 
 ### Minor Changes

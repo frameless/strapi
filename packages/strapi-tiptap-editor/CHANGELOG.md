@@ -1,5 +1,13 @@
 # @frameless/strapi-tiptap-editor [2.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.2.0...@frameless/strapi-tiptap-editor@2.3.0) (2024-06-12)
 
+## 0.2.0
+
+### Minor Changes
+
+- ed4d2a4: Kostenveld geïntegreerd in het interne veld
+
+  Wanneer het kostenveld aan een product is gekoppeld, wordt deze waarde nu automatisch beschikbaar in het interne veld dat al aan het product is gekoppeld.
+
 ## 0.1.1
 
 ### Patch Changes

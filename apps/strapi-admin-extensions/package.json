@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-admin-extensions",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "author": "@frameless",
   "description": "Strapi Admin Extensions",
