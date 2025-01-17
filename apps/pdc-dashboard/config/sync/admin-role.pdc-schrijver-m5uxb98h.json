@@ -110,6 +110,54 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "fields": ["components"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "fields": ["components"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::pdc-home-page.pdc-home-page",
+      "properties": {
+        "fields": ["components"],
+        "locales": ["en", "nl"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
         "fields": ["title", "pdc_category", "products"]
