@@ -47,6 +47,24 @@ export default ({ env }) => ({
             type: 'products',
           },
         },
+        {
+          uid: 'api::vac.vac',
+          query: {
+            type: 'vac',
+          },
+          dialog: {
+            enabled: true,
+          },
+        },
+        {
+          uid: 'api::internal-field.internal-field',
+          query: {
+            type: 'internal-field',
+          },
+          dialog: {
+            enabled: true,
+          },
+        },
       ],
       domain: env('FRONTEND_PUBLIC_URL'),
       token: env('PREVIEW_SECRET_TOKEN'),
