@@ -1,1 +1,9 @@
-{}
+{
+  "button.preview": "Preview",
+  "button.cancelPreview": "Cancel Preview",
+  "button.copy": "Copy",
+  "button.copied": "Copied",
+  "alert.htmlContentCopiedSuccess": "HTML content copied to clipboard! Paste into Word.",
+  "alert.htmlContentCopiedError": "Failed to copy the HTML content",
+  "priceWidget.zeroLabel": "Free"
+}
