@@ -1,37 +1,181 @@
+import { Dialog, DialogBody, DialogFooter } from '@strapi/design-system';
+import { Button } from '@strapi/design-system/Button';
 import { LinkButton } from '@strapi/design-system/LinkButton';
-import { useCMEditViewDataManager } from '@strapi/helper-plugin';
+import { useCMEditViewDataManager, useFetchClient } from '@strapi/helper-plugin';
 import Eye from '@strapi/icons/Eye';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { renderToString } from 'react-dom/server';
+import { useIntl } from 'react-intl';
+import '@utrecht/component-library-css';
+import '@utrecht/design-tokens/dist/index.css';
+import '@utrecht/component-library-css/dist/html.css';
 import usePluginConfig from '../../hooks/use-plugin-config';
+import useCopyHTMLToClipboard from '../../hooks/useCopyHTMLToClipboard';
+import useFetchData from '../../hooks/useFetchData';
+import { getContentByType, getTrad, getUrl } from '../../utils';
+import { Content, HTMLTemplate } from '../index';
+import './index.css';
 
 function PreviewLink() {
   const data = useCMEditViewDataManager();
+  const client = useFetchClient();
+  const { fetchData } = useFetchData(client);
+  const copyHTMLToClipboard = useCopyHTMLToClipboard();
   const { config } = usePluginConfig();
-  const isSupportPreview = config.data?.contentTypes?.find((type) => type.uid === data.layout.uid);
+  const { formatMessage } = useIntl();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const contentTypes = config.data && config.data.contentTypes;
+  const isPreviewSupported = Array.isArray(contentTypes) && contentTypes.find((type) => type.uid === data?.layout?.uid);
+  const previewWithDialog = isPreviewSupported?.dialog?.enabled;
+  const [priceID, setPriceID] = useState('');
+  const [priceData, setPriceData] = useState([]);
+  const [clipboardStatus, setClipboardStatus] = useState('button.copy');
+  const previewLabel = formatMessage({
+    id: getTrad('button.preview'),
+    defaultMessage: 'Bekijken',
+  });
+  const productId = data.initialData?.product && data.initialData?.product[0]?.id;
+  const contentComponentProps = {
+    locale: 'nl',
+    priceZeroLabel: formatMessage({
+      id: getTrad('priceWidget.zeroLabel'),
+      defaultMessage: '€ 0,00',
+    }),
+    priceData,
+  };
 
-  if (!isSupportPreview) return null;
+  useEffect(() => {
+    if (productId) {
+      Promise.all([
+        fetchData({
+          url: '/content-manager/collection-types/api::product.product',
+          params: {
+            price: {
+              populate: ['*'],
+            },
+          },
+          id: productId,
+        }),
+        fetchData({
+          url: '/content-manager/collection-types/api::price.price',
+          params: {},
+          id: priceID,
+        }),
+      ])
+        .then(([productResponse, priceResponse]) => {
+          setPriceID(productResponse?.data?.price?.id);
+          setPriceData(priceResponse?.data?.price);
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.error('Failed to fetch data', error);
+        });
+    }
+  }, [productId, priceID]);
 
-  const url = new URL(config?.data?.domain);
-  url.pathname = '/api/preview';
-  url.searchParams.set('secret', config.data.token);
-  url.searchParams.set('type', isSupportPreview.query.type);
-  url.searchParams.set('slug', data.initialData.slug);
-  url.searchParams.set('locale', data.initialData.locale);
+  if (!isPreviewSupported) return null;
 
-  return (
-    <LinkButton
-      size="S"
-      startIcon={<Eye />}
-      style={{ width: '100%' }}
-      href={url.href}
-      variant="secondary"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="page preview"
-    >
-      Preview
-    </LinkButton>
-  );
+  if (previewWithDialog) {
+    const vacData = {
+      title: data?.initialData?.vac?.vraag,
+      content: data?.initialData?.vac?.antwoord,
+    };
+    const internalContent = { title: data?.initialData?.title, content: data?.initialData?.content };
+    const type = isPreviewSupported.query.type;
+
+    const content = getContentByType({
+      vac: <Content data={vacData.content} title={vacData?.title} {...contentComponentProps} />,
+      internalField: (
+        <Content
+          data={internalContent?.content?.contentBlock}
+          title={internalContent?.title}
+          {...contentComponentProps}
+        />
+      ),
+      type,
+    });
+
+    const onClickCopyHTMLToDocxHandler = () => {
+      setClipboardStatus('button.copied');
+      copyHTMLToClipboard(
+        renderToString(
+          <HTMLTemplate title="Preview" lang="nl">
+            {content?.data}
+          </HTMLTemplate>,
+        ),
+      );
+      setTimeout(() => {
+        setClipboardStatus('button.copy');
+      }, 1000);
+    };
+
+    return (
+      <div className="preview-dialog">
+        <Button startIcon={<Eye />} className="utrecht-preview-link" onClick={() => setIsDialogOpen(true)}>
+          {previewLabel}
+        </Button>
+        <Dialog
+          className="utrecht-preview-dialog"
+          onClose={() => setIsDialogOpen(false)}
+          title={`${previewLabel}: ${internalContent?.title || vacData?.title}`}
+          isOpen={isDialogOpen}
+          id="preview-dialog"
+        >
+          <DialogBody>
+            <div className={['utrecht-html', 'utrecht-theme', 'utrecht-preview-dialog__body'].join(' ')}>
+              <Content
+                data={internalContent?.content?.contentBlock}
+                title={internalContent?.title}
+                {...contentComponentProps}
+              />
+              <Content data={vacData.content} title={vacData?.title} {...contentComponentProps} />
+            </div>
+          </DialogBody>
+          <DialogFooter
+            startAction={
+              <Button onClick={() => setIsDialogOpen(false)} variant="tertiary">
+                {formatMessage({
+                  id: getTrad('button.cancelPreview'),
+                  defaultMessage: 'Sluiten',
+                })}
+              </Button>
+            }
+            endAction={
+              <Button onClick={onClickCopyHTMLToDocxHandler}>
+                {formatMessage({
+                  id: getTrad(clipboardStatus),
+                  defaultMessage: 'Copy',
+                })}
+              </Button>
+            }
+          />
+        </Dialog>
+      </div>
+    );
+  }
+  const url = getUrl(config.data.domain);
+  if (url && !previewWithDialog) {
+    url.pathname = '/api/preview';
+    url.searchParams.set('secret', config.data.token);
+    url.searchParams.set('type', isPreviewSupported.query.type);
+    url.searchParams.set('slug', data.initialData.slug);
+    url.searchParams.set('locale', data.initialData.locale);
+    return (
+      <LinkButton
+        size="S"
+        startIcon={<Eye />}
+        className="utrecht-preview-link"
+        href={url.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={previewLabel}
+      >
+        {previewLabel}
+      </LinkButton>
+    );
+  } else {
+    return null;
+  }
 }
 
 export default PreviewLink;
