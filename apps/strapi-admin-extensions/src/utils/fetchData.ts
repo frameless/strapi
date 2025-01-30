@@ -23,6 +23,7 @@ export interface FetchDataProps {
   variables?: any;
   method?: string;
   headers?: HeadersInit; // Allow custom headers to be passed
+  body?: any; // Allow custom body to be passed
 }
 
 /**
@@ -32,6 +33,7 @@ export interface FetchDataProps {
  * @param {any} variables - The variables to pass to the GraphQL queries.
  * @param {string} method - The HTTP method, default is POST for GraphQL.
  * @param {HeadersInit} headers - Custom headers to pass to the request.
+ * @param {any} body - Custom body to pass to the request.
  * @returns {Promise<T>} - The fetched data.
  */
 export const fetchData = async <T>({
@@ -40,6 +42,7 @@ export const fetchData = async <T>({
   variables,
   method = 'POST',
   headers = {}, // Default to an empty object if no headers are provided
+  body, // Custom body
 }: FetchDataProps): Promise<T> => {
   // Default headers, which can be overwritten by custom headers (e.g., Content-Type)
   const defaultHeaders: HeadersInit = {
@@ -55,6 +58,7 @@ export const fetchData = async <T>({
           ...defaultHeaders,
           ...headers, // Merge custom headers with default ones (overwriting defaults if needed)
         },
+        body: body ? JSON.stringify(body) : undefined, // Use custom body if provided
       };
 
   try {
