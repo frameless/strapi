@@ -42,7 +42,6 @@ export const createVacController: RequestHandler = async (req, res, next) => {
       const vac = body?.record?.data as components['schemas']['vac'];
       const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
       const vacPayload = {
-        publishedAt: new Date(),
         vac: {
           vraag: vac?.vraag,
           antwoord: {
