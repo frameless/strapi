@@ -11,7 +11,7 @@ config();
 // Validate environment variables
 envAvailability({
   env: process.env,
-  keys: ['STRAPI_PRIVATE_URL', 'STRAPI_ADMIN_EXTENSIONS_PORT'],
+  keys: ['OVERIGE_OBJECTEN_API_URL', 'STRAPI_ADMIN_EXTENSIONS_PORT'],
 });
 
 const whitelist = process.env.STRAPI_ADMIN_EXTENSIONS_CORS?.split(', ') || [];
@@ -81,7 +81,7 @@ app.use(globalErrorHandler);
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => {
     // eslint-disable-next-line no-console
-    console.log(`Overige Objecten app listening on port ${port}!`);
+    console.log(`Strapi Admin extension app listening on port ${port}!`);
   });
 }
 

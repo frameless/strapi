@@ -118,15 +118,14 @@ services:
     restart: unless-stopped
     command: yarn strapi-admin-extensions
     environment:
-      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
+      OVERIGE_OBJECTEN_API_URL: ${OVERIGE_OBJECTEN_API_URL}
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
     ports:
       - "4002:4002"
     networks:
       - pdc_strapi_network
     depends_on:
-      - pdc_strapi
-      - pdc_strapi_db
+      - overige-objecten-api
   pdc_strapi_db:
     container_name: pdc_strapi_db
     platform: linux/amd64 #for platform error on Apple M1 chips
