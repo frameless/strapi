@@ -1,7 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 import fs from 'node:fs';
 import pLimit from 'p-limit';
-import { CREATE_VAC } from '../../queries';
 import { CreateVacResponse } from '../../strapi-product-types';
 import { fetchData, processCsvFile } from '../../utils';
 
@@ -17,9 +16,8 @@ export const importController = async (req: Request, res: Response, next: NextFu
       const authorizationHeader = req.headers?.authorization || '';
       const [authType, authToken] = authorizationHeader.split(/\s+/);
       const tokenAuth = authType === 'Token' ? authToken : authorizationHeader;
-      const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
+      const url = new URL(process.env.OVERIGE_OBJECTEN_API_URL as string).href;
       const sanitizedResults = await processCsvFile(filePath, requiredColumns);
-      const locale = req.query?.locale || 'nl';
 
       if (type === 'vac') {
         // Loop through the sanitized results and create entries one by one
@@ -27,12 +25,21 @@ export const importController = async (req: Request, res: Response, next: NextFu
           sanitizedResults.map((entry) =>
             limit(async () => {
               try {
-                const { data: responseData } = await fetchData<CreateVacResponse>({
-                  url: graphqlURL.href,
-                  query: CREATE_VAC,
-                  variables: { locale, data: entry },
+                const vacPayload = {
+                  type: `${url}/objecttypes/vac`,
+                  record: {
+                    data: {
+                      vraag: entry?.vac?.vraag,
+                      antwoord: entry?.vac?.antwoord.content,
+                      doelgroep: entry.vac.doelgroep,
+                    },
+                  },
+                };
+                const responseData = await fetchData<CreateVacResponse>({
+                  url: `${url}/objects`,
+                  body: vacPayload,
                   headers: {
-                    Authorization: `Bearer ${tokenAuth}`,
+                    Authorization: tokenAuth,
                   },
                 });
                 return responseData;

@@ -39,7 +39,7 @@ export const processCsvFile = (filePath: string, requiredColumns: string[]) => {
                 antwoord: {
                   content: domPurifyHTML,
                 },
-                doelgroep: result?.doelgroep || null,
+                doelgroep: result?.doelgroep || 'eu-burger', // this field is required in the overige-objecten-api
                 uuid: v4(),
               },
             };
