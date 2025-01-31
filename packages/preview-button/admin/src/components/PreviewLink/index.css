@@ -1,18 +1,8 @@
-.utrecht-preview-dialog {
-  max-block-size: 70vh;
-  overflow-y: auto;
-  & .utrecht-preview-dialog__body {
-    --utrecht-space-around: 1;
-  }
-}
-
 .utrecht-preview-link {
   inline-size: 100%;
   justify-content: center;
 }
 
-div[role="dialog"][aria-labelledby="preview-dialog-label"] {
-  margin-block-start: 32px !important;
-  margin-inline: auto !important;
-  max-inline-size: 100% !important;
+.utrecht-button-group {
+  justify-content: space-between;
 }

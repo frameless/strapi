@@ -1,4 +1,4 @@
-import { Dialog, DialogBody, DialogFooter } from '@strapi/design-system';
+import { useDialog } from '@frameless/ui';
 import { Button } from '@strapi/design-system/Button';
 import { LinkButton } from '@strapi/design-system/LinkButton';
 import { useCMEditViewDataManager, useFetchClient } from '@strapi/helper-plugin';
@@ -9,21 +9,23 @@ import { useIntl } from 'react-intl';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import '@utrecht/component-library-css/dist/html.css';
+import '@frameless/ui/dist/bundle.css';
 import usePluginConfig from '../../hooks/use-plugin-config';
 import useCopyHTMLToClipboard from '../../hooks/useCopyHTMLToClipboard';
 import useFetchData from '../../hooks/useFetchData';
 import { getContentByType, getTrad, getUrl } from '../../utils';
+import { Dialog } from '../Modal';
 import { Content, HTMLTemplate } from '../index';
 import './index.css';
 
 function PreviewLink() {
   const data = useCMEditViewDataManager();
   const client = useFetchClient();
+  const { openDialog, close, dialogRef } = useDialog();
   const { fetchData } = useFetchData(client);
   const copyHTMLToClipboard = useCopyHTMLToClipboard();
   const { config } = usePluginConfig();
   const { formatMessage } = useIntl();
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const contentTypes = config.data && config.data.contentTypes;
   const isPreviewSupported = Array.isArray(contentTypes) && contentTypes.find((type) => type.uid === data?.layout?.uid);
   const previewWithDialog = isPreviewSupported?.dialog?.enabled;
@@ -110,45 +112,39 @@ function PreviewLink() {
     };
 
     return (
-      <div className="preview-dialog">
-        <Button startIcon={<Eye />} className="utrecht-preview-link" onClick={() => setIsDialogOpen(true)}>
+      <div className={['preview-dialog', 'utrecht-theme'].join(' ')}>
+        <Button startIcon={<Eye />} className="utrecht-preview-link" onClick={openDialog}>
           {previewLabel}
         </Button>
         <Dialog
-          className="utrecht-preview-dialog"
-          onClose={() => setIsDialogOpen(false)}
+          ref={dialogRef}
           title={`${previewLabel}: ${internalContent?.title || vacData?.title}`}
-          isOpen={isDialogOpen}
-          id="preview-dialog"
+          closeButton={{
+            onClick: close,
+          }}
+          startAction={{
+            onClick: close,
+            label: formatMessage({
+              id: getTrad('button.cancelPreview'),
+              defaultMessage: 'Sluiten',
+            }),
+          }}
+          endAction={{
+            onClick: onClickCopyHTMLToDocxHandler,
+            label: formatMessage({
+              id: getTrad(clipboardStatus),
+              defaultMessage: 'Copy',
+            }),
+          }}
         >
-          <DialogBody>
-            <div className={['utrecht-html', 'utrecht-theme', 'utrecht-preview-dialog__body'].join(' ')}>
-              <Content
-                data={internalContent?.content?.contentBlock}
-                title={internalContent?.title}
-                {...contentComponentProps}
-              />
-              <Content data={vacData.content} title={vacData?.title} {...contentComponentProps} />
-            </div>
-          </DialogBody>
-          <DialogFooter
-            startAction={
-              <Button onClick={() => setIsDialogOpen(false)} variant="tertiary">
-                {formatMessage({
-                  id: getTrad('button.cancelPreview'),
-                  defaultMessage: 'Sluiten',
-                })}
-              </Button>
-            }
-            endAction={
-              <Button onClick={onClickCopyHTMLToDocxHandler}>
-                {formatMessage({
-                  id: getTrad(clipboardStatus),
-                  defaultMessage: 'Copy',
-                })}
-              </Button>
-            }
-          />
+          <div className="utrecht-html">
+            <Content
+              data={internalContent?.content?.contentBlock}
+              title={internalContent?.title}
+              {...contentComponentProps}
+            />
+            <Content data={vacData.content} title={vacData?.title} {...contentComponentProps} />
+          </div>
         </Dialog>
       </div>
     );
