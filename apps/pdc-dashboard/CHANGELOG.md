@@ -1,5 +1,16 @@
 # @frameless/pdc-dashboard
 
+## 1.1.0
+
+### Minor Changes
+
+- 6aee078: Integreer de Strapi-preview-knop voor het bekijken van de VAC- en interne-veld collectie en het kopiëren van de HTML om deze in een Word-bestand te plakken.
+
+### Patch Changes
+
+- Updated dependencies [eff0529]
+  - @frameless/preview-button@1.0.0
+
 ## 1.0.0
 
 ### Major Changes
