@@ -1,9 +1,11 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import {
+  convertImageToHTML,
   convertLogoButtonToHTML,
   convertMultiColumnsButtonToHTML,
   convertSpotlightToHTML,
+  getDirectionFromLanguageCode,
   mapContentByCategory,
 } from './index';
 import { AccordionSection, type AccordionSectionProps } from '../components/AccordionSection';
@@ -31,6 +33,13 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
       const mappedContent = mapContentByCategory(item.categorie, convertSpotlightToHTML(item));
       return mappedContent;
     }
+    if (item.component === 'ComponentComponentsUtrechtImage') {
+      const mappedContent = mapContentByCategory(
+        item.categorie,
+        convertImageToHTML(item?.imageData, process.env.STRAPI_PRIVATE_URL as string),
+      );
+      return mappedContent;
+    }
     if (item.component === 'ComponentComponentsUtrechtMultiColumnsButton') {
       const mappedContent = mapContentByCategory(item.categorie, convertMultiColumnsButtonToHTML(item));
       return mappedContent;
@@ -54,7 +63,7 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
     }
     if (item.component === 'ComponentComponentsFaq') {
       const FAQs = item?.pdc_faq?.data?.attributes?.faq.map((faq: AccordionSectionProps, index: number) => (
-        <AccordionSection key={index} label={faq.label} body={faq.body} headingLevel={3} />
+        <AccordionSection key={index} label={faq.label} body={faq.body} headingLevel={faq.headingLevel || 2} />
       ));
       const mappedContent = mapContentByCategory(item.categorie, renderToString(FAQs));
       return mappedContent;
@@ -63,7 +72,15 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
       if (!item.categorie) return {};
       const mappedContent = mapContentByCategory(
         item.categorie,
-        renderToString(<a href={item.href}>{item.textContent}</a>),
+        renderToString(
+          <a
+            dir={item.language ? getDirectionFromLanguageCode(item.language) : undefined}
+            lang={item?.language}
+            href={item.href}
+          >
+            {item.textContent}
+          </a>,
+        ),
       );
       return mappedContent;
     }

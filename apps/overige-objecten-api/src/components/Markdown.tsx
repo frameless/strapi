@@ -1,7 +1,7 @@
-import { Markdown as ReactMarkdown } from '@frameless/ui';
+import { isYouTubeURL, Markdown as ReactMarkdown, YouTubeVideo } from '@frameless/ui';
 import React from 'react';
 import type { Price } from '../strapi-product-type';
-import { sanitizeHTML } from '../utils';
+import { buildImageURL, sanitizeHTML } from '../utils';
 
 export interface MarkdownProps {
   children: string;
@@ -25,7 +25,11 @@ export const Markdown = ({ children: html, priceData }: MarkdownProps) => {
         ol: ({ children }) => <ol>{children}</ol>,
         li: ({ children }) => <li>{children}</li>,
         a: ({ children, href }) => <a href={href}>{children}</a>,
-        img: ({ src, alt }) => <img src={src} alt={alt} />,
+        img: ({ src, alt }) => {
+          if (!src && !process.env.STRAPI_PRIVATE_URL) return null;
+          const imageSrc = buildImageURL(process.env.STRAPI_PRIVATE_URL as string, src as string);
+          return <img src={imageSrc as string} alt={alt} />;
+        },
         table: ({ children }) => <table>{children}</table>,
         thead: ({ children }) => <thead>{children}</thead>,
         tbody: ({ children }) => <tbody>{children}</tbody>,
@@ -50,6 +54,19 @@ export const Markdown = ({ children: html, priceData }: MarkdownProps) => {
             return <span {...node?.properties}>{result}</span>;
           }
           return <span {...node?.properties}>{spanChildren}</span>;
+        },
+        iframe: ({ node }) => {
+          if (node && node.properties && typeof node.properties.src === 'string' && isYouTubeURL(node.properties.src)) {
+            return (
+              <YouTubeVideo
+                src={node.properties.src}
+                title={node.properties?.dataTitle as string}
+                {...node.properties}
+              />
+            );
+          } else {
+            return null;
+          }
         },
       }}
     >
