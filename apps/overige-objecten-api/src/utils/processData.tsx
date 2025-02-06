@@ -5,6 +5,7 @@ import {
   convertLogoButtonToHTML,
   convertMultiColumnsButtonToHTML,
   convertSpotlightToHTML,
+  getDirectionFromLanguageCode,
   mapContentByCategory,
 } from './index';
 import { AccordionSection, type AccordionSectionProps } from '../components/AccordionSection';
@@ -71,7 +72,15 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
       if (!item.categorie) return {};
       const mappedContent = mapContentByCategory(
         item.categorie,
-        renderToString(<a href={item.href}>{item.textContent}</a>),
+        renderToString(
+          <a
+            dir={item.language ? getDirectionFromLanguageCode(item.language) : undefined}
+            lang={item?.language}
+            href={item.href}
+          >
+            {item.textContent}
+          </a>,
+        ),
       );
       return mappedContent;
     }
