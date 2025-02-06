@@ -5,6 +5,7 @@ export { ErrorHandler } from './errorHandler';
 export { fetchData } from './fetchData';
 export { generateKennisartikelObject } from './generateKennisartikelObject';
 export { getCurrentTypeParam } from './getCurrentTypeParam';
+export { getDirectionFromLanguageCode } from './getDirectionFromLanguageCode';
 export { getPaginatedResponse } from './getPaginatedResponse';
 export { getTheServerURL } from './getTheServerURL';
 export { mapContentByCategory } from './mapContentByCategory';
