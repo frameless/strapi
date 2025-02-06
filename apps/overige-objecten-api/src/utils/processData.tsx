@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import {
+  convertImageToHTML,
   convertLogoButtonToHTML,
   convertMultiColumnsButtonToHTML,
   convertSpotlightToHTML,
@@ -29,6 +30,13 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
     }
     if (item.component === 'ComponentComponentsUtrechtSpotlight') {
       const mappedContent = mapContentByCategory(item.categorie, convertSpotlightToHTML(item));
+      return mappedContent;
+    }
+    if (item.component === 'ComponentComponentsUtrechtImage') {
+      const mappedContent = mapContentByCategory(
+        item.categorie,
+        convertImageToHTML(item?.imageData, process.env.STRAPI_PRIVATE_URL as string),
+      );
       return mappedContent;
     }
     if (item.component === 'ComponentComponentsUtrechtMultiColumnsButton') {
