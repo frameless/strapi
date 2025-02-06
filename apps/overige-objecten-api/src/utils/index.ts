@@ -1,3 +1,4 @@
+export { buildImageURL } from './buildImageURL';
 export { combineSimilarCategories } from './combineSimilarCategories';
 export { envAvailability } from './envAvailability';
 export { ErrorHandler } from './errorHandler';
