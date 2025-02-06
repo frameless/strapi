@@ -62,7 +62,7 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
     }
     if (item.component === 'ComponentComponentsFaq') {
       const FAQs = item?.pdc_faq?.data?.attributes?.faq.map((faq: AccordionSectionProps, index: number) => (
-        <AccordionSection key={index} label={faq.label} body={faq.body} headingLevel={3} />
+        <AccordionSection key={index} label={faq.label} body={faq.body} headingLevel={faq.headingLevel || 2} />
       ));
       const mappedContent = mapContentByCategory(item.categorie, renderToString(FAQs));
       return mappedContent;
