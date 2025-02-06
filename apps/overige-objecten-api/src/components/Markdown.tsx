@@ -1,4 +1,4 @@
-import { Markdown as ReactMarkdown } from '@frameless/ui';
+import { isYouTubeURL, Markdown as ReactMarkdown, YouTubeVideo } from '@frameless/ui';
 import React from 'react';
 import type { Price } from '../strapi-product-type';
 import { sanitizeHTML } from '../utils';
@@ -50,6 +50,19 @@ export const Markdown = ({ children: html, priceData }: MarkdownProps) => {
             return <span {...node?.properties}>{result}</span>;
           }
           return <span {...node?.properties}>{spanChildren}</span>;
+        },
+        iframe: ({ node }) => {
+          if (node && node.properties && typeof node.properties.src === 'string' && isYouTubeURL(node.properties.src)) {
+            return (
+              <YouTubeVideo
+                src={node.properties.src}
+                title={node.properties?.dataTitle as string}
+                {...node.properties}
+              />
+            );
+          } else {
+            return null;
+          }
         },
       }}
     >
