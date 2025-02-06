@@ -6,4 +6,8 @@ const createDOMPurify = memoize(() => {
   return DOMPurify(window);
 });
 const domPurify = createDOMPurify();
-export const sanitizeHTML = (html: string) => domPurify.sanitize(html, { FORBID_ATTR: ['style'] });
+export const sanitizeHTML = (html: string) =>
+  domPurify.sanitize(html, {
+    FORBID_ATTR: ['style'],
+    ADD_TAGS: ['iframe'],
+  });
