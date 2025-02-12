@@ -1,5 +1,6 @@
 import { concatenateFieldValues } from './concatenateFieldValues';
 import {
+  addHeadingOncePerCategory,
   combineSimilarCategories,
   createHTMLFiles,
   normalizeCategories,
@@ -19,16 +20,17 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
   const trefwoorden = metaTags?.keymatch?.split(', ').map((trefwoord: string) => ({ trefwoord })) || [];
   const kennisartikelMetadata = attributes.kennisartikelMetadata;
   const publicatieDatum = new Date(attributes.createdAt).toISOString().split('T')[0];
-  const getInternalBlockComponent = attributes?.sections.find(
-    ({ component }) => component === 'ComponentComponentsInternalBlockContent',
-  );
+  const additionalInformation = addHeadingOncePerCategory({
+    contentBlocks: attributes?.additional_information?.data?.attributes?.content?.contentBlock ?? [],
+    title: 'Aanvullende informatie',
+  });
   const priceData = attributes?.price?.data?.attributes?.price;
   const deskMemoInternalBlock = getInternalBlockComponent?.internal_field?.data?.attributes?.content?.contentBlock;
   const { deskMemo } = deskMemoInternalBlock
     ? { deskMemo: concatenateFieldValues(deskMemoInternalBlock) }
     : { deskMemo: '' };
   const sections = combineSimilarCategories(
-    processData({ data: normalizeCategories(attributes?.sections), priceData }),
+    processData({ data: normalizeCategories([...attributes?.sections, ...additionalInformation]), priceData }),
   );
 
   const bothContentBlock = { ...sections, deskMemo };
