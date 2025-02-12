@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_additional_information_field",
+  "info": {
+    "displayName": "Aanvullende informatie"
+  },
+  "options": {},
+  "attributes": {
+    "uuid": {
+      "type": "customField",
+      "customField": "plugin::uuid-field.uuid-field"
+    },
+    "contentBlock": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.utrecht-rich-text",
+      "required": false
+    }
+  }
+}

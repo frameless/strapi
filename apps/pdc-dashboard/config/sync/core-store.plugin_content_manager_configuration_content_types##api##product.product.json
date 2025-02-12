@@ -205,6 +205,21 @@
           "sortable": false
         }
       },
+      "additional_information": {
+        "edit": {
+          "label": "Gekoppelde aanvullende informatie",
+          "description": "Selecteer de aanvullende informatie die bij dit product horen.",
+          "placeholder": "Voeg aanvullende informatie toe.",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "additional_information",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -265,7 +280,6 @@
       }
     },
     "layouts": {
-      "list": ["title", "metaTags", "price", "uuid"],
       "edit": [
         [
           {
@@ -288,6 +302,10 @@
         [
           {
             "name": "price",
+            "size": 6
+          },
+          {
+            "name": "additional_information",
             "size": 6
           }
         ],
@@ -341,7 +359,8 @@
             "size": 4
           }
         ]
-      ]
+      ],
+      "list": ["title", "metaTags", "price", "uuid"]
     }
   },
   "type": "object",

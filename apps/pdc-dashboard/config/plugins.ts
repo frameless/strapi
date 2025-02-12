@@ -65,6 +65,15 @@ export default ({ env }) => ({
             enabled: true,
           },
         },
+        {
+          uid: 'api::additional-information.additional-information',
+          query: {
+            type: 'additional-information',
+          },
+          dialog: {
+            enabled: true,
+          },
+        },
       ],
       domain: env('FRONTEND_PUBLIC_URL'),
       token: env('PREVIEW_SECRET_TOKEN'),

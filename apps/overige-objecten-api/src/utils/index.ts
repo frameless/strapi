@@ -1,11 +1,15 @@
+export { addHeadingOncePerCategory } from './addHeadingOncePerCategory';
 export { combineSimilarCategories } from './combineSimilarCategories';
 export { envAvailability } from './envAvailability';
 export { ErrorHandler } from './errorHandler';
 export { fetchData } from './fetchData';
 export { generateKennisartikelObject } from './generateKennisartikelObject';
 export { getCurrentTypeParam } from './getCurrentTypeParam';
+export { getDeskMemo } from './getDeskMemo';
 export { getPaginatedResponse } from './getPaginatedResponse';
 export { getTheServerURL } from './getTheServerURL';
+export { getVerantwoordelijkeOrganisatie } from './getVerantwoordelijkeOrganisatie';
+export { getVertalingen } from './getVertalingen';
 export { mapContentByCategory } from './mapContentByCategory';
 export { normalizeCategories } from './normalizeCategories';
 export { concatenateFieldValues } from './concatenateFieldValues';

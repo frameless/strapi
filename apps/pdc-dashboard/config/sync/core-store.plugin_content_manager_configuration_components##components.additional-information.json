@@ -1,0 +1,55 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.additional-information",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "id",
+      "defaultSortBy": "id",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "additional_information": {
+        "edit": {
+          "label": "additional_information",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "additional_information",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "additional_information"],
+      "edit": [
+        [
+          {
+            "name": "additional_information",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "components.additional-information",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

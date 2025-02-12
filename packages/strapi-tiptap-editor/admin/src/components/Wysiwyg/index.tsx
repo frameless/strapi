@@ -38,6 +38,7 @@ import { useQuery } from 'react-query';
 import { getSettings } from '../../../../utils/api';
 import defaultSettings from '../../../../utils/defaults';
 import ProductPriceContext from '../../context/productPrice/context';
+import { useProductPrice } from '../../hooks/useProductPrice';
 import { mergeDeep } from '../../utils/merge';
 import Editor from '../Editor';
 import CustomTable from '../extensions/CustomTable';
@@ -117,10 +118,8 @@ const WysiwygContent = ({
   const [currentContent, setCurrentContent] = useState('');
   const { busy, getProductPrice, productPrice } = React.useContext(ProductPriceContext);
   const data = useCMEditViewDataManager();
-  const internalFieldUUID = data?.initialData?.content?.uuid;
-  useEffect(() => {
-    getProductPrice(data.initialData?.uuid, internalFieldUUID);
-  }, [data.initialData?.uuid, getProductPrice, internalFieldUUID]);
+
+  useProductPrice(data, getProductPrice);
 
   const extensions: Extensions = [
     StarterKit,
