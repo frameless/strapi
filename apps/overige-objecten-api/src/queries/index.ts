@@ -162,6 +162,22 @@ query getAllProducts(
             }
           }
         }
+        additional_information {
+          data {
+            attributes {
+              content {
+                id
+                uuid
+                contentBlock(pagination: { start: 0, limit: -1 }) {
+                id
+                content
+                categorie10:kennisartikelCategorie
+                component: __typename
+              }
+            }
+            }
+          }
+          }
         price {
           data {
             attributes {
@@ -341,6 +357,22 @@ export const GET_PRODUCT_BY_UUID = gql(`
               label
             }
           }
+            }
+            additional_information {
+              data {
+                attributes {
+                  content {
+                    id
+                    uuid
+                    contentBlock(pagination: { start: 0, limit: -1 }) {
+                      id
+                      content
+                      categorie10:kennisartikelCategorie
+                      component: __typename
+                    }
+                  }
+                }
+              }
             }
             price {
               data {

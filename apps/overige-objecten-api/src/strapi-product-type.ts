@@ -113,9 +113,32 @@ export interface Attributes {
   kennisartikel: Kennisartikel;
   vac: RootObjectVacItem;
   price: PriceData;
+  additional_information: AdditionalInformationField;
 }
 export interface InternalField {
   data: InternalFieldData;
+}
+export interface AdditionalInformationFieldData {
+  id: string;
+  attributes: AdditionalInformationFieldAttributes;
+}
+export interface AdditionalInformationFieldAttributes {
+  title: string;
+  content: AdditionalInformationFieldAttributesContent;
+}
+export interface AdditionalInformationFieldAttributesContent {
+  id: string;
+  uuid: string;
+  contentBlock: AdditionalInformationFieldAttributesContentContentBlock[];
+}
+export interface AdditionalInformationFieldAttributesContentContentBlock {
+  content: string;
+  categorie10: string;
+  id: string;
+  component?: string;
+}
+export interface AdditionalInformationField {
+  data: AdditionalInformationFieldData;
 }
 
 export interface InternalFieldData {
