@@ -1,18 +1,42 @@
 import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
-import { draftMode } from 'next/headers';
+import { draftMode, headers } from 'next/headers';
+import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
-import { useTranslation } from '@/app/i18n';
 import { QueryClientProvider } from '@/client';
-import { Footer, FooterData, Page, PreviewAlert, Surface } from '@/components';
+import {
+  Footer,
+  FooterData,
+  Grid,
+  GridCell,
+  Logo,
+  LogoImage,
+  Navigation,
+  NavigationListType,
+  Page,
+  PageContent,
+  PageHeader,
+  PreviewAlert,
+  SkipLink,
+  Surface,
+} from '@/components';
+// import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
+import { Main } from '@/components/Main';
+import { SearchBar } from '@/components/SearchBar';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Editoria11y } from '@/components/Editoria11y';
+import { GET_OPEN_FORMS_TEMPLATE } from '@/query';
+import { buildAlternateLinks, createStrapiURL, fetchData } from '@/util';
+import { ComponentComponentsUtrechtNavigation, GetTemplateDataQuery } from '../../../../gql/graphql';
+import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
+import { useTranslation } from '../../i18n/index';
+import { languages } from '../../i18n/settings';
 import '@frameless/ui/dist/bundle.css';
 import '../../../styles/globals.css';
+import '../../../styles/openforms.scss';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -30,17 +54,71 @@ type Params = {
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
+  const url = `${process.env.FRONTEND_PUBLIC_URL}/${locale}`;
   return {
     title: {
       template: `%s | ${t('website-setting.website-name')}`,
       default: `${t('website-setting.website-name')}`,
     },
+    icons: {
+      icon: [
+        {
+          url: '/favicon/favicon.ico',
+        },
+        {
+          url: '/favicon/android-chrome-192x192.png',
+          type: 'image/png',
+          sizes: '192x192',
+        },
+        {
+          url: '/favicon/android-chrome-512x512.png',
+          type: 'image/png',
+          sizes: '512x512',
+        },
+        {
+          url: '/favicon/favicon-32x32.png',
+          type: 'image/png',
+          sizes: '32x32',
+        },
+        {
+          url: '/favicon/favicon-16x16.png',
+          type: 'image/png',
+          sizes: '16x16',
+        },
+      ],
+      apple: [{ url: '/favicon/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }],
+    },
+    manifest: '/favicon/site.webmanifest',
+    openGraph: {
+      type: 'website',
+      locale,
+      siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
+      countryName: 'NL',
+      url,
+    },
+    metadataBase: new URL(process.env.FRONTEND_PUBLIC_URL || 'http://localhost:3000'),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        ...buildAlternateLinks({ languages }),
+      },
+    },
   };
 }
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
+  const nonce = headers().get('x-nonce') || '';
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
+  const { data } = await fetchData<{ data: GetTemplateDataQuery }>({
+    url: createStrapiURL(),
+    query: GET_OPEN_FORMS_TEMPLATE,
+    variables: { locale },
+  });
+
+  const navigationData = data.pdcTemplate?.data?.attributes?.sections?.find(
+    (component) => component?.__typename === 'ComponentComponentsUtrechtNavigation',
+  ) as ComponentComponentsUtrechtNavigation;
 
   const footerData = {
     title: t('footer.title'),
@@ -61,55 +139,23 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
               href: t('footer.list.listItem.0.link.2.href'),
               textContent: t('footer.list.listItem.0.link.2.textContent'),
             },
-            {
-              href: t('footer.list.listItem.0.link.3.href'),
-              textContent: t('footer.list.listItem.0.link.3.textContent'),
-            },
           ],
         },
       ],
     },
     address: t('footer.address'),
-    socialMediaList: {
-      link: [
-        {
-          href: t('footer.socialMediaList.link.0.href'),
-          icon: t('footer.socialMediaList.link.0.icon'),
-          textContent: t('footer.socialMediaList.link.0.textContent'),
-        },
-        {
-          href: t('footer.socialMediaList.link.1.href'),
-          icon: t('footer.socialMediaList.link.1.icon'),
-          textContent: t('footer.socialMediaList.link.1.textContent'),
-        },
-        {
-          href: t('footer.socialMediaList.link.2.href'),
-          icon: t('footer.socialMediaList.link.2.icon'),
-          textContent: t('footer.socialMediaList.link.2.textContent'),
-        },
-        {
-          href: t('footer.socialMediaList.link.3.href'),
-          icon: t('footer.socialMediaList.link.3.icon'),
-          textContent: t('footer.socialMediaList.link.3.textContent'),
-        },
-        {
-          href: t('footer.socialMediaList.link.4.href'),
-          icon: t('footer.socialMediaList.link.4.icon'),
-          textContent: t('footer.socialMediaList.link.4.textContent'),
-        },
-        {
-          href: t('footer.socialMediaList.link.5.href'),
-          icon: t('footer.socialMediaList.link.5.icon'),
-          textContent: t('footer.socialMediaList.link.5.textContent'),
-        },
-      ],
-    },
   };
 
   return (
     <html lang={locale} dir={dir(locale)} id="top" className="utrecht-scroll-to-top-container">
       <body
-        className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-vth-theme')}
+        className={classnames(
+          'utrecht-theme',
+          // Disable dark mode until it is completed and tested
+          // 'utrecht-theme--media-query-color-scheme',
+          'utrecht-document',
+          'utrecht-pdc-theme',
+        )}
         suppressHydrationWarning={true}
       >
         {isEnabled && (
@@ -123,22 +169,94 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         )}
         <QueryClientProvider>
           <Surface>
-            <Page className="utrecht-page--full-width">
-              {isEnabled && <Editoria11y />}
-              {children}
+            <Page className="utrecht-custom-page">
+              <PageHeader className="utrecht-custom-header">
+                <SkipLink href="#main">{t('components.skip-link.main')}</SkipLink>
+                <SkipLink href="#menu">{t('components.skip-link.menu')}</SkipLink>
+                <SkipLink href="#search-input">{t('components.skip-link.search-input')}</SkipLink>
+                <Grid>
+                  <GridCell xs={6}>
+                    <div className="utrecht-logo-wrapper">
+                      <Link
+                        href={`/${locale}`}
+                        className="utrecht-link utrecht-link--html-a utrecht-link--box-content"
+                        prefetch={false}
+                        aria-label={
+                          t('logo.aria-label', {
+                            defaultValue: 'Gemeente Utrecht logo, ga naar homepagina',
+                          }) || ''
+                        }
+                      >
+                        <Logo>
+                          <LogoImage />
+                        </Logo>
+                      </Link>
+                    </div>
+                  </GridCell>
+                  {/* <GridCell xs={3}>
+                      <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
+                    </GridCell> */}
+                  <GridCell sm={12} md={6} justifyContent="flex-end" alignItems="center" order={3} orderMd={2}>
+                    <div className="utrecht-search-bar-wrapper">
+                      <SearchBar
+                        locale={locale}
+                        onSearchSubmit={onSearchSubmitAction}
+                        onSearchChange={getLiveSuggestions}
+                        submitButtonText={t('search-bar.search-submit')}
+                        suggestionsTitle={t('search-bar.suggestions-title')}
+                        hitsTitle={t('search-bar.hits-title')}
+                      />
+                    </div>
+                  </GridCell>
+                  {navigationData?.navigationList && navigationData?.navigationList?.length > 0 && (
+                    <GridCell xs={6} md={12} order={2} orderMd={3}>
+                      <Navigation
+                        targetId="menu"
+                        aria-label={
+                          t('navigation.ariaLabel', {
+                            defaultValue: 'Hoofdmenu',
+                          }) as string
+                        }
+                        list={navigationData.navigationList as NavigationListType[]}
+                        mobileBreakpoint={961}
+                        toggleButton={{
+                          openText: 'Menu',
+                          closeText: 'Sluiten',
+                        }}
+                      />
+                    </GridCell>
+                  )}
+                </Grid>
+              </PageHeader>
+              <PageContent>
+                <Main>{children}</Main>
+              </PageContent>
             </Page>
+            <div id="webchat" />
+            <Footer
+              data={footerData as FooterData}
+              socialMediaLabel={
+                t('footer.socialMediaLabel', {
+                  defaultValue: 'Social media',
+                }) as string
+              }
+              headingLevel={2}
+            />
           </Surface>
-          <Footer
-            data={footerData as FooterData}
-            socialMediaLabel={
-              t('footer.socialMediaList.label', {
-                defaultValue: 'Social media',
-              }) as string
-            }
-            headingLevel={2}
-          />
         </QueryClientProvider>
-        <Script async src="https://siteimproveanalytics.com/js/siteanalyze_6006206.js"></Script>
+        <MatomoTagManager
+          nonce={nonce}
+          strategy="beforeInteractive"
+          src={`${process.env.MATOMO_HOST}/analytics/js/container_${process.env.MATOMO_SITE_ID}.js`}
+        />
+        <SiteImproveAnalytics nonce={nonce} strategy="beforeInteractive" />
+        <Script
+          defer
+          id="chatwidget-script"
+          crossOrigin="anonymous"
+          src="https://virtuele-gemeente-assistent.nl/static/js/widget.js"
+          nonce={nonce}
+        />
       </body>
     </html>
   );
