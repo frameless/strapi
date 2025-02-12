@@ -4,6 +4,65 @@
   "description": "Schrijfrechten voor de PDC.",
   "permissions": [
     {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::internal-field.internal-field",

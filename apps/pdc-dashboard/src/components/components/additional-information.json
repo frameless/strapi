@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_additional_informations",
+  "info": {
+    "displayName": "Additional information",
+    "icon": "information",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "additional_information": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::additional-information.additional-information"
+    }
+  }
+}
