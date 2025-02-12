@@ -82,15 +82,21 @@ function PreviewLink() {
       title: data?.initialData?.vac?.vraag,
       content: data?.initialData?.vac?.antwoord,
     };
-    const internalContent = { title: data?.initialData?.title, content: data?.initialData?.content };
     const type = isPreviewSupported.query.type;
 
     const content = getContentByType({
       vac: <Content data={vacData.content} title={vacData?.title} {...contentComponentProps} />,
       internalField: (
         <Content
-          data={internalContent?.content?.contentBlock}
-          title={internalContent?.title}
+          data={data?.initialData?.content?.contentBlock}
+          title={data?.initialData?.title}
+          {...contentComponentProps}
+        />
+      ),
+      additionalInformation: (
+        <Content
+          data={data?.initialData?.content?.contentBlock}
+          title={data?.initialData?.title}
           {...contentComponentProps}
         />
       ),
@@ -118,7 +124,7 @@ function PreviewLink() {
         </Button>
         <Dialog
           ref={dialogRef}
-          title={`${previewLabel}: ${internalContent?.title || vacData?.title}`}
+          title={`${previewLabel}: ${data.initialData?.title || vacData?.title}`}
           closeButton={{
             onClick: close,
           }}
@@ -137,14 +143,7 @@ function PreviewLink() {
             }),
           }}
         >
-          <div className="utrecht-html">
-            <Content
-              data={internalContent?.content?.contentBlock}
-              title={internalContent?.title}
-              {...contentComponentProps}
-            />
-            <Content data={vacData.content} title={vacData?.title} {...contentComponentProps} />
-          </div>
+          <div className="utrecht-html">{content.data}</div>
         </Dialog>
       </div>
     );
