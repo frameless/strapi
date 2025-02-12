@@ -21,11 +21,12 @@ De rol **Kennisbank Lezer** heeft alleen-lezen rechten binnen de Kennisbank, inc
 
 ### Toegangsrechten Kennisbank Lezer
 
-| **Actie** | **Onderwerp**    | **Beschrijving**                           |
-| --------- | ---------------- | ------------------------------------------ |
-| `read`    | `Interne velden` | Alleen-lezen toegang tot interne velden.   |
-| `read`    | `Kosten`         | Alleen-lezen toegang tot kosteninformatie. |
-| `read`    | `VAC`            | Alleen-lezen toegang tot VAC-inhoud.       |
+| **Actie** | **Onderwerp**            | **Beschrijving**                                        |
+| --------- | ------------------------ | ------------------------------------------------------- |
+| `read`    | `Interne velden`         | Alleen-lezen toegang tot interne velden.                |
+| `read`    | `Kosten`                 | Alleen-lezen toegang tot kosteninformatie.              |
+| `read`    | `VAC`                    | Alleen-lezen toegang tot VAC-inhoud.                    |
+| `read`    | `Aanvullende informatie` | Alleen-lezen toegang tot Aanvullende informatie inhoud. |
 
 ---
 
@@ -37,23 +38,24 @@ De rol **Kennisbank Schrijver** heeft volledige schrijfrechten binnen de Kennisb
 
 ### Toegangsrechten Kennisbank Schrijver
 
-| **Actie** | **Onderwerp**  | **Beschrijving**                           |
-| --------- | -------------- | ------------------------------------------ |
-| `create`  | `Interne veld` | Nieuwe interne velden maken.               |
-| `delete`  | `Interne veld` | Interne velden verwijderen.                |
-| `publish` | `Interne veld` | Interne velden publiceren.                 |
-| `read`    | `Interne veld` | Alleen-lezen toegang tot interne velden.   |
-| `update`  | `Interne veld` | Interne velden bijwerken.                  |
-| `create`  | `Kosten`       | Kosteninformatie toevoegen.                |
-| `delete`  | `Kosten`       | Kosteninformatie verwijderen.              |
-| `publish` | `Kosten`       | Kosteninformatie publiceren.               |
-| `read`    | `Kosten`       | Alleen-lezen toegang tot kosteninformatie. |
-| `update`  | `Kosten`       | Kosteninformatie bijwerken.                |
-| `create`  | `VAC`          | Nieuwe VAC-inhoud maken.                   |
-| `delete`  | `VAC`          | VAC-inhoud verwijderen.                    |
-| `publish` | `VAC`          | VAC-inhoud publiceren.                     |
-| `read`    | `VAC`          | Alleen-lezen toegang tot VAC-inhoud.       |
-| `update`  | `VAC`          | VAC-inhoud bijwerken.                      |
+| **Actie** | **Onderwerp**            | **Beschrijving**                           |
+| --------- | ------------------------ | ------------------------------------------ |
+| `create`  | `Interne veld`           | Nieuwe interne velden maken.               |
+| `delete`  | `Interne veld`           | Interne velden verwijderen.                |
+| `publish` | `Interne veld`           | Interne velden publiceren.                 |
+| `read`    | `Interne veld`           | Alleen-lezen toegang tot interne velden.   |
+| `update`  | `Interne veld`           | Interne velden bijwerken.                  |
+| `create`  | `Kosten`                 | Kosteninformatie toevoegen.                |
+| `delete`  | `Kosten`                 | Kosteninformatie verwijderen.              |
+| `publish` | `Kosten`                 | Kosteninformatie publiceren.               |
+| `read`    | `Kosten`                 | Alleen-lezen toegang tot kosteninformatie. |
+| `update`  | `Kosten`                 | Kosteninformatie bijwerken.                |
+| `create`  | `VAC`                    | Nieuwe VAC-inhoud maken.                   |
+| `delete`  | `VAC`                    | VAC-inhoud verwijderen.                    |
+| `publish` | `VAC`                    | VAC-inhoud publiceren.                     |
+| `read`    | `VAC`                    | Alleen-lezen toegang tot VAC-inhoud.       |
+| `update`  | `VAC`                    | VAC-inhoud bijwerken.                      |
+| `read`    | `Aanvullende informatie` | Aanvullende informatie inhoud bijwerken.   |
 
 ---
 
@@ -65,16 +67,17 @@ De rol **PDC Lezer** heeft alleen-lezen rechten op de PDC (Producten en Diensten
 
 ### Toegangsrechten PDC Lezer
 
-| **Actie** | **Onderwerp**        | **Beschrijving**                                 |
-| --------- | -------------------- | ------------------------------------------------ |
-| `read`    | `internal-field`     | Toegang tot interne velden (alleen-lezen).       |
-| `read`    | `pdc-home-page`      | Alleen-lezen toegang tot de startpagina van PDC. |
-| `read`    | `pdc-category`       | Alleen-lezen toegang tot categorieën.            |
-| `read`    | `pdc-faq`            | Alleen-lezen toegang tot veelgestelde vragen.    |
-| `read`    | `pdc-subcategory`    | Alleen-lezen toegang tot subcategorieën.         |
-| `read`    | `Kosten`             | Alleen-lezen toegang tot kosteninformatie.       |
-| `read`    | `product`            | Alleen-lezen toegang tot productgegevens.        |
-| `read`    | `productencatalogus` | Alleen-lezen toegang tot de volledige catalogus. |
+| **Actie** | **Onderwerp**            | **Beschrijving**                                        |
+| --------- | ------------------------ | ------------------------------------------------------- |
+| `read`    | `internal-field`         | Toegang tot interne velden (alleen-lezen).              |
+| `read`    | `pdc-home-page`          | Alleen-lezen toegang tot de startpagina van PDC.        |
+| `read`    | `pdc-category`           | Alleen-lezen toegang tot categorieën.                   |
+| `read`    | `pdc-faq`                | Alleen-lezen toegang tot veelgestelde vragen.           |
+| `read`    | `pdc-subcategory`        | Alleen-lezen toegang tot subcategorieën.                |
+| `read`    | `Kosten`                 | Alleen-lezen toegang tot kosteninformatie.              |
+| `read`    | `product`                | Alleen-lezen toegang tot productgegevens.               |
+| `read`    | `productencatalogus`     | Alleen-lezen toegang tot de volledige catalogus.        |
+| `read`    | `Aanvullende informatie` | Alleen-lezen toegang tot Aanvullende informatie inhoud. |
 
 ---
 
@@ -86,38 +89,42 @@ De rol **PDC Schrijver** heeft volledige schrijfrechten binnen de PDC, inclusief
 
 ### Toegangsrechten PDC Schrijver
 
-| **Actie** | **Onderwerp**        | **Beschrijving**                           |
-| --------- | -------------------- | ------------------------------------------ |
-| `read`    | `internal-field`     | Toegang tot interne velden (alleen-lezen). |
-| `create`  | `pdc-home-page`      | Nieuwe PDC startpagina maken.              |
-| `delete`  | `pdc-home-page`      | PDC startpagina verwijderen.               |
-| `publish` | `pdc-home-page`      | PDC startpagina publiceren.                |
-| `update`  | `pdc-home-page`      | PDC startpagina bijwerken.                 |
-| `read`    | `pdc-category`       | Alleen-lezen toegang tot categorieën.      |
-| `create`  | `pdc-category`       | Nieuwe categorie maken.                    |
-| `delete`  | `pdc-category`       | Categorie verwijderen.                     |
-| `publish` | `pdc-category`       | Categorie publiceren.                      |
-| `update`  | `pdc-category`       | Categorie bijwerken.                       |
-| `create`  | `pdc-faq`            | Nieuwe FAQ maken.                          |
-| `delete`  | `pdc-faq`            | FAQ verwijderen.                           |
-| `publish` | `pdc-faq`            | FAQ publiceren.                            |
-| `update`  | `pdc-faq`            | FAQ bijwerken.                             |
-| `create`  | `pdc-subcategory`    | Nieuwe subcategorie maken.                 |
-| `delete`  | `pdc-subcategory`    | Subcategorie verwijderen.                  |
-| `publish` | `pdc-subcategory`    | Subcategorie publiceren.                   |
-| `update`  | `pdc-subcategory`    | Subcategorie bijwerken.                    |
-| `create`  | `Kosten`             | Kosteninformatie toevoegen.                |
-| `delete`  | `Kosten`             | Kosteninformatie verwijderen.              |
-| `publish` | `Kosten`             | Kosteninformatie publiceren.               |
-| `update`  | `Kosten`             | Kosteninformatie bijwerken.                |
-| `create`  | `product`            | Nieuwe producten toevoegen.                |
-| `delete`  | `product`            | Producten verwijderen.                     |
-| `publish` | `product`            | Producten publiceren.                      |
-| `update`  | `product`            | Producten bijwerken.                       |
-| `create`  | `productencatalogus` | Nieuwe catalogusinformatie toevoegen.      |
-| `delete`  | `productencatalogus` | Catalogusinformatie verwijderen.           |
-| `publish` | `productencatalogus` | Catalogusinformatie publiceren.            |
-| `update`  | `productencatalogus` | Catalogusinformatie bijwerken.             |
+| **Actie** | **Onderwerp**            | **Beschrijving**                           |
+| --------- | ------------------------ | ------------------------------------------ |
+| `read`    | `internal-field`         | Toegang tot interne velden (alleen-lezen). |
+| `create`  | `pdc-home-page`          | Nieuwe PDC startpagina maken.              |
+| `delete`  | `pdc-home-page`          | PDC startpagina verwijderen.               |
+| `publish` | `pdc-home-page`          | PDC startpagina publiceren.                |
+| `update`  | `pdc-home-page`          | PDC startpagina bijwerken.                 |
+| `read`    | `pdc-category`           | Alleen-lezen toegang tot categorieën.      |
+| `create`  | `pdc-category`           | Nieuwe categorie maken.                    |
+| `delete`  | `pdc-category`           | Categorie verwijderen.                     |
+| `publish` | `pdc-category`           | Categorie publiceren.                      |
+| `update`  | `pdc-category`           | Categorie bijwerken.                       |
+| `create`  | `pdc-faq`                | Nieuwe FAQ maken.                          |
+| `delete`  | `pdc-faq`                | FAQ verwijderen.                           |
+| `publish` | `pdc-faq`                | FAQ publiceren.                            |
+| `update`  | `pdc-faq`                | FAQ bijwerken.                             |
+| `create`  | `pdc-subcategory`        | Nieuwe subcategorie maken.                 |
+| `delete`  | `pdc-subcategory`        | Subcategorie verwijderen.                  |
+| `publish` | `pdc-subcategory`        | Subcategorie publiceren.                   |
+| `update`  | `pdc-subcategory`        | Subcategorie bijwerken.                    |
+| `create`  | `Kosten`                 | Kosteninformatie toevoegen.                |
+| `delete`  | `Kosten`                 | Kosteninformatie verwijderen.              |
+| `publish` | `Kosten`                 | Kosteninformatie publiceren.               |
+| `update`  | `Kosten`                 | Kosteninformatie bijwerken.                |
+| `create`  | `product`                | Nieuwe producten toevoegen.                |
+| `delete`  | `product`                | Producten verwijderen.                     |
+| `publish` | `product`                | Producten publiceren.                      |
+| `update`  | `product`                | Producten bijwerken.                       |
+| `create`  | `productencatalogus`     | Nieuwe catalogusinformatie toevoegen.      |
+| `delete`  | `productencatalogus`     | Catalogusinformatie verwijderen.           |
+| `publish` | `productencatalogus`     | Catalogusinformatie publiceren.            |
+| `update`  | `productencatalogus`     | Catalogusinformatie bijwerken.             |
+| `create`  | `Aanvullende informatie` | Nieuwe Aanvullende informatie toevoegen.   |
+| `delete`  | `Aanvullende informatie` | Aanvullende informatie verwijderen.        |
+| `publish` | `Aanvullende informatie` | Aanvullende informatie publiceren.         |
+| `update`  | `Aanvullende informatie` | Aanvullende informatie bijwerken.          |
 
 ---
 
