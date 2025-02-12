@@ -6,6 +6,21 @@
     {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
       "subject": "api::internal-field.internal-field",
       "properties": {
         "fields": [
