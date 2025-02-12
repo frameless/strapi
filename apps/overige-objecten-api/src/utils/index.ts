@@ -1,4 +1,5 @@
 export { buildImageURL } from './buildImageURL';
+export { addHeadingOncePerCategory } from './addHeadingOncePerCategory';
 export { combineSimilarCategories } from './combineSimilarCategories';
 export { concatenateFieldValues } from './concatenateFieldValues';
 export { convertImageToHTML } from './convertImageToHTML';
