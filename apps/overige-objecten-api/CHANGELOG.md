@@ -1,5 +1,11 @@
 # @frameless/overige-objecten-api
 
+## 1.2.0
+
+### Minor Changes
+
+- f423f59: Ondersteuning toegevoegd voor YouTube-embeds en afbeeldingen in de Overige-objecten-API. Daarnaast een unit-test geschreven voor de HTML-structuur die het Kiss-dashboard verwacht.
+
 ## 1.1.0
 
 ### Minor Changes
