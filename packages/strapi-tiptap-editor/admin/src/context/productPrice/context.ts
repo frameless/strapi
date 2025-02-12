@@ -1,18 +1,24 @@
 import { createContext } from 'react';
 import { PriceListTypes } from '../../types';
 
+export type FieldType = 'internal-field' | 'additional-information' | 'product';
+export interface GetProductPriceProps {
+  uuid: string;
+  type: FieldType;
+  uid: string;
+}
 type ProductPriceContextTypes = {
   error: string | null;
   busy: boolean;
   productPrice?: PriceListTypes;
-  getProductPrice: (pageId: string, internalFieldUUID?: string) => void;
+  getProductPrice: ({ type, uid, uuid }: GetProductPriceProps) => void;
 };
 
 const ProductPriceContext = createContext<ProductPriceContextTypes>({
   error: null,
   busy: false,
   productPrice: undefined,
-  getProductPrice: (_pageId: string, _internalFieldUUID?: string) => {},
+  getProductPrice: (_props: GetProductPriceProps) => {},
 });
 
 export default ProductPriceContext;
