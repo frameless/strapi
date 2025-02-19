@@ -2,14 +2,14 @@
 
 ## Overzicht van Rollen
 
-| **Rol**                  | **Beschrijving**                                                                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------------ |
-| **Kennisbank Lezer**     | Alleen-lezen rechten op de Kennisbank.                                                           |
-| **Kennisbank Schrijver** | Schrijfrechten voor de Kennisbank.                                                               |
-| **PDC Lezer**            | Alleen-lezen rechten op de PDC.                                                                  |
-| **PDC Schrijver**        | Schrijfrechten voor de PDC.                                                                      |
-| **Beheerder**            | Algemene beheerdersrechten, inclusief uitgebreide API-toegang, gebruikersbeheer en configuratie. |
-| **Super Admin**          | Deze rol heeft volledige toegang en kan alles beheren.                                           |
+| **Rol**                            | **Beschrijving**                                                                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Kennisbank Lezer**               | Alleen-lezen rechten op de Kennisbank.                                                           |
+| **Kennisbank Schrijver Redacteur** | Schrijfrechten voor de Kennisbank.                                                               |
+| **PDC Lezer**                      | Alleen-lezen rechten op de PDC.                                                                  |
+| **PDC Schrijver Redacteur**        | Schrijfrechten voor de PDC.                                                                      |
+| **Beheerder**                      | Algemene beheerdersrechten, inclusief uitgebreide API-toegang, gebruikersbeheer en configuratie. |
+| **Super Admin**                    | Deze rol heeft volledige toegang en kan alles beheren.                                           |
 
 ---
 
@@ -30,13 +30,13 @@ De rol **Kennisbank Lezer** heeft alleen-lezen rechten binnen de Kennisbank, inc
 
 ---
 
-## Kennisbank Schrijver
+## Kennisbank Schrijver Redacteur
 
-### Beschrijving van de Kennisbank Schrijver
+### Beschrijving van de Kennisbank Schrijver Redacteur
 
-De rol **Kennisbank Schrijver** heeft volledige schrijfrechten binnen de Kennisbank, inclusief het beheren van VAC-inhoud, kosten en interne velden.
+De rol **Kennisbank Schrijver Redacteur** heeft volledige schrijfrechten binnen de Kennisbank, inclusief het beheren van VAC-inhoud, kosten en interne velden.
 
-### Toegangsrechten Kennisbank Schrijver
+### Toegangsrechten Kennisbank Schrijver Redacteur
 
 | **Actie** | **Onderwerp**            | **Beschrijving**                           |
 | --------- | ------------------------ | ------------------------------------------ |
@@ -81,21 +81,23 @@ De rol **PDC Lezer** heeft alleen-lezen rechten op de PDC (Producten en Diensten
 
 ---
 
-## PDC Schrijver
+## PDC Schrijver Redacteur
 
-### Beschrijving van de PDC Schrijver
+### Beschrijving van de PDC Schrijver Redacteur
 
-De rol **PDC Schrijver** heeft volledige schrijfrechten binnen de PDC, inclusief het maken, bijwerken, publiceren en verwijderen van inhoud.
+De rol **PDC Schrijver Redacteur** heeft volledige schrijfrechten binnen de PDC, inclusief het maken, bijwerken, publiceren en verwijderen van inhoud.
 
-### Toegangsrechten PDC Schrijver
+### Toegangsrechten PDC Schrijver Redacteur
 
 | **Actie** | **Onderwerp**            | **Beschrijving**                           |
 | --------- | ------------------------ | ------------------------------------------ |
 | `read`    | `internal-field`         | Toegang tot interne velden (alleen-lezen). |
-| `create`  | `pdc-home-page`          | Nieuwe PDC startpagina maken.              |
-| `delete`  | `pdc-home-page`          | PDC startpagina verwijderen.               |
+| `create`  | `not-found-page`         | Nieuwe PDC startpagina maken.              |
+| `delete`  | `not-found-page`         | PDC startpagina verwijderen.               |
+| `read`    | `not-found-page`         | Leest de inhoud van de 404-pagina.         |
 | `publish` | `pdc-home-page`          | PDC startpagina publiceren.                |
 | `update`  | `pdc-home-page`          | PDC startpagina bijwerken.                 |
+| `read`    | `pdc-home-page`          | Leest de inhoud van de startpagina.        |
 | `read`    | `pdc-category`           | Alleen-lezen toegang tot categorieën.      |
 | `create`  | `pdc-category`           | Nieuwe categorie maken.                    |
 | `delete`  | `pdc-category`           | Categorie verwijderen.                     |
