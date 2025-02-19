@@ -1,5 +1,7 @@
 {
-  "button.preview": "Preview",
+  "dialog.title": "Preview",
+  "button.dialogPreview": "Preview in Dialog",
+  "button.pagePreview": "Preview on Page",
   "button.cancelPreview": "Cancel Preview",
   "button.copy": "Copy",
   "button.copied": "Copied",
