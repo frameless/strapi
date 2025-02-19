@@ -1,5 +1,7 @@
 {
-  "button.preview": "Bekijken",
+  "dialog.title": "Bekijken",
+  "button.dialogPreview": "Voorbeeld in dialoogvenster",
+  "button.pagePreview": "Voorbeeld op pagina",
   "button.cancelPreview": "Sluiten",
   "button.copy": "Kopiëren",
   "button.copied": "Gekopieerd",
