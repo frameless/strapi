@@ -46,14 +46,17 @@ export default ({ env }) => ({
           query: {
             type: 'products',
           },
+          preview: {
+            type: 'both',
+          },
         },
         {
           uid: 'api::vac.vac',
           query: {
             type: 'vac',
           },
-          dialog: {
-            enabled: true,
+          preview: {
+            type: 'dialog',
           },
         },
         {
@@ -61,8 +64,17 @@ export default ({ env }) => ({
           query: {
             type: 'internal-field',
           },
-          dialog: {
-            enabled: true,
+          preview: {
+            type: 'dialog',
+          },
+        },
+        {
+          uid: 'api::additional-information.additional-information',
+          query: {
+            type: 'additional-information',
+          },
+          preview: {
+            type: 'dialog',
           },
         },
         {
