@@ -70,7 +70,9 @@
     "util": "0.12.5",
     "slugify": "1.6.6",
     "uuid": "9.0.1",
-    "@cospired/i18n-iso-languages": "4.2.0"
+    "@cospired/i18n-iso-languages": "4.2.0",
+    "striptags": "3.2.0",
+    "lodash.truncate": "4.4.2"
   },
   "devDependencies": {
     "@strapi/typescript-utils": "4.14.6",
@@ -78,7 +80,8 @@
     "react-router-dom": "5.3.4",
     "@types/react-router-dom": "5.3.3",
     "typescript": "5.0.4",
-    "@types/uuid": "9.0.8"
+    "@types/uuid": "9.0.8",
+    "@types/lodash.truncate": "4.4.9"
   },
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"
