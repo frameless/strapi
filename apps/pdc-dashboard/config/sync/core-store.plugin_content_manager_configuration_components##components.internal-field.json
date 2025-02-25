@@ -46,21 +46,39 @@
           "searchable": false,
           "sortable": false
         }
+      },
+      "keywords": {
+        "edit": {
+          "label": "Trefwoorden",
+          "description": "Voeg trefwoorden toe voor een betere vindbaarheid. Scheid de trefwoorden met komma's. Bijvoorbeeld: 'trefwoord1, trefwoord2, trefwoord3'",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "keywords",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "uuid", "contentBlock"],
+      "list": ["id", "uuid", "contentBlock", "keywords"],
       "edit": [
-        [
-          {
-            "name": "uuid",
-            "size": 6
-          }
-        ],
         [
           {
             "name": "contentBlock",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "keywords",
+            "size": 6
+          },
+          {
+            "name": "uuid",
+            "size": 6
           }
         ]
       ]

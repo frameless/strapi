@@ -28,6 +28,7 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
+          "content.keywords",
           "product"
         ]
       },
