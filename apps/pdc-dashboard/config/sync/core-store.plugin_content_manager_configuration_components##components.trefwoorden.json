@@ -22,7 +22,7 @@
       "trefwoord": {
         "edit": {
           "label": "Trefwoord",
-          "description": "Trefwoorden die passen bij de VAC.",
+          "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
