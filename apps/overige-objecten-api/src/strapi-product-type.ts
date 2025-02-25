@@ -174,6 +174,7 @@ export interface InternalFieldAttributesContent {
   id: string;
   uuid: string;
   contentBlock: InternalFieldAttributesContentContentBlock[];
+  keywords?: string;
 }
 export interface InternalFieldAttributesContentContentBlock {
   content: string;

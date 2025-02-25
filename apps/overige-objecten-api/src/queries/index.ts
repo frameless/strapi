@@ -51,6 +51,7 @@ query getAllProducts(
                           content
                           kennisartikelCategorie
                         }
+                        keywords
                       }
                     }
                   }
@@ -247,6 +248,7 @@ export const GET_PRODUCT_BY_UUID = gql(`
                           content
                           kennisartikelCategorie
                         }
+                        keywords
                       }
                     }
                   }

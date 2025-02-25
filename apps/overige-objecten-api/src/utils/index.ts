@@ -11,6 +11,7 @@ export { envAvailability } from './envAvailability';
 export { ErrorHandler } from './errorHandler';
 export { fetchData } from './fetchData';
 export { generateKennisartikelObject } from './generateKennisartikelObject';
+export { generateKeywords } from './generateKeywords';
 export { getCurrentTypeParam } from './getCurrentTypeParam';
 export { getDirectionFromLanguageCode } from './getDirectionFromLanguageCode';
 export { getDeskMemo } from './getDeskMemo';

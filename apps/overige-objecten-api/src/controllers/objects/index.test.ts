@@ -8,6 +8,7 @@ import {
   vacObject,
 } from '../../__mocks__';
 import app from '../../server';
+import type { Trefwoord } from '../openapi/types';
 
 jest.mock('../../utils/getTheServerURL.ts', () => ({
   getTheServerURL: () => 'http://localhost:3000',
@@ -326,6 +327,82 @@ describe('Objects controller', () => {
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(kennisartikelObject());
+    });
+    it('should return kennisartikel object with trefwoorden', async () => {
+      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
+      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      const response = await request(app)
+        .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb')
+        .set('Authorization', 'Token YOUR_API_TOKEN');
+      const kennisartikelResponse = response.body as ReturnType<typeof kennisartikelObject>;
+      expect(kennisartikelResponse.record.data.vertalingen[0]).toStrictEqual(
+        kennisartikelObject().record.data.vertalingen[0],
+      );
+    });
+    it('should merge internal and kennisartikel trefwoorden', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: {
+            products: {
+              meta: {
+                pagination: {
+                  total: 1,
+                  page: 1,
+                  pageSize: 1,
+                  pageCount: 1,
+                },
+              },
+              data: [
+                {
+                  id: '1',
+                  attributes: {
+                    title: 'Demo Product',
+                    slug: 'demo-product',
+                    uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce3',
+                    locale: 'nl',
+                    updatedAt: '2024-11-06T12:05:42.541Z',
+                    createdAt: '2024-11-05T16:03:50.975Z',
+                    metaTags: {
+                      keymatch: 'Demo, Page',
+                      title: 'Demo Page Title',
+                      description: 'Demo Page description',
+                    },
+                    sections: [
+                      {
+                        component: 'ComponentComponentsInternalBlockContent',
+                        internal_field: {
+                          data: {
+                            attributes: {
+                              content: {
+                                id: '1',
+                                uuid: '241eb316-d348-4304-b303-9aa5ebf431b4',
+                                keywords: 'Intern keyword 1, Intern keyword 2, Intern keyword 3',
+                              },
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        }),
+      );
+      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      const response = await request(app)
+        .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ce3')
+        .set('Authorization', 'Token YOUR_API_TOKEN');
+      const responseKennisartikel = response.body as ReturnType<typeof kennisartikelObject>;
+      const expectedTrefwoorden: Trefwoord[] = [
+        { trefwoord: 'Demo' },
+        { trefwoord: 'Page' },
+        { trefwoord: 'Intern keyword 1' },
+        { trefwoord: 'Intern keyword 2' },
+        { trefwoord: 'Intern keyword 3' },
+      ];
+      expect(responseKennisartikel.record.data.vertalingen[0].trefwoorden).toStrictEqual(expectedTrefwoorden);
     });
     it('should return 200 and vac object when uuid is valid', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
