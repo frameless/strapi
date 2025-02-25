@@ -21,6 +21,10 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
   const trefwoorden = metaTags?.keymatch
     ? metaTags.keymatch.split(', ').map((trefwoord: string) => ({ trefwoord }))
     : [];
+  const internalTrefwoorden = attributes.sections?.find(
+    ({ component }) => component === 'ComponentComponentsInternalBlockContent',
+  )?.internal_field?.data?.attributes?.content?.trefwoorden;
+
   const kennisartikelMetadata = attributes.kennisartikelMetadata;
   const publicatieDatum = new Date(attributes.createdAt).toISOString().split('T')[0];
   const additionalInformation = addHeadingOncePerCategory({
@@ -35,7 +39,13 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
 
   const bothContentBlock = { ...sections, deskMemo };
   createHTMLFiles(bothContentBlock, priceData);
-  const vertalingen = getVertalingen({ bothContentBlock, deskMemo, priceData, attributes, trefwoorden });
+  const vertalingen = getVertalingen({
+    bothContentBlock,
+    deskMemo,
+    priceData,
+    attributes,
+    trefwoorden: [...trefwoorden, ...(internalTrefwoorden ?? [])],
+  });
   const data: components['schemas']['ObjectData'] = {
     url: `${url}/api/v2/objects/${attributes.uuid}`,
     uuid: attributes.uuid,

@@ -1,3 +1,6 @@
+export type Trefwoorden = {
+  trefwoord: string;
+};
 export interface CreateInternalField {
   data: {
     createInternalField: {
@@ -153,6 +156,7 @@ export interface InternalFieldAttributesContent {
   id: string;
   uuid: string;
   contentBlock: InternalFieldAttributesContentContentBlock[];
+  trefwoorden?: Trefwoorden[];
 }
 export interface InternalFieldAttributesContentContentBlock {
   content: string;
