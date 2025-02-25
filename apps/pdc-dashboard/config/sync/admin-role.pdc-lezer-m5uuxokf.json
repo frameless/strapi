@@ -134,6 +134,8 @@
           "kennisartikelMetadata.productValtOnder",
           "kennisartikelMetadata.afdelingen.afdelingId",
           "kennisartikelMetadata.afdelingen.afdelingNaam",
+          "kennisartikelMetadata.afdelingen.contact.name",
+          "kennisartikelMetadata.afdelingen.contact.email",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
