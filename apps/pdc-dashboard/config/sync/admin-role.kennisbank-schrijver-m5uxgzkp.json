@@ -131,6 +131,8 @@
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
           "vac.afdelingen.afdelingNaam",
+          "vac.afdelingen.contact.name",
+          "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
           "vac.trefwoorden.trefwoord"
@@ -165,6 +167,8 @@
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
           "vac.afdelingen.afdelingNaam",
+          "vac.afdelingen.contact.name",
+          "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
           "vac.trefwoorden.trefwoord"
@@ -185,6 +189,8 @@
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
           "vac.afdelingen.afdelingNaam",
+          "vac.afdelingen.contact.name",
+          "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
           "vac.trefwoorden.trefwoord"
