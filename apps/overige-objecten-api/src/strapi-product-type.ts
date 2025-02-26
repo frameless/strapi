@@ -1,3 +1,23 @@
+export type Status = 'actief' | 'non-actief' | 'te-verwijderen';
+export type Doelgroep = 'eu-burger' | 'eu-bedrijf' | 'eu-burger-bedrijf';
+export type Afdeling = {
+  afdelingId?: string;
+  afdelingNaam: string;
+};
+export type Trefwoorden = {
+  trefwoord: string;
+};
+export type VacRecordData = {
+  uuid: string;
+  vraag?: string;
+  antwoord: string;
+  status?: Status;
+  doelgroep?: Doelgroep;
+  afdelingen?: Afdeling[];
+  toelichting?: string;
+  trefwoorden?: Trefwoorden[];
+  url: string;
+};
 export interface CreateInternalField {
   data: {
     createInternalField: {
@@ -31,19 +51,20 @@ export interface Antwoord {
 }
 export interface VacItem {
   uuid: string;
-  vraag: string | null;
+  vraag?: string;
   antwoord: Antwoord[];
-  status: string | null;
-  doelgroep: string | null;
-  afdelingen: string[];
-  toelichting: string | null;
-  trefwoorden: string[];
+  status?: Status;
+  doelgroep?: Doelgroep;
+  afdelingen?: Afdeling[];
+  toelichting?: string;
+  trefwoorden?: Trefwoorden[];
 }
 
 export interface AttributesVacItem {
   createdAt: string;
   updatedAt: string;
   vac: VacItem;
+  title?: string;
 }
 
 export interface DataVacItem {
@@ -57,7 +78,7 @@ export interface RootObjectVacItem {
 
 export interface VACSData {
   vacs: RootObjectVacItem;
-  meta: Meta;
+  meta?: Meta;
 }
 export interface StrapiProductType {
   data: Data;

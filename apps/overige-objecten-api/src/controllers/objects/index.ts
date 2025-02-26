@@ -2,13 +2,7 @@ import type { RequestHandler } from 'express';
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS, GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../../queries';
 import type { StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
-import {
-  concatenateFieldValues,
-  fetchData,
-  generateKennisartikelObject,
-  getPaginatedResponse,
-  getTheServerURL,
-} from '../../utils';
+import { fetchData, generateKennisartikelObject, getPaginatedResponse, getTheServerURL, getVacData } from '../../utils';
 import type { PaginationType } from '../../utils';
 
 type GetKennisartikelReturnData = components['schemas']['ObjectData'];
@@ -76,36 +70,6 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       });
       return data;
     };
-    const getVacData = (data: VACSData) => {
-      // return empty array if no VACs
-      if (!data?.vacs?.data?.length) return [];
-      const vac = data?.vacs?.data?.map((item) => {
-        const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
-        const antwoord = Array.isArray(item?.attributes?.vac?.antwoord)
-          ? concatenateFieldValues(item.attributes.vac.antwoord as any)
-          : [];
-
-        return {
-          uuid: item.attributes.vac.uuid,
-          type: vacSchemaURL,
-          url: vacUrl,
-          record: {
-            index: parseInt(item.id, 10),
-            startAt: item.attributes.createdAt,
-            typeVersion: 1,
-            data: {
-              ...item.attributes.vac,
-              antwoord,
-              url: vacUrl,
-            },
-            geometry: null,
-            endAt: null,
-            registrationAt: item.attributes.createdAt,
-          },
-        };
-      });
-      return vac;
-    };
     // Set response content type
     res.set('Content-Type', 'application/json');
     // Send results based on the requested type
@@ -116,7 +80,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       results = kennisartikelData;
     } else if (isVac) {
       const data = await fetchVac();
-      const vac = getVacData(data);
+      const vac = getVacData({ data, serverURL, vacSchemaURL });
       pagination = await getPaginatedResponse(req, data?.vacs as any);
       results = vac;
     } else if (!type && !isVac && !isKennisartikel) {
@@ -133,7 +97,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
         total,
       };
       const kennisartikelData = getKennisartikelData({ data: productsData });
-      const vac = getVacData(data);
+      const vac = getVacData({ data, serverURL, vacSchemaURL });
       results = [...kennisartikelData, ...vac];
     } else {
       pagination = {
@@ -202,32 +166,8 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
 
     // Handle the case for VAC data
     if (Array.isArray(vacData?.vacs?.data) && vacData.vacs.data.length > 0) {
-      const vac = vacData?.vacs?.data?.map((item) => {
-        const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
-        const antwoord = Array.isArray(item?.attributes?.vac?.antwoord)
-          ? concatenateFieldValues(item.attributes.vac.antwoord as any)
-          : [];
-
-        return {
-          uuid: item.attributes.vac.uuid,
-          type: vacSchemaURL,
-          url: vacUrl,
-          record: {
-            index: parseInt(item.id, 10),
-            startAt: item.attributes.createdAt,
-            typeVersion: 1,
-            data: {
-              ...item.attributes.vac,
-              antwoord,
-              url: vacUrl,
-            },
-            geometry: null,
-            endAt: null,
-            registrationAt: item.attributes.createdAt,
-          },
-        };
-      })[0];
-      return res.status(200).json(vac); // Return to prevent further execution
+      const vac = getVacData({ data: vacData, serverURL, vacSchemaURL });
+      return res.status(200).json(vac[0]); // Return to prevent further execution
     }
 
     // If no matching object found, return 404
