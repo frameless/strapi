@@ -73,7 +73,10 @@ const PreviewLink = () => {
   };
 
   const url = getUrl(config?.data?.domain);
-  const vacData = { title: data?.initialData?.vac?.vraag, content: data?.initialData?.vac?.antwoord };
+  const vacData = {
+    title: data.initialData?.title,
+    content: data?.initialData?.vac?.antwoord,
+  };
   const isAdditionalInformation =
     data.initialData?.additional_information && Array.isArray(data.initialData?.additional_information);
   const additionalInformationUid = getUIDFromHref(data.initialData?.additional_information?.[0]?.href);
