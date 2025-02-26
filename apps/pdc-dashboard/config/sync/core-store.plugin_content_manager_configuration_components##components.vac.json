@@ -22,7 +22,7 @@
       "vraag": {
         "edit": {
           "label": "Vraag",
-          "description": "",
+          "description": "🔔 Let op: Dit veld is verouderd en zal binnenkort worden verwijderd. Verplaats de informatie naar het veld \"Vraag\" bovenaan.",
           "placeholder": "",
           "visible": true,
           "editable": true
