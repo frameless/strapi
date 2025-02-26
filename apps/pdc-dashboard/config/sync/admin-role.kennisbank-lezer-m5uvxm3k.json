@@ -59,7 +59,8 @@
           "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
-          "vac.trefwoorden.trefwoord"
+          "vac.trefwoorden.trefwoord",
+          "title"
         ]
       },
       "conditions": []

@@ -33,6 +33,20 @@
           "sortable": false
         }
       },
+      "title": {
+        "edit": {
+          "label": "Vraag",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "title",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -96,12 +110,18 @@
       "edit": [
         [
           {
+            "name": "title",
+            "size": 6
+          }
+        ],
+        [
+          {
             "name": "vac",
             "size": 12
           }
         ]
       ],
-      "list": ["vac", "id", "createdAt"]
+      "list": ["title", "id", "createdAt"]
     },
     "uid": "api::vac.vac"
   },
