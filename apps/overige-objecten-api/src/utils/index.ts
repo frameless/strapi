@@ -16,6 +16,7 @@ export { getDirectionFromLanguageCode } from './getDirectionFromLanguageCode';
 export { getDeskMemo } from './getDeskMemo';
 export { getPaginatedResponse } from './getPaginatedResponse';
 export { getTheServerURL } from './getTheServerURL';
+export { getVacData } from './getVacData';
 export { getVerantwoordelijkeOrganisatie } from './getVerantwoordelijkeOrganisatie';
 export { getVertalingen } from './getVertalingen';
 export { mapContentByCategory } from './mapContentByCategory';

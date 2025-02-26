@@ -13,11 +13,11 @@ import {
 import type { DataVacItem, InternalFieldQuery, StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import {
-  concatenateFieldValues,
   fetchData,
   generateKennisartikelObject,
   getCurrentTypeParam,
   getTheServerURL,
+  getVacData,
   mapContentByCategory,
 } from '../../utils';
 
@@ -58,7 +58,6 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
     return res.status(404).json({ message: 'UUID not provided' });
   }
   try {
-    const vacUrl = new URL(`/api/v2/objects/${body?.uuid}`, serverURL).href;
     const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
 
     if (!isVac && !isKennisartikel) return res.status(400).json({ message: 'Type is not allowed' });
@@ -76,8 +75,8 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
       const vacID = existingVac.id;
       const currentVACObject = {
         publishedAt: existingVac.attributes.createdAt,
+        title: existingVac.attributes?.title,
         vac: {
-          vraag: existingVac.attributes.vac.vraag,
           antwoord: existingVac.attributes.vac.antwoord,
           status: existingVac.attributes.vac.status,
           doelgroep: existingVac.attributes.vac.doelgroep,
@@ -88,8 +87,8 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
         },
       };
       const vacBody = {
+        title: vac?.vraag,
         vac: {
-          vraag: vac?.vraag,
           antwoord: [
             {
               content: vac?.antwoord,
@@ -111,27 +110,14 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
           Authorization: `Bearer ${tokenAuth}`,
         },
       });
-      const antwoord = Array.isArray(responseData?.updateVac?.data?.attributes?.vac?.antwoord)
-        ? concatenateFieldValues(responseData?.updateVac?.data?.attributes?.vac.antwoord as any)
-        : [];
-      response = {
-        uuid: body?.uuid,
-        type: vacSchemaURL,
-        url: vacUrl,
-        record: {
-          index: parseInt(existingVac.id, 10),
-          startAt: responseData.updateVac.data.attributes.createdAt,
-          typeVersion: 3,
-          data: {
-            ...responseData.updateVac.data.attributes.vac,
-            url: vacUrl,
-            antwoord,
-          },
-          geometry: null,
-          endAt: null,
-          registrationAt: responseData.updateVac.data.attributes.createdAt,
+      const vacResponse = getVacData({
+        data: {
+          vacs: { data: [responseData.updateVac.data] },
         },
-      };
+        serverURL,
+        vacSchemaURL,
+      });
+      response = vacResponse[0];
     } else if (isKennisartikel) {
       const kennisartikel = body?.record?.data as components['schemas']['kennisartikel'];
       const kennisartikelNl = kennisartikel?.vertalingen?.find(({ taal }) => taal === 'nl');
