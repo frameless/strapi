@@ -81,6 +81,7 @@ module.exports = {
           './packages/strapi-plugin-uuid-field/tsconfig.server.json',
           './packages/strapi-tiptap-editor/tsconfig.json',
           './packages/strapi-tiptap-editor/tsconfig.server.json',
+          './packages/strapi-tiptap-editor/tsconfig.test.json',
           './packages/ui/tsconfig.json',
           './packages/ui/tsconfig.test.json',
           './packages/upl/tsconfig.json',
