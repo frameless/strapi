@@ -7,5 +7,6 @@
   "button.copied": "Gekopieerd",
   "alert.htmlContentCopiedSuccess": "De inhoud is gekopieerd naar het klembord. Je kunt de tekst nu plakken in Word.",
   "alert.htmlContentCopiedError": "Het kopiëren van de HTML-inhoud is mislukt",
-  "priceWidget.zeroLabel": "gratis"
+  "priceWidget.zeroLabel": "gratis",
+  "productInternalFieldBlock.title": "Interne informatie"
 }

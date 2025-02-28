@@ -15,9 +15,11 @@ import useFetchData from '../../hooks/useFetchData';
 import {
   addHeadingOncePerCategory,
   combineSimilarCategories,
+  concatenateFieldValues,
   getContentByType,
   getPreviewUrl,
   getTrad,
+  getUIDFromHref,
   getUrl,
   processProductData,
 } from '../../utils';
@@ -54,6 +56,7 @@ const PreviewLink = () => {
   const [priceData, setPriceData] = useState([]);
   const [clipboardStatus, setClipboardStatus] = useState('button.copy');
   const [additionalInformation, setAdditionalInformation] = useState([]);
+  const [productInternalData, setProductInternalData] = useState();
   const previewInDialogButtonLabel = formatMessage({
     id: getTrad('button.dialogPreview'),
     defaultMessage: 'Voorbeeld in dialoogvenster',
@@ -73,9 +76,31 @@ const PreviewLink = () => {
   const vacData = { title: data?.initialData?.vac?.vraag, content: data?.initialData?.vac?.antwoord };
   const isAdditionalInformation =
     data.initialData?.additional_information && Array.isArray(data.initialData?.additional_information);
-  const additionalInformationUid =
-    isAdditionalInformation && data.initialData?.additional_information[0]?.href.replace(/\/\d+$/, '');
+  const additionalInformationUid = getUIDFromHref(data.initialData?.additional_information?.[0]?.href);
   const additionalInformationId = isAdditionalInformation && data.initialData?.additional_information[0]?.id;
+  const productInternalFieldBlock =
+    Array.isArray(data.initialData?.sections) &&
+    data.initialData?.sections?.find((section) => section?.__component === 'components.internal-block-content')
+      ?.internal_field;
+  const productInternalFieldBlockUID = getUIDFromHref(productInternalFieldBlock?.[0]?.href);
+  const productInternalFieldBlockID = productInternalFieldBlock?.[0]?.id;
+
+  useEffect(() => {
+    if (productInternalFieldBlockUID && productInternalFieldBlockID) {
+      fetchData({
+        url: productInternalFieldBlockUID,
+        params: {},
+        id: productInternalFieldBlockID,
+      }).then(({ data }) => {
+        setProductInternalData({
+          content: `<h2>${formatMessage({
+            id: getTrad('productInternalFieldBlock.title'),
+            defaultMessage: 'Interne informatie',
+          })}</h2> ${concatenateFieldValues(data?.content?.contentBlock)}`,
+        });
+      });
+    }
+  }, [productInternalFieldBlockUID, productInternalFieldBlockID]);
 
   useEffect(() => {
     if (additionalInformationUid && additionalInformationId) {
@@ -92,6 +117,7 @@ const PreviewLink = () => {
     ...processProductData({ data: data.initialData?.sections ?? [], locale: 'nl', priceData, url }),
     ...addHeadingOncePerCategory({ contentBlocks: additionalInformation ?? [], title: 'Aanvullende informatie' }),
   ]);
+
   const content = getContentByType({
     vac: {
       content: <Content data={vacData.content} title={vacData?.title} {...contentComponentProps} />,
@@ -117,7 +143,13 @@ const PreviewLink = () => {
       id: data.initialData?.product?.[0]?.id,
     },
     products: {
-      content: <Content data={combinedContent} title={data?.initialData?.title} {...contentComponentProps} />,
+      content: (
+        <Content
+          data={[...combinedContent, ...[productInternalData]]}
+          title={data?.initialData?.title}
+          {...contentComponentProps}
+        />
+      ),
       id: data.initialData?.id,
     },
     type,

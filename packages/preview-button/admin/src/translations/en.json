@@ -7,5 +7,6 @@
   "button.copied": "Copied",
   "alert.htmlContentCopiedSuccess": "HTML content copied to clipboard! Paste into Word.",
   "alert.htmlContentCopiedError": "Failed to copy the HTML content",
-  "priceWidget.zeroLabel": "Free"
+  "priceWidget.zeroLabel": "Free",
+  "productInternalFieldBlock.title": "Internal information"
 }
