@@ -34,7 +34,6 @@ export default {
         },
       ],
     );
-
     app.addFields({
       type: 'wysiwyg',
       Component: (props: any) => (
@@ -43,7 +42,22 @@ export default {
         </GetProductPriceState>
       ),
     });
-
+    app.customFields.register({
+      name: 'richtext-preview',
+      pluginId: pluginId,
+      type: 'string', // Ensure Strapi recognizes it as a text field
+      intlLabel: {
+        id: `${pluginId}.richtext-preview.label`,
+        defaultMessage: 'Richtext Preview',
+      },
+      intlDescription: {
+        id: `${pluginId}.richtext-preview.description`,
+        defaultMessage: 'Extracted text from the richtext field.',
+      },
+      components: {
+        Input: async () => import('./components/RichtextPreviewInput'),
+      },
+    });
     app.registerPlugin({
       id: pluginId,
       isReady: true,

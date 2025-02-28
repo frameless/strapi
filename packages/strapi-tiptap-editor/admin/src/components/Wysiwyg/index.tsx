@@ -39,6 +39,7 @@ import { getSettings } from '../../../../utils/api';
 import defaultSettings from '../../../../utils/defaults';
 import ProductPriceContext from '../../context/productPrice/context';
 import { useProductPrice } from '../../hooks/useProductPrice';
+import { dispatchLabel, generateLabel } from '../../utils';
 import { mergeDeep } from '../../utils/merge';
 import Editor from '../Editor';
 import CustomTable from '../extensions/CustomTable';
@@ -271,6 +272,9 @@ const WysiwygContent = ({
         editor.commands.setContent(value, false);
       }
     }
+    const { content, label, labelKey } = generateLabel({ name, content: value });
+
+    dispatchLabel({ key: labelKey, label, name, content });
   }, [currentContent, editor, value]);
 
   return (
