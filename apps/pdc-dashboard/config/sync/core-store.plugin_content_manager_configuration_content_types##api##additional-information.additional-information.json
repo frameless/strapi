@@ -49,7 +49,7 @@
       },
       "product": {
         "edit": {
-          "label": "Product",
+          "label": "Gekoppeld product",
           "description": "",
           "placeholder": "",
           "visible": true,
