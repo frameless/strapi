@@ -36,7 +36,7 @@
       },
       "pdc_category": {
         "edit": {
-          "label": "Categorie",
+          "label": "Gekoppelde categorie",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -51,7 +51,7 @@
       },
       "products": {
         "edit": {
-          "label": "Producten",
+          "label": "Gekoppelde producten",
           "description": "",
           "placeholder": "",
           "visible": true,
