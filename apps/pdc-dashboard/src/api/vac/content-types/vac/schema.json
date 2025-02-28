@@ -17,6 +17,9 @@
       "type": "component",
       "repeatable": false,
       "component": "components.vac"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

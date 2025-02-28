@@ -613,6 +613,7 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
       attributes {
         createdAt
         updatedAt
+        title
         vac {
           uuid
           vraag
@@ -646,6 +647,7 @@ query getVacItemByUUID($uuid: String) {
       attributes {
         createdAt
         updatedAt
+        title
         vac {
           uuid
           vraag
@@ -677,9 +679,9 @@ export const CREATE_VAC = gql(`
       attributes {
         createdAt
         publishedAt
+        title
         vac {
           id
-          vraag
           antwoord(pagination: { start: 0, limit: -1 }) { 
             content
             kennisartikelCategorie
@@ -711,9 +713,9 @@ mutation updateVac ($data: VacInput!, $id: ID!){
       attributes {
         createdAt
         publishedAt
+        title
         vac {
           id
-          vraag
           antwoord(pagination: { start: 0, limit: -1 }) { 
             content
             kennisartikelCategorie

@@ -6,11 +6,11 @@ import { CREATE_INTERNAL_FIELD, CREATE_KENNISARTIKEL, CREATE_VAC } from '../../q
 import type { CreateInternalField, CreateProduct, CreateVacResponse } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import {
-  concatenateFieldValues,
   fetchData,
   generateKennisartikelObject,
   getCurrentTypeParam,
   getTheServerURL,
+  getVacData,
   mapContentByCategory,
 } from '../../utils';
 
@@ -42,8 +42,8 @@ export const createVacController: RequestHandler = async (req, res, next) => {
       const vac = body?.record?.data as components['schemas']['vac'];
       const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
       const vacPayload = {
+        title: vac?.vraag,
         vac: {
-          vraag: vac?.vraag,
           antwoord: {
             content: vac?.antwoord,
           },
@@ -66,30 +66,15 @@ export const createVacController: RequestHandler = async (req, res, next) => {
           Authorization: `Bearer ${tokenAuth}`,
         },
       });
-      const uuid = responseData?.createVac?.data?.attributes?.vac?.uuid;
-      const createdAt = responseData?.createVac?.data?.attributes?.createdAt;
-      const vacUrl = new URL(`/api/v2/objects/${uuid}`, serverURL).href;
-      const antwoord = Array.isArray(responseData?.createVac?.data?.attributes?.vac?.antwoord)
-        ? concatenateFieldValues(responseData?.createVac?.data?.attributes?.vac.antwoord as any)
-        : [];
-      response = {
-        uuid,
-        type: vacSchemaURL,
-        url: vacUrl,
-        record: {
-          index: parseInt(responseData?.createVac?.data?.id, 10),
-          startAt: createdAt,
-          typeVersion: 3,
-          data: {
-            ...responseData?.createVac?.data?.attributes?.vac,
-            url: vacUrl,
-            antwoord,
-          },
-          geometry: null,
-          endAt: null,
-          registrationAt: createdAt,
+      const vacResponse = getVacData({
+        data: {
+          vacs: { data: [responseData.createVac.data] },
         },
-      };
+        serverURL,
+        vacSchemaURL,
+      });
+
+      response = vacResponse[0];
     } else if (isKennisartikel) {
       const kennisartikel = body?.record?.data as components['schemas']['kennisartikel'];
       const kennisartikelNl = kennisartikel?.vertalingen?.find(({ taal }) => taal === 'nl');
