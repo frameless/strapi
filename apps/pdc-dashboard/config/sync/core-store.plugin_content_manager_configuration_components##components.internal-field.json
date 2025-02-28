@@ -46,10 +46,24 @@
           "searchable": false,
           "sortable": false
         }
+      },
+      "trefwoorden": {
+        "edit": {
+          "label": "Trefwoorden",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "trefwoorden",
+          "searchable": false,
+          "sortable": false
+        }
       }
     },
     "layouts": {
-      "list": ["id", "uuid", "contentBlock"],
+      "list": ["id", "uuid", "contentBlock", "trefwoorden"],
       "edit": [
         [
           {
@@ -60,6 +74,12 @@
         [
           {
             "name": "contentBlock",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "trefwoorden",
             "size": 12
           }
         ]

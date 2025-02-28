@@ -51,6 +51,9 @@ query getAllProducts(
                           content
                           kennisartikelCategorie
                         }
+                        trefwoorden {
+                          trefwoord
+                        }
                       }
                     }
                   }
@@ -246,6 +249,9 @@ export const GET_PRODUCT_BY_UUID = gql(`
                         contentBlock {
                           content
                           kennisartikelCategorie
+                        }
+                        trefwoorden {
+                          trefwoord
                         }
                       }
                     }
