@@ -1,5 +1,28 @@
 # @frameless/pdc-dashboard
 
+## 2.0.0
+
+### Major Changes
+
+- 609aa3d: Rolenamen en rechten bijgewerkt: 'Schrijver' hernoemd naar 'Schrijver Redacteur', PDC Schrijver-rechten aangepast ([GitHub Issue frameless/strapi#1044](https://github.com/frameless/strapi/issues/1044)).
+
+### Minor Changes
+
+- f92a35f: Voeg de aanvullende informatiecollectie toe aan het Strapi-dashboard.
+- ef279f1: Ondersteuning toegevoegd voor het bekijken van aanvullende info binnen de productcollectie.
+- b62bf02: Voeg het contactblok toe aan het afdelingsblok ([GitHub Issue frameless/strapi#1039](https://github.com/frameless/strapi/issues/1039)).
+- 6aee078: Integreer de Strapi-preview-knop voor het bekijken van de VAC- en interne-veld collectie en het kopiëren van de HTML om deze in een Word-bestand te plakken.
+
+### Patch Changes
+
+- 6a4760b: Vertaal het label van het interne veld naar de Nederlandse taal.
+- Updated dependencies [a4aebab]
+- Updated dependencies [635eae1]
+- Updated dependencies [3b6b5b8]
+- Updated dependencies [eff0529]
+  - @frameless/preview-button@1.0.0
+  - @frameless/strapi-tiptap-editor@0.3.0
+
 ## 1.0.0
 
 ### Major Changes

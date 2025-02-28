@@ -1,5 +1,15 @@
 # @frameless/overige-objecten-api
 
+## 1.2.0
+
+### Minor Changes
+
+- 5859752: Integreer de aanvullende informatiecollectie in de Overige-objecten-API.
+
+  Wanneer je een contentblok uit de aanvullende informatiecollectie met de categorie inleiding invoert, wordt dit samengevoegd in de Overige-objecten-API onder het publieke contentblok met de categorie inleiding.
+
+- f423f59: Ondersteuning toegevoegd voor YouTube-embeds en afbeeldingen in de Overige-objecten-API. Daarnaast een unit-test geschreven voor de HTML-structuur die het Kiss-dashboard verwacht.
+
 ## 1.1.0
 
 ### Minor Changes
