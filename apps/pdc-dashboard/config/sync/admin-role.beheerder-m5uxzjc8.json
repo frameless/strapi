@@ -764,7 +764,7 @@
           "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
-          "vac.trefwoorden.trefwoord"
+          "vac.keywords"
         ]
       },
       "conditions": []
@@ -800,7 +800,7 @@
           "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
-          "vac.trefwoorden.trefwoord"
+          "vac.keywords"
         ]
       },
       "conditions": []
@@ -822,7 +822,7 @@
           "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
-          "vac.trefwoorden.trefwoord"
+          "vac.keywords"
         ]
       },
       "conditions": []
