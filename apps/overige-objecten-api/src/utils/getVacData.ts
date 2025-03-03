@@ -1,5 +1,6 @@
 import kebabCase from 'lodash.kebabcase';
 import { concatenateFieldValues } from './concatenateFieldValues';
+import { generateKeywords } from './generateKeywords';
 import type { Antwoord, DataVacItem, Doelgroep, VacRecordData, VACSData } from '../strapi-product-type';
 interface createVacRecordReturnTypes {
   index: number;
@@ -33,7 +34,7 @@ const createVacRecord = (item: DataVacItem, vacUrl: string, antwoord: string): c
     doelgroep: kebabCase(item?.attributes?.vac?.doelgroep ?? undefined) as Doelgroep,
     afdelingen: item?.attributes?.vac?.afdelingen,
     toelichting: item?.attributes?.vac?.toelichting,
-    trefwoorden: item?.attributes?.vac?.trefwoorden,
+    trefwoorden: generateKeywords(item?.attributes?.vac?.keywords ?? ''),
     url: vacUrl,
   },
   geometry: null,

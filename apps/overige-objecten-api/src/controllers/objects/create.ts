@@ -55,7 +55,7 @@ export const createVacController: RequestHandler = async (req, res, next) => {
             afdelingNaam,
           })),
           toelichting: vac?.toelichting,
-          trefwoorden: vac?.trefwoorden,
+          keywords: vac?.trefwoorden?.map(({ trefwoord }) => trefwoord).join(' ,'),
         },
       };
       const { data: responseData } = await fetchData<CreateVacResponse>({
