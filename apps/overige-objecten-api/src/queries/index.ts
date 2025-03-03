@@ -630,9 +630,7 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
             afdelingNaam
           }
           toelichting
-          trefwoorden {
-            trefwoord
-          }
+          keywords
         }
       }
     }
@@ -664,9 +662,7 @@ query getVacItemByUUID($uuid: String) {
             afdelingNaam
           }
           toelichting
-          trefwoorden {
-            trefwoord
-          }
+          keywords
         }
       }
     }
@@ -696,10 +692,7 @@ export const CREATE_VAC = gql(`
             afdelingId
             afdelingNaam
           }
-          trefwoorden {
-             id
-            trefwoord
-          }
+          keywords
         }
       }
     }
@@ -730,10 +723,7 @@ mutation updateVac ($data: VacInput!, $id: ID!){
             afdelingId
             afdelingNaam
           }
-          trefwoorden {
-             id
-            trefwoord
-          }
+          keywords
         }
       }
     }
