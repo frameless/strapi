@@ -83,7 +83,7 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
           uuid: existingVac.attributes.vac.uuid,
           afdelingen: existingVac.attributes.vac.afdelingen,
           toelichting: existingVac.attributes.vac.toelichting,
-          trefwoorden: existingVac.attributes.vac.trefwoorden,
+          keywords: existingVac.attributes.vac.keywords,
         },
       };
       const vacBody = {
@@ -98,7 +98,7 @@ export const updateVacController: RequestHandler = async (req, res, next) => {
           doelgroep: vac?.doelgroep ? snakeCase(vac.doelgroep) : undefined,
           afdelingen: vac?.afdelingen,
           toelichting: vac?.toelichting,
-          trefwoorden: vac?.trefwoorden,
+          keywords: vac?.trefwoorden?.map(({ trefwoord }) => trefwoord).join(' ,'),
         },
       };
       const vacPayload = merge(currentVACObject, vacBody);

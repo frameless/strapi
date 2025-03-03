@@ -57,7 +57,7 @@ export interface VacItem {
   doelgroep?: Doelgroep;
   afdelingen?: Afdeling[];
   toelichting?: string;
-  trefwoorden?: Trefwoorden[];
+  keywords?: string;
 }
 
 export interface AttributesVacItem {
