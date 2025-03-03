@@ -63,7 +63,7 @@
           "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
-          "vac.trefwoorden.trefwoord",
+          "vac.keywords",
           "title"
         ]
       },
