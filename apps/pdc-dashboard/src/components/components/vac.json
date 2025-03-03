@@ -34,10 +34,8 @@
     "toelichting": {
       "type": "richtext"
     },
-    "trefwoorden": {
-      "type": "component",
-      "repeatable": true,
-      "component": "components.trefwoorden"
+    "keywords": {
+      "type": "text"
     }
   }
 }
