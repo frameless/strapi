@@ -13,6 +13,7 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -29,6 +30,7 @@
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
           "content.keywords",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -59,6 +61,7 @@
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
           "content.keywords",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -75,6 +78,7 @@
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
           "content.keywords",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -130,6 +134,7 @@
           "vac.vraag",
           "vac.antwoord.content",
           "vac.antwoord.kennisartikelCategorie",
+          "vac.antwoord.label",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
@@ -167,6 +172,7 @@
           "vac.vraag",
           "vac.antwoord.content",
           "vac.antwoord.kennisartikelCategorie",
+          "vac.antwoord.label",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
@@ -190,6 +196,7 @@
           "vac.vraag",
           "vac.antwoord.content",
           "vac.antwoord.kennisartikelCategorie",
+          "vac.antwoord.label",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",

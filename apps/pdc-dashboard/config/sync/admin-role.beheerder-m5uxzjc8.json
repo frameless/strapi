@@ -13,6 +13,7 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -42,6 +43,7 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -57,6 +59,7 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -73,6 +76,7 @@
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
           "content.keywords",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -103,6 +107,7 @@
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
           "content.keywords",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -119,6 +124,7 @@
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
           "content.keywords",
+          "content.contentBlock.label",
           "product"
         ]
       },
@@ -499,7 +505,8 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri"
+          "kennisartikelMetadata.upnUri",
+          "additional_information"
         ],
         "locales": ["en", "nl"]
       },
@@ -583,7 +590,8 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri"
+          "kennisartikelMetadata.upnUri",
+          "additional_information"
         ],
         "locales": ["en", "nl"]
       },
@@ -649,7 +657,8 @@
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
           "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri"
+          "kennisartikelMetadata.upnUri",
+          "additional_information"
         ],
         "locales": ["en", "nl"]
       },
