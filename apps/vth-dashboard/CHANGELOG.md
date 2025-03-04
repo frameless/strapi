@@ -1,5 +1,18 @@
 # @frameless/vth-dashboard 1.0.0 (2023-08-22)
 
+## 0.2.4
+
+### Patch Changes
+
+- Updated dependencies [a4aebab]
+- Updated dependencies [d96fe22]
+- Updated dependencies [7746862]
+- Updated dependencies [635eae1]
+- Updated dependencies [3b6b5b8]
+- Updated dependencies [eff0529]
+  - @frameless/preview-button@1.0.0
+  - @frameless/strapi-tiptap-editor@0.3.0
+
 ## 0.2.3
 
 ### Patch Changes
