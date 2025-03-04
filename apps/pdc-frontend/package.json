@@ -1,6 +1,6 @@
 {
   "name": "@frameless/pdc-frontend",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": true,
   "author": "@frameless",
   "description": "Utrecht PDC frontend application",
