@@ -7,7 +7,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
+      "mainField": "label",
       "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
@@ -47,10 +47,24 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "label": {
+        "edit": {
+          "label": "label",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "label",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "kennisartikelCategorie"],
+      "list": ["id", "kennisartikelCategorie", "label"],
       "edit": [
         [
           {
@@ -62,6 +76,10 @@
           {
             "name": "kennisartikelCategorie",
             "size": 4
+          },
+          {
+            "name": "label",
+            "size": 6
           }
         ]
       ]

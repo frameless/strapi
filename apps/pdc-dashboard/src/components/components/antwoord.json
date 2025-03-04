@@ -24,6 +24,10 @@
         "bijzonderheden",
         "contact"
       ]
+    },
+    "label": {
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.richtext-preview"
     }
   }
 }

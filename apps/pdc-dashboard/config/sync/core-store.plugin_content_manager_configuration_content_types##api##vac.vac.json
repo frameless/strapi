@@ -6,7 +6,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
+      "mainField": "title",
       "defaultSortBy": "createdAt",
       "defaultSortOrder": "ASC"
     },
