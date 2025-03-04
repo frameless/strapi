@@ -1,5 +1,19 @@
 # @frameless/strapi-tiptap-editor [2.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.2.0...@frameless/strapi-tiptap-editor@2.3.0) (2024-06-12)
 
+## 0.3.0
+
+### Minor Changes
+
+- d96fe22: Voeg Rich Text Voorbeeldfunctionaliteit toe
+
+  - Nieuwe functionaliteit toegevoegd voor rich text voorbeeld.
+  - Correcte behandeling van spaties en nieuwe regels.
+  - Label wordt dynamisch bijgewerkt bij wijziging van de inhoud.
+
+- 3b6b5b8: Integreer het kostenveld in de aanvullende informatiecollectie.
+
+  Wanneer een kostenveld aan een product wordt gekoppeld, wordt de kostengegevens beschikbaar in het gekoppelde aanvullende-informatieveld.
+
 ## 0.2.0
 
 ### Minor Changes

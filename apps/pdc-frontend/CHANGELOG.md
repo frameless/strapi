@@ -1,5 +1,12 @@
 # @frameless/pdc-frontend
 
+## 0.5.2
+
+### Patch Changes
+
+- ddc7c7e: Los het stijlprobleem van het Vormgeving-informatietekstblok in OpenForms op ([GitHub Issue frameless/strapi#881](https://github.com/frameless/strapi/issues/881)).
+- 175fb35: Render de Open Formulieren HTML met NL Design System CSS componenten.
+
 ## 0.5.1
 
 ### Patch Changes
