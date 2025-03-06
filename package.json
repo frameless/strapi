@@ -25,6 +25,7 @@
   "scripts": {
     "start": "npm run --workspaces start --if-present",
     "start:pdc-frontend": "npm run --workspace @frameless/pdc-frontend start",
+    "start:vth-frontend": "npm run --workspace @frameless/vth-frontend start",
     "start:pdc-dashboard": "npm run --workspace @frameless/pdc-dashboard start",
     "start:kennisbank-frontend": "npm run --workspace @frameless/kennisbank-frontend start",
     "start:kennisbank-dashboard": "npm run --workspace @frameless/kennisbank-dashboard start",
