@@ -1,51 +1,67 @@
-FROM node:20-alpine3.18 as build
-# Installing libvips-dev for sharp Compatibility
-RUN apk update && apk add --no-cache git libc6-compat build-base gcc bash autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
+FROM node:20-alpine3.18 AS build
+# Update package index and install build dependencies.
+# These packages are needed for building native modules and ensuring compatibility.
+RUN set -eux; apk update && apk add --no-cache \
+    git libc6-compat build-base gcc bash autoconf automake \
+    zlib-dev libpng-dev vips-dev shadow python3 make g++ && \
+    # Create a symlink for python3 so node-gyp can locate Python as 'python'
+    ln -sf "$(which python3)" /usr/bin/python && \
+    echo "Python version: $(python --version)"
 
-ARG NODE_ENV=production
+# Set build-time variable for the public URL.
 ARG STRAPI_PUBLIC_URL
 ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
+
+# Set working directory and update PATH for local binaries.
 WORKDIR /opt/app
-COPY ./package.json ./yarn.lock ./
 ENV PATH /opt/app/node_modules/.bin:$PATH
+
+# Install global Node.js tools needed for patching and native module building.
 RUN yarn global add patch-package node-gyp
 
+# Copy dependency definitions.
+COPY ./package.json ./yarn.lock ./
+
+# Copy all application files.
 COPY ./ .
 
-# Build target dependencies #
-#############################
-FROM build AS dependencies
+# Install all dependencies (including devDependencies) required for the build.
+RUN set -eux; yarn install --frozen-lockfile
 
-COPY ./patches /opt/app/patches
-# Install prod dependencies
-RUN yarn install --production=true --frozen-lockfile && \
-    # Cache prod dependencies
-    cp -R node_modules /prod_node_modules && \
-    # Install dev dependencies
-    yarn install --production=false
-
-# Build target builder #
-########################
+# --- Builder stage: Compile and build assets ---
 FROM build AS builder
-COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
+# Copy remaining files and build the application.
 COPY . /opt/app/
-RUN yarn build && \
-    rm -rf node_modules
+RUN set -eux; yarn build
 
-# Build target production #
-###########################
-FROM build AS production
+# --- Production stage: Prepare a lean image for runtime ---
+FROM node:20-alpine3.18 AS production
+# Copy built application from the builder stage.
 COPY --from=builder /opt/app /opt/app
-COPY --from=dependencies /prod_node_modules /opt/app/node_modules
 
+WORKDIR /opt/app
+# Install runtime dependencies and ensure essential tools are available.
+RUN set -eux; \
+    apk add --no-cache git make g++ python3 bash && \
+    ln -sf "$(which python3)" /usr/bin/python && \
+    yarn global add patch-package && \
+    export PYTHON=/usr/bin/python3 && \
+    yarn install --production=true
+
+# Configure container permissions and executable permissions.
 RUN set -eux; \
     chmod +x ./bin/wait-for-it.sh && \
     addgroup --system --gid 1001 pdcgroup && \
     adduser --system --uid 1001 --ingroup pdcgroup pdcuser && \
     chown -R pdcuser:pdcgroup /opt/app
 
+# Switch to a non-root user for security.
 USER pdcuser
 
+# Set runtime environment and expose application port.
+ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 EXPOSE 1337
-CMD ["yarn" , "start"]
+
+# Set default command.
+CMD ["yarn", "start"]
