@@ -23,10 +23,7 @@ export const CREATE_VAC = gql(`
             afdelingId
             afdelingNaam
           }
-          trefwoorden {
-             id
-            trefwoord
-          }
+          keywords
         }
       }
     }
