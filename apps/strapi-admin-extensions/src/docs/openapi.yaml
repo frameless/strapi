@@ -1,17 +1,36 @@
 openapi: 3.0.3
 info:
-  title: Import API
-  description: API for importing CSV data to create VAC entries.
+  title: CSV Import API
+  description: API for importing a CSV file containing vraag, antwoord, and doelgroep.
   version: 1.0.0
 servers:
-  - url: http://localhost:3000
+  - url: "http://localhost:4002/api/v1/import"
     description: Local development server
 paths:
   /import:
     post:
-      summary: Import CSV data to create VAC entries
-      description: Uploads a CSV file, processes its contents, and creates VAC items.
-      operationId: importVacItems
+      summary: Import CSV File
+      description: Uploads a CSV file and returns a JSON representation.
+      operationId: importCSV
+      security:
+        - TokenAuth: []
+      parameters:
+        - name: locale
+          in: query
+          required: true
+          description: The locale of the data.
+          schema:
+            type: string
+            enum: [nl]
+            example: "nl"
+        - name: type
+          in: query
+          required: true
+          description: The type of import.
+          schema:
+            type: string
+            enum: [vac]
+            example: "vac"
       requestBody:
         required: true
         content:
@@ -22,24 +41,10 @@ paths:
                 file:
                   type: string
                   format: binary
-                  description: CSV file containing 'vraag' and 'antwoord' columns.
-                type:
-                  type: string
-                  enum: [vac]
-                  description: Type of import (only 'vac' is supported).
-              required:
-                - file
-                - type
-      parameters:
-        - name: locale
-          in: query
-          description: Locale for the imported data (default is 'nl').
-          required: false
-          schema:
-            type: string
+                  description: The CSV file to upload.
       responses:
         "200":
-          description: Import successful
+          description: Successful import.
           content:
             application/json:
               schema:
@@ -47,24 +52,13 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: CSV converted to JSON
+                    example: "CSV converted to JSON"
                   data:
                     type: array
                     items:
-                      type: object
-                      additionalProperties: true
+                      $ref: "#/components/schemas/ImportedRecord"
         "400":
-          description: Invalid request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Invalid import type or no file uploaded.
-        "500":
-          description: Server error
+          description: Bad Request (e.g., invalid file format)
           content:
             application/json:
               schema:
@@ -72,78 +66,115 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: Internal server error
-      security:
-        - bearerAuth: []
+                    example: "Invalid file format. Please upload a CSV file."
+        "401":
+          description: Unauthorized (Missing or invalid API token)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Unauthorized. Provide a valid API token."
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "An error occurred while processing the file."
+
 components:
   securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
+    TokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >
+        API token authentication. Use either:
+        - `Token ************`
+        - `**************` (without "Token" prefix)
+
   schemas:
-    Antwoord:
-      type: object
-      properties:
-        content:
-          type: string
-        kennisartikelCategorie:
-          type: string
-          nullable: true
-    VacItem:
+    ImportedRecord:
       type: object
       properties:
         uuid:
           type: string
-        vraag:
+          format: uuid
+          example: "95f27d6c-b0b5-40fd-98fc-70a093712efc"
+        type:
           type: string
-          nullable: true
-        antwoord:
-          type: array
-          items:
-            $ref: "#/components/schemas/Antwoord"
-        status:
+          example: "http://localhost:4001/api/v2/objecttypes/vac"
+        url:
           type: string
-          nullable: true
-        doelgroep:
-          type: string
-          nullable: true
-        afdelingen:
-          type: array
-          items:
-            type: string
-        toelichting:
-          type: string
-          nullable: true
-        trefwoorden:
-          type: array
-          items:
-            type: string
-    AttributesVacItem:
-      type: object
-      properties:
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        vac:
-          $ref: "#/components/schemas/VacItem"
-    DataVacItem:
-      type: object
-      properties:
-        attributes:
-          $ref: "#/components/schemas/AttributesVacItem"
-        id:
-          type: string
-    CreateVacResponse:
-      type: object
-      properties:
-        data:
+          format: uri
+          example: "http://localhost:4001/api/v2/objects/95f27d6c-b0b5-40fd-98fc-70a093712efc"
+        record:
           type: object
           properties:
-            createVac:
+            index:
+              type: integer
+              example: 93
+            startAt:
+              type: string
+              format: date-time
+              example: "2025-03-07T10:01:57.596Z"
+            typeVersion:
+              type: integer
+              example: 1
+            data:
               type: object
               properties:
-                data:
-                  $ref: "#/components/schemas/DataVacItem"
+                uuid:
+                  type: string
+                  format: uuid
+                  example: "95f27d6c-b0b5-40fd-98fc-70a093712efc"
+                vraag:
+                  type: string
+                  example: "How does this API work?"
+                antwoord:
+                  type: string
+                  example: "<h2>This API converts a CSV file to JSON when you provide the required fields.</h2> The required fields are: <ul><li>A CSV file for VAC that includes `vraag` and `antwoord` columns</li><li>API parameters: locale: 'nl' and type: 'vac'</li><li>A valid Strapi API Token</li></ul>"
+                status:
+                  type: string
+                  nullable: true
+                  example: null
+                doelgroep:
+                  type: string
+                  example: "eu-burger"
+                afdelingen:
+                  type: array
+                  items:
+                    type: string
+                  example: []
+                toelichting:
+                  type: string
+                  nullable: true
+                  example: null
+                trefwoorden:
+                  type: array
+                  items:
+                    type: string
+                  example: []
+                url:
+                  type: string
+                  format: uri
+                  example: "http://localhost:4001/api/v2/objects/95f27d6c-b0b5-40fd-98fc-70a093712efc"
+            geometry:
+              type: object
+              nullable: true
+              example: null
+            endAt:
+              type: string
+              format: date-time
+              nullable: true
+              example: null
+            registrationAt:
+              type: string
+              format: date-time
+              example: "2025-03-07T10:01:57.596Z"
