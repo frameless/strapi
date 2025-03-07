@@ -756,6 +756,7 @@
           "vac.vraag",
           "vac.antwoord.content",
           "vac.antwoord.kennisartikelCategorie",
+          "vac.antwoord.label",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
@@ -764,7 +765,8 @@
           "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
-          "vac.keywords"
+          "vac.keywords",
+          "title"
         ]
       },
       "conditions": []
@@ -792,6 +794,7 @@
           "vac.vraag",
           "vac.antwoord.content",
           "vac.antwoord.kennisartikelCategorie",
+          "vac.antwoord.label",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
@@ -800,7 +803,8 @@
           "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
-          "vac.keywords"
+          "vac.keywords",
+          "title"
         ]
       },
       "conditions": []
@@ -814,6 +818,7 @@
           "vac.vraag",
           "vac.antwoord.content",
           "vac.antwoord.kennisartikelCategorie",
+          "vac.antwoord.label",
           "vac.status",
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
@@ -822,7 +827,8 @@
           "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
-          "vac.keywords"
+          "vac.keywords",
+          "title"
         ]
       },
       "conditions": []
