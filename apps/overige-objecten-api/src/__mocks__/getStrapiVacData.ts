@@ -35,14 +35,7 @@ export const getStrapiVacData = () => {
                   },
                 ],
                 toelichting: null,
-                trefwoorden: [
-                  {
-                    trefwoord: 'paspoort',
-                  },
-                  {
-                    trefwoord: 'aanvraag',
-                  },
-                ],
+                keywords: 'paspoort, aanvraag',
               },
             },
           },
@@ -70,14 +63,7 @@ export const getStrapiVacData = () => {
                   },
                 ],
                 toelichting: null,
-                trefwoorden: [
-                  {
-                    trefwoord: 'rijbewijs',
-                  },
-                  {
-                    trefwoord: 'aanvraag',
-                  },
-                ],
+                keywords: 'rijbewijs, aanvraag',
               },
             },
           },
@@ -105,14 +91,7 @@ export const getStrapiVacData = () => {
                   },
                 ],
                 toelichting: null,
-                trefwoorden: [
-                  {
-                    trefwoord: 'verhuizing',
-                  },
-                  {
-                    trefwoord: 'inschrijven',
-                  },
-                ],
+                keywords: 'verhuizing, inschrijven',
               },
             },
           },
