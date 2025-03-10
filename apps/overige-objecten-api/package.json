@@ -33,6 +33,7 @@
     "@utrecht/web-component-library-react": "3.0.0",
     "@utrecht/component-library-react": "7.3.5",
     "@frameless/ui": "0.1.0",
+    "@frameless/utils": "0.0.0",
     "dompurify": "3.2.1"
   },
   "devDependencies": {
