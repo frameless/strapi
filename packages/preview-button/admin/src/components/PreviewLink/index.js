@@ -116,10 +116,25 @@ const PreviewLink = () => {
       });
     }
   }, [additionalInformationUid]);
-  const combinedContent = combineSimilarCategories([
-    ...processProductData({ data: data.initialData?.sections ?? [], locale: 'nl', priceData, url }),
-    ...addHeadingOncePerCategory({ contentBlocks: additionalInformation ?? [], title: 'Aanvullende informatie' }),
-  ]);
+  const sections = data.initialData?.sections ?? [];
+  const processedData = processProductData({
+    data: [
+      {
+        content: data.initialData?.content,
+        kennisartikelCategorie: 'inleiding',
+        __component: 'components.utrecht-rich-text',
+      },
+      ...sections,
+    ],
+    locale: 'nl',
+    priceData,
+    url,
+  });
+  const additionalContent = addHeadingOncePerCategory({
+    contentBlocks: additionalInformation ?? [],
+    title: 'Aanvullende informatie',
+  });
+  const combinedContent = combineSimilarCategories([...processedData, ...additionalContent]);
 
   const content = getContentByType({
     vac: {
