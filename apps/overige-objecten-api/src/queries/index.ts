@@ -27,6 +27,7 @@ query getAllProducts(
     data {
       id
       attributes {
+        content
         title
         slug
         uuid
@@ -223,6 +224,7 @@ export const GET_PRODUCT_BY_UUID = gql(`
         data {
           id
           attributes {
+            content
             title
             slug
             uuid
@@ -472,6 +474,7 @@ mutation($data: ProductInput!, $locale: I18NLocaleCode) {
     data {
       id
       attributes {
+        content
         title
         slug
         uuid
@@ -535,6 +538,7 @@ mutation($data: ProductInput!, $locale: I18NLocaleCode, $id: ID!) {
     data {
       id
       attributes {
+        content
         title
         slug
         uuid
