@@ -1,8 +1,9 @@
+import { fetchData } from '@frameless/utils';
 import type { RequestHandler } from 'express';
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS, GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../../queries';
 import type { StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
-import { fetchData, generateKennisartikelObject, getPaginatedResponse, getTheServerURL, getVacData } from '../../utils';
+import { generateKennisartikelObject, getPaginatedResponse, getTheServerURL, getVacData } from '../../utils';
 import type { PaginationType } from '../../utils';
 
 type GetKennisartikelReturnData = components['schemas']['ObjectData'];

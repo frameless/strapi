@@ -1,3 +1,4 @@
+import { fetchData } from '@frameless/utils';
 import type { RequestHandler } from 'express';
 import merge from 'lodash.merge';
 import snakeCase from 'lodash.snakecase';
@@ -13,7 +14,6 @@ import {
 import type { DataVacItem, InternalFieldQuery, StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import {
-  fetchData,
   generateKennisartikelObject,
   getCurrentTypeParam,
   getTheServerURL,

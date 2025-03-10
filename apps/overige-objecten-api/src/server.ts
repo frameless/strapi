@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import { envAvailability, ErrorHandler } from '@frameless/utils';
 import type { CorsOptions } from 'cors';
 import cors from 'cors';
 import { config } from 'dotenv';
@@ -10,7 +11,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import swaggerUi from 'swagger-ui-express';
 import { objects, objecttypes, openapi } from './routers';
-import { envAvailability, ErrorHandler } from './utils';
 config();
 
 type OpenOpenApiValidationError = {

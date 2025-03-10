@@ -1,8 +1,9 @@
+import { fetchData } from '@frameless/utils';
 import type { NextFunction, Request, Response } from 'express';
 import fs from 'node:fs';
 import pLimit from 'p-limit';
 import { CreateVacResponse } from '../../strapi-product-types';
-import { fetchData, processCsvFile } from '../../utils';
+import { processCsvFile } from '../../utils';
 
 const limit = pLimit(5); // Limit the number of concurrent file uploads
 export const importController = async (req: Request, res: Response, next: NextFunction) => {
