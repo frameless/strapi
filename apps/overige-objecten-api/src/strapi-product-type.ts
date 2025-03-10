@@ -97,11 +97,11 @@ export interface Data {
 }
 
 export interface Products {
-  data: Datum[];
+  data: ProductData[];
   meta: Meta;
 }
 
-export interface Datum {
+export interface ProductData {
   id: string;
   attributes: Attributes;
 }
@@ -122,6 +122,7 @@ export interface PriceDataAttributes {
   attributes: PriceAttributes;
 }
 export interface Attributes {
+  content?: string;
   title: string;
   slug: string;
   uuid: string;

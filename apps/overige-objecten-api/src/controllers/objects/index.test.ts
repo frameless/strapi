@@ -404,6 +404,54 @@ describe('Objects controller', () => {
       ];
       expect(responseKennisartikel.record.data.vertalingen[0].trefwoorden).toStrictEqual(expectedTrefwoorden);
     });
+    it('should return the first contentBlock as inleiding category when provided', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: {
+            products: {
+              meta: {
+                pagination: {
+                  total: 1,
+                  page: 1,
+                  pageSize: 1,
+                  pageCount: 1,
+                },
+              },
+              data: [
+                {
+                  id: '1',
+                  attributes: {
+                    title: 'Demo Product',
+                    slug: 'demo-product',
+                    uuid: 'F555372B-EE1E-4432-8F90-51DAD214E1F3',
+                    content: '<h2>This is the first content block in the Product collection.</h2>',
+                    locale: 'nl',
+                    updatedAt: '2024-11-06T12:05:42.541Z',
+                    createdAt: '2024-11-05T16:03:50.975Z',
+                    sections: [
+                      {
+                        id: '1',
+                        content: '<h2>Inleiding  - 1</h2><p>Body text</p>',
+                        categorie5: 'inleiding',
+                        component: 'ComponentComponentsUtrechtRichText',
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        }),
+      );
+      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      const response = await request(app)
+        .get('/api/v2/objects/F555372B-EE1E-4432-8F90-51DAD214E1F3')
+        .set('Authorization', 'Token YOUR_API_TOKEN');
+      const responseKennisartikel = response.body as ReturnType<typeof kennisartikelObject>;
+      const expectedResults =
+        '<h2>This is the first content block in the Product collection.</h2><h2>Inleiding  - 1</h2><p>Body text</p>';
+      expect(responseKennisartikel.record.data.vertalingen[0].tekst).toStrictEqual(expectedResults);
+    });
     it('should return 200 and vac object when uuid is valid', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));

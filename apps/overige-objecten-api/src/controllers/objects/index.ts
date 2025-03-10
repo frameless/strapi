@@ -1,10 +1,12 @@
 import type { RequestHandler } from 'express';
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS, GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../../queries';
-import type { StrapiProductType, VACSData } from '../../strapi-product-type';
+import type { Attributes, Section, StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import { fetchData, generateKennisartikelObject, getPaginatedResponse, getTheServerURL, getVacData } from '../../utils';
 import type { PaginationType } from '../../utils';
-
+interface ModifiedSection extends Section {
+  categorie5?: string;
+}
 type GetKennisartikelReturnData = components['schemas']['ObjectData'];
 
 const sum = (a: number, b: number): number => a + b;
@@ -53,9 +55,21 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     const getKennisartikelData = ({ data }: StrapiProductType): GetKennisartikelReturnData[] | [] => {
       const products = data?.products?.data || [];
       if (products.length === 0) return [];
-      const kennisartikel = products.map(({ attributes, id }) =>
-        generateKennisartikelObject({ attributes, url: serverURL, id }),
-      );
+      const kennisartikel = products.map(({ attributes, id }) => {
+        const modifiedAttributes = {
+          ...attributes,
+          sections: [
+            {
+              content: attributes?.content,
+              kennisartikelCategorie: 'inleiding',
+              component: 'ComponentComponentsUtrechtRichText',
+              categorie5: 'inleiding',
+            } as ModifiedSection,
+            ...attributes.sections,
+          ],
+        };
+        return generateKennisartikelObject({ attributes: modifiedAttributes, url: serverURL, id });
+      });
       return kennisartikel;
     };
     const fetchVac = async () => {
@@ -157,7 +171,22 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     // Handle the case for a knowledge article (kennisartikel)
     const products = data?.products?.data || [];
     const kennisartikel = products
-      .map(({ attributes, id }: any) => generateKennisartikelObject({ attributes, url: serverURL, id }))
+      .map(({ attributes, id }: { attributes: Attributes; id: string }) => {
+        const modifiedAttributes = {
+          ...attributes,
+          sections: [
+            {
+              content: attributes?.content,
+              kennisartikelCategorie: 'inleiding',
+              component: 'ComponentComponentsUtrechtRichText',
+              categorie5: 'inleiding',
+            } as ModifiedSection,
+            ...attributes.sections,
+          ],
+        };
+
+        return generateKennisartikelObject({ attributes: modifiedAttributes, url: serverURL, id });
+      })
       .find((item: { uuid: string }) => item.uuid === uuid);
 
     if (kennisartikel) {
