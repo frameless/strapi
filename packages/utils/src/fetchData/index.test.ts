@@ -220,17 +220,190 @@ describe('fetchData', () => {
     global.fetch = mockFetch;
     expect(fetchData({ url, query })).rejects.toThrow('Unexpected error: 506');
   });
+  describe('Custom body', () => {
+    const url = 'https://example.com/api';
 
-  it('should handle GraphQL error', async () => {
-    const mockFetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => Promise.resolve({ errors: [{ message: 'GraphQL error' }] }),
+    it('should create requestOptions for GraphQL request', async () => {
+      const query = '{ testQuery }';
+      const variables = { test: 'value' };
+      const headers = { Authorization: 'Bearer token' };
+
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer token',
+        },
+        body: JSON.stringify({ query, variables }),
+        cache: 'no-store',
+      };
+
+      global.fetch = jest.fn().mockResolvedValue({
         ok: true,
-        status: 200,
-        statusText: 'OK',
-      }),
-    ) as jest.Mock;
-    global.fetch = mockFetch;
-    expect(fetchData({ url, query })).rejects.toThrow('GraphQL error');
+        json: jest.fn().mockResolvedValue({ data: {} }),
+      });
+
+      await fetchData({ url, query, variables, headers });
+
+      expect(global.fetch).toHaveBeenCalledWith(url, requestOptions);
+    });
+    it('should create requestOptions with custom body', async () => {
+      const method = 'POST';
+      const headers = { Authorization: 'Bearer token' };
+      const body = { custom: 'body' };
+
+      const requestOptions = {
+        method,
+        cache: 'no-store',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer token',
+        },
+        body: JSON.stringify(body),
+      };
+
+      global.fetch = jest.fn().mockResolvedValue({
+        ok: true,
+        json: jest.fn().mockResolvedValue({ data: {} }),
+      });
+
+      await fetchData({ url, method, headers, body });
+
+      expect(global.fetch).toHaveBeenCalledWith(url, requestOptions);
+    });
+  });
+  describe('handleGraphqlError', () => {
+    it('should throw an error with message "Bad User Input: The provided input is invalid." for BAD_USER_INPUT code', () => {
+      const errorResponse = {
+        errors: [
+          {
+            extensions: {
+              code: 'BAD_USER_INPUT',
+            },
+          },
+        ],
+      };
+      const mockFetch = jest.fn(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(errorResponse),
+          ok: true,
+          status: 200,
+          statusText: 'OK',
+        }),
+      ) as jest.Mock;
+      global.fetch = mockFetch;
+      expect(fetchData({ url, query })).rejects.toThrow('Bad User Input: The provided input is invalid.');
+    });
+
+    it('should throw an error with message "Unauthenticated: Please log in to access this resource." for UNAUTHENTICATED code', () => {
+      const errorResponse = {
+        errors: [
+          {
+            extensions: {
+              code: 'UNAUTHENTICATED',
+            },
+          },
+        ],
+      };
+      const mockFetch = jest.fn(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(errorResponse),
+          ok: true,
+          status: 200,
+          statusText: 'OK',
+        }),
+      ) as jest.Mock;
+      global.fetch = mockFetch;
+      expect(fetchData({ url, query })).rejects.toThrow('Unauthenticated: Please log in to access this resource.');
+    });
+
+    it('should throw an error with message "Forbidden access: You do not have the required permissions." for FORBIDDEN code', () => {
+      const errorResponse = {
+        errors: [
+          {
+            extensions: {
+              code: 'FORBIDDEN',
+            },
+          },
+        ],
+      };
+      const mockFetch = jest.fn(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(errorResponse),
+          ok: true,
+          status: 200,
+          statusText: 'OK',
+        }),
+      ) as jest.Mock;
+      global.fetch = mockFetch;
+      expect(fetchData({ url, query })).rejects.toThrow('Forbidden access: You do not have the required permissions.');
+    });
+
+    it('should throw an error with message "Internal Server Error: An unexpected error occurred on the server." for INTERNAL_SERVER_ERROR code', () => {
+      const errorResponse = {
+        errors: [
+          {
+            extensions: {
+              code: 'INTERNAL_SERVER_ERROR',
+            },
+          },
+        ],
+      };
+      const mockFetch = jest.fn(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(errorResponse),
+          ok: true,
+          status: 200,
+          statusText: 'OK',
+        }),
+      ) as jest.Mock;
+      global.fetch = mockFetch;
+      expect(fetchData({ url, query })).rejects.toThrow(
+        'Internal Server Error: An unexpected error occurred on the server.',
+      );
+    });
+
+    it('should throw an error with the provided message and status code for unknown error codes', () => {
+      const errorResponse = {
+        errors: [
+          {
+            extensions: {
+              code: 'UNKNOWN_ERROR',
+            },
+            message: 'An unknown error occurred.',
+          },
+        ],
+      };
+      const mockFetch = jest.fn(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(errorResponse),
+          ok: true,
+          status: 200,
+          statusText: 'OK',
+        }),
+      ) as jest.Mock;
+      global.fetch = mockFetch;
+      expect(fetchData({ url, query })).rejects.toThrow('An unknown error occurred.');
+    });
+
+    it('should throw an error with default message and status code 400 if no message or code is provided', () => {
+      const errorResponse = {
+        errors: [
+          {
+            extensions: {},
+          },
+        ],
+      };
+      const mockFetch = jest.fn(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(errorResponse),
+          ok: true,
+          status: 200,
+          statusText: 'OK',
+        }),
+      ) as jest.Mock;
+      global.fetch = mockFetch;
+      expect(fetchData({ url, query })).rejects.toThrow('GraphQL error');
+    });
   });
 });
