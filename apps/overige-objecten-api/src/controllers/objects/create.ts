@@ -1,3 +1,4 @@
+import { fetchData } from '@frameless/utils';
 import type { RequestHandler } from 'express';
 import snakeCase from 'lodash.snakecase';
 import slugify from 'slugify';
@@ -6,7 +7,6 @@ import { CREATE_INTERNAL_FIELD, CREATE_KENNISARTIKEL, CREATE_VAC } from '../../q
 import type { CreateInternalField, CreateProduct, CreateVacResponse } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import {
-  fetchData,
   generateKennisartikelObject,
   getCurrentTypeParam,
   getTheServerURL,
