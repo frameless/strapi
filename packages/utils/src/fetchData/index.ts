@@ -129,37 +129,49 @@ const handleHttpError = (response: Response) => {
   }
   throw new ErrorHandler(errorMessage, { statusCode: status });
 };
+enum HttpStatusCode {
+  BAD_USER_INPUT = 400,
+  UNAUTHENTICATED = 401,
+  FORBIDDEN = 403,
+  INTERNAL_SERVER_ERROR = 500,
+}
+
+interface GraphQLResponse {
+  message?: string;
+  extensions: { code: string };
+}
 
 /**
  * Handle GraphQL-specific errors like 'Forbidden access'
  * @param error - The error object returned by GraphQL
  */
-const handleGraphqlError = (error: any) => {
+const handleGraphqlError = (error: GraphQLResponse) => {
   const errorMessage = error?.message || 'GraphQL error';
-  const errorCode = error?.extensions?.code || 400; // Handle extensions (specific to GraphQL)
+  const errorCode = error?.extensions?.code || HttpStatusCode.INTERNAL_SERVER_ERROR; // Handle extensions (specific to GraphQL)
   // Log the error for debugging purposes
   // eslint-disable-next-line no-console
   console.error('GraphQL Error:', JSON.stringify(error, null, 2));
   // Handle known GraphQL error messages
-  if (errorCode === 'BAD_USER_INPUT') {
-    throw new ErrorHandler('Bad User Input: The provided input is invalid.', {
-      statusCode: 400,
-    });
-  } else if (errorCode === 'UNAUTHENTICATED') {
-    throw new ErrorHandler('Unauthenticated: Please log in to access this resource.', {
-      statusCode: 401,
-    });
-  } else if (errorCode === 'FORBIDDEN') {
-    throw new ErrorHandler('Forbidden access: You do not have the required permissions.', {
-      statusCode: 403,
-    });
-  } else if (errorCode === 'INTERNAL_SERVER_ERROR') {
-    throw new ErrorHandler('Internal Server Error: An unexpected error occurred on the server.', {
-      statusCode: 500,
-    });
+  switch (errorCode) {
+    case 'BAD_USER_INPUT':
+      throw new ErrorHandler('Bad User Input: The provided input is invalid.', {
+        statusCode: HttpStatusCode.BAD_USER_INPUT,
+      });
+    case 'UNAUTHENTICATED':
+      throw new ErrorHandler('Unauthenticated: Please log in to access this resource.', {
+        statusCode: HttpStatusCode.UNAUTHENTICATED,
+      });
+    case 'FORBIDDEN':
+      throw new ErrorHandler('Forbidden access: You do not have the required permissions.', {
+        statusCode: HttpStatusCode.FORBIDDEN,
+      });
+    case 'INTERNAL_SERVER_ERROR':
+      throw new ErrorHandler('Internal Server Error: An unexpected error occurred on the server.', {
+        statusCode: HttpStatusCode.INTERNAL_SERVER_ERROR,
+      });
+    default:
+      throw new ErrorHandler(errorMessage, {
+        statusCode: HttpStatusCode.INTERNAL_SERVER_ERROR,
+      });
   }
-
-  throw new ErrorHandler(errorMessage, {
-    statusCode: errorCode,
-  });
 };
