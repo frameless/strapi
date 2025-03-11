@@ -1,7 +1,7 @@
 import { addHeadingOncePerCategory, type ContentBlock } from './addHeadingOncePerCategory';
 
 describe('addHeadingOncePerCategory', () => {
-  it('should add a heading once per category', () => {
+  it('should add a heading and <hr> once per category', () => {
     const contentBlocks: ContentBlock = [
       {
         categorie10: 'category1',
@@ -28,9 +28,9 @@ describe('addHeadingOncePerCategory', () => {
 
     const result = addHeadingOncePerCategory({ contentBlocks, title });
     const expectedResults: ContentBlock = [
-      { id: '1', categorie10: 'category1', content: '<h2>Test Title</h2>content1' },
+      { id: '1', categorie10: 'category1', content: '<hr><h2>Test Title</h2>content1' },
       { id: '2', categorie10: 'category1', content: 'content2' },
-      { id: '3', categorie10: 'category2', content: '<h2>Test Title</h2>content3' },
+      { id: '3', categorie10: 'category2', content: '<hr><h2>Test Title</h2>content3' },
       { id: '4', categorie10: 'category2', content: 'content4' },
     ];
     expect(result).toEqual(expectedResults);
@@ -51,7 +51,7 @@ describe('addHeadingOncePerCategory', () => {
 
     const result = addHeadingOncePerCategory({ contentBlocks, title });
     const expectedResults: ContentBlock = [
-      { id: '1', categorie10: 'category1', content: '<h2>Test Title</h2>content1' },
+      { id: '1', categorie10: 'category1', content: '<hr><h2>Test Title</h2>content1' },
     ];
     expect(result).toEqual(expectedResults);
   });

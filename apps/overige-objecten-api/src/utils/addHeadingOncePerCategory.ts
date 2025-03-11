@@ -16,7 +16,7 @@ export const addHeadingOncePerCategory = ({ contentBlocks, title }: AddHeadingOn
 
     additionalInformation.push({
       ...item,
-      content: `${shouldRenderHeading ? `<h2>${title}</h2>` : ''}${item?.content}`,
+      content: `${shouldRenderHeading ? `<hr><h2>${title}</h2>` : ''}${item?.content}`,
     });
 
     return additionalInformation;
