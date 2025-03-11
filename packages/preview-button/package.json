@@ -20,7 +20,9 @@
   },
   "dependencies": {
     "@strapi/design-system": "1.12.2",
-    "@strapi/icons": "1.12.2"
+    "@strapi/icons": "1.12.2",
+    "@utrecht/component-library-css": "7.1.2",
+    "@utrecht/design-tokens": "2.5.0"
   },
   "author": {
     "name": "@frameless"
