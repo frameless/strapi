@@ -51,7 +51,7 @@
         "edit": {
           "label": "Gekoppeld product",
           "description": "",
-          "placeholder": "",
+          "placeholder": "Kies product",
           "visible": true,
           "editable": true,
           "mainField": "title"
