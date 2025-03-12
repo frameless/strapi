@@ -48,6 +48,8 @@ const config = {
       'content-manager.popUpWarning.warning.unpublish-question': 'Weet je zeker dat je het niet wilt publiceren?',
       'content-manager.popUpWarning.warning.updateAllSettings': 'Dit zal al je instellingen wijzigen.',
       'content-manager.components.empty-repeatable': 'Nog geen items. Klik op de + om iets toe te voegen.',
+      'content-manager.relation.publicationState.published': 'Gepubliceerd',
+      'content-manager.relation.publicationState.draft': 'Concept',
       'Not Found Page': 'Pagina niet gevonden',
       'primary-action-button': 'Inwoners (blauw)',
       'secondary-action-button': 'Aanvullende knop (wit)',
