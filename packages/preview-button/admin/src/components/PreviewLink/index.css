@@ -40,7 +40,9 @@
   --utrecht-figure--figcaption-font-size: var(--utrecht-typography-scale-sm-font-size);
   --utrecht-figure-figcaption-margin-block-start: var(--utrecht-space-block-2xs);
 }
-
+.utrecht-modal-dialog::backdrop {
+  --utrecht-backdrop-background-color: rgb(0 0 0 / 30%) !important;
+}
 .utrecht-preview-button,
 .utrecht-preview-link {
   inline-size: 100%;
