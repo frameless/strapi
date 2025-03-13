@@ -1,8 +1,8 @@
 import { AdvancedLink, Img, LogoButton, MultiColumnsButton } from '@frameless/ui';
+import { getDirectionFromLanguageCode } from '@frameless/utils';
 import { ButtonGroup, SpotlightSection } from '@utrecht/component-library-react';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { getDirectionFromLanguageCode } from './getDirectionFromLanguageCode';
 import { Markdown } from '../components';
 
 const getParsOpenFormsEmbedData = (openFormsEmbed) => {
