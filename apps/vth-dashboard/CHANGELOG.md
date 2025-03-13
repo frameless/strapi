@@ -1,5 +1,14 @@
 # @frameless/vth-dashboard 1.0.0 (2023-08-22)
 
+## 0.2.5
+
+### Patch Changes
+
+- Updated dependencies [eae89b1]
+- Updated dependencies [6bfbd34]
+- Updated dependencies [8af6fb1]
+  - @frameless/preview-button@1.1.0
+
 ## 0.2.4
 
 ### Patch Changes
