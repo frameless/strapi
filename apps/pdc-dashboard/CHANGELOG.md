@@ -1,5 +1,19 @@
 # @frameless/pdc-dashboard
 
+## 3.0.0
+
+### Major Changes
+
+- 4b26e09: De trefwoorden van de VAC is niet meer een lijst van trefwoorden, maar een tekstinvoerveld voor komma-gescheiden trefwoorden. De trefwoorden van VAC werken nu hetzelfde als voor de collecties voor Producten en Interne Velden ([GitHub Issue frameless/strapi#1067](https://github.com/frameless/strapi/issues/1067)).
+
+### Patch Changes
+
+- d1fce00: Verbeter de labels van de aanvullende velden ([GitHub Issue frameless/strapi#1069](https://github.com/frameless/strapi/issues/1069)).
+- Updated dependencies [eae89b1]
+- Updated dependencies [6bfbd34]
+- Updated dependencies [8af6fb1]
+  - @frameless/preview-button@1.1.0
+
 ## 2.0.0
 
 ### Major Changes

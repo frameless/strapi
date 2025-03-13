@@ -1,5 +1,16 @@
 # @frameless/overige-objecten-api
 
+## 2.0.0
+
+### Major Changes
+
+- 4b26e09: De trefwoorden van de VAC is niet meer een lijst van trefwoorden, maar een tekstinvoerveld voor komma-gescheiden trefwoorden. De trefwoorden van VAC werken nu hetzelfde als voor de collecties voor Producten en Interne Velden ([GitHub Issue frameless/strapi#1067](https://github.com/frameless/strapi/issues/1067)).
+
+### Minor Changes
+
+- e3fec6e: In de Overige Objecten API wordt een (horizontale streep) toegevoegd boven het kopje 'Aanvullende informatie', zodat er in KISS een duidelijke visuele scheiding is tussen de publieke en aanvullende informatie. ([GitHub Issue #1070](https://github.com//issues/1070)).
+- 8772962: Geef het eerste contentBlock terug als inleidingcategorie, indien opgegeven ([GitHub Issue frameless/strapi#1062](https://github.com/frameless/strapi/issues/1062)).
+
 ## 1.2.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @frameless/preview-button [1.3.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.2.0...@frameless/preview-button@1.3.0) (2024-02-02)
 
+## 1.1.0
+
+### Minor Changes
+
+- eae89b1: Zorg ervoor dat het eerste contentblok in het product wordt weergegeven onder de categorie 'inleiding' ([GitHub Issue frameless/strapi#1062](https://github.com/frameless/strapi/issues/1062)).
+- 8af6fb1: Maak onderscheid tussen productinformatie en aanvullende informatie bij kopiëren en plakken in Word. Er wordt een `<hr>` (horizontale streep) toegevoegd boven het kopje 'Aanvullende informatie' ([GitHub Issue frameless/strapi#1070](https://github.com/frameless/strapi/issues/1070)).
+
+### Patch Changes
+
+- 6bfbd34: Los de stijl van de genummerde opsomming in een uitklapmenu op ([GitHub Issue frameless/strapi#1071](https://github.com/frameless/strapi/issues/1071)).
+
 ## 1.0.0
 
 ### Major Changes
