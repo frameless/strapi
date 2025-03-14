@@ -11,7 +11,6 @@ export { ErrorHandler } from './errorHandler';
 export { generateKennisartikelObject } from './generateKennisartikelObject';
 export { generateKeywords } from './generateKeywords';
 export { getCurrentTypeParam } from './getCurrentTypeParam';
-export { getDirectionFromLanguageCode } from './getDirectionFromLanguageCode';
 export { getDeskMemo } from './getDeskMemo';
 export { getPaginatedResponse } from './getPaginatedResponse';
 export { getTheServerURL } from './getTheServerURL';

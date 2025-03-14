@@ -1,3 +1,4 @@
+import { getDirectionFromLanguageCode } from '@frameless/utils';
 import { SpotlightSectionType } from '@utrecht/component-library-react/dist/SpotlightSection';
 import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
@@ -28,7 +29,7 @@ import {
 } from '@/components';
 import { SurveyLink } from '@/components/SurveyLink';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
-import { buildAlternateLinks, createStrapiURL, fetchData, getDirectionFromLanguageCode, getImageBaseUrl } from '@/util';
+import { buildAlternateLinks, createStrapiURL, fetchData, getImageBaseUrl } from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
 
 const getAllProducts = async (locale: string, slug: string) => {

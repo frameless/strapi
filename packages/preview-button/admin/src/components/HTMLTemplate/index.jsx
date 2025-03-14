@@ -1,6 +1,6 @@
+import { getDirectionFromLanguageCode } from '@frameless/utils';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { getDirectionFromLanguageCode } from '../../utils';
 
 export const HTMLTemplate = ({ lang = 'nl', title = 'Preview', children }) => (
   <html dir={getDirectionFromLanguageCode(lang)} lang={lang}>

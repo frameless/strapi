@@ -1,3 +1,4 @@
+import { getDirectionFromLanguageCode } from '@frameless/utils';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import {
@@ -5,7 +6,6 @@ import {
   convertLogoButtonToHTML,
   convertMultiColumnsButtonToHTML,
   convertSpotlightToHTML,
-  getDirectionFromLanguageCode,
   mapContentByCategory,
 } from './index';
 import { AccordionSection, type AccordionSectionProps } from '../components/AccordionSection';
