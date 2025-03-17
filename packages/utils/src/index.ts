@@ -1,3 +1,4 @@
+export { addHeadingOncePerCategory } from './addHeadingOncePerCategory';
 export { envAvailability } from './envAvailability';
 export { ErrorHandler } from './errorHandler';
 export { fetchData } from './fetchData';
