@@ -1,4 +1,3 @@
-export { addHeadingOncePerCategory } from './addHeadingOncePerCategory';
 export { combineSimilarCategories } from './combineSimilarCategories';
 export { concatenateFieldValues } from './concatenateFieldValues';
 export { default as pluginId } from './plugin-id';

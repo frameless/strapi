@@ -1,4 +1,5 @@
 import { useDialog } from '@frameless/ui';
+import { addHeadingOncePerCategory } from '@frameless/utils';
 import { LinkButton } from '@strapi/design-system/LinkButton';
 import { useCMEditViewDataManager, useFetchClient } from '@strapi/helper-plugin';
 import Eye from '@strapi/icons/Eye';
@@ -13,7 +14,6 @@ import usePluginConfig from '../../hooks/use-plugin-config';
 import useCopyHTMLToClipboard from '../../hooks/useCopyHTMLToClipboard';
 import useFetchData from '../../hooks/useFetchData';
 import {
-  addHeadingOncePerCategory,
   combineSimilarCategories,
   concatenateFieldValues,
   getContentByType,
@@ -133,6 +133,7 @@ const PreviewLink = () => {
   const additionalContent = addHeadingOncePerCategory({
     contentBlocks: additionalInformation ?? [],
     title: 'Aanvullende informatie',
+    categoryKey: 'kennisartikelCategorie',
   });
   const combinedContent = combineSimilarCategories([...processedData, ...additionalContent]);
 
