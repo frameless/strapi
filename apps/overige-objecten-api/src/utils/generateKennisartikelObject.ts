@@ -1,5 +1,5 @@
+import { addHeadingOncePerCategory } from '@frameless/utils';
 import {
-  addHeadingOncePerCategory,
   combineSimilarCategories,
   createHTMLFiles,
   generateKeywords,
@@ -29,6 +29,7 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
   const additionalInformation = addHeadingOncePerCategory({
     contentBlocks: attributes?.additional_information?.data?.attributes?.content?.contentBlock ?? [],
     title: 'Aanvullende informatie',
+    categoryKey: 'categorie10',
   });
   const priceData = attributes?.price?.data?.attributes?.price;
   const deskMemo = getDeskMemo(attributes?.sections);
