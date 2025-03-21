@@ -2,9 +2,8 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
-import { Breadcrumbs, Grid, GridCell, Heading1, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
+import { Breadcrumbs, Heading1 } from '@/components';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
-import { SurveyLink } from '@/components/SurveyLink';
 import { openFormValidator } from '@/util';
 import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
 
@@ -64,14 +63,6 @@ const FormPage = async ({
             fallback={formInfo ? <Heading1>{formInfo.name}</Heading1> : null}
           />
         </div>
-        <Grid justifyContent="space-between" spacing="sm">
-          <GridCell sm={8}>
-            <SurveyLink segment={`${locale}/form/${formId}`} t={t} env={process.env} />
-          </GridCell>
-          <GridCell sm={4} justifyContent="flex-end">
-            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
-          </GridCell>
-        </Grid>
       </main>
     </>
   );
