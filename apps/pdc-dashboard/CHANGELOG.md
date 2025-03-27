@@ -1,5 +1,16 @@
 # @frameless/pdc-dashboard
 
+## 3.1.0
+
+### Minor Changes
+
+- c77b5e6: Nieuwe functie: oude paginalinks worden automatisch opgeslagen. Bij een titelwijziging worden bezoekers via de oude link doorgestuurd naar de juiste pagina.
+
+### Patch Changes
+
+- Updated dependencies [d026e85]
+  - @frameless/strapi-plugin-old-slugs@1.0.0
+
 ## 3.0.0
 
 ### Major Changes

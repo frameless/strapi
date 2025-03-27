@@ -1,5 +1,12 @@
 # @frameless/pdc-frontend
 
+## 0.6.0
+
+### Minor Changes
+
+- 6898d88: Nieuwe functie: oude paginalinks worden automatisch opgeslagen. Bij een titelwijziging worden bezoekers via de oude link doorgestuurd naar de juiste pagina ([GitHub Issue frameless/strapi#789](https://github.com/frameless/strapi/issues/789)).
+- 7a77c11: Vertaal de Engelse termen in URLs naar het Nederlands taal ([GitHub Issue frameless/strapi#702](https://github.com/frameless/strapi/issues/702)).
+
 ## 0.5.2
 
 ### Patch Changes
