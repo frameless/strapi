@@ -15,6 +15,9 @@
   justify-content: flex-end;
   padding-inline-end: var(--utrecht-navigation-toggle-button-padding-inline-end);
 }
+.utrecht-icon-custom {
+  margin-inline-end: var(--utrecht-icon-cutom-margin-inline-end, 8px);
+}
 
 .utrecht-navigation__toggle-button:has(button[aria-expanded="true"]) {
   --utrecht-navigation-toggle-button-padding-inline-end: var(
