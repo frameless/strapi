@@ -177,6 +177,8 @@ export const openFormsDev = openFormsURL
   ? {
       'script-src': [openFormsURL],
       'style-src': [openFormsURL],
+      'default-src': [openFormsURL],
+      'frame-src': [openFormsURL],
     }
   : {};
 
