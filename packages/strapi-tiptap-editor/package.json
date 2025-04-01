@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-tiptap-editor",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A drop-in replacement for the strapi editor",
   "strapi": {
     "name": "strapi-tiptap-editor",
@@ -24,7 +24,7 @@
   "author": "@frameless",
   "license": "EUPL-1.2",
   "dependencies": {
-    "@frameless/utils": "0.0.0",
+    "@frameless/utils": "0.0.1",
     "@strapi/design-system": "1.12.2",
     "@strapi/helper-plugin": "4.14.6",
     "@strapi/icons": "1.12.2",

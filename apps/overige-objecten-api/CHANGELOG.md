@@ -1,5 +1,15 @@
 # @frameless/overige-objecten-api
 
+## 2.0.1
+
+### Patch Changes
+
+- d07b871: Codeverbetering: verplaats addHeadingOncePerCategory naar het util-pakket.
+- Updated dependencies [ca71dbf]
+- Updated dependencies [d07b871]
+  - @frameless/ui@0.1.1
+  - @frameless/utils@0.0.1
+
 ## 2.0.0
 
 ### Major Changes

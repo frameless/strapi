@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-plugin-old-slugs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "This is a customField to store old slugs for content types",
   "keywords": [
     "strapi",

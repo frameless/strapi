@@ -1,5 +1,13 @@
 # @frameless/preview-button [1.3.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.2.0...@frameless/preview-button@1.3.0) (2024-02-02)
 
+## 1.1.1
+
+### Patch Changes
+
+- d07b871: Codeverbetering: verplaats addHeadingOncePerCategory naar het util-pakket.
+- Updated dependencies [d07b871]
+  - @frameless/utils@0.0.1
+
 ## 1.1.0
 
 ### Minor Changes

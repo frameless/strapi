@@ -1,6 +1,6 @@
 {
   "name": "@frameless/overige-objecten-api",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "author": "@frameless",
   "description": "Overige Objecten API for PDC",
@@ -32,8 +32,8 @@
     "react": "18.2.0",
     "@utrecht/web-component-library-react": "3.0.0",
     "@utrecht/component-library-react": "7.3.5",
-    "@frameless/ui": "0.1.0",
-    "@frameless/utils": "0.0.0",
+    "@frameless/ui": "0.1.1",
+    "@frameless/utils": "0.0.1",
     "dompurify": "3.2.1"
   },
   "devDependencies": {
