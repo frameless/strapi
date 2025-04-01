@@ -101,8 +101,7 @@ export const buildURL = ({
       key,
       isOrigin,
     });
-
-    if (typeof url !== 'string' || !url.trim()) {
+    if (!url || (typeof url === 'string' && !url.trim())) {
       throw new Error(
         `Invalid URL: getURL returned an empty or invalid value ('${url}'). Ensure the environment variable '${key}' is correctly set and valid.`,
       );
