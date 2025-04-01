@@ -1,5 +1,29 @@
 # @frameless/pdc-frontend
 
+## 0.6.0
+
+### Minor Changes
+
+- 6898d88: Nieuwe functie: oude paginalinks worden automatisch opgeslagen. Bij een titelwijziging worden bezoekers via de oude link doorgestuurd naar de juiste pagina ([GitHub Issue frameless/strapi#789](https://github.com/frameless/strapi/issues/789)).
+- 7a77c11: Vertaal de Engelse termen in URLs naar het Nederlands taal ([GitHub Issue frameless/strapi#702](https://github.com/frameless/strapi/issues/702)).
+
+### Patch Changes
+
+- ca71dbf: Herstel navigatiemenu (mobiele versie) [GitHub Issue frameless/strapi#683](https://github.com/frameless/strapi/issues/683):
+
+  - Focus Trap: Houdt de focus in het menu zodat gebruikers niets anders kunnen bedienen.
+  - Bij sluiten met "Esc" of buiten het menu klikken, wordt de rest van de pagina vergrendeld en kan niet meer scrollen.
+
+- 24039dc: Verwijder de 'Scroll naar boven'-knop en de 'Wat vindt u van deze pagina'-link van de formulierpagina.
+
+  - [GitHub Issue Frameless/strapi#989](https://github.com/frameless/strapi/issues/989)
+  - [GitHub Issue Frameless/strapi#545](https://github.com/frameless/strapi/issues/545)
+
+- Updated dependencies [ca71dbf]
+- Updated dependencies [d07b871]
+  - @frameless/ui@0.1.1
+  - @frameless/utils@0.0.1
+
 ## 0.5.2
 
 ### Patch Changes

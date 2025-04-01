@@ -1,7 +1,7 @@
 {
   "name": "@frameless/pdc-dashboard",
   "private": true,
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A Strapi application",
   "keywords": [],
   "scripts": {
@@ -19,7 +19,7 @@
     "config-sync-import": "config-sync import"
   },
   "dependencies": {
-    "@frameless/preview-button": "1.1.0",
+    "@frameless/preview-button": "1.1.1",
     "@frameless/strapi-plugin-env-label": "0.0.0",
     "@frameless/strapi-plugin-language": "0.0.0",
     "@frameless/strapi-plugin-gemeente-select": "0.0.0",
@@ -27,8 +27,8 @@
     "@frameless/strapi-plugin-scheme-select": "0.0.0",
     "@frameless/strapi-plugin-uniform-product-name": "0.0.0",
     "@frameless/strapi-plugin-uuid-field": "0.0.0",
-    "@frameless/strapi-tiptap-editor": "0.3.0",
-    "@frameless/strapi-plugin-old-slugs": "0.0.0",
+    "@frameless/strapi-tiptap-editor": "0.3.1",
+    "@frameless/strapi-plugin-old-slugs": "1.0.0",
     "@strapi/plugin-graphql": "4.25.8",
     "@strapi/plugin-i18n": "4.25.8",
     "@strapi/plugin-users-permissions": "4.25.8",

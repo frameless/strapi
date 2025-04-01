@@ -1,5 +1,12 @@
 # @frameless/strapi-tiptap-editor [2.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.2.0...@frameless/strapi-tiptap-editor@2.3.0) (2024-06-12)
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [d07b871]
+  - @frameless/utils@0.0.1
+
 ## 0.3.0
 
 ### Minor Changes
