@@ -1,5 +1,11 @@
 # @frameless/pdc-frontend
 
+## 0.6.1
+
+### Patch Changes
+
+- 6567cdf: Fix voor een probleem waarbij sommige URL's onterecht als ongeldig werden beschouwd.
+
 ## 0.6.0
 
 ### Minor Changes
