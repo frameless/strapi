@@ -1,0 +1,6 @@
+{
+  "flo-legal-embed.label": "Choose an Embedded Flo Legal",
+  "flo-legal-embed.description": "Saves the unique identifier of the selected form in the database.",
+  "flo-legal-embed.disabled.placeholder": "This field is disabled until necessary settings are configured.",
+  "flo-legal-embed.disabled.hint": "Ensure FLO_LEGAL_API_URL and FLO_LEGAL_API_TOKEN are configured to enable this field."
+}
