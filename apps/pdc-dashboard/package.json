@@ -21,6 +21,7 @@
   "dependencies": {
     "@frameless/preview-button": "1.1.1",
     "@frameless/strapi-plugin-env-label": "0.0.0",
+    "@frameless/strapi-plugin-flo-legal-embed": "0.0.0",
     "@frameless/strapi-plugin-language": "0.0.0",
     "@frameless/strapi-plugin-gemeente-select": "0.0.0",
     "@frameless/strapi-plugin-open-forms-embed": "0.0.0",

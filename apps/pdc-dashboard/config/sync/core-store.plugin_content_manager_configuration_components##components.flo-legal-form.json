@@ -1,0 +1,54 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.flo-legal-form",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "id",
+      "defaultSortBy": "floLegalFormSelector",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "floLegalFormSelector": {
+        "edit": {
+          "label": "Beslissingsboomformulier",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "floLegalFormSelector",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "floLegalFormSelector"],
+      "edit": [
+        [
+          {
+            "name": "floLegalFormSelector",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "components.flo-legal-form",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

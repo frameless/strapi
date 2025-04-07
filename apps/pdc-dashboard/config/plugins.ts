@@ -99,6 +99,13 @@ export default ({ env }) => ({
       embed_url: env('FRONTEND_PUBLIC_URL'),
     },
   },
+  'flo-legal-embed': {
+    enabled: true,
+    config: {
+      api_url: env('FLO_LEGAL_API_URL'),
+      token: env('FLO_LEGAL_API_TOKEN'),
+    },
+  },
   upload: {
     config: {
       providerOptions: {
