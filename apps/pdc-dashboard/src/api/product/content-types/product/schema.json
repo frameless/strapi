@@ -51,7 +51,8 @@
         "components.utrecht-accordion",
         "components.utrecht-image",
         "components.utrecht-link",
-        "components.internal-block-content"
+        "components.internal-block-content",
+        "components.flo-legal-form"
       ],
       "required": false
     },
