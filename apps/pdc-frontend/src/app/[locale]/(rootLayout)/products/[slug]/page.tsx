@@ -3,19 +3,22 @@ import { SpotlightSectionType } from '@utrecht/component-library-react/dist/Spot
 import type { TFunction } from 'i18next';
 import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
-import { draftMode } from 'next/headers';
+import { draftMode, headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
 import {
   AccordionProvider,
   AdvancedLink,
+  Alert,
   Article,
   Breadcrumbs,
   ButtonGroup,
+  FloLegalForm,
   Grid,
   GridCell,
   Heading,
@@ -30,7 +33,16 @@ import {
 } from '@/components';
 import { SurveyLink } from '@/components/SurveyLink';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
-import { buildAlternateLinks, fetchData, getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
+import {
+  buildAlternateLinks,
+  encodeHtmlEntities,
+  fetchData,
+  getFloLegalData,
+  type GetFloLegalDataResult,
+  getFloLegalURLs,
+  getImageBaseUrl,
+  getStrapiGraphqlURL,
+} from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
 
 const getAllProducts = async (locale: string, slug: string) => {
@@ -105,19 +117,61 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
     },
   };
 }
-
 interface SectionsProps {
   sections: ProductSectionsDynamicZone[];
   priceData: any;
   locale: string;
   t: TFunction<string, any, string>;
+  nonce?: string;
+}
+interface FloLegalFormComponentProps {
+  nonce?: string;
+  floLegalFormSelector?: string;
+  floLegalData?: GetFloLegalDataResult;
 }
 
-const Sections = ({ sections, locale, priceData, t }: SectionsProps) => (
+const FloLegalFormComponent = ({ nonce, floLegalData }: FloLegalFormComponentProps) => {
+  const { floLegalCdnURL } = getFloLegalURLs();
+  if (!floLegalCdnURL) return <></>;
+  return (
+    <>
+      <Script src={floLegalCdnURL} nonce={nonce} />
+      <FloLegalForm
+        headingLevel={2}
+        name={floLegalData?.name}
+        content={encodeHtmlEntities(JSON.stringify(floLegalData?.content))}
+        style={{ marginBlockStart: '1rem' }}
+      />
+    </>
+  );
+};
+
+const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
   <>
     {sections &&
-      sections.map((component, index: number) => {
+      sections.map(async (component, index: number) => {
         switch (component?.__typename) {
+          case 'ComponentComponentsFloLegalForm':
+            // eslint-disable-next-line no-case-declarations
+            const { floLegalFormApiURL } = getFloLegalURLs();
+            // eslint-disable-next-line no-case-declarations
+            const floLegalData = await getFloLegalData({
+              selector: component.floLegalFormSelector ?? undefined,
+              config: {
+                api_token: process.env.FLO_LEGAL_API_TOKEN,
+                api_url: floLegalFormApiURL,
+              },
+            });
+
+            if (floLegalData?.errorCode === 'timeout') return <Alert type="error">{t('errors.timeout')}</Alert>;
+            return (
+              <FloLegalFormComponent
+                floLegalFormSelector={component.floLegalFormSelector ?? undefined}
+                floLegalData={floLegalData}
+                nonce={nonce}
+                key={index}
+              />
+            );
           case 'ComponentComponentsUtrechtRichText':
             return (
               component.content && (
@@ -279,7 +333,7 @@ const Sections = ({ sections, locale, priceData, t }: SectionsProps) => (
 
 const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const { product } = await getAllProducts(locale, slug);
-
+  const nonce = headers().get('x-nonce') || '';
   const priceData: any = product?.attributes?.price && product?.attributes?.price?.data?.attributes?.price;
 
   const { t } = await useTranslation(locale, 'common');
@@ -345,6 +399,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
                 sections={product.attributes.sections as ProductSectionsDynamicZone[]}
                 locale={locale}
                 priceData={priceData}
+                nonce={nonce}
               />
             )}
           </RichText>
