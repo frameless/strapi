@@ -5,10 +5,21 @@ import type { ButtonLinkProps } from '@utrecht/component-library-react';
 import dynamic from 'next/dynamic';
 import Link, { LinkProps } from 'next/link';
 import { ForwardedRef, forwardRef, PropsWithChildren } from 'react';
+import { DecisionTreeFormSkeleton } from './Skeleton/DecisionTreeFormSkeleton';
 
 export * from '@utrecht/web-component-library-react';
 export * from '@utrecht/component-library-react';
 export * from '@frameless/ui';
+export const FloLegalForm = dynamic(
+  async () => {
+    const Component = (await import('./FloLegalForm')).FloLegalForm;
+    return { default: Component };
+  },
+  {
+    ssr: false,
+    loading: () => <DecisionTreeFormSkeleton />,
+  },
+);
 export { Markdown } from './Markdown';
 export { MatomoTagManager } from './MatomoTagManager';
 export { SiteImproveAnalytics } from './SiteImproveAnalytics';

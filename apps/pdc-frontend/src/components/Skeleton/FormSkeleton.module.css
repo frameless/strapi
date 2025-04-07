@@ -1,0 +1,30 @@
+.utrecht-skeleton-form {
+  padding-block-end: var(--utrecht-skeleton-form-padding-block-end, var(--utrecht-space-block-lg));
+  padding-block-start: var(--utrecht-skeleton-form-padding-block-start, var(--utrecht-space-block-lg));
+  padding-inline-end: var(--utrecht-skeleton-form-padding-inline-end, var(--utrecht-space-inline-lg));
+  padding-inline-start: var(--utrecht-skeleton-form-padding-inline-start, var(--utrecht-space-inline-lg));
+}
+.utrecht-skeleton-form__title {
+  block-size: var(--utrecht-skeleton-form-title-block-size, 24px);
+  inline-size: var(--utrecht-skeleton-form-title-inline-size, 50%);
+  margin-block-end: var(--utrecht-skeleton-form-title-margin-block-end, var(--utrecht-space-block-lg));
+}
+.utrecht-skeleton-form__input {
+  block-size: var(--utrecht-skeleton-form-input-block-size, 40px);
+  margin-block-end: var(--utrecht-skeleton-form-input-margin-block-end, var(--utrecht-space-block-md));
+}
+.utrecht-skeleton-form__textarea {
+  block-size: var(--utrecht-skeleton-form-textarea-block-size, 80px);
+  margin-block-end: var(--utrecht-skeleton-form-textarea-margin-block-end, var(--utrecht-space-block-md));
+}
+.utrecht-skeleton-form_title-visually-hidden {
+  block-size: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  inline-size: 1px;
+  overflow: hidden;
+  padding-block: 0;
+  padding-inline: 0;
+  position: absolute;
+  white-space: nowrap;
+}
