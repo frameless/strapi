@@ -42,5 +42,8 @@
     "alphabet": "alfabet",
     "form-server-down": "formulier-server-is-offline",
     "form-not-found": "formulier-niet-gevonden"
+  },
+  "errors": {
+    "timeout": "Oeps! Het laden duurde te lang. Probeer het alsjeblieft opnieuw."
   }
 }
