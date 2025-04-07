@@ -9,6 +9,7 @@ import { ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 export * from '@utrecht/web-component-library-react';
 export * from '@utrecht/component-library-react';
 export * from '@frameless/ui';
+export { FloLegalForm } from './FloLegalForm';
 export { Markdown } from './Markdown';
 export { MatomoTagManager } from './MatomoTagManager';
 export { SiteImproveAnalytics } from './SiteImproveAnalytics';
