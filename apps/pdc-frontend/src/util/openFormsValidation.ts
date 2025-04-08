@@ -1,9 +1,9 @@
 'use server';
 
+import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { useTranslation } from '@/app/i18n';
-import { buildURL, getPathAndSearchParams } from './buildURL';
 import { ErrorHandler } from './fetchData';
 
 type OpenFormValidatorFunction = {

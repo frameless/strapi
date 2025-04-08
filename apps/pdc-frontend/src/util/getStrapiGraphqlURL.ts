@@ -1,4 +1,4 @@
-import { buildURL } from './buildURL';
+import { buildURL } from '@frameless/utils';
 export const getStrapiGraphqlURL = (): string => {
   const strapiURL = buildURL({
     env: { STRAPI_PRIVATE_URL: process.env.STRAPI_PRIVATE_URL },

@@ -1,3 +1,4 @@
+import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
@@ -19,9 +20,7 @@ import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
 import {
   alphabet,
   apiSettings,
-  buildURL,
   getAlphabeticallyProductsByLetter,
-  getPathAndSearchParams,
   getStrapiGraphqlURL,
   mappingProducts,
   MappingProductsProps,

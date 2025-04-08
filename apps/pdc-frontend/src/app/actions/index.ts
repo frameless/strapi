@@ -1,12 +1,11 @@
 'use server';
+import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { redirect } from 'next/navigation';
 import { GetLiveSuggestionsData, SearchResult } from '@/types';
 import {
   apiSettings,
-  buildURL,
   fetchData,
   getAlphabeticallyProductsByLetter,
-  getPathAndSearchParams,
   mappingProducts,
   MappingProductsProps,
 } from '@/util';

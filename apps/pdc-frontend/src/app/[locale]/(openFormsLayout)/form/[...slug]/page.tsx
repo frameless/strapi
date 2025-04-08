@@ -1,10 +1,11 @@
+import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading1 } from '@/components';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
-import { buildURL, getPathAndSearchParams, openFormValidator } from '@/util';
+import { openFormValidator } from '@/util';
 import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
 
 type FormPageProps = {

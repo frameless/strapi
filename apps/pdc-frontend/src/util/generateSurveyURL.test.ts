@@ -1,6 +1,5 @@
+import { getURL, setEnv } from '@frameless/utils';
 import { generateSurveyURL, getSurveyParams } from './generateSurveyURL';
-import { getURL } from './getURL';
-import { setEnv } from './setEnv';
 
 const env = {
   SURVEY_RUN_GUID: '60A72278-5CCD-4DD2-8872-4FEDD81B7C77',

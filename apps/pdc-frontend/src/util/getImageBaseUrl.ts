@@ -1,4 +1,4 @@
-import { buildURL } from './buildURL';
+import { buildURL } from '@frameless/utils';
 
 export const getImageBaseUrl = (segment?: string): string => {
   const url = buildURL({
