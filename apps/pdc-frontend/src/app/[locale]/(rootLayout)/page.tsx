@@ -1,3 +1,4 @@
+import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import {
@@ -14,7 +15,7 @@ import {
 import { SurveyLink } from '@/components/SurveyLink';
 import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_PDC_HOME_PAGE } from '@/query';
-import { alphabet, buildURL, getPathAndSearchParams, getStrapiGraphqlURL } from '@/util';
+import { alphabet, getStrapiGraphqlURL } from '@/util';
 import { fetchData } from '@/util/fetchData';
 import {
   CheckAlphabeticallyProductsAvailabilityQuery,

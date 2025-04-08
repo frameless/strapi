@@ -1,5 +1,6 @@
 'use client';
 
+import { getPathAndSearchParams } from '@frameless/utils';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -8,7 +9,6 @@ import React from 'react';
 import { useTranslation } from '@/app/i18n/client';
 import { Link as UtrechtLink } from '@/components';
 import { SuggestedHits, Suggestions } from '@/types';
-import { getPathAndSearchParams } from '@/util';
 import { UtrechtSearchBar } from '../UtrechtSearchBar';
 
 export interface SearchBarProps {

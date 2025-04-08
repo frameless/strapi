@@ -1,3 +1,4 @@
+import { buildURL } from '@frameless/utils';
 import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
@@ -31,7 +32,7 @@ import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { GET_OPEN_FORMS_TEMPLATE } from '@/query';
-import { buildAlternateLinks, buildURL, config, fetchData, getStrapiGraphqlURL } from '@/util';
+import { buildAlternateLinks, config, fetchData, getStrapiGraphqlURL } from '@/util';
 import { ComponentComponentsUtrechtNavigation, GetTemplateDataQuery } from '../../../../gql/graphql';
 import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
 import { useTranslation } from '../../i18n/index';

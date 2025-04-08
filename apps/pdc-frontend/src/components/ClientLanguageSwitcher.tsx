@@ -1,11 +1,11 @@
 'use client';
 
+import { getPathAndSearchParams } from '@frameless/utils';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useParams, usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import React from 'react';
 import { LanguageSwitcher, LanguageSwitcherSkeleton } from '@/components';
-import { getPathAndSearchParams } from '@/util';
 import { fetchData } from '@/util/fetchData';
 import { fallbackLng, languages } from '../app/i18n/settings';
 

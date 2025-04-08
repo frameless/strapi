@@ -1,3 +1,4 @@
+import { buildURL } from '@frameless/utils';
 import classnames from 'classnames';
 import { dir } from 'i18next';
 import type { Metadata } from 'next';
@@ -29,7 +30,7 @@ import { GoogleTranslate } from '@/components/GoogleTranslate';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import { GET_TEMPLATE } from '@/query';
-import { buildAlternateLinks, buildURL, config, fetchData, getStrapiGraphqlURL } from '@/util';
+import { buildAlternateLinks, config, fetchData, getStrapiGraphqlURL } from '@/util';
 import {
   ComponentComponentsUtrechtFooter,
   ComponentComponentsUtrechtNavigation,
