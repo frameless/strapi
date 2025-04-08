@@ -1,3 +1,4 @@
+import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -6,7 +7,7 @@ import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { SurveyLink } from '@/components/SurveyLink';
-import { buildAlternateLinks, buildURL, getPathAndSearchParams } from '@/util';
+import { buildAlternateLinks } from '@/util';
 import { useTranslation } from '../../../../i18n/index';
 type ParamsType = {
   locale: string;

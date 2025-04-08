@@ -1,8 +1,8 @@
+import { getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, UnorderedList, UnorderedListItem } from '@/components';
-import { getPathAndSearchParams } from '@/util';
 
 type Params = {
   params: {

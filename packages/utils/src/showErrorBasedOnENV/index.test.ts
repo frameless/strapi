@@ -1,5 +1,5 @@
-import { setEnv } from './setEnv';
-import { showErrorBasedOnENV } from './showErrorBasedOnENV';
+import { setEnv } from '../setEnv';
+import { showErrorBasedOnENV } from '../showErrorBasedOnENV';
 
 describe('showErrorBasedOnENV', () => {
   const originalEnv = process.env;

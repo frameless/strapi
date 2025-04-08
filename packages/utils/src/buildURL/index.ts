@@ -1,5 +1,6 @@
-import type { TFunction } from 'i18next';
-import { getURL, GetURL } from './getURL';
+import { getURL, GetURL } from '../getURL';
+
+type TFunction<K extends string = string, T = any, TK extends string = string> = (key: K | K[], options?: T) => TK;
 
 /**
  * Get the query parameters for a given set of parameters.

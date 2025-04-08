@@ -1,4 +1,4 @@
-import { showErrorBasedOnENV } from './showErrorBasedOnENV';
+import { showErrorBasedOnENV } from '../showErrorBasedOnENV';
 
 export interface GetURL {
   env: any;

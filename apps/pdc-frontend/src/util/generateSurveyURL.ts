@@ -1,6 +1,4 @@
-import { getURL } from './getURL';
-import { showErrorBasedOnENV } from './showErrorBasedOnENV';
-
+import { getURL, showErrorBasedOnENV } from '@frameless/utils';
 export interface SurveyRunParams {
   guid?: string;
   view?: string;

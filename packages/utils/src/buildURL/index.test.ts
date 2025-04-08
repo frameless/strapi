@@ -1,4 +1,4 @@
-import { buildURL, getPathAndSearchParams, getQueryParams } from './buildURL';
+import { buildURL, getPathAndSearchParams, getQueryParams } from '../buildURL';
 
 describe('buildURL', () => {
   it('should build properly with one query parameter', () => {

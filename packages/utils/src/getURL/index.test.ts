@@ -1,5 +1,5 @@
-import { getURL } from './getURL';
-import { setEnv } from './setEnv';
+import { getURL } from '../getURL';
+import { setEnv } from '../setEnv';
 
 describe('getURL', () => {
   const originalEnv = process.env;

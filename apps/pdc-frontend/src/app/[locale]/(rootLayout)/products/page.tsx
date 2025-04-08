@@ -1,17 +1,11 @@
+import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { SurveyLink } from '@/components/SurveyLink';
-import {
-  apiSettings,
-  buildURL,
-  getPathAndSearchParams,
-  getStrapiGraphqlURL,
-  mappingProducts,
-  MappingProductsProps,
-} from '@/util';
+import { apiSettings, getStrapiGraphqlURL, mappingProducts, MappingProductsProps } from '@/util';
 import { buildAlternateLinks, fetchData } from '@/util';
 import { GetAllProductsSlugQueryQuery } from '../../../../../gql/graphql';
 import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';

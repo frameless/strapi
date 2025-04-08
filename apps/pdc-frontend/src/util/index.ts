@@ -1,7 +1,6 @@
 export * from './alphabet';
 export * from './apiSettings';
 export * from './buildAlternateLinks';
-export * from './buildURL';
 export * from './cspConfig';
 export * from './fetchData';
 export * from './generateSurveyURL';
@@ -10,7 +9,5 @@ export * from './getImageBaseUrl';
 export * from './getStrapiGraphqlURL';
 export * from './mappingProducts';
 export * from './openFormsValidation';
-export * from './showErrorBasedOnENV';
-export * from './setEnv';
 export * from './siteSetting';
 export * from './getRedirectURL';

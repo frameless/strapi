@@ -1,4 +1,4 @@
-import { getPathAndSearchParams } from './buildURL';
+import { getPathAndSearchParams } from '@frameless/utils';
 import { Product as ProductType } from '../../gql/graphql';
 
 export type MappingProductsProps = {
