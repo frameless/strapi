@@ -1,7 +1,9 @@
+import { OpenFormsContainer } from '@utrecht/open-forms-container-react/dist/css';
 import React, { type ReactNode, useId } from 'react';
 import { OpenFormsScript } from './OpenFormsScript';
 import '@open-formulieren/sdk/styles.css';
 import '@utrecht/component-library-css/dist/html.css';
+import '@utrecht/open-forms-container-css/dist/index.css';
 import './OpenFormsEmbed.scss';
 import { RichText } from '../index';
 
@@ -21,11 +23,13 @@ export const OpenFormsEmbed = ({ nonce, basePath, slug, apiUrl, sdkUrl, cssUrl, 
   return (
     <div className="utrecht-html">
       <RichText>
-        <div id={id} data-base-url={apiUrl} data-form-id={slug} data-base-path={basePath}>
-          {fallback}
-        </div>
-        <link rel="stylesheet" nonce={nonce} href={cssUrl} />
-        <OpenFormsScript targetId={id} nonce={nonce} src={sdkUrl} />
+        <OpenFormsContainer>
+          <div id={id} data-base-url={apiUrl} data-form-id={slug} data-base-path={basePath}>
+            {fallback}
+          </div>
+          <link rel="stylesheet" nonce={nonce} href={cssUrl} />
+          <OpenFormsScript targetId={id} nonce={nonce} src={sdkUrl} />
+        </OpenFormsContainer>
       </RichText>
     </div>
   );
