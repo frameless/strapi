@@ -3,10 +3,11 @@ import { SpotlightSectionType } from '@utrecht/component-library-react/dist/Spot
 import type { TFunction } from 'i18next';
 import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
-import { draftMode } from 'next/headers';
+import { draftMode, headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
@@ -16,6 +17,7 @@ import {
   Article,
   Breadcrumbs,
   ButtonGroup,
+  FloLegalForm,
   Grid,
   GridCell,
   Heading,
@@ -34,11 +36,15 @@ import {
   buildAlternateLinks,
   buildURL,
   fetchData,
+  getFloLegalData,
+  getFloLegalURLs,
   getImageBaseUrl,
   getPathAndSearchParams,
   getStrapiGraphqlURL,
 } from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
+
+import '@utrecht/component-library-css/dist/html.css';
 
 const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();
@@ -112,19 +118,57 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
     },
   };
 }
-
 interface SectionsProps {
   sections: ProductSectionsDynamicZone[];
   priceData: any;
   locale: string;
   t: TFunction<string, any, string>;
+  nonce?: string;
 }
 
-const Sections = ({ sections, locale, priceData, t }: SectionsProps) => (
+interface FloLegalFormComponentProps {
+  floLegalFormSelector?: string;
+  nonce?: string;
+}
+
+const FloLegalFormComponent = async ({ floLegalFormSelector, nonce }: FloLegalFormComponentProps) => {
+  const { floLegalCdnURL, floLegalFormApiURL } = getFloLegalURLs();
+  if (!floLegalCdnURL) return <></>;
+
+  const floLegalData = await getFloLegalData({
+    selector: floLegalFormSelector,
+    config: {
+      api_token: process.env.FLO_LEGAL_API_TOKEN,
+      api_url: floLegalFormApiURL,
+    },
+  });
+
+  return (
+    <>
+      <Script src={floLegalCdnURL} nonce={nonce} />
+      <FloLegalForm
+        headingLevel={2}
+        title={floLegalData?.title}
+        checkData={floLegalData.encodedData}
+        style={{ marginBlockStart: '1rem' }}
+      />
+    </>
+  );
+};
+
+const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
   <>
     {sections &&
-      sections.map((component, index: number) => {
+      sections.map(async (component, index: number) => {
         switch (component?.__typename) {
+          case 'ComponentComponentsFloLegalForm':
+            return (
+              <FloLegalFormComponent
+                floLegalFormSelector={component.floLegalFormSelector ?? undefined}
+                nonce={nonce}
+                key={index}
+              />
+            );
           case 'ComponentComponentsUtrechtRichText':
             return (
               component.content && (
@@ -286,7 +330,7 @@ const Sections = ({ sections, locale, priceData, t }: SectionsProps) => (
 
 const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const { product } = await getAllProducts(locale, slug);
-
+  const nonce = headers().get('x-nonce') || '';
   const priceData: any = product?.attributes?.price && product?.attributes?.price?.data?.attributes?.price;
 
   const { t } = await useTranslation(locale, 'common');
@@ -352,6 +396,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
                 sections={product.attributes.sections as ProductSectionsDynamicZone[]}
                 locale={locale}
                 priceData={priceData}
+                nonce={nonce}
               />
             )}
           </RichText>

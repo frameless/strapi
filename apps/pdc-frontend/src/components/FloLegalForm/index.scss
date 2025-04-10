@@ -1,0 +1,517 @@
+// This CSS was downloaded from the CDN (flo-client-styles.1.9.0.css) because the link caused issues with server-side rendering in Next.js.
+
+/* stylelint-disable */
+.flo-inner-visibility-hidden {
+  visibility: hidden;
+}
+.flo-form-group-nav {
+  margin-block-end: 13px;
+}
+.flo-form-group-button-container {
+  display: inline-block;
+  margin-block-end: 13px;
+}
+.flo-form-group-nav-divider {
+  display: inline-block;
+  font-size: xx-large;
+  margin: 0 5px;
+}
+.flo-form-group-nav-divider::after {
+  content: "\2192";
+}
+.flo-form-group-header {
+  width: 100%;
+}
+.flo-form-group-header .flo-form-group-button {
+  padding-left: 2em;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+.flo-form-group-header .flo-form-group-button::before {
+  content: "^";
+  font-size: larger;
+  left: 10px;
+  position: absolute;
+  top: -1px;
+  transform: rotate(180deg);
+}
+.flo-form-group-header .flo-form-group-button-active::before {
+  font-weight: 400;
+  top: 6px;
+  transform: none;
+}
+.flo-form-bottom-nav {
+  margin-block-end: 26px;
+  margin-top: 13px;
+}
+.flo-form-button {
+  font-size: 1rem;
+}
+.flo-link-button {
+  color: #00f;
+  cursor: pointer;
+  display: inline-block;
+}
+.flo-link-button:hover {
+  text-decoration: underline;
+}
+.flo-form-group-button {
+  font-size: large;
+  padding: 5px 10px;
+}
+.flo-form-group-button-active {
+  font-weight: 700;
+}
+.flo-question-section {
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #ccc;
+}
+.flo-question-section.pristine {
+  background-color: #fff;
+}
+.flo-question-container {
+  border: none;
+  margin: 0;
+  padding: 26px;
+  position: relative;
+}
+.flo-question-description {
+  float: left;
+  margin-block-end: 1em;
+  margin-right: 1.5em;
+  width: 100%;
+}
+.flo-question-description + * {
+  clear: left;
+}
+.flo-question-answers label {
+  display: inline-block;
+  margin-block-end: 0.5em;
+}
+.flo-question-answers input[type="radio"],
+.flo-question-answers input[type="checkbox"] {
+  margin-right: 6px;
+}
+.flo-question-answers input.ng-invalid {
+  color: red;
+}
+.flo-boolean-false {
+  margin-left: 15px;
+}
+.flo-question-answers select,
+.flo-question-answers input[type="text"],
+.flo-question-answers textarea {
+  box-sizing: border-box;
+  width: 100%;
+}
+.flo-explanation-button {
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 700;
+  height: 20px;
+  padding-left: 4px;
+  width: 20px;
+}
+.flo-explanation-show::before,
+.flo-option-explanation-show::before {
+  content: "?";
+}
+.flo-explanation-show {
+  position: absolute;
+  right: 26px;
+  top: 26px;
+}
+.flo-option-explanation-show {
+  margin-left: 6px;
+}
+.flo-explanation-container {
+  background: #f3f3f3;
+  margin-block-end: 13px;
+  padding: 13px;
+  position: relative;
+}
+.flo-group-explanation-container {
+  border-bottom: 1px solid #ccc;
+}
+.flo-group-explanation-top-container {
+  margin-block-end: 0;
+}
+.flo-option-explanation {
+  margin-left: 27px;
+}
+.flo-explanation-content p {
+  margin-block-end: 1em;
+}
+.flo-explanation-hide {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+.flo-explanation-hide::before {
+  content: "X";
+}
+.flo-explanation-i {
+  display: none;
+}
+.flo-ready-status {
+  padding: 26px;
+}
+.flo-nav {
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+  padding: 52px 26px 26px;
+}
+.flo-outcomes-container {
+  background-color: #f3f3f3;
+  padding: 26px;
+}
+.flo-outcome-header {
+  font-size: large;
+  font-weight: 700;
+}
+.flo-outcome-content {
+  margin-block-end: 2rem;
+}
+.flo-inner-hidden {
+  display: none;
+}
+.flo-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 100px);
+  padding: 26px;
+}
+.flo-form-section {
+  flex: 1;
+  padding-right: 26px;
+}
+.flo-form-wrapper {
+  border-bottom: 2px solid #ccc;
+  margin-block-end: 13px;
+  max-height: calc(100% - 52px);
+  min-height: calc(100% - 52px);
+  padding-bottom: 13px;
+}
+.flo-preview {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-left: 26px;
+}
+.flo-document-preview {
+  border-bottom: 2px solid #ccc;
+  flex-grow: 1;
+  margin-block-end: 13px;
+  overflow-y: scroll;
+  padding-bottom: 13px;
+}
+.flo-preview-content h1,
+.flo-preview-content h2,
+.flo-preview-content h3,
+.flo-preview-content h4,
+.flo-preview-content h5,
+.flo-preview-content h6 {
+  font-weight: 700;
+  margin-block-end: 1em;
+  margin-top: 1.5em;
+}
+.flo-preview-content p,
+.flo-preview-content ul,
+.flo-preview-content ol {
+  margin-block-end: 1em;
+  margin-top: 1em;
+}
+.flo-preview-content li > ol,
+.flo-preview-content li > ul {
+  margin: 0;
+}
+.flo-preview-content li p {
+  margin: 0;
+}
+.flo-preview-content h1 {
+  font-size: 2em;
+}
+.flo-preview-content h2 {
+  font-size: 1.8em;
+}
+.flo-preview-content h3 {
+  font-size: 1.6em;
+}
+.flo-preview-content h4 {
+  font-size: 1.4em;
+}
+.flo-preview-content h5 {
+  font-size: 1.2em;
+}
+.flo-preview-content h6 {
+  font-size: 1em;
+}
+.flo-attachment-lines {
+  border-collapse: collapse;
+  width: 100%;
+}
+.flo-attachment-lines td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+.flo-attachment-lines td.flo-attachment-name {
+  text-align: left;
+}
+.flo-attachment-lines button {
+  display: inline-block;
+  height: 25px;
+  padding: 0;
+  text-align: center;
+  width: 50px;
+}
+.flo-attachment-lines button .flo-download-icon {
+  width: 50px;
+}
+.flo-attachment-lines button svg {
+  max-height: 20px;
+  max-width: 20px;
+}
+.flo-attachment-lines svg {
+  max-height: 30px;
+  max-width: 30px;
+}
+.flo-attachments-preview .flo-attachments-item {
+  display: inline-block;
+  line-height: 1.5;
+  margin-right: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.flo-form-section,
+.flo-preview {
+  max-height: calc(100% - 26px);
+}
+.flo-form-wrapper {
+  overflow-y: scroll;
+}
+.flo-preview-title {
+  display: flex;
+  gap: 1em;
+  margin-top: 0;
+}
+.flo-preview-highlight {
+  background-color: #ff0;
+}
+.flo-preview-content {
+  background-color: #f3f3f3;
+  padding: 26px;
+}
+.flo-preview-content ol,
+.flo-preview-content ul {
+  padding-left: 1em;
+}
+.flo-preview-content table td {
+  border: 1px solid black;
+  padding: 5px 20px;
+}
+.flo-explanation-readmore-toggle-button {
+  background: none;
+  border: none;
+  color: #00e;
+  cursor: pointer;
+  padding: 0;
+}
+.flo-download-button {
+  padding: 2px 20px;
+}
+.flo-download-icon {
+  background-image: url("data:image/png;base64,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");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 15px;
+  width: 15px;
+}
+.flo-pdf-frame {
+  height: calc(100vh - 220px);
+  width: calc(100vw - 270px);
+}
+.flo-decision-table {
+  border-collapse: collapse;
+  margin: 1em;
+}
+.flo-decision-table td,
+.flo-decision-table th {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+.flo-decision-table td:nth-child(1) {
+  max-width: 350px;
+  min-width: 350px;
+  text-align: left;
+}
+.flo-decision-table th:nth-child(1) {
+  border: none;
+}
+.flo-modal-background {
+  background-color: #00000080;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.flo-modal {
+  background-color: #fff;
+  box-sizing: border-box;
+  height: calc(100vh - 100px);
+  inset: 0;
+  margin: auto;
+  position: fixed;
+  width: calc(100vw - 200px);
+  z-index: 101;
+}
+.flo-modal-header {
+  align-items: center;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+.flo-modal-header h3 {
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 50px;
+  margin: 0;
+}
+.flo-modal-header button {
+  padding: 7px 10px 3px;
+}
+.flo-modal-header label:hover img {
+  opacity: 80%;
+}
+.flo-modal-content {
+  box-sizing: border-box;
+  height: calc(100vh - 150px);
+  overflow-y: scroll;
+  padding: 26px;
+}
+ol.flo-list-style-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.flo-rtr-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.flo-rtr-container .flo-rtr-form-container {
+  display: inline-block;
+  flex: 2;
+}
+.flo-rtr-container .flo-rtr-form-header {
+  align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flo-rtr-container .flo-rtr-side-container {
+  flex: 1;
+}
+.flo-rtr-container.flo-maatregelen-container .flo-rtr-side-container {
+  flex: 2;
+}
+.flo-rtr-container.flo-maatregelen-container .flo-rtr-side-container h3 {
+  margin-block-end: 0.5rem;
+  margin-top: 0;
+}
+.flo-question-description-container,
+.flo-question-answers {
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+}
+.flo-question-description-container {
+  padding-right: 1rem;
+}
+.flo-question-answers {
+  padding-left: 1rem;
+}
+.flo-explanation-show {
+  margin-left: 0.5rem;
+  position: static;
+  width: auto;
+}
+.flo-question-description {
+  float: none;
+  font-weight: 700;
+  margin-right: 0;
+  width: auto;
+}
+.flo-explanation-container {
+  box-sizing: border-box;
+  margin-block-end: 1rem;
+  margin-top: 0.5rem;
+  padding: 1rem 2rem 1rem 1rem;
+  width: 100%;
+}
+.flo-explanation-container img {
+  max-width: 100%;
+}
+.flo-explanation-container *,
+.flo-question-answers .flo-explanation-container {
+  margin-top: 0;
+}
+.flo-option-explanation {
+  margin-left: 0;
+}
+.flo-action-bar {
+  padding: 2rem;
+}
+.flo-rtr-bijlagen .flo-question-container {
+  display: block;
+}
+.flo-rtr-bijlagen .flo-question-container > * {
+  width: 100%;
+}
+.flo-maatregelen-toelichting {
+  padding-bottom: 0.5em;
+  padding-top: 1em;
+}
+.flo-maatregelen-toelichting p {
+  margin-block-end: 1em;
+  margin-top: 0.5em;
+}
+.flo-maatregelen-toelichting h4,
+.flo-maatregelen-toelichting h5 {
+  margin-block-end: 0.25em;
+  margin-top: 1em;
+}
+.flo-maatregelen-toelichting h4 {
+  font-size: 1.08em;
+}
+.flo-maatregelen-toelichting h5 {
+  font-size: 1em;
+}
+.flo-maatregelen-toelichting .flo-link-button {
+  margin-top: 0.5em;
+}
+table.flo-maatregelen-attributes {
+  border-collapse: collapse;
+}
+table.flo-maatregelen-attributes td {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+table.flo-maatregelen-attributes td:first-child {
+  font-weight: 700;
+}
+.flo-form-group-header .flo-form-group-counter {
+  display: inline-block;
+  font-size: smaller;
+  margin-left: 2em;
+  position: absolute;
+  right: 1em;
+}
