@@ -1,3 +1,4 @@
 {
-  "pagination-title": "Results {{result}} to {{to}}"
+  "pagination-title": "Results {{result}} to {{to}} of {{total}}",
+  "pagination-query": "for '{{query}}'"
 }
