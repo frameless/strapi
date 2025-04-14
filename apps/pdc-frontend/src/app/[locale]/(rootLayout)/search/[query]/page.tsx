@@ -127,14 +127,15 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
         Link={Link}
       />
       <main id="main">
-        <Heading level={1}>{t('h1', { query: decodeQuery, interpolation: { escapeValue: false } })}</Heading>
-        <h2>{decodeQuery}</h2>
+        <Heading level={1}>{t('page-title', { query: decodeQuery, interpolation: { escapeValue: false } })}</Heading>
         <ProductListContainer
-          locale={locale}
-          total={searchResults.total}
-          initialData={results}
           currentQuery={decodeQuery}
+          initialData={results}
+          locale={locale}
           segment="search"
+          showPaginationTitle
+          showQuery
+          total={searchResults.total}
         />
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>

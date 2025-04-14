@@ -117,7 +117,12 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
       <main id="main">
         <Heading level={1}>{t('h1')}</Heading>
         {mappedProduct && mappedProduct.length > 0 && (
-          <ProductListContainer locale={locale} total={products?.meta.pagination.total} initialData={mappedProduct} />
+          <ProductListContainer
+            showPaginationTitle
+            locale={locale}
+            total={products?.meta.pagination.total}
+            initialData={mappedProduct}
+          />
         )}
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell sm={8}>

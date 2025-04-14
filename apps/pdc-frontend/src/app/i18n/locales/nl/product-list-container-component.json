@@ -1,3 +1,4 @@
 {
-  "pagination-title": "Resultaten {{result}} tot en met {{to}}"
+  "pagination-title": "Resultaten {{result}} tot en met {{to}} van {{total}}",
+  "pagination-query": "voor '{{query}}'"
 }
