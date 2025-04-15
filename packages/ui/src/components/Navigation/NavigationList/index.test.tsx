@@ -115,4 +115,14 @@ describe('NavigationList', () => {
     fireEvent.focus(navList as HTMLUListElement);
     expect(firstLink).toHaveFocus();
   });
+  test('does not focus the first link on mobile focus', () => {
+    render(<NavigationList list={listData} mobile />);
+    const firstLink = screen.getByText('Home');
+    const navList = firstLink.closest('ul');
+    expect(navList).toHaveAttribute('tabIndex', '-1');
+
+    fireEvent.focus(navList as HTMLUListElement);
+    // Ensure the focus behavior is explicitly prevented in mobile mode
+    expect(firstLink).not.toHaveFocus();
+  });
 });
