@@ -1,5 +1,12 @@
 # @frameless/pdc-dashboard
 
+## 3.1.1
+
+### Patch Changes
+
+- @frameless/preview-button@1.1.2
+- @frameless/strapi-tiptap-editor@0.3.2
+
 ## 3.1.0
 
 ### Minor Changes

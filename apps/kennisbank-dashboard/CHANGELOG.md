@@ -1,5 +1,11 @@
 # @frameless/kennisbank-dashboard
 
+## 0.1.7
+
+### Patch Changes
+
+- @frameless/strapi-tiptap-editor@0.3.2
+
 ## 0.1.6
 
 ### Patch Changes

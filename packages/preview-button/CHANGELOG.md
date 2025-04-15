@@ -1,5 +1,12 @@
 # @frameless/preview-button [1.3.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.2.0...@frameless/preview-button@1.3.0) (2024-02-02)
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [111df39]
+  - @frameless/utils@0.1.0
+
 ## 1.1.1
 
 ### Patch Changes
