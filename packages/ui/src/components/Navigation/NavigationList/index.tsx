@@ -45,6 +45,7 @@ export const NavigationList = ({
 
   // focus on first link in list when list is focused
   const onNavListLinkFocusHandler = (event: FocusEvent<HTMLUListElement, Element>) => {
+    if (mobile) return; // prevent behavior on mobile
     if (event.target !== navListRef.current) return; // ignore bubbling focus event in React
 
     if (navListRef.current && navLinkRef?.current) {
