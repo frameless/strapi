@@ -1,5 +1,12 @@
 # @frameless/pdc-frontend
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [111df39]
+  - @frameless/utils@0.1.0
+
 ## 0.6.1
 
 ### Patch Changes

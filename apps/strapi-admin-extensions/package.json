@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-admin-extensions",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": true,
   "author": "@frameless",
   "description": "Strapi Admin Extensions",
@@ -27,7 +27,7 @@
     "p-limit": "3.0.0",
     "morgan": "1.10.0",
     "js-yaml": "4.1.0",
-    "@frameless/utils": "0.0.1"
+    "@frameless/utils": "0.1.0"
   },
   "devDependencies": {
     "@types/cors": "2.8.17",

@@ -1,5 +1,12 @@
 # @frameless/overige-objecten-api
 
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies [111df39]
+  - @frameless/utils@0.1.0
+
 ## 2.0.1
 
 ### Patch Changes
