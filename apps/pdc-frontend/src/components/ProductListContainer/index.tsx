@@ -19,6 +19,8 @@ interface ProductsListProps {
   total?: number;
   currentQuery?: string;
   segment?: string;
+  showQuery?: boolean;
+  showPaginationTitle?: boolean;
 }
 
 type PaginationType = {
@@ -49,11 +51,27 @@ const reducer = (state: any, action: any) => ({
   },
 });
 
-export const ProductListContainer = ({ initialData, locale, total, currentQuery, segment }: ProductsListProps) => {
+export const ProductListContainer = ({
+  currentQuery,
+  initialData,
+  locale,
+  segment,
+  showQuery,
+  total,
+  showPaginationTitle,
+}: ProductsListProps) => {
   const { t } = useTranslation(locale, ['product-list-container-component', 'common']);
   const initialState = {
     productsList: {
-      data: [{ paginationInfo: null, products: initialData }],
+      data: [
+        {
+          paginationInfo: {
+            result: 1,
+            to: initialData.length,
+          },
+          products: initialData,
+        },
+      ],
       total,
     },
     totalProducts: initialData,
@@ -69,16 +87,23 @@ export const ProductListContainer = ({ initialData, locale, total, currentQuery,
         console.error(e);
       });
   };
-
   return (
     <>
       <ProductsList>
         {(state.productsList as ProductsType)?.data?.map(({ paginationInfo, products }, index) => {
           return (
             <Fragment key={index}>
-              {paginationInfo?.result && paginationInfo.to && (
+              {showPaginationTitle && paginationInfo?.result && paginationInfo.to && (
                 <ProductListPaginationInfo>
-                  {t('pagination-title', { result: paginationInfo?.result, to: paginationInfo?.to })}
+                  {t('pagination-title', {
+                    result: paginationInfo?.result,
+                    to: paginationInfo?.to,
+                    total: total,
+                  })}{' '}
+                  {showQuery &&
+                    t('pagination-query', {
+                      query: currentQuery,
+                    })}
                 </ProductListPaginationInfo>
               )}
               {products &&
