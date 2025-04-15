@@ -8619,6 +8619,11 @@
   resolved "https://registry.yarnpkg.com/@utrecht/focus-ring-css/-/focus-ring-css-1.1.0.tgz#3a3b426b81d9aefc792288287e7ffc6981ab1ed6"
   integrity sha512-MDxrC7b1AZ+S0+oqfMA/QD05GDhBTnc7q5VR3a+39jwJkgXtG7gJSQ7Pr8kdK8/Brx94SayIAEP5vAjuBee6bQ==
 
+"@utrecht/focus-ring-css@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/focus-ring-css/-/focus-ring-css-2.3.0.tgz#96a3d133ed07d6667c390a29f313f4451aa510ad"
+  integrity sha512-HYsULqosoFp9zMypvGuEaGpsl01cW6qKGIYGQa9FZCcCtwXcS0dqFEcjeZJ1yue0RJsk0QuGVBrQOXjsNPNkBg==
+
 "@utrecht/form-css@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@utrecht/form-css/-/form-css-1.5.0.tgz#31ce179b393b7b5c09d436e8bd8b661597aa83eb"
@@ -8858,6 +8863,22 @@
   resolved "https://registry.yarnpkg.com/@utrecht/number-data-css/-/number-data-css-1.4.0.tgz#9e921254970e946cfd74fd6cf142a5d1012686a4"
   integrity sha512-ahIVb7fAMbLighpqx11tZ/xP5JWcw+PJRJRVv4wRn2xPSnMEbZLoDFyObSobBXfLUbLP+9VN06iQKClvrVt4FA==
 
+"@utrecht/open-forms-container-css@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/open-forms-container-css/-/open-forms-container-css-1.0.0.tgz#0a9b3f3bbc6d80544d34a6e5602d593853a65bdd"
+  integrity sha512-eG6wH6Toyyvku+s03pxqEXNPyoSdOEwyWpbWD9vdcuYK+MLe2i8ANWInVlKYgfluBKvuCv/akmZjelQUFpctjA==
+  dependencies:
+    "@utrecht/focus-ring-css" "2.3.0"
+    "@utrecht/textbox-css" "1.7.0"
+
+"@utrecht/open-forms-container-react@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/open-forms-container-react/-/open-forms-container-react-1.0.0.tgz#05c67e51e14fcec794f5992933e4d251cfbdfed3"
+  integrity sha512-dqP8mPXce1r2SxfkhbgeWHyZpZJsNmCEOArNgnjOBQY2/J/IqJcmrrPx6WDWUpJM4nGZDJ+a2jUEVTiRkNJ2gg==
+  dependencies:
+    "@utrecht/open-forms-container-css" "1.0.0"
+    clsx "2.1.1"
+
 "@utrecht/ordered-list-css@1.5.1":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@utrecht/ordered-list-css/-/ordered-list-css-1.5.1.tgz#e680c79f36bb45ae589eab086075f125c30c022c"
@@ -8989,6 +9010,11 @@
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@utrecht/textbox-css/-/textbox-css-1.6.0.tgz#fe2f9fc5b990bc82a44bf63211a1e2b7ff567904"
   integrity sha512-dvWy864as/eysYrWYBTx9jDTO4a3JQtb8VCzRUgLjIyryZcsyZSzs+EHWhuoTE6AU5qKIyT8uIkuyceJNpv+Uw==
+
+"@utrecht/textbox-css@1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/textbox-css/-/textbox-css-1.7.0.tgz#4388d51bf21eff676127c27c0288a6d731a2e841"
+  integrity sha512-s5KSz7KH0Wp3nEQnqUDBLmqFISF8Quy7EMIuapI6xMHf/AQE9O+1Y3/xC7Z1rQsMai4rOPRokT9zmm5dqo8hMA==
 
 "@utrecht/textbox-react@1.0.2":
   version "1.0.2"
