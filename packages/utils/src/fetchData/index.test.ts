@@ -406,4 +406,20 @@ describe('fetchData', () => {
       expect(fetchData({ url, query })).rejects.toThrow('GraphQL error');
     });
   });
+
+  it('should abort the fetch request when the signal is aborted', async () => {
+    const mockFetch = jest.fn(() =>
+      Promise.reject(new DOMException('The operation was aborted.', 'AbortError')),
+    ) as jest.Mock;
+    global.fetch = mockFetch;
+
+    const controller = new AbortController();
+    const signal = controller.signal;
+    controller.abort();
+
+    await expect(fetchData({ url, query, signal })).rejects.toThrow({
+      name: 'AbortError',
+      message: 'Request aborted',
+    });
+  });
 });
