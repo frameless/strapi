@@ -42,5 +42,8 @@
     "alphabet": "Alphabet",
     "form-server-down": "form-server-down",
     "form-not-found": "form-not-found"
+  },
+  "errors": {
+    "timeout": "Oops! Something took too long to load. Please try again."
   }
 }

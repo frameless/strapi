@@ -1,0 +1,40 @@
+{
+  "name": "@frameless/strapi-plugin-flo-legal-embed",
+  "version": "0.0.0",
+  "description": "A Strapi plugin that provides a custom field for selecting and embedding Flo Legal forms, enabling seamless integration and enhanced form management within Strapi projects.",
+  "keywords": [],
+  "private": false,
+  "strapi": {
+    "name": "flo-legal-embed",
+    "description": "Select and embed Flo Legal forms seamlessly within your Strapi project.",
+    "kind": "plugin",
+    "displayName": "Flo Legal Embed"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/strapi-plugin-flo-legal-embed"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": ""
+  },
+  "license": "EUPL-1.2",
+  "peerDependencies": {
+    "@strapi/strapi": ">=4.0.0"
+  },
+  "engines": {
+    "node": "20.x.x"
+  },
+  "dependencies": {
+    "@strapi/design-system": "1.12.2",
+    "@strapi/icons": "1.12.2"
+  },
+  "scripts": {
+    "develop": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
+  }
+}

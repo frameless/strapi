@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_flo_legal_forms",
+  "info": {
+    "displayName": "Beslisboom",
+    "icon": "manyToOne"
+  },
+  "options": {},
+  "attributes": {
+    "floLegalFormSelector": {
+      "type": "customField",
+      "customField": "plugin::flo-legal-embed.flo-legal-embed"
+    }
+  }
+}
