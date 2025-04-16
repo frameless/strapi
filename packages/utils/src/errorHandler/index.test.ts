@@ -44,4 +44,34 @@ describe('ErrorHandler', () => {
     expect(error.message).toBe('');
     expect(error.options?.statusCode).toBe(500);
   });
+  describe('errorType', () => {
+    it("should default errorType to 'http'", () => {
+      const error = new ErrorHandler('Test error', { statusCode: 500 });
+      expect(error).toBeInstanceOf(ErrorHandler);
+      expect(error.message).toBe('Test error');
+      expect(error.options?.statusCode).toBe(500);
+      expect(error.errorType).toBe('http');
+    });
+    it('should create an instance of ErrorHandler with errorType', () => {
+      const error = new ErrorHandler('Test error', { statusCode: 408 }, 'abort');
+      expect(error).toBeInstanceOf(ErrorHandler);
+      expect(error.message).toBe('Test error');
+      expect(error.options?.statusCode).toBe(408);
+      expect(error.errorType).toBe('abort');
+    });
+    it('should create an instance of ErrorHandler with errorType', () => {
+      const error = new ErrorHandler('Test error', { statusCode: 500 }, 'network');
+      expect(error).toBeInstanceOf(ErrorHandler);
+      expect(error.message).toBe('Test error');
+      expect(error.options?.statusCode).toBe(500);
+      expect(error.errorType).toBe('network');
+    });
+    it('should create an instance of ErrorHandler with errorType', () => {
+      const error = new ErrorHandler('Test error', { statusCode: 500 }, 'unknown');
+      expect(error).toBeInstanceOf(ErrorHandler);
+      expect(error.message).toBe('Test error');
+      expect(error.options?.statusCode).toBe(500);
+      expect(error.errorType).toBe('unknown');
+    });
+  });
 });
