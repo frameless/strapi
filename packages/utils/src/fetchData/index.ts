@@ -24,6 +24,7 @@ export interface FetchDataProps {
   method?: string;
   headers?: HeadersInit; // Allow custom headers to be passed
   body?: any; // Allow custom body to be passed
+  signal?: AbortSignal;
 }
 
 /**
@@ -33,6 +34,7 @@ export interface FetchDataProps {
  * @param {any} variables - The variables to pass to the GraphQL queries.
  * @param {string} method - The HTTP method, default is POST for GraphQL.
  * @param {HeadersInit} headers - Custom headers to pass to the request.
+ * @param {AbortSignal} signal - Optional AbortSignal to cancel the request.
  * @param {any} body - Custom body to pass to the request.
  * @returns {Promise<T>} - The fetched data.
  */
@@ -43,6 +45,7 @@ export const fetchData = async <T>({
   method = 'POST',
   headers = {}, // Default to an empty object if no headers are provided
   body, // Custom body
+  signal, // Optional AbortSignal to cancel the request
 }: FetchDataProps): Promise<T> => {
   // Default headers, which can be overwritten by custom headers (e.g., Content-Type)
   const defaultHeaders: HeadersInit = {
@@ -59,6 +62,7 @@ export const fetchData = async <T>({
           ...headers, // Merge custom headers with default ones (overwriting defaults if needed)
         },
         body: body ? JSON.stringify(body) : undefined, // Use custom body if provided
+        signal, // Pass the AbortSignal if provided
       };
 
   try {
@@ -79,6 +83,9 @@ export const fetchData = async <T>({
     return data;
   } catch (error: any) {
     // Handle and log client-side or unexpected errors
+    if (error.name === 'AbortError') {
+      throw new ErrorHandler('Request aborted', { statusCode: 408 }, 'abort');
+    }
     throw new ErrorHandler(error.message || 'Unknown error occurred', {
       statusCode: error?.options?.statusCode || 500,
     });
