@@ -2,7 +2,7 @@
 
 import classnames from 'classnames';
 import Link from 'next/link';
-import { Fragment, useReducer } from 'react';
+import { Fragment, useEffect, useReducer, useRef } from 'react';
 import { setPageIndex } from '@/app/actions';
 import { useTranslation } from '@/app/i18n/client';
 import { LoadMoreButton, Markdown, ProductListItem, ProductListPaginationInfo, ProductsList } from '@/components';
@@ -58,6 +58,7 @@ export const ProductListContainer = ({ initialData, locale, total, currentQuery,
     },
     totalProducts: initialData,
   };
+  const paginationInfoRef = useRef<HTMLLIElement | null>(null);
   const [state, dispatch] = useReducer(reducer, initialState);
   const onLoadMoreClickHandler = async (pageIndex: number) => {
     // bind arguments to a Server Action https://nextjs.org/docs/app/api-reference/functions/server-actions#binding-arguments
@@ -70,6 +71,15 @@ export const ProductListContainer = ({ initialData, locale, total, currentQuery,
       });
   };
 
+  useEffect(() => {
+    if (paginationInfoRef.current) {
+      if (!paginationInfoRef.current.hasAttribute('tabIndex')) {
+        paginationInfoRef.current.tabIndex = 0;
+        paginationInfoRef.current.focus({ preventScroll: true });
+      }
+    }
+  }, [state.productsList]);
+
   return (
     <>
       <ProductsList>
@@ -77,7 +87,7 @@ export const ProductListContainer = ({ initialData, locale, total, currentQuery,
           return (
             <Fragment key={index}>
               {paginationInfo?.result && paginationInfo.to && (
-                <ProductListPaginationInfo>
+                <ProductListPaginationInfo ref={paginationInfoRef}>
                   {t('pagination-title', { result: paginationInfo?.result, to: paginationInfo?.to })}
                 </ProductListPaginationInfo>
               )}
