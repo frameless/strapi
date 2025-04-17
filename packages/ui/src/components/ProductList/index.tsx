@@ -28,25 +28,16 @@ ProductsList.displayName = 'ProductsList';
 export interface ProductListPaginationInfoProps
   extends DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {}
 
-export const ProductListPaginationInfo = ({
-  children,
-  ...restProps
-}: PropsWithChildren<ProductListPaginationInfoProps>) =>
-  children ? (
-    <li
-      ref={(ref) => {
-        if (ref) {
-          ref.tabIndex = 0;
-          ref?.focus();
-        }
-      }}
-      className={css('utrecht-product-list__pagination-info')}
-      role="separator"
-      {...restProps}
-    >
-      {children}
-    </li>
-  ) : null;
+export const ProductListPaginationInfo = forwardRef<HTMLLIElement, ProductListPaginationInfoProps>(
+  ({ children, ...restProps }, ref) => {
+    if (!children) return null;
+    return (
+      <li ref={ref} className={css('utrecht-product-list__pagination-info')} role="separator" {...restProps}>
+        {children}
+      </li>
+    );
+  },
+);
 
 ProductListPaginationInfo.displayName = 'ProductListPaginationInfo';
 

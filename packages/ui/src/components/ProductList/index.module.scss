@@ -7,6 +7,7 @@
   100% {
     --utrecht-product-list-focus-outline-color: transparent;
 
+    outline-color: var(--utrecht-product-list-focus-outline-color, transparent);
     outline-style: var(--utrecht-product-list-focus-outline-style, dotted);
     outline-width: var(--utrecht-product-list-focus-outline-width, 2px);
   }
@@ -15,7 +16,7 @@
 .utrecht-product-list {
   list-style: none;
   padding-inline-end: var(--utrecht-product-list-padding-inline-end, 10px);
-  padding-inline-start: 0;
+  padding-inline-start: var(--utrecht-product-list-padding-inline-start, 0);
 }
 
 .utrecht-product-list__item {
@@ -36,7 +37,10 @@
     animation-duration: var(--utrecht-product-list-pagination-info-focus-animation-duration, 1s);
     animation-name: utrecht-product-list-focus;
     animation-timing-function: linear;
-    outline-offset: var(--utrecht-product-list-pagination-info-focus-outline-offset, 2px);
+
+    /* The outline-offset property adjusts the space between the outline and the element's border.
+       This variable allows customization of the focus appearance for accessibility and design consistency. */
+    outline-offset: var(--utrecht-product-list-pagination-info-focus-outline-offset, 4px);
     outline-width: 0;
   }
 }
