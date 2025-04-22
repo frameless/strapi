@@ -1,10 +1,56 @@
 {
-  "name": "Kennisbank Schrijver Redacteur",
+  "name": "Kennisbank Redacteur",
   "code": "kennisbank-schrijver-m5uxgzkp",
-  "description": "Schrijfrechten voor de Kennisbank, inclusief VAC en interne velden.",
+  "description": "Kennisbank Redacteur kan aanvullende en interne informatie volledig bewerken en producten en andere collecties zien. Geen toegang tot gebruikers of Enkele Types.",
   "permissions": [
     {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "content.contentBlock.label",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {},
+      "conditions": []
+    },
+    {
       "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::additional-information.additional-information",
+      "properties": {
+        "fields": [
+          "title",
+          "content.uuid",
+          "content.contentBlock.content",
+          "content.contentBlock.kennisartikelCategorie",
+          "content.contentBlock.label",
+          "product"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::additional-information.additional-information",
       "properties": {
@@ -29,8 +75,8 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
-          "content.keywords",
           "content.contentBlock.label",
+          "content.keywords",
           "product"
         ]
       },
@@ -60,8 +106,8 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
-          "content.keywords",
           "content.contentBlock.label",
+          "content.keywords",
           "product"
         ]
       },
@@ -77,8 +123,8 @@
           "content.uuid",
           "content.contentBlock.content",
           "content.contentBlock.kennisartikelCategorie",
-          "content.keywords",
           "content.contentBlock.label",
+          "content.keywords",
           "product"
         ]
       },
@@ -87,24 +133,83 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
-      "subject": "api::price.price",
+      "subject": "api::pdc-category.pdc-category",
       "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
+        "fields": ["title", "pdc_subcategories"]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
-      "subject": "api::price.price",
+      "subject": "api::pdc-category.pdc-category",
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
-      "subject": "api::price.price",
+      "subject": "api::pdc-category.pdc-category",
       "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::pdc-category.pdc-category",
+      "properties": {
+        "fields": ["title", "pdc_subcategories"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::pdc-category.pdc-category",
+      "properties": {
+        "fields": ["title", "pdc_subcategories"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {
+        "fields": ["title", "pdc_category", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {
+        "fields": ["title", "pdc_category", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::pdc-subcategory.pdc-subcategory",
+      "properties": {
+        "fields": ["title", "pdc_category", "products"]
+      },
       "conditions": []
     },
     {
@@ -117,11 +222,70 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.update",
+      "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
-      "subject": "api::price.price",
+      "subject": "api::product.product",
       "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
+        "fields": [
+          "title",
+          "content",
+          "sections",
+          "price",
+          "metaTags.keymatch",
+          "metaTags.title",
+          "metaTags.description",
+          "metaTags.ogImage",
+          "catalogiMeta.spatial.resourceIdentifier",
+          "catalogiMeta.spatial.scheme",
+          "catalogiMeta.authority.resourceIdentifier",
+          "catalogiMeta.authority.scheme",
+          "catalogiMeta.audience.type",
+          "catalogiMeta.onlineRequest.type",
+          "catalogiMeta.abstract",
+          "metadata.singleDigitalGateway",
+          "metadata.attachementAdded",
+          "metadata.contact.name",
+          "metadata.contact.email",
+          "metadata.eForm.linkedEForm",
+          "slug",
+          "pdc_subcategories",
+          "pdc_metadata.productCode",
+          "pdc_metadata.beoogdResultaat",
+          "pdc_metadata.wettelijkeTermijn",
+          "pdc_metadata.servicetermijn",
+          "pdc_metadata.afnemer",
+          "pdc_metadata.uitvoeringsorganisatie",
+          "pdc_metadata.grondslag",
+          "pdc_metadata.soortTaak",
+          "pdc_metadata.eigenaar",
+          "pdc_metadata.doelgroep",
+          "pdc_metadata.bestelwijze",
+          "pdc_metadata.soortBevoegdGezag",
+          "pdc_metadata.uplProductNaam",
+          "pdc_metadata.cimPdcProductBeschrijving.taal",
+          "pdc_metadata.cimPdcProductBeschrijving.productNaam",
+          "pdc_metadata.cimPdcProductBeschrijving.omschrijving",
+          "pdc_metadata.cimPdcProductBeschrijving.trefwoord",
+          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
+          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
+          "productencatalogus",
+          "uuid",
+          "kennisartikelMetadata.doelgroep",
+          "kennisartikelMetadata.productAanwezig",
+          "kennisartikelMetadata.productValtOnder",
+          "kennisartikelMetadata.afdelingen.afdelingId",
+          "kennisartikelMetadata.afdelingen.afdelingNaam",
+          "kennisartikelMetadata.afdelingen.contact.name",
+          "kennisartikelMetadata.afdelingen.contact.email",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
+          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
+          "kennisartikelMetadata.uuid",
+          "kennisartikelMetadata.upnUri",
+          "additional_information",
+          "oldSlugs"
+        ],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
