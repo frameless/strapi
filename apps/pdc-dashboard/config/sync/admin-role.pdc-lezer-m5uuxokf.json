@@ -1,7 +1,7 @@
 {
-  "name": "PDC Lezer",
+  "name": "Lezer",
   "code": "pdc-lezer-m5uuxokf",
-  "description": "Alleen-lezen rechten op de PDC.",
+  "description": "Een rol met alleen leesrechten op alle verzamelingen behalve gebruikers.",
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.read",
@@ -41,26 +41,6 @@
       "subject": "api::pdc-category.pdc-category",
       "properties": {
         "fields": ["title", "pdc_subcategories"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": {},
-      "subject": "api::pdc-faq.pdc-faq",
-      "properties": {
-        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel", "faq.kennisartikelCategorie"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": {},
-      "subject": "api::pdc-home-page.pdc-home-page",
-      "properties": {
-        "fields": ["components"],
-        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -153,22 +133,23 @@
     {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
-      "subject": "api::productencatalogus.productencatalogus",
+      "subject": "api::vac.vac",
       "properties": {
         "fields": [
-          "organisatieIdentificatie",
-          "domein",
-          "naam",
-          "toelichting",
-          "versie",
-          "begindatumVersie",
-          "beherendeOrganisatie",
-          "contactpersoonBeheerNaam",
-          "contactpersoonBeheerEmail",
-          "producten",
-          "referentiePDC",
-          "doelgroep",
-          "referentieCatalogus"
+          "vac.vraag",
+          "vac.antwoord.content",
+          "vac.antwoord.kennisartikelCategorie",
+          "vac.antwoord.label",
+          "vac.status",
+          "vac.doelgroep",
+          "vac.afdelingen.afdelingId",
+          "vac.afdelingen.afdelingNaam",
+          "vac.afdelingen.contact.name",
+          "vac.afdelingen.contact.email",
+          "vac.uuid",
+          "vac.toelichting",
+          "vac.keywords",
+          "title"
         ]
       },
       "conditions": []

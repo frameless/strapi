@@ -1,39 +1,9 @@
 {
   "name": "Beheerder",
   "code": "beheerder-m5uxzjc8",
-  "description": "Algemene beheerdersrechten.",
+  "description": "Functioneel beheerder kan alle inhoud zien en aanpassen en gebruikers ook toevoegen en verwijderen. Volledige toegang tot Enkele Types.",
   "permissions": [
     {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::additional-information.additional-information",
-      "properties": {
-        "fields": [
-          "title",
-          "content.uuid",
-          "content.contentBlock.content",
-          "content.contentBlock.kennisartikelCategorie",
-          "content.contentBlock.label",
-          "product"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::additional-information.additional-information",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::additional-information.additional-information",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::additional-information.additional-information",
@@ -63,37 +33,6 @@
           "product"
         ]
       },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::internal-field.internal-field",
-      "properties": {
-        "fields": [
-          "title",
-          "content.uuid",
-          "content.contentBlock.content",
-          "content.contentBlock.kennisartikelCategorie",
-          "content.contentBlock.label",
-          "content.keywords",
-          "product"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::internal-field.internal-field",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::internal-field.internal-field",
-      "properties": {},
       "conditions": []
     },
     {
@@ -179,29 +118,6 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::pdc-category.pdc-category",
-      "properties": {
-        "fields": ["title", "pdc_subcategories"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::pdc-category.pdc-category",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::pdc-category.pdc-category",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::pdc-category.pdc-category",
@@ -216,34 +132,6 @@
       "subject": "api::pdc-category.pdc-category",
       "properties": {
         "fields": ["title", "pdc_subcategories"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::pdc-faq.pdc-faq",
-      "properties": {
-        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel", "faq.kennisartikelCategorie"],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::pdc-faq.pdc-faq",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::pdc-faq.pdc-faq",
-      "properties": {
-        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -316,29 +204,6 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::pdc-subcategory.pdc-subcategory",
-      "properties": {
-        "fields": ["title", "pdc_category", "products"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::pdc-subcategory.pdc-subcategory",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::pdc-subcategory.pdc-subcategory",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
@@ -405,29 +270,6 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::price.price",
-      "properties": {
-        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::price.price",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::price.price",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::price.price",
@@ -442,92 +284,6 @@
       "subject": "api::price.price",
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::product.product",
-      "properties": {
-        "fields": [
-          "title",
-          "content",
-          "sections",
-          "price",
-          "metaTags.keymatch",
-          "metaTags.title",
-          "metaTags.description",
-          "metaTags.ogImage",
-          "catalogiMeta.spatial.resourceIdentifier",
-          "catalogiMeta.spatial.scheme",
-          "catalogiMeta.authority.resourceIdentifier",
-          "catalogiMeta.authority.scheme",
-          "catalogiMeta.audience.type",
-          "catalogiMeta.onlineRequest.type",
-          "catalogiMeta.abstract",
-          "metadata.singleDigitalGateway",
-          "metadata.attachementAdded",
-          "metadata.contact.name",
-          "metadata.contact.email",
-          "metadata.eForm.linkedEForm",
-          "slug",
-          "pdc_subcategories",
-          "pdc_metadata.productCode",
-          "pdc_metadata.beoogdResultaat",
-          "pdc_metadata.wettelijkeTermijn",
-          "pdc_metadata.servicetermijn",
-          "pdc_metadata.afnemer",
-          "pdc_metadata.uitvoeringsorganisatie",
-          "pdc_metadata.grondslag",
-          "pdc_metadata.soortTaak",
-          "pdc_metadata.eigenaar",
-          "pdc_metadata.doelgroep",
-          "pdc_metadata.bestelwijze",
-          "pdc_metadata.soortBevoegdGezag",
-          "pdc_metadata.uplProductNaam",
-          "pdc_metadata.cimPdcProductBeschrijving.taal",
-          "pdc_metadata.cimPdcProductBeschrijving.productNaam",
-          "pdc_metadata.cimPdcProductBeschrijving.omschrijving",
-          "pdc_metadata.cimPdcProductBeschrijving.trefwoord",
-          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.onderwerp",
-          "pdc_metadata.cimPdcProductBeschrijving.cimPdcProductAspectBeschrijving.uitleg",
-          "productencatalogus",
-          "uuid",
-          "kennisartikelMetadata.doelgroep",
-          "kennisartikelMetadata.productAanwezig",
-          "kennisartikelMetadata.productValtOnder",
-          "kennisartikelMetadata.afdelingen.afdelingId",
-          "kennisartikelMetadata.afdelingen.afdelingNaam",
-          "kennisartikelMetadata.afdelingen.contact.name",
-          "kennisartikelMetadata.afdelingen.contact.email",
-          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
-          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
-          "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
-          "kennisartikelMetadata.uuid",
-          "kennisartikelMetadata.upnUri",
-          "additional_information",
-          "oldSlugs"
-        ],
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::product.product",
-      "properties": {
-        "locales": ["en", "nl"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::product.product",
-      "properties": {
-        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -668,43 +424,6 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::productencatalogus.productencatalogus",
-      "properties": {
-        "fields": [
-          "organisatieIdentificatie",
-          "domein",
-          "naam",
-          "toelichting",
-          "versie",
-          "begindatumVersie",
-          "beherendeOrganisatie",
-          "contactpersoonBeheerNaam",
-          "contactpersoonBeheerEmail",
-          "producten",
-          "referentiePDC",
-          "doelgroep",
-          "referentieCatalogus"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::productencatalogus.productencatalogus",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::productencatalogus.productencatalogus",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::productencatalogus.productencatalogus",
@@ -748,44 +467,6 @@
           "referentieCatalogus"
         ]
       },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
-      "subject": "api::vac.vac",
-      "properties": {
-        "fields": [
-          "vac.vraag",
-          "vac.antwoord.content",
-          "vac.antwoord.kennisartikelCategorie",
-          "vac.antwoord.label",
-          "vac.status",
-          "vac.doelgroep",
-          "vac.afdelingen.afdelingId",
-          "vac.afdelingen.afdelingNaam",
-          "vac.afdelingen.contact.name",
-          "vac.afdelingen.contact.email",
-          "vac.uuid",
-          "vac.toelichting",
-          "vac.keywords",
-          "title"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::vac.vac",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::vac.vac",
-      "properties": {},
       "conditions": []
     },
     {

@@ -2,131 +2,115 @@
 
 ## Overzicht van Rollen
 
-| **Rol**                            | **Beschrijving**                                                                                 |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------ |
-| **Kennisbank Lezer**               | Alleen-lezen rechten op de Kennisbank.                                                           |
-| **Kennisbank Schrijver Redacteur** | Schrijfrechten voor de Kennisbank.                                                               |
-| **PDC Lezer**                      | Alleen-lezen rechten op de PDC.                                                                  |
-| **PDC Schrijver Redacteur**        | Schrijfrechten voor de PDC.                                                                      |
-| **Beheerder**                      | Algemene beheerdersrechten, inclusief uitgebreide API-toegang, gebruikersbeheer en configuratie. |
-| **Super Admin**                    | Deze rol heeft volledige toegang en kan alles beheren.                                           |
+| **Rol**                  | **Beschrijving**                                                                                                                                                  |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Kennisbank Redacteur** | Kennisbank Redacteur kan aanvullende en interne informatie volledig bewerken en producten en andere collecties zien. Geen toegang tot gebruikers of Enkele Types. |
+| **Lezer**                | Een rol met alleen leesrechten op alle verzamelingen behalve gebruikers.                                                                                          |
+| **PDC Redacteur**        | PDC Redacteur kan producten volledig bewerken en aanvullende en interne informatie zien. Geen toegang tot gebruikers wel LUP rechten op Enkele Types.             |
+| **Beheerder**            | Functioneel beheerder kan alle inhoud zien en aanpassen en gebruikers ook toevoegen en verwijderen. Volledige toegang tot Enkele Types.                           |
+| **Super Admin**          | Super Admins can access and manage all features and settings.                                                                                                     |
 
 ---
 
-## Kennisbank Lezer
+## Kennisbank Redacteur
 
-### Beschrijving van de Kennisbank Lezer
+### Beschrijving van de Kennisbank Redacteur
 
-De rol **Kennisbank Lezer** heeft alleen-lezen rechten binnen de Kennisbank, inclusief toegang tot interne velden, kosteninformatie en VAC-inhoud.
+**Kennisbank Redacteur** kan aanvullende en interne informatie volledig bewerken en producten en andere collecties zien. Geen toegang tot gebruikers of Enkele Types.
 
-### Toegangsrechten Kennisbank Lezer
+### Toegangsrechten Kennisbank Redacteur
 
-| **Actie** | **Onderwerp**            | **Beschrijving**                                        |
-| --------- | ------------------------ | ------------------------------------------------------- |
-| `read`    | `Interne velden`         | Alleen-lezen toegang tot interne velden.                |
-| `read`    | `Kosten`                 | Alleen-lezen toegang tot kosteninformatie.              |
-| `read`    | `VAC`                    | Alleen-lezen toegang tot VAC-inhoud.                    |
-| `read`    | `Aanvullende informatie` | Alleen-lezen toegang tot Aanvullende informatie inhoud. |
-
----
-
-## Kennisbank Schrijver Redacteur
-
-### Beschrijving van de Kennisbank Schrijver Redacteur
-
-De rol **Kennisbank Schrijver Redacteur** heeft volledige schrijfrechten binnen de Kennisbank, inclusief het beheren van VAC-inhoud, kosten en interne velden.
-
-### Toegangsrechten Kennisbank Schrijver Redacteur
-
-| **Actie** | **Onderwerp**            | **Beschrijving**                           |
-| --------- | ------------------------ | ------------------------------------------ |
-| `create`  | `Interne veld`           | Nieuwe interne velden maken.               |
-| `delete`  | `Interne veld`           | Interne velden verwijderen.                |
-| `publish` | `Interne veld`           | Interne velden publiceren.                 |
-| `read`    | `Interne veld`           | Alleen-lezen toegang tot interne velden.   |
-| `update`  | `Interne veld`           | Interne velden bijwerken.                  |
-| `create`  | `Kosten`                 | Kosteninformatie toevoegen.                |
-| `delete`  | `Kosten`                 | Kosteninformatie verwijderen.              |
-| `publish` | `Kosten`                 | Kosteninformatie publiceren.               |
-| `read`    | `Kosten`                 | Alleen-lezen toegang tot kosteninformatie. |
-| `update`  | `Kosten`                 | Kosteninformatie bijwerken.                |
-| `create`  | `VAC`                    | Nieuwe VAC-inhoud maken.                   |
-| `delete`  | `VAC`                    | VAC-inhoud verwijderen.                    |
-| `publish` | `VAC`                    | VAC-inhoud publiceren.                     |
-| `read`    | `VAC`                    | Alleen-lezen toegang tot VAC-inhoud.       |
-| `update`  | `VAC`                    | VAC-inhoud bijwerken.                      |
-| `read`    | `Aanvullende informatie` | Aanvullende informatie inhoud bijwerken.   |
+| **Actie** | **Onderwerp**          | **Beschrijving**                                    |
+| --------- | ---------------------- | --------------------------------------------------- |
+| Creëer    | Interne informatie     | Nieuwe Interne informatie velden maken.             |
+| Verwijder | Interne informatie     | Interne informatie velden verwijderen.              |
+| Publiceer | Interne informatie     | Interne informatie velden publiceren.               |
+| Lees      | Interne informatie     | Alleen-lezen toegang tot Interne informatie velden. |
+| Update    | Interne informatie     | Interne informatie velden bijwerken.                |
+| Creëer    | Categorie              | Nieuwe Categorie velden maken.                      |
+| Verwijder | Categorie              | Categorie velden verwijderen.                       |
+| Publiceer | Categorie              | Categorie velden publiceren.                        |
+| Lees      | Categorie              | Alleen-lezen toegang tot Categorie velden.          |
+| Update    | Categorie              | Categorie velden bijwerken.                         |
+| Creëer    | Subcategorie           | Nieuwe Subcategorie velden maken.                   |
+| Verwijder | Subcategorie           | Subcategorie velden verwijderen.                    |
+| Publiceer | Subcategorie           | Subcategorie velden publiceren.                     |
+| Lees      | Subcategorie           | Alleen-lezen toegang tot Subcategorie velden.       |
+| Update    | Subcategorie           | Subcategorie velden bijwerken.                      |
+| Lees      | Kosten                 | Alleen-lezen toegang tot kosteninformatie.          |
+| Creëer    | VAC                    | Nieuwe VAC-inhoud maken.                            |
+| Verwijder | VAC                    | VAC-inhoud verwijderen.                             |
+| Publiceer | VAC                    | VAC-inhoud publiceren.                              |
+| Lees      | VAC                    | Alleen-lezen toegang tot VAC-inhoud.                |
+| Update    | VAC                    | VAC-inhoud bijwerken.                               |
+| Lees      | Aanvullende informatie | Alleen-lezen toegang tot Aanvullende informatie.    |
+| Creëer    | Aanvullende informatie | Nieuwe Aanvullende informatie velden maken.         |
+| Update    | Aanvullende informatie | Aanvullende informatie bijwerken.                   |
+| Verwijder | Aanvullende informatie | Aanvullende informatie verwijderen.                 |
+| Publiceer | Aanvullende informatie | Aanvullende informatie publiceren.                  |
+| Lees      | Product                | Alleen-lezen toegang tot het product.               |
 
 ---
 
-## PDC Lezer
+## Lezer
 
-### Beschrijving van de PDC Lezer
+### Beschrijving van de Lezer
 
-De rol **PDC Lezer** heeft alleen-lezen rechten op de PDC (Producten en Diensten Catalogus). Deze rol kan alleen gegevens bekijken, zonder de mogelijkheid om wijzigingen aan te brengen.
+Een rol met alleen leesrechten op alle verzamelingen behalve gebruikers.
 
-### Toegangsrechten PDC Lezer
+### Toegangsrechten Lezer
 
-| **Actie** | **Onderwerp**            | **Beschrijving**                                        |
-| --------- | ------------------------ | ------------------------------------------------------- |
-| `read`    | `internal-field`         | Toegang tot interne velden (alleen-lezen).              |
-| `read`    | `pdc-home-page`          | Alleen-lezen toegang tot de startpagina van PDC.        |
-| `read`    | `pdc-category`           | Alleen-lezen toegang tot categorieën.                   |
-| `read`    | `pdc-faq`                | Alleen-lezen toegang tot veelgestelde vragen.           |
-| `read`    | `pdc-subcategory`        | Alleen-lezen toegang tot subcategorieën.                |
-| `read`    | `Kosten`                 | Alleen-lezen toegang tot kosteninformatie.              |
-| `read`    | `product`                | Alleen-lezen toegang tot productgegevens.               |
-| `read`    | `productencatalogus`     | Alleen-lezen toegang tot de volledige catalogus.        |
-| `read`    | `Aanvullende informatie` | Alleen-lezen toegang tot Aanvullende informatie inhoud. |
+| **Actie** | **Onderwerp**          | **Beschrijving**                                        |
+| --------- | ---------------------- | ------------------------------------------------------- |
+| Lezen     | Aanvullende informatie | Alleen-lezen toegang tot aanvullende informatie inhoud. |
+| Lezen     | Categorie              | Alleen-lezen toegang tot categorie.                     |
+| Lezen     | Interne informatie     | Toegang tot interne informatie velden (alleen-lezen).   |
+| Lezen     | Kosten                 | Alleen-lezen toegang tot kosten.                        |
+| Lezen     | Product                | Alleen-lezen toegang tot productgegevens.               |
+| Lezen     | Subcategorie           | Alleen-lezen toegang tot subcategorie.                  |
+| Lezen     | VAC                    | Alleen-lezen toegang tot VAC.                           |
 
 ---
 
-## PDC Schrijver Redacteur
+## PDC Redacteur
 
-### Beschrijving van de PDC Schrijver Redacteur
+### Beschrijving van de PDC Redacteur
 
-De rol **PDC Schrijver Redacteur** heeft volledige schrijfrechten binnen de PDC, inclusief het maken, bijwerken, publiceren en verwijderen van inhoud.
+**PDC Redacteur** kan producten volledig bewerken en aanvullende en interne informatie zien. Geen toegang tot gebruikers wel LUP rechten op Enkele Types.
 
-### Toegangsrechten PDC Schrijver Redacteur
+### Toegangsrechten PDC Redacteur
 
-| **Actie** | **Onderwerp**            | **Beschrijving**                           |
-| --------- | ------------------------ | ------------------------------------------ |
-| `read`    | `internal-field`         | Toegang tot interne velden (alleen-lezen). |
-| `create`  | `not-found-page`         | Nieuwe PDC startpagina maken.              |
-| `delete`  | `not-found-page`         | PDC startpagina verwijderen.               |
-| `read`    | `not-found-page`         | Leest de inhoud van de 404-pagina.         |
-| `publish` | `pdc-home-page`          | PDC startpagina publiceren.                |
-| `update`  | `pdc-home-page`          | PDC startpagina bijwerken.                 |
-| `read`    | `pdc-home-page`          | Leest de inhoud van de startpagina.        |
-| `read`    | `pdc-category`           | Alleen-lezen toegang tot categorieën.      |
-| `create`  | `pdc-category`           | Nieuwe categorie maken.                    |
-| `delete`  | `pdc-category`           | Categorie verwijderen.                     |
-| `publish` | `pdc-category`           | Categorie publiceren.                      |
-| `update`  | `pdc-category`           | Categorie bijwerken.                       |
-| `create`  | `pdc-faq`                | Nieuwe FAQ maken.                          |
-| `delete`  | `pdc-faq`                | FAQ verwijderen.                           |
-| `publish` | `pdc-faq`                | FAQ publiceren.                            |
-| `update`  | `pdc-faq`                | FAQ bijwerken.                             |
-| `create`  | `pdc-subcategory`        | Nieuwe subcategorie maken.                 |
-| `delete`  | `pdc-subcategory`        | Subcategorie verwijderen.                  |
-| `publish` | `pdc-subcategory`        | Subcategorie publiceren.                   |
-| `update`  | `pdc-subcategory`        | Subcategorie bijwerken.                    |
-| `create`  | `Kosten`                 | Kosteninformatie toevoegen.                |
-| `delete`  | `Kosten`                 | Kosteninformatie verwijderen.              |
-| `publish` | `Kosten`                 | Kosteninformatie publiceren.               |
-| `update`  | `Kosten`                 | Kosteninformatie bijwerken.                |
-| `create`  | `product`                | Nieuwe producten toevoegen.                |
-| `delete`  | `product`                | Producten verwijderen.                     |
-| `publish` | `product`                | Producten publiceren.                      |
-| `update`  | `product`                | Producten bijwerken.                       |
-| `create`  | `productencatalogus`     | Nieuwe catalogusinformatie toevoegen.      |
-| `delete`  | `productencatalogus`     | Catalogusinformatie verwijderen.           |
-| `publish` | `productencatalogus`     | Catalogusinformatie publiceren.            |
-| `update`  | `productencatalogus`     | Catalogusinformatie bijwerken.             |
-| `create`  | `Aanvullende informatie` | Nieuwe Aanvullende informatie toevoegen.   |
-| `delete`  | `Aanvullende informatie` | Aanvullende informatie verwijderen.        |
-| `publish` | `Aanvullende informatie` | Aanvullende informatie publiceren.         |
-| `update`  | `Aanvullende informatie` | Aanvullende informatie bijwerken.          |
+| **Actie** | **Onderwerp**          | **Beschrijving**                                        |
+| --------- | ---------------------- | ------------------------------------------------------- |
+| Lezen     | Interne informatie     | Alleen-lezen toegang tot interne informatie velden      |
+| Lezen     | Aanvullende informatie | Alleen-lezen toegang tot aanvullende informatie inhoud. |
+| Update    | Not-found-page         | Not-found-page bijwerken.                               |
+| Publiceer | Not-found-page         | Not-found-page publiceren.                              |
+| Lees      | Not-found-page         | Alleen-lezen toegang tot de not-found-page inhoud.      |
+| Publiceer | Pdc-home-page          | Pdc-home-page publiceren.                               |
+| Update    | Pdc-home-page          | Pdc-home-page bijwerken.                                |
+| Lees      | Pdc-home-page          | Alleen-lezen toegang tot Pdc-home-page inhoud.          |
+| Creëer    | Categorie              | Nieuwe Categorie velden maken.                          |
+| Verwijder | Categorie              | Categorie velden verwijderen.                           |
+| Publiceer | Categorie              | Categorie velden publiceren.                            |
+| Lees      | Categorie              | Alleen-lezen toegang tot Categorie velden.              |
+| Update    | Categorie              | Categorie velden bijwerken.                             |
+| Creëer    | Subcategorie           | Nieuwe Subcategorie velden maken.                       |
+| Verwijder | Subcategorie           | Subcategorie velden verwijderen.                        |
+| Publiceer | Subcategorie           | Subcategorie velden publiceren.                         |
+| Lees      | Subcategorie           | Alleen-lezen toegang tot Subcategorie velden.           |
+| Update    | Subcategorie           | Subcategorie velden bijwerken.                          |
+| Creëer    | Kosten                 | Kosteninformatie toevoegen.                             |
+| Verwijder | Kosten                 | Kosteninformatie verwijderen.                           |
+| Publiceer | Kosten                 | Kosteninformatie publiceren.                            |
+| Update    | Kosten                 | Kosteninformatie bijwerken.                             |
+| Lees      | Kosten                 | Alleen-lezen toegang tot kosteninformatie.              |
+| Creëer    | Product                | Nieuwe product toevoegen.                               |
+| Verwijder | Product                | Product verwijderen.                                    |
+| Publiceer | Product                | Product publiceren.                                     |
+| Update    | Product                | Product bijwerken.                                      |
+| Lees      | Product                | Alleen-lezen toegang tot product.                       |
+| Lezen     | VAC                    | Alleen-lezen toegang tot VAC.                           |
 
 ---
 
@@ -134,74 +118,74 @@ De rol **PDC Schrijver Redacteur** heeft volledige schrijfrechten binnen de PDC,
 
 ### Beschrijving van de Beheerder
 
-De rol **Beheerder** heeft uitgebreide beheerdersrechten binnen het systeem. Deze rol heeft volledige controle over alle aspecten van de applicatie, inclusief het beheren van pagina's, sjablonen, API-tokens, gebruikers, rollen, en configuraties. De Beheerder kan nieuwe gebruikers, rollen en configuraties aanmaken, bestaande configuraties bewerken, en toegang tot de applicatie beheren.
+Functioneel beheerder kan alle inhoud zien en aanpassen en gebruikers ook toevoegen en verwijderen. Volledige toegang tot Enkele Types.
 
 ### Toegangsrechten Beheerder
 
-| **Actie**          | **Onderwerp**                       | **Beschrijving**                                                                       |
-| ------------------ | ----------------------------------- | -------------------------------------------------------------------------------------- |
-| `create`           | `not-found-page`                    | Maakt een 404-pagina aan die wordt weergegeven wanneer een pagina niet gevonden wordt. |
-| `delete`           | `not-found-page`                    | Verwijdert de 404-pagina die wordt weergegeven wanneer een pagina niet gevonden wordt. |
-| `publish`          | `not-found-page`                    | Publiceert de 404-pagina zodat deze zichtbaar wordt voor gebruikers.                   |
-| `read`             | `not-found-page`                    | Leest de inhoud van de 404-pagina.                                                     |
-| `update`           | `not-found-page`                    | Wijzigt de inhoud van de 404-pagina.                                                   |
-| `create`           | `pdc-home-page`                     | Maakt de startpagina van de PDC aan.                                                   |
-| `delete`           | `pdc-home-page`                     | Verwijdert de startpagina van de PDC.                                                  |
-| `publish`          | `pdc-home-page`                     | Publiceert de startpagina van de PDC.                                                  |
-| `read`             | `pdc-home-page`                     | Leest de inhoud van de PDC startpagina.                                                |
-| `update`           | `pdc-home-page`                     | Wijzigt de inhoud van de PDC startpagina.                                              |
-| `create`           | `pdc-template`                      | Maakt een nieuw template(Navigation, Footer) voor de PDC aan.                          |
-| `delete`           | `pdc-template`                      | Verwijdert een template(Navigation, Footer) voor de PDC.                               |
-| `publish`          | `pdc-template`                      | Publiceert een template(Navigation, Footer) voor de PDC.                               |
-| `read`             | `pdc-template`                      | Leest de inhoud van een PDC-template(Navigation, Footer).                              |
-| `update`           | `pdc-template`                      | Wijzigt de inhoud van een PDC-template(Navigation, Footer).                            |
-| `access`           | `api-tokens`                        | Beheert toegang tot API-tokens voor de applicatie.                                     |
-| `create`           | `api-tokens`                        | Maakt nieuwe API-tokens aan voor de applicatie.                                        |
-| `delete`           | `api-tokens`                        | Verwijdert een API-token uit de applicatie.                                            |
-| `read`             | `api-tokens`                        | Leest de gegevens van bestaande API-tokens.                                            |
-| `regenerate`       | `api-tokens`                        | Genereert een nieuw API-token voor de applicatie.                                      |
-| `update`           | `api-tokens`                        | Wijzigt de instellingen van een API-token.                                             |
-| `create`           | `roles`                             | Maakt nieuwe rollen aan voor de applicatie.                                            |
-| `delete`           | `roles`                             | Verwijdert bestaande rollen uit de applicatie.                                         |
-| `read`             | `roles`                             | Leest de bestaande rollen in de applicatie.                                            |
-| `update`           | `roles`                             | Wijzigt de bestaande rollen in de applicatie.                                          |
-| `create`           | `users`                             | Maakt nieuwe gebruikers aan voor de applicatie.                                        |
-| `delete`           | `users`                             | Verwijdert bestaande gebruikers uit de applicatie.                                     |
-| `read`             | `users`                             | Leest de bestaande gebruikers in de applicatie.                                        |
-| `update`           | `users`                             | Wijzigt bestaande gebruikers in de applicatie.                                         |
-| `menu-link`        | `config-sync`                       | Beheert het menu van de configuratiepagina's.                                          |
-| `settings.read`    | `config-sync`                       | Leest de instellingen van de applicatie.                                               |
-| `configure-view`   | `content-manager`                   | Configureert het weergaveformaat voor collectie-type content.                          |
-| `configure-layout` | `content-manager`                   | Beheert de layout van de componenten in de content manager.                            |
-| `create`           | `users-permissions.user`            | Maakt nieuwe gebruikers aan binnen de gebruikers-permissies.                           |
-| `delete`           | `users-permissions.user`            | Verwijdert gebruikers uit de gebruikers-permissies.                                    |
-| `read`             | `users-permissions.user`            | Leest de gegevens van gebruikers binnen de gebruikers-permissies.                      |
-| `update`           | `users-permissions.user`            | Wijzigt de gegevens van gebruikers binnen de gebruikers-permissies.                    |
-| `configure-view`   | `content-manager.single-types`      | Configureert de weergave van enkele content types in de content manager.               |
-| `read`             | `content-type-builder`              | Leest de inhoud van content-type bouwers.                                              |
-| `create`           | `i18n.locale`                       | Voegt nieuwe taalinstellingen toe voor de applicatie.                                  |
-| `delete`           | `i18n.locale`                       | Verwijdert bestaande taalinstellingen uit de applicatie.                               |
-| `read`             | `i18n.locale`                       | Leest de bestaande taalinstellingen in de applicatie.                                  |
-| `update`           | `i18n.locale`                       | Wijzigt de bestaande taalinstellingen in de applicatie.                                |
-| `export`           | `import-export-entries`             | Exporteert inhoud vanuit de applicatie.                                                |
-| `import`           | `import-export-entries`             | Importeert inhoud in de applicatie.                                                    |
-| `copy-link`        | `upload.assets`                     | Maakt een kopie van de link naar geüploade bestanden.                                  |
-| `create`           | `upload.assets`                     | Maakt nieuwe geüploade bestanden aan.                                                  |
-| `download`         | `upload.assets`                     | Downloadt geüploade bestanden.                                                         |
-| `update`           | `upload.assets`                     | Wijzigt de geüploade bestanden.                                                        |
-| `configure-view`   | `upload`                            | Beheert de configuratie voor het weergeven van geüploade bestanden.                    |
-| `read`             | `upload`                            | Leest de gegevens van geüploade bestanden.                                             |
-| `read`             | `users-permissions.email-templates` | Leest de e-mailtemplates binnen de gebruikers-permissies.                              |
-| `update`           | `users-permissions.email-templates` | Wijzigt de e-mailtemplates binnen de gebruikers-permissies.                            |
-| `read`             | `users-permissions.providers`       | Leest de gegevens van de externe providers in de gebruikers-permissies.                |
-| `update`           | `users-permissions.providers`       | Wijzigt de externe providers in de gebruikers-permissies.                              |
-| `create`           | `users-permissions.roles`           | Maakt nieuwe rollen aan voor de gebruikers-permissies.                                 |
-| `delete`           | `users-permissions.roles`           | Verwijdert rollen uit de gebruikers-permissies.                                        |
-| `read`             | `users-permissions.roles`           | Leest de rollen binnen de gebruikers-permissies.                                       |
-| `update`           | `users-permissions.roles`           | Wijzigt de rollen binnen de gebruikers-permissies.                                     |
+| **Actie**          | **Onderwerp**                       | **Beschrijving**                                                         |
+| ------------------ | ----------------------------------- | ------------------------------------------------------------------------ |
+| Creëer             | Not-found-page                      | Nieuwe not-found-page maken.                                             |
+| Verwijder          | Not-found-page                      | Not-found-page verwijderen.                                              |
+| Update             | Not-found-page                      | Not-found-page bijwerken.                                                |
+| Publiceer          | Not-found-page                      | Not-found-page publiceren.                                               |
+| Lees               | Not-found-page                      | Alleen-lezen toegang tot de not-found-page inhoud.                       |
+| Creëer             | Pdc-home-page                       | Nieuwe pdc-home-page maken.                                              |
+| Verwijder          | Pdc-home-page                       | Pdc-home-page verwijderen.                                               |
+| Publiceer          | Pdc-home-page                       | Pdc-home-page publiceren.                                                |
+| Update             | Pdc-home-page                       | Pdc-home-page bijwerken.                                                 |
+| Lees               | Pdc-home-page                       | Alleen-lezen toegang tot pdc-home-page inhoud.                           |
+| Creëer             | Pdc-template                        | Maakt een nieuw template(Navigation, Footer) voor de PDC aan.            |
+| Verwijder          | Pdc-template                        | Verwijdert een template(Navigation, Footer) voor de PDC.                 |
+| Publiceer          | Pdc-template                        | Publiceert een template(Navigation, Footer) voor de PDC.                 |
+| Lees               | Pdc-template                        | Leest de inhoud van een PDC-template(Navigation, Footer).                |
+| Update             | Pdc-template                        | Wijzigt de inhoud van een PDC-template(Navigation, Footer).              |
+| Toegang            | Api-tokens                          | Beheert toegang tot API-tokens voor de applicatie.                       |
+| Creëer             | Api-tokens                          | Maakt nieuwe API-tokens aan voor de applicatie.                          |
+| Verwijder          | Api-tokens                          | Verwijdert een API-token uit de applicatie.                              |
+| Lees               | Api-tokens                          | Leest de gegevens van bestaande API-tokens.                              |
+| Regenereren        | Api-tokens                          | Genereert een nieuw API-token voor de applicatie.                        |
+| Update             | Api-tokens                          | Wijzigt de instellingen van een API-token.                               |
+| Creëer             | Rollen                              | Maakt nieuwe rollen aan voor de applicatie.                              |
+| Verwijder          | Rollen                              | Verwijdert bestaande rollen uit de applicatie.                           |
+| Lees               | Rollen                              | Leest de bestaande rollen in de applicatie.                              |
+| Update             | Rollen                              | Wijzigt de bestaande rollen in de applicatie.                            |
+| Creëer             | Gebruikers                          | Maakt nieuwe gebruikers aan voor de applicatie.                          |
+| Verwijder          | Gebruikers                          | Verwijdert bestaande gebruikers uit de applicatie.                       |
+| Lees               | Gebruikers                          | Leest de bestaande gebruikers in de applicatie.                          |
+| Update             | Gebruikers                          | Wijzigt bestaande gebruikers in de applicatie.                           |
+| Menu-link          | `config-sync`                       | Beheert het menu van de configuratiepagina's.                            |
+| `settings.read`    | `config-sync`                       | Leest de instellingen van de applicatie.                                 |
+| `configure-view`   | `content-manager`                   | Configureert het weergaveformaat voor collectie-type content.            |
+| `configure-layout` | `content-manager`                   | Beheert de layout van de componenten in de content manager.              |
+| Creëer             | `users-permissions.user`            | Maakt nieuwe gebruikers aan binnen de gebruikers-permissies.             |
+| Verwijder          | `users-permissions.user`            | Verwijdert gebruikers uit de gebruikers-permissies.                      |
+| Lees               | `users-permissions.user`            | Leest de gegevens van gebruikers binnen de gebruikers-permissies.        |
+| Update             | `users-permissions.user`            | Wijzigt de gegevens van gebruikers binnen de gebruikers-permissies.      |
+| `configure-view`   | `content-manager.single-types`      | Configureert de weergave van enkele content types in de content manager. |
+| Lees               | `content-type-builder`              | Leest de inhoud van content-type bouwers.                                |
+| Creëer             | `i18n.locale`                       | Voegt nieuwe taalinstellingen toe voor de applicatie.                    |
+| Verwijder          | `i18n.locale`                       | Verwijdert bestaande taalinstellingen uit de applicatie.                 |
+| Lees               | `i18n.locale`                       | Leest de bestaande taalinstellingen in de applicatie.                    |
+| Update             | `i18n.locale`                       | Wijzigt de bestaande taalinstellingen in de applicatie.                  |
+| Exporteren         | `import-export-entries`             | Exporteert inhoud vanuit de applicatie.                                  |
+| Importeren         | `import-export-entries`             | Importeert inhoud in de applicatie.                                      |
+| `copy-link`        | `upload.assets`                     | Maakt een kopie van de link naar geüploade bestanden.                    |
+| Creëer             | `upload.assets`                     | Maakt nieuwe geüploade bestanden aan.                                    |
+| Downloaden         | `upload.assets`                     | Downloadt geüploade bestanden.                                           |
+| Update             | `upload.assets`                     | Wijzigt de geüploade bestanden.                                          |
+| `configure-view`   | `upload`                            | Beheert de configuratie voor het weergeven van geüploade bestanden.      |
+| Lees               | `upload`                            | Leest de gegevens van geüploade bestanden.                               |
+| Lees               | `users-permissions.email-templates` | Leest de e-mailtemplates binnen de gebruikers-permissies.                |
+| Update             | `users-permissions.email-templates` | Wijzigt de e-mailtemplates binnen de gebruikers-permissies.              |
+| Lees               | `users-permissions.providers`       | Leest de gegevens van de externe providers in de gebruikers-permissies.  |
+| Update             | `users-permissions.providers`       | Wijzigt de externe providers in de gebruikers-permissies.                |
+| Creëer             | `users-permissions.roles`           | Maakt nieuwe rollen aan voor de gebruikers-permissies.                   |
+| Verwijder          | `users-permissions.roles`           | Verwijdert rollen uit de gebruikers-permissies.                          |
+| Lees               | `users-permissions.roles`           | Leest de rollen binnen de gebruikers-permissies.                         |
+| Update             | `users-permissions.roles`           | Wijzigt de rollen binnen de gebruikers-permissies.                       |
 
 ## Super Admin
 
 ### Beschrijving van de Super Admin
 
-**Super Admin** heeft alle mogelijke rechten zonder beperkingen.
+**Super Admins** can access and manage all features and settings.
