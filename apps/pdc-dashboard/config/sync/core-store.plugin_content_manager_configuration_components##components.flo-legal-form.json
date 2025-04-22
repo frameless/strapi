@@ -6,7 +6,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
+      "mainField": "floLegalFormSelector",
       "defaultSortBy": "floLegalFormSelector",
       "defaultSortOrder": "ASC"
     },
