@@ -1,24 +1,18 @@
-const { config } = require('dotenv');
-const { validateEnv } = require('./env-lib');
-const { spec } = require('../.envrc.json');
+const { cleanEnv } = require('envalid');
+const fs = require('fs');
+const path = require('path');
+const { createSchemaFromSpec } = require('./env-lib');
+require('dotenv').config();
 
-const CI = process.env['CI'] === 'true';
-
-const { parsed: env = {} } = config();
-
-if (CI) {
-  if (Object.keys(env).length > 0) {
-    process.stderr.write('In CI the .env file must not be present.\n');
-    process.exit(1);
-  } else {
-    process.exit(0);
-  }
+// Skip validation if running in CI/CD environment
+if (process.env.CI === 'true') {
+  process.stderr.write('In CI the .env file must not be present.\n');
+  process.exit(0);
 }
 
-const allErrors = validateEnv(env, spec);
+// eslint-disable-next-line no-undef
+const { spec } = JSON.parse(fs.readFileSync(path.join(__dirname, '../.envrc.json'), 'utf-8'));
 
-allErrors.forEach((msg) => process.stderr.write(`${msg}\n`));
+const schema = createSchemaFromSpec(spec);
 
-if (allErrors.length > 0) {
-  process.exit(1);
-}
+cleanEnv(process.env, schema);

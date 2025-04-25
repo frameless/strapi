@@ -10,6 +10,68 @@
       "example": "pIUa5y9fIImYq2Nf92AUEw=="
     },
     {
+      "name": "JWT_SECRET",
+      "description": "Secret for signing JSON Web Tokens for the Strapi API",
+      "required": true,
+      "type": "string",
+      "valueType": "base64",
+      "secret": true,
+      "example": "pIUa5y9fIImYq2Nf92AUEw=="
+    },
+    {
+      "name": "OPEN_FORMS_SDK_URL",
+      "description": "URL for the Open Forms SDK JavaScript file. See: https://open-forms.readthedocs.io/en/stable/developers/embedding.html",
+      "required": true,
+      "type": "string",
+      "valueType": "url",
+      "example": "http://localhost:8000/static/sdk/open-forms-sdk.js",
+      "developmentDefault": "http://localhost:8000/static/sdk/open-forms-sdk.js"
+    },
+    {
+      "name": "PDC_STRAPI_API_TOKEN",
+      "description": "API token for the Strapi API. This is used to access the Strapi API from the frontend.",
+      "required": true,
+      "type": "string",
+      "valueType": "current-password",
+      "secret": true,
+      "example": "pIUa5y9fIImYq2Nf92AUEw==",
+      "developmentDefault": "pIUa5y9fIImYq2Nf92AUEw=="
+    },
+    {
+      "name": "OVERIGE_OBJECTEN_API_PORT",
+      "description": "Port number for the Overige Objecten API. This is used to access the Overige Objecten API from the frontend.",
+      "required": true,
+      "type": "number",
+      "valueType": "port-number",
+      "example": "8000",
+      "developmentDefault": "8000"
+    },
+    {
+      "name": "OVERIGE_OBJECTEN_API_URL",
+      "description": "URL for the Overige Objecten API. This is used to access the Overige Objecten API from the frontend.",
+      "required": false,
+      "type": "string",
+      "valueType": "url",
+      "example": "http://localhost:8000"
+    },
+    {
+      "name": "OVERIGE_OBJECTEN_API_CORS",
+      "description": "CORS settings for the Overige Objecten API. This is used to access the Overige Objecten API from the frontend.",
+      "required": false,
+      "type": "string",
+      "valueType": "url",
+      "example": "http://localhost:8000"
+    },
+    {
+      "name": "STRAPI_ADMIN_EXTENSIONS_PORT",
+      "description": "Port number for the Strapi Admin Extensions. This is used to access the Strapi Admin Extensions from the frontend.",
+      "required": true,
+      "type": "number",
+      "valueType": "port-number",
+      "example": "8001",
+      "developmentDefault": "8001"
+    },
+    {
       "name": "API_TOKEN_SALT",
       "description": "Salt for generating API tokens. See: https://docs.strapi.io/dev-docs/configurations/api-tokens",
       "required": true,
@@ -56,10 +118,10 @@
     },
     {
       "name": "DATABASE_PORT",
-      "description": "Database port number",
+      "description": "Database port number or container name. When using Docker, this can be the container name instead of a port number.",
       "required": true,
-      "type": "number",
-      "valueType": "port-number",
+      "type": "string",
+      "valueType": "string",
       "example": "5432",
       "developmentDefault": "5432"
     },
@@ -221,7 +283,8 @@
       "description": "URL where the Matomo is hosted",
       "valueType": "url",
       "required": false,
-      "example": "https://stats.example.com"
+      "example": "https://example.com",
+      "type": "string"
     },
     {
       "name": "MATOMO_SITE_ID",
@@ -233,7 +296,9 @@
       "description": "Open Forms API token, used to access access forms from the website and the Strapi Dashboard. See: https://open-forms.readthedocs.io/en/stable/configuration/general/cms_integration.html",
       "required": false,
       "secret": true,
-      "valueType": "current-password"
+      "valueType": "current-password",
+      "example": "pIUa5y9fIImYq2Nf92AUEw==",
+      "developmentDefault": "pIUa5y9fIImYq2Nf92AUEw=="
     },
     {
       "name": "OPEN_FORMS_API_URL",
@@ -267,7 +332,7 @@
     },
     {
       "name": "SURVEY_RUN_URL",
-      "example": "https://viewer.example.com",
+      "example": "http://localhost:8000",
       "type": "string",
       "valueType": "url",
       "description": "",
