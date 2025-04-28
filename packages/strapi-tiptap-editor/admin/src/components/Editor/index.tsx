@@ -13,6 +13,7 @@ import { getLocalStorage } from '../../utils';
 import MediaLib from '../MediaLib';
 import { OnChangeParamTypes } from '../Wysiwyg';
 import './editor.scss';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 interface EditorProps {
   editor: EditorTypes;
@@ -68,17 +69,26 @@ const Editor = ({ editor, settings, productPrice }: EditorProps) => {
   const availableThemes: Theme[] = ['light', 'dark'];
   const isTheme = (arg: any): arg is Theme => availableThemes.some((x) => x === arg);
   const localStorageTheme = getLocalStorage('STRAPI_THEME', isTheme);
-
   return (
     <Wrapper>
-      <Box hasRadius overflow="hidden" borderWidth="1px" borderStyle="solid" borderColor="neutral200">
-        <Toolbar
-          editor={editor}
-          toggleMediaLib={handleToggleMediaLib}
-          settings={settings}
-          productPrice={productPrice}
-        />
-        <BubbleMenuComponent editor={editor} />
+      <StickyContainer>
+        <Sticky topOffset={-50}>
+          {({ style }) => (
+            <div
+              style={{
+                ...style,
+                zIndex: 10,
+              }}
+            >
+              <Toolbar
+                editor={editor}
+                toggleMediaLib={handleToggleMediaLib}
+                settings={settings}
+                productPrice={productPrice}
+              />
+            </div>
+          )}
+        </Sticky>
         <Document
           className={clsx('utrecht-document--surface', 'utrecht-theme--media-query-color-scheme', {
             'utrecht-strapi-editor-content--dark': localStorageTheme === 'dark',
@@ -86,8 +96,8 @@ const Editor = ({ editor, settings, productPrice }: EditorProps) => {
         >
           <EditorContent editor={editor} />
         </Document>
-      </Box>
-
+      </StickyContainer>
+      <BubbleMenuComponent editor={editor} />
       {settings.other && settings.other.wordcount ? (
         <Box marginTop="5px" color="neutral600">
           {editor.storage.characterCount.words()} {editor.storage.characterCount.words() > 1 ? 'words' : 'word'}

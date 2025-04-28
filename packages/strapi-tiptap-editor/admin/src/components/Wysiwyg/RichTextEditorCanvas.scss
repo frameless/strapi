@@ -1,4 +1,6 @@
 .utrecht-rich-text-editor-canvas {
+  border: 1px solid #f6f6f9;
+  max-block-size: var(--utrecht-rich-text-editor-min-block-size, 60vh);
   min-block-size: var(--utrecht-rich-text-editor-min-block-size, 200px);
   overflow: auto;
   padding-block-end: var(--utrecht-rich-text-editor-canvas-padding, var(--utrecht-space-block-sm));
