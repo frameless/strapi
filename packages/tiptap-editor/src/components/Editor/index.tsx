@@ -86,7 +86,7 @@ export const Editor = ({
               <FieldLabel action={labelAction}> {intlLabel}</FieldLabel>
             </Box>
             {editor && (
-              <Box hasRadius overflow="hidden" borderWidth="1px" borderStyle="solid" borderColor="neutral200">
+              <Box hasRadius borderWidth="1px" borderStyle="solid" borderColor="neutral200">
                 <Toolbar editor={editor} settings={settings} locale={locale} />
                 <BubbleMenuComponent editor={editor} />
 

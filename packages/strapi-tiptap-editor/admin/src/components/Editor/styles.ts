@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 export default styled(Box)`
   .menu-bar {
+    padding: 8px;
+    background: ${({ theme }) => theme.colors.neutral100};
+    display: flex;
+    flex-wrap: wrap;
     .is-active {
       background: ${({ theme }) => theme.colors.primary200};
       color: ${({ theme }) => theme.colors.neutral0};
