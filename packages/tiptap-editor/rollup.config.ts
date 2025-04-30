@@ -1,19 +1,17 @@
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
-import resolve from '@rollup/plugin-node-resolve';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { readFileSync } from 'fs';
-import path from 'path';
-import { dirname } from 'path';
+import { readFileSync } from 'node:fs';
+import path, { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import autoExternal from 'rollup-plugin-auto-external';
 import copy from 'rollup-plugin-copy';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import scss from 'rollup-plugin-scss';
-import sourcemaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
+
 const packageJson = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'));
-import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 export const outputGlobals = {
@@ -29,13 +27,13 @@ export const config = {
       file: packageJson.main,
       format: 'cjs', // CommonJS format
       exports: 'auto', // Automatic exports for CommonJS
-      sourcemap: 'inline',
+      sourcemap: true,
       globals: outputGlobals, // Global variables exposed to the browser
     },
     {
       file: packageJson.module,
       format: 'esm', // ES Module format
-      sourcemap: 'inline',
+      sourcemap: true,
       globals: outputGlobals, // Global variables exposed to the browser
     },
   ],
@@ -43,9 +41,7 @@ export const config = {
     autoExternal({
       packagePath: './package.json',
     }),
-    sourcemaps(),
     nodeResolve(),
-    resolve(),
     commonjs(),
     peerDepsExternal(),
     typescript({ tsconfig: './tsconfig.json' }),
