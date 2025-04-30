@@ -4,8 +4,10 @@
   "description": "",
   "private": true,
   "workspaces": [
+    "packages/ui",
     "packages/upl",
     "packages/strapi-plugin-uniform-product-name",
+    "packages/tiptap-editor",
     "packages/strapi-tiptap-editor",
     "packages/catalogi-data",
     "packages/samenwerkende-catalogi",
