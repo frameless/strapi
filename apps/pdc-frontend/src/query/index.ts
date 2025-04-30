@@ -155,11 +155,11 @@ export const GET_PRODUCT_BY_SLUG = gql(`
             openFormsEmbed
             textContent
           }
-          ... on ComponentComponentsFloLegalForm {
-            __typename
-            id
-            floLegalFormSelector
-          }
+          # ... on ComponentComponentsFloLegalForm {
+          #   __typename
+          #   id
+          #   floLegalFormSelector
+          # }
           ... on ComponentComponentsUtrechtSpotlight {
             __typename
             content
