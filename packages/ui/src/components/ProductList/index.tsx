@@ -32,7 +32,12 @@ export const ProductListPaginationInfo = forwardRef<HTMLLIElement, ProductListPa
   ({ children, ...restProps }, ref) => {
     if (!children) return null;
     return (
-      <li ref={ref} className={css('utrecht-product-list__pagination-info')} role="separator" {...restProps}>
+      <li
+        ref={ref}
+        className={css('utrecht-product-list__pagination-info')}
+        aria-live="polite" // Inform screen readers of dynamic content updates
+        {...restProps}
+      >
         {children}
       </li>
     );
