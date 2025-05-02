@@ -2,21 +2,24 @@ export type ContentBlock = {
   content: string;
   id: string;
   [key: string]: any;
-}[];
+};
+export type ContentBlockArray = ContentBlock[];
 interface AddHeadingOncePerCategoryProps {
-  contentBlocks: ContentBlock;
+  contentBlocks: ContentBlockArray;
   title: string;
   categoryKey: string;
+  template?: string; // Optional template with placeholders like {title} and {content}
 }
 /**
  * Adds an HTML heading (<h2>) and horizontal rule (<hr>) before content blocks,
  * but only once per unique category.
  *
  * @param {Object} params - The parameters object
- * @param {ContentBlock} params.contentBlocks - Array of content block objects containing content and metadata
+ * @param {ContentBlockArray} params.contentBlocks - Array of content block objects containing content and metadata
  * @param {string} params.title - The heading text to be added
  * @param {string} params.categoryKey - The key used to group content blocks into categories
- * @returns {ContentBlock} New array of content blocks with headings added once per category
+ * @param {string} [params.template] - Optional HTML template with `{title}` and `{content}` placeholders
+ * @returns {ContentBlockArray} New array of content blocks with headings added once per category
  *
  * @example
  * const blocks = [
@@ -30,24 +33,43 @@ interface AddHeadingOncePerCategoryProps {
  *   title: "Category Title",
  *   categoryKey: "category"
  * });
+ *
+ * // Template Usage example.
+ * const result = addHeadingOncePerCategory({
+ *   contentBlocks: blocks,
+ *   title: "Section",
+ *   categoryKey: "category",
+ *   template: "<div class='section-header'><h2>{title}</h2><hr/></div><div>{content}</div>"
+ * });
+ *
+ * // The first item in each category will have the heading template applied, with {title} and {content} replaced.
  */
 export const addHeadingOncePerCategory = ({
   contentBlocks,
   title,
   categoryKey,
-}: AddHeadingOncePerCategoryProps): ContentBlock => {
-  const renderedCategories = new Set(); // Track which categories have received an <h2>
-
-  return contentBlocks.reduce((additionalInformation: ContentBlock, item) => {
+  template = `<hr><h2>{title}</h2>{content}`,
+}: AddHeadingOncePerCategoryProps): ContentBlockArray => {
+  const renderedCategories = new Set<string>(); // Track categories already processed
+  return contentBlocks.reduce((additionalInformation: ContentBlockArray, item) => {
     const category = item[categoryKey]; // Dynamically get the category
+
+    if (category === undefined) {
+      // eslint-disable-next-line no-console
+      console.warn(`Missing category for item with id "${item.id}"`);
+    }
+
     const shouldRenderHeading = !renderedCategories.has(category);
     if (shouldRenderHeading) {
       renderedCategories.add(category);
     }
 
+    const content = shouldRenderHeading
+      ? template.replace('{title}', title).replace('{content}', item.content)
+      : item.content;
     additionalInformation.push({
       ...item,
-      content: `${shouldRenderHeading ? `<hr><h2>${title}</h2>` : ''}${item?.content}`,
+      content,
     });
 
     return additionalInformation;
