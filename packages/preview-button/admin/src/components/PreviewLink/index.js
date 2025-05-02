@@ -130,10 +130,13 @@ const PreviewLink = () => {
     priceData,
     url,
   });
+  const template =
+    '<div class="utrecht-additional-information utrecht-spotlight-section"><hr/><h2>{title}</h2>{content}<hr/></div>';
   const additionalContent = addHeadingOncePerCategory({
     contentBlocks: additionalInformation ?? [],
     title: 'Aanvullende informatie',
     categoryKey: 'kennisartikelCategorie',
+    template,
   });
   const combinedContent = combineSimilarCategories([...processedData, ...additionalContent]);
 
