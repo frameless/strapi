@@ -66,3 +66,9 @@
 img {
   max-inline-size: 100%;
 }
+
+.utrecht-additional-information {
+  & hr {
+    display: none;
+  }
+}
