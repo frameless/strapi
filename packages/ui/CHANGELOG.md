@@ -1,5 +1,15 @@
 ## @frameless/ui [2.23.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.23.1...@frameless/ui@2.23.2) (2024-07-04)
 
+## 0.1.2
+
+### Patch Changes
+
+- 95b7a51: Los scrollprobleem op bij laden van extra resultaten ([GitHub Issue Frameless/strapi#1128](https://github.com/frameless/strapi/issues/1128)).
+- dcaab2a: Zorg ervoor dat het focusgedrag van de navigatielinks expliciet wordt voorkomen in de mobiele modus [GitHub Issue Frameless/strapi#1030](https://github.com/frameless/strapi/issues/1030).
+- c16e0f5: Verbeterde ondersteuning voor schermlezers
+
+  De samenvatting van de zoekresultaten wordt nu automatisch aangekondigd wanneer deze verandert, zodat gebruikers zonder visueel scherm de update kunnen horen. Dit maakt de website toegankelijker voor mensen die schermlezers gebruiken.
+
 ## 0.1.1
 
 ### Patch Changes

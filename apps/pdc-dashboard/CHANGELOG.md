@@ -1,5 +1,24 @@
 # @frameless/pdc-dashboard
 
+## 4.0.0
+
+### Major Changes
+
+- 7d5a24a: Zorg dat de PDC-rollen overeenkomen met de Excel-sheet van Utrecht ([GitHub Issue Frameless/strapi#1133](https://github.com/frameless/strapi/issues/1133)).
+
+### Minor Changes
+
+- e09f7f3: Voeg ondersteuning toe voor de volgende twee nieuwe velden in het bestaande JSON-schema voor VAC's: gerelateerdeVACs en gerelateerdeProducten. Deze velden maken het mogelijk om respectievelijk relaties te leggen tussen VAC's onderling en tussen VAC's en producten.
+
+### Patch Changes
+
+- Updated dependencies [8b2df3c]
+- Updated dependencies [5a20217]
+- Updated dependencies [c79d241]
+  - @frameless/strapi-tiptap-editor@0.3.2
+  - @frameless/strapi-plugin-flo-legal-embed@1.0.0
+  - @frameless/preview-button@1.2.0
+
 ## 3.1.0
 
 ### Minor Changes

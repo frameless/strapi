@@ -1,5 +1,22 @@
 # @frameless/overige-objecten-api
 
+## 2.1.0
+
+### Minor Changes
+
+- 2789e3d: Integreer de twee nieuwe velden gerelateerdeVACs en gerelateerdeProducten in de overige-objecten-api, zodat het Kiss-dashboard en andere services die deze API gebruiken, toegang hebben tot deze velden.
+
+### Patch Changes
+
+- Updated dependencies [95b7a51]
+- Updated dependencies [f322de1]
+- Updated dependencies [dcaab2a]
+- Updated dependencies [c79d241]
+- Updated dependencies [111df39]
+- Updated dependencies [c16e0f5]
+  - @frameless/ui@0.1.2
+  - @frameless/utils@0.1.0
+
 ## 2.0.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @frameless/strapi-tiptap-editor [2.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.2.0...@frameless/strapi-tiptap-editor@2.3.0) (2024-06-12)
 
+## 0.3.2
+
+### Patch Changes
+
+- 8b2df3c: Los het probleem op met de sticky positie van de werkbalk met inhoudsblokken ([GitHub Issue Frameless/strapi#1135](https://github.com/frameless/strapi/issues/1135)).
+- Updated dependencies [f322de1]
+- Updated dependencies [c79d241]
+- Updated dependencies [111df39]
+  - @frameless/utils@0.1.0
+
 ## 0.3.1
 
 ### Patch Changes
