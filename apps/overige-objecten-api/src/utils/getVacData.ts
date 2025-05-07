@@ -36,6 +36,14 @@ const createVacRecord = (item: DataVacItem, vacUrl: string, antwoord: string): c
     toelichting: item?.attributes?.vac?.toelichting,
     trefwoorden: generateKeywords(item?.attributes?.vac?.keywords ?? ''),
     url: vacUrl,
+    gerelateerdeVACs:
+      item?.attributes?.relatedVACs?.data?.map((vac) => ({
+        VAC: new URL(`/api/v2/objects/${vac.attributes.vac.uuid}`, vacUrl).href,
+      })) ?? [],
+    gerelateerdeProducten:
+      item?.attributes?.relatedProducts?.data?.map((product) => ({
+        product: new URL(`/api/v2/objects/${product.attributes.uuid}`, vacUrl).href,
+      })) ?? [],
   },
   geometry: null,
   endAt: null,
