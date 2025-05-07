@@ -47,6 +47,36 @@
           "sortable": true
         }
       },
+      "relatedVACs": {
+        "edit": {
+          "label": "Gerelateerde VACs",
+          "description": "",
+          "placeholder": "Voeg een VAC toe.",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "relatedVACs",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "relatedProducts": {
+        "edit": {
+          "label": "Gerelateerde producten",
+          "description": "",
+          "placeholder": "Voeg een product toe.",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "relatedProducts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -119,9 +149,19 @@
             "name": "vac",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "relatedVACs",
+            "size": 6
+          },
+          {
+            "name": "relatedProducts",
+            "size": 6
+          }
         ]
       ],
-      "list": ["title", "id", "createdAt"]
+      "list": ["title", "id", "createdAt", "relatedVACs"]
     },
     "uid": "api::vac.vac"
   },

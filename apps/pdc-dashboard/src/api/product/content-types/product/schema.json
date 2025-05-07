@@ -156,6 +156,12 @@
         }
       },
       "type": "json"
+    },
+    "vacs": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vac.vac",
+      "inversedBy": "relatedProducts"
     }
   }
 }

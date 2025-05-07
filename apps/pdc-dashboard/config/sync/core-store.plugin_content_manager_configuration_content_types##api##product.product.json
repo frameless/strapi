@@ -234,6 +234,21 @@
           "sortable": false
         }
       },
+      "vacs": {
+        "edit": {
+          "label": "vacs",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "vacs",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -294,6 +309,7 @@
       }
     },
     "layouts": {
+      "list": ["title", "metaTags", "price", "uuid"],
       "edit": [
         [
           {
@@ -378,9 +394,14 @@
             "name": "oldSlugs",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "vacs",
+            "size": 6
+          }
         ]
-      ],
-      "list": ["title", "metaTags", "price", "uuid"]
+      ]
     }
   },
   "type": "object",

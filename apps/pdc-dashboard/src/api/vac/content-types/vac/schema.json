@@ -20,6 +20,18 @@
     },
     "title": {
       "type": "string"
+    },
+    "relatedVACs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vac.vac",
+      "description": "VACs that are thematically or content-related, including parent-child relationships."
+    },
+    "relatedProducts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "vacs"
     }
   }
 }

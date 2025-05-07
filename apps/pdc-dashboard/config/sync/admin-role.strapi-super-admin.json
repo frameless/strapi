@@ -507,7 +507,8 @@
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
           "additional_information",
-          "oldSlugs"
+          "oldSlugs",
+          "vacs"
         ],
         "locales": ["en", "nl"]
       },
@@ -593,7 +594,8 @@
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
           "additional_information",
-          "oldSlugs"
+          "oldSlugs",
+          "vacs"
         ],
         "locales": ["en", "nl"]
       },
@@ -661,7 +663,8 @@
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
           "additional_information",
-          "oldSlugs"
+          "oldSlugs",
+          "vacs"
         ],
         "locales": ["en", "nl"]
       },
@@ -769,7 +772,9 @@
           "vac.uuid",
           "vac.toelichting",
           "vac.keywords",
-          "title"
+          "title",
+          "relatedVACs",
+          "relatedProducts"
         ]
       },
       "conditions": []
@@ -807,7 +812,9 @@
           "vac.uuid",
           "vac.toelichting",
           "vac.keywords",
-          "title"
+          "title",
+          "relatedVACs",
+          "relatedProducts"
         ]
       },
       "conditions": []
@@ -831,7 +838,9 @@
           "vac.uuid",
           "vac.toelichting",
           "vac.keywords",
-          "title"
+          "title",
+          "relatedVACs",
+          "relatedProducts"
         ]
       },
       "conditions": []

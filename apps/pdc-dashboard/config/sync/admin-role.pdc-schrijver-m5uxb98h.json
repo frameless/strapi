@@ -365,7 +365,8 @@
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
           "additional_information",
-          "oldSlugs"
+          "oldSlugs",
+          "vacs"
         ],
         "locales": ["en", "nl"]
       },
