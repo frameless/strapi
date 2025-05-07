@@ -16,6 +16,8 @@ export type VacRecordData = {
   afdelingen?: Afdeling[];
   toelichting?: string;
   trefwoorden?: Trefwoorden[];
+  gerelateerdeVACs?: { VAC?: string }[];
+  gerelateerdeProducten: { product?: string }[];
   url: string;
 };
 export interface CreateInternalField {
@@ -59,12 +61,27 @@ export interface VacItem {
   toelichting?: string;
   keywords?: string;
 }
-
+export interface RelatedVACs {
+  data: {
+    attributes: {
+      vac: VacItem;
+    };
+  }[];
+}
+export interface RelatedProducts {
+  data: {
+    attributes: {
+      uuid: string;
+    };
+  }[];
+}
 export interface AttributesVacItem {
   createdAt: string;
   updatedAt: string;
   vac: VacItem;
   title?: string;
+  relatedVACs?: RelatedVACs;
+  relatedProducts?: RelatedProducts;
 }
 
 export interface DataVacItem {

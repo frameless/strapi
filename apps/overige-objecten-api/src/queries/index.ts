@@ -620,6 +620,22 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
         createdAt
         updatedAt
         title
+        relatedVACs(pagination: { start: 0, limit: -1 }) {
+          data {
+            attributes {
+              vac {
+                uuid
+              }
+            }
+          }
+        }
+        relatedProducts(pagination: { start: 0, limit: -1 }) {
+          data {
+            attributes {
+              uuid
+            }
+          }
+        }
         vac {
           uuid
           vraag
@@ -652,6 +668,22 @@ query getVacItemByUUID($uuid: String) {
         createdAt
         updatedAt
         title
+        relatedVACs(pagination: { start: 0, limit: -1 }) {
+          data {
+            attributes {
+              vac {
+                uuid
+              }
+            }
+          }
+        }
+        relatedProducts(pagination: { start: 0, limit: -1 }) {
+          data {
+            attributes {
+              uuid
+            }
+          }
+        }
         vac {
           uuid
           vraag
