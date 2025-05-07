@@ -1,6 +1,6 @@
 {
   "name": "@frameless/kennisbank-frontend",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "author": "@frameless",
   "description": "Utrecht kennisbank frontend application",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "4.29.25",
-    "@frameless/ui": "0.1.1",
+    "@frameless/ui": "0.1.2",
     "@utrecht/component-library-css": "4.2.0",
     "@utrecht/component-library-react": "5.0.0",
     "@utrecht/design-tokens": "1.1.0",

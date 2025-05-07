@@ -1,5 +1,14 @@
 # @frameless/strapi-admin-extensions
 
+## 3.0.2
+
+### Patch Changes
+
+- Updated dependencies [f322de1]
+- Updated dependencies [c79d241]
+- Updated dependencies [111df39]
+  - @frameless/utils@0.1.0
+
 ## 3.0.1
 
 ### Patch Changes

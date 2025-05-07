@@ -1,5 +1,20 @@
 # @frameless/preview-button [1.3.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.2.0...@frameless/preview-button@1.3.0) (2024-02-02)
 
+## 1.2.0
+
+### Minor Changes
+
+- c79d241: Verbeter het visuele aspect van het blok met aanvullende informatie in het voorbeeldvenster van het Strapi-dashboard.
+
+  Voeg een achtergrondkleur toe aan dit blok in de voorbeeldmodus. Wanneer de inhoud echter wordt gekopieerd en geplakt in Word, verschijnt er een horizontale lijn boven en onder het blok.
+
+### Patch Changes
+
+- Updated dependencies [f322de1]
+- Updated dependencies [c79d241]
+- Updated dependencies [111df39]
+  - @frameless/utils@0.1.0
+
 ## 1.1.1
 
 ### Patch Changes

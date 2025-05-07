@@ -1,6 +1,6 @@
 {
   "name": "@frameless/strapi-plugin-flo-legal-embed",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Strapi plugin that provides a custom field for selecting and embedding Flo Legal forms, enabling seamless integration and enhanced form management within Strapi projects.",
   "keywords": [],
   "private": false,

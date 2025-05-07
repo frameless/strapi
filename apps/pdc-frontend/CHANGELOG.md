@@ -1,5 +1,23 @@
 # @frameless/pdc-frontend
 
+## 0.7.0
+
+### Minor Changes
+
+- f17430a: Maakt het mogelijk dat de formulier­velden een aanpasbare breedte hebben, gebaseerd op de veldnaam.
+
+### Patch Changes
+
+- 75fda2f: Weergave van het totale aantal resultaten bij lijsten, zoals zoekresultaten en alle-productenpagina’s ([GitHub Issue Frameless/strapi#1090](https://github.com/frameless/strapi/issues/1090)).
+- Updated dependencies [95b7a51]
+- Updated dependencies [f322de1]
+- Updated dependencies [dcaab2a]
+- Updated dependencies [c79d241]
+- Updated dependencies [111df39]
+- Updated dependencies [c16e0f5]
+  - @frameless/ui@0.1.2
+  - @frameless/utils@0.1.0
+
 ## 0.6.1
 
 ### Patch Changes
