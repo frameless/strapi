@@ -43,7 +43,7 @@ describe('processCsvFile', () => {
           antwoord: {
             content: '<p>Answer 1</p>',
           },
-          doelgroep: null,
+          doelgroep: 'eu-burger',
           uuid: 'mock-uuid',
         },
       },
@@ -53,7 +53,7 @@ describe('processCsvFile', () => {
           antwoord: {
             content: '<p>Answer 2</p>',
           },
-          doelgroep: null,
+          doelgroep: 'eu-burger',
           uuid: 'mock-uuid',
         },
       },
