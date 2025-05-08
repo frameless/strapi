@@ -31,15 +31,15 @@ describe('NavToggleButton', () => {
     const { container } = render(<NavToggleButton icon="hamburger" text="Open menu" />);
     const button = container.querySelector(':only-child');
     expect(button).toHaveTextContent('Open menu');
-    const svg = button?.querySelector('svg');
-    expect(svg?.querySelectorAll('line')).toHaveLength(3);
+    const hamburgerIcon = button?.querySelector('utrecht-icon-hamburger-menu');
+    expect(hamburgerIcon).toBeInTheDocument();
   });
   it('renders a button with the close icon and text', () => {
     const { container } = render(<NavToggleButton icon="close" text="Close menu" />);
     const button = container.querySelector(':only-child');
     expect(button).toHaveTextContent('Close menu');
-    const svg = button?.querySelector('svg');
-    expect(svg?.querySelectorAll('line')).toHaveLength(2);
+    const closeIcon = button?.querySelector('utrecht-icon-cross');
+    expect(closeIcon).toBeInTheDocument();
   });
   it('supports ForwardRef in React', () => {
     const ref = createRef<HTMLButtonElement>();

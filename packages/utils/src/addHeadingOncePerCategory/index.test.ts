@@ -140,4 +140,32 @@ describe('addHeadingOncePerCategory', () => {
     ];
     expect(result).toEqual(expectedResults);
   });
+  it('should log a warning when a category is missing for an item', () => {
+    const contentBlocks: ContentBlockArray = [
+      {
+        categorie10: 'category1',
+        content: 'content1',
+        id: '1',
+      },
+      {
+        // Missing category
+        content: 'content2',
+        id: '2',
+      },
+      {
+        categorie10: 'category2',
+        content: 'content3',
+        id: '3',
+      },
+    ];
+    const title = 'Test Title';
+
+    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
+    addHeadingOncePerCategory({ contentBlocks, title, categoryKey: 'categorie10' });
+
+    expect(consoleWarnSpy).toHaveBeenCalledWith('Missing category for item with id "2"');
+
+    consoleWarnSpy.mockRestore();
+  });
 });

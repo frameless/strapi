@@ -5,13 +5,8 @@ import React from 'react';
 import { Navigation } from './index';
 import { useScreenSize } from '../../hooks';
 import { useClickOutside } from '../../hooks';
-import { useLockBody } from '../../hooks/useLockBody';
 jest.mock('../../hooks/useClickOutside.ts', () => ({
   useClickOutside: jest.fn(),
-}));
-
-jest.mock('../../hooks/useLockBody', () => ({
-  useLockBody: jest.fn(),
 }));
 
 jest.mock('../../hooks/useScreenSize.ts');
@@ -128,7 +123,7 @@ describe('Navigation Component', () => {
     const hamburgerButton = screen.getByRole('button', { name: 'Open Menu' });
     fireEvent.click(hamburgerButton);
 
-    expect(useLockBody).toHaveBeenCalledWith(true, expect.anything());
+    expect(document.body).toHaveStyle('overflow: hidden');
   });
   test('FocusTrap traps focus within the drawer when it is open', async () => {
     const user = userEvent.setup();

@@ -87,20 +87,26 @@ describe('cspConfig', () => {
     });
 
     describe('production CSP', () => {
-      const csp = getContentSecurityPolicy({
-        nonce: '9b7d46bc-f64f-4063-8a1c-e8a85bc6817d',
-        node_env: 'production',
+      let getContentSecurityPolicy: any;
+      let csp: string;
+
+      beforeEach(async () => {
+        process.env.OPEN_FORMS_API_URL = 'https://openforms.example.com';
+        jest.resetModules();
+
+        ({ getContentSecurityPolicy } = await import('./cspConfig'));
+
+        csp = getContentSecurityPolicy({
+          nonce: '9b7d46bc-f64f-4063-8a1c-e8a85bc6817d',
+          node_env: 'production',
+        });
       });
 
       it('production CSP should be the default', () => {
-        const prodCsp = getContentSecurityPolicy({
-          nonce: 'b7e29a49-3571-43f9-a645-c772cad9a516',
-          node_env: 'production',
-        });
         const defaultCsp = getContentSecurityPolicy({
-          nonce: 'b7e29a49-3571-43f9-a645-c772cad9a516',
+          nonce: '9b7d46bc-f64f-4063-8a1c-e8a85bc6817d',
         });
-        expect(prodCsp).toBe(defaultCsp);
+        expect(csp).toBe(defaultCsp);
       });
       it('should not include unsafe-eval', () => {
         expect(csp).not.toContain('unsafe-eval');
@@ -108,11 +114,11 @@ describe('cspConfig', () => {
       it('should not include unsafe-inline', () => {
         expect(csp).not.toContain('unsafe-inline');
       });
-      it('should not include any http: values (unecrypted connections are not allowed)', () => {
+      it('should not include any http: values (unencrypted connections are not allowed)', () => {
         expect(csp).not.toContain('http:');
       });
-      it('should not include any ws: values (unecrypted connections are not allowed)', () => {
-        expect(csp).not.toContain('http:');
+      it('should not include any ws: values (unencrypted connections are not allowed)', () => {
+        expect(csp).not.toContain('ws:');
       });
     });
   });
