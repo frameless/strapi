@@ -32,6 +32,12 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "vacs"
+    },
+    "contact_detail": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact-detail.contact-detail",
+      "inversedBy": "interne_informatie_overigs"
     }
   }
 }
