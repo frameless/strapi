@@ -236,15 +236,30 @@
       },
       "vacs": {
         "edit": {
-          "label": "vacs",
+          "label": "VAC",
           "description": "",
-          "placeholder": "",
+          "placeholder": "Voeg VAC toe.",
           "visible": true,
           "editable": true,
           "mainField": "title"
         },
         "list": {
           "label": "vacs",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contact_detail": {
+        "edit": {
+          "label": "Contactgegevens",
+          "description": "",
+          "placeholder": "Voeg contactgegevens toe.",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "Contactgegevens",
           "searchable": true,
           "sortable": true
         }
@@ -309,7 +324,6 @@
       }
     },
     "layouts": {
-      "list": ["title", "metaTags", "price", "uuid"],
       "edit": [
         [
           {
@@ -399,9 +413,14 @@
           {
             "name": "vacs",
             "size": 6
+          },
+          {
+            "name": "contact_detail",
+            "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["title", "metaTags", "price", "uuid", "additional_information", "contact_detail"]
     }
   },
   "type": "object",

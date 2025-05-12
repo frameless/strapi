@@ -32,6 +32,11 @@
 | Publiceer | Categorie              | Categorie velden publiceren.                        |
 | Lees      | Categorie              | Alleen-lezen toegang tot Categorie velden.          |
 | Update    | Categorie              | Categorie velden bijwerken.                         |
+| Creëer    | Contactgegevens        | Nieuwe Contactgegevens-inhoud maken.                |
+| Verwijder | Contactgegevens        | Contactgegevens-inhoud verwijderen.                 |
+| Publiceer | Contactgegevens        | Contactgegevens-inhoud publiceren.                  |
+| Lees      | Contactgegevens        | Alleen-lezen toegang tot Contactgegevens-inhoud.    |
+| Update    | Contactgegevens        | Contactgegevens-inhoud bijwerken.                   |
 | Creëer    | Subcategorie           | Nieuwe Subcategorie velden maken.                   |
 | Verwijder | Subcategorie           | Subcategorie velden verwijderen.                    |
 | Publiceer | Subcategorie           | Subcategorie velden publiceren.                     |
@@ -64,6 +69,7 @@ Een rol met alleen leesrechten op alle verzamelingen behalve gebruikers.
 | --------- | ---------------------- | ------------------------------------------------------- |
 | Lezen     | Aanvullende informatie | Alleen-lezen toegang tot aanvullende informatie inhoud. |
 | Lezen     | Categorie              | Alleen-lezen toegang tot categorie.                     |
+| Lees      | Contactgegevens        | Alleen-lezen toegang tot Contactgegevens-inhoud.        |
 | Lezen     | Interne informatie     | Toegang tot interne informatie velden (alleen-lezen).   |
 | Lezen     | Kosten                 | Alleen-lezen toegang tot kosten.                        |
 | Lezen     | Product                | Alleen-lezen toegang tot productgegevens.               |
@@ -95,6 +101,11 @@ Een rol met alleen leesrechten op alle verzamelingen behalve gebruikers.
 | Publiceer | Categorie              | Categorie velden publiceren.                            |
 | Lees      | Categorie              | Alleen-lezen toegang tot Categorie velden.              |
 | Update    | Categorie              | Categorie velden bijwerken.                             |
+| Creëer    | Contactgegevens        | Nieuwe Contactgegevens-inhoud maken.                    |
+| Verwijder | Contactgegevens        | Contactgegevens-inhoud verwijderen.                     |
+| Publiceer | Contactgegevens        | Contactgegevens-inhoud publiceren.                      |
+| Lees      | Contactgegevens        | Alleen-lezen toegang tot Contactgegevens-inhoud.        |
+| Update    | Contactgegevens        | Contactgegevens-inhoud bijwerken.                       |
 | Creëer    | Subcategorie           | Nieuwe Subcategorie velden maken.                       |
 | Verwijder | Subcategorie           | Subcategorie velden verwijderen.                        |
 | Publiceer | Subcategorie           | Subcategorie velden publiceren.                         |

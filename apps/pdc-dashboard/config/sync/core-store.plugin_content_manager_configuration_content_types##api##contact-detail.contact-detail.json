@@ -1,5 +1,5 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::vac.vac",
+  "key": "plugin_content_manager_configuration_content_types::api::contact-detail.contact-detail",
   "value": {
     "settings": {
       "bulkable": true,
@@ -7,7 +7,7 @@
       "searchable": true,
       "pageSize": 10,
       "mainField": "title",
-      "defaultSortBy": "createdAt",
+      "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -19,23 +19,9 @@
           "sortable": true
         }
       },
-      "vac": {
-        "edit": {
-          "label": "VAC",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "vac",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "title": {
         "edit": {
-          "label": "Vraag",
+          "label": "Titel",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -47,49 +33,48 @@
           "sortable": true
         }
       },
-      "relatedVACs": {
+      "contact": {
         "edit": {
-          "label": "Gerelateerde VACs",
+          "label": "Contactpersoon beheer",
           "description": "",
-          "placeholder": "Voeg een VAC toe.",
+          "placeholder": "",
           "visible": true,
-          "editable": true,
-          "mainField": "title"
+          "editable": true
         },
         "list": {
-          "label": "relatedVACs",
+          "label": "contact",
           "searchable": false,
           "sortable": false
         }
       },
-      "relatedProducts": {
+      "interne_informatie_overigs": {
         "edit": {
-          "label": "Gerelateerde producten",
+          "label": "VAC",
           "description": "",
-          "placeholder": "Voeg een product toe.",
+          "placeholder": "Voeg VAC toe.",
           "visible": true,
           "editable": true,
           "mainField": "title"
         },
         "list": {
-          "label": "relatedProducts",
+          "label": "VAC",
           "searchable": false,
           "sortable": false
         }
       },
-      "contact_detail": {
+      "products": {
         "edit": {
-          "label": "Contactgegevens",
+          "label": "Producten",
           "description": "",
-          "placeholder": "Voeg contactgegevens toe.",
+          "placeholder": "Voeg product toe.",
           "visible": true,
           "editable": true,
           "mainField": "title"
         },
         "list": {
-          "label": "Contactgegevens",
-          "searchable": true,
-          "sortable": true
+          "label": "Producten",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -161,30 +146,24 @@
         ],
         [
           {
-            "name": "vac",
+            "name": "contact",
             "size": 12
           }
         ],
         [
           {
-            "name": "relatedVACs",
+            "name": "interne_informatie_overigs",
             "size": 6
           },
           {
-            "name": "relatedProducts",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "contact_detail",
+            "name": "products",
             "size": 6
           }
         ]
       ],
-      "list": ["title", "id", "createdAt", "relatedVACs", "contact_detail"]
+      "list": ["id", "title", "createdAt", "updatedAt", "products", "interne_informatie_overigs"]
     },
-    "uid": "api::vac.vac"
+    "uid": "api::contact-detail.contact-detail"
   },
   "type": "object",
   "environment": null,

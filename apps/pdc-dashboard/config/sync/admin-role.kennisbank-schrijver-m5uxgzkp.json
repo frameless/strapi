@@ -68,6 +68,33 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
+      "subject": "api::contact-detail.contact-detail",
+      "properties": {
+        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::contact-detail.contact-detail",
+      "properties": {
+        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::contact-detail.contact-detail",
+      "properties": {
+        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
       "subject": "api::internal-field.internal-field",
       "properties": {
         "fields": [
