@@ -26,14 +26,11 @@ declare global {
 
 export const OpenFormsScript = ({ targetId, nonce, src }: OpenFormsScriptProps) => {
   const ref = useRef<HTMLDivElement>(null);
+
   const onLoadOpenForms = () => {
-    if (!ref.current) {
-      return;
-    }
+    if (!ref.current) return;
 
-    // @ts-ignore
     const target = ref.current.ownerDocument.getElementById(targetId);
-
     if (target && window.OpenForms) {
       const form = new window.OpenForms.OpenForm(target, target.dataset);
       form.init();
