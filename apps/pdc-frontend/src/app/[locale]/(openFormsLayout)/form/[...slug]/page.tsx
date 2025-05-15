@@ -1,4 +1,3 @@
-import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
@@ -24,19 +23,6 @@ const FormPage = async ({
   const { t } = await useTranslation(locale, 'common');
   const nonce = headers().get('x-nonce') || '';
   const formInfo = await openFormValidator({ formId });
-
-  const { pathSegments: formPathSegments } = getPathAndSearchParams({
-    translations: t,
-    segments: ['segments.form', formId],
-    locale,
-  });
-  const surveyLinkURL = buildURL({
-    translations: t,
-    env: process.env,
-    key: 'FRONTEND_PUBLIC_URL',
-    segments: ['segments.form', formId],
-    locale,
-  });
 
   return (
     <>
@@ -72,7 +58,6 @@ const FormPage = async ({
             sdkUrl={createOpenFormsSdkUrl()?.href || ''}
             cssUrl={createOpenFormsCssUrl()?.href || ''}
             nonce={nonce}
-            basePath={`/${formPathSegments}`}
             slug={formId}
             fallback={formInfo ? <Heading1>{formInfo.name}</Heading1> : null}
           />
