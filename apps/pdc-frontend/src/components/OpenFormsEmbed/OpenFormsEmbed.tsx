@@ -1,6 +1,4 @@
-'use client';
 import { OpenFormsContainer } from '@utrecht/open-forms-container-react/dist/css';
-import { usePathname } from 'next/navigation';
 import React, { type ReactNode, useId } from 'react';
 import { OpenFormsNLDesignSystem } from './OpenFormsNLDesignSystem';
 import { OpenFormsScript } from './OpenFormsScript';
@@ -17,22 +15,17 @@ export type OpenFormsEmbedProps = {
   sdkUrl: string;
   cssUrl: string;
   fallback?: ReactNode;
+  basePath?: string;
 };
 
-export const OpenFormsEmbed = ({ nonce, slug, apiUrl, sdkUrl, cssUrl, fallback }: OpenFormsEmbedProps) => {
+export const OpenFormsEmbed = ({ nonce, slug, apiUrl, sdkUrl, cssUrl, fallback, basePath }: OpenFormsEmbedProps) => {
   const id = useId();
-  const pathname = usePathname();
 
   return (
     <RichText>
       <OpenFormsContainer>
         <OpenFormsNLDesignSystem targetId={id}>
-          <div
-            id={id}
-            data-base-url={apiUrl}
-            data-form-id={slug}
-            data-base-path={pathname.split('/').slice(0, 4).join('/')}
-          >
+          <div id={id} data-base-url={apiUrl} data-form-id={slug} data-base-path={basePath}>
             {fallback}
           </div>
         </OpenFormsNLDesignSystem>
