@@ -1,6 +1,9 @@
 const { apolloPrometheusPlugin } = require('strapi-prometheus');
 
 export default ({ env }) => ({
+  'content-compliance-checker': {
+    enabled: true,
+  },
   'env-label': {
     enabled: true,
     config: {
