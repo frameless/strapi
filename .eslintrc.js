@@ -69,6 +69,8 @@ module.exports = {
           './apps/vth-dashboard/tsconfig.json',
           './apps/vth-frontend/tsconfig.json',
           './packages/catalogi-data/tsconfig.json',
+          './packages/content-compliance-checker/tsconfig.json',
+          './packages/content-compliance-checker/tsconfig.server.json',
           './packages/provider-upload-vercel/tsconfig.json',
           './packages/samenwerkende-catalogi/tsconfig.json',
           './packages/strapi-plugin-env-label/tsconfig.json',

@@ -1,0 +1,73 @@
+{
+  "name": "@frameless/content-compliance-checker",
+  "version": "0.0.0",
+  "description": "A Strapi plugin that audits content blocks for compliance with category requirements. Specifically checks for blocks that don't have the 'kennisartikel' category assigned, helping maintain content standards across products.",
+  "strapi": {
+    "name": "content-compliance-checker",
+    "description": "Dashboard for identifying content blocks that don't meet category requirements.",
+    "kind": "plugin"
+  },
+  "keywords": [
+    "strapi",
+    "plugin",
+    "content",
+    "compliance",
+    "checker",
+    "kennisartikel",
+    "category",
+    "requirements",
+    "dashboard",
+    "block",
+    "audit"
+  ],
+  "dependencies": {
+    "@frameless/ui": "0.1.2",
+    "@strapi/design-system": "1.19.0",
+    "@strapi/helper-plugin": "4.25.12",
+    "@strapi/icons": "1.19.0",
+    "@utrecht/component-library-css": "7.2.2",
+    "@utrecht/component-library-react": "10.2.0",
+    "@utrecht/design-tokens": "3.2.0",
+    "is-absolute-url": "4.0.1",
+    "react-icons": "5.5.0",
+    "react-to-print": "3.1.0"
+  },
+  "devDependencies": {
+    "@strapi/typescript-utils": "4.25.22",
+    "@types/react-dom": "18.3.7",
+    "@types/react-router-dom": "5.3.3",
+    "@types/react": "17.0.86",
+    "@types/styled-components": "5.1.34",
+    "react-dom": "18.3.1",
+    "react-router-dom": "5.3.4",
+    "react": "18.3.1",
+    "styled-components": "5.3.11",
+    "typescript": "5.8.3"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.1"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/strapi-plugin-flo-legal-embed"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": ""
+  },
+  "engines": {
+    "node": "20.x.x"
+  },
+  "scripts": {
+    "develop": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
+  },
+  "license": "EUPL-1.2"
+}
