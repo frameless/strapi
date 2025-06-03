@@ -1,0 +1,51 @@
+{
+  "name": "@frameless/strapi-provider-media-upload",
+  "version": "0.0.0",
+  "description": "Local provider for strapi upload",
+  "private": true,
+  "keywords": [
+    "blob",
+    "upload",
+    "strapi",
+    "provider"
+  ],
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/src/index.d.ts",
+  "license": "EUPL-1.2",
+  "files": [
+    "dist/"
+  ],
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/strapi-provider-media-upload"
+  },
+  "author": "Frameless",
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "watch": "rollup --config rollup.config.ts --configPlugin typescript -w",
+    "clean": "rimraf dist .rollup.cache",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
+  },
+  "dependencies": {
+    "@strapi/utils": "5.14.0",
+    "fs-extra": "11.3.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "11.0.4",
+    "rollup-plugin-typescript2": "0.35.0",
+    "@rollup/plugin-typescript": "11.1.6",
+    "rollup": "3.29.4",
+    "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-commonjs": "25.0.7",
+    "@rollup/plugin-json": "6.0.1",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-terser": "7.0.2"
+  },
+  "engines": {
+    "node": "20.x.x"
+  }
+}

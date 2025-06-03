@@ -111,10 +111,12 @@ export default ({ env }) => ({
   },
   upload: {
     config: {
+      provider: '@frameless/strapi-provider-media-upload',
       providerOptions: {
         localServer: {
           maxage: 300000,
         },
+        allowedMimeTypes: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml'],
       },
     },
   },
