@@ -1,1 +1,40 @@
-{}
+{
+  "content-compliance-checker.plugin.name": "Content compliance checker",
+
+  "blockDetail.header": "Block {index} — Type: {type}",
+  "blockDetail.missingCategory": "Missing knowledge article category",
+
+  "entityTable.headers.title": "Title",
+  "entityTable.headers.missingBlocks": "Missing blocks for knowledge article categories",
+  "entityTable.redirectLabel": "View details",
+  "entityTable.actionHeader": "Details",
+
+  "navigation.ariaLabel": "Content compliance checker navigation",
+  "navigation.header": "Content compliance checker",
+  "navigation.section.filters": "Filters",
+  "navigation.link.productFilters": "Product filters",
+  "navigation.link.additionalInfoFilters": "Additional information filters",
+
+  "blocksWithoutCategory": "Blocks without \"knowledge article category\" ({count})",
+
+  "filterDashboardPage.title": "Content Compliance Dashboard",
+
+  "additionalInformationFilterPage.subtitle": "Additional information with blocks not categorized as 'knowledge article'",
+  "additionalInformationPage.error": "Error fetching additional information",
+  "additionalInformationDetailPage.notFound": "Additional information not found",
+
+  "productFilterPage.subtitle": "Products with blocks not categorized as 'knowledge article'",
+  "product.error": "Error fetching products",
+  "product.notFound": "Product not found",
+
+  "printButton.label": "Print",
+
+  "backToBDashboardButton.text": "Back to Dashboard",
+
+  "updateButton.text": "Update",
+
+  "error.unknown": "Unknown error occurred",
+  "errorPage.message": "Error: {error}",
+
+  "loadingPage.loadingText": "Bezig met laden, even geduld a.u.b.…"
+}

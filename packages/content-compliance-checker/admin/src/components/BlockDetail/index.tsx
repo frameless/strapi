@@ -1,5 +1,7 @@
 import { Box, Flex, Status, Typography } from '@strapi/design-system';
 import type { PropsWithChildren } from 'react';
+import { useIntl } from 'react-intl';
+import getTrad from '../../utils/getTrad';
 
 export const componentTypeMap: Record<string, string> = {
   'components.utrecht-rich-text': 'Content Block',
@@ -16,16 +18,27 @@ export interface BlockDetailProps {
   index: number;
 }
 
-export const BlockDetail = ({ component, index, children }: PropsWithChildren<BlockDetailProps>) => (
-  <Box padding={4} background="neutral100" hasRadius>
-    <Flex justifyContent="space-between" alignItems="center">
-      <Typography variant="beta">
-        Blok {index + 1} &mdash; Type: {componentTypeMap[component]}
-      </Typography>
-      <Status variant="warning">Ontbrekende kennisartikelcategorie</Status>
-    </Flex>
-    <Box background="neutral0" padding={4} hasRadius marginTop={2}>
-      {children}
+export const BlockDetail = ({ component, index, children }: PropsWithChildren<BlockDetailProps>) => {
+  const { formatMessage } = useIntl();
+  return (
+    <Box padding={4} background="neutral100" hasRadius>
+      <Flex justifyContent="space-between" alignItems="center">
+        <Typography variant="beta">
+          {formatMessage(
+            { id: getTrad('blockDetail.header'), defaultMessage: 'Blok {index} — Type: {type}' },
+            { index: index + 1, type: componentTypeMap[component] },
+          )}
+        </Typography>
+        <Status variant="warning">
+          {formatMessage({
+            id: getTrad('blockDetail.missingCategory'),
+            defaultMessage: 'Ontbrekende kennisartikelcategorie',
+          })}
+        </Status>
+      </Flex>
+      <Box background="neutral0" padding={4} hasRadius marginTop={2}>
+        {children}
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};
