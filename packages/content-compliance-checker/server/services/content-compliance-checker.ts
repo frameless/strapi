@@ -60,7 +60,10 @@ const filterProductsWithNoneKennisartikelBlocks = (products: Product[]): Product
 export default ({ strapi }: { strapi: Strapi }) => ({
   async findProductsWithNoneKennisartikelBlocks() {
     // fetch all products with their blocks
-    const products = await strapi.entityService?.findMany('api::product.product', { populate: '*' });
+    const products = await strapi.entityService?.findMany('api::product.product', {
+      populate: '*',
+      sort: 'title:asc',
+    });
     // filter products that have at least one block without kennisartikel category
     const filteredProducts = filterProductsWithNoneKennisartikelBlocks(products as Product[]);
     return filteredProducts;
@@ -107,6 +110,7 @@ export default ({ strapi }: { strapi: Strapi }) => ({
             },
           },
         },
+        sort: 'title:asc',
       },
     );
     const filteredAdditionalInformation = filterAdditionalInformationWithNoneKennisartikelBlocks(
