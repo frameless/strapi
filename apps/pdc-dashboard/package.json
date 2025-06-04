@@ -30,6 +30,7 @@
     "@frameless/strapi-plugin-uuid-field": "0.0.0",
     "@frameless/strapi-tiptap-editor": "0.3.2",
     "@frameless/strapi-plugin-old-slugs": "1.0.0",
+    "@frameless/strapi-provider-media-upload": "0.0.0",
     "@strapi/plugin-graphql": "4.25.8",
     "@strapi/plugin-i18n": "4.25.8",
     "@strapi/plugin-users-permissions": "4.25.8",
