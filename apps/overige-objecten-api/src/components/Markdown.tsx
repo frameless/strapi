@@ -49,8 +49,7 @@ export const Markdown = ({ children: html, priceData }: MarkdownProps) => {
             const result = new Intl.NumberFormat('nl', {
               style: 'currency',
               currency: price.currency,
-            }).format(parseInt(price.value, 10));
-
+            }).format(parseFloat(price.value));
             return <span {...node?.properties}>{result}</span>;
           }
           return <span {...node?.properties}>{spanChildren}</span>;
