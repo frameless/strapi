@@ -1,6 +1,6 @@
 {
   "name": "@frameless/content-compliance-checker",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Strapi plugin that audits content blocks for compliance with category requirements. Specifically checks for blocks that don't have the 'kennisartikel' category assigned, helping maintain content standards across products.",
   "strapi": {
     "name": "content-compliance-checker",
