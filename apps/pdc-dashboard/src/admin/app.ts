@@ -58,7 +58,7 @@ const config = {
       'primary-action-button': 'Inwoners (blauw)',
       'secondary-action-button': 'Aanvullende knop (wit)',
       'strapi-plugin-notes.note.modal.new.title': 'Opmerkingen',
-      'content-manager.components.LeftMenu.collection-types': 'Type collectie',
+      'content-manager.components.LeftMenu.collection-types': 'Collecties',
       arrow: 'Pijl',
       Category: 'Categorie',
       digid: 'DigiD',
