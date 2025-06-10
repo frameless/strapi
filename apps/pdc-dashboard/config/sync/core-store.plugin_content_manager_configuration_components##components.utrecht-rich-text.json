@@ -36,7 +36,7 @@
       },
       "kennisartikelCategorie": {
         "edit": {
-          "label": "Kennisartikel categorie",
+          "label": "Kennisartikelcategorie",
           "description": "",
           "placeholder": "",
           "visible": true,
