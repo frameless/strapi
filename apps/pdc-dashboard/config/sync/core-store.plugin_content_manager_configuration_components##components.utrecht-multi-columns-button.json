@@ -22,7 +22,7 @@
       },
       "kennisartikelCategorie": {
         "edit": {
-          "label": "kennisartikelCategorie",
+          "label": "Kennisartikelcategorie",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -36,7 +36,7 @@
       },
       "column": {
         "edit": {
-          "label": "Column",
+          "label": "Kolom",
           "description": "",
           "placeholder": "",
           "visible": true,
