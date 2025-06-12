@@ -31,7 +31,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     const limit = parseInt(req.query?.limit as string, 10) || -1;
     const start = parseInt(req.query?.start as string, 10) || 0;
     const page = parseInt(req.query?.page as string, 10);
-    const pageSize = parseInt(req.query?.pageSize as string, 10);
+    const pageSize = parseInt(req.query?.pageSize as string, 10) || 100;
     // Validate page and pageSize
     const isValidPage = typeof page === 'number' && page > 0;
     const isValidPageSize = typeof pageSize === 'number' && pageSize > 0;
