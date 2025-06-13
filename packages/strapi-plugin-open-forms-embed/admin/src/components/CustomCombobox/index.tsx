@@ -1,5 +1,4 @@
 import { Combobox, ComboboxOption, TextInput } from '@strapi/design-system';
-import {} from '@strapi/design-system/Combobox';
 import { Stack } from '@strapi/design-system/Stack';
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -20,6 +19,14 @@ interface CustomComboboxProps {
   value: string;
   placeholder: any;
 }
+
+type OpenFormsDataParams = {
+  uuid: string;
+  slug: string;
+  label?: string;
+  embed_url: string;
+  name?: string;
+};
 
 function CustomCombobox({
   value,
@@ -66,15 +73,21 @@ function CustomCombobox({
       fetchAllOpenForms();
     }
   }, [config]);
-  type OpenFormsDataParams = {
-    uuid: string;
-    slug: string;
-    label: string;
-    embed_url: string;
-  };
-  const generateOpenFormsData = (params: OpenFormsDataParams) => {
-    return new URLSearchParams({ ...params }).toString();
-  };
+
+  const generateOpenFormsData = (params: OpenFormsDataParams) => new URLSearchParams({ ...params }).toString();
+  const parseFormValue = (query: string): Record<string, string> => Object.fromEntries(new URLSearchParams(query));
+  const selectedForm = parseFormValue(value);
+  const isValueInOptions = openForms
+    .map((form: OpenFormsDataParams) =>
+      generateOpenFormsData({
+        uuid: form.uuid,
+        slug: form.slug,
+        label: form?.label || form?.name,
+        embed_url: config.embed_url,
+      }),
+    )
+    .some((optionValue: string) => optionValue === value);
+
   if (!config?.api_url || !config?.token) {
     return (
       <TextInput
@@ -126,6 +139,10 @@ function CustomCombobox({
               {name}
             </ComboboxOption>
           ))}
+        {/* Render fallback option if current value isn't in loaded options yet */}
+        {!isValueInOptions && selectedForm?.label && (
+          <ComboboxOption value={value}>{selectedForm.label || selectedForm?.name}</ComboboxOption>
+        )}
       </Combobox>
     </Stack>
   );
