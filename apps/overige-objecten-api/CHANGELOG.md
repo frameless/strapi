@@ -1,5 +1,11 @@
 # @frameless/overige-objecten-api
 
+## 2.1.1
+
+### Patch Changes
+
+- a173e55: Probleem opgelost waarbij prijzen in KISS fout werden afgerond na de komma.
+
 ## 2.1.0
 
 ### Minor Changes
