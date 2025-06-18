@@ -24,7 +24,6 @@ type OpenFormsDataParams = {
   uuid: string;
   slug: string;
   label?: string;
-  embed_url: string;
   name?: string;
 };
 
@@ -83,7 +82,6 @@ function CustomCombobox({
         uuid: form.uuid,
         slug: form.slug,
         label: form?.label || form?.name,
-        embed_url: config.embed_url,
       }),
     )
     .some((optionValue: string) => optionValue === value);
@@ -132,7 +130,6 @@ function CustomCombobox({
                 uuid,
                 slug,
                 label: name,
-                embed_url: config.embed_url,
               })}
               key={uuid}
             >
