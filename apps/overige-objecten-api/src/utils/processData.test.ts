@@ -1,7 +1,7 @@
+import { setEnv } from '@frameless/utils';
 import { JSDOM } from 'jsdom';
 import { processData } from './processData';
 import type { Price } from '../strapi-product-type';
-
 describe('processData', () => {
   describe('ComponentComponentsUtrechtRichText', () => {
     it('should process basic rich text content and mapped the category correctly', () => {
@@ -150,6 +150,7 @@ describe('processData', () => {
       expect(h3Element.textContent).toBe('DigiD');
     });
     it('should render logo button with openFormsEmbed when the value is provided', () => {
+      setEnv('FRONTEND_PUBLIC_URL', 'http://localhost:3000/');
       const data = [
         {
           component: 'ComponentComponentsUtrechtLogoButton',
@@ -157,8 +158,7 @@ describe('processData', () => {
           href: null,
           label: null,
           logo: 'digid',
-          openFormsEmbed:
-            'uuid=7e6cc160-a3b5-4cca-9d88-f8a361df2e3f&slug=paspoort-aanvraag&label=Paspoort+aanvraag&embed_url=http%3A%2F%2Flocalhost%3A3000',
+          openFormsEmbed: 'uuid=7e6cc160-a3b5-4cca-9d88-f8a361df2e3f&slug=paspoort-aanvraag&label=Paspoort+aanvraag',
           textContent: null,
           categorie: 'contact',
         },
