@@ -1,4 +1,4 @@
-FROM node:20-alpine3.18 as build
+FROM node:20.19-alpine3.22 as build
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add --no-cache git libc6-compat build-base bash gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 
