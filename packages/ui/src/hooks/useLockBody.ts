@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 export interface UseLockBodyProps {
   visible: boolean;
-  elementRef: RefObject<HTMLElement>;
+  elementRef: RefObject<HTMLElement | null>;
 }
 
 export const useLockBody = ({ visible, elementRef }: UseLockBodyProps) => {
