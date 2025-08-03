@@ -35,8 +35,8 @@ export const Navigation = forwardRef(
     const screenSize = useScreenSize();
     const [visible, setVisible] = useState<boolean>(false);
     const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
-    const navigationListRef = useRef<HTMLUListElement>(null);
-    const drawerRef = useRef<HTMLDialogElement>(null);
+    const navigationListRef = useRef<HTMLUListElement | null>(null);
+    const drawerRef = useRef<HTMLDialogElement | null>(null);
     const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
     const showModal = () => {
