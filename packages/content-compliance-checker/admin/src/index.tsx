@@ -43,7 +43,7 @@ export default {
 
   bootstrap(app: any) {},
 
-  async registerTrads(app: any) {
+  async registerTrads(app: { locales: string[] }) {
     const { locales } = app;
 
     const importedTrads = await Promise.all(
