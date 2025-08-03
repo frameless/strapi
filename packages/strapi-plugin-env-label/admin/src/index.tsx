@@ -35,7 +35,7 @@ export default {
     });
   },
 
-  async registerTrads({ locales }) {
+  async registerTrads({ locales }: { locales: string[] }) {
     const importedTrads = await Promise.all(
       locales.map((locale) => {
         return import(/* webpackChunkName: "translation-[request]" */ `./translations/${locale}.json`)
