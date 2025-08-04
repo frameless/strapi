@@ -1,4 +1,4 @@
-FROM node:20-alpine3.18 AS build
+FROM node:20.19-alpine3.22 AS build
 # Update package index and install build dependencies.
 # These packages are needed for building native modules and ensuring compatibility.
 RUN set -eux; apk update && apk add --no-cache \
@@ -35,7 +35,7 @@ COPY . /opt/app/
 RUN set -eux; yarn build
 
 # --- Production stage: Prepare a lean image for runtime ---
-FROM node:20-alpine3.18 AS production
+FROM node:20.19-alpine3.22 AS production
 # Copy built application from the builder stage.
 COPY --from=builder /opt/app /opt/app
 
