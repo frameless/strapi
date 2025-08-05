@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Heading, Markdown } from '@/components';
 import { Breadcrumbs } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
-import { fetchData, getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
+import { fetchData, getStrapiGraphqlURL } from '@/util';
 import { GetNotFoundPageQuery } from '../../../../gql/graphql';
 import { useTranslation } from '../../i18n';
 import { fallbackLng } from '../../i18n/settings';
@@ -42,9 +42,7 @@ const NotFoundPage = async () => {
       />
       <main id="main">
         <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
-        {data?.notFoundPage?.data?.attributes?.body && (
-          <Markdown imageUrl={getImageBaseUrl()}>{data.notFoundPage.data.attributes.body}</Markdown>
-        )}
+        {data?.notFoundPage?.data?.attributes?.body && <Markdown>{data.notFoundPage.data.attributes.body}</Markdown>}
       </main>
     </div>
   );

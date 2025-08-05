@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, Markdown } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
-import { getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
+import { getStrapiGraphqlURL } from '@/util';
 import { fetchData } from '@/util/fetchData';
 import { GetNotFoundPageQuery } from '../../../../../gql/graphql';
 
@@ -40,9 +40,7 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
       <main id="main">
         <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
         {data?.notFoundPage?.data?.attributes?.body && (
-          <Markdown imageUrl={getImageBaseUrl()} locale={locale}>
-            {data.notFoundPage.data.attributes.body}
-          </Markdown>
+          <Markdown locale={locale}>{data.notFoundPage.data.attributes.body}</Markdown>
         )}
       </main>
     </div>

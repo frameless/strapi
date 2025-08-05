@@ -16,3 +16,4 @@ export * from './mappingProducts';
 export * from './openFormsValidation';
 export * from './siteSetting';
 export * from './getRedirectURL';
+export * from './getImageApiPath';

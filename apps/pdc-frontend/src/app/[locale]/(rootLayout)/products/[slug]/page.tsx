@@ -40,7 +40,7 @@ import {
   getFloLegalData,
   type GetFloLegalDataResult,
   getFloLegalURLs,
-  getImageBaseUrl,
+  getImageApiPath,
   getStrapiGraphqlURL,
 } from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
 
   const title = product?.attributes?.metaTags?.title;
   const description = product?.attributes?.metaTags?.description;
-  const openGraphImage = getImageBaseUrl(product?.attributes?.metaTags?.ogImage?.data?.attributes?.url);
+  const openGraphImageSrc = product?.attributes?.metaTags?.ogImage?.data?.attributes?.url;
 
   return {
     title,
@@ -102,7 +102,7 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
     openGraph: {
       title: `${title} | ${t('website-setting.website-name')}`,
       description,
-      images: openGraphImage,
+      images: openGraphImageSrc && getImageApiPath(openGraphImageSrc),
       locale,
       url: url?.href,
       siteName: t('website-setting.website-name') || 'Gemeente Utrecht',
@@ -175,7 +175,7 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
           case 'ComponentComponentsUtrechtRichText':
             return (
               component.content && (
-                <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale} key={index}>
+                <Markdown priceData={priceData} locale={locale} key={index}>
                   {component.content}
                 </Markdown>
               )
@@ -231,7 +231,7 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
                     label: faqItem?.label as string,
                     headingLevel: faqItem?.headingLevel || 2,
                     body: faqItem?.body && (
-                      <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                      <Markdown priceData={priceData} locale={locale}>
                         {faqItem.body}
                       </Markdown>
                     ),
@@ -249,7 +249,7 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
                     label: accordionItem?.label as string,
                     headingLevel: accordionItem?.headingLevel || 2,
                     body: accordionItem?.body && (
-                      <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                      <Markdown priceData={priceData} locale={locale}>
                         {accordionItem.body}
                       </Markdown>
                     ),
@@ -264,11 +264,11 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
               component.imageData?.data?.attributes?.height &&
               component?.imageData?.data?.attributes?.url
             ) {
-              const imageURL = getImageBaseUrl(component?.imageData?.data?.attributes?.url);
+              const imageSrc = component?.imageData?.data?.attributes?.url;
               return (
                 <Img
                   Image={Image}
-                  src={imageURL}
+                  src={getImageApiPath(imageSrc)}
                   width={component?.imageData?.data?.attributes?.width}
                   height={component?.imageData?.data?.attributes?.height}
                   alt={component?.imageData?.data?.attributes?.alternativeText || ''}
@@ -282,7 +282,7 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
             return (
               component.content && (
                 <SpotlightSection type={component.type as SpotlightSectionType}>
-                  <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                  <Markdown priceData={priceData} locale={locale}>
                     {component.content}
                   </Markdown>
                   {component?.logoButton &&
@@ -389,7 +389,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
           <RichText>
             <Heading level={1}>{product?.attributes?.title}</Heading>
             {product?.attributes?.content && (
-              <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+              <Markdown priceData={priceData} locale={locale}>
                 {product?.attributes?.content}
               </Markdown>
             )}

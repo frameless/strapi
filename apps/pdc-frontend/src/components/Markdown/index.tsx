@@ -5,6 +5,7 @@ import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import type { Options } from 'react-markdown';
+import { getImageApiPath } from '@/util';
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
 
@@ -28,10 +29,8 @@ export const Markdown = ({
   children,
   locale,
   priceData,
-  imageUrl,
 }: {
   children: string;
-  imageUrl?: string;
   priceData?: PriceTypes[];
   locale?: string;
 }) => {
@@ -59,12 +58,10 @@ export const Markdown = ({
       components={{
         img: ({ node }) => {
           const { src, alt, width, height, dataFigcaption } = node?.properties as ImageProperties;
-
-          const url = new URL(src, imageUrl);
-          return imageUrl ? (
+          return src ? (
             <Img
               Image={Image}
-              src={url.href}
+              src={getImageApiPath(src)}
               alt={alt || ''}
               width={Number(width)}
               height={Number(height)}
