@@ -135,7 +135,16 @@ const urlValidator = makeValidator((urlInput) => {
       protocols: ['http', 'https'],
       require_protocol: true,
       require_host: true,
-      host_whitelist: ['localhost', 'example'],
+      host_whitelist: [
+        'localhost',
+        'example.com',
+        'pdc_frontend',
+        'pdc_strapi',
+        'vth_frontend',
+        'vth_strapi',
+        'public.pandosearch.com',
+        'flolegal.com',
+      ],
     })
   ) {
     throw new Error(`Invalid URL: ${urlInput}`);
