@@ -35,6 +35,8 @@
     "start:pdc-sc": "npm run --workspace @frameless/pdc-sc start",
     "start:overige-objecten-api": "yarn workspace @frameless/overige-objecten-api start",
     "build": "npm run --workspaces build --if-present",
+    "postbuild": "yarn generate-env-docs",
+    "generate-env-docs": "node scripts/generate-env-docs.js && yarn lint-fix:md && yarn prettier",
     "build:frontend": "npm run build --workspace @frameless/${APP}",
     "build:strapi": "npm run build --workspace @frameless/${APP}",
     "build:both": "npm run build --workspace @frameless/${APP1} && npm run build --workspace @frameless/${APP2}",
