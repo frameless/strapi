@@ -1,116 +1,152 @@
+/* eslint-disable no-console */
+/* eslint-disable no-undef */
 const { exec } = require('child_process');
 const { prompt } = require('enquirer');
-let runningChildProcess = null;
+const fs = require('fs');
+const path = require('path');
 
-const handleExit = () => {
-  if (runningChildProcess) {
-    runningChildProcess.kill();
-  }
-  process.exit();
+// Available projects and their configurations
+const projects = {
+  'pdc-dashboard': { prefix: 'pdc' },
+  'vth-dashboard': { prefix: 'vth' },
 };
 
-process.on('SIGINT', handleExit);
-const projects = [
-  {
-    type: 'select',
-    name: 'dashboard',
-    message: 'Select Your Strapi Dashboard app name:',
-    choices: ['pdc-dashboard', 'vth-dashboard', 'kennisbank-dashboard'],
-  },
-  {
-    type: 'select',
-    name: 'frontend',
-    message: 'Select Your app name:',
-    choices: ['pdc-frontend', 'vth-frontend', 'kennisbank-frontend'],
-  },
-];
+// Utility: Run a command with streaming output
+function runCommand(command) {
+  const child = exec(command, { cwd: path.resolve(__dirname, '..'), shell: true });
+  child.stdout.pipe(process.stdout);
+  child.stderr.pipe(process.stderr);
 
-const getAppChoices = (appType) => {
-  switch (appType) {
-    case 'strapi':
-      return ['pdc-dashboard', 'vth-dashboard', 'kennisbank-dashboard'];
-    case 'frontend':
-      return ['pdc-frontend', 'vth-frontend', 'kennisbank-frontend'];
+  child.on('error', (err) => {
+    console.error(`❌ Failed to start process: ${err.message}`);
+  });
 
-    default:
-      return [];
+  child.on('exit', (code) => {
+    if (code === 0) {
+      console.log('✅ Command completed successfully');
+    } else {
+      console.error(`❌ Command failed with exit code ${code}`);
+    }
+  });
+}
+
+// Copy environment file to .env if present (optional)
+function copyEnvFile(envFile) {
+  const envFilePath = path.resolve(__dirname, '..', envFile);
+  const targetEnvPath = path.resolve(__dirname, '..', '.env');
+
+  if (!fs.existsSync(envFilePath)) {
+    console.warn(`⚠️ Optional environment file '${envFile}' not found — skipping copy.`);
+    return true; // return true so the caller continues
   }
+
+  fs.copyFileSync(envFilePath, targetEnvPath);
+  console.log(`📋 Copied ${envFile} to .env`);
+  return true;
+}
+
+// Docker workflow
+const runDocker = async () => {
+  const { project } = await prompt({
+    type: 'select',
+    name: 'project',
+    message: 'Select Project:',
+    choices: Object.keys(projects),
+  });
+
+  const { environment } = await prompt({
+    type: 'select',
+    name: 'environment',
+    message: 'Select Environment:',
+    choices: ['dev', 'prod'],
+  });
+
+  const { action } = await prompt({
+    type: 'select',
+    name: 'action',
+    message: 'Select Action:',
+    choices: ['up --build', 'up', 'down'],
+  });
+
+  const prefix = projects[project].prefix;
+  const composeFile = `docker-compose.${prefix}.${environment}.yml`;
+  const envFile = `.${prefix}.${environment}.env`;
+
+  // Validate docker-compose file
+  if (!fs.existsSync(path.resolve(__dirname, '..', composeFile))) {
+    console.error(`❌ Docker Compose file '${composeFile}' does not exist.`);
+    return;
+  }
+
+  // Copy env file to .env (same as deploy.sh)
+  if (!copyEnvFile(envFile)) return;
+
+  console.log(`🐳 Running: docker-compose -f ${composeFile} ${action}`);
+  runCommand(`docker-compose -f ${composeFile} ${action}`);
 };
 
-const runApp = async (appType, mode) => {
-  if (getAppChoices(appType).length === 0) throw new Error('Invalid appType provided.');
+// Workspace workflow
+const runWorkspace = async (mode) => {
+  const appChoices = [
+    ...Object.keys(projects),
+    ...Object.keys(projects).map((p) => p.replace('-dashboard', '-frontend')),
+    'both (dashboard + frontend)',
+  ];
+
   const { app } = await prompt({
     type: 'select',
     name: 'app',
-    message: `Enter the ${appType} app name:`,
-    choices: getAppChoices(appType),
+    message: 'Select App:',
+    choices: appChoices,
   });
-  const command = `APP=${app} yarn ${mode}:${appType}`;
 
-  const childProcess = exec(command);
-  childProcess.stdout.pipe(process.stdout); // Pipe standard output to terminal
-  childProcess.stderr.pipe(process.stderr); // Pipe standard error to terminal
+  if (app === 'both (dashboard + frontend)') {
+    const { project } = await prompt({
+      type: 'select',
+      name: 'project',
+      message: 'Select Project:',
+      choices: [...new Set(Object.values(projects).map((p) => p.prefix))],
+    });
+
+    console.log(`🚀 Starting both ${project}-dashboard and ${project}-frontend in ${mode} mode...`);
+    runCommand(
+      `concurrently "yarn workspace @frameless/${project}-dashboard ${mode}" "yarn workspace @frameless/${project}-frontend ${mode}"`,
+    );
+  } else {
+    console.log(`🚀 Starting ${app} in ${mode} mode...`);
+    runCommand(`yarn workspace @frameless/${app} ${mode}`);
+  }
 };
 
-const getTheCurrentOption = ({ dashboard, frontend, mode }) => {
-  const command = `APP1=${dashboard} APP2=${frontend} yarn ${mode}:both`;
-  const childProcess = exec(command);
-  childProcess.stdout.pipe(process.stdout);
-  childProcess.stderr.pipe(process.stderr);
-};
-
+// Entry point
 const runOption = async () => {
   try {
     const { option } = await prompt({
       type: 'select',
       name: 'option',
       message: 'Select an option:',
-      choices: ['Build', 'Dev', 'Start'],
+      choices: ['Build', 'Dev', 'Start', 'Docker'],
     });
 
-    const { appType } = await prompt([
-      {
-        type: 'select',
-        name: 'appType',
-        message: 'Select an app:',
-        choices: ['Frontend', 'Strapi', 'Both'],
-      },
-    ]);
-    const mode = option.toLowerCase();
     switch (option) {
-      case 'Build':
-        if (appType === 'Both') {
-          const { frontend, dashboard } = await prompt(projects);
-          getTheCurrentOption({ dashboard, frontend, mode });
-        } else {
-          runApp(appType.toLowerCase(), mode);
-        }
+      case 'Docker':
+        await runDocker();
         break;
-
+      case 'Build':
+        await runWorkspace('build');
+        break;
       case 'Dev':
-        if (appType === 'Both') {
-          const { frontend, dashboard } = await prompt(projects);
-          getTheCurrentOption({ dashboard, frontend, mode });
-        } else {
-          runApp(appType.toLowerCase(), mode);
-        }
+        await runWorkspace('dev');
         break;
       case 'Start':
-        if (appType === 'Both') {
-          const { frontend, dashboard } = await prompt(projects);
-          getTheCurrentOption({ dashboard, frontend, mode });
-        } else {
-          runApp(appType.toLowerCase(), mode);
-        }
+        await runWorkspace('start');
         break;
-
       default:
-        break;
+        console.log('Invalid option selected');
     }
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('An unexpected error occurred:', error);
-    handleExit();
+    process.exit(1);
   }
 };
 

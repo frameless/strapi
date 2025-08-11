@@ -4,7 +4,6 @@
       "name": "ADMIN_JWT_SECRET",
       "description": "Secret for signing JSON Web Tokens for the Strapi Dashboard",
       "required": true,
-      "type": "string",
       "valueType": "base64",
       "secret": true,
       "example": "pIUa5y9fIImYq2Nf92AUEw=="
@@ -13,7 +12,6 @@
       "name": "JWT_SECRET",
       "description": "Secret for signing JSON Web Tokens for the Strapi API",
       "required": true,
-      "type": "string",
       "valueType": "base64",
       "secret": true,
       "example": "pIUa5y9fIImYq2Nf92AUEw=="
@@ -21,61 +19,46 @@
     {
       "name": "OPEN_FORMS_SDK_URL",
       "description": "URL for the Open Forms SDK JavaScript file. See: https://open-forms.readthedocs.io/en/stable/developers/embedding.html",
-      "required": true,
-      "type": "string",
+      "required": false,
       "valueType": "url",
       "example": "http://localhost:8000/static/sdk/open-forms-sdk.js",
       "developmentDefault": "http://localhost:8000/static/sdk/open-forms-sdk.js"
     },
     {
-      "name": "PDC_STRAPI_API_TOKEN",
-      "description": "API token for the Strapi API. This is used to access the Strapi API from the frontend.",
-      "required": true,
-      "type": "string",
-      "valueType": "current-password",
-      "secret": true,
-      "example": "pIUa5y9fIImYq2Nf92AUEw==",
-      "developmentDefault": "pIUa5y9fIImYq2Nf92AUEw=="
-    },
-    {
       "name": "OVERIGE_OBJECTEN_API_PORT",
       "description": "Port number for the Overige Objecten API. This is used to access the Overige Objecten API from the frontend.",
-      "required": true,
-      "type": "number",
+      "required": false,
       "valueType": "port-number",
-      "example": "8000",
-      "developmentDefault": "8000"
+      "example": "4001",
+      "developmentDefault": "4001"
     },
     {
       "name": "OVERIGE_OBJECTEN_API_URL",
       "description": "URL for the Overige Objecten API. This is used to access the Overige Objecten API from the frontend.",
       "required": false,
-      "type": "string",
       "valueType": "url",
-      "example": "http://localhost:8000"
+      "example": "http://localhost:4001/api/v2",
+      "developmentDefault": "http://localhost:4001/api/v2"
     },
     {
       "name": "OVERIGE_OBJECTEN_API_CORS",
       "description": "CORS settings for the Overige Objecten API. This is used to access the Overige Objecten API from the frontend.",
       "required": false,
-      "type": "string",
       "valueType": "url",
       "example": "http://localhost:8000"
     },
     {
       "name": "STRAPI_ADMIN_EXTENSIONS_PORT",
       "description": "Port number for the Strapi Admin Extensions. This is used to access the Strapi Admin Extensions from the frontend.",
-      "required": true,
-      "type": "number",
+      "required": false,
       "valueType": "port-number",
-      "example": "8001",
-      "developmentDefault": "8001"
+      "example": "4002",
+      "developmentDefault": "4002"
     },
     {
       "name": "API_TOKEN_SALT",
       "description": "Salt for generating API tokens. See: https://docs.strapi.io/dev-docs/configurations/api-tokens",
       "required": true,
-      "type": "string",
       "valueType": "base64",
       "secret": true,
       "example": "IC4EEAGXng5SMrQ/PLIG7w=="
@@ -84,7 +67,6 @@
       "name": "APP_KEYS",
       "description": "Strapi Dashboard session keys for the Users & Permissions plugin and the Documentation plugin. See: https://docs.strapi.io/dev-docs/configurations/server",
       "required": true,
-      "type": "string",
       "valueType": "base64-csv",
       "secret": true,
       "example": "HgsaHdyAo9hfQ0Fg8fsKpA==,wXd+qAHOW4SRbR66Xe1iXg==,kmzb3IBcHBSeR1yx5J0zbQ==,9dz6sBd8YqFIUxw0zCwEsQ==",
@@ -94,7 +76,6 @@
       "name": "DATABASE_CLIENT",
       "description": "Type of database to use for Strapi. See: https://docs.strapi.io/dev-docs/configurations/database",
       "required": true,
-      "type": "string",
       "valueType": "hostname",
       "examples": ["postgres", "sqlite3", "better-sqlite3", "mysql", "mysql2"],
       "developmentDefault": "postgres"
@@ -103,33 +84,31 @@
       "name": "DATABASE_HOST",
       "description": "Database hostname. When using Docker, this must be the hostname in the internal network. In Docker Compose the default is the name of the service.",
       "required": true,
-      "type": "string",
       "valueType": "hostname",
-      "example": "localhost",
-      "developmentDefault": "localhost"
+      "example": "0.0.0.0",
+      "developmentDefault": "0.0.0.0"
     },
     {
       "name": "DATABASE_NAME",
       "description": "Database name where your SQL tables are at.",
       "required": true,
-      "type": "string",
+      "valueType": "string",
       "example": "my_database",
-      "developmentDefault": "strapi"
+      "developmentDefault": "postgres"
     },
     {
       "name": "DATABASE_PORT",
       "description": "Database port number or container name. When using Docker, this can be the container name instead of a port number.",
       "required": true,
-      "type": "string",
       "valueType": "string",
-      "example": "5432",
-      "developmentDefault": "5432"
+      "example": "pdc_strapi_db",
+      "developmentDefault": "pdc_strapi_db"
     },
     {
       "name": "DATABASE_SSL",
       "description": "Enable SSL to use an encrypted connection. Typically `false` during development, and `true` in production.",
       "required": true,
-      "type": "boolean",
+      "valueType": "string",
       "examples": ["true", "false"],
       "developmentDefault": "false"
     },
@@ -137,7 +116,7 @@
       "name": "DATABASE_USERNAME",
       "description": "Username for your database.",
       "required": true,
-      "type": "boolean",
+      "valueType": "string",
       "example": "postgres",
       "developmentDefault": "postgres"
     },
@@ -145,24 +124,21 @@
       "name": "DATABASE_PASSWORD",
       "description": "Password for your database user.",
       "required": true,
-      "type": "string",
-      "valueType": "new-password",
-      "secret": true
+      "valueType": "string",
+      "secret": true,
+      "developmentDefault": "root"
     },
     {
       "name": "FRONTEND_PUBLIC_URL",
-      "description": "URL where the preview of pages in the Strapi Dashboard are hosted. As default you can use the URL for the public website.",
+      "description": "URL where the preview of pages in the Strapi Dashboard are hosted. You can use the Docker container name as the URL, for example: http://pdc_frontend:3000.",
       "required": true,
-      "type": "string",
       "valueType": "url",
-      "example": "http://localhost:3000",
-      "developmentDefault": "http://localhost:3000"
+      "developmentDefault": "http://pdc_frontend:3000"
     },
     {
       "name": "HOST",
       "description": "Strapi Dashboard hostname where users will access Strapi. Use `0.0.0.0` to respond to any hostname.",
       "required": true,
-      "type": "string",
       "valueType": "hostname",
       "example": "0.0.0.0",
       "developmentDefault": "0.0.0.0"
@@ -171,31 +147,32 @@
       "name": "NODE_ENV",
       "description": "Enable production mode for Node.js. See: https://nodejs.org/en/learn/getting-started/nodejs-the-difference-between-development-and-production",
       "required": true,
-      "type": "string",
+      "valueType": "string",
       "examples": ["development", "production"],
-      "developmentDefault": "development"
+      "developmentDefault": "production"
     },
     {
       "name": "PGADMIN_DEFAULT_EMAIL",
       "description": "E-mail address for the initial administrator account. See: https://www.pgadmin.org/docs/pgadmin4/development/container_deployment.html",
       "required": true,
-      "type": "string",
-      "example": "admin@example.com",
-      "developmentDefault": "admin@example.com"
+      "valueType": "string",
+      "example": "admin@admin.com",
+      "developmentDefault": "admin@admin.com"
     },
     {
       "name": "PGADMIN_DEFAULT_PASSWORD",
       "description": "Password for the initial administrator account. See: https://www.pgadmin.org/docs/pgadmin4/development/container_deployment.html",
       "required": true,
       "secret": true,
-      "type": "string",
-      "valueType": "new-password",
-      "example": "admin"
+      "valueType": "string",
+      "developmentDefault": "root",
+      "example": "root"
     },
     {
       "name": "PORT",
       "description": "Strapi Dashboard port number.",
-      "type": "number",
+      "valueType": "number",
+      "required": true,
       "example": "1337",
       "developmentDefault": "1337"
     },
@@ -204,27 +181,28 @@
       "description": "Configure Strapi Dashboard and the website with the same secret, to be able to show unpublished content in preview mode.",
       "required": true,
       "secret": true,
-      "valueType": "new-password",
-      "example": "b7b0a9aa-0ea2-47d5-bb1b-f81a2f2cf25e"
+      "valueType": "base64",
+      "developmentDefault": "SGVsbG8sIHdvcmxkIQ=="
     },
     {
       "name": "STRAPI_PRIVATE_URL",
-      "description": "URL where Strapi is available on the internal network, for example to access the GraphQL API.",
+      "description": "URL where Strapi is available on the internal network, for example to access the GraphQL API. You can use the Docker container name, e.g. http://pdc_strapi:1337.",
       "required": true,
-      "example": "http://localhost:1337",
-      "developmentDefault": "http://localhost:1337"
+      "example": "http://pdc_strapi:1337",
+      "developmentDefault": "http://pdc_strapi:1337"
     },
     {
       "name": "STRAPI_PUBLIC_URL",
-      "description": "URL where Strapi is available to the public.",
+      "description": "URL where Strapi is available to the public. You can use the Docker container name, e.g. http://pdc_strapi:1337.",
       "required": true,
-      "example": "http://localhost:1337",
-      "developmentDefault": "http://localhost:1337"
+      "valueType": "url",
+      "example": "http://pdc_strapi:1337",
+      "developmentDefault": "http://pdc_strapi:1337"
     },
     {
       "name": "TRANSFER_TOKEN_SALT",
       "description": "Salt for generating Transfer tokens. If no transfer token salt is defined, transfer features will be disabled. See: https://docs.strapi.io/user-docs/settings/transfer-tokens",
-      "required": true,
+      "required": false,
       "secret": true,
       "valueType": "base64",
       "example": "HtHorFUigcXPMtDF/kAHcQ=="
@@ -232,33 +210,40 @@
     {
       "name": "CSP_CONNECT_SRC_URLS",
       "description": "Space-separated list of URLs to allow in `Content-Security-Policy` for `connect-src`",
-      "required": false
+      "required": false,
+      "example": "https://example.com https://api.example.com",
+      "valueType": "url"
     },
     {
       "name": "CSP_FONT_SRC_URLS",
       "description": "Space-separated list of URLs to allow in `Content-Security-Policy` for `font-src`",
       "required": false,
-      "example": "https://fonts.googleapis.com https://fonts.gstatic.com"
+      "example": "https://fonts.googleapis.com https://fonts.gstatic.com",
+      "valueType": "url"
     },
     {
       "name": "CSP_FORM_ACTION_URLS",
       "description": "Space-separated list of URLs to allow in `Content-Security-Policy` for `form-action`",
-      "required": false
+      "required": false,
+      "valueType": "url"
     },
     {
       "name": "CSP_FRAME_SRC_URLS",
       "description": "Space-separated list of URLs to allow in `Content-Security-Policy` for `frame-src`",
-      "required": false
+      "required": false,
+      "valueType": "url"
     },
     {
       "name": "CSP_IMG_SRC_URLS",
       "description": "Space-separated list of URLs to allow in `Content-Security-Policy` for `img-src`",
-      "required": false
+      "required": false,
+      "valueType": "url"
     },
     {
       "name": "CSP_SCRIPT_SRC_URLS",
       "description": "Space-separated list of URLs to allow in `Content-Security-Policy` for `script-src`",
       "required": false,
+      "valueType": "url",
       "example": "https://unpkg.com/@utrecht/ https://unpkg.com/@nl-design-system/"
     },
     {
@@ -266,17 +251,20 @@
       "description": "Space-separated list of URLs to allow in `Content-Security-Policy` for `style-src`",
       "required": false,
       "secret": false,
-      "example": "https://unpkg.com/@utrecht/ https://unpkg.com/@nl-design-system/"
+      "example": "https://unpkg.com/@utrecht/ https://unpkg.com/@nl-design-system/",
+      "valueType": "url"
     },
     {
       "name": "CSP_WORKER_SRC_URLS",
       "description": "Space-separated list of URLs to allow in `Content-Security-Policy` for `worker-src`",
-      "required": false
+      "required": false,
+      "valueType": "url"
     },
     {
       "name": "OGONE_PAYMENT_SERVICE_URL",
       "description": "URL of the Ogone payment form target. Typically you will use different values for acceptance and production.",
-      "required": false
+      "required": false,
+      "valueType": "url"
     },
     {
       "name": "MATOMO_HOST",
@@ -284,19 +272,22 @@
       "valueType": "url",
       "required": false,
       "example": "https://example.com",
-      "type": "string"
+      "developmentDefault": "https://example.com"
     },
     {
       "name": "MATOMO_SITE_ID",
       "description": "Website ID for the Matomo tracker API. See: https://matomo.org/faq/general/faq_19212/",
-      "required": false
+      "required": false,
+      "valueType": "string",
+      "example": "36D0C594-E017-485B-B032-C436",
+      "developmentDefault": "36D0C594-E017-485B-B032-C436EC876E5B"
     },
     {
       "name": "OPEN_FORMS_API_TOKEN",
       "description": "Open Forms API token, used to access access forms from the website and the Strapi Dashboard. See: https://open-forms.readthedocs.io/en/stable/configuration/general/cms_integration.html",
       "required": false,
       "secret": true,
-      "valueType": "current-password",
+      "valueType": "base64",
       "example": "pIUa5y9fIImYq2Nf92AUEw==",
       "developmentDefault": "pIUa5y9fIImYq2Nf92AUEw=="
     },
@@ -304,53 +295,77 @@
       "name": "OPEN_FORMS_API_URL",
       "description": "URL for the Open Forms v2 API. See: https://open-forms.readthedocs.io/en/stable/developers/embedding.html",
       "required": false,
-      "developmentDefault": "http://localhost:8000/api/v2/"
+      "developmentDefault": "http://localhost:8000/api/v2/",
+      "valueType": "url"
     },
     {
       "name": "OPEN_FORMS_CSS_URL",
       "description": "URL for the Open Forms SDK CSS file. See: https://open-forms.readthedocs.io/en/stable/developers/embedding.html",
       "required": false,
-      "developmentDefault": "http://localhost:8000/static/sdk/open-forms-sdk.css"
-    },
-    {
-      "name": "PANDOSEARCH_API_URL",
-      "description": "URL for the Open Forms SDK JavaScript file. See: https://open-forms.readthedocs.io/en/stable/developers/embedding.html",
-      "required": false,
-      "developmentDefault": "http://localhost:8000/static/sdk/open-forms-sdk.js"
+      "developmentDefault": "http://localhost:8000/static/sdk/open-forms-sdk.css",
+      "valueType": "url"
     },
     {
       "name": "STRAPI_ENV_LABEL",
       "description": "Text describing the environment, used to warn users of Strapi Dashboard when they are not working in production. Can not be localized.",
       "required": false,
-      "developmentDefault": "Development"
+      "developmentDefault": "Development",
+      "valueType": "string"
     },
     {
       "name": "PANDOSEARCH_API_URL",
       "description": "See: https://developer.pandosearch.com/api/",
       "required": false,
-      "example": "https://public.pandosearch.com/example.com/"
+      "valueType": "url",
+      "developmentDefault": "https://public.pandosearch.com/example.com/"
     },
     {
       "name": "SURVEY_RUN_URL",
       "example": "http://localhost:8000",
-      "type": "string",
       "valueType": "url",
-      "description": "",
-      "required": false
+      "description": "URL where the Survey Run is hosted. This is used to access the Survey Run from the frontend.",
+      "required": false,
+      "developmentDefault": "https://example.com"
     },
     {
       "name": "SURVEY_RUN_APIKEY",
-      "description": "",
+      "description": "API key for the Survey Run, used to access the Survey Run from the frontend.",
       "required": false,
-      "example": "",
-      "type": "string"
+      "example": "CE1E9957-EB87-4581-8EDC-0B35D67D548D",
+      "developmentDefault": "CE1E9957-EB87-4581-8EDC-0B35D67D548D",
+      "valueType": "string",
+      "secret": true
     },
     {
       "name": "SURVEY_RUN_GUID",
-      "description": "",
+      "description": "GUID for the Survey Run, used to identify the specific survey instance.",
       "required": false,
-      "example": "",
-      "type": "string"
+      "example": "E305616D-6548-4F84-9C34-59C20A8F0267",
+      "developmentDefault": "E305616D-6548-4F84-9C34-59C20A8F0267",
+      "valueType": "string"
+    },
+    {
+      "name": "FLO_LEGAL_API_TOKEN",
+      "description": "API token for the Flo Legal API, used to access legal documents and templates.",
+      "required": false,
+      "secret": true,
+      "example": "xxxxxxxx",
+      "developmentDefault": "xxxxxxxx",
+      "valueType": "string"
+    },
+    {
+      "name": "FLO_LEGAL_API_URL",
+      "description": "URL for the Flo Legal API, used to access legal documents and templates.",
+      "required": false,
+      "valueType": "url",
+      "example": "https://example.com/api"
+    },
+    {
+      "name": "FLO_LEGAL_CDN_URL",
+      "description": "URL for the Flo Legal CDN, used to access legal documents and templates.",
+      "required": false,
+      "valueType": "url",
+      "developmentDefault": "https://example.com"
     }
   ]
 }
