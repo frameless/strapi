@@ -53,56 +53,23 @@ To run the application as a Docker container on your Mac, follow these steps:
    - Once Docker Desktop is installed, launch it from your Applications folder.
 
 3. **Add Environments variables to the project**
+   If there are no existing environment variables, run:
 
-   Create two files in the project root: `.project-name.prod.env` and `.project-name.dev.env` (replace "project-name" with your specific project name, e.g., `.pdc.prod.env` and `.pdc.dev.env`). If these files don't exist already, copy the environment variables provided below into these files.
-   The project file will be copied to `.env` when starting said app.
-
-   ```shell
-      ADMIN_JWT_SECRET=someSecretKey==
-      API_TOKEN_SALT=someRandomLongString==
-      APP_KEYS=key1==,key2==,key3==,key4==
-      CSP_CONNECT_SRC_URLS=
-      CSP_FONT_SRC_URLS=
-      CSP_FORM_ACTION_URLS=
-      CSP_FRAME_SRC_URLS=
-      CSP_IMG_SRC_URLS=
-      CSP_SCRIPT_SRC_URLS=
-      CSP_STYLE_SRC_URLS=
-      CSP_WORKER_SRC_URLS=
-      DATABASE_CLIENT=postgres
-      DATABASE_HOST=0.0.0.0
-      DATABASE_NAME=postgres
-      DATABASE_PASSWORD=strapi
-      DATABASE_PORT=5432
-      DATABASE_SSL=false
-      DATABASE_USERNAME=postgres
-      FRONTEND_PUBLIC_URL=http://localhost:3000
-      FRONTEND_PUBLIC_URL=http://localhost:3000
-      HOST=0.0.0.0
-      JWT_SECRET=someOtherSecretKey==
-      MATOMO_HOST=
-      MATOMO_SITE_ID=
-      NODE_ENV=development
-      OGONE_PAYMENT_SERVICE_URL=
-      OPEN_FORMS_API_TOKEN=
-      OPEN_FORMS_API_TOKEN=
-      OPEN_FORMS_API_URL=http://localhost:8000/api/v2/
-      OPEN_FORMS_API_URL=http://localhost:8000/api/v2/
-      OPEN_FORMS_CSS_URL=http://localhost:8000/static/sdk/open-forms-sdk.css
-      OPEN_FORMS_SDK_URL=http://localhost:8000/static/sdk/open-forms-sdk.js
-      PANDOSEARCH_API_URL= # You can use the following API URL to test the functionality of the SearchBar component: https://public.pandosearch.com/developer.pandosearch.com/. Valid keys that can be used in the searchBar field include: search, server, highlighting, and help.
-      PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD=root
-      PORT=1337
-      PREVIEW_SECRET_TOKEN=someSecretToken== # gained from tribal knowledge
-      STRAPI_ENV_LABEL=
-      STRAPI_PRIVATE_URL=http://pdc_strapi:1337
-      STRAPI_PUBLIC_URL=http://pdc_strapi:1337
-      SURVEY_RUN_APIKEY=
-      SURVEY_RUN_GUID=
-      SURVEY_RUN_URL=
-      TRANSFER_TOKEN_SALT=anotherRandomLongString==
+   ```bash
+   yarn init:env
    ```
+
+   This command generates a .env file containing the necessary environment variables.
+   The generated values are suitable for the PDC project in Docker production environment.
+
+   - Running PDC in development mode
+     Update the generated .env file or create a .pdc.dev.env file with the same variables, modified for development.
+     For development, you need to adjust certain variables (for example, set NODE_ENV=development) to ensure the environment behaves correctly.
+   - Running the VTH project
+     Run the same yarn init:env command, then create a .vth.dev.env file with the same variables, modified for VTH development.
+
+     Environment variable definitions are based on the .envsrc.json file in the project root.
+     You can find detailed documentation for each variable in the [Environment Variables](./ENVIRONMENT_VARIABLES.md) file.
 
 4. Run the Docker Image:
 

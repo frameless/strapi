@@ -7,6 +7,7 @@ CHANGELOG.md
 tmp
 .angular
 .next
-
+ENVIRONMENT_VARIABLES.md
+./apps/strapi.frameless.io/docs/developers/ENVIRONMENT_VARIABLES.md
 # Ignore partials
 _*.md
