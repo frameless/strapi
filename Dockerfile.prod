@@ -3,7 +3,7 @@ FROM node:20.19-alpine3.22 AS build
 # These packages are needed for building native modules and ensuring compatibility.
 RUN set -eux; apk update && apk add --no-cache \
     git libc6-compat build-base gcc bash autoconf automake \
-    zlib-dev libpng-dev vips-dev shadow python3 make g++ && \
+    zlib-dev libpng-dev vips-dev shadow python3 python3-dev py3-pip && \
     # Create a symlink for python3 so node-gyp can locate Python as 'python'
     ln -sf "$(which python3)" /usr/bin/python && \
     echo "Python version: $(python --version)"
