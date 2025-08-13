@@ -204,7 +204,7 @@ describe('processData', () => {
       const outputHtml = result[0].bewijs;
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const sectionElement = dom.window.document.querySelector('section') as HTMLElement;
+      const sectionElement = dom.window.document.querySelector('section');
       expect(sectionElement).not.toBeNull();
       const h2Element = dom.window.document.querySelector('h2') as HTMLHeadingElement;
       expect(h2Element).not.toBeNull();
@@ -239,7 +239,7 @@ describe('processData', () => {
       const outputHtml = result[0].bewijs;
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const sectionElement = dom.window.document.querySelector('section') as HTMLElement;
+      const sectionElement = dom.window.document.querySelector('section');
       expect(sectionElement).not.toBeNull();
       const h2Element = dom.window.document.querySelector('h2') as HTMLHeadingElement;
       expect(h2Element).not.toBeNull();
@@ -312,14 +312,17 @@ describe('processData', () => {
     const result = processData({ data });
     const outputHtml = result[0].notice;
     const dom = new JSDOM(outputHtml);
-    const sectionElement = dom.window.document.querySelector('section') as HTMLElement;
-    expect(sectionElement).not.toBeNull();
-    const h3Element = dom.window.document.querySelector('h2') as HTMLHeadingElement;
-    expect(h3Element).not.toBeNull();
-    expect(h3Element.textContent).toBe('FAQ Title');
-    const pElement = dom.window.document.querySelector('p') as HTMLParagraphElement;
-    expect(pElement).not.toBeNull();
-    expect(pElement.textContent).toBe('FAQ Inhoud');
+    const detailsElement = dom.window.document.querySelector('details');
+    const summaryElement = detailsElement?.querySelector('summary');
+    const detailsContentElement = detailsElement?.querySelector('div');
+    const paragraphElement = detailsContentElement?.querySelector('p');
+    const heading = summaryElement?.querySelector('h2');
+
+    expect(heading?.textContent).toBe('FAQ Title');
+    expect(heading).not.toBeNull();
+    expect(paragraphElement).not.toBeNull();
+    expect(paragraphElement?.textContent).toBe('FAQ Inhoud');
+    expect(detailsElement).not.toBeNull();
   });
 
   describe('ComponentComponentsUtrechtLink', () => {
@@ -365,20 +368,18 @@ describe('processData', () => {
     });
   });
   describe('ComponentComponentsUtrechtAccordion', () => {
-    it('Should render the Accordion component as a <section> with an <h2> heading by default and display the body as rich text.', () => {
+    it('Should render the Accordion component as a <details> and display the body as rich text.', () => {
       const data = [
         {
           component: 'ComponentComponentsUtrechtAccordion',
           item: [
             {
               body: '<p>Uitklapmenu inhoud voorbeeld 1</p>',
-              headingLevel: 2,
               id: '3',
               label: 'Uitklapmenu kop voorbeeld 1',
             },
             {
               body: '<p>Uitklapmenu inhoud voorbeeld 2</p>',
-              headingLevel: 2,
               id: '4',
               label: 'Uitklapmenu kop voorbeeld 2',
             },
@@ -389,17 +390,20 @@ describe('processData', () => {
       const result = processData({ data });
       const outputHtml = result[0].vereisten;
       const dom = new JSDOM(outputHtml);
-      const sectionElements = dom.window.document.querySelectorAll('section') as NodeListOf<HTMLElement>;
-      expect(sectionElements).not.toBeNull();
-      expect(sectionElements.length).toBe(2);
-      const h2Element = dom.window.document.querySelector('h2') as HTMLHeadingElement;
-      expect(h2Element).not.toBeNull();
-      expect(h2Element.textContent).toBe('Uitklapmenu kop voorbeeld 1');
-      const pElement = dom.window.document.querySelector('p') as HTMLParagraphElement;
-      expect(pElement).not.toBeNull();
-      expect(pElement.textContent).toBe('Uitklapmenu inhoud voorbeeld 1');
+      const detailsElements = dom.window.document.querySelectorAll('details');
+      const summaryElement = detailsElements[0]?.querySelector('summary');
+      const detailsContentElement = detailsElements[0]?.querySelector('div');
+      const paragraphElement = detailsContentElement?.querySelector('p');
+
+      expect(paragraphElement).not.toBeNull();
+      expect(detailsElements.length).toBe(2);
+      expect(paragraphElement?.textContent).toBe('Uitklapmenu inhoud voorbeeld 1');
+      expect(summaryElement).not.toBeNull();
+      expect(summaryElement?.textContent).toBe('Uitklapmenu kop voorbeeld 1');
+      expect(detailsElements[0]).not.toBeNull();
+      expect(detailsElements[0]?.childElementCount).toBe(2);
     });
-    it('should render the Accordion component as a <section> with an <h3> heading when headingLevel is 3 and display the body as rich text.', () => {
+    it('should render the Accordion component as a <details> with an adjustable heading when headingLevel is provided and display the body as rich text.', () => {
       const data = [
         {
           component: 'ComponentComponentsUtrechtAccordion',
@@ -423,15 +427,18 @@ describe('processData', () => {
       const result = processData({ data });
       const outputHtml = result[0].vereisten;
       const dom = new JSDOM(outputHtml);
-      const sectionElements = dom.window.document.querySelectorAll('section') as NodeListOf<HTMLElement>;
-      expect(sectionElements).not.toBeNull();
-      expect(sectionElements.length).toBe(2);
-      const h3Element = dom.window.document.querySelector('h3') as HTMLHeadingElement;
-      expect(h3Element).not.toBeNull();
-      expect(h3Element.textContent).toBe('Uitklapmenu kop voorbeeld 1');
-      const pElement = dom.window.document.querySelector('p') as HTMLParagraphElement;
-      expect(pElement).not.toBeNull();
-      expect(pElement.textContent).toBe('Uitklapmenu inhoud voorbeeld 1');
+      const detailsElement = dom.window.document.querySelectorAll('details');
+      const summaryElement = detailsElement[0]?.querySelector('summary');
+      const headingElement = summaryElement?.querySelector('h3');
+      const detailsContentElement = detailsElement[0]?.querySelector('div');
+      const paragraphElement = detailsContentElement?.querySelector('p');
+
+      expect(paragraphElement).not.toBeNull();
+      expect(paragraphElement?.textContent).toBe('Uitklapmenu inhoud voorbeeld 1');
+      expect(headingElement).not.toBeNull();
+      expect(headingElement?.textContent).toBe('Uitklapmenu kop voorbeeld 1');
+      expect(detailsElement).not.toBeNull();
+      expect(detailsElement.length).toBe(2);
     });
   });
 });
