@@ -1,3 +1,4 @@
+import { getPathAndSearchParams } from '@frameless/utils';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
@@ -12,6 +13,9 @@ type FormPageProps = {
     locale: string;
     slug: [formId: string, formStep: string];
   };
+  searchParams: {
+    formType: string;
+  };
 };
 
 const FormPage = async ({
@@ -19,10 +23,17 @@ const FormPage = async ({
     locale,
     slug: [formId],
   },
+  searchParams,
 }: FormPageProps) => {
   const { t } = await useTranslation(locale, 'common');
   const nonce = headers().get('x-nonce') || '';
   const formInfo = await openFormValidator({ formId });
+
+  const { pathSegments: formPathSegments } = getPathAndSearchParams({
+    translations: t,
+    segments: [searchParams.formType, formId],
+    locale,
+  });
 
   return (
     <>
@@ -58,6 +69,7 @@ const FormPage = async ({
             sdkUrl={createOpenFormsSdkUrl()?.href || ''}
             cssUrl={createOpenFormsCssUrl()?.href || ''}
             nonce={nonce}
+            basePath={`/${formPathSegments}`}
             slug={formId}
             fallback={formInfo ? <Heading1>{formInfo.name}</Heading1> : null}
           />
