@@ -4,11 +4,22 @@ import kebabCase from 'lodash.kebabcase';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-interface IconProps {
+export interface LogoButtonItemType {
   logo?: string;
+  href?: string;
+  appearance?: string;
+  label?: string;
+  openFormsEmbed?: string | null;
+  textContent?: string | null;
 }
 
-export const Icon = ({ logo }: IconProps) => {
+export interface LogoButtonProps {
+  item: LogoButtonItemType;
+  headingLevel?: number;
+  withDesignSystem?: boolean;
+}
+
+export const Icon = ({ logo }: { logo?: string }) => {
   switch (logo) {
     case 'eidas':
       return <UtrechtEidasLogo />;
@@ -20,96 +31,75 @@ export const Icon = ({ logo }: IconProps) => {
       return null;
   }
 };
-export type LogoButtonItemType = {
-  logo?: string;
-  href?: string;
-  appearance?: string;
-  label?: string;
-  openFormsEmbed?: string | null;
-  textContent?: string | null;
+
+const parseOpenFormsEmbed = (
+  openFormsEmbed: string | null | undefined,
+): { href: string; textContent: string } | null => {
+  if (!openFormsEmbed) return null;
+
+  const params = new URLSearchParams(openFormsEmbed);
+  const slug = params.get('slug');
+  const label = params.get('label');
+
+  if (!slug || !process.env?.FRONTEND_PUBLIC_URL) return null;
+
+  return {
+    href: new URL(`/form/${slug}`, process.env.FRONTEND_PUBLIC_URL).href,
+    textContent: label || '',
+  };
 };
-export interface LogoButtonProps {
-  item: LogoButtonItemType;
-  headingLevel?: number;
-  withDesignSystem?: boolean;
-}
-export interface BasicLogoButtonProps {
-  item: LogoButtonItemType;
-  headingLevel?: number;
-}
-export const BasicLogoButton = ({ item, headingLevel }: BasicLogoButtonProps) => {
-  const HeadingComponent = `h${headingLevel || 3}` as keyof React.JSX.IntrinsicElements;
-  const mappingIcon = {
+
+export const BasicLogoButton = ({ item, headingLevel = 3 }: { item: LogoButtonItemType; headingLevel?: number }) => {
+  const HeadingTag = `h${headingLevel}` as keyof React.JSX.IntrinsicElements;
+  const iconLabelMap: Record<string, string | null> = {
     eidas: 'eIDAS',
     digid: 'DigiD',
     eherkenning: 'eHerkenning',
     without_logo: null,
   };
+
   return (
     <div>
-      {item?.label && <HeadingComponent>{item.label}</HeadingComponent>}
+      {item?.label && <HeadingTag>{item.label}</HeadingTag>}
       <div>
-        {item?.logo && <span>{mappingIcon[item?.logo as keyof typeof mappingIcon]}</span>}{' '}
+        {item?.logo && <span>{iconLabelMap[item.logo]}</span>}
         {item?.href && item?.textContent && <a href={item.href}>{item.textContent}</a>}
       </div>
     </div>
   );
 };
-export const LogoButton = ({ item, headingLevel, withDesignSystem = false }: LogoButtonProps) => {
-  const getOpenFormsEmbed = (openFormsEmbed: any) => {
-    if (!openFormsEmbed) return null;
-    const parsOpenFormsEmbedData = new URLSearchParams(openFormsEmbed);
-    const slug = parsOpenFormsEmbedData.get('slug');
-    const label = parsOpenFormsEmbedData.get('label');
-    const embed_url = parsOpenFormsEmbedData.get('embed_url');
-    return {
-      href: embed_url ? new URL(`/form/${slug}`, embed_url).href : '',
-      textContent: label,
-    };
-  };
-  const openFormsEmbed = getOpenFormsEmbed(item?.openFormsEmbed);
-  if (withDesignSystem) {
-    if (openFormsEmbed) {
-      return (
-        <div>
-          <Heading level={headingLevel || 3}>{item?.label}</Heading>
-          <div className="utrecht-logo-button">
-            <Icon logo={item?.logo} />
-            <ButtonLink href={openFormsEmbed.href} appearance={kebabCase(item?.appearance)}>
-              {item?.textContent || openFormsEmbed.textContent}
-            </ButtonLink>
-          </div>
-        </div>
-      );
-    }
 
+export const LogoButton = ({ item, headingLevel = 3, withDesignSystem = false }: LogoButtonProps) => {
+  const embedData = parseOpenFormsEmbed(item.openFormsEmbed);
+  const finalHref = embedData?.href || item.href || '';
+  const finalText = item?.textContent || embedData?.textContent || '';
+  const finalLabel = item?.label || embedData?.textContent || '';
+
+  if (withDesignSystem) {
     return (
       <div>
-        <Heading level={headingLevel || 3}>{item?.label}</Heading>
+        <Heading level={headingLevel}>{finalLabel}</Heading>
         <div className="utrecht-logo-button">
-          <Icon logo={item?.logo} />
-          <ButtonLink href={item?.href} appearance={kebabCase(item?.appearance)}>
-            {item?.textContent}
+          <Icon logo={item.logo} />
+          <ButtonLink href={finalHref} appearance={kebabCase(item.appearance)}>
+            {finalText}
           </ButtonLink>
         </div>
       </div>
     );
   }
-  if (openFormsEmbed) {
-    return (
-      <BasicLogoButton
-        item={{
-          ...item,
-          href: openFormsEmbed.href,
-          textContent: item?.textContent || openFormsEmbed.textContent,
-        }}
-        headingLevel={headingLevel}
-      />
-    );
-  }
-  return <BasicLogoButton item={item} headingLevel={headingLevel} />;
+
+  return (
+    <BasicLogoButton
+      item={{
+        ...item,
+        href: finalHref,
+        textContent: finalText,
+        label: finalLabel,
+      }}
+      headingLevel={headingLevel}
+    />
+  );
 };
 
-export const convertLogoButtonToHTML = (item: any) => {
-  return renderToString(<LogoButton item={item} />);
-};
+export const convertLogoButtonToHTML = (item: LogoButtonItemType) => renderToString(<LogoButton item={item} />);
