@@ -16,6 +16,12 @@
   margin-inline-end: 8px;
 }
 
+@media (width >= 360px) {
+  .utrecht-breadcrumb-nav__separator {
+    margin-inline-end: var(--utrecht-space-inline-xs);
+  }
+}
+
 .utrecht-breadcrumb-nav__link {
   --utrecht-link-focus-color: var(--utrecht-color-black);
 
