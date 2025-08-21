@@ -40,7 +40,7 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh vth_strapi:1337 -- yarn start:pdc-frontend
+    command: ./bin/wait-for-it.sh vth_strapi:1337 -- yarn start:vth-frontend
     environment:
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
