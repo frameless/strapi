@@ -68,8 +68,14 @@ To run the application as a Docker container on your Mac, follow these steps:
    - Running the VTH project
      Run the same yarn init:env command, then create a .vth.dev.env file with the same variables, modified for VTH development.
 
-     Environment variable definitions are based on the .envsrc.json file in the project root.
+     Environment variable definitions are based on the .envrc.json file in the project root.
      You can find detailed documentation for each variable in the [Environment Variables](./ENVIRONMENT_VARIABLES.md) file.
+
+     **Note:** When updating `.envrc.json`, run the following command to regenerate the documentation:
+
+     ```bash
+     yarn generate-env-docs
+     ```
 
 4. Run the Docker Image:
 
