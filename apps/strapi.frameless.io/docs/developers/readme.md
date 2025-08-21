@@ -238,6 +238,10 @@ TRANSFER_TOKEN_SALT=
 
 Choose the option that best fits your workflow to start the server without Docker. Once the server is running, you can access the application from your browser.
 
+## Strapi Updates
+
+For detailed information about updating Strapi (currently v4.25.8), including migration steps, testing strategy, and troubleshooting, see the [Strapi Update Strategy](./STRAPI_UPDATE_STRATEGY.md) guide.
+
 ## FAQ
 
 ### I Have Issues with Building the Project or Starting the Server
