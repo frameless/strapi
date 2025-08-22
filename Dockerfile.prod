@@ -32,7 +32,7 @@ RUN set -eux; yarn install --frozen-lockfile
 FROM build AS builder
 # Copy remaining files and build the application.
 COPY . /opt/app/
-RUN set -eux; yarn build
+RUN set -eux; NODE_OPTIONS="--max-old-space-size=4096" yarn build
 
 # --- Production stage: Prepare a lean image for runtime ---
 FROM node:20.19-alpine3.22 AS production
