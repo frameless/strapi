@@ -19,7 +19,7 @@ cd frameless-cms
 Before running the app, make sure you have the following prerequisites installed on your machine:
 
 - [Yarn Classic](https://classic.yarnpkg.com/lang/en/) version 1.22.19
-- [Node.js](https://nodejs.org/) version [20.10](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V20.md#20.10.0)
+- [Node.js](https://nodejs.org/) version [20.18.1](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V20.md#20.18.1)
 
 Follow these steps to prepare the app:
 
