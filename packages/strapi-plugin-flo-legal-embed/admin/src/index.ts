@@ -51,7 +51,7 @@ export default {
       },
     });
   },
-  async registerTrads({ locales }: any) {
+  async registerTrads({ locales }: { locales: string[] }) {
     const importedTrads = await Promise.all(
       locales.map((locale: any) => {
         return import(`./translations/${locale}.json`)

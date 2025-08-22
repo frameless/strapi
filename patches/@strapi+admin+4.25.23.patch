@@ -1,0 +1,813 @@
+diff --git a/node_modules/@strapi/admin/dist/_chunks/CustomHomePage.js b/node_modules/@strapi/admin/dist/_chunks/CustomHomePage.js
+new file mode 100644
+index 0000000..af57753
+--- /dev/null
++++ b/node_modules/@strapi/admin/dist/_chunks/CustomHomePage.js
+@@ -0,0 +1,149 @@
++"use strict";
++Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
++const jsxRuntime = require("react/jsx-runtime");
++const React = require("react");
++const designSystem = require("@strapi/design-system");
++const helperPlugin = require("@strapi/helper-plugin");
++const reactHelmet = require("react-helmet");
++const reactIntl = require("react-intl");
++const styled = require("styled-components");
++const useContentTypes = require("./useContentTypes-lP8pXI_b.js");
++const index = require("./index-hdB0LcQU.js");
++require("semver/functions/lt");
++require("semver/functions/valid");
++require("immer");
++require("lodash/set");
++require("react-dnd");
++require("react-dnd-html5-backend");
++require("lodash/get");
++require("lodash/cloneDeep");
++require("react-redux");
++require("react-dom/client");
++require("invariant");
++require("lodash/isFunction");
++require("lodash/merge");
++require("lodash/pick");
++require("@reduxjs/toolkit");
++require("@reduxjs/toolkit/query/react");
++require("axios");
++require("@radix-ui/react-context");
++require("formik");
++require("lodash/camelCase");
++require("yup");
++require("lodash/omit");
++require("qs");
++require("react-query");
++require("lodash/defaultsDeep");
++require("lodash/isEqual");
++require("lodash/throttle");
++require("lodash/isBoolean");
++require("lodash/isEmpty");
++require("lodash/isNaN");
++require("lodash/toNumber");
++require("react-window");
++require("lodash/upperFirst");
++require("prop-types");
++require("lodash/fp");
++require("lodash/take");
++require("slate");
++require("slate-history");
++require("slate-react");
++require("@radix-ui/react-toolbar");
++require("codemirror5");
++require("sanitize-html");
++require("highlight.js");
++require("markdown-it");
++require("markdown-it-abbr");
++require("markdown-it-container");
++require("markdown-it-deflist");
++require("markdown-it-emoji");
++require("markdown-it-footnote");
++require("markdown-it-ins");
++require("markdown-it-mark");
++require("markdown-it-sub");
++require("markdown-it-sup");
++require("highlight.js/styles/solarized-dark.css");
++require("codemirror5/addon/display/placeholder");
++require("lodash/toString");
++require("react-dom");
++require("fractional-indexing");
++require("lodash/uniqBy");
++require("lodash/unset");
++require("lodash/isArray");
++require("date-fns/parseISO");
++
++const _interopDefault = (e) => e && e.__esModule ? e : { default: e };
++const styled__default = /* @__PURE__ */ _interopDefault(styled);
++const cornerOrnamentPath = "data:image/svg+xml,%3csvg%20width='148'%20height='148'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20opacity='.8'%20fill-rule='evenodd'%20clip-rule='evenodd'%3e%3cpath%20opacity='.15'%20d='M110.81%2037H73.97V74.1h36.84V37Z'%20fill='url(%23a)'/%3e%3cpath%20opacity='.07'%20d='M36.84%200H0v37.08h36.84V0Z'%20fill='url(%23b)'/%3e%3cpath%20opacity='.07'%20d='M73.92%2073.95H37.08v37.08h36.84V73.95Z'%20fill='url(%23c)'/%3e%3cpath%20opacity='.07'%20d='M147.99%20110.92h-37.3V148H148v-37.08Z'%20fill='url(%23d)'/%3e%3cpath%20opacity='.15'%20d='M73.83%2037H36.84L73.83%200v37Z'%20fill='url(%23e)'/%3e%3cpath%20opacity='.15'%20d='M110.6%20111.02v-37h36.98l-36.99%2037Z'%20fill='url(%23f)'/%3e%3cpath%20opacity='.4'%20d='M73.83%200v37h36.98v37.01h37V3a3%203%200%200%200-3-3H73.82Z'%20fill='url(%23g)'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='a'%20x1='91.31'%20y1='83.31'%20x2='118.24'%20y2='56.59'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%237A92FF'/%3e%3cstop%20offset='1'%20stop-color='%233253EA'/%3e%3c/linearGradient%3e%3clinearGradient%20id='b'%20x1='40.99'%20y1='13.88'%20x2='.01'%20y2='11.64'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23A8B8FF'/%3e%3cstop%20offset='1'%20stop-color='%233253EA'/%3e%3c/linearGradient%3e%3clinearGradient%20id='c'%20x1='54.41'%20y1='120.25'%20x2='81.35'%20y2='93.52'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23A8B8FF'/%3e%3cstop%20offset='1'%20stop-color='%233253EA'/%3e%3c/linearGradient%3e%3clinearGradient%20id='d'%20x1='128.24'%20y1='157.22'%20x2='155.17'%20y2='130.17'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23A8B8FF'/%3e%3cstop%20offset='1'%20stop-color='%233253EA'/%3e%3c/linearGradient%3e%3clinearGradient%20id='e'%20x1='54.24'%20y1='46.21'%20x2='81.12'%20y2='19.38'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%237A92FF'/%3e%3cstop%20offset='1'%20stop-color='%233253EA'/%3e%3c/linearGradient%3e%3clinearGradient%20id='f'%20x1='126.28'%20y1='74.05'%20x2='124.94'%20y2='111.07'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%237A92FF'/%3e%3cstop%20offset='1'%20stop-color='%233253EA'/%3e%3c/linearGradient%3e%3clinearGradient%20id='g'%20x1='73.37'%20y1='36.87'%20x2='132.87'%20y2='66.74'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%237A92FF'/%3e%3cstop%20offset='1'%20stop-color='%233858EA'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e";
++const CustomHomePage = () => {
++    const { formatMessage } = reactIntl.useIntl();
++    const { isLoading: isLoadingForModels } = useContentTypes.useContentTypes();
++
++    if (isLoadingForModels) {
++        return /* @__PURE__ */ jsxRuntime.jsx(helperPlugin.LoadingIndicatorPage, {});
++    }
++    return /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Layout, {
++        children: [
++    /* @__PURE__ */ jsxRuntime.jsx(
++            reactHelmet.Helmet,
++            {
++                title: formatMessage({
++                    id: "HomePage.helmet.title",
++                    defaultMessage: "Homepage"
++                })
++            }
++        ),
++    /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Main, {
++            children: [
++      /* @__PURE__ */ jsxRuntime.jsx(LogoContainer, { children: /* @__PURE__ */ jsxRuntime.jsx("img", { alt: "", "aria-hidden": true, src: cornerOrnamentPath }) }),
++      /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Box, {
++                padding: 10, children: [
++        /* @__PURE__ */ jsxRuntime.jsx(designSystem.Grid, {
++                    children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.GridItem, {
++                        col: 10, s: 12, children: /* @__PURE__ */ jsxRuntime.jsx("div", {
++                            children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, {
++                                paddingLeft: 6, paddingBottom: 10, children: /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++                                    direction: "column", alignItems: "flex-start", gap: 6, children: [
++          /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, {
++                                        as: "h1", variant: "alpha", children: formatMessage({ id: "app.components.HomePage.welcome", defaultMessage: "Welcome to Strapi dashboard" })
++                                    }),
++                                    ]
++                                })
++                            })
++                        })
++                    })
++                }),
++                ]
++            })
++            ]
++        })
++        ]
++    });
++};
++
++const HomePageCE = CustomHomePage;
++const LogoContainer = styled__default.default(designSystem.Box)`
++  position: absolute;
++  top: 0;
++  right: 0;
++
++  img {
++    width: ${150 / 16}rem;
++  }
++`;
++
++const HomePage = () => {
++    const Page = index.useEnterprise(
++        HomePageCE,
++        // eslint-disable-next-line import/no-cycle
++        async () => (await Promise.resolve().then(() => require("./HomePage-Ze3G8iUH.js"))).HomePageEE
++    );
++    if (!Page) {
++        return null;
++    }
++    return /* @__PURE__ */ jsxRuntime.jsx(Page, {});
++};
++exports.HomePage = HomePage;
++exports.HomePageCE = HomePageCE;
++exports.CustomHomePage = CustomHomePage;
++//# sourceMappingURL=HomePage-FResDoxA.js.map
+diff --git a/node_modules/@strapi/admin/dist/_chunks/HomePage-FResDoxA.js b/node_modules/@strapi/admin/dist/_chunks/HomePage-FResDoxA.js
+index 40dfbf6..8de1803 100644
+--- a/node_modules/@strapi/admin/dist/_chunks/HomePage-FResDoxA.js
++++ b/node_modules/@strapi/admin/dist/_chunks/HomePage-FResDoxA.js
+@@ -13,6 +13,7 @@ const styled = require("styled-components");
+ const AuthenticatedApp = require("./AuthenticatedApp-BhDorlD8.js");
+ const useContentTypes = require("./useContentTypes-lP8pXI_b.js");
+ const index = require("./index-hdB0LcQU.js");
++const { HomePageCE: CustomHomePageCE } = require("./CustomHomePage.js")
+ require("semver/functions/lt");
+ require("semver/functions/valid");
+ require("immer");
+@@ -133,19 +134,27 @@ const GuidedTourHomepage = () => {
+       paddingBottom: 4,
+       background: "neutral0",
+       children: [
+-        /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, { direction: "column", alignItems: "stretch", gap: 6, children: [
+-          /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { variant: "beta", as: "h2", children: formatMessage({
++        /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++        direction: "column", alignItems: "stretch", gap: 6, children: [
++          /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, {
++          variant: "beta", as: "h2", children: formatMessage({
+             id: "app.components.GuidedTour.title",
+             defaultMessage: "3 steps to get started"
+-          }) }),
+-          /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, { children: sections.map((section, index2) => {
++          })
++        }),
++          /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, {
++          children: sections.map((section, index2) => {
+             const state = getState(activeSectionIndex, index2);
+-            return /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Box, { children: [
+-              /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, { children: [
++            return /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Box, {
++              children: [
++              /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++                children: [
+                 /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, { minWidth: helperPlugin.pxToRem(30), marginRight: 5, children: /* @__PURE__ */ jsxRuntime.jsx(AuthenticatedApp.Number, { state, children: index2 + 1 }) }),
+                 /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { variant: "delta", as: "h3", children: formatMessage(section.title) })
+-              ] }),
+-              /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, { alignItems: "flex-start", children: [
++                ]
++              }),
++              /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++                alignItems: "flex-start", children: [
+                 /* @__PURE__ */ jsxRuntime.jsx(
+                   designSystem.Flex,
+                   {
+@@ -158,10 +167,14 @@ const GuidedTourHomepage = () => {
+                   }
+                 ),
+                 /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, { marginTop: 2, children: state === AuthenticatedApp.STATES.IS_ACTIVE ? section.content : null })
+-              ] })
+-            ] }, section.key);
+-          }) })
+-        ] }),
++                ]
++              })
++              ]
++            }, section.key);
++          })
++        })
++        ]
++      }),
+         /* @__PURE__ */ jsxRuntime.jsx(designSystem.Flex, { justifyContent: "flex-end", children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.Button, { variant: "tertiary", onClick: handleSkip, children: formatMessage({ id: "app.components.GuidedTour.skip", defaultMessage: "Skip the tour" }) }) })
+       ]
+     }
+@@ -200,7 +213,8 @@ const HomePageCE = () => {
+   if (isLoadingForModels) {
+     return /* @__PURE__ */ jsxRuntime.jsx(helperPlugin.LoadingIndicatorPage, {});
+   }
+-  return /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Layout, { children: [
++  return /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Layout, {
++    children: [
+     /* @__PURE__ */ jsxRuntime.jsx(
+       reactHelmet.Helmet,
+       {
+@@ -210,39 +224,64 @@ const HomePageCE = () => {
+         })
+       }
+     ),
+-    /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Main, { children: [
++    /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Main, {
++      children: [
+       /* @__PURE__ */ jsxRuntime.jsx(LogoContainer, { children: /* @__PURE__ */ jsxRuntime.jsx("img", { alt: "", "aria-hidden": true, src: cornerOrnamentPath }) }),
+-      /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Box, { padding: 10, children: [
+-        /* @__PURE__ */ jsxRuntime.jsx(designSystem.Grid, { children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.GridItem, { col: 8, s: 12, children: /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, { paddingLeft: 6, paddingBottom: 10, children: /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, { direction: "column", alignItems: "flex-start", gap: 5, children: [
+-          /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { as: "h1", variant: "alpha", children: hasAlreadyCreatedContentTypes ? formatMessage({
+-            id: "app.components.HomePage.welcome.again",
+-            defaultMessage: "Welcome 👋"
+-          }) : formatMessage({
+-            id: "app.components.HomePage.welcome",
+-            defaultMessage: "Welcome on board!"
+-          }) }),
+-          /* @__PURE__ */ jsxRuntime.jsx(WordWrap, { textColor: "neutral600", variant: "epsilon", children: hasAlreadyCreatedContentTypes ? formatMessage({
+-            id: "app.components.HomePage.welcomeBlock.content.again",
+-            defaultMessage: "We hope you are making progress on your project! Feel free to read the latest news about Strapi. We are giving our best to improve the product based on your feedback."
+-          }) : formatMessage({
+-            id: "app.components.HomePage.welcomeBlock.content",
+-            defaultMessage: "Congrats! You are logged as the first administrator. To discover the powerful features provided by Strapi, we recommend you to create your first Content type!"
+-          }) }),
+-          hasAlreadyCreatedContentTypes ? /* @__PURE__ */ jsxRuntime.jsx(v2.Link, { isExternal: true, href: "https://strapi.io/blog", children: formatMessage({
+-            id: "app.components.HomePage.button.blog",
+-            defaultMessage: "See more on the blog"
+-          }) }) : /* @__PURE__ */ jsxRuntime.jsx(designSystem.Button, { size: "L", onClick: handleClick, endIcon: /* @__PURE__ */ jsxRuntime.jsx(Icons.ArrowRight, {}), children: formatMessage({
+-            id: "app.components.HomePage.create",
+-            defaultMessage: "Create your first Content type"
+-          }) })
+-        ] }) }) }) }) }),
+-        /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Grid, { gap: 6, children: [
++      /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Box, {
++        padding: 10, children: [
++        /* @__PURE__ */ jsxRuntime.jsx(designSystem.Grid, {
++          children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.GridItem, {
++            col: 8, s: 12, children: /* @__PURE__ */ jsxRuntime.jsx("div", {
++              children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, {
++                paddingLeft: 6, paddingBottom: 10, children: /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++                  direction: "column", alignItems: "flex-start", gap: 5, children: [
++          /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, {
++                    as: "h1", variant: "alpha", children: hasAlreadyCreatedContentTypes ? formatMessage({
++                      id: "app.components.HomePage.welcome.again",
++                      defaultMessage: "Welcome 👋"
++                    }) : formatMessage({
++                      id: "app.components.HomePage.welcome",
++                      defaultMessage: "Welcome on board!"
++                    })
++                  }),
++          /* @__PURE__ */ jsxRuntime.jsx(WordWrap, {
++                    textColor: "neutral600", variant: "epsilon", children: hasAlreadyCreatedContentTypes ? formatMessage({
++                      id: "app.components.HomePage.welcomeBlock.content.again",
++                      defaultMessage: "We hope you are making progress on your project! Feel free to read the latest news about Strapi. We are giving our best to improve the product based on your feedback."
++                    }) : formatMessage({
++                      id: "app.components.HomePage.welcomeBlock.content",
++                      defaultMessage: "Congrats! You are logged as the first administrator. To discover the powerful features provided by Strapi, we recommend you to create your first Content type!"
++                    })
++                  }),
++                    hasAlreadyCreatedContentTypes ? /* @__PURE__ */ jsxRuntime.jsx(v2.Link, {
++                      isExternal: true, href: "https://strapi.io/blog", children: formatMessage({
++                        id: "app.components.HomePage.button.blog",
++                        defaultMessage: "See more on the blog"
++                      })
++                    }) : /* @__PURE__ */ jsxRuntime.jsx(designSystem.Button, {
++                      size: "L", onClick: handleClick, endIcon: /* @__PURE__ */ jsxRuntime.jsx(Icons.ArrowRight, {}), children: formatMessage({
++                        id: "app.components.HomePage.create",
++                        defaultMessage: "Create your first Content type"
++                      })
++                    })
++                  ]
++                })
++              })
++            })
++          })
++        }),
++        /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Grid, {
++          gap: 6, children: [
+           /* @__PURE__ */ jsxRuntime.jsx(designSystem.GridItem, { col: 8, s: 12, children: showGuidedTour ? /* @__PURE__ */ jsxRuntime.jsx(GuidedTourHomepage, {}) : /* @__PURE__ */ jsxRuntime.jsx(ContentBlocks, {}) }),
+           /* @__PURE__ */ jsxRuntime.jsx(designSystem.GridItem, { col: 4, s: 12, children: /* @__PURE__ */ jsxRuntime.jsx(SocialLinks, {}) })
+-        ] })
+-      ] })
+-    ] })
+-  ] });
++          ]
++        })
++        ]
++      })
++      ]
++    })
++    ]
++  });
+ };
+ const LogoContainer = styled__default.default(designSystem.Box)`
+   position: absolute;
+@@ -259,7 +298,8 @@ const WordWrap = styled__default.default(designSystem.Typography)`
+ const ContentBlocks = () => {
+   const { formatMessage } = reactIntl.useIntl();
+   const { trackUsage } = helperPlugin.useTracking();
+-  return /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, { direction: "column", alignItems: "stretch", gap: 5, children: [
++  return /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++    direction: "column", alignItems: "stretch", gap: 5, children: [
+     /* @__PURE__ */ jsxRuntime.jsx(
+       BlockLink,
+       {
+@@ -279,7 +319,8 @@ const ContentBlocks = () => {
+             position: "relative",
+             gap: 6,
+             children: [
+-              /* @__PURE__ */ jsxRuntime.jsx(CloudCustomWrapper, { hasRadius: true, padding: 3, children: /* @__PURE__ */ jsxRuntime.jsx(
++              /* @__PURE__ */ jsxRuntime.jsx(CloudCustomWrapper, {
++              hasRadius: true, padding: 3, children: /* @__PURE__ */ jsxRuntime.jsx(
+                 CloudIconWrapper,
+                 {
+                   width: "2rem",
+@@ -287,28 +328,37 @@ const ContentBlocks = () => {
+                   justifyContent: "center",
+                   hasRadius: true,
+                   alignItems: "center",
+-                  children: /* @__PURE__ */ jsxRuntime.jsx("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "15", fill: "none", children: /* @__PURE__ */ jsxRuntime.jsx(
+-                    "path",
+-                    {
+-                      fill: "#fff",
+-                      fillRule: "evenodd",
+-                      d: "M4.39453 13.8298C1.93859 13.6455 0 11.468 0 8.80884 0 6.0289 2.11876 3.7753 4.73238 3.7753c.46775 0 .91964.07218 1.34638.20664C7.21234 1.62909 9.66469 0 12.5073 0c2.5102 0 4.7161 1.27036 5.9782 3.18766a4.54297 4.54297 0 0 1 .6132-.04144C21.8056 3.14622 24 5.54066 24 8.49436c0 2.89194-2.1036 5.24784-4.7323 5.34504v.0031l-1.8948.278a38.18054 38.18054 0 0 1-11.08354 0l-1.89483-.278v-.0127Z",
+-                      clipRule: "evenodd"
+-                    }
+-                  ) })
++                  children: /* @__PURE__ */ jsxRuntime.jsx("svg", {
++                    xmlns: "http://www.w3.org/2000/svg", width: "24", height: "15", fill: "none", children: /* @__PURE__ */ jsxRuntime.jsx(
++                      "path",
++                      {
++                        fill: "#fff",
++                        fillRule: "evenodd",
++                        d: "M4.39453 13.8298C1.93859 13.6455 0 11.468 0 8.80884 0 6.0289 2.11876 3.7753 4.73238 3.7753c.46775 0 .91964.07218 1.34638.20664C7.21234 1.62909 9.66469 0 12.5073 0c2.5102 0 4.7161 1.27036 5.9782 3.18766a4.54297 4.54297 0 0 1 .6132-.04144C21.8056 3.14622 24 5.54066 24 8.49436c0 2.89194-2.1036 5.24784-4.7323 5.34504v.0031l-1.8948.278a38.18054 38.18054 0 0 1-11.08354 0l-1.89483-.278v-.0127Z",
++                        clipRule: "evenodd"
++                      }
++                    )
++                  })
+                 }
+-              ) }),
+-              /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, { gap: 1, direction: "column", alignItems: "start", children: [
+-                /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { fontWeight: "semiBold", variant: "pi", children: formatMessage({
++              )
++            }),
++              /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++              gap: 1, direction: "column", alignItems: "start", children: [
++                /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, {
++                fontWeight: "semiBold", variant: "pi", children: formatMessage({
+                   id: "app.components.BlockLink.cloud",
+                   defaultMessage: "Strapi Cloud"
+-                }) }),
+-                /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { textColor: "neutral600", children: formatMessage({
++                })
++              }),
++                /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, {
++                textColor: "neutral600", children: formatMessage({
+                   id: "app.components.BlockLink.cloud.content",
+                   defaultMessage: "Fully-managed cloud hosting for your Strapi project."
+-                }) }),
++                })
++              }),
+                 /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, { src: cloudFlagsImage, position: "absolute", top: 0, right: 0, as: "img" })
+-              ] })
++              ]
++            })
+             ]
+           }
+         )
+@@ -410,7 +460,8 @@ const ContentBlocks = () => {
+         )
+       }
+     )
+-  ] });
++    ]
++  });
+ };
+ const BlockLink = styled__default.default.a`
+   text-decoration: none;
+@@ -450,25 +501,37 @@ const SocialLinks = () => {
+       shadow: "tableShadow",
+       gap: 7,
+       children: [
+-        /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, { direction: "column", alignItems: "stretch", gap: 5, children: [
+-          /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, { direction: "column", alignItems: "stretch", gap: 3, children: [
+-            /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { variant: "delta", as: "h2", id: "join-the-community", children: formatMessage({
++        /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++        direction: "column", alignItems: "stretch", gap: 5, children: [
++          /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Flex, {
++          direction: "column", alignItems: "stretch", gap: 3, children: [
++            /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, {
++            variant: "delta", as: "h2", id: "join-the-community", children: formatMessage({
+               id: "app.components.HomePage.community",
+               defaultMessage: "Join the community"
+-            }) }),
+-            /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { textColor: "neutral600", children: formatMessage({
++            })
++          }),
++            /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, {
++            textColor: "neutral600", children: formatMessage({
+               id: "app.components.HomePage.community.content",
+               defaultMessage: "Discuss with team members, contributors and developers on different channels"
+-            }) })
+-          ] }),
+-          /* @__PURE__ */ jsxRuntime.jsx(v2.Link, { href: "https://feedback.strapi.io/", isExternal: true, endIcon: /* @__PURE__ */ jsxRuntime.jsx(Icons.ExternalLink, {}), children: formatMessage({
++            })
++          })
++          ]
++        }),
++          /* @__PURE__ */ jsxRuntime.jsx(v2.Link, {
++          href: "https://feedback.strapi.io/", isExternal: true, endIcon: /* @__PURE__ */ jsxRuntime.jsx(Icons.ExternalLink, {}), children: formatMessage({
+             id: "app.components.HomePage.roadmap",
+             defaultMessage: "See our road map"
+-          }) })
+-        ] }),
+-        /* @__PURE__ */ jsxRuntime.jsx(GridGap, { children: socialLinksExtended.map(({ icon, link, name }) => {
++          })
++        })
++        ]
++      }),
++        /* @__PURE__ */ jsxRuntime.jsx(GridGap, {
++        children: socialLinksExtended.map(({ icon, link, name }) => {
+           return /* @__PURE__ */ jsxRuntime.jsx(designSystem.GridItem, { col: 6, s: 12, children: /* @__PURE__ */ jsxRuntime.jsx(LinkCustom, { size: "L", startIcon: icon, variant: "tertiary", href: link, isExternal: true, children: formatMessage(name) }) }, name.id);
+-        }) })
++        })
++      })
+       ]
+     }
+   );
+@@ -586,7 +649,7 @@ const SOCIAL_LINKS = [
+ ];
+ const HomePage = () => {
+   const Page = index.useEnterprise(
+-    HomePageCE,
++    CustomHomePageCE,
+     // eslint-disable-next-line import/no-cycle
+     async () => (await Promise.resolve().then(() => require("./HomePage-Ze3G8iUH.js"))).HomePageEE
+   );
+@@ -596,5 +659,5 @@ const HomePage = () => {
+   return /* @__PURE__ */ jsxRuntime.jsx(Page, {});
+ };
+ exports.HomePage = HomePage;
+-exports.HomePageCE = HomePageCE;
++exports.HomePageCE = CustomHomePageCE;
+ //# sourceMappingURL=HomePage-FResDoxA.js.map
+diff --git a/node_modules/@strapi/admin/dist/_chunks/HomePage-Ze3G8iUH.js b/node_modules/@strapi/admin/dist/_chunks/HomePage-Ze3G8iUH.js
+index f3e78d9..d2cd195 100644
+--- a/node_modules/@strapi/admin/dist/_chunks/HomePage-Ze3G8iUH.js
++++ b/node_modules/@strapi/admin/dist/_chunks/HomePage-Ze3G8iUH.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+ const jsxRuntime = require("react/jsx-runtime");
+-const HomePage = require("./HomePage-FResDoxA.js");
++const HomePage = require("./CustomHomePage.js");
+ const useLicenseLimitNotification = require("./useLicenseLimitNotification-BF8lNWgZ.js");
+ require("react");
+ require("@strapi/design-system");
+diff --git a/node_modules/@strapi/admin/dist/_chunks/HomePage-eu--l8xF.mjs b/node_modules/@strapi/admin/dist/_chunks/HomePage-eu--l8xF.mjs
+index ecfd806..2a3ebcb 100644
+--- a/node_modules/@strapi/admin/dist/_chunks/HomePage-eu--l8xF.mjs
++++ b/node_modules/@strapi/admin/dist/_chunks/HomePage-eu--l8xF.mjs
+@@ -11,6 +11,7 @@ import styled from "styled-components";
+ import { L as LAYOUT_DATA, N as Number, V as VerticalDivider, S as STATES } from "./AuthenticatedApp-Bfl9hK_h.mjs";
+ import { u as useContentTypes } from "./useContentTypes-3V7R5Vlq.mjs";
+ import { p as useEnterprise } from "./index-5hP8C9h_.mjs";
++import { HomePageCE as CustomHomePageCE } from './CustomHomePage.js';
+ import "semver/functions/lt";
+ import "semver/functions/valid";
+ import "immer";
+@@ -110,19 +111,27 @@ const GuidedTourHomepage = () => {
+       paddingBottom: 4,
+       background: "neutral0",
+       children: [
+-        /* @__PURE__ */ jsxs(Flex, { direction: "column", alignItems: "stretch", gap: 6, children: [
+-          /* @__PURE__ */ jsx(Typography, { variant: "beta", as: "h2", children: formatMessage({
++        /* @__PURE__ */ jsxs(Flex, {
++        direction: "column", alignItems: "stretch", gap: 6, children: [
++          /* @__PURE__ */ jsx(Typography, {
++          variant: "beta", as: "h2", children: formatMessage({
+             id: "app.components.GuidedTour.title",
+             defaultMessage: "3 steps to get started"
+-          }) }),
+-          /* @__PURE__ */ jsx(Box, { children: sections.map((section, index) => {
++          })
++        }),
++          /* @__PURE__ */ jsx(Box, {
++          children: sections.map((section, index) => {
+             const state = getState(activeSectionIndex, index);
+-            return /* @__PURE__ */ jsxs(Box, { children: [
+-              /* @__PURE__ */ jsxs(Flex, { children: [
++            return /* @__PURE__ */ jsxs(Box, {
++              children: [
++              /* @__PURE__ */ jsxs(Flex, {
++                children: [
+                 /* @__PURE__ */ jsx(Box, { minWidth: pxToRem(30), marginRight: 5, children: /* @__PURE__ */ jsx(Number, { state, children: index + 1 }) }),
+                 /* @__PURE__ */ jsx(Typography, { variant: "delta", as: "h3", children: formatMessage(section.title) })
+-              ] }),
+-              /* @__PURE__ */ jsxs(Flex, { alignItems: "flex-start", children: [
++                ]
++              }),
++              /* @__PURE__ */ jsxs(Flex, {
++                alignItems: "flex-start", children: [
+                 /* @__PURE__ */ jsx(
+                   Flex,
+                   {
+@@ -135,10 +144,14 @@ const GuidedTourHomepage = () => {
+                   }
+                 ),
+                 /* @__PURE__ */ jsx(Box, { marginTop: 2, children: state === STATES.IS_ACTIVE ? section.content : null })
+-              ] })
+-            ] }, section.key);
+-          }) })
+-        ] }),
++                ]
++              })
++              ]
++            }, section.key);
++          })
++        })
++        ]
++      }),
+         /* @__PURE__ */ jsx(Flex, { justifyContent: "flex-end", children: /* @__PURE__ */ jsx(Button, { variant: "tertiary", onClick: handleSkip, children: formatMessage({ id: "app.components.GuidedTour.skip", defaultMessage: "Skip the tour" }) }) })
+       ]
+     }
+@@ -177,7 +190,8 @@ const HomePageCE = () => {
+   if (isLoadingForModels) {
+     return /* @__PURE__ */ jsx(LoadingIndicatorPage, {});
+   }
+-  return /* @__PURE__ */ jsxs(Layout, { children: [
++  return /* @__PURE__ */ jsxs(Layout, {
++    children: [
+     /* @__PURE__ */ jsx(
+       Helmet,
+       {
+@@ -187,39 +201,64 @@ const HomePageCE = () => {
+         })
+       }
+     ),
+-    /* @__PURE__ */ jsxs(Main, { children: [
++    /* @__PURE__ */ jsxs(Main, {
++      children: [
+       /* @__PURE__ */ jsx(LogoContainer, { children: /* @__PURE__ */ jsx("img", { alt: "", "aria-hidden": true, src: cornerOrnamentPath }) }),
+-      /* @__PURE__ */ jsxs(Box, { padding: 10, children: [
+-        /* @__PURE__ */ jsx(Grid, { children: /* @__PURE__ */ jsx(GridItem, { col: 8, s: 12, children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Box, { paddingLeft: 6, paddingBottom: 10, children: /* @__PURE__ */ jsxs(Flex, { direction: "column", alignItems: "flex-start", gap: 5, children: [
+-          /* @__PURE__ */ jsx(Typography, { as: "h1", variant: "alpha", children: hasAlreadyCreatedContentTypes ? formatMessage({
+-            id: "app.components.HomePage.welcome.again",
+-            defaultMessage: "Welcome 👋"
+-          }) : formatMessage({
+-            id: "app.components.HomePage.welcome",
+-            defaultMessage: "Welcome on board!"
+-          }) }),
+-          /* @__PURE__ */ jsx(WordWrap, { textColor: "neutral600", variant: "epsilon", children: hasAlreadyCreatedContentTypes ? formatMessage({
+-            id: "app.components.HomePage.welcomeBlock.content.again",
+-            defaultMessage: "We hope you are making progress on your project! Feel free to read the latest news about Strapi. We are giving our best to improve the product based on your feedback."
+-          }) : formatMessage({
+-            id: "app.components.HomePage.welcomeBlock.content",
+-            defaultMessage: "Congrats! You are logged as the first administrator. To discover the powerful features provided by Strapi, we recommend you to create your first Content type!"
+-          }) }),
+-          hasAlreadyCreatedContentTypes ? /* @__PURE__ */ jsx(Link, { isExternal: true, href: "https://strapi.io/blog", children: formatMessage({
+-            id: "app.components.HomePage.button.blog",
+-            defaultMessage: "See more on the blog"
+-          }) }) : /* @__PURE__ */ jsx(Button, { size: "L", onClick: handleClick, endIcon: /* @__PURE__ */ jsx(ArrowRight, {}), children: formatMessage({
+-            id: "app.components.HomePage.create",
+-            defaultMessage: "Create your first Content type"
+-          }) })
+-        ] }) }) }) }) }),
+-        /* @__PURE__ */ jsxs(Grid, { gap: 6, children: [
++      /* @__PURE__ */ jsxs(Box, {
++        padding: 10, children: [
++        /* @__PURE__ */ jsx(Grid, {
++          children: /* @__PURE__ */ jsx(GridItem, {
++            col: 8, s: 12, children: /* @__PURE__ */ jsx("div", {
++              children: /* @__PURE__ */ jsx(Box, {
++                paddingLeft: 6, paddingBottom: 10, children: /* @__PURE__ */ jsxs(Flex, {
++                  direction: "column", alignItems: "flex-start", gap: 5, children: [
++          /* @__PURE__ */ jsx(Typography, {
++                    as: "h1", variant: "alpha", children: hasAlreadyCreatedContentTypes ? formatMessage({
++                      id: "app.components.HomePage.welcome.again",
++                      defaultMessage: "Welcome 👋"
++                    }) : formatMessage({
++                      id: "app.components.HomePage.welcome",
++                      defaultMessage: "Welcome on board!"
++                    })
++                  }),
++          /* @__PURE__ */ jsx(WordWrap, {
++                    textColor: "neutral600", variant: "epsilon", children: hasAlreadyCreatedContentTypes ? formatMessage({
++                      id: "app.components.HomePage.welcomeBlock.content.again",
++                      defaultMessage: "We hope you are making progress on your project! Feel free to read the latest news about Strapi. We are giving our best to improve the product based on your feedback."
++                    }) : formatMessage({
++                      id: "app.components.HomePage.welcomeBlock.content",
++                      defaultMessage: "Congrats! You are logged as the first administrator. To discover the powerful features provided by Strapi, we recommend you to create your first Content type!"
++                    })
++                  }),
++                    hasAlreadyCreatedContentTypes ? /* @__PURE__ */ jsx(Link, {
++                      isExternal: true, href: "https://strapi.io/blog", children: formatMessage({
++                        id: "app.components.HomePage.button.blog",
++                        defaultMessage: "See more on the blog"
++                      })
++                    }) : /* @__PURE__ */ jsx(Button, {
++                      size: "L", onClick: handleClick, endIcon: /* @__PURE__ */ jsx(ArrowRight, {}), children: formatMessage({
++                        id: "app.components.HomePage.create",
++                        defaultMessage: "Create your first Content type"
++                      })
++                    })
++                  ]
++                })
++              })
++            })
++          })
++        }),
++        /* @__PURE__ */ jsxs(Grid, {
++          gap: 6, children: [
+           /* @__PURE__ */ jsx(GridItem, { col: 8, s: 12, children: showGuidedTour ? /* @__PURE__ */ jsx(GuidedTourHomepage, {}) : /* @__PURE__ */ jsx(ContentBlocks, {}) }),
+           /* @__PURE__ */ jsx(GridItem, { col: 4, s: 12, children: /* @__PURE__ */ jsx(SocialLinks, {}) })
+-        ] })
+-      ] })
+-    ] })
+-  ] });
++          ]
++        })
++        ]
++      })
++      ]
++    })
++    ]
++  });
+ };
+ const LogoContainer = styled(Box)`
+   position: absolute;
+@@ -236,7 +275,8 @@ const WordWrap = styled(Typography)`
+ const ContentBlocks = () => {
+   const { formatMessage } = useIntl();
+   const { trackUsage } = useTracking();
+-  return /* @__PURE__ */ jsxs(Flex, { direction: "column", alignItems: "stretch", gap: 5, children: [
++  return /* @__PURE__ */ jsxs(Flex, {
++    direction: "column", alignItems: "stretch", gap: 5, children: [
+     /* @__PURE__ */ jsx(
+       BlockLink,
+       {
+@@ -256,7 +296,8 @@ const ContentBlocks = () => {
+             position: "relative",
+             gap: 6,
+             children: [
+-              /* @__PURE__ */ jsx(CloudCustomWrapper, { hasRadius: true, padding: 3, children: /* @__PURE__ */ jsx(
++              /* @__PURE__ */ jsx(CloudCustomWrapper, {
++              hasRadius: true, padding: 3, children: /* @__PURE__ */ jsx(
+                 CloudIconWrapper,
+                 {
+                   width: "2rem",
+@@ -264,28 +305,37 @@ const ContentBlocks = () => {
+                   justifyContent: "center",
+                   hasRadius: true,
+                   alignItems: "center",
+-                  children: /* @__PURE__ */ jsx("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "15", fill: "none", children: /* @__PURE__ */ jsx(
+-                    "path",
+-                    {
+-                      fill: "#fff",
+-                      fillRule: "evenodd",
+-                      d: "M4.39453 13.8298C1.93859 13.6455 0 11.468 0 8.80884 0 6.0289 2.11876 3.7753 4.73238 3.7753c.46775 0 .91964.07218 1.34638.20664C7.21234 1.62909 9.66469 0 12.5073 0c2.5102 0 4.7161 1.27036 5.9782 3.18766a4.54297 4.54297 0 0 1 .6132-.04144C21.8056 3.14622 24 5.54066 24 8.49436c0 2.89194-2.1036 5.24784-4.7323 5.34504v.0031l-1.8948.278a38.18054 38.18054 0 0 1-11.08354 0l-1.89483-.278v-.0127Z",
+-                      clipRule: "evenodd"
+-                    }
+-                  ) })
++                  children: /* @__PURE__ */ jsx("svg", {
++                    xmlns: "http://www.w3.org/2000/svg", width: "24", height: "15", fill: "none", children: /* @__PURE__ */ jsx(
++                      "path",
++                      {
++                        fill: "#fff",
++                        fillRule: "evenodd",
++                        d: "M4.39453 13.8298C1.93859 13.6455 0 11.468 0 8.80884 0 6.0289 2.11876 3.7753 4.73238 3.7753c.46775 0 .91964.07218 1.34638.20664C7.21234 1.62909 9.66469 0 12.5073 0c2.5102 0 4.7161 1.27036 5.9782 3.18766a4.54297 4.54297 0 0 1 .6132-.04144C21.8056 3.14622 24 5.54066 24 8.49436c0 2.89194-2.1036 5.24784-4.7323 5.34504v.0031l-1.8948.278a38.18054 38.18054 0 0 1-11.08354 0l-1.89483-.278v-.0127Z",
++                        clipRule: "evenodd"
++                      }
++                    )
++                  })
+                 }
+-              ) }),
+-              /* @__PURE__ */ jsxs(Flex, { gap: 1, direction: "column", alignItems: "start", children: [
+-                /* @__PURE__ */ jsx(Typography, { fontWeight: "semiBold", variant: "pi", children: formatMessage({
++              )
++            }),
++              /* @__PURE__ */ jsxs(Flex, {
++              gap: 1, direction: "column", alignItems: "start", children: [
++                /* @__PURE__ */ jsx(Typography, {
++                fontWeight: "semiBold", variant: "pi", children: formatMessage({
+                   id: "app.components.BlockLink.cloud",
+                   defaultMessage: "Strapi Cloud"
+-                }) }),
+-                /* @__PURE__ */ jsx(Typography, { textColor: "neutral600", children: formatMessage({
++                })
++              }),
++                /* @__PURE__ */ jsx(Typography, {
++                textColor: "neutral600", children: formatMessage({
+                   id: "app.components.BlockLink.cloud.content",
+                   defaultMessage: "Fully-managed cloud hosting for your Strapi project."
+-                }) }),
++                })
++              }),
+                 /* @__PURE__ */ jsx(Box, { src: cloudFlagsImage, position: "absolute", top: 0, right: 0, as: "img" })
+-              ] })
++              ]
++            })
+             ]
+           }
+         )
+@@ -387,7 +437,8 @@ const ContentBlocks = () => {
+         )
+       }
+     )
+-  ] });
++    ]
++  });
+ };
+ const BlockLink = styled.a`
+   text-decoration: none;
+@@ -427,25 +478,37 @@ const SocialLinks = () => {
+       shadow: "tableShadow",
+       gap: 7,
+       children: [
+-        /* @__PURE__ */ jsxs(Flex, { direction: "column", alignItems: "stretch", gap: 5, children: [
+-          /* @__PURE__ */ jsxs(Flex, { direction: "column", alignItems: "stretch", gap: 3, children: [
+-            /* @__PURE__ */ jsx(Typography, { variant: "delta", as: "h2", id: "join-the-community", children: formatMessage({
++        /* @__PURE__ */ jsxs(Flex, {
++        direction: "column", alignItems: "stretch", gap: 5, children: [
++          /* @__PURE__ */ jsxs(Flex, {
++          direction: "column", alignItems: "stretch", gap: 3, children: [
++            /* @__PURE__ */ jsx(Typography, {
++            variant: "delta", as: "h2", id: "join-the-community", children: formatMessage({
+               id: "app.components.HomePage.community",
+               defaultMessage: "Join the community"
+-            }) }),
+-            /* @__PURE__ */ jsx(Typography, { textColor: "neutral600", children: formatMessage({
++            })
++          }),
++            /* @__PURE__ */ jsx(Typography, {
++            textColor: "neutral600", children: formatMessage({
+               id: "app.components.HomePage.community.content",
+               defaultMessage: "Discuss with team members, contributors and developers on different channels"
+-            }) })
+-          ] }),
+-          /* @__PURE__ */ jsx(Link, { href: "https://feedback.strapi.io/", isExternal: true, endIcon: /* @__PURE__ */ jsx(ExternalLink, {}), children: formatMessage({
++            })
++          })
++          ]
++        }),
++          /* @__PURE__ */ jsx(Link, {
++          href: "https://feedback.strapi.io/", isExternal: true, endIcon: /* @__PURE__ */ jsx(ExternalLink, {}), children: formatMessage({
+             id: "app.components.HomePage.roadmap",
+             defaultMessage: "See our road map"
+-          }) })
+-        ] }),
+-        /* @__PURE__ */ jsx(GridGap, { children: socialLinksExtended.map(({ icon, link, name }) => {
++          })
++        })
++        ]
++      }),
++        /* @__PURE__ */ jsx(GridGap, {
++        children: socialLinksExtended.map(({ icon, link, name }) => {
+           return /* @__PURE__ */ jsx(GridItem, { col: 6, s: 12, children: /* @__PURE__ */ jsx(LinkCustom, { size: "L", startIcon: icon, variant: "tertiary", href: link, isExternal: true, children: formatMessage(name) }) }, name.id);
+-        }) })
++        })
++      })
+       ]
+     }
+   );
+@@ -563,7 +626,7 @@ const SOCIAL_LINKS = [
+ ];
+ const HomePage = () => {
+   const Page = useEnterprise(
+-    HomePageCE,
++    CustomHomePageCE,
+     // eslint-disable-next-line import/no-cycle
+     async () => (await import("./HomePage-ednXn0_w.mjs")).HomePageEE
+   );
+@@ -574,6 +637,6 @@ const HomePage = () => {
+ };
+ export {
+   HomePage,
+-  HomePageCE
++  CustomHomePageCE as HomePageCE
+ };
+ //# sourceMappingURL=HomePage-eu--l8xF.mjs.map
