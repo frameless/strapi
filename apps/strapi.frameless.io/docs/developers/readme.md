@@ -98,7 +98,6 @@ To run the application as a Docker container on your Mac, follow these steps:
 
    - `pdc-dashboard`
    - `vth-dashboard`
-   - `kennisbank-dashboard`
 
    Visit [http://localhost:1337/admin](http://localhost:1337/admin) to set up an admin account. Afterward, configure the right permissions for unauthenticated users and field labels in Settings > CONFIG SYNC > Interface. Click the Import Button.
 
