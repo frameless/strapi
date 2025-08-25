@@ -29,8 +29,6 @@
     "start:pdc-frontend": "npm run --workspace @frameless/pdc-frontend start",
     "start:vth-frontend": "npm run --workspace @frameless/vth-frontend start",
     "start:pdc-dashboard": "npm run --workspace @frameless/pdc-dashboard start",
-    "start:kennisbank-frontend": "npm run --workspace @frameless/kennisbank-frontend start",
-    "start:kennisbank-dashboard": "npm run --workspace @frameless/kennisbank-dashboard start",
     "strapi-admin-extensions": "npm run --workspace @frameless/strapi-admin-extensions start",
     "start:pdc-sc": "npm run --workspace @frameless/pdc-sc start",
     "start:overige-objecten-api": "yarn workspace @frameless/overige-objecten-api start",
