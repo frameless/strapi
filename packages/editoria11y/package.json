@@ -1,0 +1,56 @@
+{
+  "name": "@frameless/editoria11y",
+  "version": "0.0.0",
+  "private": false,
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/editoria11y/editoria11y.esm.js",
+  "keywords": [
+    "stencil",
+    "web-components",
+    "framework",
+    "components",
+    "a11y",
+    "accessibility"
+  ],
+  "author": "@frameless",
+  "description": "A Nodejs application that convert the catalogi XML to JSON formate",
+  "license": "EUPL-1.2",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/editoria11y"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test:watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "lint-build": "tsc --noEmit --project tsconfig.json",
+    "postinstall": "mkdir -p public/editoria11y && cp node_modules/editoria11y/dist/editoria11y.min.* public/editoria11y/"
+  },
+  "dependencies": {
+    "@stencil/core": "4.36.3",
+    "editoria11y": "github:itmaybejj/editoria11y#2.3.13"
+  },
+  "peerDependencies": {
+    "@types/jest": "30.0.0",
+    "jest": "30.0.5",
+    "jest-cli": "30.0.5",
+    "puppeteer": "10.0.0",
+    "@types/puppeteer": "5.4.4",
+    "typescript": "5.2.2"
+  },
+  "homepage": "https://github.com/frameless/strapi/packages/editoria11y#readme"
+}
