@@ -31,6 +31,7 @@ import '@utrecht/design-tokens/dist/index.css';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { Editoria11yWrapper } from '@/lib/stencil-client';
 import { GET_OPEN_FORMS_TEMPLATE } from '@/query';
 import { buildAlternateLinks, config, fetchData, getStrapiGraphqlURL } from '@/util';
 import { ComponentComponentsUtrechtNavigation, GetTemplateDataQuery } from '../../../../gql/graphql';
@@ -56,6 +57,7 @@ type Params = {
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
+  const nonce = headers().get('x-nonce') || '';
   const url = buildURL({
     env: process.env,
     key: 'FRONTEND_PUBLIC_URL',
@@ -109,6 +111,9 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
       languages: {
         ...buildAlternateLinks({ languages, segment: '/' }),
       },
+    },
+    other: {
+      'csp-nonce': nonce,
     },
   };
 }
@@ -183,6 +188,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         )}
         <QueryClientProvider>
           <Surface>
+            {isEnabled && <Editoria11yWrapper />}
             <Page className="utrecht-custom-page">
               <PageHeader className="utrecht-custom-header">
                 <SkipLink href="#main">{t('components.skip-link.main')}</SkipLink>

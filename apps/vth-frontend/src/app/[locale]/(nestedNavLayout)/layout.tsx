@@ -10,9 +10,9 @@ import { Footer, FooterData, Page, PreviewAlert, Surface } from '@/components';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Editoria11y } from '@/components/Editoria11y';
 import '@frameless/ui/dist/bundle.css';
 import '../../../styles/globals.css';
+import { Editoria11yWrapper } from '@/lib/stencil-client';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -124,7 +124,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <QueryClientProvider>
           <Surface>
             <Page className="utrecht-page--full-width">
-              {isEnabled && <Editoria11y />}
+              {isEnabled && <Editoria11yWrapper />}
               {children}
             </Page>
           </Surface>

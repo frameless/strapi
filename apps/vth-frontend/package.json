@@ -16,6 +16,7 @@
     "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
+    "@frameless/editoria11y": "0.1.0",
     "@frameless/ui": "0.1.2",
     "@tanstack/react-query": "4.29.25",
     "@utrecht/component-library-css": "4.2.0",
@@ -34,8 +35,7 @@
     "react-dom": "18.3.1",
     "react-i18next": "12.3.1",
     "react-loading-skeleton": "3.3.1",
-    "sharp": "0.32.6",
-    "editoria11y": "github:itmaybejj/editoria11y#2.2.4"
+    "sharp": "0.32.6"
   },
   "devDependencies": {
     "eslint": "8.35.0",

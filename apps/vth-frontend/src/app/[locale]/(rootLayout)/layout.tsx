@@ -10,8 +10,8 @@ import { Footer, FooterData, Header, Page, PreviewAlert, Surface } from '@/compo
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Editoria11y } from '@/components/Editoria11y';
 import { Main } from '@/components/Main';
+import { Editoria11yWrapper } from '@/lib/stencil-client';
 import { config } from '@/util';
 import { getNavData } from '@/util/getNavData';
 import '@frameless/ui/dist/bundle.css';
@@ -138,7 +138,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                     }) || '',
                 }}
               />
-              {isEnabled && <Editoria11y />}
+              {isEnabled && <Editoria11yWrapper />}
               <Main id="main">{children}</Main>
             </Page>
           </Surface>
