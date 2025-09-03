@@ -1,0 +1,62 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Editoria11y Wrapper</title>
+    <script type="module" src="../dist/editoria11y/editoria11y.esm.js"></script>
+  </head>
+
+  <body>
+    <frameless-editoria11y lang="nl" theme="darkTheme"></frameless-editoria11y>
+
+    <main>
+      <h1>Editoria11y Test Page</h1>
+
+      <!-- Heading issues -->
+      <h3>Skipped heading level</h3>
+      <h2>Proper heading</h2>
+      <h4></h4>
+      <!-- Empty heading -->
+
+      <!-- Image issues -->
+      <img src="https://placehold.co/150" alt="" />
+      <!-- Empty alt -->
+      <img src="https://placehold.co/200" />
+      <!-- Missing alt -->
+      <img src="https://placehold.co/100" alt="image of placeholder" />
+      <!-- Redundant text -->
+
+      <!-- Link issues -->
+      <a href="#">Click here</a>
+      <!-- Generic link text -->
+      <a href="https://example.com">https://example.com</a>
+      <!-- URL as link text -->
+      <a href="document.pdf">Download PDF</a>
+      <!-- Document link -->
+
+      <!-- Table without headers -->
+      <table>
+        <tr>
+          <td>Data 1</td>
+          <td>Data 2</td>
+        </tr>
+        <tr>
+          <td>Data 3</td>
+          <td>Data 4</td>
+        </tr>
+      </table>
+
+      <!-- Possible list -->
+      <p>1. First item</p>
+      <p>2. Second item</p>
+      <p>3. Third item</p>
+
+      <!-- Uppercase text -->
+      <p>THIS IS ALL UPPERCASE TEXT THAT MIGHT BE HARD TO READ</p>
+
+      <!-- Possible heading -->
+      <p><strong>This looks like a heading but isn't marked up as one</strong></p>
+    </main>
+  </body>
+</html>

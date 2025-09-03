@@ -135,3 +135,9 @@ dist/
 # overige-objecten-api
 ############################
 apps/overige-objecten-api/src/types
+
+############################
+# Editoria11y
+############################
+/packages/editoria11y/src/components.d.ts
+/packages/editoria11y/src/components/frameless-editoria11y/readme.md
