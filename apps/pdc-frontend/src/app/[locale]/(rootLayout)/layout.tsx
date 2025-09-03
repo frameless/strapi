@@ -29,6 +29,7 @@ import {
 import { GoogleTranslate } from '@/components/GoogleTranslate';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
+import { Editoria11yWrapper } from '@/lib/stencil-client';
 import { GET_TEMPLATE } from '@/query';
 import { buildAlternateLinks, config, fetchData, getStrapiGraphqlURL } from '@/util';
 import {
@@ -61,6 +62,7 @@ type Params = {
 export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
+  const nonce = headers().get('x-nonce') || '';
   const url = buildURL({
     env: process.env,
     key: 'FRONTEND_PUBLIC_URL',
@@ -115,6 +117,9 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
         ...buildAlternateLinks({ languages, segment: '/' }),
       },
     },
+    other: {
+      'csp-nonce': nonce,
+    },
   };
 }
 
@@ -164,6 +169,8 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <QueryClientProvider>
           <GoogleTranslate />
           <Surface>
+            {isEnabled && <Editoria11yWrapper />}
+
             <Page className="utrecht-custom-page">
               <PageHeader className="utrecht-custom-header">
                 <SkipLink href="#main">{t('components.skip-link.main')}</SkipLink>

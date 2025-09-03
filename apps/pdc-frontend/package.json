@@ -26,6 +26,7 @@
     "watch:e2e": "playwright --help test test/e2e/"
   },
   "dependencies": {
+    "@frameless/editoria11y": "0.1.0",
     "@frameless/ui": "0.1.2",
     "@frameless/utils": "0.1.0",
     "@nl-design-system-unstable/documentation": "1.1.0",
