@@ -1,0 +1,54 @@
+{
+  "name": "@frameless/editoria11y",
+  "version": "0.1.0",
+  "description": "Editoria11y web component wrapper",
+  "module": "./dist/index.js",
+  "es2015": "./dist/esm/index.mjs",
+  "es2017": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "collection": "./dist/collection/collection-manifest.json",
+  "collection:main": "./dist/collection/index.js",
+  "unpkg": "./dist/editoria11y/editoria11y.esm.js",
+  "keywords": [
+    "stencil",
+    "web components",
+    "accessibility",
+    "a11y",
+    "editoria11y"
+  ],
+  "private": true,
+  "files": [
+    "dist/",
+    "loader/",
+    "lib/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "generate": "stencil generate",
+    "clean": "rimraf dist .stencil"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/strapi.git",
+    "directory": "packages/editoria11y"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": {
+    "name": "@frameless"
+  },
+  "engines": {
+    "node": "20.x.x"
+  },
+  "license": "EUPL-1.2",
+  "devDependencies": {
+    "@stencil/core": "4.0.0",
+    "@types/jest": "27.0.3",
+    "jest": "27.0.3",
+    "jest-cli": "27.4.5",
+    "puppeteer": "21.0.0",
+    "rimraf": "5.0.0"
+  }
+}

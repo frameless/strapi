@@ -71,6 +71,7 @@ module.exports = {
           './packages/catalogi-data/tsconfig.json',
           './packages/content-compliance-checker/tsconfig.json',
           './packages/content-compliance-checker/tsconfig.server.json',
+          './packages/editoria11y/tsconfig.json',
           './packages/provider-upload-vercel/tsconfig.json',
           './packages/samenwerkende-catalogi/tsconfig.json',
           './packages/strapi-plugin-env-label/tsconfig.json',

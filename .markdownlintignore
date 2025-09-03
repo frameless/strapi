@@ -11,3 +11,4 @@ ENVIRONMENT_VARIABLES.md
 ./apps/strapi.frameless.io/docs/developers/ENVIRONMENT_VARIABLES.md
 # Ignore partials
 _*.md
+packages/editoria11y/src/components/frameless-editoria11y/readme.md
