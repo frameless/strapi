@@ -15,10 +15,10 @@
 
 @mixin utrecht-navigation__list--mobile {
   --utrecht-navigation-list-display: block;
-  --utrecht-navigation-list-padding-inline-start: var(--utrecht-navigation-list-mobile-padding-inline-start, 16px);
-  --utrecht-navigation-list-padding-inline-end: var(--utrecht-navigation-list-mobile-padding-inline-end, 16px);
   --utrecht-navigation-list-padding-block-start: var(--utrecht-navigation-list-mobile-padding-block-start);
   --utrecht-navigation-list-padding-block-end: var(--utrecht-navigation-list-mobile-padding-block-end, 8px);
+  --utrecht-navigation-list-padding-inline-start: var(--utrecht-navigation-list-mobile-padding-inline-start, 0);
+  --utrecht-navigation-list-padding-inline-end: var(--utrecht-navigation-list-mobile-padding-inline-end, 0);
   --utrecht-navigation-list-inline-size: var(--utrecht-navigation-list-mobile-inline-size);
 
   background-color: var(--utrecht-navigation-list-mobile-background-color, var(--utrecht-color-white));
@@ -47,6 +47,10 @@
 
 .utrecht-navigation__list {
   @include utrecht-navigation__list;
+}
+
+.utrecht-navigation__list:focus {
+  outline: none;
 }
 
 .utrecht-navigation__list--mobile {

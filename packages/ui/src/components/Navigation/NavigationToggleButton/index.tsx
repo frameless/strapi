@@ -12,8 +12,11 @@ interface NavToggleButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const css = classnames.bind(styles);
 
 export const NavToggleButton = forwardRef(
-  ({ icon, text, ...restProps }: PropsWithChildren<NavToggleButtonProps>, ref: ForwardedRef<HTMLButtonElement>) => (
-    <ButtonGroup className={css('utrecht-navigation__toggle-button')}>
+  (
+    { icon, text, className, ...restProps }: PropsWithChildren<NavToggleButtonProps>,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => (
+    <ButtonGroup className={css('utrecht-navigation__toggle-button', className)}>
       <Button appearance="subtle-button" ref={ref} aria-haspopup="menu" aria-controls="menu" {...restProps}>
         {icon === 'hamburger' ? (
           <UtrechtIconHamburgerMenu class={css('utrecht-icon-custom')} aria-hidden="true" />

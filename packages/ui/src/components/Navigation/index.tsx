@@ -89,6 +89,7 @@ export const Navigation = forwardRef(
               text={toggleButton?.openText}
               icon="hamburger"
               ref={hamburgerButtonRef}
+              className={css({ 'utrecht-navigation__toggle-button--start-end': !drawerVisible })}
               aria-expanded={drawerVisible}
               onClick={showModal}
             />
