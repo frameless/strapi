@@ -11,19 +11,19 @@
   --utrecht-button-subtle-hover-border-width: 0;
   --utrecht-button-hover-scale: 1;
   --utrecht-button-focus-scale: 1;
+  --utrecht-button-group-margin-block-start: var(--utrecht-navigation-toggle-button-margin-block-start);
+  --utrecht-button-group-margin-block-end: var(--utrecht-navigation-toggle-button-margin-block-end);
 
   justify-content: flex-end;
   padding-inline-end: var(--utrecht-navigation-toggle-button-padding-inline-end);
 }
+
 .utrecht-icon-custom {
   margin-inline-end: var(--utrecht-icon-cutom-margin-inline-end, 8px);
 }
 
-.utrecht-navigation__toggle-button:has(button[aria-expanded="true"]) {
-  --utrecht-navigation-toggle-button-padding-inline-end: var(
-    --utrecht-navigation-toggle-button-close-padding-inline-end,
-    32px
-  );
-  --utrecht-button-group-padding-block-start: var(--utrecht-navigation-toggle-button-close-padding-block-start, 32px);
-  --utrecht-button-group-padding-block-end: var(--utrecht-navigation-toggle-button-close-padding-block-end, 32px);
+.utrecht-navigation__toggle-button--start-end {
+  --utrecht-button-group-margin-block-start: calc(-1 * var(--utrecht-navigation-toggle-button-offset-start, 16px));
+
+  margin-inline-end: calc(-1 * var(--utrecht-navigation-toggle-button-offset-end, 16px));
 }
