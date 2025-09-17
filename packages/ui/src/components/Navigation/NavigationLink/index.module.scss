@@ -58,6 +58,7 @@
   --utrecht-navigation-link-justify-content: var(--utrecht-navigation-link-mobile-justify-content, flex-start);
 
   flex: 1 1 auto;
+  min-block-size: var(--utrecht-navigation-link-mobile-min-block-size, 44px);
   transition-duration: var(--utrecht-navigation-link-mobile-transition-duration, 0.3s);
   transition-property: font-weight;
   transition-timing-function: var(--utrecht-navigation-link-mobile-transition-timing-function, ease-in-out);
