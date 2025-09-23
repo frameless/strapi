@@ -126,9 +126,9 @@ a {
 }
 
 .utrecht-search-bar-wrapper {
+  inline-size: 100%;
   padding-inline-end: var(--utrecht-search-bar-wrapper-padding-inline-end, 16px);
   padding-inline-start: var(--utrecht-search-bar-wrapper-padding-inline-start, 16px);
-  inline-size: 100%;
   & form {
     position: relative;
   }
