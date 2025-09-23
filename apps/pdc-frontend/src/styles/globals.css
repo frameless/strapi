@@ -128,6 +128,7 @@ a {
 .utrecht-search-bar-wrapper {
   padding-inline-end: var(--utrecht-search-bar-wrapper-padding-inline-end, 16px);
   padding-inline-start: var(--utrecht-search-bar-wrapper-padding-inline-start, 16px);
+  inline-size: 100%;
   & form {
     position: relative;
   }
@@ -141,6 +142,8 @@ a {
 .utrecht-custom-header {
   --utrecht-page-padding-inline-start: 0;
   --utrecht-page-padding-inline-end: 0;
+  --utrecht-drawer-padding-block-start: 0;
+  --utrecht-search-bar-input-max-inline-size: 100%;
 }
 
 .utrecht-custom-page {
@@ -191,12 +194,12 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
 
 @media screen and (width > 360px) {
   .utrecht-page-header {
-    --utrecht-page-header-padding-block-start: 32px;
-    --utrecht-logo-wrapper-padding-inline-start: 32px;
-    --utrecht-logo-wrapper-padding-block-end: 32px;
-    --utrecht-search-bar-wrapper-padding-inline-start: 32px;
-    --utrecht-search-bar-wrapper-padding-inline-end: 32px;
-    --utrecht-navigation-toggle-button-padding-end: 32px;
+    --utrecht-page-header-padding-block-start: 16px;
+    --utrecht-logo-wrapper-padding-inline-start: 16px;
+    --utrecht-logo-wrapper-padding-block-end: 16px;
+    --utrecht-search-bar-wrapper-padding-inline-start: 16px;
+    --utrecht-search-bar-wrapper-padding-inline-end: 16px;
+    --utrecht-navigation-toggle-button-padding-end: 16px;
   }
 }
 
