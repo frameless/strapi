@@ -9,7 +9,7 @@ import { GetProductsOldSlugsQuery } from '../gql/graphql';
 acceptLanguage.languages(languages);
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|.*\\.js$).*)'],
   // https://nextjs.org/docs/messages/edge-dynamic-code-evaluation
   unstable_allowDynamic: ['**/node_modules/lodash.mergewith/index.js'],
 };

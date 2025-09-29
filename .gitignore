@@ -141,3 +141,8 @@ apps/overige-objecten-api/src/types
 ############################
 /packages/editoria11y/src/components.d.ts
 /packages/editoria11y/src/components/frameless-editoria11y/readme.md
+
+############################
+# PDC Frontend
+############################
+apps/pdc-frontend/public/flo-client-plugin.js

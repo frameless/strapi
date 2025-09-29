@@ -10,9 +10,10 @@ import { DecisionTreeFormSkeleton } from './Skeleton/DecisionTreeFormSkeleton';
 export * from '@utrecht/web-component-library-react';
 export * from '@utrecht/component-library-react';
 export * from '@frameless/ui';
-export const FloLegalForm = dynamic(
+
+export const FloLegalDecisionTree = dynamic(
   async () => {
-    const Component = (await import('./FloLegalForm')).FloLegalForm;
+    const Component = (await import('./FloLegalDecisionTree')).FloLegalDecisionTree;
     return { default: Component };
   },
   {

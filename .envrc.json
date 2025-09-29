@@ -359,13 +359,6 @@
       "required": false,
       "valueType": "url",
       "example": "https://example.com/api"
-    },
-    {
-      "name": "FLO_LEGAL_CDN_URL",
-      "description": "URL for the Flo Legal CDN, used to access legal documents and templates.",
-      "required": false,
-      "valueType": "url",
-      "developmentDefault": "https://example.com"
     }
   ]
 }

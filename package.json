@@ -66,7 +66,7 @@
     "lint-build": "npm run --workspaces lint-build --if-present",
     "format:env": "node scripts/env-format.js",
     "prettier": "prettier --list-different --write .",
-    "postinstall": "patch-package",
+    "postinstall": "patch-package && yarn workspace @frameless/pdc-frontend copy-flo-legal-decision-tree-client-script",
     "publish": "changeset publish",
     "test-update": "yarn lint && yarn build && yarn test",
     "update-major": "npm-check-updates --configFileName .ncurc.major.js",
