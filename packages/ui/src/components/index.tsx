@@ -1,4 +1,5 @@
 export { Breadcrumbs } from './Breadcrumb';
+export { FloLegalDecisionTree } from './FloLegalDecisionTree';
 export { GoogleTranslate } from './GoogleTranslate';
 export { HTMLHeading, type HTMLHeadingProps } from './HTMLHeading';
 export { isYouTubeURL } from './YouTubeVideo';
@@ -27,6 +28,7 @@ export * from './Img';
 export * from './Markdown';
 export * from './MultiColumnsLogoButton';
 export * from './PriceWidget';
+export type { FloLegalDecisionTreeProps } from './FloLegalDecisionTree';
 export type { LanguageSwitcherProps } from './LanguageSwitcher';
 export type { LiveTextProps } from './LiveText';
 export type { LoadMoreButtonProps } from './LoadMoreButton';
