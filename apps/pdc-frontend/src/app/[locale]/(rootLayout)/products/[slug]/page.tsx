@@ -1,4 +1,4 @@
-import { buildURL, getDirectionFromLanguageCode, getPathAndSearchParams } from '@frameless/utils';
+import { buildURL, encodeHtmlEntities, getDirectionFromLanguageCode, getPathAndSearchParams } from '@frameless/utils';
 import { SpotlightSectionType } from '@utrecht/component-library-react/dist/SpotlightSection';
 import type { TFunction } from 'i18next';
 import isAbsoluteUrl from 'is-absolute-url';
@@ -18,7 +18,7 @@ import {
   Article,
   Breadcrumbs,
   ButtonGroup,
-  FloLegalForm,
+  FloLegalDecisionTree,
   Grid,
   GridCell,
   Heading,
@@ -35,10 +35,8 @@ import { SurveyLink } from '@/components/SurveyLink';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
 import {
   buildAlternateLinks,
-  encodeHtmlEntities,
   fetchData,
   getFloLegalData,
-  type GetFloLegalDataResult,
   getFloLegalURLs,
   getImageBaseUrl,
   getStrapiGraphqlURL,
@@ -124,27 +122,6 @@ interface SectionsProps {
   t: TFunction<string, any, string>;
   nonce?: string;
 }
-interface FloLegalFormComponentProps {
-  nonce?: string;
-  floLegalFormSelector?: string;
-  floLegalData?: GetFloLegalDataResult;
-}
-
-const FloLegalFormComponent = ({ nonce, floLegalData }: FloLegalFormComponentProps) => {
-  const { floLegalCdnURL } = getFloLegalURLs();
-  if (!floLegalCdnURL) return <></>;
-  return (
-    <>
-      <Script src={floLegalCdnURL} nonce={nonce} />
-      <FloLegalForm
-        headingLevel={2}
-        name={floLegalData?.name}
-        content={encodeHtmlEntities(JSON.stringify(floLegalData?.content))}
-        style={{ marginBlockStart: '1rem' }}
-      />
-    </>
-  );
-};
 
 const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
   <>
@@ -165,12 +142,14 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
 
             if (floLegalData?.errorCode === 'timeout') return <Alert type="error">{t('errors.timeout')}</Alert>;
             return (
-              <FloLegalFormComponent
-                floLegalFormSelector={component.floLegalFormSelector ?? undefined}
-                floLegalData={floLegalData}
-                nonce={nonce}
+              <FloLegalDecisionTree
+                showOutcomes={true}
+                outcomesHeader={floLegalData?.name}
+                encodedData={encodeHtmlEntities(JSON.stringify(floLegalData?.content))}
                 key={index}
-              />
+              >
+                <Script src="/flo-client-plugin.js" nonce={nonce} />
+              </FloLegalDecisionTree>
             );
           case 'ComponentComponentsUtrechtRichText':
             return (

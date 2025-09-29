@@ -10114,6 +10114,16 @@
   resolved "https://registry.yarnpkg.com/@utrecht/figure-css/-/figure-css-1.5.1.tgz#ad2f794c008f7e2b322c1eef819510eede94535a"
   integrity sha512-KzkIIyGo3wAYXFkDeBV+S2m6InKqPLUpVy8EjBPRTB8WexiLfDKpYf1gAVhgbL+236fB30yWLkzukGO/AAUFBw==
 
+"@utrecht/flo-legal-decision-tree-client@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/flo-legal-decision-tree-client/-/flo-legal-decision-tree-client-1.0.0.tgz#d72cb03dc2e44f804be6c36b4df0aeb0e12270fa"
+  integrity sha512-Yv1F/aDoTGMlzuN9pxPl/5F5lp3PfaDy3yem8sAMq6nPCZkzRYe9z9lgQtOtN3NeXIfFNgQVjV1IbnAyCSPZAw==
+
+"@utrecht/flolegal-decision-tree-css@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/flolegal-decision-tree-css/-/flolegal-decision-tree-css-1.0.0.tgz#8818b5284ae98fe110612f5a72e27844f95b41aa"
+  integrity sha512-Mk7yMqRESivbqQaVgfIzAtu1ekzf+FgPvlGVXdgeiBroUwM+ESEv8YW/uDg+w/SCCZdBztjuR7gv64rr+DDicw==
+
 "@utrecht/focus-ring-css@1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@utrecht/focus-ring-css/-/focus-ring-css-1.1.0.tgz#3a3b426b81d9aefc792288287e7ffc6981ab1ed6"
