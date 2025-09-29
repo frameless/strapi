@@ -44,7 +44,7 @@
 .utrecht-navigation__link--mobile {
   --_utrecht-navigation-link-align-items: baseline;
   --_utrecht-navigation-link-justify-content: normal;
-  --utrecht-navigation-link-padding-inline-start: var(--utrecht-navigation-link-mobile-padding-inline-start);
+  --utrecht-navigation-link-padding-inline-start: var(--utrecht-navigation-link-mobile-padding-inline-start, 1ch);
   --utrecht-navigation-link-padding-inline-end: var(--utrecht-navigation-link-mobile-padding-inline-end);
   --utrecht-navigation-link-padding-block-start: var(--utrecht-navigation-link-mobile-padding-block-start, 10px);
   --utrecht-navigation-link-padding-block-end: var(--utrecht-navigation-link-mobile-padding-block-end, 10px);
