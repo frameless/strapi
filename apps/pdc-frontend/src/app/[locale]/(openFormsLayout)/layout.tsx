@@ -195,7 +195,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                 <SkipLink href="#menu">{t('components.skip-link.menu')}</SkipLink>
                 <SkipLink href="#search-input">{t('components.skip-link.search-input')}</SkipLink>
                 <Grid>
-                  <GridCell xs={6}>
+                  <GridCell xs={6} sm={6}>
                     <div className="utrecht-logo-wrapper">
                       <Link
                         href={config.homePageURL}
@@ -216,7 +216,16 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
                   {/* <GridCell xs={3}>
                       <ClientLanguageSwitcher locales={languages} currentLocale={locale} />
                     </GridCell> */}
-                  <GridCell sm={12} md={6} justifyContent="flex-end" alignItems="center" order={3} orderMd={2}>
+                  <GridCell
+                    xs={12}
+                    sm={12}
+                    md={6}
+                    lg={6}
+                    justifyContent="flex-end"
+                    alignItems="center"
+                    order={3}
+                    orderMd={2}
+                  >
                     <div className="utrecht-search-bar-wrapper">
                       <SearchBar
                         locale={locale}
