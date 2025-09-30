@@ -29,5 +29,7 @@
 }
 
 .utrecht-navigation__toggle-button-close {
+  margin-block-end: var(--utrecht-navigation-toggle-button-close, 32px);
   margin-inline-end: calc(-1 * var(--utrecht-navigation-toggle-button-offset-end, 16px));
+  margin-inline-start: auto;
 }
