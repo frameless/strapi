@@ -16,6 +16,9 @@ const config: Config = {
       },
     ],
   },
+  moduleNameMapper: {
+    uuid: '<rootDir>/src/__mocks__/uuid.ts',
+  },
 };
 
 export default config;
