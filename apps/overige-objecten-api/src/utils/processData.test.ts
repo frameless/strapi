@@ -204,7 +204,7 @@ describe('processData', () => {
       const outputHtml = result[0].bewijs;
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const sectionElement = dom.window.document.querySelector('section');
+      const sectionElement = dom.window.document.querySelector('figure');
       expect(sectionElement).not.toBeNull();
       const h2Element = dom.window.document.querySelector('h2') as HTMLHeadingElement;
       expect(h2Element).not.toBeNull();
@@ -239,7 +239,7 @@ describe('processData', () => {
       const outputHtml = result[0].bewijs;
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const sectionElement = dom.window.document.querySelector('section');
+      const sectionElement = dom.window.document.querySelector('figure');
       expect(sectionElement).not.toBeNull();
       const h2Element = dom.window.document.querySelector('h2') as HTMLHeadingElement;
       expect(h2Element).not.toBeNull();
