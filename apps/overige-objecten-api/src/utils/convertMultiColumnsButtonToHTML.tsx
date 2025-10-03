@@ -35,6 +35,8 @@ const MultiColumnsButton = ({ item, withDesignSystem }: MultiColumnsButtonProps)
 };
 
 export const convertMultiColumnsButtonToHTML = (item: any, withDesignSystem?: boolean) =>
-  item.column.map((col: any) =>
-    renderToString(<MultiColumnsButton item={col} withDesignSystem={withDesignSystem} key={col.title} />),
-  );
+  item.column
+    .map((col: any) =>
+      renderToString(<MultiColumnsButton item={col} withDesignSystem={withDesignSystem} key={col.title} />),
+    )
+    .join('');
