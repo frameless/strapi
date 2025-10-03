@@ -408,18 +408,16 @@ describe('fetchData', () => {
   });
 
   it('should abort the fetch request when the signal is aborted', async () => {
-    const mockFetch = jest.fn(() =>
-      Promise.reject(new DOMException('The operation was aborted.', 'AbortError')),
-    ) as jest.Mock;
+    const abortError = new Error('The operation was aborted.');
+    abortError.name = 'AbortError';
+
+    const mockFetch = jest.fn(() => Promise.reject(abortError)) as jest.Mock;
     global.fetch = mockFetch;
 
     const controller = new AbortController();
     const signal = controller.signal;
     controller.abort();
 
-    await expect(fetchData({ url, query, signal })).rejects.toThrow({
-      name: 'AbortError',
-      message: 'Request aborted',
-    });
+    await expect(fetchData({ url, query, signal })).rejects.toThrow('Request aborted');
   });
 });
