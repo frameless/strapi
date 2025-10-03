@@ -1,5 +1,4 @@
 import request from 'supertest';
-import { OpenAPI } from './types';
 import app from '../../server';
 
 describe('openAPIController', () => {
