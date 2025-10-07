@@ -112,6 +112,12 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
         ...buildAlternateLinks({ languages, segment: '/' }),
       },
     },
+    // Prevent all /form or /formulier pages from being indexed.
+    // If you want a specific page to be indexable in the future,
+    // remove `robots: { index: false }` from the layout and set it individually on that page.
+    robots: {
+      index: false,
+    },
     other: {
       'csp-nonce': nonce,
     },
