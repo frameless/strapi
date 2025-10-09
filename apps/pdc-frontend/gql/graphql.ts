@@ -1048,6 +1048,79 @@ export type ComponentSeoMetaInput = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ContactDetail = {
+  __typename?: 'ContactDetail';
+  contact?: Maybe<Array<Maybe<ComponentComponentsContact>>>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  interne_informatie_overigs?: Maybe<VacRelationResponseCollection>;
+  products?: Maybe<ProductRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type ContactDetailContactArgs = {
+  filters?: InputMaybe<ComponentComponentsContactFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ContactDetailInterne_Informatie_OverigsArgs = {
+  filters?: InputMaybe<VacFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ContactDetailProductsArgs = {
+  filters?: InputMaybe<ProductFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ContactDetailEntity = {
+  __typename?: 'ContactDetailEntity';
+  attributes?: Maybe<ContactDetail>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type ContactDetailEntityResponse = {
+  __typename?: 'ContactDetailEntityResponse';
+  data?: Maybe<ContactDetailEntity>;
+};
+
+export type ContactDetailEntityResponseCollection = {
+  __typename?: 'ContactDetailEntityResponseCollection';
+  data: Array<ContactDetailEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ContactDetailFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ContactDetailFiltersInput>>>;
+  contact?: InputMaybe<ComponentComponentsContactFiltersInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  interne_informatie_overigs?: InputMaybe<VacFiltersInput>;
+  not?: InputMaybe<ContactDetailFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ContactDetailFiltersInput>>>;
+  products?: InputMaybe<ProductFiltersInput>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ContactDetailInput = {
+  contact?: InputMaybe<Array<InputMaybe<ComponentComponentsContactInput>>>;
+  interne_informatie_overigs?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  products?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type DateFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
@@ -1391,6 +1464,11 @@ export enum Enum_Componentcomponentsvac_Status {
   TeVerwijderen = 'te_verwijderen'
 }
 
+export enum Enum_Openformserrorpage_Type {
+  FormNotFound = 'form_not_found',
+  FormServerIsOffline = 'form_server_is_offline'
+}
+
 export enum Enum_Productencatalogus_Doelgroep {
   BedrijvenEnInstellingen = 'bedrijven_en_instellingen',
   Burgers = 'burgers',
@@ -1485,7 +1563,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = AdditionalInformation | ComponentComponentsAdditionalInformation | ComponentComponentsAdditionalInformationField | ComponentComponentsAfdelingen | ComponentComponentsAntwoord | ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsFloLegalForm | ComponentComponentsInternalBlockContent | ComponentComponentsInternalContentBlock | ComponentComponentsInternalContentBlockComponent | ComponentComponentsInternalField | ComponentComponentsKennisartikel | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsTrefwoorden | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentComponentsVac | ComponentComponentsVacUitklapmenu | ComponentComponentsVerantwoordelijkeOrganisatie | ComponentSeoMeta | EntityNotesNote | I18NLocale | InternalField | NotFoundPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | PdcTemplate | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Vac;
+export type GenericMorph = AdditionalInformation | ComponentComponentsAdditionalInformation | ComponentComponentsAdditionalInformationField | ComponentComponentsAfdelingen | ComponentComponentsAntwoord | ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsFloLegalForm | ComponentComponentsInternalBlockContent | ComponentComponentsInternalContentBlock | ComponentComponentsInternalContentBlockComponent | ComponentComponentsInternalField | ComponentComponentsKennisartikel | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsTrefwoorden | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentComponentsVac | ComponentComponentsVacUitklapmenu | ComponentComponentsVerantwoordelijkeOrganisatie | ComponentSeoMeta | ContactDetail | EntityNotesNote | I18NLocale | InternalField | NotFoundPage | OpenFormsErrorPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | PdcTemplate | Price | Product | Productencatalogus | PublisherAction | SlugifySlug | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Vac;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -1650,9 +1728,12 @@ export type Mutation = {
   /** Change user password. Confirm with the current password. */
   changePassword?: Maybe<UsersPermissionsLoginPayload>;
   createAdditionalInformation?: Maybe<AdditionalInformationEntityResponse>;
+  createContactDetail?: Maybe<ContactDetailEntityResponse>;
   createEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
   createInternalField?: Maybe<InternalFieldEntityResponse>;
   createNotFoundPageLocalization?: Maybe<NotFoundPageEntityResponse>;
+  createOpenFormsErrorPage?: Maybe<OpenFormsErrorPageEntityResponse>;
+  createOpenFormsErrorPageLocalization?: Maybe<OpenFormsErrorPageEntityResponse>;
   createPdcCategory?: Maybe<PdcCategoryEntityResponse>;
   createPdcFaq?: Maybe<PdcFaqEntityResponse>;
   createPdcFaqLocalization?: Maybe<PdcFaqEntityResponse>;
@@ -1673,9 +1754,11 @@ export type Mutation = {
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   createVac?: Maybe<VacEntityResponse>;
   deleteAdditionalInformation?: Maybe<AdditionalInformationEntityResponse>;
+  deleteContactDetail?: Maybe<ContactDetailEntityResponse>;
   deleteEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
   deleteInternalField?: Maybe<InternalFieldEntityResponse>;
   deleteNotFoundPage?: Maybe<NotFoundPageEntityResponse>;
+  deleteOpenFormsErrorPage?: Maybe<OpenFormsErrorPageEntityResponse>;
   deletePdcCategory?: Maybe<PdcCategoryEntityResponse>;
   deletePdcFaq?: Maybe<PdcFaqEntityResponse>;
   deletePdcHomePage?: Maybe<PdcHomePageEntityResponse>;
@@ -1705,10 +1788,12 @@ export type Mutation = {
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateAdditionalInformation?: Maybe<AdditionalInformationEntityResponse>;
+  updateContactDetail?: Maybe<ContactDetailEntityResponse>;
   updateEntityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateInternalField?: Maybe<InternalFieldEntityResponse>;
   updateNotFoundPage?: Maybe<NotFoundPageEntityResponse>;
+  updateOpenFormsErrorPage?: Maybe<OpenFormsErrorPageEntityResponse>;
   updatePdcCategory?: Maybe<PdcCategoryEntityResponse>;
   updatePdcFaq?: Maybe<PdcFaqEntityResponse>;
   updatePdcHomePage?: Maybe<PdcHomePageEntityResponse>;
@@ -1742,6 +1827,11 @@ export type MutationCreateAdditionalInformationArgs = {
 };
 
 
+export type MutationCreateContactDetailArgs = {
+  data: ContactDetailInput;
+};
+
+
 export type MutationCreateEntityNotesNoteArgs = {
   data: EntityNotesNoteInput;
 };
@@ -1754,6 +1844,19 @@ export type MutationCreateInternalFieldArgs = {
 
 export type MutationCreateNotFoundPageLocalizationArgs = {
   data?: InputMaybe<NotFoundPageInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationCreateOpenFormsErrorPageArgs = {
+  data: OpenFormsErrorPageInput;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationCreateOpenFormsErrorPageLocalizationArgs = {
+  data?: InputMaybe<OpenFormsErrorPageInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
@@ -1859,6 +1962,11 @@ export type MutationDeleteAdditionalInformationArgs = {
 };
 
 
+export type MutationDeleteContactDetailArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationDeleteEntityNotesNoteArgs = {
   id: Scalars['ID']['input'];
 };
@@ -1870,6 +1978,12 @@ export type MutationDeleteInternalFieldArgs = {
 
 
 export type MutationDeleteNotFoundPageArgs = {
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationDeleteOpenFormsErrorPageArgs = {
+  id: Scalars['ID']['input'];
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
@@ -1997,6 +2111,12 @@ export type MutationUpdateAdditionalInformationArgs = {
 };
 
 
+export type MutationUpdateContactDetailArgs = {
+  data: ContactDetailInput;
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationUpdateEntityNotesNoteArgs = {
   data: EntityNotesNoteInput;
   id: Scalars['ID']['input'];
@@ -2017,6 +2137,13 @@ export type MutationUpdateInternalFieldArgs = {
 
 export type MutationUpdateNotFoundPageArgs = {
   data: NotFoundPageInput;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationUpdateOpenFormsErrorPageArgs = {
+  data: OpenFormsErrorPageInput;
+  id: Scalars['ID']['input'];
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
@@ -2157,6 +2284,70 @@ export type NotFoundPageInput = {
 export type NotFoundPageRelationResponseCollection = {
   __typename?: 'NotFoundPageRelationResponseCollection';
   data: Array<NotFoundPageEntity>;
+};
+
+export type OpenFormsErrorPage = {
+  __typename?: 'OpenFormsErrorPage';
+  body?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  locale?: Maybe<Scalars['String']['output']>;
+  localizations?: Maybe<OpenFormsErrorPageRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title: Scalars['String']['output'];
+  type: Enum_Openformserrorpage_Type;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type OpenFormsErrorPageLocalizationsArgs = {
+  filters?: InputMaybe<OpenFormsErrorPageFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type OpenFormsErrorPageEntity = {
+  __typename?: 'OpenFormsErrorPageEntity';
+  attributes?: Maybe<OpenFormsErrorPage>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type OpenFormsErrorPageEntityResponse = {
+  __typename?: 'OpenFormsErrorPageEntityResponse';
+  data?: Maybe<OpenFormsErrorPageEntity>;
+};
+
+export type OpenFormsErrorPageEntityResponseCollection = {
+  __typename?: 'OpenFormsErrorPageEntityResponseCollection';
+  data: Array<OpenFormsErrorPageEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type OpenFormsErrorPageFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<OpenFormsErrorPageFiltersInput>>>;
+  body?: InputMaybe<StringFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  locale?: InputMaybe<StringFilterInput>;
+  localizations?: InputMaybe<OpenFormsErrorPageFiltersInput>;
+  not?: InputMaybe<OpenFormsErrorPageFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<OpenFormsErrorPageFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  type?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type OpenFormsErrorPageInput = {
+  body?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Enum_Openformserrorpage_Type>;
+};
+
+export type OpenFormsErrorPageRelationResponseCollection = {
+  __typename?: 'OpenFormsErrorPageRelationResponseCollection';
+  data: Array<OpenFormsErrorPageEntity>;
 };
 
 export type Pagination = {
@@ -2499,6 +2690,7 @@ export type Product = {
   __typename?: 'Product';
   additional_information?: Maybe<AdditionalInformationEntityResponse>;
   catalogiMeta?: Maybe<ComponentComponentsCatalogiMeta>;
+  contact_detail?: Maybe<ContactDetailEntityResponse>;
   content?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   kennisartikelMetadata?: Maybe<ComponentComponentsKennisartikel>;
@@ -2516,6 +2708,7 @@ export type Product = {
   title: Scalars['String']['output'];
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
   uuid?: Maybe<Scalars['String']['output']>;
+  vacs?: Maybe<VacEntityResponse>;
 };
 
 
@@ -2555,6 +2748,7 @@ export type ProductFiltersInput = {
   additional_information?: InputMaybe<AdditionalInformationFiltersInput>;
   and?: InputMaybe<Array<InputMaybe<ProductFiltersInput>>>;
   catalogiMeta?: InputMaybe<ComponentComponentsCatalogiMetaFiltersInput>;
+  contact_detail?: InputMaybe<ContactDetailFiltersInput>;
   content?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
@@ -2575,11 +2769,13 @@ export type ProductFiltersInput = {
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
   uuid?: InputMaybe<StringFilterInput>;
+  vacs?: InputMaybe<VacFiltersInput>;
 };
 
 export type ProductInput = {
   additional_information?: InputMaybe<Scalars['ID']['input']>;
   catalogiMeta?: InputMaybe<ComponentComponentsCatalogiMetaInput>;
+  contact_detail?: InputMaybe<Scalars['ID']['input']>;
   content?: InputMaybe<Scalars['String']['input']>;
   kennisartikelMetadata?: InputMaybe<ComponentComponentsKennisartikelInput>;
   metaTags?: InputMaybe<ComponentSeoMetaInput>;
@@ -2594,6 +2790,7 @@ export type ProductInput = {
   slug?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   uuid?: InputMaybe<Scalars['String']['input']>;
+  vacs?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type ProductRelationResponseCollection = {
@@ -2749,6 +2946,8 @@ export type Query = {
   __typename?: 'Query';
   additionalInformation?: Maybe<AdditionalInformationEntityResponse>;
   additionalInformations?: Maybe<AdditionalInformationEntityResponseCollection>;
+  contactDetail?: Maybe<ContactDetailEntityResponse>;
+  contactDetails?: Maybe<ContactDetailEntityResponseCollection>;
   entityNotesNote?: Maybe<EntityNotesNoteEntityResponse>;
   entityNotesNotes?: Maybe<EntityNotesNoteEntityResponseCollection>;
   findSlug?: Maybe<FindSlugResponse>;
@@ -2758,6 +2957,8 @@ export type Query = {
   internalFields?: Maybe<InternalFieldEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
   notFoundPage?: Maybe<NotFoundPageEntityResponse>;
+  openFormsErrorPage?: Maybe<OpenFormsErrorPageEntityResponse>;
+  openFormsErrorPages?: Maybe<OpenFormsErrorPageEntityResponseCollection>;
   pdcCategories?: Maybe<PdcCategoryEntityResponseCollection>;
   pdcCategory?: Maybe<PdcCategoryEntityResponse>;
   pdcFaq?: Maybe<PdcFaqEntityResponse>;
@@ -2796,6 +2997,19 @@ export type QueryAdditionalInformationArgs = {
 
 export type QueryAdditionalInformationsArgs = {
   filters?: InputMaybe<AdditionalInformationFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryContactDetailArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryContactDetailsArgs = {
+  filters?: InputMaybe<ContactDetailFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2849,6 +3063,21 @@ export type QueryInternalFieldsArgs = {
 export type QueryNotFoundPageArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryOpenFormsErrorPageArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type QueryOpenFormsErrorPagesArgs = {
+  filters?: InputMaybe<OpenFormsErrorPageFiltersInput>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -3476,11 +3705,30 @@ export type UsersPermissionsUserRelationResponseCollection = {
 
 export type Vac = {
   __typename?: 'Vac';
+  contact_detail?: Maybe<ContactDetailEntityResponse>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  relatedProducts?: Maybe<ProductRelationResponseCollection>;
+  relatedVACs?: Maybe<VacRelationResponseCollection>;
   title?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
   vac?: Maybe<ComponentComponentsVac>;
+};
+
+
+export type VacRelatedProductsArgs = {
+  filters?: InputMaybe<ProductFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type VacRelatedVaCsArgs = {
+  filters?: InputMaybe<VacFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type VacEntity = {
@@ -3502,20 +3750,31 @@ export type VacEntityResponseCollection = {
 
 export type VacFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<VacFiltersInput>>>;
+  contact_detail?: InputMaybe<ContactDetailFiltersInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   not?: InputMaybe<VacFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<VacFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  relatedProducts?: InputMaybe<ProductFiltersInput>;
+  relatedVACs?: InputMaybe<VacFiltersInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
   vac?: InputMaybe<ComponentComponentsVacFiltersInput>;
 };
 
 export type VacInput = {
+  contact_detail?: InputMaybe<Scalars['ID']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  relatedProducts?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  relatedVACs?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   title?: InputMaybe<Scalars['String']['input']>;
   vac?: InputMaybe<ComponentComponentsVacInput>;
+};
+
+export type VacRelationResponseCollection = {
+  __typename?: 'VacRelationResponseCollection';
+  data: Array<VacEntity>;
 };
 
 export type GetPdcHomePageQueryVariables = Exact<{
@@ -3606,6 +3865,15 @@ export type GetOpenFormsTemplateDataQueryVariables = Exact<{
 
 export type GetOpenFormsTemplateDataQuery = { __typename?: 'Query', pdcTemplate?: { __typename?: 'PdcTemplateEntityResponse', data?: { __typename?: 'PdcTemplateEntity', attributes?: { __typename?: 'PdcTemplate', sections?: Array<{ __typename: 'ComponentComponentsUtrechtFooter', title?: string | null, address?: string | null, list?: { __typename?: 'ComponentComponentsUtrechtFooterList', id: string, listItem?: Array<{ __typename?: 'ComponentComponentsUtrechtFooterListItem', id: string, title?: string | null, link?: Array<{ __typename?: 'ComponentComponentsUtrechtFooterLink', id: string, textContent?: string | null, href?: string | null } | null> | null } | null> | null } | null } | { __typename: 'ComponentComponentsUtrechtNavigation', navigationList?: Array<{ __typename?: 'ComponentComponentsUtrechtNavigationLink', id: string, textContent?: string | null, href?: string | null } | null> | null } | { __typename?: 'Error' } | null> | null } | null } | null } | null };
 
+export type GetOpenFormsErrorPageQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pageMode?: InputMaybe<PublicationState>;
+  type?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type GetOpenFormsErrorPageQuery = { __typename?: 'Query', openFormsErrorPages?: { __typename?: 'OpenFormsErrorPageEntityResponseCollection', data: Array<{ __typename?: 'OpenFormsErrorPageEntity', id?: string | null, attributes?: { __typename?: 'OpenFormsErrorPage', title: string, body?: string | null, type: Enum_Openformserrorpage_Type } | null }> } | null };
+
 
 export const GetPdcHomePageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getPDCHomePage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationState"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pdcHomePage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"publicationState"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"components"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtTopTasks"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"topTaskIcons"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetPdcHomePageQuery, GetPdcHomePageQueryVariables>;
 export const GetAllProductsSlugQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAllProductsSlugQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"pageSize"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"sort"},"value":{"kind":"StringValue","value":"title","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"meta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pagination"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"pageSize"}},{"kind":"Field","name":{"kind":"Name","value":"pageCount"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAllProductsSlugQueryQuery, GetAllProductsSlugQueryQueryVariables>;
@@ -3618,3 +3886,4 @@ export const GetProductBySlugAndLocaleDocument = {"kind":"Document","definitions
 export const GetNotFoundPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getNotFoundPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"notFoundPage"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"body"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetNotFoundPageQuery, GetNotFoundPageQueryVariables>;
 export const GetTemplateDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getTemplateData"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationState"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pdcTemplate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"publicationState"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtNavigation"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"navigationList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtFooter"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"list"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"listItem"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"address"}},{"kind":"Field","name":{"kind":"Name","value":"socialMediaList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}}]}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetTemplateDataQuery, GetTemplateDataQueryVariables>;
 export const GetOpenFormsTemplateDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getOpenFormsTemplateData"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationState"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pdcTemplate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"publicationState"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtNavigation"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"navigationList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtFooter"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"list"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"listItem"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"link"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"href"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"address"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetOpenFormsTemplateDataQuery, GetOpenFormsTemplateDataQueryVariables>;
+export const GetOpenFormsErrorPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getOpenFormsErrorPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationState"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"type"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"openFormsErrorPages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"publicationState"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageMode"}}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"type"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"type"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetOpenFormsErrorPageQuery, GetOpenFormsErrorPageQueryVariables>;

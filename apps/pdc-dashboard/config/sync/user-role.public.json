@@ -7,6 +7,12 @@
       "action": "api::not-found-page.not-found-page.find"
     },
     {
+      "action": "api::open-forms-error-page.open-forms-error-page.find"
+    },
+    {
+      "action": "api::open-forms-error-page.open-forms-error-page.findOne"
+    },
+    {
       "action": "api::pdc-category.pdc-category.find"
     },
     {

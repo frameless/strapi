@@ -78,6 +78,8 @@ const config = {
       User: 'Gebruiker',
       warning: 'Geel',
       without_logo: 'Zonder logo',
+      form_not_found: 'Formulier niet gevonden',
+      form_server_is_offline: 'Formulier server is offline',
     },
   },
 };
