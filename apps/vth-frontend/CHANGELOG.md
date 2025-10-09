@@ -1,5 +1,15 @@
 # @frameless/vth-frontend
 
+## 0.3.3
+
+### Patch Changes
+
+- Updated dependencies [140c0fa]
+- Updated dependencies [268d5f0]
+- Updated dependencies [c663a36]
+  - @frameless/ui@0.1.3
+  - @frameless/editoria11y@1.0.0
+
 ## 0.3.2
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @frameless/overige-objecten-api
 
+## 2.2.0
+
+### Minor Changes
+
+- f7d8700: We hebben de Spotlight bijgewerkt zodat het tekstblok nu netjes ingesprongen wordt. Dit is bereikt door een standaard HTML-element te gebruiken, waardoor de inhoud overzichtelijker en beter leesbaar is.
+
+  ([GitHub Issue Frameless/strapi#1032](https://github.com/frameless/strapi/issues/1032))
+
+- d1bf694: Uitklapper kan nu open- en dichtgeklapt worden ([GitHub Issue Frameless/strapi#1035](https://github.com/frameless/strapi/issues/1035)).
+
+### Patch Changes
+
+- a173e55: Probleem opgelost waarbij prijzen in KISS fout werden afgerond na de komma.
+- Updated dependencies [140c0fa]
+- Updated dependencies [c663a36]
+  - @frameless/ui@0.1.3
+
 ## 2.1.0
 
 ### Minor Changes
