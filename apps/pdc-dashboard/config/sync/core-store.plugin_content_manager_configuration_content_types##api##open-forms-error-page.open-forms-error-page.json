@@ -139,12 +139,7 @@
           }
         ]
       ],
-      "list": [
-        "id",
-        "createdAt",
-        "updatedAt",
-        "title"
-      ]
+      "list": ["id", "createdAt", "updatedAt", "title"]
     },
     "uid": "api::open-forms-error-page.open-forms-error-page"
   },
