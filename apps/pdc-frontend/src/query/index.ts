@@ -384,3 +384,18 @@ query getOpenFormsTemplateData($locale: I18NLocaleCode, $pageMode: PublicationSt
 }
 
 `);
+
+export const GET_OPEN_FORMS_ERROR_PAGE = gql(`
+    query getOpenFormsErrorPage($locale: I18NLocaleCode, $pageMode: PublicationState, $type: String) {
+    openFormsErrorPages(publicationState: $pageMode, locale: $locale, filters: { type: { eq: $type } }) {
+      data {
+        id
+        attributes {
+          title
+          body
+          type
+        }
+      }
+    }
+  }
+`);
