@@ -4,7 +4,6 @@ import { Breadcrumbs, Heading, Markdown } from '@/components';
 import { fetchData, getStrapiGraphqlURL } from '@/util';
 import { GET_OPEN_FORMS_ERROR_PAGE } from '@/query';
 import { GetOpenFormsErrorPageQuery } from '../../../../../../../gql/graphql';
-import snackCase from 'lodash.snakecase';
 
 type ParamsType = {
   locale: string;
@@ -16,10 +15,22 @@ interface OpenFormsErrorPageProps {
   searchParams: { [key: string]: string | undefined };
 }
 
+type ErrorKey = 'formulier-niet-gevonden' | 'formulier-server-is-offline' | 'form-not-found' | 'form-server-down';
+type NormalizedError = 'form_not_found' | 'form_server_is_offline';
+const mappedErrorKies: Record<ErrorKey, NormalizedError> = {
+  'formulier-niet-gevonden': 'form_not_found',
+  'form-not-found': 'form_not_found',
+  'formulier-server-is-offline': 'form_server_is_offline',
+  'form-server-down': 'form_server_is_offline',
+};
+const getMappedError = (key: string): NormalizedError => {
+  const normalized = key.trim().toLowerCase() as ErrorKey;
+  return mappedErrorKies[normalized];
+};
+
 const OpenFormsErrorPage = async ({ params: { errorKey, locale } }: OpenFormsErrorPageProps) => {
   const { t } = await useTranslation(locale, ['open-forms-error-pages', 'common']);
-  const type = snackCase(errorKey);
-
+  const type = getMappedError(errorKey);
   const { data } = await fetchData<{ data: GetOpenFormsErrorPageQuery }>({
     url: getStrapiGraphqlURL(),
     query: GET_OPEN_FORMS_ERROR_PAGE,
