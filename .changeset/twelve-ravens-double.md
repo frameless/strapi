@@ -3,10 +3,10 @@
 "@frameless/pdc-frontend": minor
 ---
 
-Added open-forms-error-page feature
+Toegevoegde open-forms-error-page functie
 
 ### Minor Changes
 
-Added Open Forms error page collection type in Strapi with title, body, and type fields, allowing clients to customize error page content.
+Geeft redacteuren de mogelijkheid om de inhoud van de foutpagina's van open formulieren bij te werken via het Strapi-dashboard.
 
 - ([GitHub Issue UtrechtStrapiCMS/projects#937](https://github.com/orgs/frameless/projects/45/views/1?pane=issue&itemId=84125224&issue=frameless%7Cstrapi%7C937))
