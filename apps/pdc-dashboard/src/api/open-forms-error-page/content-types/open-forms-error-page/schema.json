@@ -36,10 +36,7 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "form_not_found",
-        "form_server_is_offline"
-      ],
+      "enum": ["form_not_found", "form_server_is_offline"],
       "pluginOptions": {
         "i18n": {
           "localized": true

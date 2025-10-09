@@ -70,13 +70,7 @@
       "actionParameters": {},
       "subject": "api::contact-detail.contact-detail",
       "properties": {
-        "fields": [
-          "title",
-          "contact.name",
-          "contact.email",
-          "interne_informatie_overigs",
-          "products"
-        ]
+        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs", "products"]
       },
       "conditions": []
     },
@@ -99,13 +93,7 @@
       "actionParameters": {},
       "subject": "api::contact-detail.contact-detail",
       "properties": {
-        "fields": [
-          "title",
-          "contact.name",
-          "contact.email",
-          "interne_informatie_overigs",
-          "products"
-        ]
+        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs", "products"]
       },
       "conditions": []
     },
@@ -114,13 +102,7 @@
       "actionParameters": {},
       "subject": "api::contact-detail.contact-detail",
       "properties": {
-        "fields": [
-          "title",
-          "contact.name",
-          "contact.email",
-          "interne_informatie_overigs",
-          "products"
-        ]
+        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs", "products"]
       },
       "conditions": []
     },
@@ -194,14 +176,8 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": [
-          "title",
-          "body"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "body"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -210,10 +186,7 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -222,10 +195,7 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -234,14 +204,8 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": [
-          "title",
-          "body"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "body"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -250,14 +214,8 @@
       "actionParameters": {},
       "subject": "api::not-found-page.not-found-page",
       "properties": {
-        "fields": [
-          "title",
-          "body"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "body"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -266,15 +224,8 @@
       "actionParameters": {},
       "subject": "api::open-forms-error-page.open-forms-error-page",
       "properties": {
-        "fields": [
-          "title",
-          "body",
-          "type"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "body", "type"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -283,10 +234,7 @@
       "actionParameters": {},
       "subject": "api::open-forms-error-page.open-forms-error-page",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -295,10 +243,7 @@
       "actionParameters": {},
       "subject": "api::open-forms-error-page.open-forms-error-page",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -307,15 +252,8 @@
       "actionParameters": {},
       "subject": "api::open-forms-error-page.open-forms-error-page",
       "properties": {
-        "fields": [
-          "title",
-          "body",
-          "type"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "body", "type"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -324,15 +262,8 @@
       "actionParameters": {},
       "subject": "api::open-forms-error-page.open-forms-error-page",
       "properties": {
-        "fields": [
-          "title",
-          "body",
-          "type"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "body", "type"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -341,10 +272,7 @@
       "actionParameters": {},
       "subject": "api::pdc-category.pdc-category",
       "properties": {
-        "fields": [
-          "title",
-          "pdc_subcategories"
-        ]
+        "fields": ["title", "pdc_subcategories"]
       },
       "conditions": []
     },
@@ -367,10 +295,7 @@
       "actionParameters": {},
       "subject": "api::pdc-category.pdc-category",
       "properties": {
-        "fields": [
-          "title",
-          "pdc_subcategories"
-        ]
+        "fields": ["title", "pdc_subcategories"]
       },
       "conditions": []
     },
@@ -379,10 +304,7 @@
       "actionParameters": {},
       "subject": "api::pdc-category.pdc-category",
       "properties": {
-        "fields": [
-          "title",
-          "pdc_subcategories"
-        ]
+        "fields": ["title", "pdc_subcategories"]
       },
       "conditions": []
     },
@@ -391,17 +313,8 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": [
-          "title",
-          "faq.label",
-          "faq.body",
-          "faq.headingLevel",
-          "faq.kennisartikelCategorie"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel", "faq.kennisartikelCategorie"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -410,10 +323,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -422,10 +332,7 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -434,17 +341,8 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": [
-          "title",
-          "faq.label",
-          "faq.body",
-          "faq.headingLevel",
-          "faq.kennisartikelCategorie"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel", "faq.kennisartikelCategorie"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -453,17 +351,8 @@
       "actionParameters": {},
       "subject": "api::pdc-faq.pdc-faq",
       "properties": {
-        "fields": [
-          "title",
-          "faq.label",
-          "faq.body",
-          "faq.headingLevel",
-          "faq.kennisartikelCategorie"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["title", "faq.label", "faq.body", "faq.headingLevel", "faq.kennisartikelCategorie"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -472,13 +361,8 @@
       "actionParameters": {},
       "subject": "api::pdc-home-page.pdc-home-page",
       "properties": {
-        "fields": [
-          "components"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["components"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -487,10 +371,7 @@
       "actionParameters": {},
       "subject": "api::pdc-home-page.pdc-home-page",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -499,10 +380,7 @@
       "actionParameters": {},
       "subject": "api::pdc-home-page.pdc-home-page",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -511,13 +389,8 @@
       "actionParameters": {},
       "subject": "api::pdc-home-page.pdc-home-page",
       "properties": {
-        "fields": [
-          "components"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["components"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -526,13 +399,8 @@
       "actionParameters": {},
       "subject": "api::pdc-home-page.pdc-home-page",
       "properties": {
-        "fields": [
-          "components"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["components"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -541,11 +409,7 @@
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
-        "fields": [
-          "title",
-          "pdc_category",
-          "products"
-        ]
+        "fields": ["title", "pdc_category", "products"]
       },
       "conditions": []
     },
@@ -568,11 +432,7 @@
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
-        "fields": [
-          "title",
-          "pdc_category",
-          "products"
-        ]
+        "fields": ["title", "pdc_category", "products"]
       },
       "conditions": []
     },
@@ -581,11 +441,7 @@
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
-        "fields": [
-          "title",
-          "pdc_category",
-          "products"
-        ]
+        "fields": ["title", "pdc_category", "products"]
       },
       "conditions": []
     },
@@ -594,13 +450,8 @@
       "actionParameters": {},
       "subject": "api::pdc-template.pdc-template",
       "properties": {
-        "fields": [
-          "sections"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["sections"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -609,10 +460,7 @@
       "actionParameters": {},
       "subject": "api::pdc-template.pdc-template",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -621,10 +469,7 @@
       "actionParameters": {},
       "subject": "api::pdc-template.pdc-template",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -633,13 +478,8 @@
       "actionParameters": {},
       "subject": "api::pdc-template.pdc-template",
       "properties": {
-        "fields": [
-          "sections"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["sections"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -648,13 +488,8 @@
       "actionParameters": {},
       "subject": "api::pdc-template.pdc-template",
       "properties": {
-        "fields": [
-          "sections"
-        ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "fields": ["sections"],
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -663,15 +498,7 @@
       "actionParameters": {},
       "subject": "api::price.price",
       "properties": {
-        "fields": [
-          "price.label",
-          "price.currency",
-          "price.value",
-          "price.uuid",
-          "title",
-          "products",
-          "uuid"
-        ]
+        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
       "conditions": []
     },
@@ -694,15 +521,7 @@
       "actionParameters": {},
       "subject": "api::price.price",
       "properties": {
-        "fields": [
-          "price.label",
-          "price.currency",
-          "price.value",
-          "price.uuid",
-          "title",
-          "products",
-          "uuid"
-        ]
+        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
       "conditions": []
     },
@@ -711,15 +530,7 @@
       "actionParameters": {},
       "subject": "api::price.price",
       "properties": {
-        "fields": [
-          "price.label",
-          "price.currency",
-          "price.value",
-          "price.uuid",
-          "title",
-          "products",
-          "uuid"
-        ]
+        "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
       "conditions": []
     },
@@ -789,10 +600,7 @@
           "vacs",
           "contact_detail"
         ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -801,10 +609,7 @@
       "actionParameters": {},
       "subject": "api::product.product",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -813,10 +618,7 @@
       "actionParameters": {},
       "subject": "api::product.product",
       "properties": {
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -886,10 +688,7 @@
           "vacs",
           "contact_detail"
         ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
@@ -959,10 +758,7 @@
           "vacs",
           "contact_detail"
         ],
-        "locales": [
-          "en",
-          "nl"
-        ]
+        "locales": ["en", "nl"]
       },
       "conditions": []
     },
