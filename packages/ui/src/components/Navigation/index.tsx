@@ -82,7 +82,7 @@ export const Navigation = forwardRef(
           {...restProps}
         >
           {!visible ? (
-            <NavigationList id={targetId} list={list} mobile={visible} />
+            <NavigationList list={list} mobile={visible} targetId={targetId} />
           ) : (
             <NavToggleButton
               id={targetId}
