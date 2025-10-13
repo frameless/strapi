@@ -56,6 +56,10 @@ jobs:
           envkey_OGONE_PAYMENT_SERVICE_URL: ${{ secrets.OGONE_PAYMENT_SERVICE_URL }}
           file_name: .prod.env
           fail_on_empty: false
+      - name: Lint
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: yarn run lint
       - name: Test
         run: yarn run test
       - name: Upload coverage reports to Codecov
@@ -64,10 +68,6 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Build
         run: yarn run build
-      - name: Lint
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
-        run: yarn run lint
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
