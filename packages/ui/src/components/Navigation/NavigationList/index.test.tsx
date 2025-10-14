@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { NavigationList } from './index';
 import { NavigationListType } from '../index';
@@ -106,23 +106,17 @@ describe('NavigationList', () => {
     expect(navigationList).toBeInTheDocument();
     expect(navigationList).toHaveClass('utrecht-navigation__list--sub-list');
   });
-  test('focuses on the first link when the list receives focus', () => {
-    render(<NavigationList list={listData} />);
+  test('applies targetId to first link when provided', () => {
+    const targetId = 'main-nav';
+    render(<NavigationList list={listData} targetId={targetId} />);
     const firstLink = screen.getByText('Home');
-    const navList = firstLink.closest('ul');
-    expect(navList).toHaveAttribute('tabIndex', '-1');
-
-    fireEvent.focus(navList as HTMLUListElement);
-    expect(firstLink).toHaveFocus();
+    expect(firstLink.getAttribute('id')).toEqual(targetId);
   });
-  test('does not focus the first link on mobile focus', () => {
-    render(<NavigationList list={listData} mobile />);
-    const firstLink = screen.getByText('Home');
-    const navList = firstLink.closest('ul');
-    expect(navList).toHaveAttribute('tabIndex', '-1');
 
-    fireEvent.focus(navList as HTMLUListElement);
-    // Ensure the focus behavior is explicitly prevented in mobile mode
-    expect(firstLink).not.toHaveFocus();
+  test('does not apply id to other links', () => {
+    const targetId = 'main-nav';
+    render(<NavigationList list={listData} targetId={targetId} />);
+    const secondLink = screen.getByText('About');
+    expect(secondLink).not.toHaveAttribute('id');
   });
 });
