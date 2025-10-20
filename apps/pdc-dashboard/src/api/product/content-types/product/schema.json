@@ -169,6 +169,15 @@
       "relation": "manyToOne",
       "target": "api::contact-detail.contact-detail",
       "inversedBy": "products"
+    },
+    "enable_kcm_survey": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": true
     }
   }
 }

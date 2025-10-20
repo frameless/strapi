@@ -133,7 +133,8 @@
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
           "additional_information",
-          "oldSlugs"
+          "oldSlugs",
+          "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
       },

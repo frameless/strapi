@@ -129,6 +129,7 @@ export const GET_PRODUCT_BY_SLUG = gql(`
           }
         }
         content
+        enable_kcm_survey
         sections {
           ... on ComponentComponentsUtrechtImage {
             __typename

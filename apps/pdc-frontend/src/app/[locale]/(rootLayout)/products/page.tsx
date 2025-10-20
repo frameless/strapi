@@ -1,8 +1,10 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import Link from 'next/link';
 import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
+import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { SurveyLink } from '@/components/SurveyLink';
 import { apiSettings, getStrapiGraphqlURL, mappingProducts, MappingProductsProps } from '@/util';
@@ -66,6 +68,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Products = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { t } = await useTranslation(locale, ['products-page', 'common']);
+  const nonce = headers().get('x-nonce') || '';
   const { pathSegments: productSegment } = getPathAndSearchParams({
     translations: t,
     segments: ['segments.products'],
@@ -131,6 +134,7 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
+          <KCMSurvey nonce={nonce} />
         </Grid>{' '}
       </main>
     </>

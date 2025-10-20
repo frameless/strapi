@@ -144,6 +144,7 @@ const urlValidator = makeValidator((urlInput) => {
         'vth_strapi',
         'public.pandosearch.com',
         'flolegal.com',
+        'viewer.kcmg.nl',
       ],
     })
   ) {

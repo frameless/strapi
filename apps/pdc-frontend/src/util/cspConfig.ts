@@ -144,6 +144,26 @@ export const youtube = {
   'frame-src': ['https://www.youtube.com/embed/', 'https://www.youtube-nocookie.com/embed/'],
 };
 
+const kcmSurveyStylesheetURL = normalizeURL(process.env.KCM_SURVEY_STYLESHEETS_LINK);
+
+/**
+ * KCM Survey widget CSP configuration
+ * Allows the KCM survey widget to load and function properly
+ *
+ * Resources:
+ * - *.kcmg.nl: All KCM subdomains (viewer, v, etc.)
+ * - v.kcmg.nl: Icons, styles, and fonts
+ * - KCM_SURVEY_STYLESHEET_LINK: Custom stylesheet (e.g., https://www.utrecht.nl/fileadmin/kcm-radio.css)
+ */
+export const kcmSurvey = {
+  'connect-src': [subdomainWildcard('https://kcmg.nl')],
+  'script-src': [subdomainWildcard('https://kcmg.nl')],
+  'style-src': [kcmSurveyStylesheetURL, subdomainWildcard('https://kcmg.nl'), INLINE].filter(isString),
+  'font-src': [subdomainWildcard('https://kcmg.nl')],
+  'frame-src': [subdomainWildcard('https://kcmg.nl')],
+  'img-src': [subdomainWildcard('https://kcmg.nl')],
+};
+
 export const siteimproveanalytics = {
   'img-src': [subdomainWildcard('https://siteimproveanalytics.io')],
 };
@@ -201,6 +221,7 @@ export const getContentSecurityPolicy = ({ nonce: nonceValue, node_env }: { nonc
       mergeCSPDirectives(
         cspBase,
         chatWidget,
+        kcmSurvey,
         map,
         matomo,
         ogonePaymentServices,

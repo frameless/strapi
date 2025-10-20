@@ -1,5 +1,6 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
@@ -14,6 +15,7 @@ import {
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
+import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { SurveyLink } from '@/components/SurveyLink';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
@@ -78,7 +80,7 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
 
 const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
-
+  const nonce = headers().get('x-nonce') || '';
   const { products } = await getAlphabeticallyProductsByLetter({
     locale,
     page: 1,
@@ -184,6 +186,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
+          <KCMSurvey nonce={nonce} />
         </Grid>
       </main>
     </>
