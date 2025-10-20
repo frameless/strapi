@@ -359,6 +359,36 @@
       "required": false,
       "valueType": "url",
       "example": "https://example.com/api"
+    },
+    {
+      "name": "KCM_SURVEY_API_KEY",
+      "description": "API key for the KCM Survey widget, used to authenticate requests to the KCM survey service.",
+      "required": false,
+      "secret": true,
+      "valueType": "string",
+      "example": "add-your-api-key"
+    },
+    {
+      "name": "KCM_SURVEY_STYLESHEET_LINK",
+      "description": "URL for the custom stylesheet for the KCM Survey widget (e.g., https://www.utrecht.nl/fileadmin/kcm-radio.css).",
+      "required": false,
+      "valueType": "url",
+      "example": "https://www.utrecht.nl/fileadmin/kcm-radio.css"
+    },
+    {
+      "name": "KCM_SURVEY_ID",
+      "description": "Survey ID for the KCM Survey widget, used to identify which survey to display.",
+      "required": false,
+      "valueType": "string",
+      "example": "add-kcm-survey-id"
+    },
+    {
+      "name": "KCM_SURVEY_URL",
+      "description": "Base URL for the KCM Survey service where the survey widget is hosted.",
+      "required": false,
+      "valueType": "url",
+      "example": "https://viewer.kcmg.nl/",
+      "developmentDefault": "https://viewer.kcmg.nl/"
     }
   ]
 }

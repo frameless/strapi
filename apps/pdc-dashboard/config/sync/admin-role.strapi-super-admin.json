@@ -598,7 +598,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "contact_detail"
+          "contact_detail",
+          "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
       },
@@ -686,7 +687,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "contact_detail"
+          "contact_detail",
+          "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
       },
@@ -756,7 +758,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "contact_detail"
+          "contact_detail",
+          "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
       },

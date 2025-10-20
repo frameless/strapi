@@ -320,7 +320,8 @@
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
           "additional_information",
-          "oldSlugs"
+          "oldSlugs",
+          "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
       },
@@ -407,7 +408,8 @@
           "kennisartikelMetadata.upnUri",
           "additional_information",
           "oldSlugs",
-          "vacs"
+          "vacs",
+          "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
       },
@@ -475,7 +477,8 @@
           "kennisartikelMetadata.uuid",
           "kennisartikelMetadata.upnUri",
           "additional_information",
-          "oldSlugs"
+          "oldSlugs",
+          "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
       },

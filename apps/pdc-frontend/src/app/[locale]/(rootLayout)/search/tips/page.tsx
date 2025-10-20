@@ -1,8 +1,10 @@
 import { getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import Link from 'next/link';
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, UnorderedList, UnorderedListItem } from '@/components';
+import { KCMSurvey } from '@/components/KCMSurvey';
 
 type Params = {
   params: {
@@ -25,6 +27,7 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
 
 const SearchTips = async ({ params: { locale }, searchParams }: any) => {
   const { t } = await useTranslation(locale, ['tips-page', 'common']);
+  const nonce = headers().get('x-nonce') || '';
   const query = searchParams?.query;
   const tipsList = t('body.section.unordered-list', { returnObjects: true }) as string[];
   const decodeQuery = decodeURIComponent(query);
@@ -75,6 +78,7 @@ const SearchTips = async ({ params: { locale }, searchParams }: any) => {
             tipsList.length > 0 &&
             tipsList?.map((item) => <UnorderedListItem key={item}>{item}</UnorderedListItem>)}
         </UnorderedList>
+        <KCMSurvey nonce={nonce} />
       </main>
     </div>
   );

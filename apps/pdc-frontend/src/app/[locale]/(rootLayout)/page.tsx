@@ -1,6 +1,8 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import Link from 'next/link';
+import React from 'react';
 import {
   Breadcrumbs,
   Grid,
@@ -12,6 +14,7 @@ import {
   ScrollToTopButton,
   UtrechtIconChevronUp,
 } from '@/components';
+import { KCMSurvey } from '@/components/KCMSurvey';
 import { SurveyLink } from '@/components/SurveyLink';
 import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_PDC_HOME_PAGE } from '@/query';
@@ -64,6 +67,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const Home = async ({ params: { locale } }: { params: any }) => {
   const { t } = await useTranslation(locale, ['home-page', 'common']);
+  const nonce = headers().get('x-nonce') || '';
   const { data } = await fetchData<{ data: GetPdcHomePageQuery }>({
     url: getStrapiGraphqlURL(),
     query: GET_PDC_HOME_PAGE,
@@ -148,6 +152,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
+          <KCMSurvey nonce={nonce} />
         </Grid>
       </main>
     </>

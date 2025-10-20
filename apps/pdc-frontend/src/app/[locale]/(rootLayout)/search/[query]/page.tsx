@@ -1,10 +1,12 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
+import { headers } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getSuggestedSearch } from '@/app/actions';
 import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
+import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { SurveyLink } from '@/components/SurveyLink';
 import { buildAlternateLinks } from '@/util';
@@ -63,6 +65,7 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
 
 const Search = async ({ params: { locale, query } }: SearchProps) => {
   const { t } = await useTranslation(locale, ['search-page', 'common']);
+  const nonce = headers().get('x-nonce') || '';
   const decodeQuery = decodeURIComponent(query)?.trim();
   const searchResults = await getSuggestedSearch(locale, decodeQuery);
 
@@ -144,6 +147,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
+          <KCMSurvey nonce={nonce} />
         </Grid>
       </main>
     </>

@@ -31,6 +31,7 @@ import {
   SpotlightSection,
   UtrechtIconChevronUp,
 } from '@/components';
+import { KCMSurvey } from '@/components/KCMSurvey';
 import { SurveyLink } from '@/components/SurveyLink';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
 import {
@@ -390,6 +391,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
           <GridCell sm={4} justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
+          {(product?.attributes?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}
         </Grid>
       </main>
     </>
