@@ -4,7 +4,6 @@ export * from './buildAlternateLinks';
 export * from './cspConfig';
 export * from './encodeHtmlEntities';
 export * from './fetchData';
-export * from './generateSurveyURL';
 export * from './getAlphabeticallyProductsByLetter';
 export { getFloLegalData } from './getFloLegalData';
 export type { GetFloLegalDataProps } from './getFloLegalData';

@@ -1,7 +1,7 @@
 import { buildURL } from '@frameless/utils';
 import Script from 'next/script';
 import React from 'react';
-
+import './index.scss';
 interface KCMSurveyProps {
   nonce: string;
 }
@@ -47,6 +47,7 @@ export const KCMSurvey = ({ nonce }: KCMSurveyProps) => {
           id: process.env.KCM_SURVEY_ID,
           'api-key': process.env.KCM_SURVEY_API_KEY,
           stylesheetlink: kcmSurveyStylesheetLink?.href,
+          className: 'utrecht-kcm-survey',
         })}
       </>
     );

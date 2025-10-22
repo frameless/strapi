@@ -6,7 +6,6 @@ import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { SurveyLink } from '@/components/SurveyLink';
 import { apiSettings, getStrapiGraphqlURL, mappingProducts, MappingProductsProps } from '@/util';
 import { buildAlternateLinks, fetchData } from '@/util';
 import { GetAllProductsSlugQueryQuery } from '../../../../../gql/graphql';
@@ -74,13 +73,6 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
     segments: ['segments.products'],
     locale,
   });
-  const surveyLinkURL = buildURL({
-    translations: t,
-    env: process.env,
-    key: 'FRONTEND_PUBLIC_URL',
-    segments: ['segments.products'],
-    locale,
-  });
 
   const { products } = await fetchAllProducts({ locale });
   const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productSegment);
@@ -128,13 +120,12 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
           />
         )}
         <Grid justifyContent="space-between" spacing="sm">
-          <GridCell sm={8}>
-            <SurveyLink segment={surveyLinkURL.href} t={t} env={process.env} />
+          <GridCell>
+            <KCMSurvey nonce={nonce} />
           </GridCell>
-          <GridCell sm={4} justifyContent="flex-end">
+          <GridCell justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
-          <KCMSurvey nonce={nonce} />
         </Grid>{' '}
       </main>
     </>

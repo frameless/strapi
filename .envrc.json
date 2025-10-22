@@ -320,31 +320,6 @@
       "developmentDefault": "https://public.pandosearch.com/example.com/"
     },
     {
-      "name": "SURVEY_RUN_URL",
-      "example": "http://localhost:8000",
-      "valueType": "url",
-      "description": "URL where the Survey Run is hosted. This is used to access the Survey Run from the frontend.",
-      "required": false,
-      "developmentDefault": "https://example.com"
-    },
-    {
-      "name": "SURVEY_RUN_APIKEY",
-      "description": "API key for the Survey Run, used to access the Survey Run from the frontend.",
-      "required": false,
-      "example": "CE1E9957-EB87-4581-8EDC-0B35D67D548D",
-      "developmentDefault": "CE1E9957-EB87-4581-8EDC-0B35D67D548D",
-      "valueType": "string",
-      "secret": true
-    },
-    {
-      "name": "SURVEY_RUN_GUID",
-      "description": "GUID for the Survey Run, used to identify the specific survey instance.",
-      "required": false,
-      "example": "E305616D-6548-4F84-9C34-59C20A8F0267",
-      "developmentDefault": "E305616D-6548-4F84-9C34-59C20A8F0267",
-      "valueType": "string"
-    },
-    {
       "name": "FLO_LEGAL_API_TOKEN",
       "description": "API token for the Flo Legal API, used to access legal documents and templates.",
       "required": false,

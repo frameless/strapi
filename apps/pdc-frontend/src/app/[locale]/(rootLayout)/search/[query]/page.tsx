@@ -8,7 +8,6 @@ import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { SurveyLink } from '@/components/SurveyLink';
 import { buildAlternateLinks } from '@/util';
 import { useTranslation } from '../../../../i18n/index';
 type ParamsType = {
@@ -94,13 +93,6 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           body: fields.body,
         }))
       : [];
-  const surveyLinkURL = buildURL({
-    translations: t,
-    env: process.env,
-    key: 'FRONTEND_PUBLIC_URL',
-    segments: ['segments.search', query],
-    locale,
-  });
 
   return (
     <>
@@ -141,13 +133,12 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           total={searchResults.total}
         />
         <Grid justifyContent="space-between" spacing="sm">
-          <GridCell sm={8}>
-            <SurveyLink segment={surveyLinkURL.href} t={t} env={process.env} />
+          <GridCell>
+            <KCMSurvey nonce={nonce} />
           </GridCell>
-          <GridCell sm={4} justifyContent="flex-end">
+          <GridCell justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
-          <KCMSurvey nonce={nonce} />
         </Grid>
       </main>
     </>

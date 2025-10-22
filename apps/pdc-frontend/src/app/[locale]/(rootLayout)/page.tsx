@@ -15,7 +15,6 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
-import { SurveyLink } from '@/components/SurveyLink';
 import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_PDC_HOME_PAGE } from '@/query';
 import { alphabet, getStrapiGraphqlURL } from '@/util';
@@ -146,13 +145,12 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           </>
         </Grid>
         <Grid justifyContent="space-between" spacing="sm">
-          <GridCell sm={8}>
-            <SurveyLink segment={locale} t={t} env={process.env} />
+          <GridCell>
+            <KCMSurvey nonce={nonce} />
           </GridCell>
-          <GridCell sm={4} justifyContent="flex-end">
+          <GridCell justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
-          <KCMSurvey nonce={nonce} />
         </Grid>
       </main>
     </>

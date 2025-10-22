@@ -32,7 +32,6 @@ import {
   UtrechtIconChevronUp,
 } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
-import { SurveyLink } from '@/components/SurveyLink';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
 import {
   buildAlternateLinks,
@@ -324,14 +323,6 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
     segments: ['segments.products'],
   });
 
-  const surveyLinkURL = buildURL({
-    env: process.env,
-    translations: t,
-    key: 'FRONTEND_PUBLIC_URL',
-    segments: ['segments.products', slug],
-    locale,
-  });
-
   return (
     <>
       <Breadcrumbs
@@ -385,13 +376,10 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
           </RichText>
         </Article>
         <Grid justifyContent="space-between" spacing="sm">
-          <GridCell sm={8}>
-            <SurveyLink segment={surveyLinkURL.href} t={t} env={process.env} />
-          </GridCell>
-          <GridCell sm={4} justifyContent="flex-end">
+          <GridCell>{(product?.attributes?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}</GridCell>
+          <GridCell justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
-          {(product?.attributes?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}
         </Grid>
       </main>
     </>
