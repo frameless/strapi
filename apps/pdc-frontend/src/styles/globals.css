@@ -28,6 +28,15 @@ body {
     #d63433 50%
   );
 
+  /* KCM survey form */
+  --utrecht-kcm-survey-border-block-color: var(--utrecht-color-blue-90);
+  --utrecht-kcm-survey-border-block-width: 3px;
+  --utrecht-kcm-survey-padding-block-start: 1rem;
+  --utrecht-kcm-survey-padding-block-end: 1rem;
+  --utrecht-kcm-survey-margin-block-start: 2rem;
+  --utrecht-kcm-survey-margin-block-end: 2rem;
+  --utrecht-kcm-survey-max-width: 738px;
+
   /* Advanced Link tokens */
   --utrecht-advanced-link-with-icon-text-decoration: none;
   --utrecht-advanced-link-with-icon-text-decoration-thickness: 1px;

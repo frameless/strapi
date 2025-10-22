@@ -17,7 +17,6 @@ import {
 } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { SurveyLink } from '@/components/SurveyLink';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
 import {
   alphabet,
@@ -112,13 +111,6 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
     segments: ['segments.products', 'segments.alphabet', q],
     locale,
   });
-  const surveyLinkURL = buildURL({
-    translations: t,
-    env: process.env,
-    key: 'FRONTEND_PUBLIC_URL',
-    segments: ['segments.products', 'segments.alphabet', q],
-    locale,
-  });
 
   const alphabetAvailability = await Promise.all(productsAvailability);
   const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productSegment);
@@ -180,13 +172,12 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
           <Paragraph>{t('product-notfound', { letter: q.toUpperCase() })}</Paragraph>
         )}
         <Grid justifyContent="space-between" spacing="sm">
-          <GridCell sm={8}>
-            <SurveyLink segment={surveyLinkURL.href} t={t} env={process.env} />
+          <GridCell>
+            <KCMSurvey nonce={nonce} />
           </GridCell>
-          <GridCell sm={4} justifyContent="flex-end">
+          <GridCell justifyContent="flex-end">
             <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
-          <KCMSurvey nonce={nonce} />
         </Grid>
       </main>
     </>
