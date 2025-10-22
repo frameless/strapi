@@ -153,7 +153,7 @@ const kcmSurveyStylesheetURL = normalizeURL(process.env.KCM_SURVEY_STYLESHEETS_L
  * Resources:
  * - *.kcmg.nl: All KCM subdomains (viewer, v, etc.)
  * - v.kcmg.nl: Icons, styles, and fonts
- * - KCM_SURVEY_STYLESHEET_LINK: Custom stylesheet (e.g., https://www.utrecht.nl/fileadmin/kcm-radio.css)
+ * - KCM_SURVEY_STYLESHEETS_LINK: Custom stylesheet (e.g., https://www.utrecht.nl/fileadmin/kcm-radio.css)
  */
 export const kcmSurvey = {
   'connect-src': [subdomainWildcard('https://kcmg.nl')],

@@ -145,6 +145,8 @@ const urlValidator = makeValidator((urlInput) => {
         'public.pandosearch.com',
         'flolegal.com',
         'viewer.kcmg.nl',
+        'utrecht.nl',
+        'www.utrecht.nl',
       ],
     })
   ) {
