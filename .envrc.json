@@ -369,11 +369,12 @@
       "example": "add-your-api-key"
     },
     {
-      "name": "KCM_SURVEY_STYLESHEET_LINK",
+      "name": "KCM_SURVEY_STYLESHEETS_LINK",
       "description": "URL for the custom stylesheet for the KCM Survey widget (e.g., https://www.utrecht.nl/fileadmin/kcm-radio.css).",
       "required": false,
       "valueType": "url",
-      "example": "https://www.utrecht.nl/fileadmin/kcm-radio.css"
+      "example": "https://www.utrecht.nl",
+      "developmentDefault": "https://www.utrecht.nl"
     },
     {
       "name": "KCM_SURVEY_ID",
