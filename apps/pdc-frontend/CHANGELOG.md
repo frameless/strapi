@@ -1,5 +1,48 @@
 # @frameless/pdc-frontend
 
+## 0.8.0
+
+### Minor Changes
+
+- e24723d: KTO-formulier (KCM) embed toegevoegd aan productpagina's met schakeloptie
+
+  - KTO-formulier embed onderaan alle PDC productpagina's geplaatst
+  - Schakeloptie in CMS toegevoegd om KTO-formulier per product in/uit te schakelen (standaard: ingeschakeld)
+  - CSP-beleid geconfigureerd voor KCM survey resources (\*.kcmg.nl, v.kcmg.nl)
+  - Omgevingsvariabelen toegevoegd voor KCM survey configuratie (API key, survey ID, URL, stylesheet)
+  - KTO-formulier embed ziet er hetzelfde uit en werkt zoals op de hoofdwebsite
+  - Update de rollen en permissies voor CMS-gebruikers om KTO-formulier schakeloptie te beheren
+
+  ([GitHub Issue Frameless/strapi#1218](https://github.com/frameless/strapi/issues/1218))
+
+- 684446c: # We hebben de manier waarop de beslisboom in de applicatie wordt geladen en weergegeven verbeterd:
+
+  - De beslisboom wordt nu als een npm-pakket beheerd in plaats van via een los script. Dit maakt het veiliger en zorgt dat we beter kunnen bijhouden welke versie gebruikt wordt.
+  - Er is een wrapper gemaakt voor ons design systeem, zodat de beslisboom automatisch het uiterlijk en de stijl van Gemeente Utrecht krijgt.
+  - De beslisboom maakt nu gebruik van de nieuwste versie (1.13.2).
+  - In de Strapi-omgeving is een React-wrapper toegevoegd, zodat de integratie makkelijker en consistenter is.
+  - De nieuwe implementatie is volledig geïntegreerd in de PDC-frontend, waardoor gebruikers de beslisboom naadloos in de juiste huisstijl zien.
+
+- 4610e4a: Toegevoegde open-forms-error-page functie
+
+  ### Minor Changes
+
+  Geeft redacteuren de mogelijkheid om de inhoud van de foutpagina's van open formulieren bij te werken via het Strapi-dashboard.
+
+  - ([GitHub Issue UtrechtStrapiCMS/projects#937](https://github.com/orgs/frameless/projects/45/views/1?pane=issue&itemId=84125224&issue=frameless%7Cstrapi%7C937))
+
+### Patch Changes
+
+- 2dc3a93: Formulierenpagina’s uitgesloten van indexering in zoekmachines.
+
+  ([GitHub Issue Frameless/strapi#992](https://github.com/frameless/strapi/issues/992))
+
+- Updated dependencies [140c0fa]
+- Updated dependencies [268d5f0]
+- Updated dependencies [c663a36]
+  - @frameless/ui@0.1.3
+  - @frameless/editoria11y@1.0.0
+
 ## 0.7.0
 
 ### Minor Changes
