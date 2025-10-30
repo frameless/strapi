@@ -1,0 +1,99 @@
+@media print {
+  header img,
+  header svg,
+  .utrecht-logo,
+  [class*="logo"] {
+    display: block;
+  }
+
+  .utrecht-print-page {
+    --utrecht-heading-2-font-size: var(--utrecht-heading-4-font-size);
+    --utrecht-heading-3-font-size: var(--utrecht-heading-4-font-size);
+    --utrecht-heading-5-font-size: var(--utrecht-heading-4-font-size);
+    --utrecht-heading-6-font-size: var(--utrecht-heading-4-font-size);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: block;
+    page-break-after: avoid;
+  }
+
+  .utrecht-image {
+    max-inline-size: 500px;
+  }
+
+  ol {
+    counter-reset: item;
+  }
+
+  ol > li {
+    counter-increment: item;
+  }
+
+  ol ol > li {
+    display: block;
+  }
+
+  ol ol > li::before {
+    content: counters(item, ".") ". ";
+    margin-block-start: -20px;
+  }
+
+  table,
+  table tr td,
+  table tr th {
+    page-break-inside: avoid;
+  }
+
+  .utrecht-scroll-to-top-button {
+    display: none;
+  }
+
+  iframe[src*="youtube"],
+  iframe[src*="youtu.be"],
+  [class*="youtube"],
+  [class*="video-embed"] {
+    display: none;
+  }
+
+  [class*="map"],
+  [class*="kaart"],
+  iframe[src*="maps.google"],
+  iframe[src*="openstreetmap"] {
+    display: block !important;
+  }
+
+  nav,
+  [role="navigation"],
+  [class*="navigation"],
+  [class*="menu"] {
+    display: none;
+  }
+
+  aside,
+  [class*="sidebar"],
+  .utrecht-sidebar {
+    display: none;
+  }
+
+  [class*="dropdown"],
+  select:not([class*="form"]) {
+    display: none;
+  }
+
+  [class*="paginator"],
+  [class*="pagination"],
+  .utrecht-pagination {
+    display: none;
+  }
+
+  [class*="decorative"],
+  [aria-hidden="true"]:not(svg):not(span) {
+    display: none;
+  }
+}
