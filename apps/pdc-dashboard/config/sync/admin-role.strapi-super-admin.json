@@ -68,47 +68,6 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
-      "subject": "api::contact-detail.contact-detail",
-      "properties": {
-        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs", "products"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "actionParameters": {},
-      "subject": "api::contact-detail.contact-detail",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "actionParameters": {},
-      "subject": "api::contact-detail.contact-detail",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "actionParameters": {},
-      "subject": "api::contact-detail.contact-detail",
-      "properties": {
-        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs", "products"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "actionParameters": {},
-      "subject": "api::contact-detail.contact-detail",
-      "properties": {
-        "fields": ["title", "contact.name", "contact.email", "interne_informatie_overigs", "products"]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "actionParameters": {},
       "subject": "api::internal-field.internal-field",
       "properties": {
         "fields": [
@@ -598,7 +557,6 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "contact_detail",
           "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
@@ -687,7 +645,6 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "contact_detail",
           "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
@@ -758,7 +715,6 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "contact_detail",
           "enable_kcm_survey"
         ],
         "locales": ["en", "nl"]
@@ -869,8 +825,7 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts",
-          "contact_detail"
+          "relatedProducts"
         ]
       },
       "conditions": []
@@ -910,8 +865,7 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts",
-          "contact_detail"
+          "relatedProducts"
         ]
       },
       "conditions": []
@@ -937,8 +891,7 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts",
-          "contact_detail"
+          "relatedProducts"
         ]
       },
       "conditions": []

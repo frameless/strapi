@@ -249,21 +249,6 @@
           "sortable": true
         }
       },
-      "contact_detail": {
-        "edit": {
-          "label": "Contactgegevens",
-          "description": "",
-          "placeholder": "Voeg contactgegevens toe.",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "Contactgegevens",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "enable_kcm_survey": {
         "edit": {
           "label": "Enable KTO-embed",
@@ -338,6 +323,7 @@
       }
     },
     "layouts": {
+      "list": ["title", "metaTags", "price", "uuid", "additional_information"],
       "edit": [
         [
           {
@@ -431,14 +417,9 @@
           {
             "name": "vacs",
             "size": 6
-          },
-          {
-            "name": "contact_detail",
-            "size": 6
           }
         ]
-      ],
-      "list": ["title", "metaTags", "price", "uuid", "additional_information", "contact_detail"]
+      ]
     }
   },
   "type": "object",
