@@ -164,12 +164,6 @@
       "target": "api::vac.vac",
       "inversedBy": "relatedProducts"
     },
-    "contact_detail": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::contact-detail.contact-detail",
-      "inversedBy": "products"
-    },
     "enable_kcm_survey": {
       "pluginOptions": {
         "i18n": {

@@ -77,21 +77,6 @@
           "sortable": false
         }
       },
-      "contact_detail": {
-        "edit": {
-          "label": "Contactgegevens",
-          "description": "",
-          "placeholder": "Voeg contactgegevens toe.",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "Contactgegevens",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -152,6 +137,7 @@
       }
     },
     "layouts": {
+      "list": ["title", "id", "createdAt", "relatedVACs"],
       "edit": [
         [
           {
@@ -174,15 +160,8 @@
             "name": "relatedProducts",
             "size": 6
           }
-        ],
-        [
-          {
-            "name": "contact_detail",
-            "size": 6
-          }
         ]
-      ],
-      "list": ["title", "id", "createdAt", "relatedVACs", "contact_detail"]
+      ]
     },
     "uid": "api::vac.vac"
   },
