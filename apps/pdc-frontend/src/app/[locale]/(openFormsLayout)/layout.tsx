@@ -28,6 +28,7 @@ import {
 // import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
+import '@utrecht/design-tokens/dist/font-family';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import 'react-loading-skeleton/dist/skeleton.css';
