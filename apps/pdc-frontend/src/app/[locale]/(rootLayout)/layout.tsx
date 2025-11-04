@@ -40,11 +40,12 @@ import {
 import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
 import { useTranslation } from '../../i18n/index';
 import { languages } from '../../i18n/settings';
-import '../../../styles/globals.css';
 import '@frameless/ui/dist/bundle.css';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
+import '@utrecht/design-tokens/dist/font-family';
 import 'react-loading-skeleton/dist/skeleton.css';
+import '../../../styles/globals.css';
 
 interface LayoutProps {
   children: React.ReactNode;
