@@ -4,8 +4,17 @@
   .utrecht-logo,
   [class*="logo"] {
     display: block;
+    max-height: 50px; /* make Logo smaller? */
+    width: auto;
   }
 
+  body {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Headers size */
   .utrecht-print-page {
     --utrecht-heading-2-font-size: var(--utrecht-heading-4-font-size);
     --utrecht-heading-3-font-size: var(--utrecht-heading-4-font-size);
@@ -23,8 +32,44 @@
     page-break-after: avoid;
   }
 
+  /* Link visible */
+  a {
+    text-decoration: none;
+    color: var(--utrecht-color-block);
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  .utrecht-accordion__panel,
+  .utrecht-skip-link,
+  .utrecht-search-bar-wrapper,
+  .utrecht-kcm-survey {
+    display: none !important;
+  }
+
+  /* Accordion open visible */
+  .utrecht-accordion__panel {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
   .utrecht-image {
+    display: block;
     max-inline-size: 500px;
+    page-break-inside: avoid;
   }
 
   ol {
@@ -54,11 +99,8 @@
     display: none;
   }
 
-  iframe[src*="youtube"],
-  iframe[src*="youtu.be"],
-  [class*="youtube"],
-  [class*="video-embed"] {
-    display: none;
+  .utrecht-kcm-survey {
+    display: none !important;
   }
 
   [class*="map"],
@@ -71,14 +113,16 @@
   nav,
   [role="navigation"],
   [class*="navigation"],
-  [class*="menu"] {
-    display: none;
-  }
-
+  [class*="menu"],
+  [class*="breadcrumb"],
   aside,
   [class*="sidebar"],
-  .utrecht-sidebar {
-    display: none;
+  .utrecht-skip-link,
+  .utrecht-kcm-survey,
+  .utrecht-scroll-to-top-button,
+  .utrecht-button-group,
+  button:not(.utrecht-accordion__button) {
+    display: none !important;
   }
 
   [class*="dropdown"],
@@ -95,5 +139,27 @@
   [class*="decorative"],
   [aria-hidden="true"]:not(svg):not(span) {
     display: none;
+  }
+
+  /* Mark sections: border for print */
+  mark,
+  .utrecht-mark {
+    border: 1px solid #000;
+    padding: 0 0.2em;
+    background: transparent;
+  }
+
+  /* Spotlight sections: border for print */
+  .utrecht-spotlight-section {
+    border: 2px solid #000;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  /* Alert/notification: border for print */
+  .utrecht-alert,
+  [class*="alert"] {
+    border: 2px solid #000;
+    padding: 0.5rem;
   }
 }
