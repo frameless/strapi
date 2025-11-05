@@ -1,165 +1,184 @@
 @media print {
-  header img,
-  header svg,
-  .utrecht-logo,
-  [class*="logo"] {
-    display: block;
-    max-height: 50px; /* make Logo smaller? */
-    width: auto;
-  }
-
-  body {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-  }
-
-  /* Headers size */
   .utrecht-print-page {
+    /* CSS custom properties for headers */
     --utrecht-heading-2-font-size: var(--utrecht-heading-4-font-size);
     --utrecht-heading-3-font-size: var(--utrecht-heading-4-font-size);
     --utrecht-heading-5-font-size: var(--utrecht-heading-4-font-size);
     --utrecht-heading-6-font-size: var(--utrecht-heading-4-font-size);
-  }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    display: block;
-    page-break-after: avoid;
-  }
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 
-  /* Link visible */
-  a {
-    text-decoration: none;
-    color: var(--utrecht-color-block);
-  }
+    /* Header logo styling */
+    header {
+      img,
+      svg {
+        display: block;
+        max-block-size: var(--utrecht-space-block-4xl) !important;
+        block-size: var(--utrecht-space-block-4xl) !important;
+        inline-size: auto !important;
+      }
+    }
 
-  a[href]:after {
-    content: " (" attr(href) ")";
-    font-size: 0.8em;
-    font-weight: normal;
-    font-style: italic;
-  }
+    .utrecht-logo,
+    [class*="logo"] {
+      display: block;
+      max-block-size: var(--utrecht-space-block-4xl) !important;
+      block-size: var(--utrecht-space-block-4xl) !important;
+      inline-size: auto !important;
+    }
 
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: block;
+      page-break-after: avoid;
+    }
 
-  .utrecht-accordion__panel,
-  .utrecht-skip-link,
-  .utrecht-search-bar-wrapper,
-  .utrecht-kcm-survey {
-    display: none !important;
-  }
+    /* Link visible */
+    a {
+      text-decoration: none;
+      color: var(--utrecht-color-block);
+    }
 
-  /* Accordion open visible */
-  .utrecht-accordion__panel {
-    display: block !important;
-    max-height: none !important;
-    overflow: visible !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
+    a[href]:after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      font-weight: normal;
+      font-style: italic;
+    }
 
-  .utrecht-image {
-    display: block;
-    max-inline-size: 500px;
-    page-break-inside: avoid;
-  }
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+      content: "";
+    }
 
-  ol {
-    counter-reset: item;
-  }
+    /* Hide navigation elements */
+    .utrecht-skip-link,
+    .utrecht-search-bar-wrapper,
+    .utrecht-kcm-survey {
+      display: none !important;
+    }
 
-  ol > li {
-    counter-increment: item;
-  }
+    /* Accordion open visible */
+    .utrecht-accordion__panel {
+      display: block !important;
+      max-block-size: none !important;
+      overflow: visible !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
 
-  ol ol > li {
-    display: block;
-  }
+    .utrecht-image {
+      display: block;
+      max-inline-size: 500px;
+      page-break-inside: avoid;
+    }
 
-  ol ol > li::before {
-    content: counters(item, ".") ". ";
-    margin-block-start: -20px;
-  }
+    ol {
+      counter-reset: item;
+    }
 
-  table,
-  table tr td,
-  table tr th {
-    page-break-inside: avoid;
-  }
+    ol > li {
+      counter-increment: item;
+    }
 
-  .utrecht-scroll-to-top-button {
-    display: none;
-  }
+    ol ol > li {
+      display: block;
+    }
 
-  .utrecht-kcm-survey {
-    display: none !important;
-  }
+    ol ol > li::before {
+      content: counters(item, ".") ". ";
+      margin-block-start: calc(var(--utrecht-space-block-lg) * -1);
+    }
 
-  [class*="map"],
-  [class*="kaart"],
-  iframe[src*="maps.google"],
-  iframe[src*="openstreetmap"] {
-    display: block !important;
-  }
+    table,
+    table tr td,
+    table tr th {
+      page-break-inside: avoid;
+    }
 
-  nav,
-  [role="navigation"],
-  [class*="navigation"],
-  [class*="menu"],
-  [class*="breadcrumb"],
-  aside,
-  [class*="sidebar"],
-  .utrecht-skip-link,
-  .utrecht-kcm-survey,
-  .utrecht-scroll-to-top-button,
-  .utrecht-button-group,
-  button:not(.utrecht-accordion__button) {
-    display: none !important;
-  }
+    .utrecht-scroll-to-top-button {
+      display: none;
+    }
 
-  [class*="dropdown"],
-  select:not([class*="form"]) {
-    display: none;
-  }
+    .utrecht-kcm-survey {
+      display: none !important;
+    }
 
-  [class*="paginator"],
-  [class*="pagination"],
-  .utrecht-pagination {
-    display: none;
-  }
+    [class*="map"],
+    [class*="kaart"],
+    iframe[src*="maps.google"],
+    iframe[src*="openstreetmap"] {
+      display: none !important;
+    }
 
-  [class*="decorative"],
-  [aria-hidden="true"]:not(svg):not(span) {
-    display: none;
-  }
+    nav,
+    [role="navigation"],
+    [class*="navigation"],
+    [class*="menu"],
+    [class*="breadcrumb"],
+    aside,
+    [class*="sidebar"],
+    button:not(.utrecht-accordion__button) {
+      display: none !important;
+    }
 
-  /* Mark sections: border for print */
-  mark,
-  .utrecht-mark {
-    border: 1px solid #000;
-    padding: 0 0.2em;
-    background: transparent;
-  }
+    iframe[src*="youtube.com"],
+    iframe[src*="youtu.be"],
+    video,
+    embed,
+    object {
+      display: none !important;
+    }
 
-  /* Spotlight sections: border for print */
-  .utrecht-spotlight-section {
-    border: 2px solid #000;
-    padding: 1rem;
-    margin: 1rem 0;
-  }
+    [class*="dropdown"],
+    select:not([class*="form"]) {
+      display: none;
+    }
 
-  /* Alert/notification: border for print */
-  .utrecht-alert,
-  [class*="alert"] {
-    border: 2px solid #000;
-    padding: 0.5rem;
+    [class*="paginator"],
+    [class*="pagination"],
+    .utrecht-pagination {
+      display: none;
+    }
+
+    [class*="decorative"],
+    [aria-hidden="true"]:not(svg):not(span) {
+      display: none;
+    }
+
+    /* Mark sections: border for print */
+    mark,
+    .utrecht-mark {
+      border-block: 1px solid var(--utrecht-color-black);
+      border-inline: 1px solid var(--utrecht-color-black);
+      padding-block: 0;
+      padding-inline: var(--utrecht-space-inline-3xs);
+      background: transparent;
+    }
+
+    /* Spotlight sections: border for print */
+    .utrecht-spotlight-section {
+      border-block: 2px solid var(--utrecht-color-black);
+      border-inline: 2px solid var(--utrecht-color-black);
+      padding-block: var(--utrecht-space-block-md);
+      padding-inline: var(--utrecht-space-inline-md);
+      margin-block: var(--utrecht-space-block-md) 0;
+      margin-inline: 0;
+    }
+
+    /* Alert notification: border for print */
+    .utrecht-alert,
+    [class*="alert"] {
+      border-block: 2px solid var(--utrecht-color-black);
+      border-inline: 2px solid var(--utrecht-color-black);
+      padding-block: var(--utrecht-space-block-sm);
+      padding-inline: var(--utrecht-space-inline-sm);
+    }
   }
 }
