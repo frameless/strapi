@@ -6,27 +6,29 @@
     --utrecht-heading-5-font-size: var(--utrecht-heading-4-font-size);
     --utrecht-heading-6-font-size: var(--utrecht-heading-4-font-size);
 
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    /* Text Settings */
     hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 
     /* Header logo styling */
     header {
       img,
       svg {
-        display: block;
-        max-block-size: var(--utrecht-space-block-4xl) !important;
         block-size: var(--utrecht-space-block-4xl) !important;
+        display: block;
         inline-size: auto !important;
+        max-block-size: var(--utrecht-space-block-4xl) !important;
       }
     }
 
+    /* Logo Styling */
     .utrecht-logo,
     [class*="logo"] {
-      display: block;
-      max-block-size: var(--utrecht-space-block-4xl) !important;
       block-size: var(--utrecht-space-block-4xl) !important;
+      display: block;
       inline-size: auto !important;
+      max-block-size: var(--utrecht-space-block-4xl) !important;
     }
 
     h1,
@@ -41,19 +43,19 @@
 
     /* Link visible */
     a {
-      text-decoration: none;
       color: var(--utrecht-color-block);
+      text-decoration: none;
     }
 
-    a[href]:after {
+    a[href]::after {
       content: " (" attr(href) ")";
       font-size: 0.8em;
-      font-weight: normal;
       font-style: italic;
+      font-weight: 400;
     }
 
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
       content: "";
     }
 
@@ -68,9 +70,9 @@
     .utrecht-accordion__panel {
       display: block !important;
       max-block-size: none !important;
+      opacity: 100% !important;
       overflow: visible !important;
       visibility: visible !important;
-      opacity: 1 !important;
     }
 
     .utrecht-image {
@@ -148,28 +150,28 @@
     }
 
     [class*="decorative"],
-    [aria-hidden="true"]:not(svg):not(span) {
+    [aria-hidden="true"]:not(svg, span) {
       display: none;
     }
 
     /* Mark sections: border for print */
     mark,
     .utrecht-mark {
+      background: transparent;
       border-block: 1px solid var(--utrecht-color-black);
       border-inline: 1px solid var(--utrecht-color-black);
       padding-block: 0;
       padding-inline: var(--utrecht-space-inline-3xs);
-      background: transparent;
     }
 
     /* Spotlight sections: border for print */
     .utrecht-spotlight-section {
       border-block: 2px solid var(--utrecht-color-black);
       border-inline: 2px solid var(--utrecht-color-black);
-      padding-block: var(--utrecht-space-block-md);
-      padding-inline: var(--utrecht-space-inline-md);
       margin-block: var(--utrecht-space-block-md) 0;
       margin-inline: 0;
+      padding-block: var(--utrecht-space-block-md);
+      padding-inline: var(--utrecht-space-inline-md);
     }
 
     /* Alert notification: border for print */
