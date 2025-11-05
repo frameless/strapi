@@ -151,6 +151,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
       <body
         className={classnames(
           'utrecht-theme',
+          'utrecht-print-page',
           // Disable dark mode until it is completed and tested
           // 'utrecht-theme--media-query-color-scheme',
           'utrecht-document',
