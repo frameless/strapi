@@ -7,6 +7,8 @@ body {
 }
 
 .utrecht-pdc-theme {
+  --utrecht-page-footer-padding-block-end: 24px;
+  --utrecht-page-footer-padding-block-start: 24px;
   --utrecht-page-padding-inline-start: 16px;
   --utrecht-page-padding-inline-end: 16px;
   --utrecht-space-around: 1;
@@ -218,7 +220,7 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
   padding-inline-end: var(--utrecht-navigation-toggle-button-padding-end);
 }
 
-/* 428px screen */
+/* Screens 428px wide or larger */
 @media (width >= 428px) {
   .utrecht-pdc-theme {
     --utrecht-page-padding-inline-start: 32px;
@@ -229,6 +231,8 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
     --utrecht-logo-wrapper-padding-inline-start: 32px;
     --utrecht-drawer-padding-inline-end: 16px;
     --utrecht-drawer-padding-inline-start: 16px;
+    --utrecht-page-footer-padding-block-end: 48px;
+    --utrecht-page-footer-padding-block-start: 48px;
   }
 }
 
