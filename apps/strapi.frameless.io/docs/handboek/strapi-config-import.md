@@ -1,4 +1,4 @@
-## Strapi Dashboard Configuratie Importeren
+# Strapi Dashboard Configuratie Importeren
 
 ⚠️ **Na elke deployment naar test, acceptatie of productie moet de Strapi configuratie handmatig worden geïmporteerd.**
 
