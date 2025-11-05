@@ -22,15 +22,6 @@
       }
     }
 
-    /* Logo Styling */
-    .utrecht-logo,
-    [class*="logo"] {
-      block-size: var(--utrecht-space-block-4xl) !important;
-      display: block;
-      inline-size: auto !important;
-      max-block-size: var(--utrecht-space-block-4xl) !important;
-    }
-
     h1,
     h2,
     h3,
@@ -39,6 +30,15 @@
     h6 {
       display: block;
       page-break-after: avoid;
+    }
+
+    /* Logo Styling */
+    .utrecht-logo,
+    [class*="logo"] {
+      block-size: var(--utrecht-space-block-4xl) !important;
+      display: block;
+      inline-size: auto !important;
+      max-block-size: var(--utrecht-space-block-4xl) !important;
     }
 
     /* Link visible */
@@ -75,12 +75,14 @@
       visibility: visible !important;
     }
 
+    /* Image sizing */
     .utrecht-image {
       display: block;
       max-inline-size: 500px;
       page-break-inside: avoid;
     }
 
+    /* Order list */
     ol {
       counter-reset: item;
     }
@@ -93,6 +95,7 @@
       display: block;
     }
 
+    /* Nested ordered lists - show as block with numbered counters */
     ol ol > li::before {
       content: counters(item, ".") ". ";
       margin-block-start: calc(var(--utrecht-space-block-lg) * -1);
@@ -104,14 +107,17 @@
       page-break-inside: avoid;
     }
 
+    /* Scroll to top button */
     .utrecht-scroll-to-top-button {
       display: none;
     }
 
+    /* Survey component */
     .utrecht-kcm-survey {
       display: none !important;
     }
 
+    /* Maps and embedded maps */
     [class*="map"],
     [class*="kaart"],
     iframe[src*="maps.google"],
@@ -119,6 +125,7 @@
       display: none !important;
     }
 
+    /* Navigation and menus */
     nav,
     [role="navigation"],
     [class*="navigation"],
@@ -130,6 +137,7 @@
       display: none !important;
     }
 
+    /* Video and embedded content */
     iframe[src*="youtube.com"],
     iframe[src*="youtu.be"],
     video,
@@ -138,17 +146,20 @@
       display: none !important;
     }
 
+    /* Dropdowns and select elements */
     [class*="dropdown"],
     select:not([class*="form"]) {
       display: none;
     }
 
+    /* Pagination */
     [class*="paginator"],
     [class*="pagination"],
     .utrecht-pagination {
       display: none;
     }
 
+    /* Decorative elements */
     [class*="decorative"],
     [aria-hidden="true"]:not(svg, span) {
       display: none;
