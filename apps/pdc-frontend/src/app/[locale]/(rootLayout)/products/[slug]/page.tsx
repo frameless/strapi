@@ -357,37 +357,35 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         Link={Link}
       />
 
-      <div className="utrecht-print-page">
-        <main id="main">
-          <Article>
-            <RichText>
-              <Heading level={1}>{product?.attributes?.title}</Heading>
-              {product?.attributes?.content && (
-                <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
-                  {product?.attributes?.content}
-                </Markdown>
-              )}
-              {product?.attributes?.sections && product.attributes.sections.length > 0 && (
-                <Sections
-                  t={t}
-                  sections={product.attributes.sections as ProductSectionsDynamicZone[]}
-                  locale={locale}
-                  priceData={priceData}
-                  nonce={nonce}
-                />
-              )}
-            </RichText>
-          </Article>
-          <Grid justifyContent="space-between" spacing="sm">
-            <GridCell>{(product?.attributes?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}</GridCell>
-            <GridCell justifyContent="flex-end">
-              <ScrollToTopButton className="utrecht-scroll-to-top-button" Icon={UtrechtIconChevronUp}>
-                {t('actions.scroll-to-top')}
-              </ScrollToTopButton>
-            </GridCell>
-          </Grid>
-        </main>
-      </div>
+      <main id="main">
+        <Article>
+          <RichText>
+            <Heading level={1}>{product?.attributes?.title}</Heading>
+            {product?.attributes?.content && (
+              <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                {product?.attributes?.content}
+              </Markdown>
+            )}
+            {product?.attributes?.sections && product.attributes.sections.length > 0 && (
+              <Sections
+                t={t}
+                sections={product.attributes.sections as ProductSectionsDynamicZone[]}
+                locale={locale}
+                priceData={priceData}
+                nonce={nonce}
+              />
+            )}
+          </RichText>
+        </Article>
+        <Grid justifyContent="space-between" spacing="sm">
+          <GridCell>{(product?.attributes?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}</GridCell>
+          <GridCell justifyContent="flex-end">
+            <ScrollToTopButton className="utrecht-scroll-to-top-button" Icon={UtrechtIconChevronUp}>
+              {t('actions.scroll-to-top')}
+            </ScrollToTopButton>
+          </GridCell>
+        </Grid>
+      </main>
     </>
   );
 };
