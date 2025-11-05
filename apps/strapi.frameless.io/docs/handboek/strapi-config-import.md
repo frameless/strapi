@@ -6,7 +6,7 @@
 De Strapi configuratie bevat veldlabels, placeholders, layout-posities en rollen.
 Als je dit vergeet, kunnen er permissions of UI-instellingen missen in de betreffende omgeving.
 
-### Hoe importeer je de configuratie?
+## Hoe importeer je de configuratie?
 
 1. Log in op de Strapi admin (test, acceptatie of productie omgeving)
 2. Ga naar **Settings** → **Configuration** → **Config Sync**
