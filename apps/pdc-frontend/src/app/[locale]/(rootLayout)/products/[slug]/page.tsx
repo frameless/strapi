@@ -31,6 +31,7 @@ import {
   SpotlightSection,
   UtrechtIconChevronUp,
 } from '@/components';
+import { ContactCard } from '@/components/ContactCard';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
 import {
@@ -42,7 +43,6 @@ import {
   getStrapiGraphqlURL,
 } from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
-import { ContactCard } from '@/components/ContactCard';
 import '@/styles/print.css';
 
 const getAllProducts = async (locale: string, slug: string) => {
@@ -134,8 +134,8 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
             return (
               <ContactCard>
                 <Grid spacing="sm">
-                  {Array.isArray(component.contact_information_public?.data?.attributes?.contentBlock) &&
-                    component.contact_information_public.data.attributes.contentBlock.map(
+                  {Array.isArray(component?.contact_information_public?.data?.attributes?.contentBlock) &&
+                    component?.contact_information_public?.data?.attributes?.contentBlock?.map(
                       (block) =>
                         block?.content && (
                           <GridCell md={6} key={block?.id || index}>
