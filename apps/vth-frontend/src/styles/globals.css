@@ -8,6 +8,8 @@
   --utrecht-page-content-max-width: 70rem;
   --utrecht-page-padding-inline-start: 16px;
   --utrecht-page-padding-inline-end: 16px;
+  --utrecht-page-footer-padding-block-end: 24px;
+  --utrecht-page-footer-padding-block-start: 24px;
 
   /* --- navigation tokens start --- */
 
@@ -35,6 +37,7 @@
   --utrecht-navigation-link-border-inline-end-width: 0;
   --utrecht-navigation-link-color: var(--utrecht-color-black);
   --utrecht-navigation-link-focus-text-decoration-thickness: 1px;
+  --utrecht-navigation-link-background-color: transparent;
 
   /* link-hover  */
   --utrecht-navigation-link-hover-color: var(--utrecht-color-blue-35);
@@ -186,6 +189,10 @@ a {
     --utrecht-logo-wrapper-margin-block-start: 16px;
     --utrecht-logo-wrapper-margin-block-end: 16px;
     --utrecht-navigation-toggle-button-padding-end: 16px;
+    --utrecht-page-padding-inline-start: 16px;
+    --utrecht-page-padding-inline-end: 16px;
+    --utrecht-page-footer-padding-block-end: 48px;
+    --utrecht-page-footer-padding-block-start: 48px;
   }
 }
 /* TODO remove the following code when this PR https://github.com/nl-design-system/utrecht/pull/2393 get merged */
