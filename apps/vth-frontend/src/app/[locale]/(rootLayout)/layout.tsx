@@ -9,6 +9,7 @@ import { QueryClientProvider } from '@/client';
 import { Footer, FooterData, Header, Page, PreviewAlert, Surface } from '@/components';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
+import '@utrecht/design-tokens/dist/font-family';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Main } from '@/components/Main';
 import { Editoria11yWrapper } from '@/lib/stencil-client';

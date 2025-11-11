@@ -9,6 +9,7 @@ import { QueryClientProvider } from '@/client';
 import { Footer, FooterData, Page, PreviewAlert, Surface } from '@/components';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
+import '@utrecht/design-tokens/dist/font-family';
 import 'react-loading-skeleton/dist/skeleton.css';
 import '@frameless/ui/dist/bundle.css';
 import '../../../styles/globals.css';
