@@ -2,6 +2,7 @@ import kebabCase from 'lodash.kebabcase';
 import { concatenateFieldValues } from './concatenateFieldValues';
 import { generateKeywords } from './generateKeywords';
 import type { Antwoord, DataVacItem, Doelgroep, VacRecordData, VACSData } from '../strapi-product-type';
+
 interface createVacRecordReturnTypes {
   index: number;
   startAt: string;
@@ -11,11 +12,13 @@ interface createVacRecordReturnTypes {
   endAt: null;
   registrationAt: string;
 }
+
 interface GetVacDataProps {
   data: VACSData;
   vacSchemaURL: string;
   serverURL: string;
 }
+
 interface MapVacItemProps extends Pick<GetVacDataProps, 'serverURL' | 'vacSchemaURL'> {
   item: DataVacItem;
 }
@@ -52,7 +55,11 @@ const createVacRecord = (item: DataVacItem, vacUrl: string, antwoord: string): c
 
 const mapVacItem = ({ item, serverURL, vacSchemaURL }: MapVacItemProps) => {
   const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
-  const antwoord = getAntwoord(item.attributes.vac.antwoord);
+  const antwoord = getAntwoord([
+    ...(item.attributes.vac.antwoord ?? []),
+    ...(item.attributes?.contact_information_public?.data?.attributes?.contentBlock ?? []),
+    ...(item.attributes?.contact_information_internal?.data?.attributes?.contentBlock ?? []),
+  ]);
   return {
     uuid: item.attributes.vac.uuid,
     type: vacSchemaURL,

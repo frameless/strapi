@@ -1,0 +1,17 @@
+{
+  "collectionName": "contact-information_rich_text",
+  "info": {
+    "displayName": "Inhoud"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "label": {
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.richtext-preview"
+    }
+  }
+}

@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 import { useDialog } from '@frameless/ui';
 import { addHeadingOncePerCategory } from '@frameless/utils';
 import { LinkButton } from '@strapi/design-system/LinkButton';
 import { useCMEditViewDataManager, useFetchClient } from '@strapi/helper-plugin';
 import Eye from '@strapi/icons/Eye';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { renderToString } from 'react-dom/server';
 import { useIntl } from 'react-intl';
 import '@utrecht/component-library-css/dist/html.css';
@@ -19,7 +20,6 @@ import {
   getContentByType,
   getPreviewUrl,
   getTrad,
-  getUIDFromHref,
   getUrl,
   processProductData,
 } from '../../utils';
@@ -37,26 +37,21 @@ const PreviewLink = () => {
   const { formatMessage } = useIntl();
 
   const contentTypes = config?.data?.contentTypes || [];
-  const isPreviewSupported = useMemo(
-    () => Array.isArray(contentTypes) && contentTypes.find((type) => type.uid === data?.layout?.uid),
-    [contentTypes, data?.layout?.uid],
-  );
+  const isPreviewSupported = contentTypes.find((type) => type.uid === data?.layout?.uid);
 
   const type = isPreviewSupported?.query?.type;
-  const previewType = isPreviewSupported?.preview?.type || 'page'; // Default to 'page' if undefined
-  const previewOptions = useMemo(
-    () => ({
-      dialog: previewType === 'dialog' || previewType === 'both',
-      page: previewType === 'page' || previewType === 'both',
-    }),
-    [previewType],
-  );
+  const previewType = isPreviewSupported?.preview?.type || 'page';
+  const showDialog = previewType === 'dialog' || previewType === 'both';
+  const showPage = previewType === 'page' || previewType === 'both';
 
-  const [priceID, setPriceID] = useState('');
-  const [priceData, setPriceData] = useState([]);
+  const [state, dispatch] = useReducer((state, action) => ({ ...state, ...action }), {
+    additionalInformationData: null,
+    vacData: null,
+    internalFieldData: null,
+    productData: null,
+  });
+
   const [clipboardStatus, setClipboardStatus] = useState('button.copy');
-  const [additionalInformation, setAdditionalInformation] = useState([]);
-  const [productInternalData, setProductInternalData] = useState();
   const previewInDialogButtonLabel = formatMessage({
     id: getTrad('button.dialogPreview'),
     defaultMessage: 'Voorbeeld in dialoogvenster',
@@ -69,86 +64,131 @@ const PreviewLink = () => {
   const contentComponentProps = {
     locale: 'nl',
     priceZeroLabel: formatMessage({ id: getTrad('priceWidget.zeroLabel'), defaultMessage: '¤ 0,00' }),
-    priceData,
   };
 
   const url = getUrl(config?.data?.domain);
-  const vacData = {
-    title: data.initialData?.title,
-    content: data?.initialData?.vac?.antwoord,
-  };
-  const isAdditionalInformation =
-    data.initialData?.additional_information && Array.isArray(data.initialData?.additional_information);
-  const additionalInformationUid = getUIDFromHref(data.initialData?.additional_information?.[0]?.href);
-  const additionalInformationId = isAdditionalInformation && data.initialData?.additional_information[0]?.id;
-  const productInternalFieldBlock =
-    Array.isArray(data.initialData?.sections) &&
-    data.initialData?.sections?.find((section) => section?.__component === 'components.internal-block-content')
-      ?.internal_field;
-  const productInternalFieldBlockUID = getUIDFromHref(productInternalFieldBlock?.[0]?.href);
-  const productInternalFieldBlockID = productInternalFieldBlock?.[0]?.id;
+
+  const isVacType = type === 'vac';
+  const isInternalFieldType = type === 'internal-field';
+  const isProductType = type === 'products';
+  const isAdditionalInformationType = type === 'additional-information';
+  const contentId = data.initialData?.id;
 
   useEffect(() => {
-    if (productInternalFieldBlockUID && productInternalFieldBlockID) {
-      fetchData({
-        url: productInternalFieldBlockUID,
-        params: {},
-        id: productInternalFieldBlockID,
-      }).then(({ data }) => {
-        setProductInternalData({
-          content: `<h2>${formatMessage({
-            id: getTrad('productInternalFieldBlock.title'),
-            defaultMessage: 'Interne informatie',
-          })}</h2> ${concatenateFieldValues(data?.content?.contentBlock)}`,
-        });
-      });
-    }
-  }, [productInternalFieldBlockUID, productInternalFieldBlockID]);
+    if (!isProductType || !contentId || !isPreviewSupported?.uid) return;
+
+    const fetchProductData = async () => {
+      try {
+        const response = await fetchData(`/preview-button/product/${contentId}?uid=${isPreviewSupported.uid}`);
+        const productData = response.data.data;
+        dispatch({ productData });
+
+        // Set additional information from product data
+        if (productData?.additional_information?.content) {
+          dispatch({
+            additionalInformationData: {
+              contentBlock: productData.additional_information.content.contentBlock,
+            },
+          });
+        }
+      } catch (error) {
+        console.error('Failed to fetch product data:', error);
+      }
+    };
+
+    fetchProductData();
+  }, [isProductType, contentId, isPreviewSupported?.uid, fetchData, data.modifiedData]);
 
   useEffect(() => {
-    if (additionalInformationUid && additionalInformationId) {
-      fetchData({
-        url: additionalInformationUid,
-        params: {},
-        id: additionalInformationId,
-      }).then(({ data }) => {
-        setAdditionalInformation(data?.content?.contentBlock);
-      });
-    }
-  }, [additionalInformationUid]);
-  const sections = data.initialData?.sections ?? [];
+    if (!isAdditionalInformationType || !contentId || !isPreviewSupported?.uid) return;
+
+    const fetchAdditionalInfo = async () => {
+      try {
+        const response = await fetchData(
+          `/preview-button/additional-information/${contentId}?uid=${isPreviewSupported.uid}`,
+        );
+        dispatch({ additionalInformationData: response.data.data });
+      } catch (error) {
+        console.error('Failed to fetch additional information:', error);
+      }
+    };
+
+    fetchAdditionalInfo();
+  }, [isAdditionalInformationType, contentId, isPreviewSupported?.uid, fetchData, data.modifiedData]);
+
+  useEffect(() => {
+    if (!isVacType || !contentId || !isPreviewSupported?.uid) return;
+
+    const fetchVacData = async () => {
+      try {
+        const response = await fetchData(`/preview-button/vac/${contentId}?uid=${isPreviewSupported.uid}`);
+        dispatch({ vacData: response.data.data });
+      } catch (error) {
+        console.error('Failed to fetch VAC data:', error);
+      }
+    };
+
+    fetchVacData();
+  }, [isVacType, contentId, isPreviewSupported?.uid, fetchData, data.modifiedData]);
+
+  useEffect(() => {
+    if (!isInternalFieldType || !contentId || !isPreviewSupported?.uid) return;
+
+    const fetchInternalFieldData = async () => {
+      try {
+        const response = await fetchData(`/preview-button/internal-field/${contentId}?uid=${isPreviewSupported.uid}`);
+        dispatch({ internalFieldData: response.data.data });
+      } catch (error) {
+        console.error('Failed to fetch internal-field data:', error);
+      }
+    };
+
+    fetchInternalFieldData();
+  }, [isInternalFieldType, contentId, isPreviewSupported?.uid, fetchData, data.modifiedData]);
+
+  const productInternalData = state.productData?.internalFieldData?.content
+    ? {
+        content: `<h2>${formatMessage({
+          id: getTrad('productInternalFieldBlock.title'),
+          defaultMessage: 'Interne informatie',
+        })}</h2> ${concatenateFieldValues(state.productData.internalFieldData.content)}`,
+      }
+    : null;
+
   const processedData = processProductData({
-    data: [
-      {
-        content: data.initialData?.content,
-        kennisartikelCategorie: 'inleiding',
-        __component: 'components.utrecht-rich-text',
-      },
-      ...sections,
-    ],
+    data: state.productData?.sections || [],
     locale: 'nl',
-    priceData,
+    priceData: state.productData?.price?.price,
     url,
   });
-  const template =
-    '<div class="utrecht-additional-information utrecht-spotlight-section"><hr/><h2>{title}</h2>{content}<hr/></div>';
+
   const additionalContent = addHeadingOncePerCategory({
-    contentBlocks: additionalInformation ?? [],
+    contentBlocks: combineSimilarCategories(state.additionalInformationData?.contentBlock || []),
     title: 'Aanvullende informatie',
     categoryKey: 'kennisartikelCategorie',
-    template,
+    template:
+      '<div class="utrecht-additional-information utrecht-spotlight-section"><hr/><h2>{title}</h2>{content}<hr/></div>',
   });
+
   const combinedContent = combineSimilarCategories([...processedData, ...additionalContent]);
+  console.log(state.productData?.sections);
 
   const content = getContentByType({
     vac: {
-      content: <Content data={vacData.content} title={vacData?.title} {...contentComponentProps} />,
+      content: (
+        <Content
+          data={state.vacData?.mergedContent || []}
+          title={state.vacData?.title || data.initialData?.title}
+          {...contentComponentProps}
+        />
+      ),
     },
     internalField: {
       content: (
         <Content
-          data={data?.initialData?.content?.contentBlock}
-          title={data?.initialData?.title}
+          data={state.internalFieldData?.mergedContent || []}
+          title={state.internalFieldData?.title || data?.initialData?.title}
+          priceData={state.internalFieldData?.product?.price?.price || []}
           {...contentComponentProps}
         />
       ),
@@ -159,6 +199,7 @@ const PreviewLink = () => {
         <Content
           data={data?.initialData?.content?.contentBlock}
           title={data?.initialData?.title}
+          priceData={state.additionalInformationData?.product?.price?.price || []}
           {...contentComponentProps}
         />
       ),
@@ -167,8 +208,9 @@ const PreviewLink = () => {
     products: {
       content: (
         <Content
-          data={[...combinedContent, ...[productInternalData]]}
-          title={data?.initialData?.title}
+          data={[...combinedContent, productInternalData].filter(Boolean)}
+          title={state.productData?.title || data?.initialData?.title}
+          priceData={state.productData?.price?.price || []}
           {...contentComponentProps}
         />
       ),
@@ -177,7 +219,6 @@ const PreviewLink = () => {
     type,
   });
 
-  const productId = content?.id;
   const onClickCopyHTMLToDocxHandler = () => {
     setClipboardStatus('button.copied');
     copyHTMLToClipboard(
@@ -187,34 +228,8 @@ const PreviewLink = () => {
         </HTMLTemplate>,
       ),
     );
-    setTimeout(() => {
-      setClipboardStatus('button.copy');
-    }, 1000);
+    setTimeout(() => setClipboardStatus('button.copy'), 1000);
   };
-  useEffect(() => {
-    if (productId) {
-      Promise.all([
-        fetchData({
-          url: '/content-manager/collection-types/api::product.product',
-          params: { price: { populate: ['*'] } },
-          id: productId,
-        }),
-        fetchData({
-          url: '/content-manager/collection-types/api::price.price',
-          params: {},
-          id: priceID,
-        }),
-      ])
-        .then(([productResponse, priceResponse]) => {
-          setPriceID(productResponse?.data?.price?.id);
-          setPriceData(priceResponse?.data?.price);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line no-console
-          console.error('Failed to fetch data', error);
-        });
-    }
-  }, [productId, priceID]);
 
   if (!isPreviewSupported) return null;
 
@@ -227,7 +242,7 @@ const PreviewLink = () => {
   });
   return (
     <>
-      {previewOptions.dialog && (
+      {showDialog && (
         <DialogPreviewButton
           dialog={{
             ref: dialogRef,
@@ -249,7 +264,7 @@ const PreviewLink = () => {
           }}
         />
       )}
-      {previewOptions.page && (
+      {showPage && (
         <LinkButton
           size="S"
           startIcon={<Eye />}

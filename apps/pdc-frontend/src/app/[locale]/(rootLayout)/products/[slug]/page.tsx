@@ -42,6 +42,7 @@ import {
   getStrapiGraphqlURL,
 } from '@/util';
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
+import { ContactCard } from '@/components/ContactCard';
 import '@/styles/print.css';
 
 const getAllProducts = async (locale: string, slug: string) => {
@@ -129,6 +130,25 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
     {sections &&
       sections.map(async (component, index: number) => {
         switch (component?.__typename) {
+          case 'ComponentComponentsContactInformationPublic':
+            return (
+              <ContactCard>
+                <Grid spacing="sm">
+                  {Array.isArray(component.contact_information_public?.data?.attributes?.contentBlock) &&
+                    component.contact_information_public.data.attributes.contentBlock.map(
+                      (block) =>
+                        block?.content && (
+                          <GridCell md={6} key={block?.id || index}>
+                            <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
+                              {block.content}
+                            </Markdown>
+                          </GridCell>
+                        ),
+                    )}
+                </Grid>
+              </ContactCard>
+            );
+
           case 'ComponentComponentsFloLegalForm':
             // eslint-disable-next-line no-case-declarations
             const { floLegalFormApiURL } = getFloLegalURLs();

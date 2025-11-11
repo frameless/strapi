@@ -68,6 +68,88 @@
     {
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
       "subject": "api::internal-field.internal-field",
       "properties": {
         "fields": [
@@ -77,7 +159,9 @@
           "content.contentBlock.kennisartikelCategorie",
           "content.contentBlock.label",
           "content.keywords",
-          "product"
+          "product",
+          "contact_information_internal",
+          "contact_information_public"
         ]
       },
       "conditions": []
@@ -108,7 +192,9 @@
           "content.contentBlock.kennisartikelCategorie",
           "content.contentBlock.label",
           "content.keywords",
-          "product"
+          "product",
+          "contact_information_internal",
+          "contact_information_public"
         ]
       },
       "conditions": []
@@ -125,7 +211,9 @@
           "content.contentBlock.kennisartikelCategorie",
           "content.contentBlock.label",
           "content.keywords",
-          "product"
+          "product",
+          "contact_information_internal",
+          "contact_information_public"
         ]
       },
       "conditions": []
@@ -557,7 +645,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "enable_kcm_survey"
+          "enable_kcm_survey",
+          "contact_information_public"
         ],
         "locales": ["en", "nl"]
       },
@@ -645,7 +734,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "enable_kcm_survey"
+          "enable_kcm_survey",
+          "contact_information_public"
         ],
         "locales": ["en", "nl"]
       },
@@ -715,7 +805,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "enable_kcm_survey"
+          "enable_kcm_survey",
+          "contact_information_public"
         ],
         "locales": ["en", "nl"]
       },
@@ -825,7 +916,9 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts"
+          "relatedProducts",
+          "contact_information_internal",
+          "contact_information_public"
         ]
       },
       "conditions": []
@@ -865,7 +958,9 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts"
+          "relatedProducts",
+          "contact_information_internal",
+          "contact_information_public"
         ]
       },
       "conditions": []
@@ -891,7 +986,9 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts"
+          "relatedProducts",
+          "contact_information_internal",
+          "contact_information_public"
         ]
       },
       "conditions": []

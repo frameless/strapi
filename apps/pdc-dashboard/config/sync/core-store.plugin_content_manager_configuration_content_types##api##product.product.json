@@ -263,6 +263,21 @@
           "sortable": true
         }
       },
+      "contact_information_public": {
+        "edit": {
+          "label": "Contact informatie (Openbaar)",
+          "description": "",
+          "placeholder": "Voeg relatie toe",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "contact_information_public",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -323,7 +338,6 @@
       }
     },
     "layouts": {
-      "list": ["title", "metaTags", "price", "uuid", "additional_information"],
       "edit": [
         [
           {
@@ -417,9 +431,14 @@
           {
             "name": "vacs",
             "size": 6
+          },
+          {
+            "name": "contact_information_public",
+            "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["title", "metaTags", "price", "uuid", "additional_information"]
     }
   },
   "type": "object",

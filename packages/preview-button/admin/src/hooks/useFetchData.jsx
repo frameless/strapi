@@ -7,22 +7,16 @@ const useFetchData = (client) => {
   const [error, setError] = useState(null);
 
   const fetchData = useCallback(
-    async ({ url, params, id }) => {
-      if (!id) {
-        return;
-      }
-
-      const abortController = new AbortController(); // Create a new AbortController for this request
+    async (url) => {
+      const abortController = new AbortController();
       setIsLoading(true);
       setError(null);
 
       try {
-        const data = await client.get(`${url}/${id}`, {
+        const data = await client.get(url, {
           signal: abortController.signal,
-          params,
         });
 
-        // eslint-disable-next-line consistent-return
         return data ?? {};
       } catch (err) {
         // eslint-disable-next-line no-console
@@ -35,12 +29,12 @@ const useFetchData = (client) => {
           });
 
           setError(err);
-          // eslint-disable-next-line consistent-return
-          return err; // Return the error if needed
+          return err;
         }
       } finally {
         setIsLoading(false);
       }
+      return null;
     },
     [client, toggleNotification],
   );

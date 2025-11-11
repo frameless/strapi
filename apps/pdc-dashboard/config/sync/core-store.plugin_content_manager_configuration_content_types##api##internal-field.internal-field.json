@@ -62,6 +62,36 @@
           "sortable": true
         }
       },
+      "contact_information_internal": {
+        "edit": {
+          "label": "Contact informatie (intern)",
+          "description": "",
+          "placeholder": "Voeg relatie toe",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "contact_information_internal",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contact_information_public": {
+        "edit": {
+          "label": "Contact informatie (Openbaar)",
+          "description": "",
+          "placeholder": "Voeg relatie toe",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "contact_information_public",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -138,6 +168,16 @@
         [
           {
             "name": "product",
+            "size": 6
+          },
+          {
+            "name": "contact_information_public",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "contact_information_internal",
             "size": 6
           }
         ]

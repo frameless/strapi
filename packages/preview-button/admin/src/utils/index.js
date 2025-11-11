@@ -5,5 +5,4 @@ export { getContentByType } from './getContentByType';
 export { getPreviewUrl } from './getPreviewUrl';
 export { getTrad } from './getTrad';
 export { getUrl } from './getUrl';
-export { getUIDFromHref } from './getUIDFromHref';
 export { processProductData } from './processProductData';

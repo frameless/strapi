@@ -138,6 +138,28 @@ describe('Objects controller', () => {
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(objectsResponseData({ type: 'vac' }));
     });
+    it('should include contact_information_internal in VAC antwoord', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify(
+          getStrapiVacData({
+            contact_information_internal: [
+              {
+                id: '1',
+                content:
+                  'Voor het aanvragen van een paspoort kunt u contact opnemen met de gemeente via telefoonnummer 123-456789 of bezoek onze website voor meer informatie.',
+              },
+            ],
+          }),
+        ),
+      );
+      const response = await request(app)
+        .get(`/api/v2/objects?type=${encodeURIComponent('http://localhost:4001/api/v2/objecttypes/vac')}`)
+        .set('Authorization', 'Token YOUR_API_TOKEN');
+      expect(response.status).toBe(200);
+      const firstVac = response.body.results[0];
+      expect(firstVac.record.data.antwoord).toContain('U moet een afspraak maken');
+      expect(firstVac.record.data.antwoord).toContain('123-456789');
+    });
     it('should return 400 when type is not an encoded URL', async () => {
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
       fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
@@ -404,6 +426,123 @@ describe('Objects controller', () => {
       ];
       expect(responseKennisartikel.record.data.vertalingen[0].trefwoorden).toStrictEqual(expectedTrefwoorden);
     });
+    it('should deskMemo include contact_information_internal from internal block', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: {
+            products: {
+              meta: {
+                pagination: {
+                  total: 1,
+                  page: 1,
+                  pageSize: 1,
+                  pageCount: 1,
+                },
+              },
+              data: [
+                {
+                  id: '1',
+                  attributes: {
+                    title: 'Demo Product',
+                    slug: 'demo-product',
+                    uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce4',
+                    locale: 'nl',
+                    updatedAt: '2024-11-06T12:05:42.541Z',
+                    createdAt: '2024-11-05T16:03:50.975Z',
+                    sections: [
+                      {
+                        component: 'ComponentComponentsInternalBlockContent',
+                        internal_field: {
+                          data: {
+                            attributes: {
+                              content: {
+                                contentBlock: [
+                                  {
+                                    id: '1',
+                                    content: 'Contact info: 123-456789',
+                                  },
+                                ],
+                              },
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        }),
+      );
+      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      const response = await request(app)
+        .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ce4')
+        .set('Authorization', 'Token YOUR_API_TOKEN');
+      const responseKennisartikel = response.body as ReturnType<typeof kennisartikelObject>;
+
+      expect(responseKennisartikel.record.data.vertalingen[0].deskMemo).toContain('Contact info: 123-456789');
+    });
+
+    it('should extract contact_information_public from sections and include in vertalingen', async () => {
+      fetchMock.mockResponseOnce(
+        JSON.stringify({
+          data: {
+            products: {
+              meta: {
+                pagination: {
+                  total: 1,
+                  page: 1,
+                  pageSize: 1,
+                  pageCount: 1,
+                },
+              },
+              data: [
+                {
+                  id: '1',
+                  attributes: {
+                    title: 'Demo Product',
+                    slug: 'demo-product',
+                    uuid: 'A555372B-EE1E-4432-8F90-51DAD214E1F4',
+                    locale: 'nl',
+                    updatedAt: '2024-11-06T12:05:42.541Z',
+                    createdAt: '2024-11-05T16:03:50.975Z',
+                    sections: [
+                      {
+                        component: 'ComponentComponentsContactInformationPublic',
+                        contact_information_public: {
+                          data: {
+                            attributes: {
+                              contentBlock: [
+                                {
+                                  id: '1',
+                                  content: '<p>Contact us at 123-456-7890</p>',
+                                },
+                                {
+                                  id: '2',
+                                  content: '<p>Email: info@example.com</p>',
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        }),
+      );
+      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      const response = await request(app)
+        .get('/api/v2/objects/A555372B-EE1E-4432-8F90-51DAD214E1F4')
+        .set('Authorization', 'Token YOUR_API_TOKEN');
+      expect(response.body.record.data.vertalingen[0].contact).toContain('123-456-7890');
+      expect(response.body.record.data.vertalingen[0].contact).toContain('info@example.com');
+    });
+
     it('should return the first contentBlock as inleiding category when provided', async () => {
       fetchMock.mockResponseOnce(
         JSON.stringify({

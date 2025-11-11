@@ -1,0 +1,55 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.contact-information-public",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "id",
+      "defaultSortBy": "id",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "contact_information_public": {
+        "edit": {
+          "label": "Contact informatie (Openbaar)",
+          "description": "",
+          "placeholder": "Voeg relatie toe",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "contact_information_public",
+          "searchable": false,
+          "sortable": false
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "contact_information_public"],
+      "edit": [
+        [
+          {
+            "name": "contact_information_public",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "components.contact-information-public",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

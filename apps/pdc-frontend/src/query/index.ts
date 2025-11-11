@@ -131,6 +131,19 @@ export const GET_PRODUCT_BY_SLUG = gql(`
         content
         enable_kcm_survey
         sections {
+          ... on ComponentComponentsContactInformationPublic {
+            __typename
+            contact_information_public {
+              data {
+                attributes {
+                  contentBlock(pagination: { start: 0, limit: -1 }) {
+                    id
+                    content
+                  }
+                }
+              }
+            }
+          }
           ... on ComponentComponentsUtrechtImage {
             __typename
             imageData {

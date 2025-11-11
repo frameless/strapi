@@ -52,7 +52,8 @@
         "components.utrecht-image",
         "components.utrecht-link",
         "components.internal-block-content",
-        "components.flo-legal-form"
+        "components.flo-legal-form",
+        "components.contact-information-public"
       ],
       "required": false
     },
@@ -172,6 +173,12 @@
       },
       "type": "boolean",
       "default": true
+    },
+    "contact_information_public": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact-information-public.contact-information-public",
+      "inversedBy": "products"
     }
   }
 }

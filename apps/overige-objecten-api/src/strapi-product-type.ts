@@ -75,6 +75,16 @@ export interface RelatedProducts {
     };
   }[];
 }
+export interface ContactInformation {
+  data: {
+    attributes: {
+      contentBlock: {
+        id: string;
+        content: string;
+      }[];
+    };
+  };
+}
 export interface AttributesVacItem {
   createdAt: string;
   updatedAt: string;
@@ -82,6 +92,8 @@ export interface AttributesVacItem {
   title?: string;
   relatedVACs?: RelatedVACs;
   relatedProducts?: RelatedProducts;
+  contact_information_internal: ContactInformation;
+  contact_information_public: ContactInformation;
 }
 
 export interface DataVacItem {
@@ -187,6 +199,8 @@ export interface InternalFieldData {
 export interface InternalFieldAttributes {
   title: string;
   content: InternalFieldAttributesContent;
+  contact_information_internal?: ContactInformation;
+  contact_information_public?: ContactInformation;
 }
 export interface InternalFieldAttributesContent {
   id: string;
@@ -239,6 +253,8 @@ export interface Section {
   kennisartikelCategorie?: null | string;
   component?: string;
   internal_field: InternalField;
+  contact_information_public?: ContactInformation;
+  [key: string]: any;
 }
 
 export type CreateVacResponse = {

@@ -1,0 +1,16 @@
+{
+  "collectionName": "contact_information_public_component",
+  "info": {
+    "displayName": "Contact informatie (Openbaar)",
+    "icon": "phone",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "contact_information_public": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contact-information-public.contact-information-public"
+    }
+  }
+}
