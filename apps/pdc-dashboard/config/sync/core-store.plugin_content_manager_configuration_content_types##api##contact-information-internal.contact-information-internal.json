@@ -1,5 +1,5 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::vac.vac",
+  "key": "plugin_content_manager_configuration_content_types::api::contact-information-internal.contact-information-internal",
   "value": {
     "settings": {
       "bulkable": true,
@@ -7,7 +7,7 @@
       "searchable": true,
       "pageSize": 10,
       "mainField": "title",
-      "defaultSortBy": "createdAt",
+      "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -19,23 +19,9 @@
           "sortable": true
         }
       },
-      "vac": {
-        "edit": {
-          "label": "VAC",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "vac",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "title": {
         "edit": {
-          "label": "Vraag",
+          "label": "Titel",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -47,39 +33,23 @@
           "sortable": true
         }
       },
-      "relatedVACs": {
+      "contentBlock": {
         "edit": {
-          "label": "Gerelateerde VACs",
+          "label": "ContentBlok",
           "description": "",
-          "placeholder": "Voeg een VAC toe.",
+          "placeholder": "",
           "visible": true,
-          "editable": true,
-          "mainField": "title"
+          "editable": true
         },
         "list": {
-          "label": "relatedVACs",
+          "label": "contentBlock",
           "searchable": false,
           "sortable": false
         }
       },
-      "relatedProducts": {
+      "internal_information": {
         "edit": {
-          "label": "Gerelateerde producten",
-          "description": "",
-          "placeholder": "Voeg een product toe.",
-          "visible": true,
-          "editable": true,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "relatedProducts",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "contact_information_internal": {
-        "edit": {
-          "label": "Contact informatie (intern)",
+          "label": "Interne informatie",
           "description": "",
           "placeholder": "Voeg relatie toe",
           "visible": true,
@@ -87,14 +57,14 @@
           "mainField": "title"
         },
         "list": {
-          "label": "contact_information_internal",
-          "searchable": true,
-          "sortable": true
+          "label": "internal_information",
+          "searchable": false,
+          "sortable": false
         }
       },
-      "contact_information_public": {
+      "vacs": {
         "edit": {
-          "label": "Contact informatie (Openbaar)",
+          "label": "VAC",
           "description": "",
           "placeholder": "Voeg relatie toe",
           "visible": true,
@@ -102,9 +72,9 @@
           "mainField": "title"
         },
         "list": {
-          "label": "contact_information_public",
-          "searchable": true,
-          "sortable": true
+          "label": "vacs",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -176,34 +146,24 @@
         ],
         [
           {
-            "name": "vac",
+            "name": "contentBlock",
             "size": 12
           }
         ],
         [
           {
-            "name": "relatedVACs",
+            "name": "internal_information",
             "size": 6
           },
           {
-            "name": "relatedProducts",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "contact_information_internal",
-            "size": 6
-          },
-          {
-            "name": "contact_information_public",
+            "name": "vacs",
             "size": 6
           }
         ]
       ],
-      "list": ["title", "id", "createdAt", "relatedVACs"]
+      "list": ["id", "title", "contentBlock", "internal_information"]
     },
-    "uid": "api::vac.vac"
+    "uid": "api::contact-information-internal.contact-information-internal"
   },
   "type": "object",
   "environment": null,

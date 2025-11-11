@@ -20,6 +20,88 @@
       "conditions": []
     },
     {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::contact-information-internal.contact-information-internal",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::contact-information-public.contact-information-public",
+      "properties": {
+        "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
+      },
+      "conditions": []
+    },
+    {
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::internal-field.internal-field",

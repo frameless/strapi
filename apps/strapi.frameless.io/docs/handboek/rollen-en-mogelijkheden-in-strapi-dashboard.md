@@ -20,40 +20,45 @@
 
 ### Toegangsrechten Kennisbank Redacteur
 
-| **Actie** | **Onderwerp**          | **Beschrijving**                                    |
-| --------- | ---------------------- | --------------------------------------------------- |
-| Creëer    | Interne informatie     | Nieuwe Interne informatie velden maken.             |
-| Verwijder | Interne informatie     | Interne informatie velden verwijderen.              |
-| Publiceer | Interne informatie     | Interne informatie velden publiceren.               |
-| Lees      | Interne informatie     | Alleen-lezen toegang tot Interne informatie velden. |
-| Update    | Interne informatie     | Interne informatie velden bijwerken.                |
-| Creëer    | Categorie              | Nieuwe Categorie velden maken.                      |
-| Verwijder | Categorie              | Categorie velden verwijderen.                       |
-| Publiceer | Categorie              | Categorie velden publiceren.                        |
-| Lees      | Categorie              | Alleen-lezen toegang tot Categorie velden.          |
-| Update    | Categorie              | Categorie velden bijwerken.                         |
-| Creëer    | Contactgegevens        | Nieuwe Contactgegevens-inhoud maken.                |
-| Verwijder | Contactgegevens        | Contactgegevens-inhoud verwijderen.                 |
-| Publiceer | Contactgegevens        | Contactgegevens-inhoud publiceren.                  |
-| Lees      | Contactgegevens        | Alleen-lezen toegang tot Contactgegevens-inhoud.    |
-| Update    | Contactgegevens        | Contactgegevens-inhoud bijwerken.                   |
-| Creëer    | Subcategorie           | Nieuwe Subcategorie velden maken.                   |
-| Verwijder | Subcategorie           | Subcategorie velden verwijderen.                    |
-| Publiceer | Subcategorie           | Subcategorie velden publiceren.                     |
-| Lees      | Subcategorie           | Alleen-lezen toegang tot Subcategorie velden.       |
-| Update    | Subcategorie           | Subcategorie velden bijwerken.                      |
-| Lees      | Kosten                 | Alleen-lezen toegang tot kosteninformatie.          |
-| Creëer    | VAC                    | Nieuwe VAC-inhoud maken.                            |
-| Verwijder | VAC                    | VAC-inhoud verwijderen.                             |
-| Publiceer | VAC                    | VAC-inhoud publiceren.                              |
-| Lees      | VAC                    | Alleen-lezen toegang tot VAC-inhoud.                |
-| Update    | VAC                    | VAC-inhoud bijwerken.                               |
-| Lees      | Aanvullende informatie | Alleen-lezen toegang tot Aanvullende informatie.    |
-| Creëer    | Aanvullende informatie | Nieuwe Aanvullende informatie velden maken.         |
-| Update    | Aanvullende informatie | Aanvullende informatie bijwerken.                   |
-| Verwijder | Aanvullende informatie | Aanvullende informatie verwijderen.                 |
-| Publiceer | Aanvullende informatie | Aanvullende informatie publiceren.                  |
-| Lees      | Product                | Alleen-lezen toegang tot het product.               |
+| **Actie** | **Onderwerp**                 | **Beschrijving**                                    |
+| --------- | ----------------------------- | --------------------------------------------------- |
+| Creëer    | Interne informatie            | Nieuwe Interne informatie velden maken.             |
+| Verwijder | Interne informatie            | Interne informatie velden verwijderen.              |
+| Publiceer | Interne informatie            | Interne informatie velden publiceren.               |
+| Lees      | Interne informatie            | Alleen-lezen toegang tot Interne informatie velden. |
+| Update    | Interne informatie            | Interne informatie velden bijwerken.                |
+| Creëer    | Categorie                     | Nieuwe Categorie velden maken.                      |
+| Verwijder | Categorie                     | Categorie velden verwijderen.                       |
+| Publiceer | Categorie                     | Categorie velden publiceren.                        |
+| Lees      | Categorie                     | Alleen-lezen toegang tot Categorie velden.          |
+| Update    | Categorie                     | Categorie velden bijwerken.                         |
+| Creëer    | Contact informatie (openbaar) | Nieuwe inhoud maken.                                |
+| Verwijder | Contact informatie (openbaar) | Inhoud verwijderen.                                 |
+| Publiceer | Contact informatie (openbaar) | Inhoud publiceren.                                  |
+| Lees      | Contact informatie (openbaar) | Alleen-leestoegang tot de inhoud.                   |
+| Update    | Contact informatie (openbaar) | Inhoud bijwerken.                                   |
+| Creëer    | Contact information (intern)  | Nieuwe inhoud maken.                                |
+| Verwijder | Contact information (intern)  | Inhoud verwijderen.                                 |
+| Publiceer | Contact information (intern)  | Inhoud publiceren.                                  |
+| Lees      | Contact information (intern)  | Alleen-leestoegang tot de inhoud.                   |
+| Update    | Contact information (intern)  | Inhoud bijwerken.                                   |
+| Creëer    | Subcategorie                  | Nieuwe Subcategorie velden maken.                   |
+| Verwijder | Subcategorie                  | Subcategorie velden verwijderen.                    |
+| Publiceer | Subcategorie                  | Subcategorie velden publiceren.                     |
+| Lees      | Subcategorie                  | Alleen-lezen toegang tot Subcategorie velden.       |
+| Update    | Subcategorie                  | Subcategorie velden bijwerken.                      |
+| Lees      | Kosten                        | Alleen-lezen toegang tot kosteninformatie.          |
+| Creëer    | VAC                           | Nieuwe VAC-inhoud maken.                            |
+| Verwijder | VAC                           | VAC-inhoud verwijderen.                             |
+| Publiceer | VAC                           | VAC-inhoud publiceren.                              |
+| Lees      | VAC                           | Alleen-lezen toegang tot VAC-inhoud.                |
+| Update    | VAC                           | VAC-inhoud bijwerken.                               |
+| Lees      | Aanvullende informatie        | Alleen-lezen toegang tot Aanvullende informatie.    |
+| Creëer    | Aanvullende informatie        | Nieuwe Aanvullende informatie velden maken.         |
+| Update    | Aanvullende informatie        | Aanvullende informatie bijwerken.                   |
+| Verwijder | Aanvullende informatie        | Aanvullende informatie verwijderen.                 |
+| Publiceer | Aanvullende informatie        | Aanvullende informatie publiceren.                  |
+| Lees      | Product                       | Alleen-lezen toegang tot het product.               |
 
 ---
 
@@ -65,16 +70,17 @@ Een rol met alleen leesrechten op alle verzamelingen behalve gebruikers.
 
 ### Toegangsrechten Lezer
 
-| **Actie** | **Onderwerp**          | **Beschrijving**                                        |
-| --------- | ---------------------- | ------------------------------------------------------- |
-| Lezen     | Aanvullende informatie | Alleen-lezen toegang tot aanvullende informatie inhoud. |
-| Lezen     | Categorie              | Alleen-lezen toegang tot categorie.                     |
-| Lees      | Contactgegevens        | Alleen-lezen toegang tot Contactgegevens-inhoud.        |
-| Lezen     | Interne informatie     | Toegang tot interne informatie velden (alleen-lezen).   |
-| Lezen     | Kosten                 | Alleen-lezen toegang tot kosten.                        |
-| Lezen     | Product                | Alleen-lezen toegang tot productgegevens.               |
-| Lezen     | Subcategorie           | Alleen-lezen toegang tot subcategorie.                  |
-| Lezen     | VAC                    | Alleen-lezen toegang tot VAC.                           |
+| **Actie** | **Onderwerp**                 | **Beschrijving**                                        |
+| --------- | ----------------------------- | ------------------------------------------------------- |
+| Lezen     | Aanvullende informatie        | Alleen-lezen toegang tot aanvullende informatie inhoud. |
+| Lezen     | Categorie                     | Alleen-lezen toegang tot categorie.                     |
+| Lees      | Contact informatie (openbaar) | Alleen-lezen toegang tot de inhoud.                     |
+| Lees      | Contact information (intern)  | Alleen-lezen toegang tot de inhoud.                     |
+| Lezen     | Interne informatie            | Toegang tot interne informatie velden (alleen-lezen).   |
+| Lezen     | Kosten                        | Alleen-lezen toegang tot kosten.                        |
+| Lezen     | Product                       | Alleen-lezen toegang tot productgegevens.               |
+| Lezen     | Subcategorie                  | Alleen-lezen toegang tot subcategorie.                  |
+| Lezen     | VAC                           | Alleen-lezen toegang tot VAC.                           |
 
 ---
 
@@ -86,42 +92,47 @@ Een rol met alleen leesrechten op alle verzamelingen behalve gebruikers.
 
 ### Toegangsrechten PDC Redacteur
 
-| **Actie** | **Onderwerp**          | **Beschrijving**                                        |
-| --------- | ---------------------- | ------------------------------------------------------- |
-| Lezen     | Interne informatie     | Alleen-lezen toegang tot interne informatie velden      |
-| Lezen     | Aanvullende informatie | Alleen-lezen toegang tot aanvullende informatie inhoud. |
-| Update    | Not-found-page         | Not-found-page bijwerken.                               |
-| Publiceer | Not-found-page         | Not-found-page publiceren.                              |
-| Lees      | Not-found-page         | Alleen-lezen toegang tot de not-found-page inhoud.      |
-| Publiceer | Pdc-home-page          | Pdc-home-page publiceren.                               |
-| Update    | Pdc-home-page          | Pdc-home-page bijwerken.                                |
-| Lees      | Pdc-home-page          | Alleen-lezen toegang tot Pdc-home-page inhoud.          |
-| Creëer    | Categorie              | Nieuwe Categorie velden maken.                          |
-| Verwijder | Categorie              | Categorie velden verwijderen.                           |
-| Publiceer | Categorie              | Categorie velden publiceren.                            |
-| Lees      | Categorie              | Alleen-lezen toegang tot Categorie velden.              |
-| Update    | Categorie              | Categorie velden bijwerken.                             |
-| Creëer    | Contactgegevens        | Nieuwe Contactgegevens-inhoud maken.                    |
-| Verwijder | Contactgegevens        | Contactgegevens-inhoud verwijderen.                     |
-| Publiceer | Contactgegevens        | Contactgegevens-inhoud publiceren.                      |
-| Lees      | Contactgegevens        | Alleen-lezen toegang tot Contactgegevens-inhoud.        |
-| Update    | Contactgegevens        | Contactgegevens-inhoud bijwerken.                       |
-| Creëer    | Subcategorie           | Nieuwe Subcategorie velden maken.                       |
-| Verwijder | Subcategorie           | Subcategorie velden verwijderen.                        |
-| Publiceer | Subcategorie           | Subcategorie velden publiceren.                         |
-| Lees      | Subcategorie           | Alleen-lezen toegang tot Subcategorie velden.           |
-| Update    | Subcategorie           | Subcategorie velden bijwerken.                          |
-| Creëer    | Kosten                 | Kosteninformatie toevoegen.                             |
-| Verwijder | Kosten                 | Kosteninformatie verwijderen.                           |
-| Publiceer | Kosten                 | Kosteninformatie publiceren.                            |
-| Update    | Kosten                 | Kosteninformatie bijwerken.                             |
-| Lees      | Kosten                 | Alleen-lezen toegang tot kosteninformatie.              |
-| Creëer    | Product                | Nieuwe product toevoegen.                               |
-| Verwijder | Product                | Product verwijderen.                                    |
-| Publiceer | Product                | Product publiceren.                                     |
-| Update    | Product                | Product bijwerken.                                      |
-| Lees      | Product                | Alleen-lezen toegang tot product.                       |
-| Lezen     | VAC                    | Alleen-lezen toegang tot VAC.                           |
+| **Actie** | **Onderwerp**                 | **Beschrijving**                                        |
+| --------- | ----------------------------- | ------------------------------------------------------- |
+| Lezen     | Interne informatie            | Alleen-lezen toegang tot interne informatie velden      |
+| Lezen     | Aanvullende informatie        | Alleen-lezen toegang tot aanvullende informatie inhoud. |
+| Update    | Not-found-page                | Not-found-page bijwerken.                               |
+| Publiceer | Not-found-page                | Not-found-page publiceren.                              |
+| Lees      | Not-found-page                | Alleen-lezen toegang tot de not-found-page inhoud.      |
+| Publiceer | Pdc-home-page                 | Pdc-home-page publiceren.                               |
+| Update    | Pdc-home-page                 | Pdc-home-page bijwerken.                                |
+| Lees      | Pdc-home-page                 | Alleen-lezen toegang tot Pdc-home-page inhoud.          |
+| Creëer    | Categorie                     | Nieuwe Categorie velden maken.                          |
+| Verwijder | Categorie                     | Categorie velden verwijderen.                           |
+| Publiceer | Categorie                     | Categorie velden publiceren.                            |
+| Lees      | Categorie                     | Alleen-lezen toegang tot Categorie velden.              |
+| Update    | Categorie                     | Categorie velden bijwerken.                             |
+| Creëer    | Contact informatie (openbaar) | Nieuwe inhoud maken.                                    |
+| Verwijder | Contact informatie (openbaar) | Inhoud verwijderen.                                     |
+| Publiceer | Contact informatie (openbaar) | Inhoud publiceren.                                      |
+| Lees      | Contact informatie (openbaar) | Alleen-leestoegang tot de inhoud.                       |
+| Update    | Contact informatie (openbaar) | Inhoud bijwerken.                                       |
+| Creëer    | Contact information (intern)  | Nieuwe inhoud maken.                                    |
+| Verwijder | Contact information (intern)  | Inhoud verwijderen.                                     |
+| Publiceer | Contact information (intern)  | Inhoud publiceren.                                      |
+| Lees      | Contact information (intern)  | Alleen-leestoegang tot de inhoud.                       |
+| Update    | Contact information (intern)  | Inhoud bijwerken.                                       |
+| Creëer    | Subcategorie                  | Nieuwe Subcategorie velden maken.                       |
+| Verwijder | Subcategorie                  | Subcategorie velden verwijderen.                        |
+| Publiceer | Subcategorie                  | Subcategorie velden publiceren.                         |
+| Lees      | Subcategorie                  | Alleen-lezen toegang tot Subcategorie velden.           |
+| Update    | Subcategorie                  | Subcategorie velden bijwerken.                          |
+| Creëer    | Kosten                        | Kosteninformatie toevoegen.                             |
+| Verwijder | Kosten                        | Kosteninformatie verwijderen.                           |
+| Publiceer | Kosten                        | Kosteninformatie publiceren.                            |
+| Update    | Kosten                        | Kosteninformatie bijwerken.                             |
+| Lees      | Kosten                        | Alleen-lezen toegang tot kosteninformatie.              |
+| Creëer    | Product                       | Nieuwe product toevoegen.                               |
+| Verwijder | Product                       | Product verwijderen.                                    |
+| Publiceer | Product                       | Product publiceren.                                     |
+| Update    | Product                       | Product bijwerken.                                      |
+| Lees      | Product                       | Alleen-lezen toegang tot product.                       |
+| Lezen     | VAC                           | Alleen-lezen toegang tot VAC.                           |
 
 ---
 

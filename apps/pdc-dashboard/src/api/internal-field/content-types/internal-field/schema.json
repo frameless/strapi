@@ -26,6 +26,18 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product.product"
+    },
+    "contact_information_internal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact-information-internal.contact-information-internal",
+      "inversedBy": "internal_information"
+    },
+    "contact_information_public": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact-information-public.contact-information-public",
+      "inversedBy": "internal_information"
     }
   }
 }

@@ -1,0 +1,38 @@
+.utrecht-contact-card {
+  --utrecht-document-color: currentColor;
+  --utrecht-heading-color: currentColor;
+  --utrecht-link-color: currentColor;
+  --utrecht-link-focus-color: currentColor;
+  --utrecht-link-hover-color: currentColor;
+  --utrecht-link-active-color: currentColor;
+  --utrecht-link-visited-color: currentColor;
+  --utrecht-heading-2-text-transform: none;
+  --utrecht-heading-2-font-size: var(--utrecht-typography-scale-md-font-size);
+  --utrecht-contact-card-background-color: hsl(207 60% 91%);
+  --utrecht-contact-card-background-color-2: hsl(207 60% 96%);
+  --utrecht-contact-card-margin-block-start: var(--utrecht-space-block-xl);
+  --utrecht-contact-card-margin-block-end: var(--utrecht-space-block-lg);
+  --utrecht-contact-card-color: var(--utrecht-color-black);
+  --utrecht-contact-card-padding-block-end: var(--utrecht-space-block-xl);
+  --utrecht-contact-card-padding-block-start: var(--utrecht-space-block-xl);
+  --utrecht-contact-card-padding-inline-end: var(--utrecht-space-inline-xl);
+  --utrecht-contact-card-padding-inline-start: var(--utrecht-space-inline-xl);
+
+  background-color: var(--utrecht-contact-card-background-color);
+  background-image: linear-gradient(
+    45deg,
+    var(--utrecht-contact-card-background-color),
+    var(--utrecht-contact-card-background-color) 50%,
+    var(--utrecht-contact-card-background-color-2) 50%,
+    var(--utrecht-contact-card-background-color-2)
+  );
+  background-position-x: 66%;
+  background-size: 200%;
+  color: var(--utrecht-contact-card-color);
+  margin-block-end: var(--utrecht-contact-card-margin-block-end);
+  margin-block-start: var(--utrecht-contact-card-margin-block-start);
+  padding-block-end: var(--utrecht-contact-card-padding-block-end);
+  padding-block-start: var(--utrecht-contact-card-padding-block-start);
+  padding-inline-end: var(--utrecht-contact-card-padding-inline-end);
+  padding-inline-start: var(--utrecht-contact-card-padding-inline-start);
+}

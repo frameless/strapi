@@ -41,11 +41,44 @@ query getAllProducts(
           description
         }
         sections {
+          ... on ComponentComponentsContactInformationPublic {
+            component: __typename
+            contact_information_public {
+              data {
+                attributes {
+                  contentBlock(pagination: { start: 0, limit: -1 }) {
+                    id
+                    content
+                  }
+                }
+              }
+            }
+          }
           ... on ComponentComponentsInternalBlockContent {
                 component: __typename
                 internal_field {
                   data {
                     attributes {
+                      contact_information_internal {
+                        data {
+                          attributes {
+                            contentBlock(pagination: { start: 0, limit: -1 }) {
+                              id
+                              content
+                            }
+                          }
+                        }
+                      }
+                      contact_information_public {
+                        data {
+                          attributes {
+                            contentBlock(pagination: { start: 0, limit: -1 }) {
+                              id
+                              content
+                            }
+                          }
+                        }
+                      }
                       content {
                         uuid
                         contentBlock {
@@ -238,11 +271,44 @@ export const GET_PRODUCT_BY_UUID = gql(`
               description
             }
             sections {
+              ... on ComponentComponentsContactInformationPublic {
+                component: __typename
+                contact_information_public {
+                  data {
+                    attributes {
+                      contentBlock(pagination: { start: 0, limit: -1 }) {
+                        id
+                        content
+                      }
+                    }
+                  }
+                }
+              }
               ... on ComponentComponentsInternalBlockContent {
                 component: __typename
                 internal_field {
                   data {
                     attributes {
+                      contact_information_internal {
+                        data {
+                          attributes {
+                            contentBlock(pagination: { start: 0, limit: -1 }) {
+                              id
+                              content
+                            }
+                          }
+                        }
+                      }
+                      contact_information_public {
+                        data {
+                          attributes {
+                            contentBlock(pagination: { start: 0, limit: -1 }) {
+                              id
+                              content
+                            }
+                          }
+                        }
+                      }
                       content {
                         id
                         uuid
@@ -620,6 +686,26 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
         createdAt
         updatedAt
         title
+        contact_information_internal {
+          data {
+            attributes {
+              contentBlock(pagination: { start: 0, limit: -1 }) {
+                id
+                content
+              }
+            }
+          }
+        }
+        contact_information_public {
+          data {
+            attributes {
+              contentBlock(pagination: { start: 0, limit: -1 }) {
+                id
+                content
+              }
+            }
+          }
+        }
         relatedVACs(pagination: { start: 0, limit: -1 }) {
           data {
             attributes {
@@ -668,6 +754,26 @@ query getVacItemByUUID($uuid: String) {
         createdAt
         updatedAt
         title
+        contact_information_internal {
+          data {
+            attributes {
+              contentBlock(pagination: { start: 0, limit: -1 }) {
+                id
+                content
+              }
+            }
+          }
+        }
+        contact_information_public {
+          data {
+            attributes {
+              contentBlock(pagination: { start: 0, limit: -1 }) {
+                id
+                content
+              }
+            }
+          }
+        }
         relatedVACs(pagination: { start: 0, limit: -1 }) {
           data {
             attributes {

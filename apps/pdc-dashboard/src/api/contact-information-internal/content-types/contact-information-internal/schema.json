@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_informations",
+  "info": {
+    "singularName": "contact-information-internal",
+    "pluralName": "contact-information-internals",
+    "displayName": "Contact information (intern)",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "contentBlock": {
+      "displayName": "rich-text",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.contact-information-rich-text"
+    },
+    "internal_information": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::internal-field.internal-field",
+      "mappedBy": "contact_information_internal"
+    },
+    "vacs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vac.vac",
+      "mappedBy": "contact_information_internal"
+    }
+  }
+}
