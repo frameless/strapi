@@ -32,12 +32,11 @@
   --utrecht-navigation-item-padding-inline-end: 5px;
 
   /* link */
-  --utrecht-navigation-link-background-color: var(--utrecht-color-white);
+  --utrecht-navigation-link-background-color: transparent;
   --utrecht-navigation-link-border-color: none;
   --utrecht-navigation-link-border-inline-end-width: 0;
   --utrecht-navigation-link-color: var(--utrecht-color-black);
   --utrecht-navigation-link-focus-text-decoration-thickness: 1px;
-  --utrecht-navigation-link-background-color: transparent;
 
   /* link-hover  */
   --utrecht-navigation-link-hover-color: var(--utrecht-color-blue-35);
@@ -71,6 +70,7 @@
 .utrecht-vth-theme:has(.utrecht-drawer[open]) {
   --utrecht-page-padding-inline-end: 8px;
 }
+
 /* --- navigation tokens end --- */
 
 a {
@@ -195,6 +195,7 @@ a {
     --utrecht-page-footer-padding-block-start: 48px;
   }
 }
+
 /* TODO remove the following code when this PR https://github.com/nl-design-system/utrecht/pull/2393 get merged */
 .utrecht-accordion__header {
   margin-block-end: 0;
