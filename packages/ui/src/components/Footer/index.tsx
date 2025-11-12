@@ -69,7 +69,7 @@ export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) =>
 
   return (
     <PageFooter className={css('utrecht-footer')}>
-      <Page>
+      <Page className="utrecht-footer__container">
         <Grid>
           <GridCell md={8} sm={10}>
             <Grid>
