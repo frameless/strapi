@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "contact_information_public",
+  "collectionName": "contact_info_public",
   "info": {
     "singularName": "contact-information-public",
     "pluralName": "contact-information-publics",
