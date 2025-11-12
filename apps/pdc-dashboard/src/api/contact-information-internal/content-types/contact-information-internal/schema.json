@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "contact_informations",
+  "collectionName": "contact_info_internal",
   "info": {
     "singularName": "contact-information-internal",
     "pluralName": "contact-information-internals",
