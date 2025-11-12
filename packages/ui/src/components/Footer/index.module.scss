@@ -14,6 +14,13 @@
   --utrecht-link-social-border-color: transparent;
   --utrecht-page-footer-padding-inline-end: 0;
   --utrecht-page-footer-padding-inline-start: 0;
+
+  display: block;
+}
+
+.utrecht-footer__container {
+  padding-inline-end: 0;
+  padding-inline-start: 0;
 }
 
 .utrecht-footer__list-title {
