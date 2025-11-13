@@ -165,6 +165,12 @@
       display: none;
     }
 
+    /* Footer color */
+    footer,
+    .utrecht-footer * {
+      color: var(--utrecht-color-black) !important;
+    }
+
     /* Mark sections: border for print */
     mark,
     .utrecht-mark {
