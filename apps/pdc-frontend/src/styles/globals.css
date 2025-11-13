@@ -6,6 +6,25 @@ body {
   padding-inline: 0;
 }
 
+h1 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-1-font-weight);
+}
+h2 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-2-font-weight);
+}
+h3 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-3-font-weight);
+}
+h4 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-4-font-weight);
+}
+h5 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-5-font-weight);
+}
+h6 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-6-font-weight);
+}
+
 .utrecht-pdc-theme {
   --utrecht-page-footer-padding-block-end: 24px;
   --utrecht-page-footer-padding-block-start: 24px;

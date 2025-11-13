@@ -36,7 +36,7 @@
     "@tanstack/react-query": "4.29.25",
     "@utrecht/component-library-css": "8.1.5",
     "@utrecht/component-library-react": "10.3.9",
-    "@utrecht/design-tokens": "4.0.0",
+    "@utrecht/design-tokens": "4.1.1",
     "@utrecht/web-component-library-react": "3.0.12",
     "@utrecht/open-forms-container-react": "1.0.5",
     "@utrecht/open-forms-container-css": "2.0.1",

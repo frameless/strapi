@@ -1,3 +1,22 @@
+h1 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-1-font-weight);
+}
+h2 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-2-font-weight);
+}
+h3 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-3-font-weight);
+}
+h4 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-4-font-weight);
+}
+h5 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-5-font-weight);
+}
+h6 {
+  --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-6-font-weight);
+}
+
 /* mobile-verse */
 .utrecht-vth-theme {
   --utrecht-space-around: 1;

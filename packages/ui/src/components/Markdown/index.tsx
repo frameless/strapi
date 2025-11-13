@@ -1,4 +1,4 @@
-import { Figure, OrderedList, TableContainer } from '@utrecht/component-library-react';
+import { Figure, OrderedList, TableContainer, Strong } from '@utrecht/component-library-react';
 import {
   Heading1,
   Heading2,
@@ -140,6 +140,10 @@ const defaultComponents = (config?: Components) => {
       } else {
         return null;
       }
+    },
+    strong: ({ children, node }) => {
+      delete node.properties?.style;
+      return <Strong {...node.properties}>{children}</Strong>;
     },
   };
 
