@@ -5003,10 +5003,10 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.5.6.tgz#4a3e2a206251abc729339ba85f60bc0433c2865d"
   integrity sha512-Cqfe1YmOS7k+5mGu92nl5ULkzpKuxJrP3+4AEuPmrpFZ3BHxTY3TnHmU1On3bFmFFs6FbTcdF58CCUProGpIGQ==
 
-"@nl-design-system-unstable/documentation@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@nl-design-system-unstable/documentation/-/documentation-1.1.0.tgz#3fd3b98338bed9f2d061ad8be40f12e42e2edce7"
-  integrity sha512-vJSnhPeiYIsnFesVS4ViQp6s0xBfGP9E/9K0yISBtzIZlZavnwcqZ5d0FEw1V7YLqleMsc+kK6287Dai7RoWwg==
+"@nl-design-system-unstable/documentation@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@nl-design-system-unstable/documentation/-/documentation-1.8.0.tgz#06557bdfb775657dc5e47581b814b1752d168d53"
+  integrity sha512-0sutAYFRfXnsItdFmNvzq9IAF3bEHJ2CAkHgsJOuD5VOSPPyoM3nrVCif4iSjdWGOEXnqvvobQOO+WH21ai3Ag==
 
 "@noble/hashes@^1.1.5":
   version "1.8.0"
@@ -9526,11 +9526,6 @@
   resolved "https://registry.yarnpkg.com/@utrecht/article-css/-/article-css-2.0.1.tgz#094c21b5465a5f2f10c57b1d7b64dcf956a93464"
   integrity sha512-FXJ0KVsCobM4Bo2fEapUZksUtokaUQpJV8qYHt19H+lobCiv9D9FTYYy+F+udX3u/TaSLj56gewxK12gQP1a5Q==
 
-"@utrecht/backdrop-css@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/backdrop-css/-/backdrop-css-1.1.0.tgz#08f8f9efbfdf87866216c03f17a74ac56d0a9bba"
-  integrity sha512-oTGdo7OdFH4FJRqcwJp1DpxZQAR5LQWITYe1IJ7X+px9Wuu+9zSabYGn2dfIZgWaPYUAvAboiUtMpn21Z9yE3g==
-
 "@utrecht/backdrop-css@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@utrecht/backdrop-css/-/backdrop-css-1.4.0.tgz#64549aca98f7de7fa3c397472a3b517b6e161b8f"
@@ -9666,14 +9661,6 @@
   resolved "https://registry.yarnpkg.com/@utrecht/button-group-css/-/button-group-css-2.0.1.tgz#d818d004e3ec87fda5b5030c83793c03bb697473"
   integrity sha512-Zby6G9b1KX6aKECBobzVeVuNcvsknpwUwCVZXN7gzxLzNpJXwPC92XYia0mDIhxUcq8rKCQF+ABzZtxeZKqx9A==
 
-"@utrecht/button-group-react@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/button-group-react/-/button-group-react-1.0.1.tgz#52faf767b1d9190b212800a663772e8871978ca0"
-  integrity sha512-gZfKsHwwZxhKytrEKexDs1OOQ6O2c+2jgWmhp5fKb0DhqHluDnQ4xKKKF/BwlmjOyjesKwBwrvVJc+jsd/dIQA==
-  dependencies:
-    "@utrecht/button-group-css" "1.4.1"
-    clsx "2.1.1"
-
 "@utrecht/button-group-react@1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@utrecht/button-group-react/-/button-group-react-1.1.3.tgz#bb76e119f6f0316c91fb47ddee338e2557b09c10"
@@ -9705,26 +9692,6 @@
     "@utrecht/button-css" "3.0.1"
     clsx "2.1.1"
 
-"@utrecht/button-react@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/button-react/-/button-react-2.0.2.tgz#7bc99dcbd45ff944c2ee8de0531e5ad500953f87"
-  integrity sha512-Nt8hSZApoACqUtu/nTRCjELWAi9KQ7n1Vffs5sXyA0Xjw9r99xRkrIQsFyDxJV2y14Kisp89fkDNY8MwAtJYDA==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/button-react@2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@utrecht/button-react/-/button-react-2.0.7.tgz#7c7ae0fa19162cf789eccbcdaaf134a9c5a7fae1"
-  integrity sha512-mJ6rO4+86FitY3y5XO/ov+1YQkruIQYWuEVNgO+EShG70vm8pT8cuU7ReauKJq0JUgxKeaNYWdyBWha9Sz64/Q==
-  dependencies:
-    "@utrecht/button-css" "2.3.1"
-    clsx "2.1.1"
-
-"@utrecht/calendar-css@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/calendar-css/-/calendar-css-1.3.0.tgz#6d462e436c5f700381d1d5c659aa9784552ad082"
-  integrity sha512-4w1CLoKhw6PVDg8NHvgYBvzQMFsqPizQzcmQF17x3AACURdsrlc/99De2ou5JXs2KZM4xLtaiWKTLtE06iz9aA==
-
 "@utrecht/calendar-css@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@utrecht/calendar-css/-/calendar-css-1.4.0.tgz#7cb7dc44f8427822342d5506b8be1c87bfce738f"
@@ -9740,17 +9707,6 @@
   resolved "https://registry.yarnpkg.com/@utrecht/calendar-css/-/calendar-css-2.0.1.tgz#42cf4e68b32f868fc75559686671b5ec57471a46"
   integrity sha512-ilczc5hcha8cYFhH28pyrY21DCOl3gEyeWJNiDkdDgFk4esK9MhJUT7D0d334g6uSARzasI61ZEM6A8Czndfqw==
 
-"@utrecht/calendar-react@1.0.11":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@utrecht/calendar-react/-/calendar-react-1.0.11.tgz#32dc587d0f64ee0fe9927bc53d64000b21bb4aff"
-  integrity sha512-SeiiPEznxzBXhYrjMYg1oXJ+sUt/1JdQ7qVw5EanyChlZ/qMkb+7FVWxIWmEZneLHtB//RA3s68XfzsSE0/puw==
-  dependencies:
-    "@utrecht/button-react" "2.0.7"
-    "@utrecht/calendar-css" "1.4.1"
-    clsx "2.1.1"
-    date-fns "2.30.0"
-    lodash-es "4.17.21"
-
 "@utrecht/calendar-react@1.0.14":
   version "1.0.14"
   resolved "https://registry.yarnpkg.com/@utrecht/calendar-react/-/calendar-react-1.0.14.tgz#4714500882cc706b6e994b05da1be546e040cd2b"
@@ -9762,39 +9718,12 @@
     date-fns "2.30.0"
     lodash-es "4.17.21"
 
-"@utrecht/calendar-react@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@utrecht/calendar-react/-/calendar-react-1.0.5.tgz#635be175f0e5ef514019a4537a3d43fa44caffc8"
-  integrity sha512-HlfT6cEE0T8gGu3bpWJRvTNwY9rGNHnJC9nCA6reCn9Nn6uC0A2c6rdy5BAH4I6CdZM71rVpCOP1VC7fPBSSGg==
-  dependencies:
-    "@utrecht/button-react" "2.0.2"
-    "@utrecht/calendar-css" "1.3.0"
-    clsx "2.1.1"
-    date-fns "2.30.0"
-    lodash-es "4.17.21"
-
-"@utrecht/card-css@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/card-css/-/card-css-0.1.0.tgz#a0737629cb52ff925809e3e78ae2c9ccb44f4cfb"
-  integrity sha512-0hVZEzoLccDdTiFipWOT6rOwGuuEkCf8BqcdY8OPl4jPcShbAVfPpqIlsu5xgn6q1fPmrpQ75pFzYarEpccYdw==
-  dependencies:
-    "@utrecht/img-css" "1.3.1"
-
 "@utrecht/card-css@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@utrecht/card-css/-/card-css-1.0.1.tgz#1ab27f5eabb8ef9458ad18026c6ab503c3662b24"
   integrity sha512-zklTHHTxmQ++/AYSLk5O7NRxNvd6Mzmch6vBcuts2Nj78UeGB2xvjzPlNnr5/FQV65Dm1QpP8bE71K2SANz7eA==
   dependencies:
     "@utrecht/img-css" "2.0.1"
-
-"@utrecht/card-react@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/card-react/-/card-react-0.0.1.tgz#03476c05cd0999a6b427c9221076d166707aa989"
-  integrity sha512-gixswYEwgW0BTk4RecoAV8H0f9w938DphNSCu4e3Z5+ePNt4ZoaG2W3hRuJXTImP+NPXiLkAKRgzbq+qXjxU7Q==
-  dependencies:
-    "@utrecht/card-css" "0.1.0"
-    "@utrecht/link-react" "1.0.7"
-    clsx "2.1.1"
 
 "@utrecht/card-react@0.0.4":
   version "0.0.4"
@@ -9827,22 +9756,6 @@
   dependencies:
     "@utrecht/checkbox-css" "2.0.1"
     "@utrecht/custom-checkbox-css" "2.0.1"
-    clsx "2.1.1"
-
-"@utrecht/checkbox-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/checkbox-react/-/checkbox-react-1.0.2.tgz#19adb0e5ddf6f2cd061ebe8243d2936f347b118e"
-  integrity sha512-WYqGXgBJ2W/4xGzKlLVjyToM7N2aCzWIdcAftnfp3pGg3mJ0L2i2TmVMJQKDh2RwLq5lsftk3OxPhH3IxOMWJA==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/checkbox-react@1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@utrecht/checkbox-react/-/checkbox-react-1.0.8.tgz#d496d4ccf489b5fcfb26ad7eb86c04535653f883"
-  integrity sha512-Kv1qf3nEOZA+Y0Z5+pKYpDMOBfpL2eXqeAeedj0UTYXX6Tkvq3lUK8eB4CLuSNgBV+ejSUj3CuZoEiOENK4Fdg==
-  dependencies:
-    "@utrecht/checkbox-css" "1.6.1"
-    "@utrecht/custom-checkbox-css" "1.3.2"
     clsx "2.1.1"
 
 "@utrecht/code-block-css@1.5.0":
@@ -9926,21 +9839,6 @@
   integrity sha512-oA6Si8C7wD7sbU5RqoQBdY5tAYpJa6YwhvFMIchJjLdqmV8oGT+ZV8vWWbjtDiPPnZPWcZyO1U08mOd+fqQgDQ==
   dependencies:
     "@utrecht/combobox-css" "2.0.1"
-    clsx "2.1.1"
-
-"@utrecht/combobox-react@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@utrecht/combobox-react/-/combobox-react-0.0.3.tgz#3e07f44ebe72cb785b2cab4877dc723d41d41a8b"
-  integrity sha512-l543Y0iaw68ZT0SuETjvzGp37pLtw72sfzh/QzkNGyr9kk9twUmo+gYEp1QedAsOGaK9ETjcAoeKL2lgreiUKQ==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/combobox-react@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@utrecht/combobox-react/-/combobox-react-0.0.8.tgz#7dfb29bc70278a8aa56a2002f4109cdb6a98eaa5"
-  integrity sha512-JOKu+G2iAW7yCWOA9u19OlM1CL7jkUQRvl3lLuQWdOmZSU0WXC3KJcxi6Q1LCatZa8sSvss4wjFpCDMYTEm8/A==
-  dependencies:
-    "@utrecht/combobox-css" "1.4.1"
     clsx "2.1.1"
 
 "@utrecht/component-library-css@3.0.1-alpha.27":
@@ -10270,115 +10168,6 @@
     date-fns "2.30.0"
     lodash.chunk "4.2.0"
 
-"@utrecht/component-library-react@10.2.0":
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-10.2.0.tgz#bd7a634da496818a73b9f8ed7d4cd0e09f79ace6"
-  integrity sha512-wW0ZabaFVSMDmlAY2t55oINFBh3CerBwIquS6Hh7bBwtV9uCT8yGNelDS4qxD3gl5lWouFv6ILX9sIFIEA/+qQ==
-  dependencies:
-    "@utrecht/accordion-css" "2.0.0"
-    "@utrecht/alert-css" "2.3.0"
-    "@utrecht/alert-dialog-css" "1.4.2"
-    "@utrecht/alternate-lang-nav-css" "1.3.1"
-    "@utrecht/article-css" "1.5.1"
-    "@utrecht/backdrop-css" "1.4.1"
-    "@utrecht/badge-counter-css" "1.4.1"
-    "@utrecht/badge-list-css" "2.2.1"
-    "@utrecht/badge-status-css" "1.4.1"
-    "@utrecht/blockquote-css" "1.6.1"
-    "@utrecht/breadcrumb-nav-css" "1.5.0"
-    "@utrecht/button-group-react" "1.0.1"
-    "@utrecht/button-link-css" "1.3.1"
-    "@utrecht/button-react" "2.0.7"
-    "@utrecht/calendar-react" "1.0.11"
-    "@utrecht/card-css" "0.1.0"
-    "@utrecht/card-react" "0.0.1"
-    "@utrecht/checkbox-react" "1.0.8"
-    "@utrecht/code-block-css" "1.5.1"
-    "@utrecht/code-css" "1.5.1"
-    "@utrecht/color-sample-css" "1.4.1"
-    "@utrecht/column-layout-css" "1.5.1"
-    "@utrecht/combobox-react" "0.0.8"
-    "@utrecht/currency-data-css" "1.3.1"
-    "@utrecht/custom-checkbox-css" "1.3.2"
-    "@utrecht/data-badge-css" "1.0.1"
-    "@utrecht/data-badge-react" "1.0.4"
-    "@utrecht/data-list-css" "1.4.1"
-    "@utrecht/data-placeholder-css" "1.4.1"
-    "@utrecht/digid-button-css" "1.4.1"
-    "@utrecht/document-css" "1.5.1"
-    "@utrecht/drawer-css" "1.4.1"
-    "@utrecht/emphasis-css" "1.5.1"
-    "@utrecht/fieldset-react" "1.0.7"
-    "@utrecht/figure-css" "1.5.1"
-    "@utrecht/focus-ring-css" "2.3.1"
-    "@utrecht/form-field-checkbox-react" "1.0.10"
-    "@utrecht/form-field-description-react" "1.0.7"
-    "@utrecht/form-field-error-message-react" "1.0.7"
-    "@utrecht/form-field-react" "1.0.7"
-    "@utrecht/form-label-react" "1.0.7"
-    "@utrecht/form-toggle-css" "1.5.1"
-    "@utrecht/heading-1-css" "1.5.1"
-    "@utrecht/heading-2-css" "1.5.1"
-    "@utrecht/heading-3-css" "1.5.1"
-    "@utrecht/heading-4-css" "1.5.1"
-    "@utrecht/heading-5-css" "1.5.1"
-    "@utrecht/heading-6-css" "1.5.1"
-    "@utrecht/heading-group-css" "1.5.1"
-    "@utrecht/html-content-css" "1.4.1"
-    "@utrecht/iban-data-css" "1.3.1"
-    "@utrecht/icon-css" "2.0.1"
-    "@utrecht/img-css" "1.3.1"
-    "@utrecht/index-char-nav-css" "1.4.1"
-    "@utrecht/link-button-css" "1.4.1"
-    "@utrecht/link-list-css" "2.3.1"
-    "@utrecht/link-react" "1.0.7"
-    "@utrecht/link-social-css" "1.4.1"
-    "@utrecht/list-social-css" "1.4.1"
-    "@utrecht/listbox-react" "1.0.10"
-    "@utrecht/logo-button-css" "1.4.1"
-    "@utrecht/logo-css" "1.4.1"
-    "@utrecht/logo-image-css" "1.4.1"
-    "@utrecht/map-control-button-css" "2.2.1"
-    "@utrecht/map-marker-css" "1.4.1"
-    "@utrecht/mark-css" "1.5.1"
-    "@utrecht/multiline-data-css" "1.3.1"
-    "@utrecht/nav-bar-css" "1.4.1"
-    "@utrecht/nav-list-css" "1.3.1"
-    "@utrecht/number-badge-css" "2.3.1"
-    "@utrecht/number-data-css" "1.4.1"
-    "@utrecht/open-forms-container-css" "1.0.1"
-    "@utrecht/open-forms-container-react" "1.0.1"
-    "@utrecht/ordered-list-css" "1.5.2"
-    "@utrecht/page-content-css" "1.4.1"
-    "@utrecht/page-css" "1.4.1"
-    "@utrecht/page-footer-css" "2.1.1"
-    "@utrecht/page-header-css" "1.5.1"
-    "@utrecht/pagination-css" "1.4.1"
-    "@utrecht/paragraph-css" "2.3.1"
-    "@utrecht/pre-heading-css" "1.4.1"
-    "@utrecht/preserve-data-css" "1.3.1"
-    "@utrecht/radio-button-react" "1.0.7"
-    "@utrecht/rich-text-css" "1.3.1"
-    "@utrecht/search-bar-css" "2.2.1"
-    "@utrecht/select-css" "1.8.1"
-    "@utrecht/separator-css" "1.5.1"
-    "@utrecht/skip-link-css" "1.5.1"
-    "@utrecht/spotlight-section-css" "1.6.1"
-    "@utrecht/subscript-css" "1.3.1"
-    "@utrecht/superscript-css" "1.3.1"
-    "@utrecht/surface-css" "1.4.1"
-    "@utrecht/table-css" "1.6.1"
-    "@utrecht/table-of-contents-css" "0.3.1"
-    "@utrecht/textarea-css" "2.3.2"
-    "@utrecht/textbox-react" "1.0.8"
-    "@utrecht/top-task-link-css" "1.4.1"
-    "@utrecht/top-task-nav-css" "1.3.1"
-    "@utrecht/unordered-list-css" "1.5.1"
-    "@utrecht/url-data-css" "1.3.1"
-    "@utrecht/vega-visualization-css" "1.4.1"
-    clsx "2.1.1"
-    lodash.chunk "4.2.0"
-
 "@utrecht/component-library-react@10.3.9":
   version "10.3.9"
   resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-10.3.9.tgz#2f7c82233e5c8926deca5d488708f26a72500a82"
@@ -10489,44 +10278,6 @@
     clsx "2.1.1"
     lodash.chunk "4.2.0"
 
-"@utrecht/component-library-react@3.0.1-alpha.27":
-  version "3.0.1-alpha.27"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-3.0.1-alpha.27.tgz#40f85fddbbe41c418db6bea548495df9f9063b51"
-  integrity sha512-NowGn+JSqQh6ekwHxevoWeBB0BYTTPXNSA9/slc9UEv7yjACYqSLIpCeoaKX7I+VgbK25tw0Cv9sHDxfVcJ2PQ==
-  dependencies:
-    clsx "1.2.1"
-    lodash.chunk "4.2.0"
-
-"@utrecht/component-library-react@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-5.0.0.tgz#35eaa77da0a77fb0bd53774e0b857104ba2d09cc"
-  integrity sha512-D8wSfBl1rCLA5zNj1wND2QaHBrlW5T5qZjlqvcYmQdvOOF+L+aQ8gxg3uo30FBvugvH2HDfOCc6qD8z7/+R+0A==
-  dependencies:
-    clsx "2.1.1"
-    lodash.chunk "4.2.0"
-
-"@utrecht/component-library-react@7.3.5":
-  version "7.3.5"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-react/-/component-library-react-7.3.5.tgz#19c3fbbb81775b4424fdd4ab16c9e57b1aa5731b"
-  integrity sha512-ZVkwZ9HsF9VMDq5qUh2tLp9o2zIbrf/rY1oSBDAfltkBc+qNURBanLmwxVU77qebpM9hUP8UqERMHYOQMvW2gQ==
-  dependencies:
-    "@utrecht/button-react" "2.0.2"
-    "@utrecht/calendar-react" "1.0.5"
-    "@utrecht/checkbox-react" "1.0.2"
-    "@utrecht/combobox-react" "0.0.3"
-    "@utrecht/fieldset-react" "1.0.2"
-    "@utrecht/form-field-checkbox-react" "1.0.4"
-    "@utrecht/form-field-description-react" "1.0.2"
-    "@utrecht/form-field-error-message-react" "1.0.2"
-    "@utrecht/form-field-react" "1.0.2"
-    "@utrecht/form-label-react" "1.0.2"
-    "@utrecht/link-react" "1.0.2"
-    "@utrecht/listbox-react" "1.0.3"
-    "@utrecht/radio-button-react" "1.0.2"
-    "@utrecht/textbox-react" "1.0.2"
-    clsx "2.1.1"
-    lodash.chunk "4.2.0"
-
 "@utrecht/currency-data-css@1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@utrecht/currency-data-css/-/currency-data-css-1.3.0.tgz#e890770f4e8eee1b3f8caa8f3e420d74addfb2e8"
@@ -10572,14 +10323,6 @@
   resolved "https://registry.yarnpkg.com/@utrecht/data-badge-css/-/data-badge-css-2.0.1.tgz#5b81cce842d4706c82332d00c03adbf585697027"
   integrity sha512-UMisFH+47SvLFKicA+Em9el8ksyfoO2UtNZHODSL6qf+Bb33QQhGHnnBvcuKg1LTtiK1YdjHxVlnk05wCuFSqQ==
 
-"@utrecht/data-badge-react@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@utrecht/data-badge-react/-/data-badge-react-1.0.4.tgz#f0cd1146a0cc47bc04c6f3d58bd2a766a86f4018"
-  integrity sha512-AKhXZGt345af8KBQyDmtJN/8C676NiyM64fYGJlV05L9Y/VyOpQi3ozPh+AUs1TA4K2jjI0jQWXi167KqgCb9w==
-  dependencies:
-    "@utrecht/data-badge-css" "1.0.1"
-    clsx "2.1.1"
-
 "@utrecht/data-badge-react@1.0.7":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@utrecht/data-badge-react/-/data-badge-react-1.0.7.tgz#f1b2c42780e3b63ab8881a322cf83d0213b29fc7"
@@ -10618,30 +10361,10 @@
   resolved "https://registry.yarnpkg.com/@utrecht/data-placeholder-css/-/data-placeholder-css-2.0.1.tgz#cd1601aa6ae783ddefbfa27f05fa5dc33b45046d"
   integrity sha512-eM81866Pcnpdi+6B6AvCffJjfrsrmpNIZpGScrS4qTGJwePtsnd76bT6NB1eP3NFkA/Ptnfvs4UjFAO3KAK4Zg==
 
-"@utrecht/design-tokens@1.0.0-alpha.640":
-  version "1.0.0-alpha.640"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.0.0-alpha.640.tgz#8d821e59f56ea8740ba7946b8da94728a94e6de7"
-  integrity sha512-YBpP7faSBeCVgn+oAdzDhiAJqzEFV29yTzqsTpyNrrMCjn0TxHqOCexUFr7vMLnqDVFbs7KiV2/lNJozRZK8xw==
-
-"@utrecht/design-tokens@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-1.1.0.tgz#0377dbfac70564fc8fc33f9ad53323351f83004e"
-  integrity sha512-1P9aVSL5xlBx2sFEzm1v+obgAPvwiLj4dg0vAZnFxLF6ZLbPPu0kP+tQhW3Gj945DU3qkwL/tIuimObYulYVAg==
-
-"@utrecht/design-tokens@2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-2.5.0.tgz#c317736ec28f706738ea23d65f5a25bae34bdfd5"
-  integrity sha512-ae3u2c8aS7umgHYGeFWKzKprkb3PCx8xBnlPwCw39/1qhLOjiZIM+2YU8wOiMUf9pyZq1OpVUrglK3rkM8Yxog==
-
-"@utrecht/design-tokens@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-3.2.0.tgz#34ed21f67517f2e7da36557d929849abb2d3cd31"
-  integrity sha512-eELbTOYj8NSfJvGfkZKDPFNENDvs7W6AbeXEE2b3Quflm/0ztMPHpSOG4+3ZigRXhySCAjmuM3TuEKLQ8Q75Yg==
-
-"@utrecht/design-tokens@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-4.0.0.tgz#fda0b8cdf8c2a7ae236f4b67a57b54d00066439c"
-  integrity sha512-2hac9ZO9TMWf+ciNWAlr6yaRrFnEQR8bXHVkWqVPvtBF09eGkpgJx7mesZ4YpDAR5Xhvuk9lh01NCq2ItNDNWA==
+"@utrecht/design-tokens@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-4.1.0.tgz#5003e73b4764873670869d8c5a82d67a83cb77de"
+  integrity sha512-WqGOdBPY4y/moMmB4loxJjWdFWgDx5DbB5qYBDu+OsV0mXdjsGpCnDJX+/OpW2TqKMxoD2Z7DpZxQJksNj7hbQ==
   dependencies:
     "@fontsource-variable/noto-sans" "5.2.10"
 
@@ -10713,21 +10436,6 @@
     "@utrecht/form-fieldset-css" "2.0.1"
     clsx "2.1.1"
 
-"@utrecht/fieldset-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/fieldset-react/-/fieldset-react-1.0.2.tgz#b126b7bc0c77c6037dc7e06812002096efbd600f"
-  integrity sha512-I44EK9yrsGNfKvfijIWxymxXGt+iBw8J0t3aZISF6oqnDOIPOgU25bDiTVxgnuXc0QRz1fpyLiy11Zl0PHL2pQ==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/fieldset-react@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@utrecht/fieldset-react/-/fieldset-react-1.0.7.tgz#36d66961a0e50c75e57fb169723c5e9e93b45ecf"
-  integrity sha512-OilAF6SLn0fC5YbGbFfl6Ea6zfPD2yrE6L6SvtLjT+Gdbxx/e/XOk78+LmcQvY+cT2GlHxLzxM/YchsNBhOTOA==
-  dependencies:
-    "@utrecht/form-fieldset-css" "1.5.1"
-    clsx "2.1.1"
-
 "@utrecht/figure-css@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@utrecht/figure-css/-/figure-css-1.5.0.tgz#1f6904ed9e2eb169fc1102ee2881580289b0cff7"
@@ -10755,16 +10463,6 @@
   dependencies:
     "@utrecht/form-label-css" "2.0.1"
 
-"@utrecht/focus-ring-css@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/focus-ring-css/-/focus-ring-css-1.1.0.tgz#3a3b426b81d9aefc792288287e7ffc6981ab1ed6"
-  integrity sha512-MDxrC7b1AZ+S0+oqfMA/QD05GDhBTnc7q5VR3a+39jwJkgXtG7gJSQ7Pr8kdK8/Brx94SayIAEP5vAjuBee6bQ==
-
-"@utrecht/focus-ring-css@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/focus-ring-css/-/focus-ring-css-2.3.1.tgz#bca5f15f339ec6ab473a8d4bd57b02d1e7d2d5aa"
-  integrity sha512-mmZeNnp2VeYVrnG0uhgkLcX2nVuMW0+oZjJ7lCI1FFODpj3ORmtTi7N5UNjhM3Pyppg5LdDwqMM6jF9clPg5Yg==
-
 "@utrecht/focus-ring-css@3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@utrecht/focus-ring-css/-/focus-ring-css-3.0.1.tgz#f03d1ade417e1b62068ad6e0a39a78baaac4c9b1"
@@ -10784,30 +10482,6 @@
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@utrecht/form-css/-/form-css-2.0.1.tgz#05eaf56813057cbb8ba5157a6b99266a58965de1"
   integrity sha512-Y5dwtumAxu2/GYT79FFOBsc4o7vYkPSNsNLxN6CbT/P8/9sEHjrlalnEMDin3RReSdt9+ldP0nDIxWaNrNN3VQ==
-
-"@utrecht/form-field-checkbox-react@1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-field-checkbox-react/-/form-field-checkbox-react-1.0.10.tgz#e19369fa929d73cdc5180d1dae51496fbb224d96"
-  integrity sha512-vmg06zS5F9XgHfTciPNNLvmjfEc50wBy12tHwi6045Qmuy3g7L7CZ0fSPmNfxUf70RUPvgW7HkHRvhURFuC99Q==
-  dependencies:
-    "@utrecht/checkbox-react" "1.0.8"
-    "@utrecht/form-field-description-react" "1.0.7"
-    "@utrecht/form-field-error-message-react" "1.0.7"
-    "@utrecht/form-field-react" "1.0.7"
-    "@utrecht/form-label-react" "1.0.7"
-    clsx "2.1.1"
-
-"@utrecht/form-field-checkbox-react@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-field-checkbox-react/-/form-field-checkbox-react-1.0.4.tgz#879efaf6c68c281de8b042c65383133df7d5c367"
-  integrity sha512-rsVs0wQd9q/Es8LTiJKbuRlIGigjTix5QCqJ8PdIexOJ7AgyAl2O0Z57EuDsUVQm5rvz/F8LvD0eRRakAkFeeA==
-  dependencies:
-    "@utrecht/checkbox-react" "1.0.2"
-    "@utrecht/form-field-description-react" "1.0.2"
-    "@utrecht/form-field-error-message-react" "1.0.2"
-    "@utrecht/form-field-react" "1.0.2"
-    "@utrecht/form-label-react" "1.0.2"
-    clsx "2.1.1"
 
 "@utrecht/form-field-checkbox-react@1.1.3":
   version "1.1.3"
@@ -10859,21 +10533,6 @@
     "@utrecht/form-field-description-css" "2.0.1"
     clsx "2.1.1"
 
-"@utrecht/form-field-description-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-field-description-react/-/form-field-description-react-1.0.2.tgz#c7b133b1d0d49860a571e537fdee7cd2593d7809"
-  integrity sha512-trki74s07AAMp59SO/VpR4RguvepaMGZ89xp54mbzYeJMqEspCCyEzKJSL/UdM0Kv8IVc3YpDv8grDV4hpT4Kw==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/form-field-description-react@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-field-description-react/-/form-field-description-react-1.0.7.tgz#178dd99f965b71249299ab0a19f1d6f580688894"
-  integrity sha512-laLmOKJXl0vUF3w1eJT9QENUgGz72mWPwdZOebGZfsH0pKKFLcvlXUcXQ+cMnCJyKcBjEdxeUN8DA75UqbKo5g==
-  dependencies:
-    "@utrecht/form-field-description-css" "1.5.1"
-    clsx "2.1.1"
-
 "@utrecht/form-field-error-message-css@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@utrecht/form-field-error-message-css/-/form-field-error-message-css-1.5.0.tgz#f4f0b6c32dc34ecf7ae5e34357646a397f784aee"
@@ -10897,42 +10556,12 @@
     "@utrecht/form-field-error-message-css" "2.0.1"
     clsx "2.1.1"
 
-"@utrecht/form-field-error-message-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-field-error-message-react/-/form-field-error-message-react-1.0.2.tgz#27db05351c210f0e91423ab56a8098be85421aa6"
-  integrity sha512-SwJWACl09GHbXVK7LhliHeU8steEqMED8rb2GTppJz8N4SN0J97Z43rPaVxdfpX4vxslb60M3+b33GO5UQ8Uuw==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/form-field-error-message-react@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-field-error-message-react/-/form-field-error-message-react-1.0.7.tgz#57df82bfacb997c47fe0c537f8fc4aba092ed8cb"
-  integrity sha512-SNgHTANBkoYv72VpdGOU9Q2NJHSYNAbqWxaFjKM9sXT4EVTemKwL+vSEuc9YmEECwK10saMRTz8eq59ytzHkbQ==
-  dependencies:
-    "@utrecht/form-field-error-message-css" "1.5.1"
-    clsx "2.1.1"
-
 "@utrecht/form-field-react@1.0.10":
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/@utrecht/form-field-react/-/form-field-react-1.0.10.tgz#33e201c74e9d1aeaa978a8e0f4b8bbbc58a9b133"
   integrity sha512-aUSeShyuuuI8A8ahGj8xUbvQ0b4K36nGJsYilGCp9aEK1ywnbqE+89u7Kb75mujKMnw+BsYN+aU8TRWvVgoOPQ==
   dependencies:
     "@utrecht/form-field-css" "2.0.1"
-    clsx "2.1.1"
-
-"@utrecht/form-field-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-field-react/-/form-field-react-1.0.2.tgz#3d6f312bf56580046a856f10ca360dda0953768a"
-  integrity sha512-8R8cjpX6pGgUwjEeQVQrqt+Rrdfir4QcNKY4QuPvixJo9Xk78RQYITt0HwrGHNSI2JbuyUIVnwCTZmwkfm+bLA==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/form-field-react@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-field-react/-/form-field-react-1.0.7.tgz#756a7362716db2f0dc2c5366ae91c98639ae732f"
-  integrity sha512-6fBKG5stkxNj2UnyvpK2aSpLYNGeEX5qmqG0Ma8yneVgzGyEOtQqkjGr8bmM0QlIgdGvBwn2E1ePZD99Vyaa4Q==
-  dependencies:
-    "@utrecht/form-field-css" "1.5.1"
     clsx "2.1.1"
 
 "@utrecht/form-fieldset-css@1.5.0":
@@ -10971,21 +10600,6 @@
   integrity sha512-oJhcTpVg38jRYEl2fOxvZAJHfaEyeQRTpQCxTZ6Mcv1dr1dhE259TwM03DtRXa+JTJoulxUG7vxTyclmxQwY3Q==
   dependencies:
     "@utrecht/form-label-css" "2.0.1"
-    clsx "2.1.1"
-
-"@utrecht/form-label-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-label-react/-/form-label-react-1.0.2.tgz#9620218979dce23f04b9513cde27202d11108502"
-  integrity sha512-7VgtnaVSQqImpehEvubxyq/7JO+AdBM6DWWmRv8qjm1WxqSs8ZCUDJkwH7OrFY405DVWJB2Yi4PZwD/jUT/nIQ==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/form-label-react@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@utrecht/form-label-react/-/form-label-react-1.0.7.tgz#eeba8f9d709938453dbb5e6a0c9ff1c04fb5e420"
-  integrity sha512-rzc5tlLvtRcBFUjZkSqOAdn6C3mHdv3+IITfo/ZXL+HDN6XGzHR+/Rk6ACKfo9hDXad2jJV8bIClWEp9U/yhpg==
-  dependencies:
-    "@utrecht/form-label-css" "1.6.1"
     clsx "2.1.1"
 
 "@utrecht/form-toggle-css@1.5.0":
@@ -11236,21 +10850,6 @@
     "@utrecht/link-css" "2.0.1"
     clsx "2.1.1"
 
-"@utrecht/link-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/link-react/-/link-react-1.0.2.tgz#244e00418e7114a325bdcc338cd3b2619580df84"
-  integrity sha512-eOckJ+pTOc8qHTP6zvgiNufTO7p7SjxDUT5ncoXAvxGlmDY0znqyfq8sXuTWGm4rpuq4k7vbLKozVmq+jxue0g==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/link-react@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@utrecht/link-react/-/link-react-1.0.7.tgz#fb59ef30dc05317d53ad2dca6a2d27c8e0bfcc39"
-  integrity sha512-U4mQ1AnrjN7LV2txBrghjgnS73eExdIsmuVUCvwqR/+9XvuG1u6fvQfanUVXVvvyX4TVbSqJHwZ8GeKW9TthSg==
-  dependencies:
-    "@utrecht/link-css" "1.6.1"
-    clsx "2.1.1"
-
 "@utrecht/link-social-css@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@utrecht/link-social-css/-/link-social-css-1.4.0.tgz#557906c51a39b1749b12d63d8e43c7fdb9c8ec9e"
@@ -11296,27 +10895,12 @@
   resolved "https://registry.yarnpkg.com/@utrecht/listbox-css/-/listbox-css-2.0.1.tgz#bd16f505895860d9eec32e57deaf1cc36c1f298c"
   integrity sha512-oBn1E2EGeQWkFHFryJx+NPLyiwlUP2qJ8CslQsmYMbiBjo7c9W9lx+e9OZn7ZJ/f5kviimZ9mkbwpJ6EjHPvcw==
 
-"@utrecht/listbox-react@1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@utrecht/listbox-react/-/listbox-react-1.0.10.tgz#81d22c86d4fd7920ed115d4fc1374748fa84679e"
-  integrity sha512-wFkhA2fpxCCFcjgv7wzjUmbdBL1kieK0wVGjEXM4vL6qWE8VVTI8U23yK6Lka1u6H0NNbYDlm6ZESj70Vk2m8w==
-  dependencies:
-    "@utrecht/listbox-css" "1.5.2"
-    clsx "2.1.1"
-
 "@utrecht/listbox-react@1.0.13":
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/@utrecht/listbox-react/-/listbox-react-1.0.13.tgz#ccffd300ac020c54f74a00774e625714ebd9b3cd"
   integrity sha512-o/VI/MLMfYjda7z5mlntIKKwEB58a425H7JVNLbq3tOEP10TWvDLjRg9jvDcPRwdFZkYSd/7dGW8KtpiQeVeeA==
   dependencies:
     "@utrecht/listbox-css" "2.0.1"
-    clsx "2.1.1"
-
-"@utrecht/listbox-react@1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@utrecht/listbox-react/-/listbox-react-1.0.3.tgz#9b9e636a7e87c5a4bf884627ce83aaf230f6b2e2"
-  integrity sha512-Pjp4jCJTrPOj9GpmIvf2EKYSZDJD4OFxC73GXfxEwQpyFLYC+x8Q2mKuth044jFhNZm1+G0lEAeUH9fZ3u+kPg==
-  dependencies:
     clsx "2.1.1"
 
 "@utrecht/logo-button-css@1.4.0":
@@ -11363,11 +10947,6 @@
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@utrecht/logo-image-css/-/logo-image-css-1.4.2.tgz#577496366f9013b9c3f6215752983841c7f8d354"
   integrity sha512-TV2Svy/dkyYF6Xj422JGwueMe6CcyWZ7+RZAXNgG575nrXYxEVy5EPjfeHPQ7LmCw0QZDlA7vRLK09zbL6LLyQ==
-
-"@utrecht/map-control-button-css@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/map-control-button-css/-/map-control-button-css-2.2.1.tgz#abaf9bbf6d80d91d3fb81d22d032e092cb668971"
-  integrity sha512-zZyLH123Pmhc86oc5BRwLhaoPQy9vCzdWyfn5n8LIFxDyR+y2s5tMxvFvieiVnYPimjlxuOecmM4IhwHttcSpw==
 
 "@utrecht/map-control-button-css@3.0.1":
   version "3.0.1"
@@ -11484,14 +11063,6 @@
   resolved "https://registry.yarnpkg.com/@utrecht/number-data-css/-/number-data-css-2.0.1.tgz#8c7b101f6db8a0b2a75c401336d9941f861912e8"
   integrity sha512-5h83zffqDC73RfAtZgCQMYUABAZYJVqS8TiYeBgaW8cMvPofrCd3opdxCKutO1zhkxKJxTxzaJ6vQ6hOeioLxw==
 
-"@utrecht/open-forms-container-css@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/open-forms-container-css/-/open-forms-container-css-1.0.1.tgz#78561acfbee53e315ffcc6b730af56b6c7539351"
-  integrity sha512-HTISSpF5m7s6wyaLyvizVgoPwwylecO9RA+JgIk3Hb/WI9SR4r5tvmATmMLz7sarfd9lXN8yzFQu2qWIxX7FJA==
-  dependencies:
-    "@utrecht/focus-ring-css" "2.3.1"
-    "@utrecht/textbox-css" "1.7.1"
-
 "@utrecht/open-forms-container-css@2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@utrecht/open-forms-container-css/-/open-forms-container-css-2.0.1.tgz#022006ac821d1936377b3fa68b6a9c8cd06fb4bb"
@@ -11499,14 +11070,6 @@
   dependencies:
     "@utrecht/focus-ring-css" "3.0.1"
     "@utrecht/textbox-css" "3.0.1"
-
-"@utrecht/open-forms-container-react@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/open-forms-container-react/-/open-forms-container-react-1.0.1.tgz#c43a4d9f916128c77a2f806ccf45a5010c4771ed"
-  integrity sha512-vad5PDfGsNHqNWBpuTqXAssHN4VaWAOk7gd+fVFPwa3luIHIl4dkKEPi0m3UfUMDGyR4wi7Mf4T+q4twP8I2iA==
-  dependencies:
-    "@utrecht/open-forms-container-css" "1.0.1"
-    clsx "2.1.1"
 
 "@utrecht/open-forms-container-react@1.0.5":
   version "1.0.5"
@@ -11636,11 +11199,6 @@
   resolved "https://registry.yarnpkg.com/@utrecht/pagination-css/-/pagination-css-2.0.3.tgz#7552616ddee30331d0de2c4b96df379e5e8c26fc"
   integrity sha512-LXXWZXEgiOacCHljs9jm9Nm2MQW7dmNtq5Ck4PENOA62oT/HVCXbiviWeT+dYLsv8Nwv+JCFYWm4CA1UGY7MOw==
 
-"@utrecht/paragraph-css@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/paragraph-css/-/paragraph-css-1.1.0.tgz#2fb0d6fb15e12bacd6fb1e04fb66bbcdefc4ffc2"
-  integrity sha512-HxkYL/W0tkHngucdBFHOK8t7OmUmlnz4uIXP4GBXdA299Hp+RGb/1vaH5A2RaIN0P7/4v6EkuV4lquOcHx0K0Q==
-
 "@utrecht/paragraph-css@2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@utrecht/paragraph-css/-/paragraph-css-2.3.0.tgz#5880c95768367f74bf90bf24fa5ab888b6352db7"
@@ -11707,21 +11265,6 @@
   integrity sha512-RRWXH8yPX9XS+YThZuW9Fx7DxTccyJbDtvV4Pbb/oC7ckQ/d83E3tdsiF7p3lOppFf/U50HzZHurF+fn1DIVnA==
   dependencies:
     "@utrecht/radio-button-css" "2.0.1"
-    clsx "2.1.1"
-
-"@utrecht/radio-button-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/radio-button-react/-/radio-button-react-1.0.2.tgz#3431f124aff2996e30623b6f44849bd1d89b021f"
-  integrity sha512-y4r3913L0PxIZqVQbjs1bV8cuiez6X4Oaqhjo7d8tdeOtnMjIjvv2s8tyRzDuyU8PioGXcMjtfavY+bDdrfc7g==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/radio-button-react@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@utrecht/radio-button-react/-/radio-button-react-1.0.7.tgz#4cc69feb756ad2d8a5d03e925d185c12e3364039"
-  integrity sha512-bvb2s5MOmc+kCX2y/hS7zbVWORwg0+D1PVWzKz8604A5/FYkAYJfKm8xronK8mx5r2OCP9zd2PMnUjh3yb9s0g==
-  dependencies:
-    "@utrecht/radio-button-css" "1.6.1"
     clsx "2.1.1"
 
 "@utrecht/rich-text-css@1.3.0":
@@ -11829,20 +11372,10 @@
   resolved "https://registry.yarnpkg.com/@utrecht/spotlight-section-css/-/spotlight-section-css-2.0.1.tgz#f402905a2d334a810966e22a84ce32a45fc53fbc"
   integrity sha512-BzymCAj6Im0OAzpHs3iSqX+5lNIVD9EbElC9RCeFASTlp5Yc9iO2hj9CCeQD6yPuVuZBD84vND6p4JeMgeLPJg==
 
-"@utrecht/subscript-css@1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/subscript-css/-/subscript-css-1.3.1.tgz#6a4a938e0553e595bcd58036787b78a266713625"
-  integrity sha512-dXID0YHJCudknXkItRmhEAsbtev+7ZM1ZuaWCY9Agr9VfkxMU1Yz6gXRvZAIL9s3gdFXFhakXlmcw41gEph3jQ==
-
 "@utrecht/subscript-css@2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@utrecht/subscript-css/-/subscript-css-2.0.1.tgz#f0364e139d0bfe56bdd584d26847ae5b61a25726"
   integrity sha512-Wg/lQA+vzQXVTEG88nMGzY2wi0WAYv++mBqd2P1mn6O0bgd4L6YxMppuOJs0J+RpMwHj65pUAbn/k6Ykh5i+iw==
-
-"@utrecht/superscript-css@1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/superscript-css/-/superscript-css-1.3.1.tgz#3d6f01abaccde24e2d81df6395232bce10bceb9d"
-  integrity sha512-2eKYNGhcTGlGWyzaSwyqs58K58gwLG1rpSmA2USeH7vNHQNRTXrRSqhOXvnaG0HbGMy5XWhv761SpnkbR09TCQ==
 
 "@utrecht/superscript-css@2.0.1":
   version "2.0.1"
@@ -11932,21 +11465,6 @@
     "@utrecht/textbox-css" "3.0.1"
     clsx "2.1.1"
 
-"@utrecht/textbox-react@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@utrecht/textbox-react/-/textbox-react-1.0.2.tgz#54f849a977b065dd63582b32f0d5ed399d33c97f"
-  integrity sha512-qO8/1bOL+6NdEtPz6y1hQot0Jex3qNCa/vnJSmuQZbFSy70vRkeancP6Khl8q7o1YIvqpMpbSG3nhZaVM3lIiw==
-  dependencies:
-    clsx "2.1.1"
-
-"@utrecht/textbox-react@1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@utrecht/textbox-react/-/textbox-react-1.0.8.tgz#98ac6c0d638e23636a1fa6cb3ddc00d5757fe6fc"
-  integrity sha512-o/pTcqCUoqOgHPP2rt9tMY6j0F2D2663wQGV7ATD32m4xKqQaAYVYq6gQTWUYgWCIfsteHVGaWpA0LcoAyzZ+A==
-  dependencies:
-    "@utrecht/textbox-css" "1.7.1"
-    clsx "2.1.1"
-
 "@utrecht/tooltip-css@2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@utrecht/tooltip-css/-/tooltip-css-2.0.1.tgz#069aba7d204ceee035e1877c5041f82f3bf79f12"
@@ -12012,29 +11530,10 @@
   resolved "https://registry.yarnpkg.com/@utrecht/url-data-css/-/url-data-css-2.0.1.tgz#d1163d3a2a55a158aa1dea712faa388c9ee29d9f"
   integrity sha512-ujZgby3gjgaC4qlo20K/4ksEZ31aQWwfb/Uhheza6HBTabfBPatowifFsfp2gxaQ4jvF+bc6uddBAuBaKnOQKQ==
 
-"@utrecht/vega-visualization-css@1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/vega-visualization-css/-/vega-visualization-css-1.4.1.tgz#6c673130ef16383cedc21b403a23d115e24e9780"
-  integrity sha512-A8hhTx9r3J7RexQ1ruhyXhBcA21DZHDO+fUP7Q2otKB216StukK09qlfM9ZaSmwmpFs7l/4vWFZw2cMbct+Lhg==
-
 "@utrecht/vega-visualization-css@1.4.2":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@utrecht/vega-visualization-css/-/vega-visualization-css-1.4.2.tgz#78a9661f3d9737ab04c7775ac910797781d0943f"
   integrity sha512-JTTx1DsKIeYZz95+H34HGfocKjDpbVOsFdPK1f/b3U3C5ivdC75fTkzU1+tVp6ijPwKnWPNr6eiIXTY9tHj5Kg==
-
-"@utrecht/web-component-library-react@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-1.3.0.tgz#5caae1ace5a76ea987f95c31ea9d69c045c8d99e"
-  integrity sha512-Ca5+2XPvB4EME/wtn4eMLIQyG6r5Zn/FR6Kj0q8AXF3gjF+qZVVEzfHUfU/8TfbSeVFE8UV9R0PdNmKVUd13dw==
-  dependencies:
-    "@utrecht/web-component-library-stencil" "1.4.0"
-
-"@utrecht/web-component-library-react@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-react/-/web-component-library-react-3.0.0.tgz#c7d08359cd99f43e126691fcf648d19a872141c1"
-  integrity sha512-lgJOzhRK1/9TRTz6ECgJk3yJPhh+t2Df1uj0xjTzca0qWU2UVR/kQwbdlmKRqu7D86iOm5kBfa0jP2yzUkLFvw==
-  dependencies:
-    "@utrecht/web-component-library-stencil" "2.2.0"
 
 "@utrecht/web-component-library-react@3.0.12":
   version "3.0.12"
@@ -12042,20 +11541,6 @@
   integrity sha512-MrnnMCg9NZxFWoBjOH4jxduhX96H+QqfwogNlldy8xqJtUXmO21TZY8T29Q1y7DHQT5by+Br0IDIMuarWsY0AQ==
   dependencies:
     "@utrecht/web-component-library-stencil" "3.7.0"
-
-"@utrecht/web-component-library-stencil@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-1.4.0.tgz#a880bea2e9f2ffb4375c43fa248b79233ef4c027"
-  integrity sha512-1yoTlgjVo8LQpB5pq5T+aRgSjYgLi0lVB2OtHVPXiLN/xBi7JJSzwZBfFZuKwWUPJZCgJxxnL72GxfP+K/0uaA==
-  dependencies:
-    "@stencil/core" "4.18.3"
-
-"@utrecht/web-component-library-stencil@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/web-component-library-stencil/-/web-component-library-stencil-2.2.0.tgz#26a2239d578d2be8b0074e33cf3b03e7aedf97d4"
-  integrity sha512-2ny336xp8dVcUaey0bWe65V+zqooyeApyMW8Vi44IxKJTcqNvKdOawT/mI1t1lTTsGoUhxxi0QQYT4AfXMU0aQ==
-  dependencies:
-    "@stencil/core" "4.18.3"
 
 "@utrecht/web-component-library-stencil@3.7.0":
   version "3.7.0"
@@ -31118,7 +30603,16 @@ string-length@^4.0.1:
     char-regex "^1.0.2"
     strip-ansi "^6.0.0"
 
-"string-width-cjs@npm:string-width@^4.2.0", "string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.2, string-width@^4.2.3:
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.2, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -31259,7 +30753,7 @@ stringify-object@^3.3.0:
     is-obj "^1.0.1"
     is-regexp "^1.0.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -31279,6 +30773,13 @@ strip-ansi@^5.2.0:
   integrity sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==
   dependencies:
     ansi-regex "^4.1.0"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
 
 strip-ansi@^7.0.1, strip-ansi@^7.1.0:
   version "7.1.0"
@@ -33667,7 +33168,7 @@ wordwrap@^1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
@@ -33680,6 +33181,15 @@ wrap-ansi@^6.0.1, wrap-ansi@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-6.2.0.tgz#e9393ba07102e6c91a3b221478f0257cd2856e53"
   integrity sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
   dependencies:
     ansi-styles "^4.0.0"
     string-width "^4.1.0"
