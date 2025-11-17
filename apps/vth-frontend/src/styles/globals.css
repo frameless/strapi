@@ -10,6 +10,8 @@
   --utrecht-page-padding-inline-end: 16px;
   --utrecht-page-footer-padding-block-end: 24px;
   --utrecht-page-footer-padding-block-start: 24px;
+  --utrecht-page-footer-padding-inline-start: 16px;
+  --utrecht-page-footer-padding-inline-end: 16px;
 
   /* --- navigation tokens start --- */
 
