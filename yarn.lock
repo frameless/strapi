@@ -10743,15 +10743,17 @@
   resolved "https://registry.yarnpkg.com/@utrecht/figure-css/-/figure-css-2.0.1.tgz#a497933cf3c2aec5f1a49e64a081bb48a168429f"
   integrity sha512-+mAPgdcd+0ZrQZR74h4VdDsxqkfs3e1DYDhgfcu9qAmQfb1MfSz8HkHFkZFtkuQYd854UsHeTTVq3UkwZTM04g==
 
-"@utrecht/flo-legal-decision-tree-client@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/flo-legal-decision-tree-client/-/flo-legal-decision-tree-client-1.0.0.tgz#d72cb03dc2e44f804be6c36b4df0aeb0e12270fa"
-  integrity sha512-Yv1F/aDoTGMlzuN9pxPl/5F5lp3PfaDy3yem8sAMq6nPCZkzRYe9z9lgQtOtN3NeXIfFNgQVjV1IbnAyCSPZAw==
+"@utrecht/flo-legal-decision-tree-client@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@utrecht/flo-legal-decision-tree-client/-/flo-legal-decision-tree-client-1.0.2.tgz#3aa04a51a71e36e5190f16ce280f972840a8f00e"
+  integrity sha512-L+k82bzyJPbci+sjtXKjO2+3Bs+caSg3yQ5V6mu5yV36a5MKDIm/nnkp67lf3QFHyHq19Cy8J9bCeV8wYhdVvA==
 
-"@utrecht/flolegal-decision-tree-css@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/flolegal-decision-tree-css/-/flolegal-decision-tree-css-1.0.0.tgz#8818b5284ae98fe110612f5a72e27844f95b41aa"
-  integrity sha512-Mk7yMqRESivbqQaVgfIzAtu1ekzf+FgPvlGVXdgeiBroUwM+ESEv8YW/uDg+w/SCCZdBztjuR7gv64rr+DDicw==
+"@utrecht/flolegal-decision-tree-css@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/flolegal-decision-tree-css/-/flolegal-decision-tree-css-2.1.0.tgz#7814bd8fd9517f511f409c77fcc1c28c574c1604"
+  integrity sha512-K+Muk/cnRayMbB2InNfbfmgAcn4P/o8XewGzwDvZ8rCrLt8YFzrg5qgopWTzJyDG7VDoRjxIvUyAzXG6nnToHg==
+  dependencies:
+    "@utrecht/form-label-css" "2.0.1"
 
 "@utrecht/focus-ring-css@1.1.0":
   version "1.1.0"
