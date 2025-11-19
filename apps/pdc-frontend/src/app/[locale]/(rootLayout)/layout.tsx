@@ -1,6 +1,7 @@
 import { buildURL } from '@frameless/utils';
 import classnames from 'classnames';
 import { dir } from 'i18next';
+import kebabCase from 'lodash.kebabcase';
 import type { Metadata } from 'next';
 import { draftMode, headers } from 'next/headers';
 import Link from 'next/link';
@@ -30,13 +31,15 @@ import { GoogleTranslate } from '@/components/GoogleTranslate';
 import { Main } from '@/components/Main';
 import { SearchBar } from '@/components/SearchBar';
 import { Editoria11yWrapper } from '@/lib/stencil-client';
-import { GET_TEMPLATE } from '@/query';
+import { GET_TEMPLATE, GET_WEBSITE_SETTINGS } from '@/query';
 import { buildAlternateLinks, config, fetchData, getStrapiGraphqlURL } from '@/util';
-import {
+import type {
   ComponentComponentsUtrechtFooter,
   ComponentComponentsUtrechtNavigation,
   GetTemplateDataQuery,
+  GetWebsiteSettingsQuery,
 } from '../../../../gql/graphql';
+import { MatomoScript } from '../../../components/MatomoScript';
 import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
 import { useTranslation } from '../../i18n/index';
 import { languages } from '../../i18n/settings';
@@ -146,6 +149,13 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
     key: 'MATOMO_HOST',
     segments: ['analytics', 'js', `container_${process.env.MATOMO_SITE_ID}.js`],
   });
+  const { data: websiteSettingData } = await fetchData<{ data: GetWebsiteSettingsQuery }>({
+    url: getStrapiGraphqlURL(),
+    query: GET_WEBSITE_SETTINGS,
+  });
+
+  const matomoScripts = websiteSettingData.websiteSetting?.data?.attributes?.triggerMatomoScript;
+
   return (
     <html lang={locale} dir={dir(locale)} id="top" className="utrecht-scroll-to-top-container">
       <body
@@ -266,6 +276,19 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
           src="https://virtuele-gemeente-assistent.nl/static/js/widget.js"
           nonce={nonce}
         />
+        <MatomoScript nonce={nonce} />
+        {Array.isArray(matomoScripts?.trackingScripts) &&
+          matomoScripts.trackingScripts.map(
+            (script) =>
+              script?.enabled && (
+                <Script
+                  nonce={nonce}
+                  key={script?.id}
+                  src={`/scripts/${kebabCase(script?.slug ?? '')}.js`}
+                  strategy="afterInteractive"
+                />
+              ),
+          )}
       </body>
     </html>
   );

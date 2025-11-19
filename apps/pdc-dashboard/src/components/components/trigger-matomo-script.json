@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_components_trigger_matomo_scripts",
+  "info": {
+    "displayName": "Trigger Matomo script",
+    "icon": "code",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Matomo Eventtracking"
+    },
+    "trackingScripts": {
+      "displayName": "Tracking Scripts",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.tracking-scripts"
+    }
+  }
+}

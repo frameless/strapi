@@ -994,6 +994,59 @@
       "conditions": []
     },
     {
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::website-setting.website-setting",
+      "properties": {
+        "fields": [
+          "triggerMatomoScript.title",
+          "triggerMatomoScript.trackingScripts.slug",
+          "triggerMatomoScript.trackingScripts.enabled"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::website-setting.website-setting",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::website-setting.website-setting",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::website-setting.website-setting",
+      "properties": {
+        "fields": [
+          "triggerMatomoScript.title",
+          "triggerMatomoScript.trackingScripts.slug",
+          "triggerMatomoScript.trackingScripts.enabled"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::website-setting.website-setting",
+      "properties": {
+        "fields": [
+          "triggerMatomoScript.title",
+          "triggerMatomoScript.trackingScripts.slug",
+          "triggerMatomoScript.trackingScripts.enabled"
+        ]
+      },
+      "conditions": []
+    },
+    {
       "action": "admin::api-tokens.access",
       "actionParameters": {},
       "subject": null,

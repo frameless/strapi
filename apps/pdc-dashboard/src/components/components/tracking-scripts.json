@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_components_tracking_scripts",
+  "info": {
+    "displayName": "Tracking Scripts",
+    "icon": "code",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "enumeration",
+      "enum": ["dark-mode", "forced-colors", "google-translate", "zoom-forms"]
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  }
+}

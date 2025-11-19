@@ -413,3 +413,21 @@ export const GET_OPEN_FORMS_ERROR_PAGE = gql(`
     }
   }
 `);
+
+export const GET_WEBSITE_SETTINGS = gql(`
+  query getWebsiteSettings {
+  websiteSetting {
+    data {
+      attributes {
+        triggerMatomoScript {
+          trackingScripts(pagination: { start: 0, limit: -1 }) {
+            id
+            slug
+            enabled
+          }
+        }
+      }
+    }
+  }
+}
+`);

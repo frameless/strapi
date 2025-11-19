@@ -49,6 +49,9 @@
       "action": "api::product.product.findOne"
     },
     {
+      "action": "api::website-setting.website-setting.find"
+    },
+    {
       "action": "plugin::i18n.locales.listLocales"
     },
     {
