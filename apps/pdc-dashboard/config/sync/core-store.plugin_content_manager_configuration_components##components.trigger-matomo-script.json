@@ -1,0 +1,74 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.trigger-matomo-script",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "title",
+      "defaultSortBy": "title",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Titel",
+          "description": "",
+          "placeholder": "Matomo Eventtracking",
+          "visible": true,
+          "editable": false
+        },
+        "list": {
+          "label": "title",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "trackingScripts": {
+        "edit": {
+          "label": "Event Tracking Scripts",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "trackingScripts",
+          "searchable": false,
+          "sortable": false
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "title"],
+      "edit": [
+        [
+          {
+            "name": "title",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "trackingScripts",
+            "size": 12
+          }
+        ]
+      ]
+    },
+    "uid": "components.trigger-matomo-script",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

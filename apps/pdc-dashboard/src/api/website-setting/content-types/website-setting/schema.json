@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "website_settings",
+  "info": {
+    "singularName": "website-setting",
+    "pluralName": "website-settings",
+    "displayName": "Website-instellingen",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "triggerMatomoScript": {
+      "displayName": "Trigger Matomo script",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.trigger-matomo-script"
+    }
+  }
+}

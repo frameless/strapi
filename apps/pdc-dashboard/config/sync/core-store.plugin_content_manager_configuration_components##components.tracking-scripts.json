@@ -1,0 +1,72 @@
+{
+  "key": "plugin_content_manager_configuration_components::components.tracking-scripts",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "slug",
+      "defaultSortBy": "id",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "Trigger-ID",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Trigger Inschakelen",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "enabled",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": ["id", "slug", "enabled"],
+      "edit": [
+        [
+          {
+            "name": "slug",
+            "size": 8
+          },
+          {
+            "name": "enabled",
+            "size": 4
+          }
+        ]
+      ]
+    },
+    "uid": "components.tracking-scripts",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

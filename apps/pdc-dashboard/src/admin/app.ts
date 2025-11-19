@@ -32,6 +32,10 @@ const config = {
       info: 'Blue',
       warning: 'Yellow',
       gray: 'Gray',
+      'dark-mode': 'Dark Mode Detection',
+      'forced-colors': 'Google Translate Detection',
+      'google-translate': 'Forced Color Mode Detection',
+      'zoom-forms': 'Form Zoom Behavior Tracking',
     },
     nl: {
       'content-manager.popUpWarning.warning.unpublish':
@@ -80,6 +84,10 @@ const config = {
       without_logo: 'Zonder logo',
       form_not_found: 'Formulier niet gevonden',
       form_server_is_offline: 'Formulier server is offline',
+      'dark-mode': 'Donkere Modus Detectie',
+      'forced-colors': 'GeForceerde Kleuren Modus Detectie',
+      'google-translate': 'Google Translate Gebruik Detectie',
+      'zoom-forms': 'Formulier Zoom-gedrag Tracking',
     },
   },
 };

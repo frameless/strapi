@@ -134,10 +134,12 @@ export const map = {
 
 export const matomo = {
   'connect-src': ['https://stats.utrecht.nl'],
+  'script-src': ['https://stats.utrecht.nl'],
 };
 
 export const matomoDev = {
-  'script-src': ['https://stats.utrecht.nl'],
+  'script-src': ['http://localhost:8080'],
+  'connect-src': ['http://localhost:8080'],
 };
 
 export const youtube = {
