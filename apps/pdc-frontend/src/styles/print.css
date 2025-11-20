@@ -166,7 +166,6 @@
     }
 
     /* Footer color */
-    footer,
     .utrecht-footer * {
       color: var(--utrecht-color-black) !important;
     }
