@@ -6,6 +6,27 @@ body {
   padding-inline: 0;
 }
 
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong {
+  font-weight: inherit;
+}
+
+h1 button,
+h2 button,
+h3 button,
+h4 button,
+h5 button,
+h6 button {
+  --utrecht-button-font-weight: 500;
+  --utrecht-button-primary-action-font-weight: 500;
+  --utrecht-button-secondary-action-font-weight: 500;
+  --utrecht-button-subtle-font-weight: 500;
+}
+
 .utrecht-pdc-theme {
   --utrecht-page-footer-padding-block-end: 24px;
   --utrecht-page-footer-padding-block-start: 24px;
