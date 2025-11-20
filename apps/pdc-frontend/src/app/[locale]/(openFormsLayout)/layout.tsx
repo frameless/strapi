@@ -295,7 +295,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         <SiteImproveAnalytics nonce={nonce} strategy="lazyOnload" />
         <MatomoScript nonce={nonce} />
         {Array.isArray(matomoScripts?.trackingScripts) &&
-          matomoScripts.trackingScripts.map((script) => {
+          matomoScripts?.trackingScripts?.map((script) => {
             return (
               <Script
                 key={script?.id}

@@ -278,7 +278,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
         />
         <MatomoScript nonce={nonce} />
         {Array.isArray(matomoScripts?.trackingScripts) &&
-          matomoScripts.trackingScripts.map(
+          matomoScripts?.trackingScripts?.map(
             (script) =>
               script?.enabled && (
                 <Script
