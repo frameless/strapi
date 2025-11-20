@@ -1,5 +1,13 @@
 # @frameless/kennisbank-frontend
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [140c0fa]
+- Updated dependencies [c663a36]
+  - @frameless/ui@0.1.3
+
 ## 0.1.5
 
 ### Patch Changes
