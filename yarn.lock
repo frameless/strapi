@@ -10645,6 +10645,13 @@
   dependencies:
     "@fontsource-variable/noto-sans" "5.2.10"
 
+"@utrecht/design-tokens@4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-4.1.1.tgz#df2cfbf36c0ca5eb5ba6bb60417f506d7c064892"
+  integrity sha512-ahbm4g7tXm1pn0L3N4KrsAMNFcOOqg+BQruQbeFkHGJg2z8Y7AksFe3RlOOz3EPwlgLgli13Q7kXhEOmKFT2mA==
+  dependencies:
+    "@fontsource-variable/noto-sans" "5.2.10"
+
 "@utrecht/digid-button-css@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@utrecht/digid-button-css/-/digid-button-css-1.4.0.tgz#35b1fe4b0a324aac0b221af1a47a512b573090f7"
@@ -10748,10 +10755,10 @@
   resolved "https://registry.yarnpkg.com/@utrecht/flo-legal-decision-tree-client/-/flo-legal-decision-tree-client-1.0.2.tgz#3aa04a51a71e36e5190f16ce280f972840a8f00e"
   integrity sha512-L+k82bzyJPbci+sjtXKjO2+3Bs+caSg3yQ5V6mu5yV36a5MKDIm/nnkp67lf3QFHyHq19Cy8J9bCeV8wYhdVvA==
 
-"@utrecht/flolegal-decision-tree-css@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/flolegal-decision-tree-css/-/flolegal-decision-tree-css-2.1.0.tgz#7814bd8fd9517f511f409c77fcc1c28c574c1604"
-  integrity sha512-K+Muk/cnRayMbB2InNfbfmgAcn4P/o8XewGzwDvZ8rCrLt8YFzrg5qgopWTzJyDG7VDoRjxIvUyAzXG6nnToHg==
+"@utrecht/flolegal-decision-tree-css@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@utrecht/flolegal-decision-tree-css/-/flolegal-decision-tree-css-2.1.1.tgz#11be798e4b4adaa8dd715bfb507764e306f56214"
+  integrity sha512-XL/XohQNRJVt0duuIVDzxTfD77p+uWRXvgAQFHVxzQXSk+E3ooDRzmoN8UX4JcNXnq7MMXjM9pkFMgljd1kpXg==
   dependencies:
     "@utrecht/form-label-css" "2.0.1"
 
