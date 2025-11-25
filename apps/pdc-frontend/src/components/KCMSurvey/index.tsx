@@ -18,7 +18,8 @@ export const KCMSurvey = ({ nonce }: KCMSurveyProps) => {
     const kcmSurveyURL = buildURL({
       env: process.env,
       key: 'KCM_SURVEY_URL',
-      segments: ['surveyembedding', 'v4.48', 'kcm-survey.js'],
+      // the current API behaver is when you don't provide a version it pulls the latest version
+      segments: ['surveyembedding', process.env.KCM_SURVEY_VERSION ?? '', 'kcm-survey.js'].filter(Boolean),
     });
     const kcmSurveyStylesheetLink = buildURL({
       env: process.env,
@@ -26,7 +27,12 @@ export const KCMSurvey = ({ nonce }: KCMSurveyProps) => {
       segments: ['fileadmin', 'kcm-radio.css'],
     });
 
-    if (!process.env.KCM_SURVEY_URL || !process.env.KCM_SURVEY_ID || !process.env.KCM_SURVEY_API_KEY) {
+    if (
+      !process.env.KCM_SURVEY_URL ||
+      !process.env.KCM_SURVEY_ID ||
+      !process.env.KCM_SURVEY_API_KEY ||
+      !process.env.KCM_SURVEY_VERSION
+    ) {
       return null;
     }
 
