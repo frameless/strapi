@@ -147,7 +147,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const matomoHost = buildURL({
     env: process.env,
     key: 'MATOMO_HOST',
-    segments: ['analytics', 'js', `container_${process.env.MATOMO_SITE_ID}.js`],
+    segments: ['analytics', 'js', `container_${process.env.MATOMO_CONTAINER_ID}.js`],
   });
   const { data: websiteSettingData } = await fetchData<{ data: GetWebsiteSettingsQuery }>({
     url: getStrapiGraphqlURL(),

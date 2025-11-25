@@ -275,6 +275,14 @@
       "developmentDefault": "https://example.com"
     },
     {
+      "name": "MATOMO_CONTAINER_ID",
+      "description": "Container ID for the Matomo tracker API. See: https://matomo.org/faq/general/faq_19212/",
+      "required": false,
+      "valueType": "string",
+      "example": "36D0C594-E017-485B-B032-C436",
+      "developmentDefault": "36D0C594-E017-485B-B032-C436"
+    },
+    {
       "name": "MATOMO_SITE_ID",
       "description": "Website ID for the Matomo tracker API. See: https://matomo.org/faq/general/faq_19212/",
       "required": false,
