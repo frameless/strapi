@@ -9636,6 +9636,11 @@
   resolved "https://registry.yarnpkg.com/@utrecht/breadcrumb-nav-css/-/breadcrumb-nav-css-2.0.1.tgz#286d375d32ee003785e4f9f1c88093156013144f"
   integrity sha512-gK9kM71greKH3xpuzKYjKttJNeXwxNBk5xjkF1gnajOdP4/hfejCrjnKetk/Tt3zH/fdmi6+o9nBUNE3l6IElw==
 
+"@utrecht/breadcrumb-nav-css@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/breadcrumb-nav-css/-/breadcrumb-nav-css-2.1.0.tgz#4cc181c840e42a7d5f5d2507964f076a457565fc"
+  integrity sha512-BOYqFSnrR5rVzU1mb4eDb4BbpuE9TSEPN5FTlJJduYDvsJr5DLDaxADmFp1p05di7GWV1qTaPBMxw0gEuMAbaQ==
+
 "@utrecht/button-css@2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@utrecht/button-css/-/button-css-2.3.0.tgz#c59d2ced916316f37b0647b0973ae9331f5c71bc"
@@ -10156,10 +10161,10 @@
     "@utrecht/url-data-css" "1.3.1"
     "@utrecht/youtube-video-css" "1.0.0"
 
-"@utrecht/component-library-css@8.1.5":
-  version "8.1.5"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-8.1.5.tgz#e98c4fac5ae19ede68572ed222b8d486a1fe8039"
-  integrity sha512-f+eJOxknEKKpn77aOflJoryY6KdGa6xwn2f68fruoktgZF96o2wD3hT22t7vvKeAxek6qp9fnoDnHf77p7QZxQ==
+"@utrecht/component-library-css@8.2.1":
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-8.2.1.tgz#a8e5ead303360aac44a07c5b3565731fe7ce2297"
+  integrity sha512-4nvNX8Mb0CGNVL+9IIj6tiykfUFUw2FZG++0Ufbgn5iAvYQi+BNALNQPq7o9aX+cG4WCjOZEbeHBSaopZhU4Hg==
   dependencies:
     "@utrecht/accordion-css" "3.0.1"
     "@utrecht/action-group-css" "3.0.1"
@@ -10173,112 +10178,7 @@
     "@utrecht/badge-status-css" "2.0.1"
     "@utrecht/blockquote-css" "2.0.1"
     "@utrecht/body-css" "2.0.1"
-    "@utrecht/breadcrumb-nav-css" "2.0.1"
-    "@utrecht/button-css" "3.0.1"
-    "@utrecht/button-group-css" "2.0.1"
-    "@utrecht/button-link-css" "2.0.1"
-    "@utrecht/calendar-css" "2.0.1"
-    "@utrecht/checkbox-css" "2.0.1"
-    "@utrecht/code-block-css" "2.0.1"
-    "@utrecht/code-css" "2.0.1"
-    "@utrecht/color-sample-css" "2.0.1"
-    "@utrecht/column-layout-css" "2.0.1"
-    "@utrecht/combobox-css" "2.0.1"
-    "@utrecht/currency-data-css" "2.0.1"
-    "@utrecht/custom-checkbox-css" "2.0.1"
-    "@utrecht/data-badge-css" "2.0.1"
-    "@utrecht/data-list-css" "2.0.1"
-    "@utrecht/data-placeholder-css" "2.0.1"
-    "@utrecht/digid-button-css" "1.4.2"
-    "@utrecht/document-css" "2.0.1"
-    "@utrecht/drawer-css" "2.0.1"
-    "@utrecht/emphasis-css" "2.0.1"
-    "@utrecht/figure-css" "2.0.1"
-    "@utrecht/form-css" "2.0.1"
-    "@utrecht/form-field-css" "2.0.1"
-    "@utrecht/form-field-description-css" "2.0.1"
-    "@utrecht/form-field-error-message-css" "2.0.1"
-    "@utrecht/form-fieldset-css" "2.0.1"
-    "@utrecht/form-label-css" "2.0.1"
-    "@utrecht/form-toggle-css" "2.0.1"
-    "@utrecht/heading-1-css" "2.0.1"
-    "@utrecht/heading-2-css" "2.0.1"
-    "@utrecht/heading-3-css" "2.0.1"
-    "@utrecht/heading-4-css" "2.0.1"
-    "@utrecht/heading-5-css" "2.0.1"
-    "@utrecht/heading-6-css" "2.0.1"
-    "@utrecht/heading-group-css" "2.0.1"
-    "@utrecht/html-content-css" "2.0.1"
-    "@utrecht/iban-data-css" "2.0.1"
-    "@utrecht/icon-css" "3.0.1"
-    "@utrecht/img-css" "2.0.1"
-    "@utrecht/index-char-nav-css" "2.0.1"
-    "@utrecht/link-button-css" "2.0.1"
-    "@utrecht/link-css" "2.0.1"
-    "@utrecht/link-list-css" "3.0.1"
-    "@utrecht/link-social-css" "2.0.1"
-    "@utrecht/list-social-css" "2.0.1"
-    "@utrecht/listbox-css" "2.0.1"
-    "@utrecht/logo-button-css" "1.4.2"
-    "@utrecht/logo-css" "2.0.1"
-    "@utrecht/logo-image-css" "1.4.2"
-    "@utrecht/map-marker-css" "2.0.1"
-    "@utrecht/mark-css" "2.0.1"
-    "@utrecht/multiline-data-css" "2.0.1"
-    "@utrecht/nav-bar-css" "2.0.1"
-    "@utrecht/nav-list-css" "1.3.2"
-    "@utrecht/navigation-css" "1.0.1"
-    "@utrecht/number-badge-css" "3.0.1"
-    "@utrecht/number-data-css" "2.0.1"
-    "@utrecht/ordered-list-css" "3.0.1"
-    "@utrecht/page-body-css" "1.0.1"
-    "@utrecht/page-content-css" "2.0.1"
-    "@utrecht/page-css" "2.0.1"
-    "@utrecht/page-footer-css" "3.0.1"
-    "@utrecht/page-header-css" "2.0.1"
-    "@utrecht/page-layout-css" "2.0.1"
-    "@utrecht/pagination-css" "2.0.3"
-    "@utrecht/paragraph-css" "3.0.1"
-    "@utrecht/pre-heading-css" "2.0.1"
-    "@utrecht/preserve-data-css" "2.0.1"
-    "@utrecht/radio-button-css" "2.0.1"
-    "@utrecht/rich-text-css" "2.0.1"
-    "@utrecht/root-css" "2.0.1"
-    "@utrecht/search-bar-css" "3.0.1"
-    "@utrecht/select-css" "2.0.1"
-    "@utrecht/separator-css" "2.0.1"
-    "@utrecht/skip-link-css" "2.0.1"
-    "@utrecht/spotlight-section-css" "2.0.1"
-    "@utrecht/surface-css" "2.0.1"
-    "@utrecht/table-css" "2.0.1"
-    "@utrecht/table-of-contents-css" "1.0.1"
-    "@utrecht/textarea-css" "3.0.1"
-    "@utrecht/textbox-css" "3.0.1"
-    "@utrecht/tooltip-css" "2.0.1"
-    "@utrecht/top-task-link-css" "2.0.1"
-    "@utrecht/top-task-nav-css" "1.3.2"
-    "@utrecht/unordered-list-css" "2.0.1"
-    "@utrecht/url-data-css" "2.0.1"
-    "@utrecht/youtube-video-css" "2.0.1"
-
-"@utrecht/component-library-css@8.2.0":
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/@utrecht/component-library-css/-/component-library-css-8.2.0.tgz#bafe41e01a04db04371391e5fc8046f78230825c"
-  integrity sha512-R6hAxXDPpv1QQmFWOs7dAjkOa4EY5dWO92xDLrKptFDSIA57ivfYZqupVB2toc57YOUDIJfIPshupZyA1LJQwg==
-  dependencies:
-    "@utrecht/accordion-css" "3.0.1"
-    "@utrecht/action-group-css" "3.0.1"
-    "@utrecht/alert-css" "3.0.1"
-    "@utrecht/alert-dialog-css" "2.0.1"
-    "@utrecht/alternate-lang-nav-css" "2.0.1"
-    "@utrecht/article-css" "2.0.1"
-    "@utrecht/backdrop-css" "2.0.1"
-    "@utrecht/badge-counter-css" "2.0.1"
-    "@utrecht/badge-list-css" "3.0.1"
-    "@utrecht/badge-status-css" "2.0.1"
-    "@utrecht/blockquote-css" "2.0.1"
-    "@utrecht/body-css" "2.0.1"
-    "@utrecht/breadcrumb-nav-css" "2.0.1"
+    "@utrecht/breadcrumb-nav-css" "2.1.0"
     "@utrecht/button-css" "3.0.1"
     "@utrecht/button-group-css" "2.0.1"
     "@utrecht/button-link-css" "2.0.1"
@@ -10333,7 +10233,7 @@
     "@utrecht/multiline-data-css" "2.0.1"
     "@utrecht/nav-bar-css" "2.0.1"
     "@utrecht/nav-list-css" "1.3.2"
-    "@utrecht/navigation-css" "1.0.1"
+    "@utrecht/navigation-css" "1.1.0"
     "@utrecht/number-badge-css" "3.0.1"
     "@utrecht/number-data-css" "2.0.1"
     "@utrecht/ordered-list-css" "3.0.1"
@@ -10744,17 +10644,10 @@
   resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-3.2.0.tgz#34ed21f67517f2e7da36557d929849abb2d3cd31"
   integrity sha512-eELbTOYj8NSfJvGfkZKDPFNENDvs7W6AbeXEE2b3Quflm/0ztMPHpSOG4+3ZigRXhySCAjmuM3TuEKLQ8Q75Yg==
 
-"@utrecht/design-tokens@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-4.1.1.tgz#df2cfbf36c0ca5eb5ba6bb60417f506d7c064892"
-  integrity sha512-ahbm4g7tXm1pn0L3N4KrsAMNFcOOqg+BQruQbeFkHGJg2z8Y7AksFe3RlOOz3EPwlgLgli13Q7kXhEOmKFT2mA==
-  dependencies:
-    "@fontsource-variable/noto-sans" "5.2.10"
-
-"@utrecht/design-tokens@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-4.1.1.tgz#df2cfbf36c0ca5eb5ba6bb60417f506d7c064892"
-  integrity sha512-ahbm4g7tXm1pn0L3N4KrsAMNFcOOqg+BQruQbeFkHGJg2z8Y7AksFe3RlOOz3EPwlgLgli13Q7kXhEOmKFT2mA==
+"@utrecht/design-tokens@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/design-tokens/-/design-tokens-4.2.0.tgz#7530ac963a31282db8347b9f7c181ad4a5b72155"
+  integrity sha512-nMIqb4l5zMyevrudyZ4NSw3zzyI6cqQD8MfE+AsD0Fj1msWpfGPcNplps4ry4F1NwqJ9eS7RAy1wJvzvpzCW1g==
   dependencies:
     "@fontsource-variable/noto-sans" "5.2.10"
 
@@ -11567,10 +11460,10 @@
   resolved "https://registry.yarnpkg.com/@utrecht/nav-list-css/-/nav-list-css-1.3.2.tgz#ad3c65a7dba25c5dc64b3b2c2010beb870af665c"
   integrity sha512-1VGVeIuLgz4N9aJ0DpTHbwRwxeOQSylIdeJ3Gm8sbL2NVIx4N05heEqi3lZKMulgv35ptCROdH/LBnn0Jd41Mw==
 
-"@utrecht/navigation-css@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@utrecht/navigation-css/-/navigation-css-1.0.1.tgz#e826ec8d8f7bf39e676adffe2b0b9f9c8879491b"
-  integrity sha512-NInFfHR3HTU56FlS7zZNNdhbt2/j/klxKgVoiIoVkOPg1r/VsPDZ6zNRTbI/UgZgy4gtIeGBfFuOplvbMzkp6g==
+"@utrecht/navigation-css@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/navigation-css/-/navigation-css-1.1.0.tgz#c82537f87900a9b5da1d07b3cf6bc42c69cb01ad"
+  integrity sha512-2dOXz7RyCNgkouRiIsPYZoa6zPI0PrQP905ym8g9gNvUDu5yJ3qUucRyAS04hF+vatfUp0eKIKghDvUNoKbmyw==
 
 "@utrecht/number-badge-css@2.3.0":
   version "2.3.0"
