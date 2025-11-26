@@ -9,6 +9,7 @@ export const MatomoScript = ({ nonce }: MatomoScriptProps) => {
   const matomoUrl = buildURL({
     env: process.env,
     key: 'MATOMO_HOST',
+    segments: ['analytics/'],
     isOrigin: true,
   });
   const siteId = process.env.MATOMO_SITE_ID;
