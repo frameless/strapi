@@ -9,41 +9,46 @@
     let detected = false;
 
     const detectGoogleTranslate = () => {
-      // 1. Google Translate injected elements
+      // Google Translate detection selectors
       const selectors = [
+        // Meta tag added by Google Translate
         "meta[name='google']",
+        // Google Translate widget elements
         '.goog-te-banner-frame',
         '.goog-te-gadget',
         "[class*='goog-te']",
         "[id*='google_translate']",
+        "[id^='google_translate']",
+        // Translation indicators
         '.skiptranslate',
-        // More specific indicator for translated text
+        '.translated-ltr',
+        '.translated-rtl',
+        "[class*='translated-']",
+        "[class*='notranslate']",
+        '[data-google-translate]',
+        // Translated text styling
         "font[style*='vertical-align:']",
       ];
 
-      for (const s of selectors) {
-        if (document.querySelector(s)) {
+      // Check for any Google Translate elements
+      for (const selector of selectors) {
+        if (document.querySelector(selector)) {
           detected = true;
           break;
         }
       }
 
-      // HTML language attribute manipulation
-      const htmlLang = document.documentElement.getAttribute('lang');
-      if (htmlLang && (htmlLang.includes('translated') || htmlLang.includes('x-mtfrom'))) {
-        detected = true;
-      }
-
-      // Google Translate sometimes injects "notranslate"
-      if (document.querySelector("[class*='notranslate']")) {
+      // Check HTML lang attribute for translation markers
+      const htmlLang = document.documentElement?.getAttribute('lang');
+      if (htmlLang?.includes('translated') || htmlLang?.includes('x-mtfrom')) {
         detected = true;
       }
     };
 
     const runDetection = () => {
-      detectGoogleTranslate(); // initial check
-      setTimeout(detectGoogleTranslate, 800); // after DOM settles
-      setTimeout(detectGoogleTranslate, 1500); // after possible frame load
+      detectGoogleTranslate();
+      setTimeout(detectGoogleTranslate, 800);
+      setTimeout(detectGoogleTranslate, 1500);
 
       setTimeout(() => {
         if (detected) {
@@ -59,6 +64,6 @@
       runDetection();
     }
   } catch (e) {
-    // Silent fail
+    // Silently fail if tracking unavailable
   }
 })();

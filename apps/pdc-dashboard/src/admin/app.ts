@@ -33,8 +33,8 @@ const config = {
       warning: 'Yellow',
       gray: 'Gray',
       'dark-mode': 'Dark Mode Detection',
-      'forced-colors': 'Google Translate Detection',
-      'google-translate': 'Forced Color Mode Detection',
+      'forced-colors': 'Forced Color Mode Detection',
+      'google-translate': 'Google Translate Detection',
       'zoom-forms': 'Form Zoom Behavior Tracking',
     },
     nl: {
