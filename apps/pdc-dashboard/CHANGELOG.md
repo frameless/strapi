@@ -1,5 +1,87 @@
 # @frameless/pdc-dashboard
 
+## 4.1.0
+
+### Minor Changes
+
+- 5ad0314: Voeg nieuwe contactgegevens-collectie toe aan het PDC-Strapi-dashboard
+
+  Deze collectie heeft een tweezijdige relatie met zowel producten als VAC's. Als je een contact koppelt aan een product of VAC, wordt die relatie ook zichtbaar aan de andere kant.
+
+  Deze update bevat ook wijzigingen in de rollen. Dit betekent dat de huidige rollen de juiste rechten krijgen voor toegang tot de nieuwe collectie.
+
+  - **Kennisbank Redacteur**: kan contactgegevens aanmaken, verwijderen, publiceren en bijwerken, maar mag alleen contactgegevens koppelen aan een VAC.
+  - **PDC Redacteur**: kan contactgegevens aanmaken, verwijderen, publiceren en bijwerken, maar mag alleen contactgegevens koppelen aan een product.
+
+- d82bf39: Contactinformatie is nu opgesplitst in twee aparte verzamelingen:
+
+  - **Contactinformatie (openbaar)**: Zichtbaar voor alle bezoekers op de website
+  - **Contactinformatie (intern)**: Alleen zichtbaar voor medewerkers in het KISS-dashboard
+
+  Deze wijziging maakt het mogelijk om verschillende contactgegevens te tonen aan het publiek en aan interne medewerkers.
+
+  ## Waar worden de nieuwe verzamelingen gebruikt?
+
+  ### PDC Strapi Dashboard - Voorbeeld in dialoogvenster
+
+  - **Interne informatie**: Wanneer je contactinformatie koppelt aan de verzameling "Interne informatie", wordt deze onderaan weergegeven
+  - **VAC**: Werkt op dezelfde manier als bij Interne informatie
+  - **Producten**: Alleen contactinformatie (openbaar) kan gekoppeld worden aan een product. Via de productblokken (Onderdelen) kun je een contactinformatie-blok toevoegen en vervolgens een contactinformatie selecteren via de dropdown
+
+  ### Overige Objecten API
+
+  De contactinformatie wordt op dezelfde manier verwerkt als in het voorbeelddialoogvenster en wordt uiteindelijk weergegeven in het KISS-dashboard.
+
+  ### PDC Frontend
+
+  Wanneer contactinformatie (openbaar) aan een product is gekoppeld, wordt deze weergegeven op de website van het digitaal loket.
+
+  ### Documentatie
+
+  De [rollendocumentatie](https://cms.frameless.io/docs/handboek/rollen-en-mogelijkheden-in-strapi-dashboard) is bijgewerkt met informatie over de nieuwe verzamelingen.
+
+  ([GitHub Issue Frameless/strapi#1165](https://github.com/frameless/strapi/issues/1165))
+
+- 4610e4a: Toegevoegde open-forms-error-page functie
+
+  ### Minor Changes
+
+  Geeft redacteuren de mogelijkheid om de inhoud van de foutpagina's van open formulieren bij te werken via het Strapi-dashboard.
+
+  - ([GitHub Issue UtrechtStrapiCMS/projects#937](https://github.com/orgs/frameless/projects/45/views/1?pane=issue&itemId=84125224&issue=frameless%7Cstrapi%7C937))
+
+- 30b3273: **Toegankelijkheid tracking toegevoegd**
+
+  Nieuwe functionaliteit om gebruikersgedrag en toegankelijkheidsinstellingen te volgen:
+
+  - **Donkere modus detectie**: Registreert wanneer gebruikers donkere modus gebruiken
+  - **Hoog contrast modus**: Volgt gebruik van geforceerde kleuren/hoog contrast instellingen
+  - **Zoom niveau bij formulieren**: Detecteert wanneer gebruikers inzoomen (>130%) en formulieren gebruiken
+  - **Google Translate gebruik**: Registreert wanneer pagina's worden vertaald
+
+  ([GitHub Issue Frameless/strapi#996](https://github.com/frameless/strapi/issues/996));
+
+### Patch Changes
+
+- 1fe3ee0: Werk de labels van de PDC-Dashboard Strapi-velden bij ([GitHub Issue Frameless/strapi#1160](https://github.com/frameless/strapi/issues/1160)).
+
+  In deze pull request zijn de labels van verschillende Strapi-velden bijgewerkt naar het Nederlands. Sommige labels konden echter nog niet worden vertaald vanwege beperkingen in de plugin of omdat de bijbehorende velden nog niet beschikbaar zijn.
+
+  | **Strapi-veld** | **Locatie**                     | **Gewenste label in het Nederlands** | **Reden waarom vertaling nog niet mogelijk is**                                                                                                                                                               |
+  | --------------- | ------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | `Component`     | Invoegen contentelement         | Onderdeel                            | Er is geen ID beschikbaar of een duidelijke manier om dit veld te vertalen.                                                                                                                                   |
+  | `Notes`         | pdc-dashboard / Rechtermenubalk | Notities                             | De [strapi-plugin-notes](https://github.com/strapi-community/strapi-plugin-notes) ondersteunt momenteel nog geen Nederlandse vertaling. Ik zal hieraan bijdragen. Zodra de update live is, laat ik dit weten. |
+  | `Add a note`    | pdc-dashboard / Rechtermenubalk | Voeg notitie toe                     |                                                                                                                                                                                                               |
+  | `Categorie`     | VAC-verzameling                 | Subcategorie                         | Dit veld is nog niet toegevoegd aan de VAC-collectie. Zie [issue #1163](https://github.com/frameless/strapi/issues/1163). Zodra het veld beschikbaar is, passen we het label toe.                             |
+
+- Updated dependencies [c040252]
+- Updated dependencies [d82bf39]
+- Updated dependencies [92d678a]
+- Updated dependencies [480cf64]
+  - @frameless/content-compliance-checker@1.0.0
+  - @frameless/preview-button@1.3.0
+  - @frameless/strapi-plugin-open-forms-embed@0.0.1
+
 ## 4.0.0
 
 ### Major Changes
