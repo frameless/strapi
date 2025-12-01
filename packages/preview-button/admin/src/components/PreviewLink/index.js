@@ -171,7 +171,6 @@ const PreviewLink = () => {
   });
 
   const combinedContent = combineSimilarCategories([...processedData, ...additionalContent]);
-  console.log(state.productData?.sections);
 
   const content = getContentByType({
     vac: {
