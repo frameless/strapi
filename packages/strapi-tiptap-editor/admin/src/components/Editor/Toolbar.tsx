@@ -19,7 +19,8 @@ import { Level } from '@tiptap/extension-heading';
 import type { Editor as EditorTypes } from '@tiptap/react';
 import classnames from 'classnames';
 import React, { useState } from 'react';
-import { useInView } from 'react-cool-inview';
+import './accordion.scss';
+
 import {
   AiFillYoutube,
   AiOutlineAlignCenter,
@@ -45,6 +46,7 @@ import initialTableWithCaption from '../extensions/schema/initialTableWithCaptio
 
 type SetYouTubeVideoOptions = { src: string; width?: number; height?: number; start?: number; 'data-title': string };
 type HeadingEventsTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'paragraph' | 'leadParagraph';
+type DetailsEventsTypes = 'details' | 'unsetDetails';
 
 interface ToolbarProps {
   editor: EditorTypes;
@@ -141,6 +143,20 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
     if (editor.getAttributes('image').src && editor.getAttributes('image').src.includes(';base64'))
       setBase64Input(editor.getAttributes('image').src);
     setBase64MediaLibVisible(true);
+  };
+
+  const onDetailsChange = (editor: EditorTypes, type: DetailsEventsTypes) => {
+    switch (type) {
+      case 'details':
+        editor.chain().focus().setDetails().run();
+        break;
+      case 'unsetDetails':
+        if (editor.isActive('details')) {
+          editor.chain().focus().unsetDetails().run();
+        }
+        break;
+      default:
+    }
   };
 
   const onInsertBase64Image = () => {
@@ -758,6 +774,30 @@ export const Toolbar = ({ editor, toggleMediaLib, settings, productPrice }: Tool
         </Dialog>
       </IconButtonGroup>
       <ToolbarItemHeadingWithID editor={editor} />
+      <Box className={classnames('button-group')}>
+        <Select
+          id="select-details"
+          size="S"
+          placeholder={formatMessage({
+            id: getTrad('components.toolbar.details.placeholder'),
+            defaultMessage: 'Accordion',
+          })}
+          onChange={(value: DetailsEventsTypes) => onDetailsChange(editor, value)}
+        >
+          <Option value="details">
+            {formatMessage({
+              id: getTrad('components.toolbar.details.add'),
+              defaultMessage: 'Add Accordion',
+            })}
+          </Option>
+          <Option value="unsetDetails" disabled={!editor.isActive('details')}>
+            {formatMessage({
+              id: getTrad('components.toolbar.details.remove'),
+              defaultMessage: 'Remove Accordion',
+            })}
+          </Option>
+        </Select>
+      </Box>
     </div>
   );
 };

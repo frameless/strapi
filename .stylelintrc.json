@@ -14,7 +14,7 @@
     "scss/operator-no-newline-after": null,
     "scss/at-extend-no-missing-placeholder": null,
     "custom-property-pattern": "^_?(todo|example|denhaag|utrecht|openforms|of|formio)-[a-z0-9-]+$",
-    "selector-class-pattern": "^(todo|example|denhaag|utrecht|openforms|formio|tippy|ProseMirror)(-[a-zA-Z0-9_-]+)?$",
+    "selector-class-pattern": "^(todo|example|denhaag|utrecht|openforms|formio|tippy|ProseMirror|tiptap|is-empty|is-open)(-[a-zA-Z0-9_-]+)?$",
     "keyframes-name-pattern": "^(todo|example|utrecht|openforms)-[a-z0-9-]+$",
     "at-rule-no-unknown": null,
     "block-no-empty": [true],
