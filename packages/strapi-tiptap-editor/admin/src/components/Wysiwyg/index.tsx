@@ -10,6 +10,9 @@ import CharacterCountExtension from '@tiptap/extension-character-count';
 import CodeExtension from '@tiptap/extension-code';
 import CodeBlockExtension from '@tiptap/extension-code-block';
 import DocumentExtension from '@tiptap/extension-document';
+import Details from '@tiptap/extension-details';
+import DetailsContent from '@tiptap/extension-details-content';
+import DetailsSummary from '@tiptap/extension-details-summary';
 import GapcursorExtension from '@tiptap/extension-gapcursor';
 import HardBreakExtension from '@tiptap/extension-hard-break';
 import HeadingExtension from '@tiptap/extension-heading';
@@ -21,6 +24,7 @@ import LinkExtension from '@tiptap/extension-link';
 import ListItemExtension from '@tiptap/extension-list-item';
 import OrderedListExtension from '@tiptap/extension-ordered-list';
 import ParagraphExtension from '@tiptap/extension-paragraph';
+import Placeholder from '@tiptap/extension-placeholder';
 import StrikeExtension from '@tiptap/extension-strike';
 import TableCellExtension from '@tiptap/extension-table-cell';
 import TableHeaderExtension from '@tiptap/extension-table-header';
@@ -41,6 +45,7 @@ import ProductPriceContext from '../../context/productPrice/context';
 import { useProductPrice } from '../../hooks/useProductPrice';
 import { dispatchLabel, generateLabel } from '../../utils';
 import { mergeDeep } from '../../utils/merge';
+import getTrad from '../../utils/getTrad';
 import Editor from '../Editor';
 import CustomTable from '../extensions/CustomTable';
 import { Figcaption } from '../extensions/Figcaption/index';
@@ -127,6 +132,41 @@ const WysiwygContent = ({
     // Text
     DocumentExtension,
     // TableWidget,
+    Details.configure({
+      persist: true,
+      HTMLAttributes: {
+        class: 'utrecht-details',
+      },
+    }),
+    DetailsSummary.configure({
+      HTMLAttributes: {
+        class: 'utrecht-details__summary',
+      },
+    }),
+    DetailsContent.configure({
+      HTMLAttributes: {
+        class: 'utrecht-details__content',
+      },
+    }),
+    Placeholder.configure({
+      includeChildren: true,
+      showOnlyWhenEditable: true,
+      placeholder: ({ node }) => {
+        if (node.type.name === 'detailsSummary') {
+          return formatMessage({
+            id: getTrad('components.editor.placeholder.detailsSummary'),
+            defaultMessage: 'Type the accordion title here...',
+          });
+        }
+        if (node.type.name === 'detailsContent') {
+          return formatMessage({
+            id: getTrad('components.editor.placeholder.detailsContent'),
+            defaultMessage: 'Type the accordion content here...',
+          });
+        }
+        return '';
+      },
+    }),
     ParagraphExtension,
     TextExtension,
     BoldExtension,

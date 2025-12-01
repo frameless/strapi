@@ -101,5 +101,10 @@
   "components.toolbar.underline": "Underline",
   "components.toolbar.strikeThrough": "Strike Through",
   "components.toolbar.italic": "Italic",
-  "components.toolbar.bold": "Bold"
+  "components.toolbar.bold": "Bold",
+  "components.toolbar.details.placeholder": "Accordion",
+  "components.toolbar.details.add": "Add Accordion",
+  "components.toolbar.details.remove": "Remove Accordion",
+  "components.editor.placeholder.detailsSummary": "Type the accordion title here...",
+  "components.editor.placeholder.detailsContent": "Type the accordion content here..."
 }

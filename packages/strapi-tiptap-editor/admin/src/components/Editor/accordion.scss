@@ -1,0 +1,90 @@
+.tiptap .utrecht-details {
+  align-items: stretch;
+  border-block-color: var(--utrecht-details-border-block-color, var(--utrecht-color-grey-90));
+  border-block-style: solid;
+  border-block-width: var(--utrecht-details-border-block-width, 2px);
+  display: flex;
+  margin-block: var(--utrecht-details-margin-block, 12px);
+}
+
+/* Summary text */
+.tiptap .utrecht-details summary {
+  color: var(--utrecht-details-summary-color, var(--utrecht-color-blue-40));
+  cursor: pointer;
+  font-size: var(--utrecht-details-summary-font-size, 18px);
+  outline: none;
+  padding-block: var(--utrecht-details-summary-padding-block, 16px);
+  padding-inline-end: var(--utrecht-details-summary-padding-inline-end, 16px);
+  user-select: none;
+}
+
+/* Toggle button for collapse/expand */
+.tiptap .utrecht-details > button {
+  --utrecht-details-icon-color: var(--utrecht-color-blue-40);
+  --utrecht-button-hover-color: var(--utrecht-details-icon-color);
+
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: var(--utrecht-details-icon-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-block: 0;
+  min-block-size: var(--utrecht-details-icon-min-block-size, 58px);
+  padding-block: var(--utrecht-details-summary-padding-block, 16px);
+  padding-inline-end: 0;
+  padding-inline-start: var(--utrecht-details-summary-padding-inline-start, 16px);
+}
+
+/* Toggle button icon */
+.tiptap .utrecht-details > button::before {
+  background-color: currentColor;
+  content: "";
+  display: inline-block;
+  height: 1em;
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTQgOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTMgOGMtLjI2IDAtLjUxLS4xLS43MS0uMjlMNyAyLjQxbC01LjI5IDUuM0EuOTk2Ljk5NiAwIDEgMSAuMyA2LjNMNi4yOS4yOWEuOTk2Ljk5NiAwIDAgMSAxLjQxIDBsNiA2YS45OTYuOTk2IDAgMCAxLS43MSAxLjdaIi8+PC9zdmc+");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  transform: rotate(0deg);
+  transition-duration: var(--utrecht-details-icon-transition-duration, 0.2s);
+  transition-property: transform;
+  transition-timing-function: ease;
+  width: 1em;
+}
+
+/* Rotate arrow when details is open */
+.tiptap .utrecht-details.is-open > button::before {
+  transform: rotate(180deg);
+}
+
+/* Content wrapper */
+.tiptap .utrecht-details > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+// placeholder styling
+.tiptap .is-empty::before {
+  color: var(--utrecht-details-placeholder, var(--utrecht-color-blue-40));
+  content: attr(data-placeholder);
+  float: left;
+  font-size: 16px;
+  height: 0;
+  pointer-events: none;
+}
+
+// Content area
+.tiptap .utrecht-details div[data-type="detailsContent"] {
+  padding-block-end: var(--utrecht-details-content-padding-block-end, 8px);
+  padding-block-start: var(--utrecht-details-content-padding-block-start, 8px);
+}
+
+// reduce motion preference
+@media (prefers-reduced-motion: reduce) {
+  .tiptap .utrecht-details > button::before {
+    --utrecht-details-icon-transition-duration: 0s;
+  }
+}
