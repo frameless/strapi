@@ -193,11 +193,5 @@
       padding-block: var(--utrecht-space-block-sm);
       padding-inline: var(--utrecht-space-inline-sm);
     }
-
-    /* Footer grid padding for print */
-    .utrecht-footer__container .utrecht-grid__cell {
-      padding-block-start: var(--utrecht-space-block-sm) !important;
-      padding-block-end: var(--utrecht-space-block-sm) !important;
-    }
   }
 }
