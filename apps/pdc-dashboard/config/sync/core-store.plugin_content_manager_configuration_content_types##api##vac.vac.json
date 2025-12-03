@@ -107,6 +107,21 @@
           "sortable": true
         }
       },
+      "subcategories": {
+        "edit": {
+          "label": "Subcategorieën",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "subcategories",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -197,6 +212,12 @@
           },
           {
             "name": "contact_information_public",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "subcategories",
             "size": 6
           }
         ]
