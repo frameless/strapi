@@ -394,7 +394,8 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts"
+          "relatedProducts",
+          "subcategories"
         ]
       },
       "conditions": []
@@ -434,7 +435,8 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts"
+          "relatedProducts",
+          "subcategories"
         ]
       },
       "conditions": []
@@ -460,7 +462,8 @@
           "vac.keywords",
           "title",
           "relatedVACs",
-          "relatedProducts"
+          "relatedProducts",
+          "subcategories"
         ]
       },
       "conditions": []
