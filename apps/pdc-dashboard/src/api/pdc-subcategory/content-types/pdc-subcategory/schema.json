@@ -26,6 +26,12 @@
       "relation": "manyToMany",
       "target": "api::product.product",
       "inversedBy": "pdc_subcategories"
+    },
+    "vacs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::vac.vac",
+      "mappedBy": "subcategories"
     }
   }
 }

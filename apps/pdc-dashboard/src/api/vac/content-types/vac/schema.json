@@ -44,6 +44,12 @@
       "relation": "manyToOne",
       "target": "api::contact-information-public.contact-information-public",
       "inversedBy": "vacs"
+    },
+    "subcategories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pdc-subcategory.pdc-subcategory",
+      "inversedBy": "vacs"
     }
   }
 }
