@@ -551,7 +551,8 @@
           "title",
           "relatedVACs",
           "relatedProducts",
-          "subcategories"
+          "contact_information_internal",
+          "contact_information_public"
         ]
       },
       "conditions": []
@@ -578,7 +579,8 @@
           "title",
           "relatedVACs",
           "relatedProducts",
-          "subcategories"
+          "contact_information_internal",
+          "contact_information_public"
         ]
       },
       "conditions": []
