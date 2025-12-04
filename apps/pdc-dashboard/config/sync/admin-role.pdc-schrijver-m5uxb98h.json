@@ -245,7 +245,7 @@
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
-        "fields": ["title", "pdc_category", "products"]
+        "fields": ["title", "pdc_category", "products", "vacs"]
       },
       "conditions": []
     },
@@ -362,7 +362,8 @@
           "kennisartikelMetadata.upnUri",
           "additional_information",
           "oldSlugs",
-          "enable_kcm_survey"
+          "enable_kcm_survey",
+          "contact_information_public"
         ],
         "locales": ["en", "nl"]
       },
@@ -450,7 +451,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "enable_kcm_survey"
+          "enable_kcm_survey",
+          "contact_information_public"
         ],
         "locales": ["en", "nl"]
       },
@@ -519,7 +521,8 @@
           "kennisartikelMetadata.upnUri",
           "additional_information",
           "oldSlugs",
-          "enable_kcm_survey"
+          "enable_kcm_survey",
+          "contact_information_public"
         ],
         "locales": ["en", "nl"]
       },
@@ -544,7 +547,10 @@
           "vac.uuid",
           "vac.toelichting",
           "vac.keywords",
-          "title"
+          "title",
+          "contact_information_internal",
+          "contact_information_public",
+          "subcategories"
         ]
       },
       "conditions": []

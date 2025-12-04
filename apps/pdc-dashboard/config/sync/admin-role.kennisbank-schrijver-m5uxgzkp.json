@@ -258,7 +258,7 @@
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
-        "fields": ["title", "pdc_category", "products"]
+        "fields": ["title", "pdc_category", "products", "vacs"]
       },
       "conditions": []
     },
@@ -281,7 +281,7 @@
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
-        "fields": ["title", "pdc_category", "products"]
+        "fields": ["title", "pdc_category", "products", "vacs"]
       },
       "conditions": []
     },
@@ -290,7 +290,7 @@
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
-        "fields": ["title", "pdc_category", "products"]
+        "fields": ["title", "pdc_category", "products", "vacs"]
       },
       "conditions": []
     },
@@ -395,6 +395,8 @@
           "title",
           "relatedVACs",
           "relatedProducts",
+          "contact_information_internal",
+          "contact_information_public",
           "subcategories"
         ]
       },
@@ -436,6 +438,8 @@
           "title",
           "relatedVACs",
           "relatedProducts",
+          "contact_information_internal",
+          "contact_information_public",
           "subcategories"
         ]
       },
@@ -463,6 +467,8 @@
           "title",
           "relatedVACs",
           "relatedProducts",
+          "contact_information_internal",
+          "contact_information_public",
           "subcategories"
         ]
       },

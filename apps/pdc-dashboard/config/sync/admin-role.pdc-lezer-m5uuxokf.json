@@ -67,7 +67,7 @@
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {
-        "fields": ["title", "pdc_category", "products"]
+        "fields": ["title", "pdc_category", "products", "vacs"]
       },
       "conditions": []
     },
@@ -168,7 +168,12 @@
           "vac.uuid",
           "vac.toelichting",
           "vac.keywords",
-          "title"
+          "title",
+          "relatedVACs",
+          "relatedProducts",
+          "contact_information_internal",
+          "contact_information_public",
+          "subcategories"
         ]
       },
       "conditions": []

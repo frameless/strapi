@@ -222,7 +222,12 @@
           }
         ]
       ],
-      "list": ["title", "id", "createdAt", "relatedVACs"]
+      "list": [
+        "title",
+        "id",
+        "createdAt",
+        "relatedVACs"
+      ]
     },
     "uid": "api::vac.vac"
   },
