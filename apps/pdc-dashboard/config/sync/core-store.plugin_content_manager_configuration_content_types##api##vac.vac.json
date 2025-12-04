@@ -109,7 +109,7 @@
       },
       "subcategories": {
         "edit": {
-          "label": "Subcategorieën",
+          "label": "subcategories",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -182,6 +182,7 @@
       }
     },
     "layouts": {
+      "list": ["title", "id", "createdAt", "relatedVACs"],
       "edit": [
         [
           {
@@ -221,8 +222,7 @@
             "size": 6
           }
         ]
-      ],
-      "list": ["title", "id", "createdAt", "relatedVACs"]
+      ]
     },
     "uid": "api::vac.vac"
   },
