@@ -47,7 +47,7 @@
   mask-position: center;
   mask-repeat: no-repeat;
   mask-size: contain;
-  transform: rotate(0deg);
+  transform: rotate(180deg);
   transition-duration: var(--utrecht-details-icon-transition-duration, 0.2s);
   transition-property: transform;
   transition-timing-function: ease;
@@ -56,7 +56,7 @@
 
 /* Rotate arrow when details is open */
 .tiptap .utrecht-details.is-open > button::before {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 
 /* Content wrapper */
