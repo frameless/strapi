@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Roadmap waar je blij van wordt',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
-      <>We hebben veel mooie plannen waardoor Strapi nog een handiger wordt om een gemeentewebsite mee te maken.</>
+      <>We hebben veel mooie plannen waardoor Strapi nog handiger wordt om een gemeentewebsite mee te maken.</>
     ),
   },
 ];
