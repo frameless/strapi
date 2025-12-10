@@ -34,5 +34,13 @@
   "license": "EUPL-1.2",
   "peerDependencies": {
     "@strapi/strapi": ">=4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "5.0.4"
+  },
+  "scripts": {
+    "develop": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   }
 }
