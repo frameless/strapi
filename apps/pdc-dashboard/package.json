@@ -16,7 +16,8 @@
     "lint-build": "tsc --noEmit --project tsconfig.json",
     "clean": "rimraf build .cache dist",
     "config-sync-export": "config-sync export",
-    "config-sync-import": "config-sync import"
+    "config-sync-import": "config-sync import",
+    "types:generate": "strapi ts:generate-types"
   },
   "dependencies": {
     "@frameless/preview-button": "1.2.0",
