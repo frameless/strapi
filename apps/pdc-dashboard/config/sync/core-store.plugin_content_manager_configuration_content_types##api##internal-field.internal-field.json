@@ -182,12 +182,7 @@
           }
         ]
       ],
-      "list": [
-        "id",
-        "title",
-        "content",
-        "product"
-      ]
+      "list": ["id", "title", "content", "product"]
     },
     "uid": "api::internal-field.internal-field"
   },
