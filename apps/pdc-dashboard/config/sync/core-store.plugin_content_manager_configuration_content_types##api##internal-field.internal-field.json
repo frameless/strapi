@@ -83,7 +83,7 @@
           "description": "",
           "placeholder": "Voeg relatie toe",
           "visible": true,
-          "editable": true,
+          "editable": false,
           "mainField": "title"
         },
         "list": {
@@ -182,7 +182,12 @@
           }
         ]
       ],
-      "list": ["id", "title", "content", "product"]
+      "list": [
+        "id",
+        "title",
+        "content",
+        "product"
+      ]
     },
     "uid": "api::internal-field.internal-field"
   },
