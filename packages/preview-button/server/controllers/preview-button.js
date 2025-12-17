@@ -64,12 +64,14 @@ module.exports = {
           contact_information_public: { populate: { contentBlock: { populate: '*' } } },
         },
       });
-
+      const mergedContactInformationInternal = entry?.contact_information_internal?.flatMap(
+        (item) => item?.contentBlock,
+      );
       // Merge contact information with content
       const mergedData = [
         ...(entry.content?.contentBlock || []),
         ...(entry.contact_information_public?.contentBlock || []),
-        ...(entry.contact_information_internal?.contentBlock || []),
+        ...(mergedContactInformationInternal || []),
       ];
 
       ctx.body = {
@@ -100,11 +102,15 @@ module.exports = {
         },
       });
 
+      const mergedContactInformationInternal = entry?.contact_information_internal?.flatMap(
+        (item) => item?.contentBlock,
+      );
+
       // Merge contact information with VAC antwoord
       const mergedData = [
         ...(entry.vac?.antwoord || []),
         ...(entry.contact_information_public?.contentBlock || []),
-        ...(entry.contact_information_internal?.contentBlock || []),
+        ...(mergedContactInformationInternal || []),
       ];
 
       ctx.body = {
@@ -161,12 +167,14 @@ module.exports = {
         // Handle internal-block-content
         if (section.__component === 'components.internal-block-content' && section.internal_field) {
           const internalField = section.internal_field;
+          const mergedContactInformationInternal = internalField.contact_information_internal?.flatMap(
+            (item) => item?.contentBlock,
+          );
           const mergedContentBlock = [
             ...(internalField.content?.contentBlock || []),
             ...(internalField.contact_information_public?.contentBlock || []),
-            ...(internalField.contact_information_internal?.contentBlock || []),
+            ...(mergedContactInformationInternal || []),
           ];
-
           // Store internal field data for later
           internalFieldData = {
             content: mergedContentBlock,

@@ -113,7 +113,9 @@
           "content.contentBlock.kennisartikelCategorie",
           "content.contentBlock.label",
           "content.keywords",
-          "product"
+          "product",
+          "contact_information_public",
+          "contact_information_internal"
         ]
       },
       "conditions": []
@@ -548,9 +550,11 @@
           "vac.toelichting",
           "vac.keywords",
           "title",
-          "contact_information_internal",
+          "relatedVACs",
+          "relatedProducts",
           "contact_information_public",
-          "subcategories"
+          "subcategories",
+          "contact_information_internal"
         ]
       },
       "conditions": []
