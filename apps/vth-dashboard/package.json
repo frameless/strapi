@@ -1,7 +1,7 @@
 {
   "name": "@frameless/vth-dashboard",
   "private": true,
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A Strapi application",
   "keywords": [],
   "scripts": {
@@ -17,9 +17,9 @@
     "clean": "rimraf build .cache dist"
   },
   "dependencies": {
-    "@frameless/preview-button": "1.2.0",
+    "@frameless/preview-button": "1.3.0",
     "@frameless/strapi-plugin-env-label": "0.0.0",
-    "@frameless/strapi-tiptap-editor": "0.3.2",
+    "@frameless/strapi-tiptap-editor": "0.4.0",
     "@strapi/plugin-graphql": "4.25.23",
     "@strapi/plugin-i18n": "4.25.23",
     "@strapi/plugin-users-permissions": "4.25.23",
