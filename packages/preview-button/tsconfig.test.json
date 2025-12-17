@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "jsx": "react",
+    "types": ["jest", "@testing-library/jest-dom"]
+  },
+  "include": ["**/*.test.tsx", "**/*.test.ts", "./jest.config.ts", "tests", "src"]
+}
