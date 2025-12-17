@@ -152,11 +152,11 @@
         ],
         [
           {
-            "name": "internal_information",
+            "name": "vacs",
             "size": 6
           },
           {
-            "name": "vacs",
+            "name": "internal_information",
             "size": 6
           }
         ]

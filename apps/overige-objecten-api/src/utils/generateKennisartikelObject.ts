@@ -32,7 +32,10 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
     title: 'Aanvullende informatie',
     categoryKey: 'categorie10',
   });
-  const contactInformationInternal = getInternalField?.contact_information_internal?.data?.attributes?.contentBlock;
+  const mergedContactInformationInternal = getInternalField?.contact_information_internal?.data?.flatMap(
+    (item) => item.attributes.contentBlock,
+  );
+  const contactInformationInternal = mergedContactInformationInternal;
   const contactInformationPublic = getInternalField?.contact_information_public?.data?.attributes?.contentBlock;
   // merge contactInformationInternal and contactInformationPublic
   const contactInformation = [...(contactInformationPublic ?? []), ...(contactInformationInternal ?? [])];

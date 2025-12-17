@@ -55,10 +55,15 @@ const createVacRecord = (item: DataVacItem, vacUrl: string, antwoord: string): c
 
 const mapVacItem = ({ item, serverURL, vacSchemaURL }: MapVacItemProps) => {
   const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
+
+  const mergedContactInformationInternal = item.attributes?.contact_information_internal.data?.flatMap(
+    (item) => item?.attributes?.contentBlock,
+  );
+
   const antwoord = getAntwoord([
     ...(item.attributes.vac.antwoord ?? []),
     ...(item.attributes?.contact_information_public?.data?.attributes?.contentBlock ?? []),
-    ...(item.attributes?.contact_information_internal?.data?.attributes?.contentBlock ?? []),
+    ...(mergedContactInformationInternal ?? []),
   ]);
   return {
     uuid: item.attributes.vac.uuid,

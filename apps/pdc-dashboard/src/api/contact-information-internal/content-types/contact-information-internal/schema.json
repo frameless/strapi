@@ -23,13 +23,13 @@
     },
     "internal_information": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::internal-field.internal-field",
-      "mappedBy": "contact_information_internal"
+      "inversedBy": "contact_information_internal"
     },
     "vacs": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::vac.vac",
       "mappedBy": "contact_information_internal"
     }

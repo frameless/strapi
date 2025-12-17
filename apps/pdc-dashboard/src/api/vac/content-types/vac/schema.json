@@ -33,12 +33,6 @@
       "target": "api::product.product",
       "mappedBy": "vacs"
     },
-    "contact_information_internal": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::contact-information-internal.contact-information-internal",
-      "inversedBy": "vacs"
-    },
     "contact_information_public": {
       "type": "relation",
       "relation": "manyToOne",
@@ -49,6 +43,12 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::pdc-subcategory.pdc-subcategory",
+      "inversedBy": "vacs"
+    },
+    "contact_information_internal": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::contact-information-internal.contact-information-internal",
       "inversedBy": "vacs"
     }
   }

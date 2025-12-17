@@ -83,7 +83,9 @@
           "content.contentBlock.kennisartikelCategorie",
           "content.contentBlock.label",
           "content.keywords",
-          "product"
+          "product",
+          "contact_information_public",
+          "contact_information_internal"
         ]
       },
       "conditions": []
@@ -100,7 +102,9 @@
           "content.contentBlock.kennisartikelCategorie",
           "content.contentBlock.label",
           "content.keywords",
-          "product"
+          "product",
+          "contact_information_public",
+          "contact_information_internal"
         ]
       },
       "conditions": []
@@ -407,7 +411,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "enable_kcm_survey"
+          "enable_kcm_survey",
+          "contact_information_public"
         ],
         "locales": ["en", "nl"]
       },
@@ -477,7 +482,8 @@
           "additional_information",
           "oldSlugs",
           "vacs",
-          "enable_kcm_survey"
+          "enable_kcm_survey",
+          "contact_information_public"
         ],
         "locales": ["en", "nl"]
       },
@@ -551,9 +557,9 @@
           "title",
           "relatedVACs",
           "relatedProducts",
-          "contact_information_internal",
           "contact_information_public",
-          "subcategories"
+          "subcategories",
+          "contact_information_internal"
         ]
       },
       "conditions": []
@@ -580,9 +586,9 @@
           "title",
           "relatedVACs",
           "relatedProducts",
-          "contact_information_internal",
           "contact_information_public",
-          "subcategories"
+          "subcategories",
+          "contact_information_internal"
         ]
       },
       "conditions": []

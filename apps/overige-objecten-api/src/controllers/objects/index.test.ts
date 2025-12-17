@@ -142,13 +142,21 @@ describe('Objects controller', () => {
       fetchMock.mockResponseOnce(
         JSON.stringify(
           getStrapiVacData({
-            contact_information_internal: [
-              {
-                id: '1',
-                content:
-                  'Voor het aanvragen van een paspoort kunt u contact opnemen met de gemeente via telefoonnummer 123-456789 of bezoek onze website voor meer informatie.',
-              },
-            ],
+            contact_information_internal: {
+              data: [
+                {
+                  attributes: {
+                    contentBlock: [
+                      {
+                        id: '1',
+                        content:
+                          'Voor het aanvragen van een paspoort kunt u contact opnemen met de gemeente via telefoonnummer 123-456789 of bezoek onze website voor meer informatie.',
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
           }),
         ),
       );

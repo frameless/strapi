@@ -62,6 +62,21 @@
           "sortable": true
         }
       },
+      "contact_information_public": {
+        "edit": {
+          "label": "Contactinformatie (Openbaar)",
+          "description": "",
+          "placeholder": "Voeg relatie toe",
+          "visible": true,
+          "editable": false,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "contact_information_public",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "contact_information_internal": {
         "edit": {
           "label": "Contactinformatie (intern)",
@@ -73,23 +88,8 @@
         },
         "list": {
           "label": "contact_information_internal",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "contact_information_public": {
-        "edit": {
-          "label": "Contactinformatie (openbaar)",
-          "description": "",
-          "placeholder": "Voeg relatie toe",
-          "visible": true,
-          "editable": false,
-          "mainField": "title"
-        },
-        "list": {
-          "label": "contact_information_public",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
