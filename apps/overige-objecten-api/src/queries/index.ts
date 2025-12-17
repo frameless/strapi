@@ -59,7 +59,7 @@ query getAllProducts(
                 internal_field {
                   data {
                     attributes {
-                      contact_information_internal {
+                      contact_information_internals {
                         data {
                           attributes {
                             contentBlock(pagination: { start: 0, limit: -1 }) {
@@ -289,7 +289,7 @@ export const GET_PRODUCT_BY_UUID = gql(`
                 internal_field {
                   data {
                     attributes {
-                      contact_information_internal {
+                      contact_information_internals {
                         data {
                           attributes {
                             contentBlock(pagination: { start: 0, limit: -1 }) {
@@ -686,7 +686,7 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
         createdAt
         updatedAt
         title
-        contact_information_internal {
+        contact_information_internals {
           data {
             attributes {
               contentBlock(pagination: { start: 0, limit: -1 }) {
@@ -754,7 +754,7 @@ query getVacItemByUUID($uuid: String) {
         createdAt
         updatedAt
         title
-        contact_information_internal {
+        contact_information_internals {
           data {
             attributes {
               contentBlock(pagination: { start: 0, limit: -1 }) {

@@ -1,12 +1,11 @@
+import type { ContactInformationInternalData } from '../strapi-product-type';
+
 interface GetStrapiVACData {
-  contact_information_internal?: {
-    id?: string;
-    content?: string;
-  }[];
+  contact_information_internals?: ContactInformationInternalData;
 }
 
 export const getStrapiVacData = (params: GetStrapiVACData = {}) => {
-  const { contact_information_internal = [] } = params;
+  const { contact_information_internals = { data: [] } } = params;
   return {
     data: {
       vacs: {
@@ -25,13 +24,7 @@ export const getStrapiVacData = (params: GetStrapiVACData = {}) => {
               createdAt: '2024-11-05T16:03:50.975Z',
               updatedAt: '2024-11-05T16:03:50.975Z',
               title: 'Wat is het proces om een paspoort aan te vragen?',
-              contact_information_internal: {
-                data: {
-                  attributes: {
-                    contentBlock: contact_information_internal,
-                  },
-                },
-              },
+              contact_information_internals,
               vac: {
                 uuid: '22D89EB2-2238-4885-A352-07C02CF8FCDF',
                 antwoord: [
@@ -60,8 +53,8 @@ export const getStrapiVacData = (params: GetStrapiVACData = {}) => {
               createdAt: '2024-11-05T16:03:50.975Z',
               updatedAt: '2024-11-05T16:03:50.975Z',
               title: 'Hoe kan ik een rijbewijs aanvragen?',
-              contact_information_internal: {
-                data: null,
+              contact_information_internals: {
+                data: [],
               },
               vac: {
                 uuid: 'b2c3d4e5-f6g7-8h9i-0j1k-l2m3n4o5p6q7',
@@ -91,8 +84,8 @@ export const getStrapiVacData = (params: GetStrapiVACData = {}) => {
               createdAt: '2024-11-05T16:03:50.975Z',
               updatedAt: '2024-11-05T16:03:50.975Z',
               title: 'Wat moet ik doen bij verhuizing?',
-              contact_information_internal: {
-                data: null,
+              contact_information_internals: {
+                data: [],
               },
               vac: {
                 uuid: 'c3d4e5f6-g7h8-9i0j-k1l2-m3n4o5p6q7r8',

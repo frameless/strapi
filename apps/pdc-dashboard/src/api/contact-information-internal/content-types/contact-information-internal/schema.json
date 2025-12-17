@@ -21,17 +21,17 @@
       "repeatable": true,
       "component": "components.contact-information-rich-text"
     },
-    "internal_information": {
+    "internal_informations": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::internal-field.internal-field",
-      "mappedBy": "contact_information_internal"
+      "inversedBy": "contact_information_internals"
     },
     "vacs": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::vac.vac",
-      "mappedBy": "contact_information_internal"
+      "mappedBy": "contact_information_internals"
     }
   }
 }
