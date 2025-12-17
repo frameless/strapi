@@ -64,7 +64,7 @@
       },
       "contact_information_internal": {
         "edit": {
-          "label": "Contact informatie (intern)",
+          "label": "Contactinformatie (intern)",
           "description": "",
           "placeholder": "Voeg relatie toe",
           "visible": true,
@@ -79,7 +79,7 @@
       },
       "contact_information_public": {
         "edit": {
-          "label": "Contact informatie (Openbaar)",
+          "label": "Contactinformatie (openbaar)",
           "description": "",
           "placeholder": "Voeg relatie toe",
           "visible": true,
