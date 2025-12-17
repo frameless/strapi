@@ -15,17 +15,29 @@ describe('getVacData', () => {
               createdAt: '2024-11-05T16:03:50.975Z',
               updatedAt: '2024-11-05T16:03:50.975Z',
               title: 'Test VAC',
-              contact_information_internal: {
-                data: {
-                  attributes: {
-                    contentBlock: [
-                      {
-                        id: '1',
-                        content: 'Contact info: 123-456789',
-                      },
-                    ],
+              contact_information_internals: {
+                data: [
+                  {
+                    attributes: {
+                      contentBlock: [
+                        {
+                          id: '1',
+                          content: 'Contact info: 123-456789',
+                        },
+                      ],
+                    },
                   },
-                },
+                  {
+                    attributes: {
+                      contentBlock: [
+                        {
+                          id: '2',
+                          content: ' ',
+                        },
+                      ],
+                    },
+                  },
+                ],
               },
               vac: {
                 uuid: 'test-uuid',
@@ -71,12 +83,8 @@ describe('getVacData', () => {
               createdAt: '2024-11-05T16:03:50.975Z',
               updatedAt: '2024-11-05T16:03:50.975Z',
               title: 'Test VAC',
-              contact_information_internal: {
-                data: {
-                  attributes: {
-                    contentBlock: [],
-                  },
-                },
+              contact_information_internals: {
+                data: [],
               },
               vac: {
                 uuid: 'test-uuid',
@@ -121,12 +129,8 @@ describe('getVacData', () => {
               createdAt: '2024-11-05T16:03:50.975Z',
               updatedAt: '2024-11-05T16:03:50.975Z',
               title: 'Test VAC',
-              contact_information_internal: {
-                data: {
-                  attributes: {
-                    contentBlock: [],
-                  },
-                },
+              contact_information_internals: {
+                data: [],
               },
               vac: {
                 uuid: 'test-uuid',
