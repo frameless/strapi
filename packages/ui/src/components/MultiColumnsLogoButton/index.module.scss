@@ -25,15 +25,15 @@
     );
   }
 
-  .utrecht-multi-columns-button__item:first-child {
-    border-inline-end-color: var(--utrecht-multi-columns-button-divider-color);
-    border-inline-end-style: solid;
-    border-inline-end-width: var(--utrecht-multi-columns-buttons-divider-width);
-  }
+  // .utrecht-multi-columns-button__item:first-child {
+  //   border-inline-end-color: var(--utrecht-multi-columns-button-divider-color);
+  //   border-inline-end-style: solid;
+  //   border-inline-end-width: var(--utrecht-multi-columns-buttons-divider-width);
+  // }
 
-  .utrecht-multi-columns-button__item:last-child {
-    border-inline-start-color: var(--utrecht-multi-columns-button-divider-color);
-    border-inline-start-style: solid;
-    border-inline-start-width: var(--utrecht-multi-columns-buttons-divider-width);
-  }
+  // .utrecht-multi-columns-button__item:last-child {
+  //   border-inline-start-color: var(--utrecht-multi-columns-button-divider-color);
+  //   border-inline-start-style: solid;
+  //   border-inline-start-width: var(--utrecht-multi-columns-buttons-divider-width);
+  // }
 }
