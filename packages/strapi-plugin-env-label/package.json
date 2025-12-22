@@ -31,9 +31,9 @@
   "dependencies": {
     "@strapi/design-system": "1.12.2",
     "@strapi/icons": "1.12.2",
-    "@utrecht/component-library-css": "4.2.0",
-    "@utrecht/component-library-react": "5.0.0",
-    "@utrecht/design-tokens": "1.1.0"
+    "@utrecht/component-library-css": "9.0.0",
+    "@utrecht/component-library-react": "11.0.0",
+    "@utrecht/design-tokens": "5.0.0"
   },
   "devDependencies": {
     "typescript": "5.0.4"
