@@ -66,7 +66,7 @@
       },
       "vacs": {
         "edit": {
-          "label": "Vac",
+          "label": "Gekoppelde VAC",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -139,7 +139,6 @@
       }
     },
     "layouts": {
-      "list": ["id", "title", "createdAt", "updatedBy"],
       "edit": [
         [
           {
@@ -163,7 +162,8 @@
             "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["id", "title", "createdAt", "updatedBy"]
     }
   },
   "type": "object",
