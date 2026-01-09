@@ -146,3 +146,4 @@ apps/overige-objecten-api/src/types
 # PDC Frontend
 ############################
 apps/pdc-frontend/public/flo-client-plugin.js
+apps/pdc-frontend/public/flo-client-plugin-polyfills.js

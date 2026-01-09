@@ -169,7 +169,8 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
                 encodedData={encodeHtmlEntities(JSON.stringify(floLegalData?.content))}
                 key={index}
               >
-                <Script src="/flo-client-plugin.js" nonce={nonce} />
+                <Script src="/flo-client-plugin-polyfills.js" type="module" nonce={nonce} />
+                <Script src="/flo-client-plugin.js" type="module" nonce={nonce} />
               </FloLegalDecisionTree>
             );
           case 'ComponentComponentsUtrechtRichText':

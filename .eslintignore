@@ -34,3 +34,4 @@ packages/editoria11y/loader/**
 packages/editoria11y/www/**
 apps/overige-objecten-api/src/types
 apps/pdc-frontend/public/flo-client-plugin.js
+apps/pdc-frontend/public/flo-client-plugin-polyfills.js
