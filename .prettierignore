@@ -24,3 +24,4 @@ packages/editoria11y/lib/**
 packages/editoria11y/loader/**
 packages/editoria11y/www/**
 apps/pdc-frontend/public/flo-client-plugin.js
+apps/pdc-frontend/public/flo-client-plugin-polyfills.js
