@@ -373,6 +373,14 @@
       "valueType": "url",
       "example": "https://viewer.kcmg.nl/",
       "developmentDefault": "https://viewer.kcmg.nl/"
+    },
+    {
+      "name": "KCM_SURVEY_VERSION",
+      "description": "Version of the KCM Survey widget to use (e.g., 'latest' or specific version number).",
+      "required": false,
+      "valueType": "string",
+      "developmentDefault": "",
+      "example": "v4.49"
     }
   ]
 }
