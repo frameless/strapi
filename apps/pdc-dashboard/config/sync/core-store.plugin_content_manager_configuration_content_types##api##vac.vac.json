@@ -94,7 +94,7 @@
       },
       "subcategories": {
         "edit": {
-          "label": "Subcategorieën",
+          "label": "Datasubcategorie",
           "description": "",
           "placeholder": "",
           "visible": true,

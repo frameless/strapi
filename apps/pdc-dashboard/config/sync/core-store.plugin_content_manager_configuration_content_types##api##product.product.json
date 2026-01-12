@@ -135,7 +135,7 @@
       },
       "pdc_subcategories": {
         "edit": {
-          "label": "Subcategorie",
+          "label": "Datasubcategorie",
           "description": "",
           "placeholder": "Voeg relatie toe",
           "visible": true,
