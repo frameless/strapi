@@ -102,9 +102,9 @@
   "components.toolbar.strikeThrough": "Doorhalen",
   "components.toolbar.italic": "Cursief",
   "components.toolbar.bold": "Vet",
-  "components.toolbar.details.placeholder": "Uitklapper",
-  "components.toolbar.details.add": "Uitklapper toevoegen",
-  "components.toolbar.details.remove": "Uitklapper verwijderen",
+  "components.toolbar.details.placeholder": "KISS-uitklapper",
+  "components.toolbar.details.add": "KISS-uitklapper toevoegen",
+  "components.toolbar.details.remove": "KISS-uitklapper verwijderen",
   "components.editor.placeholder.detailsSummary": "Typ hier de titel van de uitklapper...",
   "components.editor.placeholder.detailsContent": "Typ hier de inhoud van de uitklapper..."
 }
