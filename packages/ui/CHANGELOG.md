@@ -1,5 +1,32 @@
 ## @frameless/ui [2.23.2](https://github.com/frameless/strapi/compare/@frameless/ui@2.23.1...@frameless/ui@2.23.2) (2024-07-04)
 
+## 0.1.3
+
+### Patch Changes
+
+- 140c0fa: Updated component styling: adjusted paddings and added classNames
+
+  ### Patch Changes
+
+  Opgeloste UI-problemen in het menu:
+
+  - In de mobiele versie de menu-knop naar dezelfde positie als de sluit-knop verschoven.
+  - De menuhoeken correct uitgelijnd hebben met de header.
+  - In Safari menu mobiel versie verscheen een blauwe focusbalk rond het menu bij openen. Dit is verwijderd.
+  - ([GitHub Issue GemeenteUtrecht/projects#42](https://github.com/orgs/GemeenteUtrecht/projects/24/views/1?pane=issue&itemId=127183387&issue=GemeenteUtrecht%7Cdesignsystem.utrecht.nl%7C42))
+  - ([GitHub Issue GemeenteUtrecht/projects#43](https://github.com/orgs/GemeenteUtrecht/projects/24/views/1?pane=issue&itemId=127184420&issue=GemeenteUtrecht%7Cdesignsystem.utrecht.nl%7C43))
+  - ([GitHub Issue GemeenteUtrecht/projects#47](https://github.com/orgs/GemeenteUtrecht/projects/24/views/1?pane=issue&itemId=127188273&issue=GemeenteUtrecht%7Cdesignsystem.utrecht.nl%7C47))
+
+- c663a36: Added link min-block-size for consistency with Figma
+
+  ### Patch Changes
+
+  Opgeloste UI-problemen in het menu:
+
+  Menu mobiel versie ListItems/link block size volgens figma afmetingen
+
+  ([GitHub Issue Frameless/strapi#46](https://github.com/orgs/GemeenteUtrecht/projects/24/views/1?pane=issue&itemId=127187528&issue=GemeenteUtrecht%7Cdesignsystem.utrecht.nl%7C46))
+
 ## 0.1.2
 
 ### Patch Changes

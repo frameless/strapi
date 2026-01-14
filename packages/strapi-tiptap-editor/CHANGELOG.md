@@ -1,5 +1,13 @@
 # @frameless/strapi-tiptap-editor [2.3.0](https://github.com/frameless/strapi/compare/@frameless/strapi-tiptap-editor@2.2.0...@frameless/strapi-tiptap-editor@2.3.0) (2024-06-12)
 
+## 0.4.0
+
+### Minor Changes
+
+- 967697e: Uitklapper (accordion) toegevoegd aan de teksteditor. Hiermee kun je inklapbare secties maken met een titel en inhoud die bezoekers kunnen open- en dichtklappen.
+
+  ([GitHub Issue Frameless/strapi#1161](https://github.com/frameless/strapi/issues/1161))
+
 ## 0.3.2
 
 ### Patch Changes
