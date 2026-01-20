@@ -10,7 +10,7 @@ import yaml from 'js-yaml';
 import fs from 'node:fs';
 import path from 'node:path';
 import swaggerUi from 'swagger-ui-express';
-import { objects, objecttypes, openapi } from './routers';
+import { objects, objecttypes, openapi, preview } from './routers';
 config();
 
 type OpenOpenApiValidationError = {
@@ -48,6 +48,8 @@ const apiSpec = path.join(__dirname, './docs/openapi.yaml');
 const app = express();
 app.use(express.json());
 
+app.use('/public/vendor', express.static(path.resolve(process.cwd(), 'public/vendor')));
+
 const port = process.env.OVERIGE_OBJECTEN_API_PORT;
 // Centralized error handler middleware
 const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _next: NextFunction) => {
@@ -83,6 +85,12 @@ if (process.env.NODE_ENV === 'development') {
  * /api/v2/objecttypes/:type
  */
 app.use('/api/v2', objecttypes);
+/**
+ * Routes
+ * /api/v2/preview
+ * /api/v2/preview?slug=kennisartikelen or vac&secret=xxxx&status=DRAFT or PUBLISHED
+ */
+app.use('/api/v2', preview);
 /**
  * OpenAPI
  * Serve the OpenAPI documentation

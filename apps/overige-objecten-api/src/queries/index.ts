@@ -249,14 +249,16 @@ query getAllProducts(
 `);
 
 export const GET_PRODUCT_BY_UUID = gql(`
-  query getProductByUUID($locale: I18NLocaleCode, $uuid: String) {
+  query getProductByUUID($locale: I18NLocaleCode, $uuid: String, $publicationState: PublicationState) {
       products(
       locale: $locale, 
       filters: { uuid: { eq: $uuid }}
+      publicationState: $publicationState
       ) {
         data {
           id
           attributes {
+            publishedAt
             content
             title
             slug
@@ -744,15 +746,17 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
 }
 `);
 export const GET_VAC_ITEM_BY_UUID = gql(`
-query getVacItemByUUID($uuid: String) {
+query getVacItemByUUID($uuid: String, $publicationState: PublicationState) {
   vacs(
     filters: { vac: { uuid: { eq: $uuid }}}
+    publicationState: $publicationState
   ) {
     data {
       id
       attributes {
         createdAt
         updatedAt
+        publishedAt
         title
         contact_information_internal {
           data {

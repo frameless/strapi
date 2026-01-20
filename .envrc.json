@@ -373,6 +373,14 @@
       "valueType": "url",
       "example": "https://viewer.kcmg.nl/",
       "developmentDefault": "https://viewer.kcmg.nl/"
+    },
+    {
+      "name": "STRAPI_API_TOKEN",
+      "description": "API token for the Strapi CMS, used to authenticate requests to the Strapi REST or GraphQL API.",
+      "required": false,
+      "secret": true,
+      "valueType": "string",
+      "example": "strapiToken_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     }
   ]
 }

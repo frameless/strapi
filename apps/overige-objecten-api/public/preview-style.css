@@ -1,0 +1,137 @@
+:root {
+  --utrecht-color-dark: #1f2933;
+  --utrecht-color-light: #f5f7f9;
+  --utrecht-color-muted: #d1d9e0;
+  --utrecht-color-white: #fff;
+  --utrecht-color-soft: #e3e8ed;
+  --utrecht-color-accent: #5f7896;
+  --utrecht-preview-page-background-color: var(--utrecht-color-light);
+  --utrecht-preview-page-gap: 24px;
+  --utrecht-preview-page-padding-inline-start: 24px;
+  --utrecht-preview-page-padding-inline-end: 24px;
+  --utrecht-space-around: 1;
+  --utrecht-preview-layout-border-width: 1px;
+  --utrecht-preview-layout-border-style: solid;
+  --utrecht-preview-layout-border-color: var(--utrecht-color-muted);
+  --utrecht-preview-layout-border-radius: 8px;
+  --utrecht-preview-layout-padding-block: 16px;
+  --utrecht-preview-layout-padding-inline: 24px;
+  --utrecht-preview-sidebar-background-color: var(--utrecht-color-white);
+  --utrecht-preview-sidebar-border-color: var(--utrecht-color-muted);
+  --utrecht-preview-sidebar-border-width: 1px;
+  --utrecht-preview-sidebar-border-radius: 8px;
+  --utrecht-preview-sidebar-padding-inline: 16px;
+  --utrecht-preview-sidebar-padding-block: 16px;
+  --utrecht-preview-sidebar-title-margin-bottom: 1rem;
+  --utrecht-preview-sidebar-nav-gap: 8px;
+  --utrecht-preview-sidebar-button-color: var(--utrecht-color-dark);
+  --utrecht-preview-sidebar-button-border-color: var(--utrecht-color-muted);
+  --utrecht-preview-sidebar-button-border-radius: 4px;
+  --utrecht-preview-sidebar-button-padding-inline-start: 12px;
+  --utrecht-preview-sidebar-button-padding-inline-end: 12px;
+  --utrecht-preview-sidebar-button-padding-block-start: 8px;
+  --utrecht-preview-sidebar-button-padding-block-end: 8px;
+  --utrecht-preview-sidebar-button-hover-background-color: var(--utrecht-color-soft);
+  --utrecht-preview-sidebar-button-hover-border-color: var(--utrecht-color-soft);
+  --utrecht-preview-sidebar-button-current-background-color: var(--utrecht-color-accent);
+  --utrecht-preview-sidebar-button-current-border-color: var(--utrecht-color-accent);
+  --utrecht-preview-sidebar-button-current-color: var(--utrecht-color-white);
+  --utrecht-preview-content-background-color: var(--utrecht-color-white);
+  --utrecht-preview-content-border-width: 1px;
+  --utrecht-preview-content-border-color: var(--utrecht-color-muted);
+  --utrecht-preview-content-border-radius: 8px;
+  --utrecht-preview-content-padding-inline: 32px;
+  --utrecht-preview-content-padding-block: 32px;
+}
+
+.utrecht-preview-page {
+  --utrecht-page-padding-inline-start: var(--utrecht-preview-page-padding-inline-start);
+  --utrecht-page-padding-inline-end: var(--utrecht-preview-page-padding-inline-end);
+
+  background: var(--utrecht-preview-page-background-color);
+  display: grid;
+  font-family: "Noto Sans Variable", "Arial", sans-serif;
+  gap: var(--utrecht-preview-page-gap);
+  grid-template-columns: 260px 1fr;
+}
+
+.utrecht-preview-layout__header {
+  justify-content: space-between;
+}
+
+.utrecht-preview-layout,
+.utrecht-preview-page {
+  margin-block: 0;
+  margin-inline: auto;
+  max-width: 1200px;
+}
+
+.utrecht-preview-layout {
+  border-color: var(--utrecht-preview-layout-border-color);
+  border-radius: var(--utrecht-preview-layout-border-radius);
+  border-style: var(--utrecht-preview-layout-border-style);
+  border-width: var(--utrecht-preview-layout-border-width);
+  padding-block: var(--utrecht-preview-layout-padding-block);
+  padding-inline: var(--utrecht-preview-layout-padding-inline);
+}
+.utrecht-status-badge {
+  margin-block-end: var(--utrecht-status-badge-margin-block-end, 24px);
+}
+
+.utrecht-preview-sidebar {
+  --utrecht-button-inline-size: 100%;
+  --utrecht-button-max-inline-size: 100%;
+  --utrecht-button-padding-block-start: var(--utrecht-preview-sidebar-button-padding-block-start);
+  --utrecht-button-padding-block-end: var(--utrecht-preview-sidebar-button-padding-block-end);
+  --utrecht-button-padding-inline-start: var(--utrecht-preview-sidebar-button-padding-inline-start);
+  --utrecht-button-padding-inline-end: var(--utrecht-preview-sidebar-button-padding-inline-end);
+  --utrecht-button-border-radius: var(--utrecht-preview-sidebar-button-border-radius);
+  --utrecht-button-secondary-action-color: var(--utrecht-preview-sidebar-button-color);
+  --utrecht-button-secondary-action-hover-background-color: var(
+    --utrecht-preview-sidebar-button-hover-background-color
+  );
+  --utrecht-button-secondary-action-hover-border-color: var(--utrecht-preview-sidebar-button-hover-border-color);
+  --utrecht-heading-2-margin-block-end: var(--utrecht-preview-sidebar-title-margin-bottom);
+
+  background-color: var(--utrecht-preview-sidebar-background-color);
+  border-color: var(--utrecht-preview-sidebar-border-color);
+  border-radius: var(--utrecht-preview-sidebar-border-radius);
+  border-style: solid;
+  border-width: var(--utrecht-preview-sidebar-border-width);
+  padding-block: var(--utrecht-preview-sidebar-padding-block);
+  padding-inline: var(--utrecht-preview-sidebar-padding-inline);
+
+  & button {
+    justify-content: left;
+  }
+}
+
+.utrecht-preview-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--utrecht-preview-sidebar-nav-gap);
+}
+
+.utrecht-preview-sidebar__button--current {
+  --utrecht-button-secondary-action-background-color: var(--utrecht-preview-sidebar-button-current-background-color);
+  --utrecht-button-secondary-action-color: var(--utrecht-preview-sidebar-button-current-color);
+  --utrecht-preview-sidebar-button-border-color: var(--utrecht-preview-sidebar-button-current-border-color);
+}
+
+.utrecht-preview-content {
+  background-color: var(--utrecht-preview-content-background-color);
+  border-color: var(--utrecht-preview-content-border-color);
+  border-radius: var(--utrecht-preview-content-border-radius);
+  border-style: solid;
+  border-width: var(--utrecht-preview-content-border-width);
+  padding-block: var(--utrecht-preview-content-padding-block);
+  padding-inline: var(--utrecht-preview-content-padding-inline);
+}
+
+details {
+  margin-block-end: 16px;
+}
+
+.utrecht-error-page {
+  --utrecht-button-group-margin-block-start: 24px;
+}

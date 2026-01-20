@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -15,6 +15,6 @@
     "lib": ["ES2021", "DOM"],
     "strict": true
   },
-  "include": ["src/**/*", "./jest.config.ts"],
+  "include": ["src/**/*", "./jest.config.ts", "./global.d.ts", "./vite.config.ts"],
   "exclude": ["node_modules", "**/*.test.ts", "./src/types/openapi.ts"]
 }
