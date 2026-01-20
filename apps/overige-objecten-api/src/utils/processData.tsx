@@ -1,5 +1,4 @@
 import { getDirectionFromLanguageCode } from '@frameless/utils';
-import React from 'react';
 import { renderToString } from 'react-dom/server';
 import {
   convertImageToHTML,
@@ -63,7 +62,7 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
     }
     if (item.component === 'ComponentComponentsFaq') {
       const FAQs = item?.pdc_faq?.data?.attributes?.faq.map((faq: AccordionSectionProps, index: number) => (
-        <AccordionSection key={index} label={faq.label} body={faq.body} headingLevel={faq.headingLevel || 2} />
+        <AccordionSection key={index} label={faq.label} body={faq.body} />
       ));
       const mappedContent = mapContentByCategory(item.categorie, renderToString(FAQs));
       return mappedContent;
@@ -92,12 +91,7 @@ export const processData = ({ data, priceData }: ProcessDataParams) =>
         renderToString(
           Array.isArray(item.item) &&
             item.item.map((accordionItem: AccordionSectionProps) => (
-              <AccordionSection
-                key={accordionItem.label}
-                label={accordionItem.label}
-                body={accordionItem.body}
-                headingLevel={accordionItem.headingLevel}
-              />
+              <AccordionSection key={accordionItem.label} label={accordionItem.label} body={accordionItem.body} />
             )),
         ),
       );

@@ -316,10 +316,9 @@ describe('processData', () => {
     const summaryElement = detailsElement?.querySelector('summary');
     const detailsContentElement = detailsElement?.querySelector('div');
     const paragraphElement = detailsContentElement?.querySelector('p');
-    const heading = summaryElement?.querySelector('h2');
 
-    expect(heading?.textContent).toBe('FAQ Title');
-    expect(heading).not.toBeNull();
+    expect(summaryElement?.textContent).toBe('FAQ Title');
+    expect(summaryElement).not.toBeNull();
     expect(paragraphElement).not.toBeNull();
     expect(paragraphElement?.textContent).toBe('FAQ Inhoud');
     expect(detailsElement).not.toBeNull();
@@ -402,43 +401,6 @@ describe('processData', () => {
       expect(summaryElement?.textContent).toBe('Uitklapmenu kop voorbeeld 1');
       expect(detailsElements[0]).not.toBeNull();
       expect(detailsElements[0]?.childElementCount).toBe(2);
-    });
-    it('should render the Accordion component as a <details> with an adjustable heading when headingLevel is provided and display the body as rich text.', () => {
-      const data = [
-        {
-          component: 'ComponentComponentsUtrechtAccordion',
-          item: [
-            {
-              body: '<p>Uitklapmenu inhoud voorbeeld 1</p>',
-              headingLevel: 3,
-              id: '3',
-              label: 'Uitklapmenu kop voorbeeld 1',
-            },
-            {
-              body: '<p>Uitklapmenu inhoud voorbeeld 2</p>',
-              headingLevel: 3,
-              id: '4',
-              label: 'Uitklapmenu kop voorbeeld 2',
-            },
-          ],
-          categorie: 'voorwaarden',
-        },
-      ];
-      const result = processData({ data });
-      const outputHtml = result[0].vereisten;
-      const dom = new JSDOM(outputHtml);
-      const detailsElement = dom.window.document.querySelectorAll('details');
-      const summaryElement = detailsElement[0]?.querySelector('summary');
-      const headingElement = summaryElement?.querySelector('h3');
-      const detailsContentElement = detailsElement[0]?.querySelector('div');
-      const paragraphElement = detailsContentElement?.querySelector('p');
-
-      expect(paragraphElement).not.toBeNull();
-      expect(paragraphElement?.textContent).toBe('Uitklapmenu inhoud voorbeeld 1');
-      expect(headingElement).not.toBeNull();
-      expect(headingElement?.textContent).toBe('Uitklapmenu kop voorbeeld 1');
-      expect(detailsElement).not.toBeNull();
-      expect(detailsElement.length).toBe(2);
     });
   });
 });

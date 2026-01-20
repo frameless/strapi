@@ -1,4 +1,3 @@
-import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Markdown, type MarkdownProps } from '../components/Markdown';
 

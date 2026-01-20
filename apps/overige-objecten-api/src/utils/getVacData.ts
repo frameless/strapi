@@ -3,7 +3,7 @@ import { concatenateFieldValues } from './concatenateFieldValues';
 import { generateKeywords } from './generateKeywords';
 import type { Antwoord, DataVacItem, Doelgroep, VacRecordData, VACSData } from '../strapi-product-type';
 
-interface createVacRecordReturnTypes {
+export interface createVacRecordReturnTypes {
   index: number;
   startAt: string;
   typeVersion: number;
@@ -17,10 +17,12 @@ interface GetVacDataProps {
   data: VACSData;
   vacSchemaURL: string;
   serverURL: string;
+  publicationState?: 'DRAFT' | 'PUBLISHED';
 }
 
 interface MapVacItemProps extends Pick<GetVacDataProps, 'serverURL' | 'vacSchemaURL'> {
   item: DataVacItem;
+  publicationState?: 'DRAFT' | 'PUBLISHED';
 }
 
 const getAntwoord = (antwoord: Antwoord[]): string => (Array.isArray(antwoord) ? concatenateFieldValues(antwoord) : '');
@@ -53,7 +55,7 @@ const createVacRecord = (item: DataVacItem, vacUrl: string, antwoord: string): c
   registrationAt: item.attributes.createdAt,
 });
 
-const mapVacItem = ({ item, serverURL, vacSchemaURL }: MapVacItemProps) => {
+const mapVacItem = ({ item, serverURL, vacSchemaURL, publicationState }: MapVacItemProps) => {
   const vacUrl = new URL(`/api/v2/objects/${item.attributes.vac.uuid}`, serverURL).href;
 
   const mergedContactInformationInternal = item.attributes?.contact_information_internal.data?.flatMap(
@@ -70,10 +72,11 @@ const mapVacItem = ({ item, serverURL, vacSchemaURL }: MapVacItemProps) => {
     type: vacSchemaURL,
     url: vacUrl,
     record: createVacRecord(item, vacUrl, antwoord),
+    publicationState,
   };
 };
 
-export const getVacData = ({ data, vacSchemaURL, serverURL }: GetVacDataProps) => {
+export const getVacData = ({ data, vacSchemaURL, serverURL, publicationState }: GetVacDataProps) => {
   if (!data?.vacs?.data?.length) return [];
-  return data.vacs.data.map((item) => mapVacItem({ item, serverURL, vacSchemaURL }));
+  return data.vacs.data.map((item) => mapVacItem({ item, serverURL, vacSchemaURL, publicationState }));
 };

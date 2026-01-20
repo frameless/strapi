@@ -55,7 +55,7 @@ export interface VacItem {
   uuid: string;
   vraag?: string;
   antwoord: Antwoord[];
-  status?: Status;
+  status: Status;
   doelgroep?: Doelgroep;
   afdelingen?: Afdeling[];
   toelichting?: string;
@@ -93,9 +93,10 @@ export interface ContactInformationPublicData {
 }
 export interface AttributesVacItem {
   createdAt: string;
+  publishedAt?: string | null;
   updatedAt: string;
   vac: VacItem;
-  title?: string;
+  title: string;
   relatedVACs?: RelatedVACs;
   relatedProducts?: RelatedProducts;
   contact_information_internal: ContactInformationInternalData;
@@ -157,6 +158,7 @@ export interface PriceDataAttributes {
   attributes: PriceAttributes;
 }
 export interface Attributes {
+  publishedAt?: string | null;
   content?: string;
   title: string;
   slug: string;

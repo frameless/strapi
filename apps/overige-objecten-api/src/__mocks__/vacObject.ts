@@ -2,6 +2,7 @@ export const vacObject = () => ({
   type: 'http://localhost:3000/api/v2/objecttypes/vac',
   uuid: '22D89EB2-2238-4885-A352-07C02CF8FCDF',
   url: 'http://localhost:3000/api/v2/objects/22D89EB2-2238-4885-A352-07C02CF8FCDF',
+  publicationState: 'PUBLISHED',
   record: {
     endAt: null,
     geometry: null,

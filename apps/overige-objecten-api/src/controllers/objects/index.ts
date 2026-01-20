@@ -1,7 +1,8 @@
 import { fetchData } from '@frameless/utils';
 import type { RequestHandler } from 'express';
-import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS, GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../../queries';
-import type { Attributes, Section, StrapiProductType, VACSData } from '../../strapi-product-type';
+import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS } from '../../queries';
+import { getObjectByUUID } from '../../service/object';
+import type { Section, StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import { generateKennisartikelObject, getPaginatedResponse, getTheServerURL, getVacData } from '../../utils';
 import type { PaginationType } from '../../utils';
@@ -136,74 +137,30 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
 
 export const getObjectByUUIDController: RequestHandler = async (req, res, next) => {
   try {
-    const locale = req.query?.locale || 'nl';
     const uuid = req.params?.uuid;
+    const locale = (req.query?.locale as string) || 'nl';
 
-    // Check if UUID is provided
     if (!uuid) {
       return res.status(404).json({ message: 'UUID not provided' });
     }
 
-    const graphqlURL = new URL('/graphql', process.env.STRAPI_PRIVATE_URL);
     const serverURL = getTheServerURL(req);
-    const isAuthHasToken = req.headers?.authorization?.startsWith('Token');
-    const tokenAuth = isAuthHasToken ? req.headers?.authorization?.split(' ')[1] : req.headers?.authorization;
-    const vacSchemaURL = new URL('api/v2/objecttypes/vac', serverURL).href;
-    // Fetch product data from GraphQL
-    const { data } = await fetchData<any>({
-      url: graphqlURL.href,
-      query: GET_PRODUCT_BY_UUID,
-      variables: { locale, uuid },
-      headers: {
-        Authorization: `Bearer ${tokenAuth}`,
-      },
+
+    const authHeader = req.headers?.authorization;
+    const apiToken = authHeader?.startsWith('Token') ? authHeader.split(' ')[1] : authHeader;
+
+    const object = await getObjectByUUID({
+      uuid,
+      locale,
+      serverURL,
+      apiToken,
     });
-    // Fetch VACs data from GraphQL
-    const { data: vacData } = await fetchData<{ data: VACSData }>({
-      url: graphqlURL.href,
-      query: GET_VAC_ITEM_BY_UUID,
-      variables: { uuid },
-      headers: {
-        Authorization: `Bearer ${tokenAuth}`,
-      },
-    });
-    res.set('Content-Type', 'application/json');
 
-    // Handle the case for a knowledge article (kennisartikel)
-    const products = data?.products?.data || [];
-    const kennisartikel = products
-      .map(({ attributes, id }: { attributes: Attributes; id: string }) => {
-        const modifiedAttributes = {
-          ...attributes,
-          sections: [
-            {
-              content: attributes?.content,
-              kennisartikelCategorie: 'inleiding',
-              component: 'ComponentComponentsUtrechtRichText',
-              categorie5: 'inleiding',
-            } as ModifiedSection,
-            ...attributes.sections,
-          ],
-        };
-
-        return generateKennisartikelObject({ attributes: modifiedAttributes, url: serverURL, id });
-      })
-      .find((item: { uuid: string }) => item.uuid === uuid);
-
-    if (kennisartikel) {
-      return res.status(200).json(kennisartikel); // Return to prevent further execution
+    return res.status(200).set('Content-Type', 'application/json').json(object);
+  } catch (error: any) {
+    if (error.message === 'UUID not provided' || error.message === 'Object not found') {
+      return res.status(404).json({ message: error.message });
     }
-
-    // Handle the case for VAC data
-    if (Array.isArray(vacData?.vacs?.data) && vacData.vacs.data.length > 0) {
-      const vac = getVacData({ data: vacData, serverURL, vacSchemaURL });
-      return res.status(200).json(vac[0]); // Return to prevent further execution
-    }
-
-    // If no matching object found, return 404
-    return res.status(404).json({ message: 'Object not found' });
-  } catch (error) {
-    // Forward any errors to the error handler middleware
     next(error);
     return null;
   }

@@ -15,9 +15,15 @@ interface GenerateKennisartikelObjectTypes {
   attributes: Attributes;
   url: string;
   id: string;
+  publicationState?: 'DRAFT' | 'PUBLISHED';
 }
 
-export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKennisartikelObjectTypes) => {
+export const generateKennisartikelObject = ({
+  attributes,
+  url,
+  id,
+  publicationState,
+}: GenerateKennisartikelObjectTypes) => {
   const metaTags = attributes?.metaTags;
   const trefwoorden = generateKeywords(metaTags?.keymatch);
   const getInternalField = attributes.sections?.find(
@@ -73,9 +79,10 @@ export const generateKennisartikelObject = ({ attributes, url, id }: GenerateKen
     attributes,
     trefwoorden: [...trefwoorden, ...(internalTrefwoorden ?? [])],
   });
-  const data: components['schemas']['ObjectData'] = {
+  const data: components['schemas']['ObjectData'] & { publicationState?: 'DRAFT' | 'PUBLISHED' } = {
     url: `${url}/api/v2/objects/${attributes.uuid}`,
     uuid: attributes.uuid,
+    publicationState,
     type: new URL('api/v2/objecttypes/kennisartikel', url).href,
     record: {
       index: parseInt(id, 10),
