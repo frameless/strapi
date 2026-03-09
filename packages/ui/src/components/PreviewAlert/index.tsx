@@ -1,5 +1,6 @@
 import { Alert, Link, Paragraph } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
+
 import styles from './index.module.scss';
 
 const css = classnames.bind(styles);

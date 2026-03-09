@@ -1,14 +1,17 @@
 import { Heading } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
-import { kebabCase } from 'lodash';
-import styles from './index.module.scss';
+import { ReactNode } from 'react';
+
 import { Grid, GridCell } from '../Grid';
 import { LogoButton, LogoButtonProps } from '../LogoButton';
 
+import styles from './index.module.scss';
+
 export type Columns = {
   title?: string;
-  logoButton: LogoButtonProps[];
+  logoButton: Array<LogoButtonProps & { openFormsEmbed?: string; textContent?: ReactNode }>;
 };
+
 export interface MultiColumnsButtonProps {
   columns: Columns[];
 }
@@ -19,22 +22,23 @@ export const MultiColumnsButton = ({ columns }: MultiColumnsButtonProps) => (
   <Grid spacing="md" className={css('utrecht-multi-columns-button')}>
     {columns &&
       columns.length > 0 &&
-      columns.map(({ logoButton, title }, index: number) => (
-        <GridCell key={index} sm={6} className={css('utrecht-multi-columns-button__item')}>
+      columns.map(({ logoButton, title }, columnIndex: number) => (
+        <GridCell key={columnIndex} sm={6} className={css('utrecht-multi-columns-button__item')}>
           {title && <Heading level={3}>{title}</Heading>}
           {logoButton &&
             logoButton.length > 0 &&
-            logoButton.map((item: any, index: number) => {
+            logoButton.map((item, itemIndex: number) => {
               if (item.openFormsEmbed) {
                 const parsOpenFormsEmbedData = new URLSearchParams(item.openFormsEmbed);
                 const slug = parsOpenFormsEmbedData.get('slug');
                 const uuid = parsOpenFormsEmbedData.get('uuid');
                 const label = parsOpenFormsEmbedData.get('label');
+
                 return (
                   <LogoButton
                     headingLevel={title ? 4 : 3}
-                    key={uuid}
-                    appearance={item?.appearance as string}
+                    key={uuid || itemIndex}
+                    appearance={item?.appearance}
                     label={item.label}
                     logo={item.logo}
                     href={`/form/${slug}`}
@@ -43,12 +47,13 @@ export const MultiColumnsButton = ({ columns }: MultiColumnsButtonProps) => (
                   </LogoButton>
                 );
               }
+
               return (
                 <LogoButton
                   headingLevel={title ? 4 : 3}
-                  key={index}
+                  key={itemIndex}
                   href={item.href}
-                  appearance={kebabCase(item.appearance)}
+                  appearance={item.appearance}
                   label={item.label}
                   logo={item.logo}
                 >

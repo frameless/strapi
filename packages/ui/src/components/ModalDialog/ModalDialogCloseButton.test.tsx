@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { createRef } from 'react';
-import React from 'react';
+import React, { createRef } from 'react';
+
 import { ModalDialogCloseButton } from './ModalDialogCloseButton';
 import '@testing-library/jest-dom';
 

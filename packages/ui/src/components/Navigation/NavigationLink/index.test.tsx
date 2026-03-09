@@ -1,6 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { createRef } from 'react';
+
 import { NavigationLink } from './index';
 
 describe('NavigationLink', () => {

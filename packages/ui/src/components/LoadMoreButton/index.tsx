@@ -1,6 +1,7 @@
 import { Button, ButtonGroup } from '@utrecht/component-library-react';
 import classNames from 'classnames/bind';
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useState } from 'react';
+
 import styles from './index.module.scss';
 
 export interface LoadMoreButtonProps extends HTMLAttributes<HTMLButtonElement> {

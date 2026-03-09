@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $utrecht-justify-content: (flex-start, flex-end, center, space-between) !default;
 $utrecht-align-items: (flex-start, flex-end, center) !default;
 $utrecht-flex-direction: (column, column-reverse, row, row-reverse) !default;
@@ -13,7 +15,7 @@ $utrecht-breakpoints: (
 ) !default;
 
 @mixin breakpoint($name) {
-  @media screen and (min-width: map-get($utrecht-breakpoints, $name)) {
+  @media screen and (min-width: map.get($utrecht-breakpoints, $name)) {
     @content;
   }
 }
@@ -54,12 +56,14 @@ $utrecht-breakpoints: (
         --_utrecht-grid-order: #{$i};
       }
     }
+
     @each $value in $utrecht-justify-content {
       &--justify-content-sm-#{$value} {
         --_utrecht-grid-justify-content: #{$value};
         --_utrecht-grid-display: flex;
       }
     }
+
     @each $value in $utrecht-align-items {
       &--align-items-sm-#{$value} {
         --_utrecht-grid-align-items: #{$value};
@@ -77,12 +81,14 @@ $utrecht-breakpoints: (
         --_utrecht-grid-order: #{$i};
       }
     }
+
     @each $value in $utrecht-justify-content {
       &--justify-content-md-#{$value} {
         --_utrecht-grid-justify-content: #{$value};
         --_utrecht-grid-display: flex;
       }
     }
+
     @each $value in $utrecht-align-items {
       &--align-items-md-#{$value} {
         --_utrecht-grid-align-items: #{$value};
@@ -100,12 +106,14 @@ $utrecht-breakpoints: (
         --_utrecht-grid-order: #{$i};
       }
     }
+
     @each $value in $utrecht-justify-content {
       &--justify-content-lg-#{$value} {
         --_utrecht-grid-justify-content: #{$value};
         --_utrecht-grid-display: flex;
       }
     }
+
     @each $value in $utrecht-align-items {
       &--align-items-lg-#{$value} {
         --_utrecht-grid-align-items: #{$value};

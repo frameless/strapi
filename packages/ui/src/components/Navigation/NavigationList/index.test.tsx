@@ -1,7 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+
 import '@testing-library/jest-dom';
-import { NavigationList } from './index';
 import { NavigationListType } from '../index';
+
+import { NavigationList } from './index';
 
 const listData: NavigationListType[] = [
   {
