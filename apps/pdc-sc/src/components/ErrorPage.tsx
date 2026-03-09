@@ -21,9 +21,9 @@ const PageComponent = ({ message, title }: PageComponentProps) => (
     <head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@1.0.2-alpha.0/dist/index.css" />
-      <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@1.0.2-alpha.0/dist/html.css" />
-      <link rel="stylesheet" href="https://unpkg.com/@utrecht/design-tokens@1.0.0-alpha.601/dist/index.css" />
+      <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@9.0.1/dist/index.css" />
+      <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@9.0.1/dist/html.css" />
+      <link rel="stylesheet" href="https://unpkg.com/@utrecht/design-tokens@5.0.1/dist/index.css" />
       <title>{title}</title>
     </head>
     <body>
