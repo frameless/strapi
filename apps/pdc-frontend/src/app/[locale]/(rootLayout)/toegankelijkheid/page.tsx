@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
-import { AuditRapport } from '@/components/AuditRapport';
+
 import wcagEmJSON from '../../../../../wcag-evaluation.json';
+
+import { AuditRapport } from '@/components/AuditRapport';
 import './index.scss';
 
 export async function generateMetadata(): Promise<Metadata> {

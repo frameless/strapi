@@ -2,6 +2,9 @@ import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
+
+import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
 import {
@@ -25,10 +28,9 @@ import {
   getStrapiGraphqlURL,
   mappingProducts,
   MappingProductsProps,
+  buildAlternateLinks,
 } from '@/util';
-import { buildAlternateLinks } from '@/util';
 import { fetchData } from '@/util/fetchData';
-import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../../../../../gql/graphql';
 export const revalidate = 3600; // revalidate the data at most every hour
 
 type Params = {

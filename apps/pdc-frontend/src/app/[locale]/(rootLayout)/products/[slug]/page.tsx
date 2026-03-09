@@ -1,5 +1,4 @@
 import { buildURL, encodeHtmlEntities, getDirectionFromLanguageCode, getPathAndSearchParams } from '@frameless/utils';
-import { SpotlightSectionType } from '@utrecht/component-library-react/dist/SpotlightSection';
 import type { TFunction } from 'i18next';
 import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
@@ -9,6 +8,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import React from 'react';
+
+import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
 import {
@@ -17,6 +19,7 @@ import {
   Alert,
   Article,
   Breadcrumbs,
+  ButtonAppearance,
   ButtonGroup,
   FloLegalDecisionTree,
   Grid,
@@ -42,9 +45,9 @@ import {
   getImageBaseUrl,
   getStrapiGraphqlURL,
 } from '@/util';
-import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
 import '@/styles/print.css';
 
+type SpotlightSectionType = 'info' | 'warning' | 'error' | 'ok';
 const getAllProducts = async (locale: string, slug: string) => {
   const { isEnabled } = draftMode();
   const { data } = await fetchData<{ data: GetProductBySlugQuery }>({
@@ -197,7 +200,7 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
                 <LogoButton
                   key={uuid}
                   label={component.label}
-                  appearance={component?.appearance as string}
+                  appearance={component?.appearance as ButtonAppearance}
                   logo={component.logo}
                   href={`/${pathSegments}`}
                 >
@@ -210,7 +213,7 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
                 <LogoButton
                   key={index}
                   href={component.href}
-                  appearance={component.appearance as string}
+                  appearance={component.appearance as ButtonAppearance}
                   label={component.label}
                   logo={component.logo}
                 >
@@ -294,7 +297,7 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
                           <LogoButton
                             key={button?.id}
                             href={button?.href}
-                            appearance={button?.appearance as string}
+                            appearance={button?.appearance as ButtonAppearance}
                             label={button?.label}
                             logo={button?.logo}
                           >

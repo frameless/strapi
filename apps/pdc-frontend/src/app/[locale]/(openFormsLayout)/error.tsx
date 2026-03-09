@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { forwardRef, useEffect, useState } from 'react';
 import type { PropsWithChildren } from 'react';
-import { Breadcrumbs, Button, Heading, Paragraph } from '@/components';
+
 import { useTranslation } from '../../i18n/client';
 import { fallbackLng } from '../../i18n/settings';
+
+import { Breadcrumbs, Button, Heading, Paragraph } from '@/components';
 interface ErrorPageProps {
   error: Error;
   reset: () => void;

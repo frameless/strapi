@@ -1,6 +1,9 @@
 'use server';
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { redirect } from 'next/navigation';
+
+import { useTranslation } from '../i18n';
+
 import { GetLiveSuggestionsData, SearchResult } from '@/types';
 import {
   apiSettings,
@@ -9,7 +12,6 @@ import {
   mappingProducts,
   MappingProductsProps,
 } from '@/util';
-import { useTranslation } from '../i18n';
 
 type Params = {
   pageSize?: number;

@@ -1,10 +1,12 @@
 import { buildURL } from '@frameless/utils';
 import { MetadataRoute } from 'next';
 import { cookies } from 'next/headers';
-import { GET_ALL_PRODUCTS_SITEMAP } from '@/query';
-import { fetchData, getStrapiGraphqlURL } from '@/util';
+
 import { GetAllProductsSitemapQuery } from '../../../gql/graphql';
 import { useTranslation } from '../i18n';
+
+import { GET_ALL_PRODUCTS_SITEMAP } from '@/query';
+import { fetchData, getStrapiGraphqlURL } from '@/util';
 
 const generateStaticPagesPath = (paths: string[]) => {
   return paths.map((url) => {

@@ -1,9 +1,11 @@
 import Link from 'next/link';
+
+import { GetOpenFormsErrorPageQuery } from '../../../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, Markdown } from '@/components';
 import { GET_OPEN_FORMS_ERROR_PAGE } from '@/query';
 import { fetchData, getStrapiGraphqlURL } from '@/util';
-import { GetOpenFormsErrorPageQuery } from '../../../../../../../gql/graphql';
 
 type ParamsType = {
   locale: string;

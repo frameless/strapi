@@ -50,6 +50,7 @@ import wcag334intro from '@nl-design-system-unstable/documentation/wcag/summarie
 import wcag411intro from '@nl-design-system-unstable/documentation/wcag/summaries/_4.1.1-summary.md';
 import wcag412intro from '@nl-design-system-unstable/documentation/wcag/summaries/_4.1.2-summary.md';
 import wcag413intro from '@nl-design-system-unstable/documentation/wcag/summaries/_4.1.3-summary.md';
+
 import wcag126intro from './_wcag-1.2.6-intro-frameless.md';
 
 export const wcagIntro: { [index: string]: string } = {

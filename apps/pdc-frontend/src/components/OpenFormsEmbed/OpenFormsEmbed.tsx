@@ -2,13 +2,15 @@
 import { OpenFormsContainer } from '@utrecht/open-forms-container-react/dist/css';
 import { usePathname } from 'next/navigation';
 import React, { type ReactNode, useId } from 'react';
+
+import { RichText } from '../index';
+
 import { OpenFormsNLDesignSystem } from './OpenFormsNLDesignSystem';
 import { OpenFormsScript } from './OpenFormsScript';
 import '@open-formulieren/sdk/styles.css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/open-forms-container-css/dist/index.css';
 import './OpenFormsEmbed.scss';
-import { RichText } from '../index';
 
 export type OpenFormsEmbedProps = {
   nonce: string;
