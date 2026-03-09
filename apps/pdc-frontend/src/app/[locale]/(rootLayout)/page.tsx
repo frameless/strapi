@@ -3,6 +3,14 @@ import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
+
+import {
+  CheckAlphabeticallyProductsAvailabilityQuery,
+  ComponentComponentsUtrechtTopTasks,
+  GetPdcHomePageQuery,
+} from '../../../../gql/graphql';
+import { useTranslation } from '../../i18n';
+
 import {
   Breadcrumbs,
   Grid,
@@ -19,12 +27,6 @@ import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_PDC_HOME_PAGE } from '@/query';
 import { alphabet, getStrapiGraphqlURL } from '@/util';
 import { fetchData } from '@/util/fetchData';
-import {
-  CheckAlphabeticallyProductsAvailabilityQuery,
-  ComponentComponentsUtrechtTopTasks,
-  GetPdcHomePageQuery,
-} from '../../../../gql/graphql';
-import { useTranslation } from '../../i18n';
 
 export interface Fields {
   title: string;

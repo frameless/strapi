@@ -2,6 +2,7 @@ import { getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
+
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, UnorderedList, UnorderedListItem } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';

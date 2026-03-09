@@ -1,17 +1,20 @@
 import acceptLanguage from 'accept-language';
 import { NextRequest, NextResponse } from 'next/server';
-import { getContentSecurityPolicy } from '@/util/cspConfig';
+
+import { GetProductsOldSlugsQuery } from '../gql/graphql';
+
 import { fallbackLng, languages } from './app/i18n/settings';
 import { GET_PRODUCTS_OLD_SLUGS } from './query';
 import { fetchData, getRedirectURL, getStrapiGraphqlURL } from './util';
-import { GetProductsOldSlugsQuery } from '../gql/graphql';
+
+import { getContentSecurityPolicy } from '@/util/cspConfig';
 
 acceptLanguage.languages(languages);
 
 export const config = {
   matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|.*\\.js$).*)'],
   // https://nextjs.org/docs/messages/edge-dynamic-code-evaluation
-  unstable_allowDynamic: ['**/node_modules/lodash.mergewith/index.js'],
+  unstable_allowDynamic: ['**/node_modules/.pnpm/lodash.mergewith*/**'],
 };
 
 const cookieName = 'i18next';

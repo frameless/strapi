@@ -2,15 +2,23 @@ import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
+
+import { GetAllProductsSlugQueryQuery } from '../../../../../gql/graphql';
+import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
+import { useTranslation } from '../../../i18n';
+
 import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { apiSettings, getStrapiGraphqlURL, mappingProducts, MappingProductsProps } from '@/util';
-import { buildAlternateLinks, fetchData } from '@/util';
-import { GetAllProductsSlugQueryQuery } from '../../../../../gql/graphql';
-import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
-import { useTranslation } from '../../../i18n';
+import {
+  apiSettings,
+  getStrapiGraphqlURL,
+  mappingProducts,
+  MappingProductsProps,
+  buildAlternateLinks,
+  fetchData,
+} from '@/util';
 export interface Fields {
   title: string;
   body: string;

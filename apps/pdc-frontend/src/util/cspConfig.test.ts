@@ -1,4 +1,5 @@
 import { CSPDirectives } from 'csp-header';
+
 import {
   getContentSecurityPolicy,
   mergeCSPDirectives,

@@ -1,8 +1,10 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
+
+import { GetProductBySlugQuery } from '../../../../gql/graphql';
+
 import { GET_PRODUCT_BY_SLUG } from '@/query';
 import { fetchData, getStrapiGraphqlURL } from '@/util';
-import { GetProductBySlugQuery } from '../../../../gql/graphql';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

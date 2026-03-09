@@ -3,13 +3,15 @@ import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+
+import { useTranslation } from '../../../../i18n/index';
+
 import { getSuggestedSearch } from '@/app/actions';
 import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { buildAlternateLinks } from '@/util';
-import { useTranslation } from '../../../../i18n/index';
 type ParamsType = {
   locale: string;
   query: string;
