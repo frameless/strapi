@@ -4,6 +4,7 @@ import { UtrechtIconClose } from '@utrecht/web-component-library-react';
 import classnames from 'classnames/bind';
 import type { ForwardedRef, ReactNode } from 'react';
 import { forwardRef } from 'react';
+
 import styles from './index.module.scss';
 
 const css = classnames.bind(styles);

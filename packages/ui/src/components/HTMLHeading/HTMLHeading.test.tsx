@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import { HTMLHeading } from './index';
 import '@testing-library/jest-dom';
 

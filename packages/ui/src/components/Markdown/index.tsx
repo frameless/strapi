@@ -1,5 +1,8 @@
-import { Figure, OrderedList, TableContainer, Strong } from '@utrecht/component-library-react';
 import {
+  Figure,
+  OrderedList,
+  TableContainer,
+  Strong,
   Heading1,
   Heading2,
   Heading3,
@@ -21,6 +24,7 @@ import React from 'react';
 import ReactMarkdown, { defaultUrlTransform } from 'react-markdown';
 import type { Components } from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+
 import { isYouTubeURL, YouTubeVideo } from '../YouTubeVideo';
 
 const defaultComponents = (config?: Components) => {

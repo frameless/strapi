@@ -1,6 +1,6 @@
 import type { HeadingProps } from '@utrecht/component-library-react';
-import { DetailedHTMLProps, ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react';
-import { forwardRef, useId } from 'react';
+import { DetailedHTMLProps, ForwardedRef, HTMLAttributes, PropsWithChildren, forwardRef, useId } from 'react';
+
 import { HTMLHeading } from '../HTMLHeading';
 
 export interface NavProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {

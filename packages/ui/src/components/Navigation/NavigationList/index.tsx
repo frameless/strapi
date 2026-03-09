@@ -1,11 +1,12 @@
 import classnames from 'classnames/bind';
-import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren, useRef } from 'react';
-import { FocusEvent } from 'react';
-import styles from './index.module.scss';
+import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren, useRef, FocusEvent } from 'react';
+
 import { NavigationItem } from '../NavigationItem';
 import { NavigationLink } from '../NavigationLink';
 import { NavigationMarker } from '../NavigationMarker';
 import { NavigationListType } from '../index';
+
+import styles from './index.module.scss';
 export interface NavigationListProps extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {
   list: NavigationListType[];
   mobile?: boolean;

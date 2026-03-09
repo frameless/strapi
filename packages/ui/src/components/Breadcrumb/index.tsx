@@ -8,9 +8,10 @@ import type { BreadcrumbNavProps } from '@utrecht/component-library-react';
 import { UtrechtIconChevronLeft, UtrechtIconChevronRight } from '@utrecht/web-component-library-react';
 import classnames from 'classnames/bind';
 import { ComponentType, Fragment } from 'react';
-import './index.module.scss';
-import styles from './index.module.scss';
+
 import { useScreenSize } from '../../hooks';
+
+import styles from './index.module.scss';
 
 const css = classnames.bind(styles);
 type BreadcrumbLinkType = {
