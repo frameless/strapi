@@ -1,7 +1,9 @@
-import { Button, Document, Heading, Page, PageContent, Separator } from '@utrecht/component-library-react';
 import fs from 'node:fs';
 import path from 'node:path';
+
+import { Button, Document, Heading, Page, PageContent, Separator } from '@utrecht/component-library-react';
 import { renderToString } from 'react-dom/server';
+
 import { Markdown } from '../components/Markdown';
 import type { Price } from '../strapi-product-type';
 

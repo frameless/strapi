@@ -1,4 +1,5 @@
 import { isYouTubeURL, Markdown as ReactMarkdown, YouTubeVideo } from '@frameless/ui';
+
 import type { Price } from '../strapi-product-type';
 import { buildImageURL, sanitizeHTML } from '../utils';
 

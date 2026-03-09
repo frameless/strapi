@@ -1,7 +1,8 @@
+import KennisartikelPage from '../components/KennisartikelPage';
+
 import { ErrorPage } from './ErrorPage';
 import { PreviewLayout } from './PreviewLayout';
 import VacPage from './VacPage';
-import KennisartikelPage from '../components/KennisartikelPage';
 
 export const PreviewPage = () => {
   if (typeof window === 'undefined') return null;

@@ -1,6 +1,8 @@
 import { renderToString } from 'react-dom/server';
-import { renderLayout } from './layout.view';
+
 import { ErrorPage } from '../components/ErrorPage';
+
+import { renderLayout } from './layout.view';
 
 interface ErrorRendererProps {
   title?: string;

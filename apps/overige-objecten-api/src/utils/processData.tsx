@@ -1,5 +1,10 @@
 import { getDirectionFromLanguageCode } from '@frameless/utils';
 import { renderToString } from 'react-dom/server';
+
+import { AccordionSection, type AccordionSectionProps } from '../components/AccordionSection';
+import { Markdown } from '../components/Markdown';
+import type { Price } from '../strapi-product-type';
+
 import {
   convertImageToHTML,
   convertLogoButtonToHTML,
@@ -7,9 +12,6 @@ import {
   convertSpotlightToHTML,
   mapContentByCategory,
 } from './index';
-import { AccordionSection, type AccordionSectionProps } from '../components/AccordionSection';
-import { Markdown } from '../components/Markdown';
-import type { Price } from '../strapi-product-type';
 
 interface ProcessDataParams {
   data: any;

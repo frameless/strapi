@@ -1,4 +1,5 @@
 import { renderToString } from 'react-dom/server';
+
 import { buildImageURL } from './buildImageURL';
 
 export type Attributes = {

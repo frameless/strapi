@@ -1,5 +1,6 @@
-import { getVacData } from './getVacData';
 import type { VACSData } from '../strapi-product-type';
+
+import { getVacData } from './getVacData';
 
 describe('getVacData', () => {
   const serverURL = 'http://localhost:4001';

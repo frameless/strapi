@@ -1,7 +1,6 @@
 import { renderToString } from 'react-dom/server';
+
 import { Markdown, type MarkdownProps } from '../components/Markdown';
 
-export interface RenderMarkdownToStringProps extends MarkdownProps {}
-
-export const renderMarkdownToString = ({ children, priceData }: RenderMarkdownToStringProps) =>
+export const renderMarkdownToString = ({ children, priceData }: MarkdownProps) =>
   renderToString(<Markdown priceData={priceData}>{children}</Markdown>);

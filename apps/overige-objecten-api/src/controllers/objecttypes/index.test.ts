@@ -1,5 +1,6 @@
 import fetchMock from 'jest-fetch-mock';
 import request from 'supertest';
+
 import kennisartikelObjectTypes from '../../docs/kennisartikel.json';
 import vacObjectTypes from '../../docs/vac.json';
 import app from '../../server';

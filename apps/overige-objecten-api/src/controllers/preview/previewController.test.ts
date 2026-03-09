@@ -1,5 +1,6 @@
 import fetchMock from 'jest-fetch-mock';
 import request from 'supertest';
+
 import { pageRenderer } from '../../client/pageRenderer';
 import app from '../../server';
 import { getObjectByUUID } from '../../service/object';
