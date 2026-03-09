@@ -29,5 +29,5 @@ ol ol > li::before {
 table,
 table tr td,
 table tr th {
-  page-break-inside: avoid;
+  break-inside: avoid;
 }

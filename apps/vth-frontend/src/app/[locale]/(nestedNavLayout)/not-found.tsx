@@ -1,4 +1,5 @@
 import { cookies, draftMode } from 'next/headers';
+
 import { useTranslation } from '@/app/i18n';
 import { fallbackLng } from '@/app/i18n/settings';
 import { Header, Heading1, Page, PageContent, RichText } from '@/components';

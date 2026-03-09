@@ -4,6 +4,6 @@ import React from 'react';
 
 const queryClient = new QueryClient();
 
-export const QueryClientProvider = ({ children }: any) => {
+export const QueryClientProvider = ({ children }: React.PropsWithChildren) => {
   return <Provider client={queryClient}>{children}</Provider>;
 };
