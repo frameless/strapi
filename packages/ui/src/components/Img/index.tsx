@@ -1,10 +1,13 @@
 import classNames from 'classnames/bind';
 import React, { ComponentType, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
+
 import styles from './index.module.scss';
 
 const css = classNames.bind(styles);
-interface ImageComponentProps
-  extends React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {}
+interface ImageComponentProps extends React.DetailedHTMLProps<
+  React.ImgHTMLAttributes<HTMLImageElement>,
+  HTMLImageElement
+> {}
 
 const ImageComponent = forwardRef(
   (
@@ -15,8 +18,10 @@ const ImageComponent = forwardRef(
 
 ImageComponent.displayName = 'Image';
 
-export interface ImgProps
-  extends Omit<React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'ref'> {
+export interface ImgProps extends Omit<
+  React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
+  'ref'
+> {
   Image?: ComponentType<any>;
   figure?: string;
 }

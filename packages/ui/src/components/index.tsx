@@ -32,7 +32,7 @@ export type { FloLegalDecisionTreeProps } from './FloLegalDecisionTree';
 export type { LanguageSwitcherProps } from './LanguageSwitcher';
 export type { LiveTextProps } from './LiveText';
 export type { LoadMoreButtonProps } from './LoadMoreButton';
-export type { LogoButtonProps, LogoType } from './LogoButton';
+export type { LogoButtonProps, LogoType, ButtonAppearance } from './LogoButton';
 export type { ModalDialogBodyProps } from './ModalDialog/ModalDialogBody';
 export type { ModalDialogCloseButtonProps } from './ModalDialog/ModalDialogCloseButton';
 export type { ModalDialogFooterProps } from './ModalDialog/ModalDialogFooter';

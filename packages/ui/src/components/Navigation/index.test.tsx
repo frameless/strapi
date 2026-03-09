@@ -2,9 +2,10 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+
+import { useScreenSize, useClickOutside } from '../../hooks';
+
 import { Navigation } from './index';
-import { useScreenSize } from '../../hooks';
-import { useClickOutside } from '../../hooks';
 jest.mock('../../hooks/useClickOutside.ts', () => ({
   useClickOutside: jest.fn(),
 }));

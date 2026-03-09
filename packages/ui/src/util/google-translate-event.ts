@@ -26,7 +26,7 @@ export const initGoogleTranslateEvent = (doc: Document | null) => {
       ...initial,
     };
 
-    var mutationObserver = new MutationObserver(function (mutations) {
+    const mutationObserver = new MutationObserver(function (mutations) {
       mutations.forEach(({ target }) => {
         if (!isHTMLElement(target)) {
           return;

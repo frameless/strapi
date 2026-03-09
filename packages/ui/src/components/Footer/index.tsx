@@ -10,10 +10,12 @@ import {
 } from '@utrecht/web-component-library-react';
 import classnames from 'classnames/bind';
 import { Fragment } from 'react';
-import styles from './index.module.scss';
+
 import { Grid, GridCell } from '../Grid';
 import { Markdown } from '../Markdown';
 import { Nav, type NavProps } from '../Nav';
+
+import styles from './index.module.scss';
 
 const css = classnames.bind(styles);
 
