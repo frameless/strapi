@@ -1,6 +1,7 @@
 'use client';
 
 import type { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
+
 import { useOpenFormsWysiwygStyling } from './useOpenFormsWysiwygStyling';
 
 interface OpenFormsNLDesignSystemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

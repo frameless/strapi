@@ -12,6 +12,7 @@
 .utrecht-form-container--openforms .utrecht-form-label--openforms.utrecht-form-label--radio {
   @include utrecht-form-label--radio;
 }
+
 .utrecht-form-container--openforms .utrecht-textbox--openforms:disabled {
   @include utrecht-textbox--read-only;
 }
@@ -45,8 +46,8 @@
 .utrecht-form-field.utrecht-form-field--select .selection .choices__item,
 .utrecht-form-field.utrecht-form-field--select .selection + .choices__list .choices__item {
   block-size: fit-content !important;
+  overflow-wrap: break-word;
   text-wrap: wrap;
-  word-break: break-word;
 }
 /* stylelint-enable selector-class-pattern */
 
@@ -73,24 +74,32 @@
 .openforms-formio-content {
   &--info {
     --of-formio-content-info-border-inline-start-style: none;
+
     @include utrecht-spotlight-section;
     @include utrecht-spotlight-section-type("info");
   }
+
   &--warning {
     --of-formio-content-warning-border-inline-start-style: none;
+
     @include utrecht-spotlight-section;
     @include utrecht-spotlight-section-type("warning");
   }
+
   &--error {
     --of-formio-content-error-border-inline-start-style: none;
+
     @include utrecht-spotlight-section;
     @include utrecht-spotlight-section-type("warning");
   }
+
   &--success {
     --of-formio-content-success-border-inline-start-style: none;
+
     @include utrecht-spotlight-section;
     @include utrecht-spotlight-section-type("ok");
   }
+
   &--success,
   &--info,
   &--warning,

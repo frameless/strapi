@@ -9,7 +9,6 @@
     /* Text Settings */
     hyphens: auto;
     overflow-wrap: break-word;
-    word-wrap: break-word;
 
     /* Header logo styling */
     header {
@@ -28,8 +27,8 @@
     h4,
     h5,
     h6 {
+      break-after: avoid;
       display: block;
-      page-break-after: avoid;
     }
 
     /* Logo Styling */
@@ -77,9 +76,9 @@
 
     /* Image sizing */
     .utrecht-image {
+      break-inside: avoid;
       display: block;
       max-inline-size: 500px;
-      page-break-inside: avoid;
     }
 
     /* Order list */
@@ -104,7 +103,7 @@
     table,
     table tr td,
     table tr th {
-      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     /* Scroll to top button */

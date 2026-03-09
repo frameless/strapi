@@ -10,13 +10,12 @@ export type OpenFormsScriptProps = {
 };
 
 interface OpenForm {
-  new (_targetNode: Node, _opts: Object): OpenForm;
+  new (_targetNode: Node, _opts: object): OpenForm;
 
   init(): Promise<void>;
 }
 
 declare global {
-  // eslint-disable-next-line no-unused-vars
   interface Window {
     OpenForms: {
       OpenForm: OpenForm;

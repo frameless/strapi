@@ -4,12 +4,13 @@ import { getPathAndSearchParams } from '@frameless/utils';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { experimental_useOptimistic as useOptimistic } from 'react';
-import React from 'react';
+import React, { experimental_useOptimistic as useOptimistic } from 'react';
+
+import { UtrechtSearchBar } from '../UtrechtSearchBar';
+
 import { useTranslation } from '@/app/i18n/client';
 import { Link as UtrechtLink } from '@/components';
 import { SuggestedHits, Suggestions } from '@/types';
-import { UtrechtSearchBar } from '../UtrechtSearchBar';
 
 export interface SearchBarProps {
   // eslint-disable-next-line no-unused-vars

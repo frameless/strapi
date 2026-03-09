@@ -1,10 +1,12 @@
 import Link from 'next/link';
+
+import { GetNotFoundPageQuery } from '../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, Markdown } from '@/components';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
 import { fetchData } from '@/util/fetchData';
-import { GetNotFoundPageQuery } from '../../../../../gql/graphql';
 
 const NotFoundPage = async ({ params: { locale } }: { params: { locale: string } }) => {
   new Response(null, { status: 404 });

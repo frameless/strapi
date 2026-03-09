@@ -7,6 +7,18 @@ import { draftMode, headers } from 'next/headers';
 import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
+
+import type {
+  ComponentComponentsUtrechtFooter,
+  ComponentComponentsUtrechtNavigation,
+  GetTemplateDataQuery,
+  GetWebsiteSettingsQuery,
+} from '../../../../gql/graphql';
+import { MatomoScript } from '../../../components/MatomoScript';
+import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
+import { useTranslation } from '../../i18n/index';
+import { languages } from '../../i18n/settings';
+
 import { QueryClientProvider } from '@/client';
 import {
   Footer,
@@ -33,16 +45,6 @@ import { SearchBar } from '@/components/SearchBar';
 import { Editoria11yWrapper } from '@/lib/stencil-client';
 import { GET_TEMPLATE, GET_WEBSITE_SETTINGS } from '@/query';
 import { buildAlternateLinks, config, fetchData, getStrapiGraphqlURL } from '@/util';
-import type {
-  ComponentComponentsUtrechtFooter,
-  ComponentComponentsUtrechtNavigation,
-  GetTemplateDataQuery,
-  GetWebsiteSettingsQuery,
-} from '../../../../gql/graphql';
-import { MatomoScript } from '../../../components/MatomoScript';
-import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
-import { useTranslation } from '../../i18n/index';
-import { languages } from '../../i18n/settings';
 import '@frameless/ui/dist/bundle.css';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';

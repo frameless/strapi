@@ -1,4 +1,5 @@
 import { ErrorHandler, fetchData } from '@frameless/utils';
+
 import { FloLegalContent, FloLegalFormData } from '@/types/floLegalForm';
 
 type GetFloLegalConfig = {

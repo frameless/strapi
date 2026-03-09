@@ -7,6 +7,13 @@ import { draftMode, headers } from 'next/headers';
 import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
+
+import type {
+  ComponentComponentsUtrechtNavigation,
+  GetTemplateDataQuery,
+  GetWebsiteSettingsQuery,
+} from '../../../../gql/graphql';
+
 import { QueryClientProvider } from '@/client';
 import {
   Footer,
@@ -37,11 +44,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { Editoria11yWrapper } from '@/lib/stencil-client';
 import { GET_OPEN_FORMS_TEMPLATE, GET_WEBSITE_SETTINGS } from '@/query';
 import { buildAlternateLinks, config, fetchData, getStrapiGraphqlURL } from '@/util';
-import type {
-  ComponentComponentsUtrechtNavigation,
-  GetTemplateDataQuery,
-  GetWebsiteSettingsQuery,
-} from '../../../../gql/graphql';
+
 import { getLiveSuggestions, onSearchSubmitAction } from '../../actions';
 import { useTranslation } from '../../i18n/index';
 import { languages } from '../../i18n/settings';

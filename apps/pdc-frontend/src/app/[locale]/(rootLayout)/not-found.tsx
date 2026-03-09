@@ -1,12 +1,13 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
-import { Heading, Markdown } from '@/components';
-import { Breadcrumbs } from '@/components';
-import { GET_NOT_FOUND_PAGE } from '@/query';
-import { fetchData, getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
+
 import { GetNotFoundPageQuery } from '../../../../gql/graphql';
 import { useTranslation } from '../../i18n';
 import { fallbackLng } from '../../i18n/settings';
+
+import { Heading, Markdown, Breadcrumbs } from '@/components';
+import { GET_NOT_FOUND_PAGE } from '@/query';
+import { fetchData, getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
 
 const NotFoundPage = async () => {
   new Response(null, { status: 404 });

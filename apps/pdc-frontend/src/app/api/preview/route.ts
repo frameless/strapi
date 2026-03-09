@@ -1,5 +1,6 @@
 import { draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
+
 import { GET_PRODUCT_BY_SLUG_AND_LOCALE } from '@/query';
 import { fetchData, getStrapiGraphqlURL } from '@/util';
 

@@ -3,6 +3,7 @@
 import classnames from 'classnames';
 import Link from 'next/link';
 import { Fragment, useEffect, useReducer, useRef } from 'react';
+
 import { setPageIndex } from '@/app/actions';
 import { useTranslation } from '@/app/i18n/client';
 import { LoadMoreButton, Markdown, ProductListItem, ProductListPaginationInfo, ProductsList } from '@/components';

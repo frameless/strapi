@@ -23,11 +23,14 @@ import {
   UnorderedListItem,
 } from '@utrecht/component-library-react';
 import { groupBy } from 'lodash';
-import { Markdown, UtrechtIconChevronRight } from '@/components';
-import { wcagIntro } from './intro';
-import { successCriteria, successCriteriaMap } from './wcag22';
+
 import wcagJSON from '../../../wcag-evaluation.json';
 import { DigiToegankelijkStatus } from '../DigiToegankelijkStatus';
+
+import { wcagIntro } from './intro';
+import { successCriteria, successCriteriaMap } from './wcag22';
+
+import { Markdown, UtrechtIconChevronRight } from '@/components';
 type WcagEmJson = typeof wcagJSON;
 
 interface WcagSpotlightSectionProps {
