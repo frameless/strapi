@@ -7,7 +7,6 @@ type MatomoTagManagerTypes = {
   [key: string]: any;
 };
 declare global {
-  // eslint-disable-next-line no-unused-vars
   interface Window {
     _mtm: MatomoTagManagerTypes;
   }

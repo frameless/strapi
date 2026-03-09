@@ -5,6 +5,7 @@ import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import type { Options } from 'react-markdown';
+
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
 

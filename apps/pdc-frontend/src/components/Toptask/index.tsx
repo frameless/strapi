@@ -1,7 +1,7 @@
 'use client';
 
 import classnames from 'classnames/bind';
-import styles from './index.module.scss';
+
 import {
   UtrechtIconAfspraakMaken,
   UtrechtIconAfval,
@@ -25,8 +25,11 @@ import {
   UtrechtIconSubsidie,
   UtrechtIconVerhuizen,
   UtrechtIconWerkzaamheden,
+  Grid,
+  GridCell,
 } from '../index';
-import { Grid, GridCell } from '../index';
+
+import styles from './index.module.scss';
 
 const icon = {
   afspraak_maken: UtrechtIconAfspraakMaken,

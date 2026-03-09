@@ -5,9 +5,11 @@ import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useParams, usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import React from 'react';
+
+import { fallbackLng, languages } from '../app/i18n/settings';
+
 import { LanguageSwitcher, LanguageSwitcherSkeleton } from '@/components';
 import { fetchData } from '@/util/fetchData';
-import { fallbackLng, languages } from '../app/i18n/settings';
 
 export interface Localizations {
   locale: string;

@@ -1,7 +1,9 @@
-import { GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
+import { GetAlphabeticallyProductsByLetterQueryQuery } from '../../gql/graphql';
+
 import { fetchData } from './fetchData';
 import { getStrapiGraphqlURL } from './getStrapiGraphqlURL';
-import { GetAlphabeticallyProductsByLetterQueryQuery } from '../../gql/graphql';
+
+import { GET_ALPHABETICALLY_PRODUCTS_BY_LETTER } from '@/query';
 
 type GetAlphabeticallyProductsByLetterProps = {
   locale: string;
