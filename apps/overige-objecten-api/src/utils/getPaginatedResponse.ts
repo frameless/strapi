@@ -1,4 +1,5 @@
 import type { Request } from 'express';
+
 import type { Products, VACSData } from '../strapi-product-type';
 
 export type PaginationType = {

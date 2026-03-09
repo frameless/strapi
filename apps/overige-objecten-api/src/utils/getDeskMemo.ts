@@ -1,5 +1,6 @@
-import { concatenateFieldValues } from './concatenateFieldValues';
 import type { Section } from '../strapi-product-type';
+
+import { concatenateFieldValues } from './concatenateFieldValues';
 
 export const getDeskMemo = (sections: Section[], contactInformation?: { id: string; content: string }[]) => {
   const internalBlock = sections.find(({ component }) => component === 'ComponentComponentsInternalBlockContent');

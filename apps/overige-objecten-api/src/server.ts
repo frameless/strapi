@@ -1,15 +1,16 @@
 /* eslint-disable no-undef */
+import fs from 'node:fs';
+import path from 'node:path';
+
 import { envAvailability, ErrorHandler } from '@frameless/utils';
 import type { CorsOptions } from 'cors';
 import cors from 'cors';
 import { config } from 'dotenv';
-import express from 'express';
-import { NextFunction, Request, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import * as OpenApiValidator from 'express-openapi-validator';
-import yaml from 'js-yaml';
-import fs from 'node:fs';
-import path from 'node:path';
+import { load } from 'js-yaml';
 import swaggerUi from 'swagger-ui-express';
+
 import { objects, objecttypes, openapi, preview } from './routers';
 config();
 
@@ -28,7 +29,10 @@ envAvailability({
   keys: ['STRAPI_PRIVATE_URL', 'OVERIGE_OBJECTEN_API_PORT'],
 });
 
-const swaggerDocument: any = yaml.load(fs.readFileSync(path.join(__dirname, './docs/openapi.yaml'), 'utf8'));
+const swaggerDocument = load(fs.readFileSync(path.join(__dirname, './docs/openapi.yaml'), 'utf8')) as Record<
+  string,
+  unknown
+>;
 const whitelist = process.env.OVERIGE_OBJECTEN_API_CORS?.split(', ') || [];
 const corsOption: CorsOptions = {
   origin: (origin, callback) => {
@@ -72,12 +76,16 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
   });
 };
 /**
- * Swagger
- * Serve the Swagger UI for testing and documentation
- * This is only available in development mode
+ * Swagger UI Setup
+ * Type assertions needed because:
+ * - swaggerUi.serve is typed as RequestHandler[] which causes conflicts when passed as middleware
+ * - swaggerUi.setup() return type doesn't align perfectly with Express middleware expectations
+ * This is a known limitation with the swagger-ui-express type definitions
  */
+
 if (process.env.NODE_ENV === 'development') {
-  app.use('/api/v2/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  const swaggerSetup = swaggerUi.setup(swaggerDocument as Record<string, unknown>) as any;
+  app.use('/api/v2/api-docs', swaggerUi.serve as any, swaggerSetup);
 }
 
 /**

@@ -1,6 +1,8 @@
 import { JSDOM } from 'jsdom';
-import { processData } from './processData';
+
 import type { Price } from '../strapi-product-type';
+
+import { processData } from './processData';
 
 describe('processData', () => {
   describe('ComponentComponentsUtrechtRichText', () => {

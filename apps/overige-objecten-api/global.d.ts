@@ -1,5 +1,4 @@
-import type { KennisartikelObject, VACObject } from '../types';
-import type { ErrorPageData } from '../types';
+import type { KennisartikelObject, VACObject, ErrorPageData } from '../types';
 declare global {
   interface Window {
     __VAC_PREVIEW_DATA__: VACObject;

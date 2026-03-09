@@ -1,5 +1,6 @@
 import { Markdown } from '@frameless/ui';
 import { Heading, RichText, Separator } from '@utrecht/component-library-react';
+
 import { VACObject } from '../types';
 
 interface VacPageProps {

@@ -1,8 +1,10 @@
 import { renderToString } from 'react-dom/server';
-import { renderLayout } from './layout.view';
+
 import KennisartikelPage from '../components/KennisartikelPage';
 import VacPage from '../components/VacPage';
 import { KennisartikelObject, VACObject } from '../types';
+
+import { renderLayout } from './layout.view';
 
 interface PageRendererProps {
   vacData?: VACObject;
