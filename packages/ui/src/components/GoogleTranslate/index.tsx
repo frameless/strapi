@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+
 import { initGoogleTranslateAdaptation } from '../../util/google-translate-adaptation';
 import { initGoogleTranslateEvent } from '../../util/google-translate-event';
 

@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { createRef } from 'react';
+
 import { NavigationItem } from './index';
 
 describe('NavigationItem', () => {

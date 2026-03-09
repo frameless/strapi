@@ -1,6 +1,7 @@
 'use client';
 
 import { useLayoutEffect, useRef } from 'react';
+
 import { isHTMLElement } from '../../util/google-translate-event';
 
 export type YouTubeVideoProgressiveEnhancementProps = {};

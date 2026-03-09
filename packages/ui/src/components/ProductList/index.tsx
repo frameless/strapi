@@ -7,6 +7,7 @@ import {
   LiHTMLAttributes,
   PropsWithChildren,
 } from 'react';
+
 import styles from './index.module.scss';
 
 const css = classNames.bind(styles);
@@ -25,8 +26,10 @@ export const ProductsList = forwardRef(
 
 ProductsList.displayName = 'ProductsList';
 
-export interface ProductListPaginationInfoProps
-  extends DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {}
+export interface ProductListPaginationInfoProps extends DetailedHTMLProps<
+  LiHTMLAttributes<HTMLLIElement>,
+  HTMLLIElement
+> {}
 
 export const ProductListPaginationInfo = forwardRef<HTMLLIElement, ProductListPaginationInfoProps>(
   ({ children, ...restProps }, ref) => {

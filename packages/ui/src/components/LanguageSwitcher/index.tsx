@@ -3,14 +3,17 @@ import type { LinkProps as UtrechtLinkProps } from '@utrecht/component-library-r
 import classnames from 'classnames/bind';
 import React, { ComponentType, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 import Skeleton from 'react-loading-skeleton';
+
 import styles from './index.module.scss';
 
 type T = keyof typeof mappedLocales;
 const mappedLocales = { nl: 'Netherlands', en: 'English' };
 type LanguageSwitcherItemsType = { pathname: string; locale: string };
 
-export interface LanguageSwitcherProps
-  extends Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'onClick'> {
+export interface LanguageSwitcherProps extends Omit<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+  'onClick'
+> {
   items: LanguageSwitcherItemsType[];
   currentLocale: string;
   loading?: boolean;

@@ -1,4 +1,4 @@
-import { ButtonGroup, ButtonLink, ButtonProps, Heading } from '@utrecht/component-library-react';
+import { ButtonGroup, ButtonLink, Heading } from '@utrecht/component-library-react';
 import {
   UtrechtDigidLogo,
   UtrechtEherkenningLogo,
@@ -9,21 +9,67 @@ import {
 import classnames from 'classnames/bind';
 import kebabCase from 'lodash.kebabcase';
 import { ReactNode } from 'react';
+
 import styles from './index.module.scss';
 
 export type LogoType = 'digid' | 'eherkenning' | 'eidas' | 'without_logo';
+export type ButtonAppearance = 'primary-action-button' | 'secondary-action-button' | 'subtle-button' | 'magenta';
+
 export interface LogoButtonProps {
   logo?: LogoType | null;
-  appearance?: ButtonProps['appearance'];
+  appearance?: ButtonAppearance | string;
   href: string;
   children: ReactNode;
   label?: string | null;
   headingLevel?: number;
 }
+
 const css = classnames.bind(styles);
 
+const isValidAppearance = (value: unknown): value is ButtonAppearance => {
+  const validAppearances: ButtonAppearance[] = [
+    'primary-action-button',
+    'secondary-action-button',
+    'subtle-button',
+    'magenta',
+  ];
+  return validAppearances.includes(value as ButtonAppearance);
+};
+
+const normalizeAppearance = (appearance?: string | ButtonAppearance): ButtonAppearance => {
+  if (!appearance) {
+    return 'primary-action-button';
+  }
+
+  if (typeof appearance === 'string') {
+    // Convert snake_case (from CMS) to kebab-case
+    const normalized = kebabCase(appearance) as ButtonAppearance;
+    if (isValidAppearance(normalized)) {
+      return normalized;
+    }
+  }
+
+  return 'primary-action-button';
+};
+
+const getButtonLinkAppearance = (appearance?: string | ButtonAppearance): Exclude<ButtonAppearance, 'magenta'> => {
+  const normalized = normalizeAppearance(appearance);
+
+  if (normalized === 'magenta') {
+    return 'primary-action-button';
+  }
+
+  return normalized;
+};
+
+const shouldApplyMagentaClass = (appearance?: string | ButtonAppearance): boolean => {
+  return normalizeAppearance(appearance) === 'magenta';
+};
+
 export const LogoButton = ({ logo, appearance, href, children, label, headingLevel = 3 }: LogoButtonProps) => {
-  const magenta = appearance === 'magenta';
+  const buttonAppearance = getButtonLinkAppearance(appearance);
+  const isMagenta = shouldApplyMagentaClass(appearance);
+
   switch (logo) {
     case 'digid':
       return (
@@ -32,7 +78,7 @@ export const LogoButton = ({ logo, appearance, href, children, label, headingLev
           <ButtonGroup>
             <UtrechtLogoButton>
               <UtrechtDigidLogo role="presentation" />
-              <ButtonLink appearance={kebabCase(appearance)} href={href}>
+              <ButtonLink appearance={buttonAppearance} href={href}>
                 {children} <UtrechtIconArrow />
               </ButtonLink>
             </UtrechtLogoButton>
@@ -64,7 +110,7 @@ export const LogoButton = ({ logo, appearance, href, children, label, headingLev
           <ButtonGroup>
             <UtrechtLogoButton>
               <UtrechtEidasLogo role="presentation" />
-              <ButtonLink appearance={kebabCase(appearance)} href={href}>
+              <ButtonLink appearance={buttonAppearance} href={href}>
                 {children} <UtrechtIconArrow />
               </ButtonLink>
             </UtrechtLogoButton>
@@ -77,9 +123,9 @@ export const LogoButton = ({ logo, appearance, href, children, label, headingLev
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <ButtonGroup>
             <ButtonLink
-              appearance={magenta ? 'primary-action-button' : kebabCase(appearance)}
+              appearance="primary-action-button"
               href={href}
-              className={magenta ? css('utrecht-button-link--magenta') : undefined}
+              className={isMagenta ? css('utrecht-button-link--magenta') : undefined}
             >
               {children} <UtrechtIconArrow />
             </ButtonLink>

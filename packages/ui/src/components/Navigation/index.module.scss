@@ -1,4 +1,5 @@
-@import "../Grid/index.module";
+@use "sass:map";
+@use "../Grid/index.module" as *;
 
 .utrecht-navigation {
   border-block-end-color: var(--utrecht-navigation-border-block-end-color);

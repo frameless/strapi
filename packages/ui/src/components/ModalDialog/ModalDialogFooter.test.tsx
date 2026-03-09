@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
-import { createRef } from 'react';
-import React from 'react';
+import React, { createRef } from 'react';
+
 import { ModalDialogFooter } from './ModalDialogFooter';
 import '@testing-library/jest-dom';
 

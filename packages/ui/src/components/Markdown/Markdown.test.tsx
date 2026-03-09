@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Link } from '@utrecht/component-library-react';
 import React from 'react';
+
 import { Markdown } from './index';
 describe('Markdown', () => {
   it('should render the Markdown component', () => {

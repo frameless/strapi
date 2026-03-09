@@ -1,4 +1,5 @@
-@import "@utrecht/backdrop-css/src/mixin";
+@use "@utrecht/backdrop-css/src/mixin" as *;
+
 .utrecht-modal-dialog {
   border: none;
   border-radius: var(--utrecht-modal-dialog-border-radius, 3px);
