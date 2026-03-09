@@ -1,5 +1,6 @@
 import { fetchData } from '@frameless/utils';
 import type { RequestHandler } from 'express';
+
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS } from '../../queries';
 import { getObjectByUUID } from '../../service/object';
 import type { Section, StrapiProductType, VACSData } from '../../strapi-product-type';
@@ -137,7 +138,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
 
 export const getObjectByUUIDController: RequestHandler = async (req, res, next) => {
   try {
-    const uuid = req.params?.uuid;
+    const uuid = req.params?.uuid as string | undefined;
     const locale = (req.query?.locale as string) || 'nl';
 
     if (!uuid) {

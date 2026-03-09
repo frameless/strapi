@@ -1,5 +1,6 @@
-import { getDeskMemo } from './getDeskMemo';
 import type { Section } from '../strapi-product-type';
+
+import { getDeskMemo } from './getDeskMemo';
 
 describe('getDeskMemo', () => {
   it('should return the desk memo', () => {

@@ -3,6 +3,7 @@ import type { RequestHandler } from 'express';
 import snakeCase from 'lodash.snakecase';
 import slugify from 'slugify';
 import { v4 } from 'uuid';
+
 import { CREATE_INTERNAL_FIELD, CREATE_KENNISARTIKEL, CREATE_VAC } from '../../queries';
 import type { CreateInternalField, CreateProduct, CreateVacResponse } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';

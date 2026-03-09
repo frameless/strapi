@@ -3,6 +3,7 @@ import type { RequestHandler } from 'express';
 import merge from 'lodash.merge';
 import snakeCase from 'lodash.snakecase';
 import slugify from 'slugify';
+
 import {
   GET_INTERNAL_FIELD_BY_UUID,
   GET_PRODUCT_BY_UUID,

@@ -7,7 +7,10 @@
   "license": "EUPL-1.2",
   "keywords": [],
   "scripts": {
-    "prebuild": "yarn clean && yarn generate-types",
+    "prebuild": "pnpm clean && pnpm generate-types",
+    "lint": "eslint --report-unused-disable-directives .",
+    "lint:fix": "eslint --fix .",
+    "lint-build": "tsc --noEmit --project tsconfig.json",
     "build": "npm-run-all --parallel build:*",
     "build:server": "tsc -p ./tsconfig.json",
     "build:openapi": "mkdir -p dist/src/docs && cp -R src/docs/* dist/src/docs/",
@@ -33,13 +36,14 @@
     "lodash.snakecase": "4.1.1",
     "lodash.memoize": "4.1.2",
     "react": "18.3.1",
-    "@utrecht/web-component-library-react": "3.0.0",
-    "@utrecht/component-library-react": "7.3.5",
-    "@frameless/ui": "0.1.2",
-    "@frameless/utils": "0.1.0",
+    "@utrecht/web-component-library-react": "4.0.1",
+    "@utrecht/component-library-react": "13.0.2",
+    "@frameless/ui": "workspace:*",
+    "@frameless/utils": "workspace:*",
     "dompurify": "3.2.1"
   },
   "devDependencies": {
+    "@frameless/eslint-config": "1.1.2",
     "@types/cors": "2.8.17",
     "@types/dompurify": "3.2.0",
     "@types/jest": "29.5.12",
@@ -65,5 +69,9 @@
     "type": "git+ssh",
     "url": "git@github.com:frameless/strapi.git",
     "directory": "apps/overige-objecten-api"
+  },
+  "engines": {
+    "node": "24.x.x",
+    "pnpm": "10.23.0"
   }
 }

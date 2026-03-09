@@ -1,5 +1,6 @@
 import fetchMock from 'jest-fetch-mock';
 import request from 'supertest';
+
 import {
   getStrapiKennisartikelData,
   getStrapiVacData,

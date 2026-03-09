@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+
 import { errorRenderer } from '../../client/errorRenderer';
 import { pageRenderer } from '../../client/pageRenderer';
 import { getObjectByUUID } from '../../service/object';

@@ -74,6 +74,7 @@
   padding-block: var(--utrecht-preview-layout-padding-block);
   padding-inline: var(--utrecht-preview-layout-padding-inline);
 }
+
 .utrecht-status-badge {
   margin-block-end: var(--utrecht-status-badge-margin-block-end, 24px);
 }

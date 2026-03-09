@@ -1,10 +1,12 @@
 import { Button, ButtonGroup } from '@utrecht/component-library-react';
 import React, { useState } from 'react';
 import { renderToString } from 'react-dom/server';
-import KennisartikelPage from './KennisartikelPage';
-import VacPage from './VacPage';
+
 import useCopyHTMLToClipboard from '../client/hooks/useCopyHTMLToClipboard';
 import { HTMLTemplate } from '../utils/HTMLTemplate';
+
+import KennisartikelPage from './KennisartikelPage';
+import VacPage from './VacPage';
 interface PreviewLayoutProps {
   status?: 'DRAFT' | 'PUBLISHED';
   children: React.ReactNode;

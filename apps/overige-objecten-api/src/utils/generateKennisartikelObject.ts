@@ -1,4 +1,8 @@
 import { addHeadingOncePerCategory } from '@frameless/utils';
+
+import type { Attributes } from '../strapi-product-type';
+import type { components } from '../types/openapi';
+
 import {
   combineSimilarCategories,
   createHTMLFiles,
@@ -9,8 +13,6 @@ import {
   normalizeCategories,
   processData,
 } from './index';
-import type { Attributes } from '../strapi-product-type';
-import type { components } from '../types/openapi';
 interface GenerateKennisartikelObjectTypes {
   attributes: Attributes;
   url: string;

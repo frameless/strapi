@@ -1,6 +1,8 @@
 import { renderToString } from 'react-dom/server';
-import { BasicLogoButton, LogoButtonItemType } from './convertLogoButtonToHTML';
+
 import { Markdown } from '../components/Markdown';
+
+import { BasicLogoButton, LogoButtonItemType } from './convertLogoButtonToHTML';
 interface convertSpotlightToHTMLProps {
   item: {
     content: string;

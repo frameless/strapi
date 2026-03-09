@@ -1,4 +1,5 @@
 import { fetchData } from '@frameless/utils';
+
 import { GET_PRODUCT_BY_UUID, GET_VAC_ITEM_BY_UUID } from '../queries';
 import type { Attributes, Section, StrapiProductType, VACSData } from '../strapi-product-type';
 import { KennisartikelObject, ObjectByUUID, VACObject } from '../types';
