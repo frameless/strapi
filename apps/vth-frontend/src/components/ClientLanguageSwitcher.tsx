@@ -3,10 +3,13 @@
 import { useQuery } from '@tanstack/react-query';
 import { useParams, usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import React from 'react';
+
+import { fallbackLng, languages } from '../app/i18n/settings';
+
+import { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
+
 import { createURL } from '@/util/create-url';
 import { fetchData } from '@/util/fetchData';
-import { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
-import { fallbackLng, languages } from '../app/i18n/settings';
 
 export interface Localizations {
   locale: string;

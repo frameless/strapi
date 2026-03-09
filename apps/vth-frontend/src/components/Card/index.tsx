@@ -4,12 +4,14 @@ import classnames from 'classnames/bind';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, HTMLAttributes } from 'react';
-import { Heading2, Paragraph } from '@/components';
+
 import styles from './index.module.scss';
+
+import { Heading2, Paragraph } from '@/components';
 
 const css = classnames.bind(styles);
 
-interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+interface CardProps extends Omit {
   title: string;
   description: string;
   image: {
@@ -21,7 +23,7 @@ interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   };
 }
 
-export const Card: FC<CardProps> = ({ description, title, image: { url = '', alt }, link: { href }, ...props }) => {
+export const Card: FC = ({ description, title, image: { url = '', alt }, link: { href }, ...props }) => {
   const linkRef = React.useRef<HTMLAnchorElement>(null);
 
   return (

@@ -5,6 +5,7 @@ import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
+
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
