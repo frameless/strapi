@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "declaration": true,
-    "module": "commonjs",
+    "module": "es2022",
     "outDir": "dist"
   },
   "include": ["src/**/*"],
