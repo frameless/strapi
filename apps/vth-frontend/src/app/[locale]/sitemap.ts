@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { cookies } from 'next/headers';
+
 import { GET_ALL_ARTICLES_SLUGS, GET_ALL_THEME_SLUGS, GET_NAVIGATION_PAGES } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';

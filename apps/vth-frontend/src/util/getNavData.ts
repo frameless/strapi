@@ -1,9 +1,11 @@
 'use server';
 
 import { NavigationListType } from '@frameless/ui';
-import { GET_NAVIGATION_DATA } from '@/query';
+
 import { createStrapiURL } from './createStrapiURL';
 import { fetchData } from './fetchData';
+
+import { GET_NAVIGATION_DATA } from '@/query';
 
 type NavAttributes = {
   attributes: {

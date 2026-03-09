@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import Script from 'next/script';
 import React from 'react';
+
 import { useTranslation } from '@/app/i18n';
 import { QueryClientProvider } from '@/client';
 import { Footer, FooterData, Page, PreviewAlert, Surface } from '@/components';

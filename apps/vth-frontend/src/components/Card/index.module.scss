@@ -3,6 +3,7 @@
   block-size: 100%;
   inline-size: 100%;
   min-block-size: 312px;
+
   &:not(:has(img)) {
     padding-block-start: var(--utrecht-heading-2-margin-block-start);
   }
