@@ -1,4 +1,5 @@
 import { Button, ButtonGroup, Heading, Paragraph } from '@utrecht/component-library-react';
+
 import { ErrorPageData } from '../types';
 
 interface ErrorPageProps extends ErrorPageData {}

@@ -1,5 +1,6 @@
-import { renderMarkdownToString } from './renderMarkdownToString';
 import type { Attributes, Price } from '../strapi-product-type';
+
+import { renderMarkdownToString } from './renderMarkdownToString';
 
 type Trefwoorden = {
   trefwoord: string;

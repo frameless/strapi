@@ -1,6 +1,7 @@
-/* eslint-disable no-undef */
-import type { RequestHandler } from 'express';
 import path from 'node:path';
+
+import type { RequestHandler } from 'express';
+
 import { readFile } from '../../utils';
 export const objecttypesController: RequestHandler = async (req, res, next) => {
   try {

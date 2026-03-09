@@ -1,6 +1,7 @@
 import { Markdown } from '@frameless/ui';
 import { Button, Heading } from '@utrecht/component-library-react';
 import { useState } from 'react';
+
 import { BaseObject, KennisartikelData } from '../types';
 
 interface KennisartikelPageProps {
