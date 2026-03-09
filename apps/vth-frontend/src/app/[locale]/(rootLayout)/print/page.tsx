@@ -8,9 +8,9 @@ import {
   RichText,
 } from '@utrecht/component-library-react';
 import React from 'react';
+
 import { useTranslation } from '@/app/i18n';
-import { AccordionProvider, Grid, GridCell, Markdown, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
-import { Page, PageContent } from '@/components';
+import { AccordionProvider, Grid, GridCell, Markdown, ScrollToTopButton, UtrechtIconChevronUp , Page, PageContent } from '@/components';
 import { PrintButton } from '@/components/PrintButton';
 import { GET_PRINT_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
