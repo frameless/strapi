@@ -7,7 +7,7 @@
   "license": "EUPL-1.2",
   "keywords": [],
   "scripts": {
-    "prebuild": "yarn clean",
+    "prebuild": "pnpm clean",
     "build": "npm-run-all --parallel build:*",
     "build:server": "tsc -p ./tsconfig.json",
     "watch": "tsc -p ./tsconfig.json  -w",
@@ -15,7 +15,10 @@
     "dev": "NODE_ENV=development nodemon src/server.ts",
     "clean": "rimraf dist src/types tmp",
     "test": "STRAPI_ADMIN_EXTENSIONS_PORT=3000 jest --coverage --forceExit --verbose",
-    "test:watch": "STRAPI_ADMIN_EXTENSIONS_PORT=3000 jest --watch"
+    "test:watch": "STRAPI_ADMIN_EXTENSIONS_PORT=3000 jest --watch",
+    "lint": "eslint --report-unused-disable-directives .",
+    "lint:fix": "eslint --fix .",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
     "cors": "2.8.5",
@@ -27,7 +30,7 @@
     "p-limit": "3.0.0",
     "morgan": "1.10.0",
     "js-yaml": "4.1.0",
-    "@frameless/utils": "0.1.0"
+    "@frameless/utils": "workspace:*"
   },
   "devDependencies": {
     "@types/cors": "2.8.17",

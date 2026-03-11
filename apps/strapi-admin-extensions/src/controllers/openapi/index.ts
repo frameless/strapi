@@ -1,8 +1,8 @@
-/* eslint-disable no-undef */
-import type { RequestHandler } from 'express';
-import yaml from 'js-yaml';
 import fs from 'node:fs';
 import path from 'node:path';
+
+import type { RequestHandler } from 'express';
+import yaml from 'js-yaml';
 
 export const openAPIController: RequestHandler = async (req, res, next) => {
   try {
