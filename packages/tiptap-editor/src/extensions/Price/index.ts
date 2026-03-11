@@ -1,5 +1,6 @@
 import { mergeAttributes, Node } from '@tiptap/core';
 import { ReactNodeViewRenderer } from '@tiptap/react';
+
 import Widget from './widget';
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {

@@ -1,5 +1,6 @@
 import type { Editor } from '@tiptap/core';
 import type { Node } from 'prosemirror-model';
+
 import { findClosestTable } from './findClosestTable';
 
 type CursorPositionHandlerParameters = {

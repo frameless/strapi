@@ -1,6 +1,7 @@
 import { BubbleMenu } from '@tiptap/react';
 import type { Editor as EditorTypes } from '@tiptap/react';
 import classnames from 'classnames/bind';
+
 import { TableMenuBar } from './Table';
 import style from './styles.module.scss';
 

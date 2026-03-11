@@ -1,6 +1,7 @@
 import { Select, SelectOption } from '@utrecht/component-library-react';
 import { useId } from 'react';
 import type { ChangeEventHandler } from 'react';
+
 import { Price } from '../../types';
 // import { getPriceValue } from '../../utils';
 

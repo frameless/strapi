@@ -3,6 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import resourcesToBackend from 'i18next-resources-to-backend';
 import { useEffect } from 'react';
 import { initReactI18next, useTranslation as useTranslationOrg } from 'react-i18next';
+
 import { getOptions } from './settings';
 
 i18next

@@ -1,4 +1,5 @@
 import { request } from '@strapi/helper-plugin';
+
 import defaultSettings from './defaults';
 
 export function getSettings() {
