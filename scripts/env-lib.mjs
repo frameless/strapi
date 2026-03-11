@@ -1,5 +1,5 @@
-const { str, port, makeValidator } = require('envalid');
-const validator = require('validator');
+import { str, port, makeValidator } from 'envalid';
+import validator from 'validator';
 
 /**
  * Escapes a string for use in a .env comment, properly handling multiline inputs.
@@ -207,5 +207,4 @@ const createSchemaFromSpec = (spec) => {
   }, {});
 };
 
-// eslint-disable-next-line no-undef
-module.exports = { formatEnvFile, validatorMap, isValue, validateEnvName, requiredValidator, createSchemaFromSpec };
+export { formatEnvFile, validatorMap, isValue, validateEnvName, requiredValidator, createSchemaFromSpec };
