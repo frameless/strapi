@@ -22,12 +22,13 @@
     "name": "@frameless"
   },
   "engines": {
-    "node": "20.x.x"
+    "node": ">=22.0.0 <25",
+    "pnpm": "10.23.0"
   },
   "license": "EUPL-1.2",
   "peerDependencies": {},
   "scripts": {
-    "prebuild": "yarn clean",
+    "prebuild": "pnpm clean",
     "build": "rollup --config rollup.config.ts --configPlugin typescript --bundleConfigAsCjs",
     "watch": "rollup --config rollup.config.ts --configPlugin typescript -w --bundleConfigAsCjs",
     "clean": "rimraf dist .rollup.cache dist",
