@@ -1,4 +1,5 @@
 import { Component, Element, Prop } from '@stencil/core';
+
 import Ed11y from '../../../lib/editoria11y.esm.mjs';
 
 @Component({

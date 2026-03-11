@@ -32,7 +32,7 @@ A StencilJS web component wrapper for [Editoria11y](https://github.com/itmaybejj
 1. **Install the packages:**
 
    ```bash
-   yarn add @frameless/editoria11y @frameless/ui
+   pnpm add @frameless/editoria11y @frameless/ui
    ```
 
 2. **Use the reusable component:**
@@ -86,7 +86,6 @@ This package was created using the original Editoria11y source with automated mo
    ```
 
 2. **Add ESM build support:**
-
    - Copy `frameless/packages/lib/build-esm-script.mjs` to `scripts/build-esm-script.mjs`
    - Add to package.json: `"build:esm": "node scripts/build-esm-script.mjs"`
    - The script automatically handles:
@@ -106,7 +105,7 @@ This package was created using the original Editoria11y source with automated mo
 4. **Build the wrapper component:**
 
    ```bash
-   yarn build
+   pnpm build
    ```
 
 ## Why This Approach?
@@ -126,11 +125,11 @@ To test the build you can check the `src/index.html` example
 
 ```bash
 # Build the component
-yarn build
+pnpm build
 
 # Start development server
-yarn start
+pnpm start
 
 # Run tests
-yarn test
+pnpm test
 ```
