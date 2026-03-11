@@ -56,21 +56,21 @@ Then, follow these steps:
 1. Build the project:
 
    ```shell
-   yarn build
+   pnpm build
 
    ```
 
 2. Start the PDC-dashboard server:
 
    ```shell
-   yarn workspace @frameless/pdc-dashboard dev
+   pnpm --filter @frameless/pdc-dashboard dev
 
    ```
 
 3. Start the overige-objecten-api server:
 
    ```shell
-   yarn workspace @frameless/overige-objecten-api dev
+   pnpm --filter @frameless/overige-objecten-api dev
 
    ```
 
