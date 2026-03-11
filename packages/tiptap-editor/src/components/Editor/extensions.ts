@@ -27,6 +27,7 @@ import UnderlineExtension from '@tiptap/extension-underline';
 import YouTubeExtension from '@tiptap/extension-youtube';
 import { Extensions } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+
 import CustomTable from '../../extensions/CustomTable';
 import { Figcaption } from '../../extensions/Figcaption';
 import { Figure } from '../../extensions/Figure';

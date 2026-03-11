@@ -7,17 +7,19 @@
 import { DesignSystemProvider } from '@strapi/design-system';
 import { Box, Field, FieldLabel, Stack, Typography } from '@strapi/design-system';
 import { EditorContent, useEditor } from '@tiptap/react';
-import { extensions } from './extensions';
+import { useEffect } from 'react';
+
 import PriceState from '../../context/price/state';
 import defaultSettings from '../../utils/defaults';
 import { BubbleMenuComponent } from '../BubbleMenu';
 import { Toolbar } from '../Toolbar';
 
+import { extensions } from './extensions';
+
 import '@utrecht/component-library-css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/design-tokens/dist/index.css';
 import '../../styles/global.scss';
-import { useEffect } from 'react';
 interface WysiwygProps {
   name: string;
   // eslint-disable-next-line no-unused-vars

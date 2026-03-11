@@ -1,8 +1,10 @@
 import { Button, Dialog, DialogBody, DialogFooter, Stack, TextInput } from '@strapi/design-system';
 import type { ChangeEvent } from 'react';
 import { TbBrandYoutube } from 'react-icons/tb';
-import { ToolbarItem } from './ToolbarItem';
+
 import type { InputType } from '../../types';
+
+import { ToolbarItem } from './ToolbarItem';
 
 type ButtonType = {
   label: string;

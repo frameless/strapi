@@ -1,5 +1,6 @@
 import Table from '@tiptap/extension-table';
 import { ReactNodeViewRenderer } from '@tiptap/react';
+
 import { TableWidget } from '../../components/TableWidget';
 
 const CustomTable = Table.extend({

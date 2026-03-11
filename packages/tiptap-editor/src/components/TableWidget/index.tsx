@@ -4,6 +4,7 @@ import { Button } from '@utrecht/component-library-react';
 import './styles.css';
 import classnames from 'classnames';
 import { TbArrowBack } from 'react-icons/tb';
+
 import { cursorPositionHandler } from '../../utils/cursorPositionHandler';
 
 interface TableWidgetProps {

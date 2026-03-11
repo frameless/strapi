@@ -1,5 +1,6 @@
-import { formatCurrency } from './formateCurrency';
 import type { Price } from '../types';
+
+import { formatCurrency } from './formateCurrency';
 
 interface GetPriceValueProps extends Pick<Price, 'value' | 'currency'> {
   freeProduct: string;

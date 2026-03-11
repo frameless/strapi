@@ -1,6 +1,7 @@
 import { Button, Dialog, DialogBody, DialogFooter, Field, FieldLabel, Stack, Textarea } from '@strapi/design-system';
 import type { ChangeEvent } from 'react';
 import { TbPhotoUp } from 'react-icons/tb';
+
 import { ToolbarItem } from './ToolbarItem';
 
 type TextareaTypes = {
@@ -20,7 +21,7 @@ type ButtonType = {
 };
 
 interface ImageBase64ToolbarProps {
-  // eslint-disable-next-line no-unused-vars
+   
   onClick: () => void;
   label: string;
   isActive: boolean;

@@ -9,9 +9,11 @@ import {
   // TbLetterX
 } from 'react-icons/tb';
 import slugify from 'slugify';
+
+import type { InputType } from '../../types';
+
 import { ToolbarItem } from './ToolbarItem';
 import styles from './styles.module.scss';
-import type { InputType } from '../../types';
 
 const css = classnames.bind(styles);
 
