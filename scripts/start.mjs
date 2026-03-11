@@ -1,9 +1,12 @@
-/* eslint-disable no-console */
 /* eslint-disable no-undef */
-const { exec } = require('child_process');
-const { prompt } = require('enquirer');
-const fs = require('fs');
-const path = require('path');
+import { exec } from 'child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import enquirer from 'enquirer';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Available projects and their configurations
 const projects = {
@@ -13,7 +16,10 @@ const projects = {
 
 // Utility: Run a command with streaming output
 function runCommand(command) {
-  const child = exec(command, { cwd: path.resolve(__dirname, '..'), shell: true });
+  const child = exec(command, {
+    cwd: path.resolve(__dirname, '..'),
+    shell: true,
+  });
   child.stdout.pipe(process.stdout);
   child.stderr.pipe(process.stderr);
 
@@ -47,21 +53,21 @@ function copyEnvFile(envFile) {
 
 // Docker workflow
 const runDocker = async () => {
-  const { project } = await prompt({
+  const { project } = await enquirer.prompt({
     type: 'select',
     name: 'project',
     message: 'Select Project:',
     choices: Object.keys(projects),
   });
 
-  const { environment } = await prompt({
+  const { environment } = await enquirer.prompt({
     type: 'select',
     name: 'environment',
     message: 'Select Environment:',
     choices: ['dev', 'prod'],
   });
 
-  const { action } = await prompt({
+  const { action } = await enquirer.prompt({
     type: 'select',
     name: 'action',
     message: 'Select Action:',
@@ -93,7 +99,7 @@ const runWorkspace = async (mode) => {
     'both (dashboard + frontend)',
   ];
 
-  const { app } = await prompt({
+  const { app } = await enquirer.prompt({
     type: 'select',
     name: 'app',
     message: 'Select App:',
@@ -101,7 +107,7 @@ const runWorkspace = async (mode) => {
   });
 
   if (app === 'both (dashboard + frontend)') {
-    const { project } = await prompt({
+    const { project } = await enquirer.prompt({
       type: 'select',
       name: 'project',
       message: 'Select Project:',
@@ -109,19 +115,17 @@ const runWorkspace = async (mode) => {
     });
 
     console.log(`🚀 Starting both ${project}-dashboard and ${project}-frontend in ${mode} mode...`);
-    runCommand(
-      `concurrently "yarn workspace @frameless/${project}-dashboard ${mode}" "yarn workspace @frameless/${project}-frontend ${mode}"`,
-    );
+    runCommand(`pnpm --filter @frameless/${project}-dashboard --filter @frameless/${project}-frontend ${mode}`);
   } else {
     console.log(`🚀 Starting ${app} in ${mode} mode...`);
-    runCommand(`yarn workspace @frameless/${app} ${mode}`);
+    runCommand(`pnpm --filter @frameless/${app} ${mode}`);
   }
 };
 
 // Entry point
 const runOption = async () => {
   try {
-    const { option } = await prompt({
+    const { option } = await enquirer.prompt({
       type: 'select',
       name: 'option',
       message: 'Select an option:',
