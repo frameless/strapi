@@ -3,9 +3,11 @@ import { NodeViewWrapper } from '@tiptap/react';
 import classnames from 'classnames/bind';
 import { forwardRef, useContext } from 'react';
 import type { ForwardedRef, PropsWithChildren } from 'react';
-import styles from './index.module.scss';
+
 import priceContext from '../../context/price/context';
 import { formatCurrency, isFreeProduct } from '../../utils';
+
+import styles from './index.module.scss';
 
 const css = classnames.bind(styles);
 

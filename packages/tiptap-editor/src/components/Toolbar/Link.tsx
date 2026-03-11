@@ -2,10 +2,12 @@ import { FormField, FormFieldDescription, FormLabel, Paragraph, Textbox } from '
 import classnames from 'classnames/bind';
 import { type RefObject, useId } from 'react';
 import { TbLink } from 'react-icons/tb';
-import { ToolbarItem } from './ToolbarItem';
-import styles from './styles.module.scss';
+
 import type { InputType } from '../../types';
 import { Dialog } from '../Dialog';
+
+import { ToolbarItem } from './ToolbarItem';
+import styles from './styles.module.scss';
 
 const css = classnames.bind(styles);
 type ButtonType = {
@@ -15,7 +17,7 @@ type ButtonType = {
 };
 
 interface LinkToolbarProps {
-  // eslint-disable-next-line no-unused-vars
+   
   onClick: () => void;
   label: string;
   isActive: boolean;

@@ -24,10 +24,7 @@ import {
   TbTextCaption,
   TbUnderline,
 } from 'react-icons/tb';
-import { copyToClipboard, createAnchorLink, ToolbarItemHeadingWithID } from './HeadingWithID';
-import { PriceToolbarItem } from './Price';
-import { ToolbarItem } from './ToolbarItem';
-import styles from './styles.module.scss';
+
 import priceContext from '../../context/price/context';
 import initialTableWithCaption from '../../extensions/schema/initialTableWithCaptionData';
 import { useLink } from '../../hooks/useLink';
@@ -39,6 +36,11 @@ import { LanguageToolbar } from '../Toolbar/Language';
 import { LinkToolbar } from '../Toolbar/Link';
 import { TextStyleToolbar } from '../Toolbar/TextStyleToolbar';
 import { YoutubeToolbar } from '../Toolbar/Youtube';
+
+import styles from './styles.module.scss';
+import { ToolbarItem } from './ToolbarItem';
+import { PriceToolbarItem } from './Price';
+import { copyToClipboard, createAnchorLink, ToolbarItemHeadingWithID } from './HeadingWithID';
 
 const css = classnames.bind(styles);
 interface ToolbarProps {

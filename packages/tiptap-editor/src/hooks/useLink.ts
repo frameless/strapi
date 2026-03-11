@@ -1,6 +1,7 @@
 import { useDialog } from '@frameless/ui';
 import type { Editor as EditorTypes } from '@tiptap/react';
 import { type RefObject, useReducer } from 'react';
+
 import { isValidURL } from '../utils/helpers';
 
 // Define ActionTypes enum

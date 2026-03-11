@@ -2,6 +2,7 @@ import Tippy from '@tippyjs/react';
 import { Button, ButtonProps } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
 import { ForwardedRef, forwardRef, type ReactNode } from 'react';
+
 import styles from './styles.module.scss';
 
 const css = classnames.bind(styles);

@@ -1,4 +1,5 @@
 import i18nLanguages from '@cospired/i18n-iso-languages';
+
 import { LanguagesType } from '../types';
 i18nLanguages.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
 i18nLanguages.registerLocale(require('@cospired/i18n-iso-languages/langs/nl.json'));

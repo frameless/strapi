@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { TbBold } from 'react-icons/tb';
+
 import { ToolbarItem } from './ToolbarItem';
 
 describe('ToolbarItem', () => {

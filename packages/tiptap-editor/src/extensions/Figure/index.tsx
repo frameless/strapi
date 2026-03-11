@@ -1,6 +1,7 @@
 import { mergeAttributes, Node } from '@tiptap/core';
 import { Plugin } from '@tiptap/pm/state';
 import { ReactNodeViewRenderer } from '@tiptap/react';
+
 import { TableWidget } from '../../components/TableWidget';
 export const Figure = Node.create({
   name: 'figure',
