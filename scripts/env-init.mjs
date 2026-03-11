@@ -1,17 +1,19 @@
-/* eslint-disable no-console */
-const { randomBytes } = require('crypto');
-const { config } = require('dotenv');
-const { writeFile, unlink } = require('node:fs/promises');
-const fs = require('node:fs');
-const { formatEnvFile, isValue, validateEnvName } = require('./env-lib');
-const { spec } = require('../.envrc.json');
+/* eslint-disable no-undef */
+import { randomBytes } from 'crypto';
+import { writeFile, unlink, readFile } from 'node:fs/promises';
+import fs from 'node:fs';
+import { config } from 'dotenv';
 
+import { formatEnvFile, isValue, validateEnvName } from './env-lib.mjs';
+
+const fileUrl = new URL('../.envrc.json', import.meta.url);
+const envrc = JSON.parse(await readFile(fileUrl, 'utf8'));
 const createBase64Secret = () => randomBytes(48).toString('base64');
 const init = async () => {
   const { parsed: env = {} } = config();
   const filePath = './.env';
   const defaults = Object.fromEntries(
-    spec
+    envrc.spec
       .filter(({ required, developmentDefault }) => required || isValue(developmentDefault))
       .filter(({ name }) => {
         validateEnvName(name);
@@ -28,7 +30,7 @@ const init = async () => {
       })
       .filter(([, value]) => isValue(value)),
   );
-  const content = formatEnvFile({ ...env, ...defaults }, spec);
+  const content = formatEnvFile({ ...env, ...defaults }, envrc.spec);
 
   try {
     // Check if file exists before trying to delete
