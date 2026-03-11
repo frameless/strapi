@@ -1,7 +1,10 @@
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
-const fs = require('node:fs');
-const path = require('node:path');
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+// Get current file path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load .envsrc.json relative to this script
 const envJsonPath = path.resolve(__dirname, '..', '.envrc.json');
@@ -40,4 +43,5 @@ outputPaths.forEach((filePath) => {
   fs.writeFileSync(filePath, output, 'utf8');
 });
 
+// eslint-disable-next-line no-undef
 console.log('✅ Environment variables table generated successfully.');
