@@ -24,8 +24,8 @@
   "license": "EUPL-1.2",
   "dependencies": {
     "@cospired/i18n-iso-languages": "4.2.0",
-    "@frameless/ui": "0.1.2",
-    "@strapi/design-system": "1.12.2",
+    "@frameless/ui": "workspace:*",
+    "@strapi/design-system": "2.2.0",
     "@strapi/helper-plugin": "4.14.6",
     "@strapi/icons": "1.12.2",
     "@tippyjs/react": "4.2.6",
@@ -110,10 +110,11 @@
     "@strapi/strapi": ">=4.0.0"
   },
   "engines": {
-    "node": "20.x.x"
+    "node": ">=22.0.0 <25",
+    "pnpm": "10.23.0"
   },
   "scripts": {
-    "prebuild": "yarn clean",
+    "prebuild": "pnpm clean",
     "build": "rollup --config rollup.config.ts --configPlugin typescript --bundleConfigAsCjs",
     "watch": "rollup --config rollup.config.ts --configPlugin typescript -w --bundleConfigAsCjs",
     "clean": "rimraf dist .rollup.cache",

@@ -24,6 +24,7 @@
 
   figcaption {
     border: 2px dashed #32324d;
+    break-after: avoid;
     break-inside: avoid;
     color: var(--utrecht-table-caption-color);
     font-family: var(--utrecht-table-caption-font-family);
@@ -33,7 +34,6 @@
     margin-block-end: var(--utrecht-table-caption-margin-block-end);
     padding-block: 0.5rem;
     padding-inline: 1rem;
-    page-break-after: avoid;
     text-align: var(--utrecht-table-caption-text-align, center);
   }
 

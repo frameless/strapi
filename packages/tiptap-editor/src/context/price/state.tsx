@@ -1,7 +1,9 @@
 import { useReducer } from 'react';
+
+import { GET_PRICE_PRODUCT } from '../types';
+
 import Context from './context';
 import Reducer from './reducer';
-import { GET_PRICE_PRODUCT } from '../types';
 
 const State = (props: any) => {
   const initialState = {

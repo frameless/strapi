@@ -1,4 +1,5 @@
 import i18nLanguages from '@cospired/i18n-iso-languages';
+
 import type { Price } from '../types';
 // import { auth } from '@strapi/helper-plugin';
 i18nLanguages.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
