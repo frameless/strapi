@@ -1,4 +1,5 @@
 import express from 'express';
+
 import { openAPIController } from '../../controllers';
 
 const router = express.Router({ mergeParams: true });

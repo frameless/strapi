@@ -1,6 +1,8 @@
-import csvParser from 'csv-parser';
 import fs from 'node:fs';
+
+import csvParser from 'csv-parser';
 import { v4 } from 'uuid';
+
 import { sanitizeHTML } from './sanitizeHTML';
 
 export type Vac = { vac: { vraag: string; antwoord: { content: string }; doelgroep: string | null; uuid: string } };
