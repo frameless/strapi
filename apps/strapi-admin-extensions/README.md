@@ -18,7 +18,7 @@ This project contains custom extensions for the Strapi admin panel. It depends o
    Make sure you are in the project root:
 
    ```bash
-   yarn install
+   pnpm install
    ```
 
 ## Usage
@@ -26,7 +26,7 @@ This project contains custom extensions for the Strapi admin panel. It depends o
 1. Ensure the `pdc-dashboard` app is running:
 
    ```bash
-   yarn workspace @frameless/pdc-dashboard dev
+   pnpm --filter @frameless/pdc-dashboard dev
    ```
 
 2. Copy the environment configuration file to the `strapi-admin-extensions` folder:
@@ -38,7 +38,7 @@ This project contains custom extensions for the Strapi admin panel. It depends o
 3. Run the development server for `strapi-admin-extensions`:
 
    ```bash
-   yarn workspace @frameless/strapi-admin-extensions dev
+   pnpm --filter @frameless/strapi-admin-extensions dev
    ```
 
 ## Contributing
