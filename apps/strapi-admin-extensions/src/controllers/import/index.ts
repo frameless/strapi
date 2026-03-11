@@ -1,7 +1,9 @@
+import fs from 'node:fs';
+
 import { fetchData } from '@frameless/utils';
 import type { NextFunction, Request, Response } from 'express';
-import fs from 'node:fs';
 import pLimit from 'p-limit';
+
 import { CreateVacResponse } from '../../strapi-product-types';
 import { processCsvFile } from '../../utils';
 
