@@ -18,7 +18,8 @@
     },
     "body": {
       "pluginOptions": {},
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor"
     }
   }
 }
