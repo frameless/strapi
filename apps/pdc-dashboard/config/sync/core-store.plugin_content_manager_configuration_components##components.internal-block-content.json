@@ -6,7 +6,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
+      "mainField": "documentId",
       "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
@@ -33,10 +33,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "internal_field"],
+      "list": ["id", "internal_field", "documentId"],
       "edit": [
         [
           {

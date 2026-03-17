@@ -6,7 +6,8 @@
   "options": {},
   "attributes": {
     "content": {
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor"
     },
     "kennisartikelCategorie": {
       "type": "enumeration",

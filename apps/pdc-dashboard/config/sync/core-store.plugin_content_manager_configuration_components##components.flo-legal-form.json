@@ -32,10 +32,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "floLegalFormSelector"],
+      "list": ["id", "floLegalFormSelector", "documentId"],
       "edit": [
         [
           {

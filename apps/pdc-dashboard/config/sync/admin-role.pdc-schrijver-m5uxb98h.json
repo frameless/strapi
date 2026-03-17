@@ -2,6 +2,8 @@
   "name": "PDC Redacteur",
   "code": "pdc-schrijver-m5uxb98h",
   "description": "PDC Redacteur kan producten volledig bewerken en aanvullende en interne informatie zien. Geen toegang tot gebruikers wel LUP rechten op Enkele Types.",
+  "documentId": "luz9hs86hltj4rcfxqrszkql",
+  "locale": null,
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.read",
@@ -17,7 +19,9 @@
           "product"
         ]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "zj329d0qhe9vkrm9tycodi8i",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -26,21 +30,27 @@
       "properties": {
         "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "fbcaw27ugzul5ip4yf7n10gh",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::contact-information-internal.contact-information-internal",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "s3ubid2oba0bark037xr2xd6",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
       "subject": "api::contact-information-internal.contact-information-internal",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "f3lvmgwipvkd6fnujs3ctzop",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -49,7 +59,9 @@
       "properties": {
         "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "wpnyj6cgp9x47v5jn90lycti",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -58,7 +70,9 @@
       "properties": {
         "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "sl21aq686b8qa84nc45mhrfz",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -67,21 +81,27 @@
       "properties": {
         "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "m8dydvln3ejhwlqzcgc4s0kt",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::contact-information-public.contact-information-public",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "gmy87qq1aq57qo0nvodx6z2b",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
       "subject": "api::contact-information-public.contact-information-public",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "kh1gf8bix3k9gxact6lxgnq2",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -90,7 +110,9 @@
       "properties": {
         "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "uc5mts3tef8o4a8lj7vdyqzt",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -99,7 +121,9 @@
       "properties": {
         "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "f28wuxyn8t0923qv1620kjru",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -118,7 +142,9 @@
           "contact_information_internal"
         ]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "ek66z449jg2qpwtfqevc6o6r",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -127,7 +153,9 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "s1l4o59a4f9a545hhmffez6z",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -137,7 +165,9 @@
         "fields": ["title", "body"],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "azjv7j48e179gq0sy3a33201",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -147,7 +177,9 @@
         "fields": ["title", "body"],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "fnn97prxmcbfahrqg75z60ml",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -156,21 +188,27 @@
       "properties": {
         "fields": ["title", "pdc_subcategories"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "ccgdiedeyb5wk5y7507smge5",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::pdc-category.pdc-category",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "p9sivsyjdgdte61h0mh4xum6",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
       "subject": "api::pdc-category.pdc-category",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "kmbxzadi2mrsp60pll3qw3to",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -179,7 +217,9 @@
       "properties": {
         "fields": ["title", "pdc_subcategories"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "sx8shs0vev3gahke8gjlnz2i",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -188,7 +228,9 @@
       "properties": {
         "fields": ["title", "pdc_subcategories"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "n21gblbx6fqtfyexwszagqnd",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -197,7 +239,9 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "wjdk5302rc3iwxz1f247uwp8",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -207,7 +251,9 @@
         "fields": ["components"],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "yz274no407tjgcs8hqzwe7t1",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -217,7 +263,9 @@
         "fields": ["components"],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "j71iu6e9wqj3ftce2tiwso2m",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -226,21 +274,27 @@
       "properties": {
         "fields": ["title", "pdc_category", "products"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "wmpsrso53hbvq40v7z3e447e",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "gacgalmmi4johsi04jiayjk5",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
       "subject": "api::pdc-subcategory.pdc-subcategory",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "ef6ulxpa8niyv999uelkhjl2",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -249,7 +303,9 @@
       "properties": {
         "fields": ["title", "pdc_category", "products", "vacs"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "gjam37rx4buu7fs61x880xrf",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -258,7 +314,9 @@
       "properties": {
         "fields": ["title", "pdc_category", "products"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "et1nnk2q0gox4hyg4zuo5fp3",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -267,21 +325,27 @@
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "lavvg8yygimteezaij9cmk50",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
       "actionParameters": {},
       "subject": "api::price.price",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "wxhgxif1gbrmj45xh2o8uf4x",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
       "actionParameters": {},
       "subject": "api::price.price",
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "ia4yndnd9zs1hxihmig4knyd",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -290,7 +354,9 @@
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "g3tovi798oljnjgzk6ej09wy",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -299,7 +365,9 @@
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "l8jkgiqwz4tsq1ezwd3z9eb7",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.create",
@@ -369,7 +437,9 @@
         ],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "efhsm2bby5peka6ogps5w0zd",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
@@ -378,7 +448,9 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "nr12xgdlz9yeyoavgxpq5iur",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -387,7 +459,9 @@
       "properties": {
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "fsc602px0heo7vwe38y66ird",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -458,7 +532,9 @@
         ],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "vx5rlytpg8c21ejxupc8bj3z",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -528,7 +604,9 @@
         ],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "iz47s1cawamjxsjm3dj0dhzt",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -557,7 +635,9 @@
           "contact_information_internal"
         ]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "pj3labztp3itvkw0qmzyzh07",
+      "locale": null
     }
   ]
 }

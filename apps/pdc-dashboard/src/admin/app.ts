@@ -1,5 +1,5 @@
-const UtrechtFavicon = require('./extensions/favicon.ico');
-const UtrechtLogo = require('./extensions/logo.svg');
+import UtrechtFavicon from './extensions/favicon.ico';
+import UtrechtLogo from './extensions/logo.svg';
 
 const config = {
   locales: ['nl'],
@@ -20,6 +20,7 @@ const config = {
   },
   translations: {
     en: {
+      'preview-button.button.pagePreview': 'Kiss Preview',
       'app.components.HomePage.welcome': 'Welcome to the Utrecht PDC dashboard 👋',
       'primary-action-button': 'Primary',
       'secondary-action-button': 'Secondary',
@@ -58,6 +59,7 @@ const config = {
       'content-manager.components.empty-repeatable': 'Nog geen items. Klik op de + om iets toe te voegen.',
       'content-manager.relation.publicationState.published': 'Gepubliceerd',
       'content-manager.relation.publicationState.draft': 'Concept',
+      'preview-button.button.pagePreview': 'Kiss-voorbeeld',
       'Not Found Page': 'Pagina niet gevonden',
       'primary-action-button': 'Inwoners (blauw)',
       'secondary-action-button': 'Aanvullende knop (wit)',
