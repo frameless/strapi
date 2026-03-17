@@ -37,7 +37,6 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { locale, articleSlug } }: Params): Promise<Metadata> {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_ARTICLE_BY_SLUG,
@@ -50,6 +49,7 @@ export async function generateMetadata({ params: { locale, articleSlug } }: Para
 }
 
 const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
