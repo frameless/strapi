@@ -1,1 +1,0 @@
-# Strapi TipTap Editor
