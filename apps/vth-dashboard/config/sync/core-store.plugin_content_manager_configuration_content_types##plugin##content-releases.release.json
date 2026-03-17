@@ -1,14 +1,13 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::plugin::slugify.slug",
+  "key": "plugin_content_manager_configuration_content_types::plugin::content-releases.release",
   "value": {
-    "uid": "plugin::slugify.slug",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
-      "defaultSortBy": "id",
+      "mainField": "name",
+      "defaultSortBy": "name",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,32 +19,89 @@
           "sortable": true
         }
       },
-      "slug": {
+      "name": {
         "edit": {
-          "label": "slug",
+          "label": "name",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "slug",
+          "label": "name",
           "searchable": true,
           "sortable": true
         }
       },
-      "count": {
+      "releasedAt": {
         "edit": {
-          "label": "count",
+          "label": "releasedAt",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "count",
+          "label": "releasedAt",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "scheduledAt": {
+        "edit": {
+          "label": "scheduledAt",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "scheduledAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "timezone": {
+        "edit": {
+          "label": "timezone",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "timezone",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "status": {
+        "edit": {
+          "label": "status",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "status",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "actions": {
+        "edit": {
+          "label": "actions",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "contentType"
+        },
+        "list": {
+          "label": "actions",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -105,23 +161,52 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "slug", "count", "createdAt"],
+      "list": ["id", "name", "releasedAt", "scheduledAt"],
       "edit": [
         [
           {
-            "name": "slug",
+            "name": "name",
             "size": 6
           },
           {
-            "name": "count",
-            "size": 4
+            "name": "releasedAt",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "scheduledAt",
+            "size": 6
+          },
+          {
+            "name": "timezone",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "status",
+            "size": 6
+          },
+          {
+            "name": "actions",
+            "size": 6
           }
         ]
       ]
-    }
+    },
+    "uid": "plugin::content-releases.release"
   },
   "type": "object",
   "environment": null,

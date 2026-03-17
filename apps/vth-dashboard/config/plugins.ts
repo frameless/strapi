@@ -1,5 +1,3 @@
-const { apolloPrometheusPlugin } = require('strapi-prometheus');
-
 export default ({ env }) => {
   const isProd = env('NODE_ENV') === 'production';
   return {
@@ -9,72 +7,20 @@ export default ({ env }) => {
         env_label: env('STRAPI_ENV_LABEL'),
       },
     },
-    'preview-button': {
+    prometheus: {
       enabled: true,
       config: {
-        contentTypes: [
-          {
-            uid: 'api::homepage.homepage',
-            query: {
-              type: 'Homepage',
-            },
-          },
-          {
-            uid: 'api::navigation-page.navigation-page',
-            query: {
-              type: 'Hoofditem',
-            },
-          },
-          {
-            uid: 'api::article-page.article-page',
-            query: {
-              type: 'ThemaContent',
-            },
-          },
-          {
-            uid: 'api::theme-page.theme-page',
-            query: {
-              type: 'Thema',
-            },
-          },
+        collectDefaultMetrics: false,
+        server: {
+          port: parseInt(env('METRICS_PORT', '9001'), 10),
+          host: '0.0.0.0',
+          path: '/metrics',
+        },
+
+        normalize: [
+          [/\/(?:[a-z0-9]{24,25}|\d+)(?=\/|$)/, '/:id'],
+          [/\/uploads\/[^\\/]+\.[a-zA-Z0-9]+/, '/uploads/:file'],
         ],
-        domain: env('FRONTEND_PUBLIC_URL'),
-        token: env('PREVIEW_SECRET_TOKEN'),
-      },
-    },
-    'strapi-tiptap-editor': {
-      enabled: true,
-    },
-    'strapi-prometheus': {
-      enabled: true,
-      graphql: {
-        enabled: true,
-        config: {
-          apolloServer: {
-            plugins: [apolloPrometheusPlugin], // add the plugin to get apollo metrics
-            tracing: true, // this must be true to get some of the data needed to create the metrics
-          },
-        },
-      },
-    },
-    slugify: {
-      enabled: true,
-      config: {
-        shouldUpdateSlug: true,
-        contentTypes: {
-          'navigation-page': {
-            field: 'slug',
-            references: 'title',
-          },
-          'theme-page': {
-            field: 'slug',
-            references: 'title',
-          },
-          'article-page': {
-            field: 'slug',
-            references: 'title',
-          },
-        },
       },
     },
     upload: {
@@ -85,9 +31,6 @@ export default ({ env }) => {
           },
         },
       },
-    },
-    'import-export-entries': {
-      enabled: true,
     },
     publisher: {
       enabled: true,
