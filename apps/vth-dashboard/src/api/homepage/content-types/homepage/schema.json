@@ -14,19 +14,20 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
-      "default": "Toezicht en Handhaving"
+      "default": "Toezicht en Handhaving",
+      "required": true
     },
     "content": {
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor"
     },
     "description": {
       "type": "text"
     },
     "bannerImage": {
-      "allowedTypes": ["images"],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "allowedTypes": ["images"]
     }
   }
 }

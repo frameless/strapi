@@ -2,57 +2,88 @@
   "name": "Public",
   "description": "Default role given to unauthenticated user.",
   "type": "public",
+  "documentId": "c060ytx8icz7b8vnyf89gxai",
+  "locale": null,
   "permissions": [
     {
-      "action": "api::article-page.article-page.find"
+      "action": "api::article-page.article-page.find",
+      "documentId": "i23heofot51umf31r2r6dapu",
+      "locale": null
     },
     {
-      "action": "api::article-page.article-page.findOne"
+      "action": "api::article-page.article-page.findOne",
+      "documentId": "l7pelop2pdpzlqfxp3k5d2y2",
+      "locale": null
     },
     {
-      "action": "api::homepage.homepage.find"
+      "action": "api::homepage.homepage.find",
+      "documentId": "jfyubdvnho041vh5c275ye8m",
+      "locale": null
     },
     {
-      "action": "api::navigation-page.navigation-page.find"
+      "action": "api::navigation-page.navigation-page.find",
+      "documentId": "vii3o063hvtk8s9c3i4rn7jp",
+      "locale": null
     },
     {
-      "action": "api::navigation-page.navigation-page.findOne"
+      "action": "api::navigation-page.navigation-page.findOne",
+      "documentId": "xt1m3ar53l3df1wb8p2248ki",
+      "locale": null
     },
     {
-      "action": "api::not-found-page.not-found-page.find"
+      "action": "api::not-found-page.not-found-page.find",
+      "documentId": "urw6dxblrbio5op4dic9qumv",
+      "locale": null
     },
     {
-      "action": "api::print-page.print-page.find"
+      "action": "api::print-page.print-page.find",
+      "documentId": "od38q1i3w4exzhlexid7ee8j",
+      "locale": null
     },
     {
-      "action": "api::theme-page.theme-page.find"
+      "action": "api::theme-page.theme-page.find",
+      "documentId": "da7c8u64fy7g73nzqm9umvdg",
+      "locale": null
     },
     {
-      "action": "api::theme-page.theme-page.findOne"
+      "action": "api::theme-page.theme-page.findOne",
+      "documentId": "qali3tq6b0fkr2h7bs6gaty2",
+      "locale": null
     },
     {
-      "action": "plugin::slugify.slugController.findSlug"
+      "action": "plugin::users-permissions.auth.callback",
+      "documentId": "yz47da3vkaroydf1ipvckrxj",
+      "locale": null
     },
     {
-      "action": "plugin::users-permissions.auth.callback"
+      "action": "plugin::users-permissions.auth.connect",
+      "documentId": "v5hxlr093x19cgjea19ttkzl",
+      "locale": null
     },
     {
-      "action": "plugin::users-permissions.auth.connect"
+      "action": "plugin::users-permissions.auth.emailConfirmation",
+      "documentId": "aqr9jwqd013r52geqwqghyuc",
+      "locale": null
     },
     {
-      "action": "plugin::users-permissions.auth.emailConfirmation"
+      "action": "plugin::users-permissions.auth.forgotPassword",
+      "documentId": "ch3ztq843n92k5wgdo1p9g3u",
+      "locale": null
     },
     {
-      "action": "plugin::users-permissions.auth.forgotPassword"
+      "action": "plugin::users-permissions.auth.register",
+      "documentId": "hcwambbuy2yrx6ng1ys73270",
+      "locale": null
     },
     {
-      "action": "plugin::users-permissions.auth.register"
+      "action": "plugin::users-permissions.auth.resetPassword",
+      "documentId": "syqloqv7u0brqxfx9zxza066",
+      "locale": null
     },
     {
-      "action": "plugin::users-permissions.auth.resetPassword"
-    },
-    {
-      "action": "plugin::users-permissions.auth.sendEmailConfirmation"
+      "action": "plugin::users-permissions.auth.sendEmailConfirmation",
+      "documentId": "ob3bf9lzdcv0dpucgtbabesw",
+      "locale": null
     }
   ]
 }

@@ -9,7 +9,8 @@
       "pageSize": 50,
       "mainField": "title",
       "defaultSortBy": "title",
-      "defaultSortOrder": "ASC"
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
     },
     "metadatas": {
       "id": {
@@ -37,7 +38,7 @@
       "slug": {
         "edit": {
           "label": "URL segment",
-          "description": "Leeg laten om automatisch in te vullen.",
+          "description": "Slug wordt automatisch gegenereerd op basis van de titel. Bij een nieuwe of aangepaste titel klik je op het update-icoon (ronde ververs-pijl) om de slug te genereren of bij te werken.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -174,6 +175,14 @@
         },
         "list": {
           "label": "updatedBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
           "searchable": true,
           "sortable": true
         }

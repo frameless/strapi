@@ -2,6 +2,8 @@
   "name": "Editor",
   "code": "strapi-editor",
   "description": "Editors can manage and publish contents including those of other users.",
+  "documentId": "c1qi9iypwzklcr87edgbwnkg",
+  "locale": null,
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
@@ -10,7 +12,9 @@
         "fields": ["title", "body"]
       },
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "ipcwvt6cq6cft7knt7nlibjx",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -19,7 +23,9 @@
         "fields": ["title", "body"]
       },
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "fqeh7h6ncgisp8fl9kjerm9l",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -28,49 +34,63 @@
         "fields": ["title", "body"]
       },
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "drppbkvm1ve1c0gw5uztsby5",
+      "locale": null
     },
     {
       "action": "plugin::upload.assets.copy-link",
       "subject": null,
       "properties": {},
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "chko273hpnskwb9f0x5htu1l",
+      "locale": null
     },
     {
       "action": "plugin::upload.assets.create",
       "subject": null,
       "properties": {},
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "jw6fdn055qgx4o5nlyj4rtnb",
+      "locale": null
     },
     {
       "action": "plugin::upload.assets.download",
       "subject": null,
       "properties": {},
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "qwb0eka82k24l7tp1p6stwdd",
+      "locale": null
     },
     {
       "action": "plugin::upload.assets.update",
       "subject": null,
       "properties": {},
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "npvy7pnb1adtwbeg3fu74fdk",
+      "locale": null
     },
     {
       "action": "plugin::upload.configure-view",
       "subject": null,
       "properties": {},
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "by12n6ceci3zxs3wubp6n43g",
+      "locale": null
     },
     {
       "action": "plugin::upload.read",
       "subject": null,
       "properties": {},
       "conditions": [],
-      "actionParameters": null
+      "actionParameters": null,
+      "documentId": "wqglodgsbv12i13ftegl515o",
+      "locale": null
     }
   ]
 }
