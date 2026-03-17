@@ -22,17 +22,19 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@frameless/catalogi-data": "0.0.0",
+    "@frameless/catalogi-data": "0.0.1",
     "xmlbuilder2": "3.0.2",
-    "@frameless/upl": "0.0.0"
+    "@frameless/upl": "0.0.1"
   },
   "scripts": {
-    "prebuild": "yarn clean",
+    "prebuild": "pnpm clean",
     "builds": "rollup -c ",
-    "build": "yarn build:browser && yarn build:node",
+    "build": "pnpm build:browser && pnpm build:node",
     "build:browser": "tsc -p ./tsconfig.browser.json",
     "build:node": "tsc -p ./tsconfig.node.json",
     "clean": "rimraf dist",
+    "lint": "eslint --report-unused-disable-directives .",
+    "lint:fix": "eslint --fix .",
     "lint-build": "tsc --noEmit --project tsconfig.json"
   }
 }
