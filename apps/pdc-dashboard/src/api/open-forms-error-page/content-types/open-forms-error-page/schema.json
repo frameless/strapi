@@ -27,7 +27,8 @@
       "unique": false
     },
     "body": {
-      "type": "richtext",
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor",
       "pluginOptions": {
         "i18n": {
           "localized": true

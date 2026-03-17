@@ -2,6 +2,8 @@
   "name": "Author",
   "code": "strapi-author",
   "description": "Authors can manage the content they have created.",
+  "documentId": "urlouw803jglqaanshzw84m9",
+  "locale": null,
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
@@ -11,7 +13,9 @@
         "fields": ["title", "body"],
         "locales": ["nl", "en"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "documentId": "bhto9zlfrqrs6mk4a73d2sbg",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.delete",
@@ -20,7 +24,9 @@
       "properties": {
         "locales": ["nl", "en"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "lybpheqgemc3hu57xbh2gp5e",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.publish",
@@ -29,7 +35,9 @@
       "properties": {
         "locales": ["nl", "en"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "um87iyzx23c2fmt3ytatz9jd",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -39,7 +47,9 @@
         "fields": ["title", "body"],
         "locales": ["nl", "en"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "documentId": "i8sjctvngde9g9s6y9lkp0ld",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.update",
@@ -49,49 +59,63 @@
         "fields": ["title", "body"],
         "locales": ["nl", "en"]
       },
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "documentId": "vpg01de1oj1z014oib4pmgow",
+      "locale": null
     },
     {
       "action": "plugin::upload.assets.copy-link",
       "actionParameters": {},
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "e6nj2utjcdat8f8ssrk1s0u2",
+      "locale": null
     },
     {
       "action": "plugin::upload.assets.create",
       "actionParameters": {},
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "nth5rzyftu935izcg4y1upqh",
+      "locale": null
     },
     {
       "action": "plugin::upload.assets.download",
       "actionParameters": {},
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "gg2hqta6fhpklh1habg17w22",
+      "locale": null
     },
     {
       "action": "plugin::upload.assets.update",
       "actionParameters": {},
       "subject": null,
       "properties": {},
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "documentId": "m66pa1oakgqokgyc1edbooyv",
+      "locale": null
     },
     {
       "action": "plugin::upload.configure-view",
       "actionParameters": {},
       "subject": null,
       "properties": {},
-      "conditions": []
+      "conditions": [],
+      "documentId": "ql0xrsyo11ymeebe5khwi5ou",
+      "locale": null
     },
     {
       "action": "plugin::upload.read",
       "actionParameters": {},
       "subject": null,
       "properties": {},
-      "conditions": ["admin::is-creator"]
+      "conditions": ["admin::is-creator"],
+      "documentId": "kll38lx1amiffmkdch7e6rzr",
+      "locale": null
     }
   ]
 }

@@ -10,7 +10,8 @@
       "type": "string"
     },
     "body": {
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor"
     },
     "headingLevel": {
       "type": "integer",
@@ -31,10 +32,11 @@
     },
     "uuid": {
       "type": "customField",
-      "customField": "plugin::uuid-field.uuid-field"
+      "customField": "plugin::strapi-advanced-uuid.uuid"
     },
     "toelichting": {
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor"
     },
     "trefwoorden": {
       "type": "component",

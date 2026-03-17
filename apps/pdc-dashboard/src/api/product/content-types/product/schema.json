@@ -18,30 +18,41 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
-      "unique": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "content": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "richtext",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "targetField": "title",
+      "required": true
+    },
+    "content": {
+      "type": "customField",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor",
       "required": false
     },
     "sections": {
+      "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "dynamiczone",
       "components": [
         "components.utrecht-rich-text",
         "components.utrecht-logo-button",
@@ -65,44 +76,35 @@
     },
     "metaTags": {
       "type": "component",
-      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "seo.meta"
+      "component": "seo.meta",
+      "repeatable": false
     },
     "catalogiMeta": {
       "type": "component",
-      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "component": "components.catalogi-meta",
+      "repeatable": false,
       "required": false
     },
     "metadata": {
       "type": "component",
-      "repeatable": false,
+      "private": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "component": "components.metadata",
-      "private": true
-    },
-    "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
+      "repeatable": false
     },
     "pdc_subcategories": {
       "type": "relation",
@@ -112,13 +114,13 @@
     },
     "pdc_metadata": {
       "type": "component",
-      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "components.cim-pdc-product-metadata"
+      "component": "components.cim-pdc-product-metadata",
+      "repeatable": false
     },
     "productencatalogus": {
       "type": "relation",
@@ -127,23 +129,23 @@
       "mappedBy": "producten"
     },
     "uuid": {
+      "type": "customField",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "customField",
-      "customField": "plugin::uuid-field.uuid-field"
+      "customField": "plugin::strapi-advanced-uuid.uuid"
     },
     "kennisartikelMetadata": {
       "type": "component",
-      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "components.kennisartikel"
+      "component": "components.kennisartikel",
+      "repeatable": false
     },
     "additional_information": {
       "type": "relation",
@@ -152,12 +154,12 @@
       "mappedBy": "product"
     },
     "oldSlugs": {
+      "type": "json",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "json"
+      }
     },
     "vacs": {
       "type": "relation",
@@ -166,12 +168,12 @@
       "inversedBy": "relatedProducts"
     },
     "enable_kcm_survey": {
+      "type": "boolean",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "boolean",
       "default": true
     },
     "contact_information_public": {

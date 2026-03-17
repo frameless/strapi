@@ -31,7 +31,7 @@
     },
     "uuid": {
       "type": "customField",
-      "customField": "plugin::uuid-field.uuid-field"
+      "customField": "plugin::strapi-advanced-uuid.uuid"
     }
   }
 }

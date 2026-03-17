@@ -10,7 +10,8 @@
       "type": "string"
     },
     "body": {
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor"
     },
     "headingLevel": {
       "type": "integer",

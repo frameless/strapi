@@ -261,9 +261,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
+      "list": ["naam", "domein", "doelgroep", "documentId"],
       "edit": [
         [
           {
@@ -333,8 +342,7 @@
             "size": 6
           }
         ]
-      ],
-      "list": ["naam", "domein", "doelgroep"]
+      ]
     }
   },
   "type": "object",

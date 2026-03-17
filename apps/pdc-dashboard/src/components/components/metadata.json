@@ -9,7 +9,6 @@
     "singleDigitalGateway": {
       "type": "enumeration",
       "enum": ["ja", "nee"],
-      "required": true,
       "private": true
     },
     "attachementAdded": {
