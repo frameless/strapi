@@ -136,9 +136,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
+      "list": ["id", "title", "createdAt", "updatedBy"],
       "edit": [
         [
           {
@@ -162,8 +171,7 @@
             "size": 6
           }
         ]
-      ],
-      "list": ["id", "title", "createdAt", "updatedBy"]
+      ]
     }
   },
   "type": "object",

@@ -134,9 +134,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
+      "list": ["id", "price", "title", "products"],
       "edit": [
         [
           {
@@ -160,8 +169,7 @@
             "size": 6
           }
         ]
-      ],
-      "list": ["id", "price", "title", "products"]
+      ]
     }
   },
   "type": "object",

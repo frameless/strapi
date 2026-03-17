@@ -46,10 +46,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "kennisartikelCategorie"],
+      "list": ["id", "kennisartikelCategorie", "documentId"],
       "edit": [
         [
           {

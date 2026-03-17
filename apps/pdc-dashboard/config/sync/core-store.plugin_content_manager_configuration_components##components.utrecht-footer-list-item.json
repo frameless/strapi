@@ -47,10 +47,18 @@
           "searchable": false,
           "sortable": false
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "link", "title"],
+      "list": ["id", "link", "title", "documentId"],
       "edit": [
         [
           {

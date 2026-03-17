@@ -7,7 +7,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
+      "mainField": "documentId",
       "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
@@ -48,10 +48,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
-      "list": ["id", "pdc_faq", "kennisartikelCategorie"],
+      "list": ["id", "pdc_faq", "kennisartikelCategorie", "documentId"],
       "edit": [
         [
           {

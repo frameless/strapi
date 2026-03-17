@@ -1,7 +1,6 @@
 {
   "key": "plugin_content_manager_configuration_content_types::plugin::upload.file",
   "value": {
-    "uid": "plugin::upload.file",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -60,6 +59,20 @@
           "label": "caption",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "focalPoint": {
+        "edit": {
+          "label": "focalPoint",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "focalPoint",
+          "searchable": false,
+          "sortable": false
         }
       },
       "width": {
@@ -302,6 +315,14 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
@@ -390,9 +411,16 @@
             "name": "folderPath",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "focalPoint",
+            "size": 12
+          }
         ]
       ]
-    }
+    },
+    "uid": "plugin::upload.file"
   },
   "type": "object",
   "environment": null,

@@ -9,7 +9,8 @@
       "pageSize": 10,
       "mainField": "title",
       "defaultSortBy": "title",
-      "defaultSortOrder": "ASC"
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
     },
     "metadatas": {
       "id": {
@@ -30,6 +31,20 @@
         },
         "list": {
           "label": "Titel",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "Slug",
+          "description": "Slug wordt automatisch gegenereerd op basis van de titel. Bij een nieuwe of aangepaste titel klik je op het update-icoon (ronde ververs-pijl) om de slug te genereren of bij te werken.",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
           "searchable": true,
           "sortable": true
         }
@@ -83,7 +98,8 @@
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "title"
         },
         "list": {
           "label": "Metadata",
@@ -97,7 +113,8 @@
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "documentId"
         },
         "list": {
           "label": "catalogiMeta",
@@ -111,26 +128,13 @@
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "documentId"
         },
         "list": {
           "label": "metadata",
           "searchable": false,
           "sortable": false
-        }
-      },
-      "slug": {
-        "edit": {
-          "label": "Slug",
-          "description": "Een automatisch gegenereerde URL-vriendelijke versie van de titel voor een betere SEO en leesbaarheid.",
-          "placeholder": "",
-          "visible": true,
-          "editable": false
-        },
-        "list": {
-          "label": "slug",
-          "searchable": true,
-          "sortable": true
         }
       },
       "pdc_subcategories": {
@@ -154,7 +158,8 @@
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "productCode"
         },
         "list": {
           "label": "pdc_metadata",
@@ -197,7 +202,8 @@
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "productValtOnder"
         },
         "list": {
           "label": "kennisartikelMetadata",
@@ -335,6 +341,14 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
@@ -342,6 +356,10 @@
         [
           {
             "name": "title",
+            "size": 6
+          },
+          {
+            "name": "slug",
             "size": 6
           }
         ],
@@ -398,10 +416,6 @@
           }
         ],
         [
-          {
-            "name": "slug",
-            "size": 6
-          },
           {
             "name": "pdc_subcategories",
             "size": 4

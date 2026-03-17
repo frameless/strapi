@@ -90,9 +90,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
+      "list": ["id", "triggerMatomoScript", "createdAt", "updatedAt"],
       "edit": [
         [
           {
@@ -100,8 +109,7 @@
             "size": 12
           }
         ]
-      ],
-      "list": ["id", "triggerMatomoScript", "createdAt", "updatedAt"]
+      ]
     },
     "uid": "api::website-setting.website-setting"
   },
