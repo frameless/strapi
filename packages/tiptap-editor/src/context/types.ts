@@ -1,1 +1,0 @@
-export const GET_PRICE_PRODUCT = 'GET_PRICE_PRODUCT';
