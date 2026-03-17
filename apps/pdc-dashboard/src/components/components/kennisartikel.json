@@ -30,11 +30,11 @@
     },
     "uuid": {
       "type": "customField",
-      "customField": "plugin::uuid-field.uuid-field"
+      "customField": "plugin::strapi-advanced-uuid.uuid"
     },
     "upnUri": {
       "type": "customField",
-      "customField": "plugin::uniform-product-name.uniform-product-name",
+      "customField": "plugin::nl-government-fields.uniform-product-name",
       "required": true
     }
   }

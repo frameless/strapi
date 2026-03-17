@@ -9,7 +9,7 @@ Start your Strapi application with autoReload enabled. [Learn more](https://docs
 ```shell
 npm run dev
 # or
-yarn dev
+pnpm dev
 ```
 
 ### `start`
@@ -19,7 +19,7 @@ Start your Strapi application with autoReload disabled. [Learn more](https://doc
 ```shell
 npm run start
 # or
-yarn start
+pnpm start
 ```
 
 ### `build`
@@ -29,5 +29,5 @@ Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/lates
 ```shell
 npm run build
 # or
-yarn build
+pnpm build
 ```

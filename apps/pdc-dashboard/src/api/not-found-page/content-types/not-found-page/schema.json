@@ -30,7 +30,8 @@
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor"
     }
   }
 }

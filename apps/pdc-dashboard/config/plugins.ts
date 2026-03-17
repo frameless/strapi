@@ -1,11 +1,9 @@
-const { apolloPrometheusPlugin } = require('strapi-prometheus');
-
 export default ({ env }) => {
   const isProd = env('NODE_ENV') === 'production';
   return {
-    'content-compliance-checker': {
-      enabled: true,
-    },
+    // 'content-compliance-checker': {
+    //   enabled: true,
+    // },
     'env-label': {
       enabled: true,
       config: {
@@ -15,44 +13,34 @@ export default ({ env }) => {
     'entity-notes': {
       enabled: true,
     },
-    'strapi-tiptap-editor': {
-      enabled: true,
-    },
-    'strapi-prometheus': {
-      enabled: true,
-      graphql: {
-        enabled: true,
-        config: {
-          apolloServer: {
-            plugins: [apolloPrometheusPlugin], // add the plugin to get apollo metrics
-            tracing: true, // this must be true to get some of the data needed to create the metrics
-          },
-        },
-      },
-    },
-    slugify: {
+    prometheus: {
       enabled: true,
       config: {
-        shouldUpdateSlug: true,
-        contentTypes: {
-          product: {
-            field: 'slug',
-            references: 'title',
-          },
+        collectDefaultMetrics: false,
+
+        server: {
+          port: parseInt(env('METRICS_PORT', '9001'), 10),
+          host: '0.0.0.0',
+          path: '/metrics',
         },
+
+        normalize: [
+          [/\/(?:[a-z0-9]{24,25}|\d+)(?=\/|$)/, '/:id'],
+          [/\/uploads\/[^\\/]+\.[a-zA-Z0-9]+/, '/uploads/:file'],
+        ],
       },
     },
     'preview-button': {
       enabled: true,
       config: {
+        domain: env('FRONTEND_PUBLIC_URL'),
+        preview_secret_token: env('PREVIEW_SECRET_TOKEN'),
+        api_token: env('PREVIEW_SECRET_TOKEN'),
         contentTypes: [
           {
             uid: 'api::product.product',
             query: {
               type: 'products',
-            },
-            preview: {
-              type: 'both',
             },
           },
           {
@@ -60,40 +48,8 @@ export default ({ env }) => {
             query: {
               type: 'vac',
             },
-            preview: {
-              type: 'dialog',
-            },
-          },
-          {
-            uid: 'api::internal-field.internal-field',
-            query: {
-              type: 'internal-field',
-            },
-            preview: {
-              type: 'dialog',
-            },
-          },
-          {
-            uid: 'api::additional-information.additional-information',
-            query: {
-              type: 'additional-information',
-            },
-            preview: {
-              type: 'dialog',
-            },
-          },
-          {
-            uid: 'api::additional-information.additional-information',
-            query: {
-              type: 'additional-information',
-            },
-            dialog: {
-              enabled: true,
-            },
           },
         ],
-        domain: env('FRONTEND_PUBLIC_URL'),
-        token: env('PREVIEW_SECRET_TOKEN'),
       },
     },
     'open-forms-embed': {
@@ -118,44 +74,6 @@ export default ({ env }) => {
             maxage: 300000,
           },
         },
-      },
-    },
-    // 'import-export-entries': {
-    //   enabled: true,
-    // },
-    publisher: {
-      enabled: true,
-      config: {
-        components: {
-          dateTimePicker: {
-            step: 15,
-          },
-        },
-      },
-    },
-    'entity-relationship-chart': {
-      enabled: true,
-      config: {
-        exclude: [
-          'admin::api-token-permission',
-          'admin::api-token',
-          'admin::permission',
-          'admin::role',
-          'admin::transfer-token-permission',
-          'admin::transfer-token',
-          'admin::user',
-          'plugin::entity-notes.note',
-          'plugin::i18n.locale',
-          'plugin::publisher.action',
-          'plugin::slugify.slug',
-          'plugin::upload.file',
-          'plugin::upload.folder',
-          'plugin::users-permissions.permission',
-          'plugin::users-permissions.role',
-          'plugin::users-permissions.user',
-          'strapi::core-store',
-          'webhook',
-        ],
       },
     },
     graphql: {

@@ -8,7 +8,7 @@
   "attributes": {
     "afdelingId": {
       "type": "customField",
-      "customField": "plugin::uuid-field.uuid-field",
+      "customField": "plugin::strapi-advanced-uuid.uuid",
       "required": true
     },
     "afdelingNaam": {

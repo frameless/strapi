@@ -119,9 +119,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
+      "list": ["id", "title", "createdAt", "updatedAt"],
       "edit": [
         [
           {
@@ -141,8 +150,7 @@
             "size": 6
           }
         ]
-      ],
-      "list": ["id", "title", "createdAt", "updatedAt"]
+      ]
     },
     "uid": "api::additional-information.additional-information"
   },

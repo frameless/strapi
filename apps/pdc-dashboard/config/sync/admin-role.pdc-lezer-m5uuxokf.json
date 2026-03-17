@@ -2,6 +2,8 @@
   "name": "Lezer",
   "code": "pdc-lezer-m5uuxokf",
   "description": "Een rol met alleen leesrechten op alle verzamelingen behalve gebruikers.",
+  "documentId": "hgg4rdett9uunrze9b11m6ea",
+  "locale": null,
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.read",
@@ -17,7 +19,9 @@
           "product"
         ]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "xiziooqv9h2dz7ry4u6yu4ij",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -26,7 +30,9 @@
       "properties": {
         "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "h3azpvsdnmt86upv61yefqs1",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -35,7 +41,9 @@
       "properties": {
         "fields": ["title", "contentBlock.content", "contentBlock.label", "internal_information", "vacs", "products"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "uzr27t0gonf9pjetes2ectg4",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -53,7 +61,9 @@
           "contact_information_internal"
         ]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "pz9th8yg95ddk0dlj5tlvuxg",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -62,7 +72,9 @@
       "properties": {
         "fields": ["title", "pdc_subcategories"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "oxljonb170ey41bmtow2gu8f",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -71,7 +83,9 @@
       "properties": {
         "fields": ["title", "pdc_category", "products", "vacs"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "t0bg7tyjadfez7zvmgzdg2rg",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -80,7 +94,9 @@
       "properties": {
         "fields": ["price.label", "price.currency", "price.value", "price.uuid", "title", "products", "uuid"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "va79ax27gsr0svpm6pb8joqy",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -151,7 +167,9 @@
         ],
         "locales": ["en", "nl"]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "qg8wkqa6vjlvc073f7un4iau",
+      "locale": null
     },
     {
       "action": "plugin::content-manager.explorer.read",
@@ -180,7 +198,9 @@
           "contact_information_internal"
         ]
       },
-      "conditions": []
+      "conditions": [],
+      "documentId": "brmbp5j4x7ea2cm8xlvob3n1",
+      "locale": null
     }
   ]
 }

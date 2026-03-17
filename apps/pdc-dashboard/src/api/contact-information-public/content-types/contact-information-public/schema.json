@@ -16,10 +16,9 @@
       "type": "string"
     },
     "contentBlock": {
-      "displayName": "rich-text",
       "type": "component",
-      "repeatable": true,
-      "component": "components.contact-information-rich-text"
+      "component": "components.contact-information-rich-text",
+      "repeatable": true
     },
     "internal_information": {
       "type": "relation",

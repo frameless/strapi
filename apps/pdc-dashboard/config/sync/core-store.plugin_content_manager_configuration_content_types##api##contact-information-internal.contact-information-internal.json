@@ -134,9 +134,18 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
+      "list": ["id", "title", "contentBlock", "internal_information"],
       "edit": [
         [
           {
@@ -160,8 +169,7 @@
             "size": 6
           }
         ]
-      ],
-      "list": ["id", "title", "contentBlock", "internal_information"]
+      ]
     },
     "uid": "api::contact-information-internal.contact-information-internal"
   },

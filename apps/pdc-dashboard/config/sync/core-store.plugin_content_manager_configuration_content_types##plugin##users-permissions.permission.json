@@ -1,7 +1,6 @@
 {
   "key": "plugin_content_manager_configuration_content_types::plugin::users-permissions.permission",
   "value": {
-    "uid": "plugin::users-permissions.permission",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -106,6 +105,14 @@
           "searchable": true,
           "sortable": true
         }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
       }
     },
     "layouts": {
@@ -122,7 +129,8 @@
           }
         ]
       ]
-    }
+    },
+    "uid": "plugin::users-permissions.permission"
   },
   "type": "object",
   "environment": null,

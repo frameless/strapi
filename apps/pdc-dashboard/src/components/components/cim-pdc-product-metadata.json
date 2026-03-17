@@ -48,7 +48,7 @@
     },
     "uplProductNaam": {
       "type": "customField",
-      "customField": "plugin::uniform-product-name.uniform-product-name"
+      "customField": "plugin::nl-government-fields.uniform-product-name"
     },
     "cimPdcProductBeschrijving": {
       "displayName": "CimPDC product beschrijving",

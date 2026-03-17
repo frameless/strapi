@@ -15,7 +15,8 @@
       "component": "components.utrecht-footer-list"
     },
     "address": {
-      "type": "richtext"
+      "type": "customField",
+      "customField": "plugin::strapi-tiptap-editor.strapi-tiptap-editor"
     },
     "socialMediaList": {
       "displayName": "social Media List",
