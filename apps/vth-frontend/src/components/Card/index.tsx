@@ -3,7 +3,7 @@
 import classnames from 'classnames/bind';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC, HTMLAttributes } from 'react';
+import { type HTMLAttributes, useRef } from 'react';
 
 import styles from './index.module.scss';
 
@@ -11,7 +11,7 @@ import { Heading2, Paragraph } from '@/components';
 
 const css = classnames.bind(styles);
 
-interface CardProps extends Omit {
+interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   title: string;
   description: string;
   image: {
@@ -23,8 +23,8 @@ interface CardProps extends Omit {
   };
 }
 
-export const Card: FC = ({ description, title, image: { url = '', alt }, link: { href }, ...props }) => {
-  const linkRef = React.useRef<HTMLAnchorElement>(null);
+export const Card = ({ description, title, image: { url = '', alt }, link: { href }, ...props }: CardProps) => {
+  const linkRef = useRef<HTMLAnchorElement>(null);
 
   return (
     <div {...props} className={css('utrecht-card', props.className)} onClick={() => linkRef.current?.click()}>

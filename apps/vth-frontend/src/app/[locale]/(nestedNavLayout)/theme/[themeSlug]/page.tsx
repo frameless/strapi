@@ -38,7 +38,6 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { locale, themeSlug } }: Params): Promise<Metadata> {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_THEME_BY_SLUG,
@@ -51,6 +50,7 @@ export async function generateMetadata({ params: { locale, themeSlug } }: Params
 }
 
 const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
   const { isEnabled } = draftMode();
   const { data } = await fetchData({
