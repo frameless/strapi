@@ -16,6 +16,7 @@ tmp
 CHANGELOG.md
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 .strapi-updater.json
 generated
 gql

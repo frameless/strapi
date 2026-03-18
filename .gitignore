@@ -10,7 +10,7 @@ Icon
 .Trashes
 ._*
 vendor/
-
+.turbo
 
 ############################
 # Linux

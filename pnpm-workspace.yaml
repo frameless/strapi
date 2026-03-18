@@ -1,0 +1,25 @@
+packages:
+  - apps/*
+  - packages/*
+
+hoistPattern:
+  - "*"
+  - "!@strapi/*"
+
+onlyBuiltDependencies:
+  - "@apollo/protobufjs"
+  - "@parcel/watcher"
+  - "@scarf/scarf"
+  - "@strapi/strapi"
+  - "@swc/core"
+  - better-sqlite3
+  - core-js
+  - core-js-pure
+  - esbuild
+  - puppeteer
+  - sharp
+  - unrs-resolver
+
+publicHoistPattern:
+  - "*"
+  - "!@strapi/*"

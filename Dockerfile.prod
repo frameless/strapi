@@ -1,67 +1,101 @@
-FROM node:20.19-alpine3.22 AS build
-# Update package index and install build dependencies.
-# These packages are needed for building native modules and ensuring compatibility.
-RUN set -eux; apk update && apk add --no-cache \
-    git libc6-compat build-base gcc bash autoconf automake \
-    zlib-dev libpng-dev vips-dev shadow python3 python3-dev py3-pip && \
-    # Create a symlink for python3 so node-gyp can locate Python as 'python'
-    ln -sf "$(which python3)" /usr/bin/python && \
-    echo "Python version: $(python --version)"
+# ---------- base ----------
+FROM node:24-alpine AS base
 
-# Set build-time variable for the public URL.
-ARG STRAPI_PUBLIC_URL
-ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
+RUN apk add --no-cache libc6-compat git bash
 
-# Set working directory and update PATH for local binaries.
-WORKDIR /opt/app
-ENV PATH /opt/app/node_modules/.bin:$PATH
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+RUN corepack enable && corepack prepare pnpm@10.23.0 --activate
 
-# Install global Node.js tools needed for patching and native module building.
-RUN yarn global add patch-package node-gyp
+WORKDIR /app
 
-# Copy dependency definitions.
-COPY ./package.json ./yarn.lock ./
 
-# Copy all application files.
-COPY ./ .
+# ---------- prune workspace (ALL apps) ----------
+FROM base AS pruner
 
-# Install all dependencies (including devDependencies) required for the build.
-RUN set -eux; yarn install --frozen-lockfile
+COPY . .
 
-# --- Builder stage: Compile and build assets ---
-FROM build AS builder
-# Copy remaining files and build the application.
-COPY . /opt/app/
-RUN set -eux; NODE_OPTIONS="--max-old-space-size=4096" yarn build
+# Prune everything - no specific app, builds all
+RUN pnpm dlx turbo prune \
+    @frameless/pdc-dashboard \
+    @frameless/vth-dashboard \
+    @frameless/pdc-frontend \
+    @frameless/vth-frontend \
+    @frameless/pdc-sc \
+    # @frameless/strapi-admin-extensions \
+    # @frameless/overige-objecten-api \
+    @frameless/editoria11y \
+    @frameless/samenwerkende-catalogi \
+    @frameless/ui \
+    @frameless/utils \
+    --docker
 
-# --- Production stage: Prepare a lean image for runtime ---
-FROM node:20.19-alpine3.22 AS production
-# Copy built application from the builder stage.
-COPY --from=builder /opt/app /opt/app
 
-WORKDIR /opt/app
-# Install runtime dependencies and ensure essential tools are available.
-RUN set -eux; \
-    apk add --no-cache git make g++ python3 bash && \
-    ln -sf "$(which python3)" /usr/bin/python && \
-    yarn global add patch-package && \
-    export PYTHON=/usr/bin/python3 && \
-    yarn install --production=true
+# ---------- dependencies ----------
+FROM base AS deps
 
-# Configure container permissions and executable permissions.
-RUN set -eux; \
-    chmod +x ./bin/wait-for-it.sh && \
-    addgroup --system --gid 1001 pdcgroup && \
-    adduser --system --uid 1001 --ingroup pdcgroup pdcuser && \
-    chown -R pdcuser:pdcgroup /opt/app
+RUN apk add --no-cache \
+    build-base \
+    python3 \
+    autoconf \
+    automake \
+    vips-dev
 
-# Switch to a non-root user for security.
+COPY --from=pruner /app/out/json/ .
+COPY --from=pruner /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm install --frozen-lockfile
+
+
+# ---------- build (ALL apps) ----------
+FROM deps AS builder
+
+COPY --from=pruner /app/out/full/ .
+
+# Build everything - no filter, builds all apps
+RUN NODE_OPTIONS="--max-old-space-size=4096" \
+    pnpm  \
+    --filter @frameless/utils \
+    --filter @frameless/ui \
+    --filter @frameless/editoria11y \
+    --filter @frameless/samenwerkende-catalogi \
+    --filter @frameless/pdc-dashboard \
+    --filter @frameless/pdc-frontend \
+    --filter @frameless/vth-dashboard \
+    --filter @frameless/vth-frontend \
+    --filter @frameless/pdc-sc \
+    build
+
+
+# ---------- runtime ----------
+FROM node:24-alpine AS runner
+
+RUN apk add --no-cache libc6-compat vips bash
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+ENV NODE_ENV=production
+ENV CI=true
+
+RUN corepack enable && corepack prepare pnpm@10.23.0 --activate
+
+WORKDIR /app
+
+COPY --from=builder /app .
+COPY bin ./bin
+RUN chmod +x ./bin/wait-for-it.sh 2>/dev/null || true
+
+RUN pnpm install --prod --frozen-lockfile
+
+RUN addgroup -S pdcgroup -g 1001 \
+    && adduser -S pdcuser -u 1001 -G pdcgroup \
+    && chown -R pdcuser:pdcgroup /app
+
 USER pdcuser
 
-# Set runtime environment and expose application port.
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
-EXPOSE 1337
+# Expose all ports
+EXPOSE 1337 1338 3000 4000 4001 4002
 
-# Set default command.
-CMD ["yarn", "start"]
+# No CMD - let docker-compose specify what to run

@@ -105,7 +105,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./apps/overige-objecten-api/src/docs:/opt/app/apps/overige-objecten-api/dist/src/docs
-    command: yarn start:overige-objecten-api
+    command: pnpm start:overige-objecten-api
     environment:
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
       OVERIGE_OBJECTEN_API_PORT: ${OVERIGE_OBJECTEN_API_PORT}
@@ -123,7 +123,7 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     restart: unless-stopped
-    command: yarn strapi-admin-extensions
+    command: pnpm strapi-admin-extensions
     environment:
       OVERIGE_OBJECTEN_API_URL: ${OVERIGE_OBJECTEN_API_URL}
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
