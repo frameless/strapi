@@ -1,23 +1,20 @@
-version: "3"
+version: "3.8"
+
 services:
   pdc_strapi:
     container_name: pdc_strapi
     build:
       context: .
       dockerfile: Dockerfile.dev
-    image: strapi:latest
+      args:
+        NODE_ENV: development
+        STRAPI_PUBLIC_URL: ${STRAPI_PUBLIC_URL}
+    image: pdc-strapi-dev:latest
     restart: unless-stopped
     volumes:
-      - ./package.json:/opt/app/package.json
-      - ./yarn.lock:/opt/app/yarn.lock
-      - ./apps/pdc-dashboard/config:/opt/app/apps/pdc-dashboard/config
-      - ./apps/pdc-dashboard/src:/opt/app/apps/pdc-dashboard/src
-      - ./apps/pdc-dashboard/package.json:/opt/app/apps/pdc-dashboard/package.json
-      - ./apps/pdc-dashboard/public/:/opt/app/apps/pdc-dashboard/public/
-    entrypoint: ["/bin/sh", "-c"]
-    command:
-      - |
-        npm run dev --workspace @frameless/pdc-dashboard
+      - ./apps/pdc-dashboard/src:/app/apps/pdc-dashboard/src
+      - ./apps/pdc-dashboard/config:/app/apps/pdc-dashboard/config
+      - ./apps/pdc-dashboard/public:/app/apps/pdc-dashboard/public
     environment:
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       API_TOKEN_SALT: ${API_TOKEN_SALT}
@@ -33,7 +30,7 @@ services:
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
       HOST: ${HOST}
       JWT_SECRET: ${JWT_SECRET}
-      NODE_ENV: ${NODE_ENV}
+      NODE_ENV: development
       OPEN_FORMS_API_TOKEN: ${OPEN_FORMS_API_TOKEN}
       OPEN_FORMS_API_URL: ${OPEN_FORMS_API_URL}
       PORT: ${PORT}
@@ -43,16 +40,25 @@ services:
     ports:
       - "1337:1337"
     networks:
-      - pdc_strapi_network
+      - pdc_network
     depends_on:
-      - pdc_strapi_db
+      pdc_strapi_db:
+        condition: service_healthy
+    command: pnpm --filter @frameless/pdc-dashboard dev
+
   pdc_frontend:
     container_name: pdc_frontend
     build:
       context: .
       dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+    image: pdc-frontend-dev:latest
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh -s pdc_strapi:1337 -t 25 -- yarn workspace @frameless/pdc-frontend dev
+    volumes:
+      - ./apps/pdc-frontend/src:/app/apps/pdc-frontend/src
+      - ./apps/pdc-frontend/public:/app/apps/pdc-frontend/public
+      - ./apps/pdc-frontend/.next:/app/apps/pdc-frontend/.next
     environment:
       CSP_CONNECT_SRC_URLS: ${CSP_CONNECT_SRC_URLS}
       CSP_FONT_SRC_URLS: ${CSP_FONT_SRC_URLS}
@@ -81,75 +87,43 @@ services:
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
       STRAPI_PUBLIC_URL: ${STRAPI_PUBLIC_URL}
-    volumes: # enable hot-reload
-      - ./apps/pdc-frontend/src:/opt/app/apps/pdc-frontend/src
-      - ./apps/pdc-frontend/public:/opt/app/apps/pdc-frontend/public
-      - ./apps/pdc-frontend/.next:/opt/app/apps/pdc-frontend/.next
-      - ./apps/pdc-frontend/package.json:/opt/app/apps/pdc-frontend/package.json
     ports:
       - "3000:3000"
     networks:
-      - pdc_strapi_network
+      - pdc_network
     depends_on:
-      - pdc_strapi
-      - pdc_strapi_db
+      pdc_strapi:
+        condition: service_started
+      pdc_strapi_db:
+        condition: service_healthy
+    command: pnpm --filter @frameless/pdc-frontend dev
+
   pdc_samenwerkende-catalogi:
     container_name: pdc_samenwerkende-catalogi
     build:
       context: .
       dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+    image: pdc-sc-dev:latest
     restart: unless-stopped
-    command: npm run start:pdc-sc
     environment:
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
       FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
     ports:
       - "4000:4000"
     networks:
-      - pdc_strapi_network
+      - pdc_network
     depends_on:
-      - pdc_strapi
-      - pdc_strapi_db
-  overige-objecten-api:
-    container_name: overige-objecten-api
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    restart: unless-stopped
-    volumes:
-      - ./apps/overige-objecten-api/src/docs:/opt/app/apps/overige-objecten-api/dist/src/docs
-    command: yarn workspace @frameless/overige-objecten-api start
-    environment:
-      STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
-      OVERIGE_OBJECTEN_API_PORT: ${OVERIGE_OBJECTEN_API_PORT}
-      OVERIGE_OBJECTEN_API_CORS: ${OVERIGE_OBJECTEN_API_CORS}
-      STRAPI_API_TOKEN: ${STRAPI_API_TOKEN}
-    ports:
-      - "4001:4001"
-    networks:
-      - pdc_strapi_network
-    depends_on:
-      - pdc_strapi
-      - pdc_strapi_db
-  strapi-admin-extensions:
-    container_name: strapi-admin-extensions
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    restart: unless-stopped
-    command: yarn workspace @frameless/strapi-admin-extensions start
-    environment:
-      OVERIGE_OBJECTEN_API_URL: ${OVERIGE_OBJECTEN_API_URL}
-      STRAPI_ADMIN_EXTENSIONS_PORT: ${STRAPI_ADMIN_EXTENSIONS_PORT}
-    ports:
-      - "4002:4002"
-    networks:
-      - pdc_strapi_network
-    depends_on:
-      - overige-objecten-api
+      pdc_strapi:
+        condition: service_started
+      pdc_strapi_db:
+        condition: service_healthy
+    command: pnpm --filter @frameless/samenwerkende-catalogi dev
+
   pdc_strapi_db:
     container_name: pdc_strapi_db
-    platform: linux/amd64 #for platform error on Apple M1 chips
+    platform: linux/amd64
     restart: unless-stopped
     image: postgres:12.0-alpine
     environment:
@@ -170,7 +144,8 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - pdc_strapi_network
+      - pdc_network
+
   pdc_pgadmin:
     container_name: pdc_pgadmin
     image: dpage/pgadmin4
@@ -181,7 +156,7 @@ services:
     ports:
       - "8080:80"
     networks:
-      - pdc_strapi_network
+      - pdc_network
     depends_on:
       - pdc_strapi_db
 
@@ -189,6 +164,5 @@ volumes:
   pdc-strapi-data:
 
 networks:
-  pdc_strapi_network:
-    name: Strapi network
+  pdc_network:
     driver: bridge

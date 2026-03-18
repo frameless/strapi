@@ -1,0 +1,46 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalEnv": [],
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**", ".strapi/**", "./dist"]
+    },
+    "lint": {
+      "outputs": [],
+      "cache": false,
+      "dependsOn": ["^lint"]
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "outputs": [],
+      "cache": false
+    },
+    "lint:fix": {
+      "outputs": [],
+      "cache": false,
+      "dependsOn": ["^lint:fix"]
+    },
+    "lint-build": {
+      "dependsOn": ["^lint-build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [],
+      "cache": true
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "clean": {
+      "cache": false,
+      "persistent": true,
+      "outputs": ["./.next", "./dist", "./.strapi"]
+    }
+  }
+}

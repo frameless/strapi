@@ -1,69 +1,62 @@
-FROM node:20.19-alpine3.22 as build
-# Installing libvips-dev for sharp Compatibility
-RUN apk update && apk add --no-cache git libc6-compat build-base bash gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
+# ---------- base ----------
+FROM node:24-alpine AS base
+
+RUN apk add --no-cache libc6-compat git bash
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable && corepack prepare pnpm@10.23.0 --activate
+
+WORKDIR /app
+
+
+# ---------- dependencies ----------
+FROM base AS dependencies
 
 ARG NODE_ENV=development
-ENV NODE_ENV=${NODE_ENV}
 ARG STRAPI_PUBLIC_URL
+ENV NODE_ENV=${NODE_ENV}
 ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
-WORKDIR /opt/app
-COPY ./package.json ./yarn.lock ./
-ENV PATH /opt/app/node_modules/.bin:$PATH
-COPY ./apps/pdc-dashboard/package.json apps/pdc-dashboard/package.json
-COPY ./apps/pdc-frontend/package.json apps/pdc-frontend/package.json
-COPY ./apps/pdc-sc/package.json apps/pdc-sc/package.json
-COPY ./apps/vth-dashboard/package.json apps/vth-dashboard/package.json
-COPY ./apps/vth-frontend/package.json apps/vth-frontend/package.json
-COPY ./apps/kennisbank-dashboard/package.json apps/kennisbank-dashboard/package.json
-COPY ./apps/overige-objecten-api/package.json apps/overige-objecten-api/package.json
-COPY ./apps/strapi-admin-extensions/package.json apps/strapi-admin-extensions/package.json
-COPY ./apps/kennisbank-frontend/package.json apps/kennisbank-frontend/package.json
-COPY ./packages/catalogi-data/package.json packages/catalogi-data/package.json
-COPY ./packages/preview-button/package.json packages/preview-button/package.json
-COPY ./packages/samenwerkende-catalogi/package.json packages/samenwerkende-catalogi/package.json
-COPY ./packages/strapi-plugin-gemeente-select/package.json packages/strapi-plugin-gemeente-select/package.json
-COPY ./packages/strapi-plugin-scheme-select/package.json packages/strapi-plugin-scheme-select/package.json
-COPY ./packages/strapi-tiptap-editor/package.json packages/strapi-tiptap-editor/package.json
-COPY ./packages/ui/package.json packages/ui/package.json
-COPY ./packages/upl/package.json packages/upl/package.json
-COPY ./packages/strapi-plugin-uniform-product-name/package.json packages/strapi-plugin-uniform-product-name/package.json
-COPY ./packages/strapi-plugin-open-forms-embed/package.json packages/strapi-plugin-open-forms-embed/package.json
-COPY ./packages/strapi-plugin-uuid-field/package.json packages/strapi-plugin-uuid-field/package.json
-COPY ./packages/strapi-plugin-env-label/package.json packages/strapi-plugin-env-label/package.json
-COPY ./packages/strapi-plugin-language/package.json packages/strapi-plugin-language/package.json
 
+RUN apk add --no-cache \
+    build-base \
+    python3 \
+    autoconf \
+    automake \
+    vips-dev
 
-# Build target dependencies #
-#############################
-FROM build AS dependencies
-# Install prod dependencies
-COPY ./patches /opt/app/patches
-RUN yarn install --frozen-lockfile
+COPY pnpm-lock.yaml package.json pnpm-workspace.yaml ./
+COPY apps ./apps
+COPY packages ./packages
 
-# Build target builder #
-########################
-FROM build AS builder
-COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
-COPY . /opt/app/
-RUN  npm run build --workspace @frameless/upl && \
-    npm run build --workspace @frameless/strapi-plugin-uniform-product-name && \
-    npm run build --workspace @frameless/strapi-tiptap-editor && \
-    npm run build --workspace @frameless/ui && \
-    npm run build --workspace @frameless/catalogi-data && \
-    npm run build --workspace @frameless/samenwerkende-catalogi && \
-    npm run build --workspace @frameless/pdc-sc && \
-    npm run build --workspace @frameless/strapi-plugin-open-forms-embed && \
-    npm run build --workspace @frameless/strapi-plugin-uuid-field && \
-    npm run build --workspace @frameless/strapi-plugin-env-label && \
-    npm run build --workspace @frameless/strapi-plugin-language && \
-    npm run build --workspace @frameless/overige-objecten-api && \
-    npm run build --workspace @frameless/strapi-admin-extensions
+# Install with both shamefully-hoist AND auto-install-peers
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm install --frozen-lockfile --shamefully-hoist
 
-# Build target production #
-###########################
-FROM build AS development
-COPY --from=builder /opt/app /opt/app
-COPY --from=dependencies /opt/app/node_modules /opt/app/node_modules
-RUN chmod +x ./bin/wait-for-it.sh
-EXPOSE 1337
-CMD ["yarn", "dev"]
+# ---------- development ----------
+FROM base AS development
+
+ARG NODE_ENV=development
+ARG STRAPI_PUBLIC_URL
+ENV NODE_ENV=${NODE_ENV}
+ENV STRAPI_PUBLIC_URL=${STRAPI_PUBLIC_URL}
+
+RUN apk add --no-cache \
+    build-base \
+    python3 \
+    autoconf \
+    automake \
+    vips-dev
+
+COPY --from=dependencies /app .
+
+# Create necessary Strapi directories
+RUN mkdir -p /app/apps/pdc-dashboard/dist && \
+    mkdir -p /app/apps/pdc-dashboard/.strapi && \
+    mkdir -p /app/apps/vth-dashboard/dist && \
+    mkdir -p /app/apps/vth-dashboard/.strapi && \
+    chmod +x ./bin/wait-for-it.sh 2>/dev/null || true
+
+EXPOSE 1337 3000 4000
+
+CMD ["pnpm", "dev"]
