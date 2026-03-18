@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./apps/vth-dashboard/public/uploads:/opt/app/apps/vth-dashboard/public/uploads
-    command: npm run --workspace @frameless/vth-dashboard start
+    command: pnpm --filter @frameless/vth-dashboard start
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
@@ -40,7 +40,7 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     restart: unless-stopped
-    command: ./bin/wait-for-it.sh vth_strapi:1337 -- yarn start:vth-frontend
+    command: ./bin/wait-for-it.sh vth_strapi:1337 -- pnpm start:vth-frontend
     environment:
       PREVIEW_SECRET_TOKEN: ${PREVIEW_SECRET_TOKEN}
       STRAPI_PRIVATE_URL: ${STRAPI_PRIVATE_URL}
