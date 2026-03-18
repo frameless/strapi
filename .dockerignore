@@ -1,27 +1,80 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# GitHub
+.github
+
+# IDE & Editor
+.vscode
+.idea
+.editorconfig
+.prettierrc
+.prettierrc.json
+.eslintrc
+.eslintrc.js
+.eslintrc.json
+
+# Dependencies & Build Artifacts
+node_modules
+**/node_modules
+dist
+build
+.next
+.cache
+.turbo
+pnpm-store
+.pnpm-store
+.strapi
+next-env.d.ts
+tsconfig.tsbuildinfo
+.strapi-updater.json
+
+# Logs
+npm-debug.log
+pnpm-debug.log
+yarn-error.log
+*.log
+
+# Temporary & OS
+.DS_Store
+.tmp
+.env
+.env.local
+.env.*.local
+Thumbs.db
+
+# Documentation
+README.md
+*.md
+docs/
+
+# Testing
+coverage/
+.nyc_output/
+cypress/
+**/*.test.*
+**/*.spec.*
+__tests__/
+**/__tests__/
+
+# Docker files (not needed in context)
 Dockerfile
 Dockerfile.*
-*docker-compose.*.yml
+docker-compose*.yml
 .dockerignore
-node_modules/
-**/node_modules
-npm-debug.log
-README.md
-.next/
-.git
-.tmp/
-.cache/
-build/
-data/
-.env
-.env*
 
-**/.next
+# CI/CD (not needed in image)
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Misc
+*.pem
+.vercel
+.eslintcache
+.next/
 **/.tmp
-**/build/
 **/data/
-**/dist/
 **/.cache/
-**/node_modules/
-**/.DS_Store
-docs
-*.log
