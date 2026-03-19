@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Link } from '@utrecht/component-library-react';
-import React from 'react';
 
 import { Markdown } from './index';
 describe('Markdown', () => {
@@ -171,7 +170,7 @@ describe('Markdown', () => {
     });
     it('should render Utrecht Table Caption component', () => {
       const content = '<table><caption>Utrecht Table Caption</table>';
-      const { container, debug } = render(<Markdown>{content}</Markdown>);
+      const { container } = render(<Markdown>{content}</Markdown>);
       const figcaption = container.querySelector('.utrecht-table__caption');
       expect(figcaption).toBeInTheDocument();
     });

@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals';
+
 import { initGoogleTranslateEvent } from './google-translate-event';
 import '@testing-library/jest-dom';
 
@@ -84,7 +86,6 @@ describe('Google Translate event', () => {
 
   it('dispatches an `utrechtTranslate` event with details of the language and text direction', async () => {
     const doc = document;
-
     const handleEvent = jest.fn();
 
     doc.documentElement.addEventListener('utrechtTranslate', handleEvent, true);
@@ -97,18 +98,21 @@ describe('Google Translate event', () => {
     jest.useFakeTimers();
     await jest.runAllTimersAsync();
 
-    expect(handleEvent.mock.lastCall[0].detail).toStrictEqual({
-      dir: 'rtl',
-      lang: 'ar',
-      translated: false,
-    });
+    expect(handleEvent).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: {
+          dir: 'rtl',
+          lang: 'ar',
+          translated: false,
+        },
+      }),
+    );
 
     destroyEvent();
   });
 
   it('dispatches an `utrechtTranslate` event with translate=true when Google Translate was detected', async () => {
     const doc = document;
-
     const handleEvent = jest.fn();
 
     doc.documentElement.addEventListener('utrechtTranslate', handleEvent, true);
@@ -120,12 +124,15 @@ describe('Google Translate event', () => {
 
     jest.useFakeTimers();
     await jest.runAllTimersAsync();
-
-    expect(handleEvent.mock.lastCall[0].detail).toStrictEqual({
-      dir: 'rtl',
-      lang: 'ar',
-      translated: true,
-    });
+    expect(handleEvent).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: {
+          dir: 'rtl',
+          lang: 'ar',
+          translated: true,
+        },
+      }),
+    );
 
     destroyEvent();
   });
