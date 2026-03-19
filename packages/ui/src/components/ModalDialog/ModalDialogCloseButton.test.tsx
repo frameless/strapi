@@ -1,5 +1,6 @@
+import { jest } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react';
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 
 import { ModalDialogCloseButton } from './ModalDialogCloseButton';
 import '@testing-library/jest-dom';

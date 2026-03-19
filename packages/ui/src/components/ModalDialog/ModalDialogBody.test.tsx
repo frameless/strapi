@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 
 import { ModalDialogBody } from './ModalDialogBody';
 import '@testing-library/jest-dom';

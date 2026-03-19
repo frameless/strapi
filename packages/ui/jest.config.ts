@@ -1,27 +1,55 @@
 import type { Config } from 'jest';
-import nextJest from 'next/jest.js';
+import { createDefaultEsmPreset } from 'ts-jest';
 
-const createJestConfig = nextJest();
+const presetConfig = createDefaultEsmPreset({
+  tsconfig: {
+    jsx: 'react-jsx',
+    module: 'ES2022',
+    target: 'ESNext',
+    esModuleInterop: true,
+    allowSyntheticDefaultImports: true,
+  },
+});
 
-// Add any custom config to be passed to Jest
 const config: Config = {
+  ...presetConfig,
+  displayName: '@frameless/ui',
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
-  // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+
+  // Setup files to run before tests
+  setupFilesAfterEnv: ['<rootDir>/tests/jest.setup.ts'],
+
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
+    '^@utrecht/web-component-library-react$': '<rootDir>/tests/__mocks__/@utrecht/web-component-library-react.mjs',
+  },
+
+  transformIgnorePatterns: [
+    '/node_modules/.pnpm/(?!(' +
+      '@utrecht\\+' +
+      '|react-markdown' +
+      '|clsx' +
+      '|lodash\\.chunk' +
+      '|focus-trap-react' +
+      '|@babel\\+runtime' +
+      ')/)',
+    '/node_modules/(?!\\.pnpm|' +
+      '@utrecht' +
+      '|react-markdown' +
+      '|clsx' +
+      '|lodash\\.chunk' +
+      '|focus-trap-react' +
+      '|@babel/runtime' +
+      ')/',
+  ],
+
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'mjs', 'node'],
+
+  modulePaths: ['<rootDir>/node_modules', '<rootDir>/../../node_modules'],
 };
-const esModules = ['react-markdown'].join('|');
 
-// work around https://github.com/vercel/next.js/issues/35634
-async function hackJestConfig() {
-  // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-  const nextJestConfig = await createJestConfig(config)();
-  // /node_modules/ is the first pattern, so overwrite it with the correct version
-  nextJestConfig.transformIgnorePatterns = nextJestConfig.transformIgnorePatterns?.map((x) => {
-    return x === '/node_modules/' ? `/node_modules/(?!(${esModules}))/` : x;
-  });
-
-  return nextJestConfig;
-}
-
-export default hackJestConfig;
+export default config;
