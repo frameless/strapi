@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals';
+
 import { initGoogleTranslateAdaptation } from './google-translate-adaptation';
 import { initGoogleTranslateEvent } from './google-translate-event';
 import '@testing-library/jest-dom';

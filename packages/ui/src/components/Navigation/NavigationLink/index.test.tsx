@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { createRef } from 'react';
@@ -56,7 +57,7 @@ describe('NavigationLink', () => {
   it('sets the correct href attribute', () => {
     const { container } = render(<NavigationLink href="/">Home</NavigationLink>);
     const link = container.querySelector(':only-child');
-    expect(link).toHaveAttribute('href', '/');
+    expect(link?.getAttribute('href')).toBe('/');
   });
   it('sets the correct aria-current attribute', () => {
     const { container } = render(
@@ -65,7 +66,7 @@ describe('NavigationLink', () => {
       </NavigationLink>,
     );
     const link = container.querySelector(':only-child');
-    expect(link).toHaveAttribute('aria-current', 'page');
+    expect(link?.getAttribute('aria-current')).toBe('page');
   });
   it('renders the correct role attribute', () => {
     const { getByRole } = render(<NavigationLink href="/">Home</NavigationLink>);
