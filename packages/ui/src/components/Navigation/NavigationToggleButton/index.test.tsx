@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 
 import { NavToggleButton } from './index';
 
