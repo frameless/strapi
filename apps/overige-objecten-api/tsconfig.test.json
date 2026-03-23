@@ -2,14 +2,18 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "target": "ES2020",
-    "module": "ESNext",
+    "module": "ES2022",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
     "strict": true,
     "types": ["jest", "node"],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@utrecht/*": ["../../node_modules/@utrecht/*"]
+    }
   },
   "include": ["**/*.test.tsx", "**/*.test.ts", "tests"]
 }
