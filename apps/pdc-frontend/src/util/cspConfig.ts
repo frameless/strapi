@@ -160,7 +160,7 @@ const kcmSurveyStylesheetURL = normalizeURL(process.env.KCM_SURVEY_STYLESHEETS_L
 export const kcmSurvey = {
   'connect-src': [subdomainWildcard('https://kcmg.nl')],
   'script-src': [subdomainWildcard('https://kcmg.nl')],
-  'style-src': [kcmSurveyStylesheetURL, subdomainWildcard('https://kcmg.nl'), INLINE].filter(isString),
+  'style-src': [kcmSurveyStylesheetURL, subdomainWildcard('https://kcmg.nl')].filter(isString),
   'font-src': [subdomainWildcard('https://kcmg.nl')],
   'frame-src': [subdomainWildcard('https://kcmg.nl')],
   'img-src': [subdomainWildcard('https://kcmg.nl')],
