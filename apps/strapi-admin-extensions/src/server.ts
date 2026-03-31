@@ -2,7 +2,7 @@ import { envAvailability, ErrorHandler } from '@frameless/utils';
 import type { CorsOptions } from 'cors';
 import cors from 'cors';
 import { config } from 'dotenv';
-import express, { NextFunction, Request, Response } from 'express';
+import express, { type NextFunction, type Request, type Response, type Express } from 'express';
 import morgan from 'morgan';
 
 import { importRoute, openapiRoute } from './routers';
@@ -29,7 +29,7 @@ const corsOption: CorsOptions = {
   },
   optionsSuccessStatus: 200,
 };
-const app = express();
+const app: Express = express();
 // Multer file upload middleware.
 // The order is important, so this should be before the express.json() middleware to parse the file.
 app.use('/api/v1', importRoute);
