@@ -13,6 +13,9 @@ const config: Config = {
   testPathIgnorePatterns: ['/node_modules/', '/test/e2e/'],
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  moduleNameMapper: {
+    '^@frameless/utils$': '<rootDir>/../../packages/utils/src',
+  },
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
