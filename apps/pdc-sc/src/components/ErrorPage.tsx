@@ -8,7 +8,6 @@ import {
   PageHeader,
   Paragraph,
 } from '@utrecht/component-library-react';
-import React from 'react';
 import { renderToString } from 'react-dom/server';
 
 interface PageComponentProps {
