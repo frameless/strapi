@@ -1,23 +1,21 @@
-import fetchMock from 'jest-fetch-mock';
 import request from 'supertest';
+import { vi, describe, it, expect, beforeAll, afterEach } from 'vitest';
 
 import kennisartikelObjectTypes from '../../docs/kennisartikel.json';
 import vacObjectTypes from '../../docs/vac.json';
 import app from '../../server';
+import * as readFileUtils from '../../utils/readFile';
 
-jest.mock('../../utils/getTheServerURL.ts', () => ({
+vi.mock('../../utils/getTheServerURL.ts', () => ({
   getTheServerURL: () => 'http://localhost:3000',
 }));
-fetchMock.enableMocks();
+
 describe('objecttypesController', () => {
   beforeAll(() => {
-    jest.resetAllMocks();
-  });
-  beforeEach(() => {
-    fetchMock.resetMocks();
+    vi.clearAllMocks();
   });
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
   it('GET /api/v2/objecttypes/:type should return 200 and kennisartikel.json', async () => {
     const response = await request(app).get('/api/v2/objecttypes/kennisartikel');
@@ -39,21 +37,21 @@ describe('objecttypesController', () => {
     expect(response.status).toBe(404);
   });
   it('GET /api/v2/objecttypes/:type should return 500 when an error occurs', async () => {
-    const spy = jest.spyOn(require('../../utils/readFile'), 'readFile').mockImplementation(() => 'invalid-path');
+    const spy = vi.spyOn(readFileUtils, 'readFile').mockImplementation(() => 'invalid-path');
     const response = await request(app).get('/api/v2/objecttypes/kennisartikel');
     expect(response.status).toBe(500);
     spy.mockRestore();
   });
 
   it('GET /api/v2/objecttypes/:type should return 500 when kennisartikel.json is not found', async () => {
-    const spy = jest.spyOn(require('../../utils/readFile'), 'readFile').mockImplementation(() => false);
+    const spy = vi.spyOn(readFileUtils, 'readFile').mockImplementation(() => undefined);
     const response = await request(app).get('/api/v2/objecttypes/kennisartikel');
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ message: 'An unexpected error occurred.' });
     spy.mockRestore();
   });
   it('GET /api/v2/objecttypes/:type should return 500 when VAC.json is not found', async () => {
-    const spy = jest.spyOn(require('../../utils/readFile'), 'readFile').mockImplementation(() => false);
+    const spy = vi.spyOn(readFileUtils, 'readFile').mockImplementation(() => undefined);
     const response = await request(app).get('/api/v2/objecttypes/vac');
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ message: 'An unexpected error occurred.' });

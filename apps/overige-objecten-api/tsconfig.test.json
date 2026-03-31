@@ -8,7 +8,7 @@
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
     "strict": true,
-    "types": ["jest", "node"],
+    "types": ["vitest/globals", "node"],
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {

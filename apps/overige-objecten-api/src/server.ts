@@ -6,7 +6,7 @@ import { envAvailability, ErrorHandler } from '@frameless/utils';
 import type { CorsOptions } from 'cors';
 import cors from 'cors';
 import { config } from 'dotenv';
-import express, { NextFunction, Request, Response } from 'express';
+import express, { type NextFunction, type Request, type Response, type Express } from 'express';
 import * as OpenApiValidator from 'express-openapi-validator';
 import { load } from 'js-yaml';
 import swaggerUi from 'swagger-ui-express';
@@ -48,8 +48,8 @@ const corsOption: CorsOptions = {
   },
   optionsSuccessStatus: 200,
 };
-const apiSpec = path.join(__dirname, './docs/openapi.yaml');
-const app = express();
+
+const app: Express = express();
 app.use(express.json());
 
 app.use('/public/vendor', express.static(path.resolve(process.cwd(), 'public/vendor')));
@@ -110,7 +110,7 @@ app.use('/api/v2', openapi);
  */
 app.use(
   OpenApiValidator.middleware({
-    apiSpec,
+    apiSpec: swaggerDocument as any,
     validateResponses: {
       onError: (error, _body, _req) => {
         // Log the error from express-openapi-validator instead of returning the error and blocking the response.
