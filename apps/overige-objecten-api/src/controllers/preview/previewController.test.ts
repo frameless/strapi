@@ -1,30 +1,25 @@
-import fetchMock from 'jest-fetch-mock';
 import request from 'supertest';
+import { describe, it, expect, vi, beforeAll, afterEach, type Mock } from 'vitest';
 
 import { pageRenderer } from '../../client/pageRenderer';
 import app from '../../server';
 import { getObjectByUUID } from '../../service/object';
 
-jest.mock('../../service/object');
-jest.mock('../../client/pageRenderer');
-jest.mock('../../utils/getTheServerURL', () => ({
+vi.mock('../../service/object');
+vi.mock('../../client/pageRenderer');
+vi.mock('../../utils/getTheServerURL', () => ({
   getTheServerURL: () => 'http://localhost:3000',
 }));
 
-fetchMock.enableMocks();
-
 describe('previewController', () => {
   beforeAll(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
     process.env.PREVIEW_SECRET_TOKEN = 'secret123';
-  });
-
-  beforeEach(() => {
-    fetchMock.resetMocks();
+    process.env.Strapi_API_TOKEN = 'token';
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('should return 400 when required query params are missing', async () => {
@@ -57,8 +52,8 @@ describe('previewController', () => {
       },
     };
 
-    (getObjectByUUID as jest.Mock).mockResolvedValue(vacObject);
-    (pageRenderer as jest.Mock).mockReturnValue('<html>VAC PAGE</html>');
+    (getObjectByUUID as Mock).mockResolvedValue(vacObject);
+    (pageRenderer as Mock).mockReturnValue('<html>VAC PAGE</html>');
 
     const response = await request(app).get('/api/v2/preview').query({
       slug: 'vac',
@@ -86,8 +81,8 @@ describe('previewController', () => {
       },
     };
 
-    (getObjectByUUID as jest.Mock).mockResolvedValue(kennisartikelObject);
-    (pageRenderer as jest.Mock).mockReturnValue('<html>KA PAGE</html>');
+    (getObjectByUUID as Mock).mockResolvedValue(kennisartikelObject);
+    (pageRenderer as Mock).mockReturnValue('<html>KA PAGE</html>');
 
     const response = await request(app).get('/api/v2/preview').query({
       slug: 'kennisartikelen',
@@ -106,7 +101,7 @@ describe('previewController', () => {
   });
 
   it('should return 404 page when object is not found', async () => {
-    (getObjectByUUID as jest.Mock).mockRejectedValue(new Error('Object not found'));
+    (getObjectByUUID as Mock).mockRejectedValue(new Error('Object not found'));
 
     const response = await request(app).get('/api/v2/preview').query({
       slug: 'vac',
@@ -127,7 +122,7 @@ describe('previewController', () => {
   });
 
   it('should return 500 when an unexpected error occurs', async () => {
-    (getObjectByUUID as jest.Mock).mockRejectedValue(new Error('Boom'));
+    (getObjectByUUID as Mock).mockRejectedValue(new Error('Boom'));
 
     const response = await request(app).get('/api/v2/preview').query({
       slug: 'vac',

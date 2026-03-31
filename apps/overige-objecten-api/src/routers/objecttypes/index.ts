@@ -1,8 +1,8 @@
-import express from 'express';
+import express, { type Router } from 'express';
 
 import { objecttypesController } from '../../controllers';
 
-const router = express.Router({ mergeParams: true });
+const router: Router = express.Router({ mergeParams: true });
 
 router.get('/objecttypes/:type', objecttypesController);
 
