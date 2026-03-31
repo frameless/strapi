@@ -1,4 +1,13 @@
-import { config } from '@frameless/eslint-config/base';
+import { createConfig } from '@frameless/eslint-config/base';
+const myAdditionalIgnores = [
+  '**/.docusaurus/**',
+  '**/editoria11y/lib/**',
+  'apps/pdc-frontend/public/flo-client-plugin-polyfills.js',
+  'apps/pdc-frontend/public/flo-client-plugin.js',
+  'apps/pdc-frontend/gql/**',
+  '**/loader/**',
+  '**/www/**',
+];
 
 const customConfig = {
   languageOptions: {
@@ -9,4 +18,7 @@ const customConfig = {
     },
   },
 };
-export default [...config, customConfig];
+
+const extendedConfig = createConfig(myAdditionalIgnores);
+
+export default [...extendedConfig, customConfig];
