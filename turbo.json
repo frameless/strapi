@@ -39,7 +39,6 @@
     },
     "clean": {
       "cache": false,
-      "persistent": true,
       "outputs": ["./.next", "./dist", "./.strapi"]
     }
   }
