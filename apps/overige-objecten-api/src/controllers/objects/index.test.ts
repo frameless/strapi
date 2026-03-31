@@ -1,5 +1,28 @@
-import fetchMock from 'jest-fetch-mock';
+import { vi, describe, it, expect, beforeEach, afterEach, Mock } from 'vitest';
+
+vi.mock('@frameless/utils', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@frameless/utils')>();
+
+  return {
+    ...actual,
+    fetchData: vi.fn(),
+    ErrorHandler: class ErrorHandler extends Error {
+      options: { statusCode: number };
+      isOperational: boolean = true;
+      constructor(message: string, options = { statusCode: 500 }) {
+        super(message);
+        this.options = options;
+        this.isOperational = true;
+      }
+    },
+    envAvailability: vi.fn(),
+  };
+});
+
 import request from 'supertest';
+import { fetchData, ErrorHandler } from '@frameless/utils';
+
+const mockedFetchData = fetchData as Mock;
 
 import {
   getStrapiKennisartikelData,
@@ -9,42 +32,37 @@ import {
   vacObject,
 } from '../../__mocks__';
 import app from '../../server';
+import * as getPaginatedResponseUtils from '../../utils/getPaginatedResponse';
 import type { Trefwoord } from '../openapi/types';
 
-jest.mock('../../utils/getTheServerURL.ts', () => ({
+vi.mock('../../utils/getTheServerURL.ts', () => ({
   getTheServerURL: () => 'http://localhost:3000',
 }));
+vi.mock('../../utils/getPaginatedResponse.ts');
 
-jest.mock('../../utils/getPaginatedResponse.ts');
-
-fetchMock.enableMocks();
 describe('Objects controller', () => {
-  beforeAll(() => {
-    jest.resetAllMocks();
-  });
   beforeEach(() => {
-    fetchMock.resetMocks();
+    mockedFetchData.mockImplementation(() => ({ data: { products: [] }, vac: { data: [] } }));
   });
+
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.resetAllMocks();
   });
 
   describe('GET /api/objects', () => {
     it('should return kennisartikel & VAC by default', async () => {
-      const spy = jest
-        .spyOn(require('../../utils/getPaginatedResponse'), 'getPaginatedResponse')
-        .mockImplementation(() =>
-          Promise.resolve({
-            page: 1,
-            pageSize: 10,
-            count: 3,
-            total: 2,
-            next: null,
-            previous: null,
-          }),
-        );
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      const spay = vi.spyOn(getPaginatedResponseUtils, 'getPaginatedResponse').mockImplementation(() =>
+        Promise.resolve({
+          page: 1,
+          pageSize: 10,
+          count: 3,
+          total: 2,
+          next: null,
+          previous: null,
+        }),
+      );
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
@@ -57,24 +75,23 @@ describe('Objects controller', () => {
         total: 4,
         ...objectsResponseData({}),
       });
-      spy.mockRestore();
+      spay.mockRestore();
     });
+
     describe('pagination', () => {
       it('should response the whole data by default', async () => {
-        const spy = jest
-          .spyOn(require('../../utils/getPaginatedResponse'), 'getPaginatedResponse')
-          .mockImplementation(() =>
-            Promise.resolve({
-              page: 1,
-              pageSize: 1,
-              count: 2,
-              total: 1,
-              next: null,
-              previous: null,
-            }),
-          );
-        fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-        fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+        const spy = vi.spyOn(getPaginatedResponseUtils, 'getPaginatedResponse').mockImplementation(() =>
+          Promise.resolve({
+            page: 1,
+            pageSize: 1,
+            count: 2,
+            total: 1,
+            next: null,
+            previous: null,
+          }),
+        );
+        mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+        mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
         const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
         expect(response.status).toBe(200);
         expect(response.ok).toBe(true);
@@ -89,21 +106,20 @@ describe('Objects controller', () => {
         });
         spy.mockRestore();
       });
+
       it('should response the second page when page=2&pageSize=10', async () => {
-        const spy = jest
-          .spyOn(require('../../utils/getPaginatedResponse'), 'getPaginatedResponse')
-          .mockImplementation(() =>
-            Promise.resolve({
-              page: 2,
-              pageSize: 10,
-              count: 1,
-              total: 1,
-              next: 'http://localhost:4001/api/v2/objects?page=2&pageSize=10',
-              previous: null,
-            }),
-          );
-        fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-        fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+        const spy = vi.spyOn(getPaginatedResponseUtils, 'getPaginatedResponse').mockImplementation(() =>
+          Promise.resolve({
+            page: 2,
+            pageSize: 10,
+            count: 1,
+            total: 1,
+            next: 'http://localhost:4001/api/v2/objects?page=2&pageSize=10',
+            previous: null,
+          }),
+        );
+        mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+        mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
         const response = await request(app)
           .get('/api/v2/objects?page=2&pageSize=10')
           .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -121,8 +137,9 @@ describe('Objects controller', () => {
         spy.mockRestore();
       });
     });
+
     it('should return kennisartikel objects when type is kennisartikel', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
       const response = await request(app)
         .get(`/api/v2/objects?type=${encodeURIComponent('http://localhost:4001/api/v2/objecttypes/kennisartikel')}`)
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -130,8 +147,9 @@ describe('Objects controller', () => {
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(objectsResponseData({ type: 'kennisartikel' }));
     });
+
     it('should return vac objects when type is vac', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get(`/api/v2/objects?type=${encodeURIComponent('http://localhost:4001/api/v2/objecttypes/vac')}`)
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -139,27 +157,26 @@ describe('Objects controller', () => {
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(objectsResponseData({ type: 'vac' }));
     });
+
     it('should include contact_information_internal in VAC antwoord', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify(
-          getStrapiVacData({
-            contact_information_internal: {
-              data: [
-                {
-                  attributes: {
-                    contentBlock: [
-                      {
-                        id: '1',
-                        content:
-                          'Voor het aanvragen van een paspoort kunt u contact opnemen met de gemeente via telefoonnummer 123-456789 of bezoek onze website voor meer informatie.',
-                      },
-                    ],
-                  },
+      mockedFetchData.mockResolvedValueOnce(
+        getStrapiVacData({
+          contact_information_internal: {
+            data: [
+              {
+                attributes: {
+                  contentBlock: [
+                    {
+                      id: '1',
+                      content:
+                        'Voor het aanvragen van een paspoort kunt u contact opnemen met de gemeente via telefoonnummer 123-456789 or bezoek onze website voor meer informatie.',
+                    },
+                  ],
                 },
-              ],
-            },
-          }),
-        ),
+              },
+            ],
+          },
+        }),
       );
       const response = await request(app)
         .get(`/api/v2/objects?type=${encodeURIComponent('http://localhost:4001/api/v2/objecttypes/vac')}`)
@@ -169,80 +186,53 @@ describe('Objects controller', () => {
       expect(firstVac.record.data.antwoord).toContain('U moet een afspraak maken');
       expect(firstVac.record.data.antwoord).toContain('123-456789');
     });
+
     it('should return 400 when type is not an encoded URL', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects?type=http://localhost:4001/api/v2/objecttypes/vac')
         .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(400);
       expect(response.ok).toBe(false);
     });
+
     it('should return 400 when type is empty', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app).get('/api/v2/objects?type=').set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(400);
       expect(response.ok).toBe(false);
     });
+
     it('should return 400 when type is not a valid URL', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
       const response = await request(app)
         .get('/api/v2/objects?type=invalid')
         .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(400);
       expect(response.ok).toBe(false);
     });
-    it('should return 200 and empty array when no data is returned', async () => {
-      const spy = jest
-        .spyOn(require('../../utils/getPaginatedResponse'), 'getPaginatedResponse')
-        .mockImplementation(() =>
-          Promise.resolve({
-            page: 1,
-            pageSize: 10,
-            count: 0,
-            total: 0,
-            next: null,
-            previous: null,
-          }),
-        );
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: {
-            vacs: {
-              meta: {
-                pagination: {
-                  total: 0,
-                  page: 1,
-                  pageSize: 0,
-                  pageCount: 0,
-                },
-              },
-              data: [],
-            },
-          },
-        }),
-      );
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: {
-            kennisartikels: {
-              meta: {
-                pagination: {
-                  total: 0,
-                  page: 1,
-                  pageSize: 0,
-                  pageCount: 0,
-                },
-              },
-              data: [],
-            },
-          },
-        }),
-      );
-      const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
 
+    it('should return 200 and empty array when no data is returned', async () => {
+      const spy = vi.spyOn(getPaginatedResponseUtils, 'getPaginatedResponse').mockImplementation(() =>
+        Promise.resolve({
+          page: 1,
+          pageSize: 10,
+          count: 0,
+          total: 0,
+          next: null,
+          previous: null,
+        }),
+      );
+      mockedFetchData.mockResolvedValueOnce({
+        data: { vacs: { meta: { pagination: { total: 0, page: 1, pageSize: 0, pageCount: 0 } }, data: [] } },
+      });
+      mockedFetchData.mockResolvedValueOnce({
+        data: { kennisartikels: { meta: { pagination: { total: 0, page: 1, pageSize: 0, pageCount: 0 } }, data: [] } },
+      });
+      const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual({
@@ -256,22 +246,25 @@ describe('Objects controller', () => {
       });
       spy.mockRestore();
     });
-    it('should return 500 when fetch fails', async () => {
-      fetchMock.mockRejectOnce(new Error('Fetch failed'));
-      const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
-      expect(response.status).toBe(500);
-      expect(response.ok).toBe(false);
-    });
-    it('should return 500 when fetch fails with error message', async () => {
-      fetchMock.mockRejectOnce(new Error('Fetch failed'));
-      const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
-      expect(response.status).toBe(500);
-      expect(response.ok).toBe(false);
-      expect(response.text).toBe(JSON.stringify({ message: 'Fetch failed' }));
-    });
-    it('should return 401 when authorization header is missing', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify([{}]));
 
+    it('should return 500 when fetch fails', async () => {
+      mockedFetchData.mockRejectedValueOnce(() =>
+        Promise.reject(new ErrorHandler('Fetch failed', { statusCode: 500 })),
+      );
+      const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
+      expect(response.status).toBe(500);
+    });
+
+    it('should return 500 when fetch fails with error message', async () => {
+      mockedFetchData.mockRejectedValueOnce(new ErrorHandler('Fetch failed', { statusCode: 500 }));
+      const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
+      expect(response.status).toBe(500);
+      expect(response.body).toStrictEqual({ message: 'Fetch failed' });
+    });
+
+    it('should return 401 when authorization header is missing', async () => {
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app).get('/api/v2/objects');
       expect(response.status).toBe(401);
       expect(response.text).toBe(
@@ -279,67 +272,47 @@ describe('Objects controller', () => {
       );
       expect(response.ok).toBe(false);
     });
-    it('should return 500 when fetch fails with error message', async () => {
-      fetchMock.mockRejectOnce(new Error('Fetch failed'));
-      const response = await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
-      expect(response.status).toBe(500);
-      expect(response.ok).toBe(false);
-      expect(response.text).toBe(JSON.stringify({ message: 'Fetch failed' }));
-    });
+
     describe('validate fields with express-openapi-validator', () => {
-      it('should log an error message when of the required fields are missing', async () => {
-        const consoleSpy = jest.spyOn(console, 'log');
-        const kennisartikelData = getStrapiKennisartikelData().data.products.data.map((data) => {
-          return {
-            ...data,
-            attributes: {
-              ...data.attributes,
-              title: null,
+      it('should log an error message when required fields are missing', async () => {
+        const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+        const kennisartikelData = getStrapiKennisartikelData().data.products.data.map((data) => ({
+          ...data,
+          attributes: { ...data.attributes, title: null },
+        }));
+        const vacData = getStrapiVacData().data.vacs.data.map((data) => ({
+          ...data,
+          attributes: { ...data.attributes, vac: { ...data.attributes.vac, vraag: null } },
+        }));
+        mockedFetchData.mockResolvedValueOnce({
+          data: {
+            products: {
+              data: kennisartikelData,
+              meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
             },
-          };
+          },
         });
-        const vacData = getStrapiVacData().data.vacs.data.map((data) => {
-          return {
-            ...data,
-            attributes: {
-              ...data.attributes,
-              vac: { ...data.attributes.vac, vraag: null },
+        mockedFetchData.mockResolvedValueOnce({
+          data: {
+            vacs: {
+              data: vacData,
+              meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
             },
-          };
+          },
         });
-        const vacResponse = { data: { vacs: { data: vacData } } };
-        fetchMock.mockResponseOnce(
-          JSON.stringify({
-            data: {
-              products: {
-                data: kennisartikelData,
-                meta: {
-                  pagination: {
-                    total: 1,
-                    page: 1,
-                    pageSize: 1,
-                    pageCount: 1,
-                  },
-                },
-              },
-            },
-          }),
-        );
-        fetchMock.mockResponseOnce(JSON.stringify(vacResponse));
         await request(app).get('/api/v2/objects').set('Authorization', 'Token YOUR_API_TOKEN');
         const consoleSpyKennisartikelValue = consoleSpy.mock.calls[0][1].find(
           (item: any) => item.path === '/response/results/0/record/data/vertalingen/0/titel',
         );
-        const consoleSpayVacValue = consoleSpy.mock.calls[0][1].find(
+        const consoleSpyVacValue = consoleSpy.mock.calls[0][1].find(
           (item: any) => item.path === '/response/results/0/record/data/vraag',
         );
-
         expect(consoleSpyKennisartikelValue).toEqual({
           path: '/response/results/0/record/data/vertalingen/0/titel',
           message: 'must be string',
           errorCode: 'type.openapi.validation',
         });
-        expect(consoleSpayVacValue).toEqual({
+        expect(consoleSpyVacValue).toEqual({
           path: '/response/results/0/record/data/vraag',
           message: "must have required property 'vraag'",
           errorCode: 'required.openapi.validation',
@@ -348,10 +321,11 @@ describe('Objects controller', () => {
       });
     });
   });
+
   describe('GET /api/objects/:id', () => {
     it('should return 200 and kennisartikel object when uuid is valid', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb')
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -359,9 +333,10 @@ describe('Objects controller', () => {
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(kennisartikelObject());
     });
+
     it('should return kennisartikel object with trefwoorden', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb')
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -370,58 +345,46 @@ describe('Objects controller', () => {
         kennisartikelObject().record.data.vertalingen[0],
       );
     });
+
     it('should merge internal and kennisartikel trefwoorden', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: {
-            products: {
-              meta: {
-                pagination: {
-                  total: 1,
-                  page: 1,
-                  pageSize: 1,
-                  pageCount: 1,
-                },
-              },
-              data: [
-                {
-                  id: '1',
-                  attributes: {
-                    title: 'Demo Product',
-                    slug: 'demo-product',
-                    uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce3',
-                    locale: 'nl',
-                    updatedAt: '2024-11-06T12:05:42.541Z',
-                    createdAt: '2024-11-05T16:03:50.975Z',
-                    metaTags: {
-                      keymatch: 'Demo, Page',
-                      title: 'Demo Page Title',
-                      description: 'Demo Page description',
-                    },
-                    sections: [
-                      {
-                        component: 'ComponentComponentsInternalBlockContent',
-                        internal_field: {
-                          data: {
-                            attributes: {
-                              content: {
-                                id: '1',
-                                uuid: '241eb316-d348-4304-b303-9aa5ebf431b4',
-                                keywords: 'Intern keyword 1, Intern keyword 2, Intern keyword 3',
-                              },
+      mockedFetchData.mockResolvedValueOnce({
+        data: {
+          products: {
+            meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
+            data: [
+              {
+                id: '1',
+                attributes: {
+                  title: 'Demo Product',
+                  slug: 'demo-product',
+                  uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce3',
+                  locale: 'nl',
+                  updatedAt: '2024-11-06T12:05:42.541Z',
+                  createdAt: '2024-11-05T16:03:50.975Z',
+                  metaTags: { keymatch: 'Demo, Page', title: 'Demo Page Title', description: 'Demo Page description' },
+                  sections: [
+                    {
+                      component: 'ComponentComponentsInternalBlockContent',
+                      internal_field: {
+                        data: {
+                          attributes: {
+                            content: {
+                              id: '1',
+                              uuid: '241eb316-d348-4304-b303-9aa5ebf431b4',
+                              keywords: 'Intern keyword 1, Intern keyword 2, Intern keyword 3',
                             },
                           },
                         },
                       },
-                    ],
-                  },
+                    },
+                  ],
                 },
-              ],
-            },
+              },
+            ],
           },
-        }),
-      );
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+        },
+      });
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ce3')
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -435,116 +398,83 @@ describe('Objects controller', () => {
       ];
       expect(responseKennisartikel.record.data.vertalingen[0].trefwoorden).toStrictEqual(expectedTrefwoorden);
     });
+
     it('should deskMemo include contact_information_internal from internal block', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: {
-            products: {
-              meta: {
-                pagination: {
-                  total: 1,
-                  page: 1,
-                  pageSize: 1,
-                  pageCount: 1,
-                },
-              },
-              data: [
-                {
-                  id: '1',
-                  attributes: {
-                    title: 'Demo Product',
-                    slug: 'demo-product',
-                    uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce4',
-                    locale: 'nl',
-                    updatedAt: '2024-11-06T12:05:42.541Z',
-                    createdAt: '2024-11-05T16:03:50.975Z',
-                    sections: [
-                      {
-                        component: 'ComponentComponentsInternalBlockContent',
-                        internal_field: {
-                          data: {
-                            attributes: {
-                              content: {
-                                contentBlock: [
-                                  {
-                                    id: '1',
-                                    content: 'Contact info: 123-456789',
-                                  },
-                                ],
-                              },
-                            },
-                          },
+      mockedFetchData.mockResolvedValueOnce({
+        data: {
+          products: {
+            meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
+            data: [
+              {
+                id: '1',
+                attributes: {
+                  title: 'Demo Product',
+                  slug: 'demo-product',
+                  uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce4',
+                  locale: 'nl',
+                  updatedAt: '2024-11-06T12:05:42.541Z',
+                  createdAt: '2024-11-05T16:03:50.975Z',
+                  sections: [
+                    {
+                      component: 'ComponentComponentsInternalBlockContent',
+                      internal_field: {
+                        data: {
+                          attributes: { content: { contentBlock: [{ id: '1', content: 'Contact info: 123-456789' }] } },
                         },
                       },
-                    ],
-                  },
+                    },
+                  ],
                 },
-              ],
-            },
+              },
+            ],
           },
-        }),
-      );
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+        },
+      });
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ce4')
         .set('Authorization', 'Token YOUR_API_TOKEN');
       const responseKennisartikel = response.body as ReturnType<typeof kennisartikelObject>;
-
       expect(responseKennisartikel.record.data.vertalingen[0].deskMemo).toContain('Contact info: 123-456789');
     });
 
     it('should extract contact_information_public from sections and include in vertalingen', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: {
-            products: {
-              meta: {
-                pagination: {
-                  total: 1,
-                  page: 1,
-                  pageSize: 1,
-                  pageCount: 1,
-                },
-              },
-              data: [
-                {
-                  id: '1',
-                  attributes: {
-                    title: 'Demo Product',
-                    slug: 'demo-product',
-                    uuid: 'A555372B-EE1E-4432-8F90-51DAD214E1F4',
-                    locale: 'nl',
-                    updatedAt: '2024-11-06T12:05:42.541Z',
-                    createdAt: '2024-11-05T16:03:50.975Z',
-                    sections: [
-                      {
-                        component: 'ComponentComponentsContactInformationPublic',
-                        contact_information_public: {
-                          data: {
-                            attributes: {
-                              contentBlock: [
-                                {
-                                  id: '1',
-                                  content: '<p>Contact us at 123-456-7890</p>',
-                                },
-                                {
-                                  id: '2',
-                                  content: '<p>Email: info@example.com</p>',
-                                },
-                              ],
-                            },
+      mockedFetchData.mockResolvedValueOnce({
+        data: {
+          products: {
+            meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
+            data: [
+              {
+                id: '1',
+                attributes: {
+                  title: 'Demo Product',
+                  slug: 'demo-product',
+                  uuid: 'A555372B-EE1E-4432-8F90-51DAD214E1F4',
+                  locale: 'nl',
+                  updatedAt: '2024-11-06T12:05:42.541Z',
+                  createdAt: '2024-11-05T16:03:50.975Z',
+                  sections: [
+                    {
+                      component: 'ComponentComponentsContactInformationPublic',
+                      contact_information_public: {
+                        data: {
+                          attributes: {
+                            contentBlock: [
+                              { id: '1', content: '<p>Contact us at 123-456-7890</p>' },
+                              { id: '2', content: '<p>Email: info@example.com</p>' },
+                            ],
                           },
                         },
                       },
-                    ],
-                  },
+                    },
+                  ],
                 },
-              ],
-            },
+              },
+            ],
           },
-        }),
-      );
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+        },
+      });
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/A555372B-EE1E-4432-8F90-51DAD214E1F4')
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -553,56 +483,48 @@ describe('Objects controller', () => {
     });
 
     it('should return the first contentBlock as inleiding category when provided', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          data: {
-            products: {
-              meta: {
-                pagination: {
-                  total: 1,
-                  page: 1,
-                  pageSize: 1,
-                  pageCount: 1,
+      mockedFetchData.mockResolvedValueOnce({
+        data: {
+          products: {
+            meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
+            data: [
+              {
+                id: '1',
+                attributes: {
+                  title: 'Demo Product',
+                  slug: 'demo-product',
+                  uuid: 'F555372B-EE1E-4432-8F90-51DAD214E1F3',
+                  content: '<h2>This is the first content block in the Product collection.</h2>',
+                  locale: 'nl',
+                  updatedAt: '2024-11-06T12:05:42.541Z',
+                  createdAt: '2024-11-05T16:03:50.975Z',
+                  sections: [
+                    {
+                      id: '1',
+                      content: '<h2>Inleiding  - 1</h2><p>Body text</p>',
+                      categorie5: 'inleiding',
+                      component: 'ComponentComponentsUtrechtRichText',
+                    },
+                  ],
                 },
               },
-              data: [
-                {
-                  id: '1',
-                  attributes: {
-                    title: 'Demo Product',
-                    slug: 'demo-product',
-                    uuid: 'F555372B-EE1E-4432-8F90-51DAD214E1F3',
-                    content: '<h2>This is the first content block in the Product collection.</h2>',
-                    locale: 'nl',
-                    updatedAt: '2024-11-06T12:05:42.541Z',
-                    createdAt: '2024-11-05T16:03:50.975Z',
-                    sections: [
-                      {
-                        id: '1',
-                        content: '<h2>Inleiding  - 1</h2><p>Body text</p>',
-                        categorie5: 'inleiding',
-                        component: 'ComponentComponentsUtrechtRichText',
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
+            ],
           },
-        }),
-      );
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+        },
+      });
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/F555372B-EE1E-4432-8F90-51DAD214E1F3')
         .set('Authorization', 'Token YOUR_API_TOKEN');
       const responseKennisartikel = response.body as ReturnType<typeof kennisartikelObject>;
-      const expectedResults =
-        '<h2>This is the first content block in the Product collection.</h2><h2>Inleiding  - 1</h2><p>Body text</p>';
-      expect(responseKennisartikel.record.data.vertalingen[0].tekst).toStrictEqual(expectedResults);
+      expect(responseKennisartikel.record.data.vertalingen[0].tekst).toStrictEqual(
+        '<h2>This is the first content block in the Product collection.</h2><h2>Inleiding  - 1</h2><p>Body text</p>',
+      );
     });
+
     it('should return 200 and vac object when uuid is valid', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/22D89EB2-2238-4885-A352-07C02CF8FCDF')
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -610,9 +532,10 @@ describe('Objects controller', () => {
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(vacObject());
     });
+
     it('should return 200 and Kennisartikel object when uuid is valid', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiKennisartikelData()));
-      fetchMock.mockResponseOnce(JSON.stringify(getStrapiVacData()));
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb')
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -620,25 +543,27 @@ describe('Objects controller', () => {
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(kennisartikelObject());
     });
+
     it('should return 404 when id is not found', async () => {
-      fetchMock.mockResponseOnce(JSON.stringify({ data: { products: { data: [] } } }));
-      fetchMock.mockResponseOnce(JSON.stringify({ data: { vacs: { data: [] } } }));
+      mockedFetchData.mockResolvedValueOnce({ data: { products: { data: [] } } });
+      mockedFetchData.mockResolvedValueOnce({ data: { vacs: { data: [] } } });
       const response = await request(app)
         .get('/api/v2/objects/not-exist-uuid')
         .set('Authorization', 'Token YOUR_API_TOKEN');
-
       expect(response.status).toBe(404);
       expect(response.ok).toBe(false);
       expect(response.body).toStrictEqual({ message: 'Object not found' });
     });
+
     it('should return 500 when fetch fails with error message', async () => {
-      fetchMock.mockRejectOnce(new Error('Fetch failed'));
+      mockedFetchData.mockImplementationOnce(() =>
+        Promise.reject(new ErrorHandler('Fetch failed', { statusCode: 500 })),
+      );
       const response = await request(app)
         .get('/api/v2/objects/a9058a3e-6dd9-480c-a074-e38026bd4ffd')
         .set('Authorization', 'Token YOUR_API_TOKEN');
       expect(response.status).toBe(500);
-      expect(response.ok).toBe(false);
-      expect(response.text).toBe(JSON.stringify({ message: 'Fetch failed' }));
+      expect(response.body).toStrictEqual({ message: 'Fetch failed' });
     });
   });
 });

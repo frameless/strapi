@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { type Router } from 'express';
 
 import {
   createVacController,
@@ -7,7 +7,7 @@ import {
   updateVacController,
 } from '../../controllers';
 
-const router = express.Router({ mergeParams: true });
+const router: Router = express.Router({ mergeParams: true });
 
 router.get('/objects', getAllObjectsController);
 router.get('/objects/:uuid', getObjectByUUIDController);
