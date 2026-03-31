@@ -5530,22 +5530,27 @@
   resolved "https://registry.yarnpkg.com/@oozcitak/util/-/util-8.3.8.tgz#10f65fe1891fd8cde4957360835e78fd1936bfdd"
   integrity sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==
 
-"@open-formulieren/design-tokens@^0.61.0":
-  version "0.61.0"
-  resolved "https://registry.yarnpkg.com/@open-formulieren/design-tokens/-/design-tokens-0.61.0.tgz#38235c98d9e23ca098db52fd93881e90edf37d2f"
-  integrity sha512-w7GH5gW8w4Jc7RWXrv43kPEnujANVVjaFS2hn7zg/UugPa1q/4OulvGRNKbjKCbJ/NaSaQ78l34HWjx64BnAWQ==
+"@open-formulieren/design-tokens@^0.66.0":
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/@open-formulieren/design-tokens/-/design-tokens-0.66.0.tgz#058eff04d52bab1894caebcb51990aabf71b8ef8"
+  integrity sha512-zMs6937ostu1b6q7WHYq4yjtKifnExOGAjWNYLMWuc+7ZttnhFnsf5QFXBR6P+YFDkzQNhJSKnGZnmmY1zZPOQ==
 
-"@open-formulieren/formio-renderer@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@open-formulieren/formio-renderer/-/formio-renderer-0.9.0.tgz#0eb100f6b1b4b7085cd366657870c2809429ac91"
-  integrity sha512-qFrYAnbsReWDoEGP+dUA5LqCWykoKWfmo+FuFLLcEIIW9+P8QqvlHJ5IoIU44Jq0M85SSO9WhgIfUFHYfiY2sA==
+"@open-formulieren/formio-renderer@^1.1.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@open-formulieren/formio-renderer/-/formio-renderer-1.4.1.tgz#bcb09525cf659b5b98da56b0668d12f04eca6ae5"
+  integrity sha512-AKYcb6PXereCT3R2MRVmzdlDVu2+uU4qjzF0XpoYCGuTnFKxWroXoda8RLcxnAslZ3StttXq8waDE2pUlG7k8g==
   dependencies:
+    "@open-formulieren/types" "^1.0.1"
+    "@utrecht/calendar-react" "^1.1.0"
     "@utrecht/component-library-react" "1.0.0-alpha.353"
     clsx "^2.1.0"
     dompurify "^3.2.6"
     formik "^2.4.5"
     ibantools "^4.5.1"
+    lodash "^4.17.23"
+    react-dropzone "^14.3.8"
     react-number-format "^5.4.4"
+    react-signature-canvas "^1.0.7"
     zod "^3.24.1"
     zod-formik-adapter "^1.3.0"
 
@@ -5597,16 +5602,16 @@
   dependencies:
     proj4leaflet "^1.0.2"
 
-"@open-formulieren/sdk@3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@open-formulieren/sdk/-/sdk-3.3.0.tgz#e494520f74b1de5f9a0d9f4b1ee10c108b71eb93"
-  integrity sha512-r2GgrOD9anON2ol/MnVDmczkH4HL4RxXLMut5mIcUb8Uzrhw1QkSlfctPZXdqDLmO6+o1v5K8a74n6FOpKLPrg==
+"@open-formulieren/sdk@3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@open-formulieren/sdk/-/sdk-3.4.2.tgz#9121991fd64726cc9b297b13495a842547c8b1e0"
+  integrity sha512-t2qGju0jZOEj8ga627G1zInacOTLDbG8UKa+iD7t/Yy1I9pErW6W4HaBzWcLitsCEOyO7Aia7qEu6sjxUznQuw==
   dependencies:
     "@floating-ui/react" "^0.27.5"
     "@formio/protected-eval" "^1.2.1"
     "@fortawesome/fontawesome-free" "^6.4.0"
-    "@open-formulieren/design-tokens" "^0.61.0"
-    "@open-formulieren/formio-renderer" "^0.9.0"
+    "@open-formulieren/design-tokens" "^0.66.0"
+    "@open-formulieren/formio-renderer" "^1.1.1"
     "@open-formulieren/formiojs" "^4.13.14"
     "@open-formulieren/leaflet-tools" "^1.0.0"
     "@sentry/react" "^8.50.0"
@@ -5628,7 +5633,6 @@
     react-intl "^7.1.6"
     react-leaflet "4.2.1"
     react-leaflet-draw "^0.20.6"
-    react-modal "^3.16.1"
     react-number-format "^5.2.2"
     react-router "^7.1.3"
     react-select "^5.7.3"
@@ -5637,6 +5641,11 @@
     use-immer "^0.11.0"
     zod "^3.21.4"
     zod-formik-adapter "^1.2.0"
+
+"@open-formulieren/types@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@open-formulieren/types/-/types-1.0.1.tgz#356c5c0985744e06c5a227864f629e3d266233ae"
+  integrity sha512-Twb1CwWzsdpD8v2u+1gWpnymyfET1jZemXcwh2hLHw64d8GHPfno2UtHa7PMu/3dHH07/bNKVh7mYHEQ0PEtDA==
 
 "@paralleldrive/cuid2@^2.2.2":
   version "2.2.2"
@@ -10178,6 +10187,11 @@
   resolved "https://registry.yarnpkg.com/@utrecht/button-css/-/button-css-3.0.1.tgz#b363822ed9b05527e0298e38bc926cdb0db8e8eb"
   integrity sha512-yHJazkFSA99H4IKCaKLvq9pptZ9oZBeAzx1l01JQwt3x12aoZ21M5pRRaTP6V7otjfjcvz/A4sRRrROZJJ3wZw==
 
+"@utrecht/button-css@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@utrecht/button-css/-/button-css-3.1.0.tgz#fdb0e15ee3fcad91011119a2d00e62044c1cecc9"
+  integrity sha512-4iUf9AG12XR+LkZ8679RJwFY+5RMtoJUuj1iYUohc7BEE2hS28hxQuycZ5g28QQST2M6DGBSjyi5QiG3skAVVw==
+
 "@utrecht/button-group-css@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@utrecht/button-group-css/-/button-group-css-1.4.0.tgz#2151425290d4cc453f9b865c8856ea4c5694a5c3"
@@ -10247,6 +10261,14 @@
     "@utrecht/button-css" "2.3.1"
     clsx "2.1.1"
 
+"@utrecht/button-react@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@utrecht/button-react/-/button-react-3.0.1.tgz#d0e0779516b65fb9ca92821b77162debb8953b85"
+  integrity sha512-PlM0+KjOKoGVGsdSTsWASiO8dsYFbHMq8CD8JH3D9UxMRzJR5NCwY9hva9jGSr8KbIc+WImDEatyxtvMwMIxUg==
+  dependencies:
+    "@utrecht/button-css" "3.1.0"
+    clsx "2.1.1"
+
 "@utrecht/calendar-css@1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@utrecht/calendar-css/-/calendar-css-1.3.0.tgz#6d462e436c5f700381d1d5c659aa9784552ad082"
@@ -10299,6 +10321,17 @@
     clsx "2.1.1"
     date-fns "2.30.0"
     lodash-es "4.17.21"
+
+"@utrecht/calendar-react@^1.1.0":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@utrecht/calendar-react/-/calendar-react-1.1.1.tgz#185b06bb9a1abfc5eac54ea62688feb1f6938bf6"
+  integrity sha512-CYcF17UsK4IMsEK7ya/DugrcOArVDiBc4YVarqF3ENtkF5fLjBjBa6S8UeuOPEOVnAzlfPGxFasB0C97Lfvcrw==
+  dependencies:
+    "@utrecht/button-react" "3.0.1"
+    "@utrecht/calendar-css" "2.0.1"
+    clsx "2.1.1"
+    date-fns "4.1.0"
+    lodash-es "4.17.23"
 
 "@utrecht/card-css@0.1.0":
   version "0.1.0"
@@ -13683,6 +13716,11 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+attr-accept@^2.2.4:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/attr-accept/-/attr-accept-2.2.5.tgz#d7061d958e6d4f97bf8665c68b75851a0713ab5e"
+  integrity sha512-0bDNnY/u6pPwHDMoF0FieU354oBi0a8rD9FcsLwzcGWbc8KS8KPIi7y+s13OlVY+gMWc/9xEMUgNE6Qm8ZllYQ==
+
 auto-bind@~4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/auto-bind/-/auto-bind-4.0.0.tgz#e3589fc6c2da8f7ca43ba9f84fa52a744fc997fb"
@@ -16335,7 +16373,7 @@ date-fns@2.30.0, date-fns@^2.29.3, date-fns@^2.30.0:
   dependencies:
     "@babel/runtime" "^7.21.0"
 
-date-fns@^4.1.0:
+date-fns@4.1.0, date-fns@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-4.1.0.tgz#64b3d83fff5aa80438f5b1a633c2e83b8a1c2d14"
   integrity sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==
@@ -18141,11 +18179,6 @@ execa@^8.0.1:
     signal-exit "^4.1.0"
     strip-final-newline "^3.0.0"
 
-exenv@^1.2.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
-  integrity sha512-Z+ktTxTwv9ILfgKCk32OX3n/doe+OcLTRtqK9pcL+JsP3J1/VW8Uvl4ZjLlKqeW4rzK4oesDOGMEMRIZqtP4Iw==
-
 exit@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
@@ -18594,6 +18627,13 @@ file-loader@^6.2.0:
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
+
+file-selector@^2.1.0:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-2.1.2.tgz#fe7c7ee9e550952dfbc863d73b14dc740d7de8b4"
+  integrity sha512-QgXo+mXTe8ljeqUFaX3QVHc5osSItJ/Km+xpocx0aSqWGMSCf6qYs/VnzZgS864Pjn5iceMRFigeAV7AfTlaig==
+  dependencies:
+    tslib "^2.7.0"
 
 file-uri-to-path@1.0.0:
   version "1.0.0"
@@ -23633,6 +23673,11 @@ lodash-es@4.17.21, lodash-es@^4.17.15, lodash-es@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
+lodash-es@4.17.23:
+  version "4.17.23"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.23.tgz#58c4360fd1b5d33afc6c0bbd3d1149349b1138e0"
+  integrity sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==
+
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
@@ -23757,6 +23802,11 @@ lodash@4.17.21, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+lodash@^4.17.23:
+  version "4.17.23"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.23.tgz#f113b0378386103be4f6893388c73d0bde7f2c5a"
+  integrity sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==
 
 log-symbols@^2.2.0:
   version "2.2.0"
@@ -28870,6 +28920,15 @@ react-dom@18.3.1:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
 
+react-dropzone@^14.3.8:
+  version "14.4.1"
+  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-14.4.1.tgz#a33b5c348365bfc73d5fec69c91cb32c350cb9d4"
+  integrity sha512-QDuV76v3uKbHiH34SpwifZ+gOLi1+RdsCO1kl5vxMT4wW8R82+sthjvBw4th3NHF/XX6FBsqDYZVNN+pnhaw0g==
+  dependencies:
+    attr-accept "^2.2.4"
+    file-selector "^2.1.0"
+    prop-types "^15.8.1"
+
 react-error-boundary@3.1.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-3.1.4.tgz#255db92b23197108757a888b01e5b729919abde0"
@@ -29049,11 +29108,6 @@ react-leaflet@4.2.1:
   dependencies:
     "@react-leaflet/core" "^2.1.0"
 
-react-lifecycles-compat@^3.0.0:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
-  integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-
 react-loadable-ssr-addon-v5-slorber@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-loadable-ssr-addon-v5-slorber/-/react-loadable-ssr-addon-v5-slorber-1.0.1.tgz#2cdc91e8a744ffdf9e3556caabeb6e4278689883"
@@ -29088,16 +29142,6 @@ react-markdown@9.0.1:
     unified "^11.0.0"
     unist-util-visit "^5.0.0"
     vfile "^6.0.0"
-
-react-modal@^3.16.1:
-  version "3.16.3"
-  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.16.3.tgz#c412d41915782e3c261253435d01468e2439b11b"
-  integrity sha512-yCYRJB5YkeQDQlTt17WGAgFJ7jr2QYcWa1SHqZ3PluDmnKJ/7+tVU+E6uKyZ0nODaeEj+xCpK4LcSnKXLMC0Nw==
-  dependencies:
-    exenv "^1.2.0"
-    prop-types "^15.7.2"
-    react-lifecycles-compat "^3.0.0"
-    warning "^4.0.3"
 
 react-number-format@^5.2.2, react-number-format@^5.4.4:
   version "5.4.4"
@@ -29236,6 +29280,14 @@ react-side-effect@^2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.2.tgz#dc6345b9e8f9906dc2eeb68700b615e0b4fe752a"
   integrity sha512-PVjOcvVOyIILrYoyGEpDN3vmYNLdy1CajSFNt4TDsVQC5KpTijDvWVoR+/7Rz2xT978D8/ZtFceXxzsPwZEDvw==
+
+react-signature-canvas@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-signature-canvas/-/react-signature-canvas-1.0.7.tgz#e1a8870c9f2e84cc9f58c0c4448fd3e7c0d2f256"
+  integrity sha512-yo0x0uTMVmcClaqryuQu6F8xEVapk5zdM9/nuQ7GalDJWccoVNZPMmCFGK7U5r3I0mrEHPB9E5/rFSYUgZcfmA==
+  dependencies:
+    signature_pad "^2.3.2"
+    trim-canvas "^0.1.0"
 
 react-singleton-hook@3.3.0:
   version "3.3.0"
@@ -32798,6 +32850,11 @@ treeverse@^2.0.0:
   resolved "https://registry.yarnpkg.com/treeverse/-/treeverse-2.0.0.tgz#036dcef04bc3fd79a9b79a68d4da03e882d8a9ca"
   integrity sha512-N5gJCkLu1aXccpOTtqV6ddSEi6ZmGkh3hjmbu1IjcavJK4qyOVQmi0myQKM7z5jVGmD68SJoliaVrMmVObhj6A==
 
+trim-canvas@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/trim-canvas/-/trim-canvas-0.1.2.tgz#620457f5fecf564b521d35c5fcd4da58304d6e45"
+  integrity sha512-nd4Ga3iLFV94mdhW9JFMLpQbHUyCQuhFOD71PEAt1NjtMD5wbZctzhX8c3agHNybMR5zXD1XTGoIEWk995E6pQ==
+
 trim-lines@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/trim-lines/-/trim-lines-3.0.1.tgz#d802e332a07df861c48802c04321017b1bd87338"
@@ -33891,13 +33948,6 @@ walker@^1.0.7, walker@^1.0.8:
   integrity sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==
   dependencies:
     makeerror "1.0.12"
-
-warning@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
-  integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
-  dependencies:
-    loose-envify "^1.0.0"
 
 watchpack@2.4.0:
   version "2.4.0"
