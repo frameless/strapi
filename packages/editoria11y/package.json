@@ -46,10 +46,6 @@
   "license": "EUPL-1.2",
   "devDependencies": {
     "@stencil/core": "4.0.0",
-    "@types/jest": "27.0.3",
-    "jest": "27.0.3",
-    "jest-cli": "27.4.5",
-    "puppeteer": "21.0.0",
-    "rimraf": "5.0.0"
+    "rimraf": "6.1.3"
   }
 }
