@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "noUnusedLocals": true,
     "noUnusedParameters": true,

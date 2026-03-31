@@ -12,36 +12,32 @@ const port = 4000;
 const gql = (query: any) => query;
 const GET_SAMENWERKENDECATALOGI_FETCH = gql(`
   query getSamenwerkendecatalogi($locale: I18NLocaleCode) {
-    products(locale: $locale, pagination: {start: 0, limit: -1}) {
-      data {
-        id
-        attributes {
-          title
-          slug
-          locale
-          updatedAt
-          catalogiMeta {
-            abstract
-            spatial {
-              scheme
-              resourceIdentifier
-            }
-            authority {
-              scheme
-              resourceIdentifier
-            }
-            audience {
-              id
-              type
-            }
-            onlineRequest {
-              type
-            }
-          }
-          pdc_metadata {
-            uplProductNaam
-          }
+ products(locale: $locale, pagination: { start: 0, limit: -1 }) {
+      documentId
+      title
+      slug
+      locale
+      updatedAt
+      catalogiMeta {
+        abstract
+        spatial {
+          scheme
+          resourceIdentifier
         }
+        authority {
+          scheme
+          resourceIdentifier
+        }
+        audience {
+          id
+          type
+        }
+        onlineRequest {
+          type
+        }
+      }
+      pdc_metadata {
+        uplProductNaam
       }
     }
   }
@@ -57,6 +53,7 @@ const fetchSCData = async ({ locale }: { locale: string }) => {
         locale,
       },
     });
+
     return data;
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -71,8 +68,8 @@ app.get('/', async (req, res) => {
   try {
     const { data } = await fetchSCData({ locale });
 
-    if (data && data.products && data.products?.data.length > 0) {
-      const xml = convertJsonToXML(data?.products?.data, process.env.FRONTEND_PUBLIC_URL);
+    if (data && data.products && data.products.length > 0) {
+      const xml = convertJsonToXML(data?.products, process.env.FRONTEND_PUBLIC_URL);
       res.status(200);
       res.set('Content-Type', 'application/xml; charset=utf-8');
       res.set('Cache-control', 'public, s-maxage=86400, stale-while-revalidate');
