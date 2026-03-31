@@ -1,6 +1,8 @@
 import request from 'supertest';
+import { describe, it, expect, vi } from 'vitest';
 
 import app from '../../server';
+import * as readFileUtils from '../../utils/readFile';
 
 describe('openAPIController', () => {
   it('GET /api/v2/openapi.json return 200 and json', async () => {
@@ -9,7 +11,7 @@ describe('openAPIController', () => {
     expect(response.headers['content-type']).toMatch(/json/);
   });
   it('GET /api/v2/openapi.yaml return 500 when an error occurs', async () => {
-    const spy = jest.spyOn(require('../../utils/readFile'), 'readFile').mockImplementation(() => undefined);
+    const spy = vi.spyOn(readFileUtils, 'readFile').mockImplementation(() => undefined);
     const response = await request(app).get('/api/v2/openapi.json');
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ message: 'An unexpected error occurred.' });
