@@ -51,6 +51,7 @@ type AudienceType = {
 };
 
 type SamenWerkendeCatalogiAttributesTypes = {
+  documentId: string;
   catalogiMeta: CatalogiMetaType;
   pdc_metadata: PdcMetaType;
   locale: string;
@@ -59,12 +60,7 @@ type SamenWerkendeCatalogiAttributesTypes = {
   updatedAt: string;
 };
 
-type SamenWerkendeCatalogiDataType = {
-  id: string;
-  attributes: SamenWerkendeCatalogiAttributesTypes;
-};
-
-export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend_url: string) => {
+export const convertJsonToXML = (data: SamenWerkendeCatalogiAttributesTypes[], frontend_url: string) => {
   if (!frontend_url) {
     throw new Error('frontend_url is required');
   } else if (!isValidURL(frontend_url)) {
@@ -79,19 +75,18 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
         'xsi:schemaLocation': 'https://standaarden.overheid.nl/product/terms/sc.xsd',
       });
 
-    const meta = data.map(({ attributes, id }) => {
-      const gemeenteSpatial = attributes.catalogiMeta?.spatial.resourceIdentifier;
-      const gemeenteAuthority = attributes.catalogiMeta?.authority.resourceIdentifier;
-      const uniformProductName = uplKeyValues.find(({ uri }) => uri === attributes.pdc_metadata?.uplProductNaam);
-      const prefLabelSpatial = getPrefLabel(gemeente.cv.value, attributes.catalogiMeta?.spatial.resourceIdentifier);
-      const prefLabelAuthority = getPrefLabel(gemeente.cv.value, attributes.catalogiMeta?.authority.resourceIdentifier);
-
-      const schemeAuthority = createScheme(attributes.catalogiMeta?.authority?.scheme, prefixMap);
-      const schemeSpatial = createScheme(attributes.catalogiMeta?.spatial?.scheme, prefixMap);
+    const meta = data.map((item) => {
+      const gemeenteSpatial = item.catalogiMeta?.spatial.resourceIdentifier;
+      const gemeenteAuthority = item.catalogiMeta?.authority.resourceIdentifier;
+      const uniformProductName = uplKeyValues.find(({ uri }) => uri === item.pdc_metadata?.uplProductNaam);
+      const prefLabelSpatial = getPrefLabel(gemeente.cv.value, item.catalogiMeta?.spatial.resourceIdentifier);
+      const prefLabelAuthority = getPrefLabel(gemeente.cv.value, item.catalogiMeta?.authority.resourceIdentifier);
+      const schemeAuthority = createScheme(item.catalogiMeta?.authority?.scheme, prefixMap);
+      const schemeSpatial = createScheme(item.catalogiMeta?.spatial?.scheme, prefixMap);
       const path = 'products'; // can be from the CMS
-      const identifier = `${frontend_url.endsWith('/') ? frontend_url : `${frontend_url}/`}${
-        attributes.locale
-      }/${path}/${attributes.slug}`;
+      const identifier = `${frontend_url.endsWith('/') ? frontend_url : `${frontend_url}/`}${item.locale}/${path}/${
+        item.slug
+      }`;
 
       const spatial = {
         scheme: schemeSpatial,
@@ -106,17 +101,17 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiDataType[], frontend
       };
 
       const audiences =
-        attributes.catalogiMeta && attributes.catalogiMeta?.audience
-          ? attributes.catalogiMeta?.audience.map(({ id, type }) => ({ id, type, scheme: 'overheid:Doelgroep' }))
+        item.catalogiMeta && item.catalogiMeta?.audience
+          ? item.catalogiMeta?.audience.map(({ id, type }) => ({ id, type, scheme: 'overheid:Doelgroep' }))
           : [];
 
       return {
-        title: attributes.title,
-        language: attributes.locale,
-        modified: attributes.updatedAt,
-        productId: id,
-        abstract: attributes.catalogiMeta?.abstract,
-        onlineAanvragen: attributes.catalogiMeta?.onlineRequest.type,
+        productId: item.documentId,
+        title: item.title,
+        language: item.locale,
+        modified: item.updatedAt,
+        abstract: item.catalogiMeta?.abstract,
+        onlineAanvragen: item.catalogiMeta?.onlineRequest.type,
         identifier,
         spatial,
         authority,
