@@ -116,7 +116,12 @@ export const environmentVariableCsp = {
           .filter(isString)
       : [],
 };
-
+const strapiURL = normalizeURL(process.env.STRAPI_PUBLIC_URL);
+export const strapiPreview = strapiURL
+  ? {
+      'frame-ancestors': [SELF, strapiURL],
+    }
+  : {};
 export const chatWidget = {
   'connect-src': ['wss://virtuele-gemeente-assistent.nl', 'https://virtuele-gemeente-assistent.nl'],
   'img-src': ['https://virtuele-gemeente-assistent.nl', 'https://mijn.virtuele-gemeente-assistent.nl'],
@@ -224,6 +229,7 @@ export const getContentSecurityPolicy = ({ nonce: nonceValue, node_env }: { nonc
         cspBase,
         chatWidget,
         kcmSurvey,
+        strapiPreview,
         map,
         matomo,
         ogonePaymentServices,

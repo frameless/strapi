@@ -40,10 +40,10 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
         Link={Link}
       />
       <main id="main">
-        <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
-        {data?.notFoundPage?.data?.attributes?.body && (
+        <Heading level={1}>{data?.notFoundPage?.title}</Heading>
+        {data?.notFoundPage?.body && (
           <Markdown imageUrl={getImageBaseUrl()} locale={locale}>
-            {data.notFoundPage.data.attributes.body}
+            {data.notFoundPage?.body}
           </Markdown>
         )}
       </main>

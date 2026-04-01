@@ -2,16 +2,10 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { redirect } from 'next/navigation';
 
-import { useTranslation } from '../i18n';
-
 import { GetLiveSuggestionsData, SearchResult } from '@/types';
-import {
-  apiSettings,
-  fetchData,
-  getAlphabeticallyProductsByLetter,
-  mappingProducts,
-  MappingProductsProps,
-} from '@/util';
+import { apiSettings, fetchData, getAlphabeticallyProductsByLetter, mappingProducts } from '@/util';
+import { Product as ProductType } from '../../../gql/graphql';
+import { useTranslation } from '../i18n';
 
 type Params = {
   pageSize?: number;
@@ -127,7 +121,7 @@ export const setPageIndex = async (pageIndex: string, currentQuery: string, loca
     };
   }
 
-  const { products } = await getAlphabeticallyProductsByLetter({
+  const { products_connection } = await getAlphabeticallyProductsByLetter({
     locale,
     page: Number(pageIndex) + 1,
     pageSize: apiSettings.pagination.pageSize,
@@ -135,7 +129,7 @@ export const setPageIndex = async (pageIndex: string, currentQuery: string, loca
   });
 
   return {
-    data: mappingProducts(products?.data as MappingProductsProps[], productSegment),
-    pagination: products?.meta.pagination,
+    data: mappingProducts(products_connection?.nodes as ProductType[], productSegment),
+    pagination: products_connection?.pageInfo,
   };
 };

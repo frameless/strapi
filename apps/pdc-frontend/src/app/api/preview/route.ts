@@ -36,7 +36,7 @@ export async function GET(request: Request) {
     url: getStrapiGraphqlURL(),
     query: getCurrentPage(type).query,
     variables: {
-      pageMode: 'PREVIEW',
+      status: 'DRAFT',
     },
   });
 
