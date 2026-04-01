@@ -2,10 +2,11 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { redirect } from 'next/navigation';
 
-import { GetLiveSuggestionsData, SearchResult } from '@/types';
-import { apiSettings, fetchData, getAlphabeticallyProductsByLetter, mappingProducts } from '@/util';
 import { Product as ProductType } from '../../../gql/graphql';
 import { useTranslation } from '../i18n';
+
+import { GetLiveSuggestionsData, SearchResult } from '@/types';
+import { apiSettings, fetchData, getAlphabeticallyProductsByLetter, mappingProducts } from '@/util';
 
 type Params = {
   pageSize?: number;

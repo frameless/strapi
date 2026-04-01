@@ -3,15 +3,15 @@ import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 
+import { GetAllProductsSlugQueryQuery, Product } from '../../../../../gql/graphql';
+import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
+import { useTranslation } from '../../../i18n';
+
 import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import { apiSettings, getStrapiGraphqlURL, mappingProducts } from '@/util';
-import { buildAlternateLinks, fetchData } from '@/util';
-import { GetAllProductsSlugQueryQuery, Product } from '../../../../../gql/graphql';
-import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
-import { useTranslation } from '../../../i18n';
+import { apiSettings, getStrapiGraphqlURL, mappingProducts, buildAlternateLinks, fetchData } from '@/util';
 export interface Fields {
   title: string;
   body: string;
@@ -67,6 +67,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 }
 
 const Products = async ({ params: { locale } }: { params: { locale: string } }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['products-page', 'common']);
   const nonce = headers().get('x-nonce') || '';
   const { pathSegments: productSegment } = getPathAndSearchParams({
