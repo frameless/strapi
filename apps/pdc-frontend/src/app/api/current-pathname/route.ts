@@ -24,18 +24,17 @@ export async function GET(request: Request) {
     variables: {
       slug: slug,
       locale: locale,
-      pageMode: 'LIVE',
+      status: 'PUBLISHED',
     },
   });
 
-  if (!data || data?.products?.data?.length === 0) {
+  if (!data || data?.products?.length === 0) {
     return NextResponse.json({ localizations: [] });
   }
-  const localizations =
-    data.products?.data[0]?.attributes?.localizations?.data.map(({ attributes }) => attributes) || [];
+  const localizations = data.products[0]?.localizations?.map((localization) => localization) || [];
   localizations.push({
-    locale: data.products?.data[0]?.attributes?.locale,
-    slug: data.products?.data[0]?.attributes?.slug as string,
+    locale: data.products[0]?.locale,
+    slug: data.products[0]?.slug as string,
   });
 
   const routeData = localizations.map((product) => ({

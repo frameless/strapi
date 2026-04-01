@@ -75,7 +75,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
     variables: { locale },
   });
 
-  const topTasksData = data.pdcHomePage?.data?.attributes?.components?.find(
+  const topTasksData = data.pdcHomePage?.components?.find(
     (component) => component?.__typename === 'ComponentComponentsUtrechtTopTasks',
   ) as ComponentComponentsUtrechtTopTasks;
 
@@ -86,7 +86,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
       variables: { locale, startsWith: letter },
     });
 
-    const isAvailable = data.products?.data && data.products?.data.length > 0;
+    const isAvailable = data.products && data.products?.length > 0;
     const { pathSegments } = getPathAndSearchParams({
       translations: t,
       segments: ['segments.products', 'segments.alphabet', letter.toLocaleLowerCase()],

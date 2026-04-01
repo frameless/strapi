@@ -138,11 +138,11 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
     query: GET_TEMPLATE,
     variables: { locale },
   });
-  const navigationData = data.pdcTemplate?.data?.attributes?.sections?.find(
+  const navigationData = data.pdcTemplate?.sections?.find(
     (component) => component?.__typename === 'ComponentComponentsUtrechtNavigation',
   ) as ComponentComponentsUtrechtNavigation;
 
-  const footerData = data.pdcTemplate?.data?.attributes?.sections?.find(
+  const footerData = data.pdcTemplate?.sections?.find(
     (component) => component?.__typename === 'ComponentComponentsUtrechtFooter',
   ) as ComponentComponentsUtrechtFooter;
 
@@ -156,7 +156,7 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
     query: GET_WEBSITE_SETTINGS,
   });
 
-  const matomoScripts = websiteSettingData.websiteSetting?.data?.attributes?.triggerMatomoScript;
+  const matomoScripts = websiteSettingData.websiteSetting?.triggerMatomoScript;
 
   return (
     <html lang={locale} dir={dir(locale)} id="top" className="utrecht-scroll-to-top-container">
