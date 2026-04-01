@@ -56,14 +56,14 @@ const getAllProducts = async (locale: string, slug: string) => {
     variables: {
       slug,
       locale,
-      pageMode: isEnabled ? 'PREVIEW' : 'LIVE',
+      status: isEnabled ? 'DRAFT' : 'PUBLISHED',
     },
   });
 
-  if (!data || data?.products?.data?.length === 0) notFound();
+  if (!data || data?.products?.length === 0) notFound();
 
   return {
-    product: data?.products?.data[0],
+    product: data?.products?.[0],
   };
 };
 
@@ -92,15 +92,15 @@ export async function generateMetadata({ params }: { params: ParamsType }): Prom
     locale,
   });
 
-  const title = product?.attributes?.metaTags?.title;
-  const description = product?.attributes?.metaTags?.description;
-  const openGraphImage = getImageBaseUrl(product?.attributes?.metaTags?.ogImage?.data?.attributes?.url);
+  const title = product?.metaTags?.title;
+  const description = product?.metaTags?.description;
+  const openGraphImage = getImageBaseUrl(product?.metaTags?.ogImage?.url);
 
   return {
     title,
     description,
     other: {
-      keymatch: product?.attributes?.metaTags?.keymatch as string,
+      keymatch: product?.metaTags?.keymatch as string,
     },
     openGraph: {
       title: `${title} | ${t('website-setting.website-name')}`,
@@ -137,8 +137,8 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
             return (
               <ContactCard>
                 <Grid spacing="sm">
-                  {Array.isArray(component?.contact_information_public?.data?.attributes?.contentBlock) &&
-                    component?.contact_information_public?.data?.attributes?.contentBlock?.map(
+                  {Array.isArray(component?.contact_information_public?.contentBlock) &&
+                    component?.contact_information_public?.contentBlock?.map(
                       (block) =>
                         block?.content && (
                           <GridCell md={6} key={block?.id || index}>
@@ -223,14 +223,10 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
             }
             return <></>;
           case 'ComponentComponentsFaq':
-            if (
-              component.pdc_faq?.data?.attributes &&
-              component.pdc_faq.data.attributes.faq &&
-              component.pdc_faq.data.attributes.faq.length > 0
-            ) {
+            if (component.pdc_faq && component.pdc_faq?.faq && component.pdc_faq?.faq.length > 0) {
               return (
                 <AccordionProvider
-                  sections={component.pdc_faq.data.attributes.faq.map((faqItem) => ({
+                  sections={component.pdc_faq.faq.map((faqItem) => ({
                     id: faqItem?.id,
                     label: faqItem?.label as string,
                     headingLevel: faqItem?.headingLevel || 2,
@@ -263,20 +259,16 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
             }
             return <></>;
           case 'ComponentComponentsUtrechtImage':
-            if (
-              component.imageData?.data?.attributes?.width &&
-              component.imageData?.data?.attributes?.height &&
-              component?.imageData?.data?.attributes?.url
-            ) {
-              const imageURL = getImageBaseUrl(component?.imageData?.data?.attributes?.url);
+            if (component.imageData?.width && component.imageData?.height && component?.imageData?.url) {
+              const imageURL = getImageBaseUrl(component?.imageData?.url);
               return (
                 <Img
                   Image={Image}
                   src={imageURL}
-                  width={component?.imageData?.data?.attributes?.width}
-                  height={component?.imageData?.data?.attributes?.height}
-                  alt={component?.imageData?.data?.attributes?.alternativeText || ''}
-                  figure={component?.imageData?.data?.attributes?.caption || ''}
+                  width={component?.imageData?.width}
+                  height={component?.imageData?.height}
+                  alt={component?.imageData?.alternativeText || ''}
+                  figure={component?.imageData?.caption || ''}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               );
@@ -338,7 +330,7 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
 const Product = async ({ params: { locale, slug } }: ProductProps) => {
   const { product } = await getAllProducts(locale, slug);
   const nonce = headers().get('x-nonce') || '';
-  const priceData: any = product?.attributes?.price && product?.attributes?.price?.data?.attributes?.price;
+  const priceData: any = product?.price && product?.price?.price;
 
   const { t } = await useTranslation(locale, 'common');
 
@@ -384,16 +376,16 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
       <main id="main">
         <Article>
           <RichText>
-            <Heading level={1}>{product?.attributes?.title}</Heading>
-            {product?.attributes?.content && (
+            <Heading level={1}>{product?.title}</Heading>
+            {product?.content && (
               <Markdown imageUrl={getImageBaseUrl()} priceData={priceData} locale={locale}>
-                {product?.attributes?.content}
+                {product.content}
               </Markdown>
             )}
-            {product?.attributes?.sections && product.attributes.sections.length > 0 && (
+            {product?.sections && product.sections.length > 0 && (
               <Sections
                 t={t}
-                sections={product.attributes.sections as ProductSectionsDynamicZone[]}
+                sections={product.sections as ProductSectionsDynamicZone[]}
                 locale={locale}
                 priceData={priceData}
                 nonce={nonce}
@@ -402,7 +394,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
           </RichText>
         </Article>
         <Grid justifyContent="space-between" spacing="sm">
-          <GridCell>{(product?.attributes?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}</GridCell>
+          <GridCell>{(product?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}</GridCell>
           <GridCell justifyContent="flex-end">
             <ScrollToTopButton className="utrecht-scroll-to-top-button" Icon={UtrechtIconChevronUp}>
               {t('actions.scroll-to-top')}

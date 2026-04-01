@@ -40,18 +40,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     query: GET_ALL_PRODUCTS_SITEMAP,
   });
 
-  const products = data?.products?.data?.map((product) => {
+  const products = data?.products?.map((product) => {
     const url = buildURL({
       translations: t,
       env: process.env,
       key: 'FRONTEND_PUBLIC_URL',
-      segments: ['segments.products', product.attributes?.slug as string],
-      locale: product.attributes?.locale || 'nl',
+      segments: ['segments.products', product?.slug as string],
+      locale: product?.locale || 'nl',
     });
 
     return {
       url: url?.href,
-      lastModified: product.attributes?.updatedAt,
+      lastModified: product?.updatedAt,
     };
   });
 
