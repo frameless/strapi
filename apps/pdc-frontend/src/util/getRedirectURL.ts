@@ -1,14 +1,10 @@
-export type Attributes = {
+export type ProductRedirect = {
   slug: string;
   oldSlugs?: string[];
 };
 
-export type GetRedirectURLData = {
-  attributes?: Attributes | null;
-};
-
 interface GetRedirectURL {
-  data?: GetRedirectURLData[];
+  data?: ProductRedirect[];
   url: URL;
   currentPathname: string;
 }
@@ -21,13 +17,11 @@ interface GetRedirectURL {
  */
 export const getRedirectURL = ({ data, url, currentPathname }: GetRedirectURL): URL | null => {
   if (!Array.isArray(data)) return null;
-  for (const { attributes } of data) {
-    if (
-      Array.isArray(attributes?.oldSlugs) &&
-      attributes?.oldSlugs?.includes(currentPathname.split('/').pop() as string)
-    ) {
-      const redirectUrl = url;
-      redirectUrl.pathname = new URL(attributes.slug, redirectUrl).pathname;
+  const currentSlug = currentPathname.split('/').pop() || '';
+  for (const item of data) {
+    if (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(currentSlug)) {
+      const redirectUrl = new URL(url.toString());
+      redirectUrl.pathname = new URL(item.slug, redirectUrl.origin).pathname;
       return redirectUrl;
     }
   }

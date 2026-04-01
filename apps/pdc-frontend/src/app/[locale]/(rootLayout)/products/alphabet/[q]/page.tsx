@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 
-import { CheckAlphabeticallyProductsAvailabilityQuery } from '../../../../../../../gql/graphql';
-
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
 import {
@@ -21,16 +19,10 @@ import {
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
-import {
-  alphabet,
-  apiSettings,
-  getAlphabeticallyProductsByLetter,
-  getStrapiGraphqlURL,
-  mappingProducts,
-  MappingProductsProps,
-  buildAlternateLinks,
-} from '@/util';
+import { alphabet, apiSettings, getAlphabeticallyProductsByLetter, getStrapiGraphqlURL, mappingProducts } from '@/util';
+import { buildAlternateLinks } from '@/util';
 import { fetchData } from '@/util/fetchData';
+import { CheckAlphabeticallyProductsAvailabilityQuery, Product } from '../../../../../../../gql/graphql';
 export const revalidate = 3600; // revalidate the data at most every hour
 
 type Params = {
@@ -82,7 +74,7 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
 const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
   const nonce = headers().get('x-nonce') || '';
-  const { products } = await getAlphabeticallyProductsByLetter({
+  const { products_connection } = await getAlphabeticallyProductsByLetter({
     locale,
     page: 1,
     pageSize: apiSettings.pagination.pageAlphabetSize,
@@ -96,7 +88,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
       variables: { locale, startsWith: letter },
     });
 
-    const isAvailable = data.products?.data && data.products?.data.length > 0;
+    const isAvailable = data.products.length > 0;
     return {
       char: letter,
       disabled: !isAvailable,
@@ -115,7 +107,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
   });
 
   const alphabetAvailability = await Promise.all(productsAvailability);
-  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productSegment);
+  const mappedProduct = mappingProducts(products_connection?.nodes as Product[], productSegment);
 
   return (
     <>
@@ -166,7 +158,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
         {mappedProduct && mappedProduct.length > 0 ? (
           <ProductListContainer
             locale={locale}
-            total={products?.meta.pagination.total}
+            total={products_connection?.pageInfo.total}
             initialData={mappedProduct}
             currentQuery={q.toUpperCase()}
           />

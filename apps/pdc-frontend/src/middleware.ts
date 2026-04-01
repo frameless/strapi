@@ -1,13 +1,12 @@
 import acceptLanguage from 'accept-language';
 import { NextRequest, NextResponse } from 'next/server';
 
-import { GetProductsOldSlugsQuery } from '../gql/graphql';
-
 import { fallbackLng, languages } from './app/i18n/settings';
 import { GET_PRODUCTS_OLD_SLUGS } from './query';
-import { fetchData, getRedirectURL, getStrapiGraphqlURL } from './util';
+import { fetchData, getRedirectURL, getStrapiGraphqlURL, type ProductRedirect } from './util';
 
 import { getContentSecurityPolicy } from '@/util/cspConfig';
+import { GetProductsOldSlugsQuery } from '../gql/graphql';
 
 acceptLanguage.languages(languages);
 
@@ -72,7 +71,7 @@ export async function middleware(req: NextRequest) {
   const url = getRedirectURL({
     url: req.nextUrl.clone(),
     currentPathname: req.nextUrl.pathname,
-    data: data.products?.data,
+    data: data.products as ProductRedirect[],
   });
   // Use 308 for permanent redirects to inform browsers and search engines that the resource has moved permanently.
   if (url && url.toString() !== req.nextUrl.href) return NextResponse.redirect(url, 308);

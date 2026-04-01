@@ -42,10 +42,8 @@ const NotFoundPage = async () => {
         Link={Link}
       />
       <main id="main">
-        <Heading level={1}>{data?.notFoundPage?.data?.attributes?.title}</Heading>
-        {data?.notFoundPage?.data?.attributes?.body && (
-          <Markdown imageUrl={getImageBaseUrl()}>{data.notFoundPage.data.attributes.body}</Markdown>
-        )}
+        <Heading level={1}>{data?.notFoundPage?.title}</Heading>
+        {data?.notFoundPage?.body && <Markdown imageUrl={getImageBaseUrl()}>{data.notFoundPage.body}</Markdown>}
       </main>
     </div>
   );

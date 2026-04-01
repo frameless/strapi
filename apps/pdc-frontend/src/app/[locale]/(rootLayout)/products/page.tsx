@@ -3,22 +3,15 @@ import { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 
-import { GetAllProductsSlugQueryQuery } from '../../../../../gql/graphql';
-import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
-import { useTranslation } from '../../../i18n';
-
 import { languages } from '@/app/i18n/settings';
 import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
-import {
-  apiSettings,
-  getStrapiGraphqlURL,
-  mappingProducts,
-  MappingProductsProps,
-  buildAlternateLinks,
-  fetchData,
-} from '@/util';
+import { apiSettings, getStrapiGraphqlURL, mappingProducts } from '@/util';
+import { buildAlternateLinks, fetchData } from '@/util';
+import { GetAllProductsSlugQueryQuery, Product } from '../../../../../gql/graphql';
+import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
+import { useTranslation } from '../../../i18n';
 export interface Fields {
   title: string;
   body: string;
@@ -82,8 +75,8 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
     locale,
   });
 
-  const { products } = await fetchAllProducts({ locale });
-  const mappedProduct = mappingProducts(products?.data as MappingProductsProps[], productSegment);
+  const { products_connection } = await fetchAllProducts({ locale });
+  const mappedProduct = mappingProducts(products_connection?.nodes as Product[], productSegment);
 
   return (
     <>
@@ -123,7 +116,7 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
           <ProductListContainer
             showPaginationTitle
             locale={locale}
-            total={products?.meta.pagination.total}
+            total={products_connection?.pageInfo.total}
             initialData={mappedProduct}
           />
         )}

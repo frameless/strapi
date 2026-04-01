@@ -38,7 +38,7 @@ const OpenFormsErrorPage = async ({ params: { errorKey, locale } }: OpenFormsErr
     query: GET_OPEN_FORMS_ERROR_PAGE,
     variables: { locale, type },
   });
-  const openFromsErrorPageData = data?.openFormsErrorPages?.data[0]?.attributes;
+  const openFromsErrorPageData = data?.openFormsErrorPages[0];
 
   return (
     <div>

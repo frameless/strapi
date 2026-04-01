@@ -2,24 +2,17 @@ import { getPathAndSearchParams } from '@frameless/utils';
 
 import { Product as ProductType } from '../../gql/graphql';
 
-export type MappingProductsProps = {
-  attributes: ProductType;
-};
-
-export const mappingProducts = (
-  products: MappingProductsProps[],
-  segment: string,
-): { title: string; url: string }[] | [] => {
+export const mappingProducts = (products: ProductType[], segment: string): { title: string; url: string }[] | [] => {
   if (!products || products.length === 0) return [];
-  return products.map(({ attributes }) => {
+  return products.map(({ slug, title, metaTags }) => {
     const { pathSegments } = getPathAndSearchParams({
-      segments: [segment, attributes.slug],
+      segments: [segment, slug],
     });
 
     return {
-      title: attributes.title,
+      title: title,
       url: `/${pathSegments}`,
-      body: attributes?.metaTags?.description,
+      body: metaTags?.description,
     };
   });
 };
