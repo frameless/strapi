@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 
+import { CheckAlphabeticallyProductsAvailabilityQuery, Product } from '../../../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
 import {
@@ -19,10 +21,15 @@ import {
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
-import { alphabet, apiSettings, getAlphabeticallyProductsByLetter, getStrapiGraphqlURL, mappingProducts } from '@/util';
-import { buildAlternateLinks } from '@/util';
+import {
+  alphabet,
+  apiSettings,
+  getAlphabeticallyProductsByLetter,
+  getStrapiGraphqlURL,
+  mappingProducts,
+  buildAlternateLinks,
+} from '@/util';
 import { fetchData } from '@/util/fetchData';
-import { CheckAlphabeticallyProductsAvailabilityQuery, Product } from '../../../../../../../gql/graphql';
 export const revalidate = 3600; // revalidate the data at most every hour
 
 type Params = {
@@ -72,6 +79,7 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
 }
 
 const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
   const nonce = headers().get('x-nonce') || '';
   const { products_connection } = await getAlphabeticallyProductsByLetter({
