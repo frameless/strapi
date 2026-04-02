@@ -1,9 +1,9 @@
 export default ({ env }) => {
   const isProd = env('NODE_ENV') === 'production';
   return {
-    // 'content-compliance-checker': {
-    //   enabled: true,
-    // },
+    'content-compliance-checker': {
+      enabled: true,
+    },
     'env-label': {
       enabled: true,
       config: {
