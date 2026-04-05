@@ -2,7 +2,7 @@ import { Link } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren, ReactNode } from 'react';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 interface NavigationLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'placeholder'> {
   mobile?: boolean;

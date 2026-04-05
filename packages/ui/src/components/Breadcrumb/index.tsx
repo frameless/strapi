@@ -11,7 +11,7 @@ import { ComponentType, Fragment } from 'react';
 
 import { useScreenSize } from '../../hooks';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 const css = classnames.bind(styles);
 type BreadcrumbLinkType = {

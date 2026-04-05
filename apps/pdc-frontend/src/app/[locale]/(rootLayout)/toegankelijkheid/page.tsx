@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import wcagEmJSON from '../../../../../wcag-evaluation.json';
 
 import { AuditRapport } from '@/components/AuditRapport';
-import './index.scss';
+import './index.css';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

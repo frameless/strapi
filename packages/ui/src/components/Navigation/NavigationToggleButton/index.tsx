@@ -3,7 +3,7 @@ import { UtrechtIconCross, UtrechtIconHamburgerMenu } from '@utrecht/web-compone
 import classnames from 'classnames/bind';
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 interface NavToggleButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: 'hamburger' | 'close';
