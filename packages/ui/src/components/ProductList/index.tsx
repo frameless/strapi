@@ -8,7 +8,7 @@ import {
   PropsWithChildren,
 } from 'react';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 const css = classNames.bind(styles);
 

@@ -3,18 +3,18 @@
   block-size: 100%;
   inline-size: 100%;
   min-block-size: 312px;
+}
 
-  &:not(:has(img)) {
-    padding-block-start: var(--utrecht-heading-2-margin-block-start);
-  }
+.utrecht-card:not(:has(img)) {
+  padding-block-start: var(--utrecht-heading-2-margin-block-start);
+}
 
-  &:hover {
-    --utrecht-link-text-decoration: underline;
-    --utrecht-link-text-decoration-thickness: var(--utrecht-link-hover-text-decoration-thickness);
+.utrecht-card:hover {
+  --utrecht-link-text-decoration: underline;
+  --utrecht-link-text-decoration-thickness: var(--utrecht-link-hover-text-decoration-thickness);
 
-    cursor: pointer;
-    text-decoration-skip-ink: none;
-  }
+  cursor: pointer;
+  text-decoration-skip-ink: none;
 }
 
 .utrecht-card__image {

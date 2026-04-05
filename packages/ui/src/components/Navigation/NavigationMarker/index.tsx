@@ -1,7 +1,7 @@
 import classnames from 'classnames/bind';
 import { PropsWithChildren, SVGProps } from 'react';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 const css = classnames.bind(styles);
 

@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import React, { ComponentType, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 const css = classNames.bind(styles);
 interface ImageComponentProps extends React.DetailedHTMLProps<

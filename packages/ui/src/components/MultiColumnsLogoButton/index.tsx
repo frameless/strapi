@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import { Grid, GridCell } from '../Grid';
 import { LogoButton, LogoButtonProps } from '../LogoButton';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 export type Columns = {
   title?: string;

@@ -32,16 +32,16 @@
   font-weight: var(--utrecht-product-list-pagination-info-font-weight, 700);
   margin-block-end: var(--utrecht-product-list-pagination-info-margin-block-end, 1rem);
   margin-block-start: var(--utrecht-product-list-pagination-info-margin-block-start, 1rem);
+}
 
-  &:focus {
-    animation-delay: var(--utrecht-product-list-pagination-info-focus-animation-delay, 0.5s);
-    animation-duration: var(--utrecht-product-list-pagination-info-focus-animation-duration, 1s);
-    animation-name: utrecht-product-list-focus;
-    animation-timing-function: linear;
+.utrecht-product-list__pagination-info:focus {
+  animation-delay: var(--utrecht-product-list-pagination-info-focus-animation-delay, 0.5s);
+  animation-duration: var(--utrecht-product-list-pagination-info-focus-animation-duration, 1s);
+  animation-name: utrecht-product-list-focus;
+  animation-timing-function: linear;
 
-    /* The outline-offset property adjusts the space between the outline and the element's border.
+  /* The outline-offset property adjusts the space between the outline and the element's border.
        This variable allows customization of the focus appearance for accessibility and design consistency. */
-    outline-offset: var(--utrecht-product-list-pagination-info-focus-outline-offset, 4px);
-    outline-width: 0;
-  }
+  outline-offset: var(--utrecht-product-list-pagination-info-focus-outline-offset, 4px);
+  outline-width: 0;
 }
