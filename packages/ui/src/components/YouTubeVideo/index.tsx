@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react';
 
 import { YouTubeVideoProgressiveEnhancement } from './YouTubeVideoProgressiveEnhancement';
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 const css = classnames.bind(styles);
 

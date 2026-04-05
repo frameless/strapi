@@ -10,7 +10,7 @@ import classnames from 'classnames/bind';
 import kebabCase from 'lodash.kebabcase';
 import { ReactNode } from 'react';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 export type LogoType = 'digid' | 'eherkenning' | 'eidas' | 'without_logo';
 export type ButtonAppearance = 'primary-action-button' | 'secondary-action-button' | 'subtle-button' | 'magenta';

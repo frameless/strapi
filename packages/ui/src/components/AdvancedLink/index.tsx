@@ -3,7 +3,7 @@ import { UtrechtIconArrow, UtrechtIconChevronLeft } from '@utrecht/web-component
 import classnames from 'classnames/bind';
 import React, { ComponentType, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 const css = classnames.bind(styles);
 

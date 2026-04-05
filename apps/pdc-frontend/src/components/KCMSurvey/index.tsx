@@ -1,7 +1,7 @@
 import { buildURL } from '@frameless/utils';
 import Script from 'next/script';
 import React from 'react';
-import './index.scss';
+import './index.css';
 interface KCMSurveyProps {
   nonce: string;
 }
@@ -32,8 +32,8 @@ export const KCMSurvey = ({ nonce }: KCMSurveyProps) => {
 
     return (
       <>
-        {/* 
-        crossOrigin="anonymous" is required to securely load the external KCM survey script 
+        {/*
+        crossOrigin="anonymous" is required to securely load the external KCM survey script
         and to ensure proper handling of CORS and CSP policies.
       */}
         <Script
