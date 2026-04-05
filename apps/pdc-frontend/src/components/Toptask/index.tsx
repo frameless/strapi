@@ -29,7 +29,7 @@ import {
   GridCell,
 } from '../index';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 const icon = {
   afspraak_maken: UtrechtIconAfspraakMaken,

@@ -15,7 +15,7 @@ import { Grid, GridCell } from '../Grid';
 import { Markdown } from '../Markdown';
 import { Nav, type NavProps } from '../Nav';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 const css = classnames.bind(styles);
 

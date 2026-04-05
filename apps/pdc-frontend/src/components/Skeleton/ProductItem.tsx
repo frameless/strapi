@@ -1,5 +1,5 @@
 import Skeleton from 'react-loading-skeleton';
-import './index.scss';
+import './index.css';
 
 export default function ProductItem({ items }: { items: number }) {
   const createItems = Array(items).fill(1);

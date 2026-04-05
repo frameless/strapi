@@ -4,7 +4,7 @@ import classnames from 'classnames/bind';
 import React, { ComponentType, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 type T = keyof typeof mappedLocales;
 const mappedLocales = { nl: 'Netherlands', en: 'English' };
