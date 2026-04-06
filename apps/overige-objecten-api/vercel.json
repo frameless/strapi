@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd ../.. && pnpm run build",
+  "framework": "vite",
+  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "relatedProjects": []
+}
