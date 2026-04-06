@@ -29,6 +29,7 @@ interface BreadcrumbProps extends BreadcrumbNavProps {
     current: boolean;
   };
   breakpoint?: number;
+  label?: string;
 }
 
 export const Breadcrumbs = ({
@@ -36,6 +37,7 @@ export const Breadcrumbs = ({
   Link = UtrechtLink,
   backLink,
   breakpoint = 360,
+  label,
   ...restBreadcrumbProps
 }: BreadcrumbProps) => {
   const screenSize = useScreenSize();
@@ -66,7 +68,7 @@ export const Breadcrumbs = ({
   }
 
   return (
-    <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')} {...restBreadcrumbProps}>
+    <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')} label={label} {...restBreadcrumbProps}>
       {links &&
         links.length > 0 &&
         links
