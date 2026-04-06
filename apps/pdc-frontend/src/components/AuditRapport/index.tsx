@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-head-element */
-/* eslint-disable react/no-unescaped-entities */
 import {
   Article,
   DataBadge,

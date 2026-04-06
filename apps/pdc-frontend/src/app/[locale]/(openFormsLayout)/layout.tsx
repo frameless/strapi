@@ -136,6 +136,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const nonce = headers().get('x-nonce') || '';
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
 
