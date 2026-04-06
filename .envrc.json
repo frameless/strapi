@@ -133,7 +133,7 @@
       "description": "URL where the preview of pages in the Strapi Dashboard are hosted. You can use the Docker container name as the URL, for example: http://pdc_frontend:3000.",
       "required": true,
       "valueType": "url",
-      "developmentDefault": "http://pdc_frontend:3000"
+      "developmentDefault": "http://localhost:3000"
     },
     {
       "name": "HOST",
@@ -149,7 +149,7 @@
       "required": true,
       "valueType": "string",
       "examples": ["development", "production"],
-      "developmentDefault": "production"
+      "developmentDefault": "development"
     },
     {
       "name": "PGADMIN_DEFAULT_EMAIL",
@@ -188,16 +188,16 @@
       "name": "STRAPI_PRIVATE_URL",
       "description": "URL where Strapi is available on the internal network, for example to access the GraphQL API. You can use the Docker container name, e.g. http://pdc_strapi:1337.",
       "required": true,
-      "example": "http://pdc_strapi:1337",
-      "developmentDefault": "http://pdc_strapi:1337"
+      "example": "http://localhost:1337",
+      "developmentDefault": "http://localhost:1337"
     },
     {
       "name": "STRAPI_PUBLIC_URL",
       "description": "URL where Strapi is available to the public. You can use the Docker container name, e.g. http://pdc_strapi:1337.",
       "required": true,
       "valueType": "url",
-      "example": "http://pdc_strapi:1337",
-      "developmentDefault": "http://pdc_strapi:1337"
+      "example": "http://localhost:1337",
+      "developmentDefault": "http://localhost:1337"
     },
     {
       "name": "TRANSFER_TOKEN_SALT",
@@ -317,7 +317,7 @@
       "name": "STRAPI_ENV_LABEL",
       "description": "Text describing the environment, used to warn users of Strapi Dashboard when they are not working in production. Can not be localized.",
       "required": false,
-      "developmentDefault": "Development",
+      "developmentDefault": "development",
       "valueType": "string"
     },
     {
@@ -341,7 +341,7 @@
       "description": "URL for the Flo Legal API, used to access legal documents and templates.",
       "required": false,
       "valueType": "url",
-      "example": "https://example.com/api"
+      "example": "https://services-acc.flolegal.app/builder-api"
     },
     {
       "name": "KCM_SURVEY_API_KEY",
