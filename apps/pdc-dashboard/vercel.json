@@ -2,5 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "cd ../.. && pnpm run build",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "relatedProjects": []
+  "relatedProjects": ["prj_Kvn4W8zKiyR07V4aPYZCgLAQu2d9", "prj_Kvn4W8zKiyR07V4aPYZCgLAQu2d9"]
 }
