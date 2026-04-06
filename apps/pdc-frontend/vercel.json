@@ -3,5 +3,5 @@
   "buildCommand": "cd ../.. && pnpm run build",
   "framework": "next",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "relatedProjects": []
+  "relatedProjects": ["prj_lCkIDvZnn4NudPf31jFBlZ7hxQRx", "prj_Kvn4W8zKiyR07V4aPYZCgLAQu2d9"]
 }

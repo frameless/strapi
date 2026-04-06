@@ -3,5 +3,5 @@
   "buildCommand": "cd ../.. && pnpm run build",
   "framework": "vite",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "relatedProjects": []
+  "relatedProjects": ["prj_Kvn4W8zKiyR07V4aPYZCgLAQu2d9", "prj_8J3yBLJmsotvT5j3zolPrhTZNRgO"]
 }
