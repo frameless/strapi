@@ -102,38 +102,26 @@ To run the application as a Docker container on your Mac, follow these steps:
 
 ## Start the server without Docker
 
-Before starting the server without Docker, create a `.env` file for both the frontend and the Strapi dashboard app: `pnpm run env`
+Before starting the server without Docker, create a `.env` file for both the frontend and the Strapi dashboard app: `pnpm run env`.
 
-**Frontend env:**
-
-```shell
-FRONTEND_PUBLIC_URL=http://localhost:3000
-# these three environments variables below are required to be able to test the openFormsEmbed into the frontend. So you have to start the OpenForms server on your local machine
-PANDOSEARCH_API_URL= # You can use the following API URL to test the functionality of the SearchBar component: https://public.pandosearch.com/developer.pandosearch.com/. Valid keys that can be used in the searchBar field include: search, server, highlighting, and help.
-PREVIEW_SECRET_TOKEN= # the value should matched the same environment variable on the Strapi dashboard
-STRAPI_PRIVATE_URL=http://0.0.0.0:1337/
-STRAPI_PUBLIC_URL=http://0.0.0.0:1337/
-
-```
-
-**Strapi Dashboard env:**
+Then run:
 
 ```shell
-NODE_ENV=development
-ADMIN_JWT_SECRET=
-API_TOKEN_SALT=
-APP_KEYS=
-FRONTEND_PUBLIC_URL=http://localhost:3000
-HOST=0.0.0.0
-JWT_SECRET=
-OPEN_FORMS_API_TOKEN=
-OPEN_FORMS_API_URL=http://localhost:8000/api/v2/
-PORT=1337
-# the value should matched the same environment variable on the Frontend
-PREVIEW_SECRET_TOKEN=
-STRAPI_PRIVATE_URL=http://0.0.0.0:1337
-STRAPI_PUBLIC_URL=http://0.0.0.0:1337
+pnpm run development
 ```
+
+Choose: `dev`, `both`, `pdc` to start the development frontend + backend for PDC.
+
+Visit the following URLs:
+
+- http://localhost:3000/ for the website
+- http://localhost:1337/admin/ for the Strapi admin interface
+
+When starting Strapi for the first time:
+
+1. Go to http://localhost:1337/admin/ and create an account.
+2. Go to http://localhost:1337/admin/ and login.
+3. Go to http://localhost:1337/admin/settings/config-sync and click "Import".
 
 ### Two Options to Run the Server
 
