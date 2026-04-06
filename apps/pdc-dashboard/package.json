@@ -11,6 +11,7 @@
     "prebuild": "npm run clean",
     "build": "strapi build",
     "strapi": "strapi",
+    "env": "node src/env-init.mjs",
     "lint": "eslint --report-unused-disable-directives .",
     "lint:fix": "eslint --fix .",
     "lint-build": "tsc --noEmit --project tsconfig.json",
