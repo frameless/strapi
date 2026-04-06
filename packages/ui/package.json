@@ -37,8 +37,24 @@
   "peerDependencies": {
     "@utrecht/component-library-react": ">=8",
     "@utrecht/web-component-library-react": ">=3",
+    "focus-trap-react": ">=10",
+    "lodash.kebabcase": ">=4",
     "react": "^18 || ^19",
-    "react-dom": "^18 || ^19"
+    "react-dom": "^18 || ^19",
+    "react-loading-skeleton": ">=3",
+    "react-markdown": ">=9",
+    "rehype-raw": ">=7"
+  },
+  "peerDependenciesMeta": {
+    "react-loading-skeleton": {
+      "optional": true
+    },
+    "react-markdown": {
+      "optional": true
+    },
+    "rehype-raw": {
+      "optional": true
+    }
   },
   "scripts": {
     "prebuild": "pnpm clean",
@@ -79,10 +95,6 @@
     "vite-plugin-dts": "4.5.4"
   },
   "dependencies": {
-    "focus-trap-react": "10.2.3",
-    "lodash.kebabcase": "4.1.1",
-    "react-loading-skeleton": "3.3.1",
-    "react-markdown": "9.0.1",
-    "rehype-raw": "7.0.0"
+    "lodash.kebabcase": "4.1.1"
   }
 }
