@@ -54,7 +54,7 @@ To run the application as a Docker container on your Mac, follow these steps:
    If there are no existing environment variables, run:
 
    ```bash
-   pnpm init:env
+   pnpm env
    ```
 
    This command generates a .env file containing the necessary environment variables.
@@ -63,7 +63,7 @@ To run the application as a Docker container on your Mac, follow these steps:
      Update the generated .env file or create a .pdc.dev.env file with the same variables, modified for development.
      For development, you need to adjust certain variables (for example, set NODE_ENV=development) to ensure the environment behaves correctly.
    - Running the VTH project
-     Run the same pnpm init:env command, then create a .vth.dev.env file with the same variables, modified for VTH development.
+     Run the same pnpm env command, then create a .vth.dev.env file with the same variables, modified for VTH development.
 
      Environment variable definitions are based on the .envrc.json file in the project root.
      You can find detailed documentation for each variable in the [Environment Variables](./ENVIRONMENT_VARIABLES.md) file.

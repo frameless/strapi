@@ -1,5 +1,7 @@
 import { str, port, makeValidator } from 'envalid';
 import validator from 'validator';
+import { randomBytes } from 'crypto';
+import { writeFile, unlink } from 'node:fs/promises';
 
 /**
  * Escapes a string for use in a .env comment, properly handling multiline inputs.
@@ -206,5 +208,62 @@ const createSchemaFromSpec = (spec) => {
     return acc;
   }, {});
 };
+
+const createBase64Secret = () => randomBytes(48).toString('base64');
+const fileExists = async (path) => {
+  try {
+    await fs.access(path);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+export const initEnv = async (filePath, envrc = {}, env = {}) => {
+  const defaults = Object.fromEntries(
+    (Array.isArray(envrc.spec) ? envrc.spec : [])
+      .filter(({ required, developmentDefault }) => required || isValue(developmentDefault))
+      .filter(({ name }) => {
+        validateEnvName(name);
+        return !env[name];
+      })
+      .map(({ name, secret, valueType, developmentDefault }) => {
+        let value;
+        if (developmentDefault) {
+          value = developmentDefault;
+        } else if (secret && (valueType === 'base64' || valueType === 'new-password')) {
+          value = createBase64Secret();
+        }
+        return [name, value];
+      })
+      .filter(([, value]) => isValue(value)),
+  );
+  const content = formatEnvFile({ ...env, ...defaults }, envrc.spec);
+
+  try {
+    // Check if file exists before trying to delete
+    if (await fileExists(filePath)) {
+      try {
+        await unlink(filePath);
+        console.log(`🗑️ Removed existing ${filePath}`);
+      } catch (err) {
+        console.warn(`⚠️ Could not remove existing ${filePath}:`, err.message);
+      }
+    }
+
+    await writeFile(filePath, content, { encoding: 'utf8' });
+    console.log(`✅ Created new ${filePath} with fresh values.`);
+  } catch (err) {
+    console.error('❌ Failed to write .env file:', err);
+  }
+};
+
+/**
+ * Create a subset of the environment variable configuration, but only including the specified variables
+ */
+export const subsetConfig = (envrc = {}, variables = []) => ({
+  ...envrc,
+  spec: Array.isArray(envrc.spec) ? envrc.spec.filter(({ name }) => variables.includes(name)) : [],
+});
 
 export { formatEnvFile, validatorMap, isValue, validateEnvName, requiredValidator, createSchemaFromSpec };
