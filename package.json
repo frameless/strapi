@@ -37,7 +37,7 @@
     "turbo-test": "turbo test",
     "clean": "pnpm run --if-present --recursive clean",
     "clean-node_modules": "pnpm -r exec rimraf node_modules && rimraf node_modules",
-    "init:env": "node scripts/env-init.mjs",
+    "env": "pnpm run --recursive env",
     "lint": "npm-run-all --parallel lint:js lint:css lint:prettier lint:md",
     "lint:js": "eslint --report-unused-disable-directives .",
     "lint:css": "stylelint '**/*.{css,scss}'",
