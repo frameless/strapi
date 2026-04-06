@@ -1,4 +1,5 @@
 import { URL } from 'node:url';
+
 const { hostname, protocol, port } = new URL(process.env.STRAPI_PRIVATE_URL || 'http://localhost:1337');
 
 /** @type {import('next').NextConfig} */
@@ -42,7 +43,10 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.conditionNames = ['import', 'require', 'default'];
+    }
     config.module.rules.push({
       test: /\.md$/,
       // This is the asset module.

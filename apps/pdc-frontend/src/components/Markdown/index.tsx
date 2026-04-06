@@ -1,6 +1,5 @@
 'use client';
 import { Markdown as BaseMarkdown, Img, PriceWidget } from '@frameless/ui';
-import { Link } from '@utrecht/component-library-react';
 import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';
@@ -8,6 +7,8 @@ import type { Options } from 'react-markdown';
 
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
+
+import { Link } from '@/components';
 
 export type PriceTypes = {
   id: string;
