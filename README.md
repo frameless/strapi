@@ -114,14 +114,14 @@ Choose: `dev`, `both`, `pdc` to start the development frontend + backend for PDC
 
 Visit the following URLs:
 
-- http://localhost:3000/ for the website
-- http://localhost:1337/admin/ for the Strapi admin interface
+- <http://localhost:3000/> for the website
+- <http://localhost:1337/admin/> for the Strapi admin interface
 
 When starting Strapi for the first time:
 
-1. Go to http://localhost:1337/admin/ and create an account.
-2. Go to http://localhost:1337/admin/ and login.
-3. Go to http://localhost:1337/admin/settings/config-sync and click "Import".
+1. Go to <http://localhost:1337/admin/> and create an account.
+2. Go to <http://localhost:1337/admin/> and login.
+3. Go to <http://localhost:1337/admin/settings/config-sync> and click "Import".
 
 ### Two Options to Run the Server
 
