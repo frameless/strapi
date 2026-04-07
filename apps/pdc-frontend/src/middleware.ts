@@ -1,12 +1,13 @@
 import acceptLanguage from 'accept-language';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { GetProductsOldSlugsQuery } from '../gql/graphql';
+
 import { fallbackLng, languages } from './app/i18n/settings';
 import { GET_PRODUCTS_OLD_SLUGS } from './query';
 import { fetchData, getRedirectURL, getStrapiGraphqlURL, type ProductRedirect } from './util';
 
 import { getContentSecurityPolicy } from '@/util/cspConfig';
-import { GetProductsOldSlugsQuery } from '../gql/graphql';
 
 acceptLanguage.languages(languages);
 
