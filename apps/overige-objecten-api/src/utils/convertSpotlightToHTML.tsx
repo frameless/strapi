@@ -1,20 +1,15 @@
 import { renderToString } from 'react-dom/server';
 
 import { Markdown } from '../components/Markdown';
+import { UtrechtSpotlight } from '../shared-types';
 
-import { BasicLogoButton, LogoButtonItemType } from './convertLogoButtonToHTML';
-interface convertSpotlightToHTMLProps {
-  item: {
-    content: string;
-    logoButton: LogoButtonItemType[];
-  };
-}
+import { BasicLogoButton } from './convertLogoButtonToHTML';
 /* 
   Using <figure> to get a default border since CSS is not allowed in the receiving system.
   This is technically a semantic misuse of <figure>, which is normally for self-contained media or illustrations.
   Adding role="group" improves accessibility by indicating this is a related group of content and interactive elements.
 */
-export const convertSpotlightToHTML = (item: convertSpotlightToHTMLProps['item']) => {
+export const convertSpotlightToHTML = (item: UtrechtSpotlight) => {
   return renderToString(
     <figure role="group">
       <Markdown>{item?.content}</Markdown>

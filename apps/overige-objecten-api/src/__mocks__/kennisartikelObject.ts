@@ -6,7 +6,7 @@ export const kennisartikelObject = () => ({
   record: {
     endAt: null,
     geometry: null,
-    index: 1,
+    index: 2342910951,
     registrationAt: '2024-11-05T16:03:50.975Z',
     startAt: '2024-11-05T16:03:50.975Z',
     typeVersion: 3,

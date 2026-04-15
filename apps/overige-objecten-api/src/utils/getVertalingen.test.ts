@@ -5,69 +5,18 @@ describe('getVertalingen', () => {
     const result = getVertalingen({
       bothContentBlock: { content: 'content' },
       deskMemo: 'deskMemo',
-      priceData: [{ uuid: '01C87F1D-2F84-4768-98D9-90BA10263B1D', currency: 'EUR', label: 'label', value: '10' }],
-      attributes: {
-        title: 'title',
-        slug: 'test',
-        uuid: 'uuid',
-        createdAt: 'createdAt',
-        metaTags: {
-          keymatch: 'test',
-          title: 'title',
-          description: 'description',
+      priceData: [
+        {
+          uuid: '01C87F1D-2F84-4768-98D9-90BA10263B1D',
+          currency: 'EUR',
+          label: 'label',
+          value: 10,
+          id: '1',
         },
-        locale: 'nl',
-        updatedAt: 'updatedAt',
-        sections: [],
-        kennisartikelMetadata: {
-          afdelingen: [
-            {
-              afdelingId: '7A6703DD-A49D-4D20-B98A-E0D807EBB4CD',
-              afdelingNaam: 'Demo afdeling',
-            },
-          ],
-          doelgroep: 'eu-bedrijf',
-          productAanwezig: false,
-          productValtOnder: null,
-          upnUri: 'https://example.com',
-          uuid: '',
-          verantwoordelijkeOrganisatie: {
-            owmsIdentifier: 'http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)',
-            owmsPrefLabel: 'Gemeente Utrecht',
-            owmsEndDate: '2025-02-10T23:00:00.000Z',
-          },
-        },
-        kennisartikel: {
-          data: {
-            attributes: {
-              internalSections: [],
-            },
-          },
-        },
-        vac: {
-          data: [],
-        },
-        price: {
-          data: {
-            attributes: {
-              price: [],
-            },
-          },
-        },
-        additional_information: {
-          data: {
-            attributes: {
-              title: '',
-              content: {
-                id: '',
-                uuid: '',
-                contentBlock: [],
-              },
-            },
-            id: '1',
-          },
-        },
-      },
+      ],
+      locale: 'nl',
+      title: 'title',
+      updatedAt: 'updatedAt',
       trefwoorden: [{ trefwoord: 'trefwoord' }],
     });
     expect(result).toEqual([
@@ -87,68 +36,9 @@ describe('getVertalingen', () => {
     const result = getVertalingen({
       bothContentBlock: { content: 'content' },
       deskMemo: 'deskMemo',
-      attributes: {
-        title: 'title',
-        slug: 'test',
-        uuid: 'uuid',
-        createdAt: 'createdAt',
-        metaTags: {
-          keymatch: 'test',
-          title: 'title',
-          description: 'description',
-        },
-        locale: 'nl',
-        updatedAt: 'updatedAt',
-        sections: [],
-        kennisartikelMetadata: {
-          afdelingen: [
-            {
-              afdelingId: '7A6703DD-A49D-4D20-B98A-E0D807EBB4CD',
-              afdelingNaam: 'Demo afdeling',
-            },
-          ],
-          doelgroep: 'eu-bedrijf',
-          productAanwezig: false,
-          productValtOnder: null,
-          upnUri: 'https://example.com',
-          uuid: '',
-          verantwoordelijkeOrganisatie: {
-            owmsIdentifier: 'http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)',
-            owmsPrefLabel: 'Gemeente Utrecht',
-            owmsEndDate: '2025-02-10T23:00:00.000Z',
-          },
-        },
-        kennisartikel: {
-          data: {
-            attributes: {
-              internalSections: [],
-            },
-          },
-        },
-        vac: {
-          data: [],
-        },
-        price: {
-          data: {
-            attributes: {
-              price: [],
-            },
-          },
-        },
-        additional_information: {
-          data: {
-            attributes: {
-              title: '',
-              content: {
-                id: '',
-                uuid: '',
-                contentBlock: [],
-              },
-            },
-            id: '1',
-          },
-        },
-      },
+      locale: 'nl',
+      title: 'title',
+      updatedAt: 'updatedAt',
     });
     expect(result).toEqual([
       {
@@ -166,68 +56,9 @@ describe('getVertalingen', () => {
     const result = getVertalingen({
       bothContentBlock: {},
       deskMemo: 'deskMemo',
-      attributes: {
-        title: 'title',
-        slug: 'test',
-        uuid: 'uuid',
-        createdAt: 'createdAt',
-        metaTags: {
-          keymatch: 'test',
-          title: 'title',
-          description: 'description',
-        },
-        locale: 'nl',
-        updatedAt: 'updatedAt',
-        sections: [],
-        kennisartikelMetadata: {
-          afdelingen: [
-            {
-              afdelingId: '7A6703DD-A49D-4D20-B98A-E0D807EBB4CD',
-              afdelingNaam: 'Demo afdeling',
-            },
-          ],
-          doelgroep: 'eu-bedrijf',
-          productAanwezig: false,
-          productValtOnder: null,
-          upnUri: 'https://example.com',
-          uuid: '',
-          verantwoordelijkeOrganisatie: {
-            owmsIdentifier: 'http://standaarden.overheid.nl/owms/terms/Utrecht_(gemeente)',
-            owmsPrefLabel: 'Gemeente Utrecht',
-            owmsEndDate: '2025-02-10T23:00:00.000Z',
-          },
-        },
-        kennisartikel: {
-          data: {
-            attributes: {
-              internalSections: [],
-            },
-          },
-        },
-        vac: {
-          data: [],
-        },
-        price: {
-          data: {
-            attributes: {
-              price: [],
-            },
-          },
-        },
-        additional_information: {
-          data: {
-            attributes: {
-              title: '',
-              content: {
-                id: '',
-                uuid: '',
-                contentBlock: [],
-              },
-            },
-            id: '1',
-          },
-        },
-      },
+      locale: 'nl',
+      title: 'title',
+      updatedAt: 'updatedAt',
     });
     expect(result).toEqual([
       {
@@ -244,16 +75,15 @@ describe('getVertalingen', () => {
     const result = getVertalingen({
       bothContentBlock: { content: 'content' },
       deskMemo: 'deskMemo',
-      attributes: {} as any,
     });
     expect(result).toEqual([
       {
         content: 'content',
         deskMemo: '<p>deskMemo</p>',
         trefwoorden: undefined,
-        taal: undefined,
+        taal: 'nl',
         titel: undefined,
-        datumWijziging: undefined,
+        datumWijziging: '',
       },
     ]);
   });

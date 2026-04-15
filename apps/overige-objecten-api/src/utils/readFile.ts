@@ -4,7 +4,7 @@ export const readFile = (filePath: string) => {
   try {
     return fs.readFileSync(filePath, 'utf8');
   } catch (error) {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console, no-undef
     console.error(error);
     return undefined;
   }

@@ -1,15 +1,15 @@
 import { isYouTubeURL, Markdown as ReactMarkdown, YouTubeVideo } from '@frameless/ui';
 
-import type { Price } from '../strapi-product-type';
 import { buildImageURL, sanitizeHTML } from '../utils';
+import type { PriceItem } from '../shared-types';
 
 export interface MarkdownProps {
-  children: string;
-  priceData?: Price[];
+  children?: string | null;
+  priceData?: PriceItem[];
 }
 
 export const Markdown = ({ children: html, priceData }: MarkdownProps) => {
-  const DOMPurifyHTML = sanitizeHTML(html);
+  const DOMPurifyHTML = sanitizeHTML(html ?? '');
 
   return html ? (
     <ReactMarkdown
@@ -49,7 +49,7 @@ export const Markdown = ({ children: html, priceData }: MarkdownProps) => {
             const result = new Intl.NumberFormat('nl', {
               style: 'currency',
               currency: price.currency,
-            }).format(parseFloat(price.value));
+            }).format(typeof price.value === 'string' ? parseFloat(price.value) : price.value);
             return <span {...node?.properties}>{result}</span>;
           }
           return <span {...node?.properties}>{spanChildren}</span>;
@@ -68,8 +68,7 @@ export const Markdown = ({ children: html, priceData }: MarkdownProps) => {
           }
         },
       }}
-    >
-      {DOMPurifyHTML}
-    </ReactMarkdown>
+      children={DOMPurifyHTML}
+    />
   ) : null;
 };

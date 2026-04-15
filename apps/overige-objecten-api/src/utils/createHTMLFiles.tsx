@@ -5,7 +5,7 @@ import { Button, Document, Heading, Page, PageContent, Separator } from '@utrech
 import { renderToString } from 'react-dom/server';
 
 import { Markdown } from '../components/Markdown';
-import type { Price } from '../strapi-product-type';
+import type { PriceItem } from '../shared-types';
 
 interface CategoryTypes {
   [key: string]: string;
@@ -13,7 +13,7 @@ interface CategoryTypes {
 
 interface CategoryProps {
   data: CategoryTypes;
-  priceData?: Price[];
+  priceData?: PriceItem[];
 }
 
 const Category = ({ data, priceData }: CategoryProps) => {
@@ -101,9 +101,7 @@ const Category = ({ data, priceData }: CategoryProps) => {
   );
 };
 
-interface PageComponentProps extends CategoryProps {}
-
-const PageComponent = ({ data, priceData }: PageComponentProps) => {
+const PageComponent = ({ data, priceData }: CategoryProps) => {
   return (
     <html lang="nl">
       <head>
@@ -172,7 +170,7 @@ const PageComponent = ({ data, priceData }: PageComponentProps) => {
   );
 };
 
-export const createHTMLFiles = (data: CategoryTypes, priceData: Price[]) => {
+export const createHTMLFiles = (data: CategoryTypes, priceData?: PriceItem[]) => {
   const outputDir = './tmp/output-html';
 
   if (!fs.existsSync(outputDir)) {

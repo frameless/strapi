@@ -11,6 +11,6 @@ global.TextEncoder = TextEncoder as typeof global.TextEncoder;
 
 process.env.STRAPI_PRIVATE_URL = process.env.STRAPI_PRIVATE_URL || 'https://localhost:1337';
 process.env.STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN || 'test-token';
-process.env.PREVIEW_SECRET_TOKEN = process.env.PREVIEW_SECRET_TOKEN || '54E00590-62B6-4AC0-86CB-7B8B41309D0F';
+process.env.KISS_PREVIEW_TOKEN = process.env.KISS_PREVIEW_TOKEN || '54E00590-62B6-4AC0-86CB-7B8B41309D0F';
 process.env.OVERIGE_OBJECTEN_API_PORT = process.env.OVERIGE_OBJECTEN_API_PORT || '3000';
 process.env.NODE_ENV = process.env.NODE_ENV || 'test';
