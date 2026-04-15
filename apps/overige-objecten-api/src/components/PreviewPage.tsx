@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import KennisartikelPage from '../components/KennisartikelPage';
 
 import { ErrorPage } from './ErrorPage';

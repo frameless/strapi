@@ -7,7 +7,7 @@ export const getCurrentTypeParam = (url?: string) => {
     const isKennisartikel = isURL && typeUrl.pathname.split('/').includes('kennisartikel');
     return { isVac, isKennisartikel };
   } catch (error) {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console, no-undef
     console.error(error);
     return { isVac: false, isKennisartikel: false };
   }

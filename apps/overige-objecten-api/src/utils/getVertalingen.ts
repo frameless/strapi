@@ -1,6 +1,9 @@
-import type { Attributes, Price } from '../strapi-product-type';
+import type { PriceItem } from '../shared-types';
+import type { components } from '../types/openapi';
 
 import { renderMarkdownToString } from './renderMarkdownToString';
+
+type Vertaling = NonNullable<components['schemas']['kennisartikel']['vertalingen']>[number];
 
 type Trefwoorden = {
   trefwoord: string;
@@ -11,8 +14,10 @@ type BothContentBlock = {
 export interface GetVertalingenProps {
   bothContentBlock: BothContentBlock;
   deskMemo: string;
-  priceData?: Price[];
-  attributes: Attributes;
+  priceData?: PriceItem[];
+  locale?: string;
+  title?: string;
+  updatedAt?: string;
   trefwoorden?: Trefwoorden[];
 }
 
@@ -20,15 +25,17 @@ export const getVertalingen = ({
   bothContentBlock,
   deskMemo,
   priceData,
-  attributes,
+  locale,
+  title,
+  updatedAt,
   trefwoorden,
-}: GetVertalingenProps) => [
+}: GetVertalingenProps): Vertaling[] => [
   {
     ...bothContentBlock,
     deskMemo: renderMarkdownToString({ priceData, children: deskMemo }),
     trefwoorden,
-    taal: attributes?.locale,
-    titel: attributes?.title,
-    datumWijziging: attributes.updatedAt,
+    taal: (locale ?? 'nl') as 'nl' | 'en',
+    titel: title,
+    datumWijziging: updatedAt ?? '',
   },
 ];

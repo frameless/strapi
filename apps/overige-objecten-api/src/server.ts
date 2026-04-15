@@ -1,6 +1,6 @@
-/* eslint-disable no-undef */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { envAvailability, ErrorHandler } from '@frameless/utils';
 import type { CorsOptions } from 'cors';
@@ -22,6 +22,9 @@ type OpenOpenApiValidationError = {
 interface OpenApiValidationErrorTypes {
   errors: OpenOpenApiValidationError[];
 }
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Validate environment variables
 envAvailability({

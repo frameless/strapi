@@ -1,3 +1,5 @@
+import { PageSection } from '../shared-types';
+
 import { normalizeCategories } from './normalizeCategories';
 
 describe('normalizeCategories', () => {
@@ -13,7 +15,7 @@ describe('normalizeCategories', () => {
         categorie2: 'aanvraag',
         content: '<p>Aanvraag content</p>',
       },
-    ];
+    ] as unknown as PageSection[];
 
     const expectedOutput = [
       {
@@ -26,14 +28,14 @@ describe('normalizeCategories', () => {
         categorie: 'aanvraag',
         content: '<p>Aanvraag content</p>',
       },
-    ];
+    ] as PageSection[];
 
     const output = normalizeCategories(input);
     expect(output).toEqual(expectedOutput);
   });
   it('should handle empty input', () => {
-    const input: any[] = [];
-    const expectedOutput: any[] = [];
+    const input: PageSection[] = [];
+    const expectedOutput: PageSection[] = [];
     const output = normalizeCategories(input);
     expect(output).toEqual(expectedOutput);
   });
@@ -47,7 +49,7 @@ describe('normalizeCategories', () => {
         id: '2',
         content: '<p>Aanvraag content</p>',
       },
-    ];
+    ] as PageSection[];
 
     const expectedOutput = [
       {
@@ -58,7 +60,7 @@ describe('normalizeCategories', () => {
         id: '2',
         content: '<p>Aanvraag content</p>',
       },
-    ];
+    ] as PageSection[];
 
     const output = normalizeCategories(input);
     expect(output).toEqual(expectedOutput);
