@@ -33,14 +33,13 @@ export default ({ env }) => {
     'preview-button': {
       enabled: true,
       config: {
-        domain: env('FRONTEND_PUBLIC_URL'),
-        preview_secret_token: env('PREVIEW_SECRET_TOKEN'),
-        api_token: env('PREVIEW_SECRET_TOKEN'),
+        domain: env('KISS_PREVIEW_URL'),
+        preview_secret_token: env('KISS_PREVIEW_TOKEN'),
         contentTypes: [
           {
             uid: 'api::product.product',
             query: {
-              type: 'products',
+              type: 'kennisartikelen',
             },
           },
           {
