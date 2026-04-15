@@ -21,7 +21,7 @@ const NotFoundPage = async () => {
     url: createStrapiURL(),
     query: GET_NOT_FOUND_PAGE,
   });
-  const navList = await getNavData({ pageMode: isEnabled ? 'PREVIEW' : 'LIVE' });
+  const navList = await getNavData({ pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED' });
   return (
     <>
       <Header

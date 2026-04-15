@@ -2,23 +2,12 @@
 
 import { NavigationListType } from '@frameless/ui';
 
-import { createStrapiURL } from './createStrapiURL';
+import { GetNavigationDataQuery } from '../../gql/graphql';
+
 import { fetchData } from './fetchData';
+import { createStrapiURL } from './createStrapiURL';
 
 import { GET_NAVIGATION_DATA } from '@/query';
-
-type NavAttributes = {
-  attributes: {
-    title: string;
-    slug: string;
-    theme_pages?: { data: NavAttributes[] };
-    article_pages?: { data: NavAttributes[] };
-  };
-};
-
-interface NavTypes {
-  data: { navigationPages: { data: NavAttributes[] }; currentLink: { data: NavAttributes[] } };
-}
 
 interface GetNavDataType {
   pageMode?: string;
@@ -31,55 +20,49 @@ export const getNavData = async ({
   articleSlug,
   themeSlug,
 }: GetNavDataType): Promise<NavigationListType[]> => {
-  const { data }: NavTypes = await fetchData({
+  const { data } = await fetchData<GetNavigationDataQuery>({
     url: createStrapiURL(),
     query: GET_NAVIGATION_DATA,
     variables: { pageMode, articleSlug, themeSlug },
   });
 
-  const navLink = data.navigationPages.data.map(({ attributes }) => {
-    if (attributes.slug === data.currentLink.data[0]?.attributes?.slug) {
+  const navLink = (data.navigationPages ?? []).map((navigationPage) => {
+    if (navigationPage?.slug === data.currentLink[0]?.slug) {
       return {
-        ...attributes,
-        theme_pages: data.currentLink.data[0].attributes.theme_pages,
-        article_pages: data.currentLink.data[0].attributes.article_pages,
+        ...navigationPage,
+        slug: data.currentLink[0]?.slug,
+        theme_pages: data.currentLink[0]?.theme_pages,
+        article_pages: data.currentLink[0]?.article_pages,
       };
     } else {
-      return attributes;
+      return navigationPage;
     }
   });
 
   const isNavList = Array.isArray(navLink);
   const navListData = isNavList
     ? (navLink.map((navigationPage) => {
-        const isThemeList = Array.isArray(navigationPage.theme_pages?.data);
-        const isArticleList = Array.isArray(navigationPage.article_pages?.data);
+        const themeList = navigationPage?.theme_pages?.map((theme) => ({
+          textContent: theme?.title,
+          href: `/theme/${theme?.slug}`,
+          children: theme?.article_pages?.map((article) => ({
+            textContent: article?.title,
+            href: `/article/${article?.slug}`,
+          })),
+        }));
 
-        const themeList =
-          isThemeList &&
-          navigationPage.theme_pages?.data.map(({ attributes: { slug, title, article_pages } }) => ({
-            textContent: title,
-            href: `/theme/${slug}`,
-            children: article_pages?.data.map(({ attributes: { slug: articleSlug, title: articleTitle } }) => ({
-              textContent: articleTitle,
-              href: `/article/${articleSlug}`,
-            })),
-          }));
-
-        const articleList =
-          isArticleList &&
-          navigationPage.article_pages?.data.map(({ attributes: { slug, title, theme_pages } }) => ({
-            textContent: title,
-            href: `/article/${slug}`,
-            children: theme_pages?.data.map(({ attributes: { slug: themeSlug, title: themeTitle } }) => ({
-              textContent: themeTitle,
-              href: `/theme/${themeSlug}`,
-            })),
-          }));
+        const articleList = navigationPage?.article_pages?.map((article) => ({
+          textContent: article?.title,
+          href: `/article/${article?.slug}`,
+          children: article?.theme_pages?.map((theme) => ({
+            textContent: theme?.title,
+            href: `/theme/${theme?.slug}`,
+          })),
+        }));
 
         return {
-          textContent: navigationPage.title,
-          href: `/${navigationPage.slug}`,
+          textContent: navigationPage?.title,
+          href: `/${navigationPage?.slug}`,
           children: themeSlug || articleSlug ? [...(themeList || []), ...(articleList || [])] : [],
         };
       }) as NavigationListType[])
