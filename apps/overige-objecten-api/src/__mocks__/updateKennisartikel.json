@@ -1,0 +1,34 @@
+{
+  "type": "http://localhost:4001/api/v2/objecttypes/kennisartikel",
+  "record": {
+    "typeVersion": 1,
+    "startAt": "2024-01-01",
+    "data": {
+      "url": "http://example.com/kennisartikel/1",
+      "uuid": "123e4567-e89b-12d3-a456-426614174000",
+      "upnUri": "http://example.com/upn/1",
+      "publicatieDatum": "2024-01-01",
+      "productAanwezig": true,
+      "productValtOnder": null,
+
+      "verantwoordelijkeOrganisatie": {
+        "owmsIdentifier": "http://example.com/owms/1",
+        "owmsEndDate": "2025-01-01T00:00:00Z"
+      },
+
+      "locaties": null,
+      "doelgroep": "eu-burger",
+
+      "vertalingen": [
+        {
+          "taal": "nl",
+          "titel": "Updated titel",
+          "tekst": "Nieuwe tekst",
+          "datumWijziging": "2024-02-01T00:00:00Z"
+        }
+      ],
+
+      "beschikbareTalen": ["nl"]
+    }
+  }
+}

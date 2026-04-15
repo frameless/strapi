@@ -1,185 +1,59 @@
-import type { VACSData } from '../strapi-product-type';
+import { getStrapiVacData } from '../__mocks__';
 
 import { getVacData } from './getVacData';
 
+const serverURL = 'http://localhost:4001';
+const vacSchemaURL = 'http://localhost:4001/api/v2/objecttypes/vac';
+
 describe('getVacData', () => {
-  const serverURL = 'http://localhost:4001';
-  const vacSchemaURL = 'http://localhost:4001/api/v2/objecttypes/vac';
-
   it('should include contact_information_internal in antwoord when available', () => {
-    const mockData: VACSData = {
-      vacs: {
-        data: [
-          {
-            id: '1',
-            attributes: {
-              createdAt: '2024-11-05T16:03:50.975Z',
-              updatedAt: '2024-11-05T16:03:50.975Z',
-              title: 'Test VAC',
-              contact_information_internal: {
-                data: [
-                  {
-                    attributes: {
-                      contentBlock: [
-                        {
-                          id: '1',
-                          content: 'Contact info: 123-456789',
-                        },
-                      ],
-                    },
-                  },
-                  {
-                    attributes: {
-                      contentBlock: [
-                        {
-                          id: '2',
-                          content: ' ',
-                        },
-                      ],
-                    },
-                  },
-                ],
-              },
-              vac: {
-                uuid: 'test-uuid',
-                antwoord: [
-                  {
-                    content: 'Main answer content',
-                    kennisartikelCategorie: undefined,
-                  },
-                ],
-                status: 'actief',
-                doelgroep: 'eu-burger',
-                afdelingen: [],
-                toelichting: undefined,
-                keywords: 'test',
-              },
-              contact_information_public: {
-                data: {
-                  attributes: {
-                    contentBlock: [],
-                  },
-                },
-              },
+    const { data } = getStrapiVacData({
+      contact_information_internal: [
+        {
+          contentBlock: [
+            {
+              id: '1',
+              content: 'Contact info: 123-456789',
             },
-          },
-        ],
-      },
-    };
-
-    const result = getVacData({ data: mockData, serverURL, vacSchemaURL });
-
-    expect(result).toHaveLength(1);
-    expect(result[0].record.data.antwoord).toContain('Main answer content');
-    expect(result[0].record.data.antwoord).toContain('Contact info: 123-456789');
+          ],
+        },
+      ],
+    });
+    const [result] = getVacData({ data, serverURL, vacSchemaURL });
+    expect(result.record.data.antwoord).toContain('U moet een afspraak maken');
+    expect(result.record.data.antwoord).toContain('Contact info: 123-456789');
   });
 
   it('should handle null contact_information_internal gracefully', () => {
-    const mockData: VACSData = {
-      vacs: {
-        data: [
-          {
-            id: '1',
-            attributes: {
-              createdAt: '2024-11-05T16:03:50.975Z',
-              updatedAt: '2024-11-05T16:03:50.975Z',
-              title: 'Test VAC',
-              contact_information_internal: {
-                data: [],
-              },
-              vac: {
-                uuid: 'test-uuid',
-                antwoord: [
-                  {
-                    content: 'Main answer content',
-                    kennisartikelCategorie: '',
-                  },
-                ],
-                status: 'actief',
-                doelgroep: 'eu-bedrijf',
-                afdelingen: [],
-                toelichting: undefined,
-                keywords: 'test',
-              },
-              contact_information_public: {
-                data: {
-                  attributes: {
-                    contentBlock: [],
-                  },
-                },
-              },
-            },
-          },
-        ],
-      },
-    };
+    const { data } = getStrapiVacData();
+    const [result] = getVacData({ data, serverURL, vacSchemaURL });
 
-    const result = getVacData({ data: mockData, serverURL, vacSchemaURL });
-
-    expect(result).toHaveLength(1);
-    expect(result[0].record.data.antwoord).toBe('Main answer content');
+    expect(result.record.data.antwoord).toContain('U moet een afspraak maken');
   });
 
   it('should include contact_information_public in antwoord when available', () => {
-    const mockData: VACSData = {
-      vacs: {
-        data: [
+    const { data } = getStrapiVacData({
+      contact_information_public: {
+        contentBlock: [
           {
             id: '1',
-            attributes: {
-              createdAt: '2024-11-05T16:03:50.975Z',
-              updatedAt: '2024-11-05T16:03:50.975Z',
-              title: 'Test VAC',
-              contact_information_internal: {
-                data: [],
-              },
-              vac: {
-                uuid: 'test-uuid',
-                antwoord: [
-                  {
-                    content: 'Main answer content',
-                    kennisartikelCategorie: undefined,
-                  },
-                ],
-                status: 'actief',
-                doelgroep: 'eu-burger',
-                afdelingen: [],
-                toelichting: undefined,
-                keywords: 'test',
-              },
-              contact_information_public: {
-                data: {
-                  attributes: {
-                    contentBlock: [
-                      {
-                        id: '1',
-                        content: 'Public contact: info@example.com',
-                      },
-                    ],
-                  },
-                },
-              },
-            },
+            content: 'Public contact: info@example.com',
           },
         ],
       },
-    };
+    });
+    const [result] = getVacData({ data, serverURL, vacSchemaURL });
 
-    const result = getVacData({ data: mockData, serverURL, vacSchemaURL });
-
-    expect(result).toHaveLength(1);
-    expect(result[0].record.data.antwoord).toContain('Main answer content');
-    expect(result[0].record.data.antwoord).toContain('info@example.com');
+    expect(result.record.data.antwoord).toContain('U moet een afspraak maken');
+    expect(result.record.data.antwoord).toContain('info@example.com');
   });
 
   it('should return empty array when no VAC data', () => {
-    const mockData: VACSData = {
-      vacs: {
-        data: [],
-      },
-    };
-
-    const result = getVacData({ data: mockData, serverURL, vacSchemaURL });
+    const result = getVacData({
+      data: { vacs_connection: { nodes: [], pageInfo: { total: 0, page: 1, pageSize: 1, pageCount: 0 } } },
+      serverURL,
+      vacSchemaURL,
+    });
 
     expect(result).toEqual([]);
   });

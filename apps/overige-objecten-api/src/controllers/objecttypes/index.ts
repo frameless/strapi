@@ -1,12 +1,13 @@
-import path from 'node:path';
+import fs from 'node:fs';
 
 import type { RequestHandler } from 'express';
 
-import { readFile } from '../../utils';
+import { resolveDoc } from '../../utils';
+
 export const objecttypesController: RequestHandler = async (req, res, next) => {
   try {
-    const kennisartikelJSON = readFile(path.join(__dirname, '../../docs/kennisartikel.json'));
-    const vacJSON = readFile(path.join(__dirname, '../../docs/vac.json'));
+    const vacJSON = fs.readFileSync(resolveDoc('vac.json'), 'utf8');
+    const kennisartikelJSON = fs.readFileSync(resolveDoc('kennisartikel.json'), 'utf8');
     const type = req.params.type as string;
 
     res.setHeader('Content-Type', 'application/json');

@@ -1,6 +1,15 @@
 import { JSDOM } from 'jsdom';
 
-import type { Price } from '../strapi-product-type';
+import {
+  FaqComponent,
+  PriceItem,
+  UtrechtAccordion,
+  UtrechtImage,
+  UtrechtLink,
+  UtrechtLogoButton,
+  UtrechtRichText,
+  UtrechtSpotlight,
+} from '../shared-types';
 
 import { processData } from './processData';
 
@@ -15,17 +24,17 @@ describe('processData', () => {
           kennisartikelCategorie: 'inleiding',
           component: 'ComponentComponentsUtrechtRichText',
           categorie: 'inleiding',
-        },
+        } as UtrechtRichText,
       ];
       const result = processData({ data });
       const outputHtml = result[0].tekst;
       const dom = new JSDOM(outputHtml);
-      const h2Element = dom.window.document.querySelector('h2') as any;
+      const h2Element = dom.window.document.querySelector('h2');
       expect(h2Element).not.toBeNull();
-      expect(h2Element.textContent).toBe('Contentblok');
-      const pElement = dom.window.document.querySelector('p') as any;
+      expect(h2Element?.textContent).toBe('Contentblok');
+      const pElement = dom.window.document.querySelector('p');
       expect(pElement).not.toBeNull();
-      expect(pElement.textContent).toBe('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+      expect(pElement?.textContent).toBe('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
     });
     it('should render price widget with the correct category when it provided', () => {
       const data = [
@@ -36,15 +45,16 @@ describe('processData', () => {
           kennisartikelCategorie: 'kosten',
           component: 'ComponentComponentsUtrechtRichText',
           categorie: 'kosten',
-        },
+        } as UtrechtRichText,
       ];
-      const priceData: Price[] = [
+      const priceData = [
         {
           currency: 'EUR',
+          id: '1',
           label: 'Example-1',
           uuid: '7395d0a3-c3b3-4951-9fd5-1c8e654ba391',
-          value: '10',
-        },
+          value: 10,
+        } as PriceItem,
       ];
       const result = processData({ data, priceData });
 
@@ -52,11 +62,11 @@ describe('processData', () => {
 
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const spanElement = dom.window.document.querySelector('span') as any;
+      const spanElement = dom.window.document.querySelector('span');
       expect(spanElement).not.toBeNull();
-      expect(spanElement.getAttribute('dataStrapiCategory')).toBe('price');
-      expect(spanElement.getAttribute('dataStrapiIdref')).toBe('7395d0a3-c3b3-4951-9fd5-1c8e654ba391');
-      expect(spanElement.textContent.trim()).toMatch(/€\s?10,00/);
+      expect(spanElement?.getAttribute('dataStrapiCategory')).toBe('price');
+      expect(spanElement?.getAttribute('dataStrapiIdref')).toBe('7395d0a3-c3b3-4951-9fd5-1c8e654ba391');
+      expect(spanElement?.textContent.trim()).toMatch(/€\s?10,00/);
     });
     it('should render Embed YouTube when provided', () => {
       const data = [
@@ -65,21 +75,21 @@ describe('processData', () => {
           categorie: 'inleiding',
           content:
             '<div data-youtube-video=""><iframe width="640" height="480" allowfullscreen="true" autoplay="false" disablekbcontrols="false" enableiframeapi="false" endtime="0" ivloadpolicy="0" loop="false" modestbranding="false" origin="" playlist="" src="https://www.youtube.com/embed/OEIplofZ0bQ" start="0" data-title="Test"></iframe></div>',
-        },
+        } as UtrechtRichText,
       ];
       const result = processData({ data });
       const outputHtml = result[0].tekst;
 
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const iframeElement = dom.window.document.querySelector('iframe') as HTMLIFrameElement;
+      const iframeElement = dom.window.document.querySelector('iframe');
       expect(iframeElement).not.toBeNull();
-      expect(iframeElement.getAttribute('src')).toBe(
+      expect(iframeElement?.getAttribute('src')).toBe(
         'https://www.youtube.com/embed/OEIplofZ0bQ?disablekb=1&loop=false',
       );
-      expect(iframeElement.getAttribute('aria-label')).toBe('Test');
-      expect(iframeElement.getAttribute('width')).toBe('640');
-      expect(iframeElement.getAttribute('height')).toBe('480');
+      expect(iframeElement?.getAttribute('aria-label')).toBe('Test');
+      expect(iframeElement?.getAttribute('width')).toBe('640');
+      expect(iframeElement?.getAttribute('height')).toBe('480');
     });
     it('should render <img/> when provided', () => {
       const data = [
@@ -87,17 +97,17 @@ describe('processData', () => {
           component: 'ComponentComponentsUtrechtRichText',
           categorie: 'inleiding',
           content: '<p><img src="https://example.com/image.jpg" alt="Example image" /></p>',
-        },
+        } as UtrechtRichText,
       ];
       const result = processData({ data });
       const outputHtml = result[0].tekst;
 
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const imgElement = dom.window.document.querySelector('img') as HTMLImageElement;
+      const imgElement = dom.window.document.querySelector('img');
       expect(imgElement).not.toBeNull();
-      expect(imgElement.getAttribute('src')).toBe('https://example.com/image.jpg');
-      expect(imgElement.getAttribute('alt')).toBe('Example image');
+      expect(imgElement?.getAttribute('src')).toBe('https://example.com/image.jpg');
+      expect(imgElement?.getAttribute('alt')).toBe('Example image');
     });
   });
   describe('ComponentComponentsUtrechtLogoButton', () => {
@@ -107,21 +117,22 @@ describe('processData', () => {
           component: 'ComponentComponentsUtrechtLogoButton',
           appearance: 'primary_action_button',
           href: 'https://example.com',
-          openFormsEmbed: null,
+          label: null,
+          openFormsEmbed: undefined,
           textContent: 'Inloggen me DigiD',
           categorie: 'contact',
-        },
+        } as UtrechtLogoButton,
       ];
       const result = processData({ data });
       const outputHtml = result[0].contact;
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
 
-      const anchorElement = dom.window.document.querySelector('a') as HTMLAnchorElement;
+      const anchorElement = dom.window.document.querySelector('a');
       expect(anchorElement).not.toBeNull();
-      expect(anchorElement.getAttribute('href')).toBe('https://example.com');
-      expect(anchorElement.textContent).toBe('Inloggen me DigiD');
-      const spanElement = dom.window.document.querySelector('span') as HTMLSpanElement;
+      expect(anchorElement?.getAttribute('href')).toBe('https://example.com');
+      expect(anchorElement?.textContent).toBe('Inloggen me DigiD');
+      const spanElement = dom.window.document.querySelector('span');
       expect(spanElement).toBeNull();
     });
     it('renders the logo button with a logo when a logo is provided', () => {
@@ -132,24 +143,24 @@ describe('processData', () => {
           href: 'https://example.com',
           label: 'DigiD',
           logo: 'digid',
-          openFormsEmbed: null,
+          openFormsEmbed: undefined,
           textContent: 'Inloggen me DigiD',
           categorie: 'contact',
-        },
+        } as UtrechtLogoButton,
       ];
       const result = processData({ data });
       const outputHtml = result[0].contact;
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const anchorElement = dom.window.document.querySelector('a') as HTMLAnchorElement;
+      const anchorElement = dom.window.document.querySelector('a');
       expect(anchorElement).not.toBeNull();
-      expect(anchorElement.getAttribute('href')).toBe('https://example.com');
-      const spanElement = dom.window.document.querySelector('span') as HTMLSpanElement;
+      expect(anchorElement?.getAttribute('href')).toBe('https://example.com');
+      const spanElement = dom.window.document.querySelector('span');
       expect(spanElement).not.toBeNull();
-      expect(spanElement.textContent).toBe('DigiD');
-      const h3Element = dom.window.document.querySelector('h3') as HTMLHeadingElement;
+      expect(spanElement?.textContent).toBe('DigiD');
+      const h3Element = dom.window.document.querySelector('h3');
       expect(h3Element).not.toBeNull();
-      expect(h3Element.textContent).toBe('DigiD');
+      expect(h3Element?.textContent).toBe('DigiD');
     });
     it('should render logo button with openFormsEmbed when the value is provided', () => {
       const data = [
@@ -163,19 +174,19 @@ describe('processData', () => {
             'uuid=7e6cc160-a3b5-4cca-9d88-f8a361df2e3f&slug=paspoort-aanvraag&label=Paspoort+aanvraag&embed_url=http%3A%2F%2Flocalhost%3A3000',
           textContent: null,
           categorie: 'contact',
-        },
+        } as UtrechtLogoButton,
       ];
       const result = processData({ data });
       const outputHtml = result[0].contact;
       // Parse the HTML using JSDOM
       const dom = new JSDOM(outputHtml);
-      const anchorElement = dom.window.document.querySelector('a') as HTMLAnchorElement;
+      const anchorElement = dom.window.document.querySelector('a');
       expect(anchorElement).not.toBeNull();
-      expect(anchorElement.getAttribute('href')).toBe('http://localhost:3000/form/paspoort-aanvraag');
-      expect(anchorElement.textContent).toBe('Paspoort aanvraag');
-      const spanElement = dom.window.document.querySelector('span') as HTMLSpanElement;
+      expect(anchorElement?.getAttribute('href')).toBe('http://localhost:3000/form/paspoort-aanvraag');
+      expect(anchorElement?.textContent).toBe('Paspoort aanvraag');
+      const spanElement = dom.window.document.querySelector('span');
       expect(spanElement).not.toBeNull();
-      expect(spanElement.textContent).toBe('DigiD');
+      expect(spanElement?.textContent).toBe('DigiD');
     });
   });
 
@@ -194,13 +205,13 @@ describe('processData', () => {
               href: 'https://example.com',
               label: 'DigiD',
               logo: 'digid',
-              openFormsEmbed: null,
+              openFormsEmbed: undefined,
               textContent: 'Inloggen me DigiD',
               categorie: 'bewijs',
             },
           ],
           categorie: 'bewijs',
-        },
+        } as UtrechtSpotlight,
       ];
       const result = processData({ data });
       const outputHtml = result[0].bewijs;
@@ -208,12 +219,12 @@ describe('processData', () => {
       const dom = new JSDOM(outputHtml);
       const sectionElement = dom.window.document.querySelector('figure');
       expect(sectionElement).not.toBeNull();
-      const h2Element = dom.window.document.querySelector('h2') as HTMLHeadingElement;
+      const h2Element = dom.window.document.querySelector('h2');
       expect(h2Element).not.toBeNull();
-      expect(h2Element.textContent).toBe('Spotlightblok ');
-      const pElement = dom.window.document.querySelector('p') as HTMLParagraphElement;
+      expect(h2Element?.textContent).toBe('Spotlightblok ');
+      const pElement = dom.window.document.querySelector('p');
       expect(pElement).not.toBeNull();
-      expect(pElement.textContent).toBe('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+      expect(pElement?.textContent).toBe('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
     });
     it('should render spotlight component with logo button', () => {
       const data = [
@@ -229,13 +240,13 @@ describe('processData', () => {
               href: 'https://example.com',
               label: 'DigiD',
               logo: 'digid',
-              openFormsEmbed: null,
+              openFormsEmbed: undefined,
               textContent: 'Inloggen me DigiD',
               categorie: 'bewijs',
             },
           ],
           categorie: 'bewijs',
-        },
+        } as UtrechtSpotlight,
       ];
       const result = processData({ data });
       const outputHtml = result[0].bewijs;
@@ -243,18 +254,18 @@ describe('processData', () => {
       const dom = new JSDOM(outputHtml);
       const sectionElement = dom.window.document.querySelector('figure');
       expect(sectionElement).not.toBeNull();
-      const h2Element = dom.window.document.querySelector('h2') as HTMLHeadingElement;
+      const h2Element = dom.window.document.querySelector('h2');
       expect(h2Element).not.toBeNull();
-      expect(h2Element.textContent).toBe('Spotlightblok ');
-      const pElement = dom.window.document.querySelector('p') as HTMLParagraphElement;
+      expect(h2Element?.textContent).toBe('Spotlightblok ');
+      const pElement = dom.window.document.querySelector('p');
       expect(pElement).not.toBeNull();
-      expect(pElement.textContent).toBe('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
-      const spanElement = dom.window.document.querySelector('span') as HTMLSpanElement;
+      expect(pElement?.textContent).toBe('Lorem Ipsum is simply dummy text of the printing and typesetting industry.');
+      const spanElement = dom.window.document.querySelector('span');
       expect(spanElement).not.toBeNull();
-      expect(spanElement.textContent).toBe('DigiD');
-      const aElement = dom.window.document.querySelector('a') as HTMLAnchorElement;
+      expect(spanElement?.textContent).toBe('DigiD');
+      const aElement = dom.window.document.querySelector('a');
       expect(aElement).not.toBeNull();
-      expect(aElement.textContent).toBe('Inloggen me DigiD');
+      expect(aElement?.textContent).toBe('Inloggen me DigiD');
     });
   });
 
@@ -263,30 +274,26 @@ describe('processData', () => {
       {
         component: 'ComponentComponentsUtrechtImage',
         imageData: {
-          data: {
-            attributes: {
-              name: 'alex-dudar-5k_nosY4vIQ-unsplash.jpg',
-              alternativeText: 'Test Alternative text',
-              caption: null,
-              width: 1920,
-              height: 2856,
-              url: '/uploads/alex_dudar_5k_nos_Y4v_IQ_unsplash_0a859bed10.jpg',
-            },
-          },
+          name: 'alex-dudar-5k_nosY4vIQ-unsplash.jpg',
+          alternativeText: 'Test Alternative text',
+          caption: null,
+          width: 1920,
+          height: 2856,
+          url: '/uploads/alex_dudar_5k_nos_Y4v_IQ_unsplash_0a859bed10.jpg',
         },
         categorie: 'contact',
-      },
+      } as UtrechtImage,
     ];
     process.env.STRAPI_PRIVATE_URL = 'http://example.com';
     const result = processData({ data });
     const outputHtml = result[0].contact;
     const dom = new JSDOM(outputHtml);
-    const imgElement = dom.window.document.querySelector('img') as HTMLImageElement;
+    const imgElement = dom.window.document.querySelector('img');
     expect(imgElement).not.toBeNull();
-    expect(imgElement.getAttribute('src')).toBe(
+    expect(imgElement?.getAttribute('src')).toBe(
       'http://example.com/uploads/alex_dudar_5k_nos_Y4v_IQ_unsplash_0a859bed10.jpg',
     );
-    expect(imgElement.getAttribute('alt')).toBe('Test Alternative text');
+    expect(imgElement?.getAttribute('alt')).toBe('Test Alternative text');
   });
 
   it('should process ComponentComponentsFaq component', () => {
@@ -294,22 +301,18 @@ describe('processData', () => {
       {
         component: 'ComponentComponentsFaq',
         pdc_faq: {
-          data: {
-            attributes: {
-              title: 'Demo FAQ ',
-              faq: [
-                {
-                  body: '<p>FAQ Inhoud</p>',
-                  headingLevel: 2,
-                  id: 1,
-                  label: 'FAQ Title',
-                },
-              ],
+          title: 'Demo FAQ ',
+          faq: [
+            {
+              body: '<p>FAQ Inhoud</p>',
+              headingLevel: 2,
+              id: '1',
+              label: 'FAQ Title',
             },
-          },
+          ],
         },
         categorie: 'bijzonderheden',
-      },
+      } as FaqComponent,
     ];
     const result = processData({ data });
     const outputHtml = result[0].notice;
@@ -335,17 +338,17 @@ describe('processData', () => {
           textContent: 'Click here',
           icon: 'arrow',
           categorie: 'wat_te_doen_bij_geen_reactie',
-        },
+        } as UtrechtLink,
       ];
       const result = processData({ data });
       const outputHtml = result[0].wtdBijGeenReactie;
       const dom = new JSDOM(outputHtml);
-      const aElement = dom.window.document.querySelector('a') as HTMLAnchorElement;
+      const aElement = dom.window.document.querySelector('a');
       expect(aElement).not.toBeNull();
-      expect(aElement.getAttribute('href')).toBe('https://example.com');
-      expect(aElement.textContent).toBe('Click here');
-      expect(aElement.getAttribute('dir')).toBe(null);
-      expect(aElement.getAttribute('lang')).toBe(null);
+      expect(aElement?.getAttribute('href')).toBe('https://example.com');
+      expect(aElement?.textContent).toBe('Click here');
+      expect(aElement?.getAttribute('dir')).toBe(null);
+      expect(aElement?.getAttribute('lang')).toBe(null);
     });
     it('should render anchor tag from right to left when the language is arabic', () => {
       const data = [
@@ -355,17 +358,17 @@ describe('processData', () => {
           textContent: 'انقر هنا',
           language: 'ar',
           categorie: 'wat_te_doen_bij_geen_reactie',
-        },
+        } as UtrechtLink,
       ];
       const result = processData({ data });
       const outputHtml = result[0].wtdBijGeenReactie;
       const dom = new JSDOM(outputHtml);
-      const aElement = dom.window.document.querySelector('a') as HTMLAnchorElement;
+      const aElement = dom.window.document.querySelector('a');
       expect(aElement).not.toBeNull();
-      expect(aElement.getAttribute('href')).toBe('https://example.com');
-      expect(aElement.textContent).toBe('انقر هنا');
-      expect(aElement.getAttribute('dir')).toBe('rtl');
-      expect(aElement.getAttribute('lang')).toBe('ar');
+      expect(aElement?.getAttribute('href')).toBe('https://example.com');
+      expect(aElement?.textContent).toBe('انقر هنا');
+      expect(aElement?.getAttribute('dir')).toBe('rtl');
+      expect(aElement?.getAttribute('lang')).toBe('ar');
     });
   });
   describe('ComponentComponentsUtrechtAccordion', () => {
@@ -386,7 +389,7 @@ describe('processData', () => {
             },
           ],
           categorie: 'voorwaarden',
-        },
+        } as UtrechtAccordion,
       ];
       const result = processData({ data });
       const outputHtml = result[0].vereisten;

@@ -18,9 +18,9 @@ interface IconProps {
 
 export type LogoButtonItemType = {
   logo?: string;
-  href?: string;
+  href: string | null;
   appearance?: string;
-  label?: string;
+  label: string | null;
   openFormsEmbed?: string | null;
   textContent?: string | null;
 };

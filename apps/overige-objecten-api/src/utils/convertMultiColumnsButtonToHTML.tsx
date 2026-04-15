@@ -1,6 +1,8 @@
 import { Heading } from '@utrecht/component-library-react';
 import { renderToString } from 'react-dom/server';
 
+import type { MultiColumnsButton as MultiColumnsButtonTypes } from '../shared-types';
+
 import type { LogoButtonItemType } from './convertLogoButtonToHTML';
 import { BasicLogoButton, LogoButton } from './convertLogoButtonToHTML';
 
@@ -34,9 +36,7 @@ const MultiColumnsButton = ({ item, withDesignSystem }: MultiColumnsButtonProps)
   );
 };
 
-export const convertMultiColumnsButtonToHTML = (item: any, withDesignSystem?: boolean) =>
+export const convertMultiColumnsButtonToHTML = (item: MultiColumnsButtonTypes, withDesignSystem?: boolean) =>
   item.column
-    .map((col: any) =>
-      renderToString(<MultiColumnsButton item={col} withDesignSystem={withDesignSystem} key={col.title} />),
-    )
+    .map((col) => renderToString(<MultiColumnsButton item={col} withDesignSystem={withDesignSystem} key={col.title} />))
     .join('');

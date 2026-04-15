@@ -1,4 +1,6 @@
-import { Trefwoorden } from '../strapi-product-type';
+export interface ReturnType {
+  trefwoord: string;
+}
 
-export const generateKeywords = (keywords: string): Trefwoorden[] | [] =>
+export const generateKeywords = (keywords?: string): ReturnType[] =>
   keywords ? keywords.split(', ').map((keyword: string) => ({ trefwoord: keyword })) : [];

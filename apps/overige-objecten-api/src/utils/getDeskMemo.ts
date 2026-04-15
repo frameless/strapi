@@ -1,13 +1,12 @@
-import type { Section } from '../strapi-product-type';
+import { Sections, ContentBlockSimple } from '../shared-types';
 
 import { concatenateFieldValues } from './concatenateFieldValues';
+import { createComponentGuard } from './createComponentGuard';
 
-export const getDeskMemo = (sections: Section[], contactInformation?: { id: string; content: string }[]) => {
-  const internalBlock = sections.find(({ component }) => component === 'ComponentComponentsInternalBlockContent');
-  const contentBlock = [
-    ...(internalBlock?.internal_field?.data?.attributes?.content?.contentBlock ?? []),
-    ...(contactInformation ?? []),
-  ];
+export const getDeskMemo = (sections?: Sections | null, contactInformation?: ContentBlockSimple[]) => {
+  const isInternalBlock = createComponentGuard('ComponentComponentsInternalBlockContent');
+  const internalBlock = sections?.find(isInternalBlock);
+  const contentBlock = [...(internalBlock?.internal_field?.content?.contentBlock ?? []), ...(contactInformation ?? [])];
 
-  return contentBlock ? concatenateFieldValues(contentBlock) : '';
+  return contentBlock.length > 0 ? concatenateFieldValues(contentBlock) : '';
 };

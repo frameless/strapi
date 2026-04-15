@@ -2,7 +2,7 @@ import { Markdown } from '@frameless/ui';
 import { Button, Heading } from '@utrecht/component-library-react';
 import { useState } from 'react';
 
-import { BaseObject, KennisartikelData, KennisartikelTranslation } from '../types';
+import type { BaseObject, KennisartikelData, KennisartikelTranslation } from '../types';
 
 interface KennisartikelPageProps {
   data: BaseObject<KennisartikelData>;
@@ -25,7 +25,7 @@ const categories = [
 
 const KennisartikelPage = ({ data, showAllCategories = false }: KennisartikelPageProps) => {
   const [currentCategory, setCurrentCategory] = useState('inleiding');
-  const content: KennisartikelTranslation = data?.record.data?.vertalingen?.[0] || {
+  const content: KennisartikelTranslation = data?.record?.data?.vertalingen?.[0] || {
     taal: '',
     titel: '',
     datumWijziging: '',
