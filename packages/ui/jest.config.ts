@@ -24,6 +24,7 @@ const config: Config = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
     '^@utrecht/web-component-library-react$': '<rootDir>/tests/__mocks__/@utrecht/web-component-library-react.mjs',
+    '^tabbable$': '<rootDir>/tests/__mocks__/tabbable.cjs',
   },
 
   transformIgnorePatterns: [
@@ -32,6 +33,7 @@ const config: Config = {
       '|react-markdown' +
       '|clsx' +
       '|lodash\\.chunk' +
+      '|focus-trap' +
       '|focus-trap-react' +
       '|@babel\\+runtime' +
       ')/)',
@@ -39,6 +41,7 @@ const config: Config = {
       '@utrecht' +
       '|react-markdown' +
       '|clsx' +
+      '|focus-trap' +
       '|lodash\\.chunk' +
       '|focus-trap-react' +
       '|@babel/runtime' +

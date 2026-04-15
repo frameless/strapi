@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from '@utrecht/component-library-react';
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useState } from 'react';
 
 import styles from './index.module.css';
