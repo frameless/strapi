@@ -1,6 +1,6 @@
 import { Button, ButtonGroup } from '@utrecht/component-library-react';
 import { UtrechtIconCross, UtrechtIconHamburgerMenu } from '@utrecht/web-component-library-react';
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 
 import styles from './index.module.css';

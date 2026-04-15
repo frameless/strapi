@@ -1,5 +1,5 @@
 import { ButtonLink } from '@utrecht/component-library-react';
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 import React, { ButtonHTMLAttributes, ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react';
 
 import styles from './index.module.css';

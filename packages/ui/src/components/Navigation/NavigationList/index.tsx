@@ -1,4 +1,4 @@
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren, useRef, FocusEvent } from 'react';
 
 import { NavigationItem } from '../NavigationItem';

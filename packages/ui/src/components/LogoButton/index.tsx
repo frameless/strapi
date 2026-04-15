@@ -6,7 +6,7 @@ import {
   UtrechtIconArrow,
   UtrechtLogoButton,
 } from '@utrecht/web-component-library-react';
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 import kebabCase from 'lodash.kebabcase';
 import { ReactNode } from 'react';
 

@@ -1,4 +1,4 @@
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 import { forwardRef } from 'react';
 import type { DetailedHTMLProps, DialogHTMLAttributes, ForwardedRef, PropsWithChildren } from 'react';
 
