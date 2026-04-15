@@ -1,5 +1,5 @@
 import { Alert, Link, Paragraph } from '@utrecht/component-library-react';
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 
 import styles from './index.module.css';
 
