@@ -239,8 +239,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0(0a924f90799892c82d7bce36fedcfa99)
       '@frameless/preview-button':
-        specifier: 2.0.0
-        version: 2.0.0(95f27d07ed3ada66d1bda9dd63e8c83c)
+        specifier: 2.1.0
+        version: 2.1.0(95f27d07ed3ada66d1bda9dd63e8c83c)
       '@frameless/strapi-plugin-env-label':
         specifier: 1.0.0
         version: 1.0.0(63f26096065f60f0ac841a3d989b9340)
@@ -3326,8 +3326,8 @@ packages:
       eslint: ^9.39.3
       typescript: ^5.0.0
 
-  '@frameless/preview-button@2.0.0':
-    resolution: {integrity: sha512-bHZ5ULFBttTEjmmStHEDoUarbYjmiJ2LFAqoRmbydXNgHIdsvKqJWtD3gImy5qJ5hz0i4oI6J7MzgUR9VltZnQ==}
+  '@frameless/preview-button@2.1.0':
+    resolution: {integrity: sha512-NGrGLd85Aq3cq4CWht+8ecx5L2JvVtwyMepaIiujgP1yNChArKvpo/kzRs7Dp32/WOn7pbWf4+jNTQcYZhgyEA==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@strapi/design-system': '>=2.0.0'
@@ -23434,7 +23434,7 @@ snapshots:
       - supports-color
       - turbo
 
-  '@frameless/preview-button@2.0.0(95f27d07ed3ada66d1bda9dd63e8c83c)':
+  '@frameless/preview-button@2.1.0(95f27d07ed3ada66d1bda9dd63e8c83c)':
     dependencies:
       '@strapi/design-system': 2.2.0(@babel/runtime@7.29.2)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.2)(@codemirror/lint@6.9.5)(@codemirror/search@6.6.0)(@codemirror/state@6.5.4)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.39.16)(@strapi/icons@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.3.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(@types/react-dom@18.3.1)(@types/react@18.3.12)(codemirror@5.65.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.3.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@strapi/icons': 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.3.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))

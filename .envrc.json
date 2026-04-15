@@ -130,10 +130,18 @@
     },
     {
       "name": "FRONTEND_PUBLIC_URL",
-      "description": "URL where the preview of pages in the Strapi Dashboard are hosted. You can use the Docker container name as the URL, for example: http://pdc_frontend:3000.",
+      "description": "URL where the preview of pages in the Strapi Dashboard are hosted. You can use the Docker container name as the URL, for example: http://overige-objecten-api:3000.",
       "required": true,
       "valueType": "url",
       "developmentDefault": "http://localhost:3000"
+    },
+    {
+      "name": "KISS_PREVIEW_URL",
+      "description": "URL where the preview of pages in the Strapi Dashboard are hosted. You can use the Docker container name as the URL, for example: http://overige-objecten-api:3000.",
+      "required": true,
+      "valueType": "url",
+      "developmentDefault": "http://localhost:4001/api/v2/preview",
+      "example": "http://localhost:4001/api/v2/preview"
     },
     {
       "name": "HOST",
@@ -183,6 +191,15 @@
       "secret": true,
       "valueType": "base64",
       "developmentDefault": "SGVsbG8sIHdvcmxkIQ=="
+    },
+    {
+      "name": "KISS_PREVIEW_TOKEN",
+      "description": "Configure Strapi Dashboard and the website with the same secret, to be able to show unpublished content in preview mode.",
+      "required": true,
+      "secret": true,
+      "valueType": "base64",
+      "developmentDefault": "aGVsbG8gd29ybGQ=",
+      "example": "aGVsbG8gd29ybGQ="
     },
     {
       "name": "STRAPI_PRIVATE_URL",
