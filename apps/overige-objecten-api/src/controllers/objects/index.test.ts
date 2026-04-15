@@ -1,8 +1,9 @@
+import request from 'supertest';
 import { vi, describe, it, expect, beforeEach, afterEach, Mock } from 'vitest';
+import { fetchData, ErrorHandler } from '@frameless/utils';
 
 vi.mock('@frameless/utils', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@frameless/utils')>();
-
   return {
     ...actual,
     fetchData: vi.fn(),
@@ -19,9 +20,6 @@ vi.mock('@frameless/utils', async (importOriginal) => {
   };
 });
 
-import request from 'supertest';
-import { fetchData, ErrorHandler } from '@frameless/utils';
-
 const mockedFetchData = fetchData as Mock;
 
 import {
@@ -34,6 +32,9 @@ import {
 import app from '../../server';
 import * as getPaginatedResponseUtils from '../../utils/getPaginatedResponse';
 import type { Trefwoord } from '../openapi/types';
+import { getStrapiKennisartikelDataByUUID } from '../../__mocks__/getStrapiKennisartikelDataByUUID';
+import { getStrapiVacDataByUUID } from '../../__mocks__/getStrapiVacDataByUUID';
+import { ContactInformationPublic, UtrechtRichText2 } from '../../shared-types';
 
 vi.mock('../../utils/getTheServerURL.ts', () => ({
   getTheServerURL: () => 'http://localhost:3000',
@@ -161,21 +162,17 @@ describe('Objects controller', () => {
     it('should include contact_information_internal in VAC antwoord', async () => {
       mockedFetchData.mockResolvedValueOnce(
         getStrapiVacData({
-          contact_information_internal: {
-            data: [
-              {
-                attributes: {
-                  contentBlock: [
-                    {
-                      id: '1',
-                      content:
-                        'Voor het aanvragen van een paspoort kunt u contact opnemen met de gemeente via telefoonnummer 123-456789 or bezoek onze website voor meer informatie.',
-                    },
-                  ],
+          contact_information_internal: [
+            {
+              contentBlock: [
+                {
+                  id: '1',
+                  content:
+                    'Voor het aanvragen van een paspoort kunt u contact opnemen met de gemeente via telefoonnummer 123-456789 or bezoek onze website voor meer informatie.',
                 },
-              },
-            ],
-          },
+              ],
+            },
+          ],
         }),
       );
       const response = await request(app)
@@ -276,27 +273,28 @@ describe('Objects controller', () => {
     describe('validate fields with express-openapi-validator', () => {
       it('should log an error message when required fields are missing', async () => {
         const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
-        const kennisartikelData = getStrapiKennisartikelData().data.products.data.map((data) => ({
+        const kennisartikelData = getStrapiKennisartikelData().data.products_connection.nodes.map((data) => ({
           ...data,
-          attributes: { ...data.attributes, title: null },
+          title: null,
         }));
-        const vacData = getStrapiVacData().data.vacs.data.map((data) => ({
+
+        const vacData = getStrapiVacData().data.vacs_connection?.nodes.map((data) => ({
           ...data,
-          attributes: { ...data.attributes, vac: { ...data.attributes.vac, vraag: null } },
+          vac: { ...data.vac, vraag: null },
         }));
         mockedFetchData.mockResolvedValueOnce({
           data: {
-            products: {
-              data: kennisartikelData,
-              meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
+            products_connection: {
+              nodes: kennisartikelData,
+              pageInfo: { total: 1, page: 1, pageSize: 1, pageCount: 1 },
             },
           },
         });
         mockedFetchData.mockResolvedValueOnce({
           data: {
-            vacs: {
-              data: vacData,
-              meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
+            vacs_connection: {
+              nodes: vacData,
+              pageInfo: { total: 1, page: 1, pageSize: 1, pageCount: 1 },
             },
           },
         });
@@ -324,7 +322,7 @@ describe('Objects controller', () => {
 
   describe('GET /api/objects/:id', () => {
     it('should return 200 and kennisartikel object when uuid is valid', async () => {
-      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelDataByUUID());
       mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb')
@@ -335,7 +333,7 @@ describe('Objects controller', () => {
     });
 
     it('should return kennisartikel object with trefwoorden', async () => {
-      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelDataByUUID());
       mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb')
@@ -349,39 +347,30 @@ describe('Objects controller', () => {
     it('should merge internal and kennisartikel trefwoorden', async () => {
       mockedFetchData.mockResolvedValueOnce({
         data: {
-          products: {
-            meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
-            data: [
-              {
-                id: '1',
-                attributes: {
-                  title: 'Demo Product',
-                  slug: 'demo-product',
-                  uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce3',
-                  locale: 'nl',
-                  updatedAt: '2024-11-06T12:05:42.541Z',
-                  createdAt: '2024-11-05T16:03:50.975Z',
-                  metaTags: { keymatch: 'Demo, Page', title: 'Demo Page Title', description: 'Demo Page description' },
-                  sections: [
-                    {
-                      component: 'ComponentComponentsInternalBlockContent',
-                      internal_field: {
-                        data: {
-                          attributes: {
-                            content: {
-                              id: '1',
-                              uuid: '241eb316-d348-4304-b303-9aa5ebf431b4',
-                              keywords: 'Intern keyword 1, Intern keyword 2, Intern keyword 3',
-                            },
-                          },
-                        },
-                      },
+          products: [
+            {
+              id: '1',
+              title: 'Demo Product',
+              slug: 'demo-product',
+              uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce3',
+              locale: 'nl',
+              updatedAt: '2024-11-06T12:05:42.541Z',
+              createdAt: '2024-11-05T16:03:50.975Z',
+              metaTags: { keymatch: 'Demo, Page', title: 'Demo Page Title', description: 'Demo Page description' },
+              sections: [
+                {
+                  component: 'ComponentComponentsInternalBlockContent',
+                  internal_field: {
+                    content: {
+                      id: '1',
+                      uuid: '241eb316-d348-4304-b303-9aa5ebf431b4',
+                      keywords: 'Intern keyword 1, Intern keyword 2, Intern keyword 3',
                     },
-                  ],
+                  },
                 },
-              },
-            ],
-          },
+              ],
+            },
+          ],
         },
       });
       mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
@@ -402,32 +391,25 @@ describe('Objects controller', () => {
     it('should deskMemo include contact_information_internal from internal block', async () => {
       mockedFetchData.mockResolvedValueOnce({
         data: {
-          products: {
-            meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
-            data: [
-              {
-                id: '1',
-                attributes: {
-                  title: 'Demo Product',
-                  slug: 'demo-product',
-                  uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce4',
-                  locale: 'nl',
-                  updatedAt: '2024-11-06T12:05:42.541Z',
-                  createdAt: '2024-11-05T16:03:50.975Z',
-                  sections: [
-                    {
-                      component: 'ComponentComponentsInternalBlockContent',
-                      internal_field: {
-                        data: {
-                          attributes: { content: { contentBlock: [{ id: '1', content: 'Contact info: 123-456789' }] } },
-                        },
-                      },
-                    },
-                  ],
+          products: [
+            {
+              id: '1',
+              title: 'Demo Product',
+              slug: 'demo-product',
+              uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ce4',
+              locale: 'nl',
+              updatedAt: '2024-11-06T12:05:42.541Z',
+              createdAt: '2024-11-05T16:03:50.975Z',
+              sections: [
+                {
+                  component: 'ComponentComponentsInternalBlockContent',
+                  internal_field: {
+                    content: { contentBlock: [{ id: '1', content: 'Contact info: 123-456789' }] },
+                  },
                 },
-              },
-            ],
-          },
+              ],
+            },
+          ],
         },
       });
       mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
@@ -441,75 +423,67 @@ describe('Objects controller', () => {
     it('should extract contact_information_public from sections and include in vertalingen', async () => {
       mockedFetchData.mockResolvedValueOnce({
         data: {
-          products: {
-            meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
-            data: [
-              {
-                id: '1',
-                attributes: {
-                  title: 'Demo Product',
-                  slug: 'demo-product',
-                  uuid: 'A555372B-EE1E-4432-8F90-51DAD214E1F4',
-                  locale: 'nl',
-                  updatedAt: '2024-11-06T12:05:42.541Z',
-                  createdAt: '2024-11-05T16:03:50.975Z',
-                  sections: [
-                    {
-                      component: 'ComponentComponentsContactInformationPublic',
-                      contact_information_public: {
-                        data: {
-                          attributes: {
-                            contentBlock: [
-                              { id: '1', content: '<p>Contact us at 123-456-7890</p>' },
-                              { id: '2', content: '<p>Email: info@example.com</p>' },
-                            ],
-                          },
-                        },
-                      },
-                    },
-                  ],
-                },
-              },
-            ],
-          },
+          products: [
+            {
+              id: '1',
+              title: 'Demo Product',
+              slug: 'demo-product',
+              additional_information: null,
+              price: null,
+              metaTags: null,
+              publicationState: 'PUBLISHED',
+              kennisartikelMetadata: null,
+              uuid: 'A555372B-EE1E-4432-8F90-51DAD214E1F4',
+              locale: 'nl',
+              updatedAt: '2024-11-06T12:05:42.541Z',
+              createdAt: '2024-11-05T16:03:50.975Z',
+              sections: [
+                {
+                  component: 'ComponentComponentsContactInformationPublic',
+                  contact_information_public: {
+                    contentBlock: [
+                      { id: '1', content: '<p>Contact us at 123-456-7890</p>' },
+                      { id: '2', content: '<p>Email: info@example.com</p>' },
+                    ],
+                  },
+                } as ContactInformationPublic,
+              ],
+            },
+          ],
         },
       });
       mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/A555372B-EE1E-4432-8F90-51DAD214E1F4')
         .set('Authorization', 'Token YOUR_API_TOKEN');
-      expect(response.body.record.data.vertalingen[0].contact).toContain('123-456-7890');
-      expect(response.body.record.data.vertalingen[0].contact).toContain('info@example.com');
+
+      expect(response.body?.record?.data?.vertalingen[0]?.contact).toContain('123-456-7890');
+      expect(response.body?.record?.data?.vertalingen[0]?.contact).toContain('info@example.com');
     });
 
     it('should return the first contentBlock as inleiding category when provided', async () => {
       mockedFetchData.mockResolvedValueOnce({
         data: {
-          products: {
-            meta: { pagination: { total: 1, page: 1, pageSize: 1, pageCount: 1 } },
-            data: [
-              {
-                id: '1',
-                attributes: {
-                  title: 'Demo Product',
-                  slug: 'demo-product',
-                  uuid: 'F555372B-EE1E-4432-8F90-51DAD214E1F3',
-                  content: '<h2>This is the first content block in the Product collection.</h2>',
-                  locale: 'nl',
-                  updatedAt: '2024-11-06T12:05:42.541Z',
-                  createdAt: '2024-11-05T16:03:50.975Z',
-                  sections: [
-                    {
-                      id: '1',
-                      content: '<h2>Inleiding  - 1</h2><p>Body text</p>',
-                      categorie5: 'inleiding',
-                      component: 'ComponentComponentsUtrechtRichText',
-                    },
-                  ],
-                },
-              },
-            ],
-          },
+          products: [
+            {
+              id: '1',
+              title: 'Demo Product',
+              slug: 'demo-product',
+              uuid: 'F555372B-EE1E-4432-8F90-51DAD214E1F3',
+              content: '<h2>This is the first content block in the Product collection.</h2>',
+              locale: 'nl',
+              updatedAt: '2024-11-06T12:05:42.541Z',
+              createdAt: '2024-11-05T16:03:50.975Z',
+              sections: [
+                {
+                  id: '1',
+                  content: '<h2>Inleiding  - 1</h2><p>Body text</p>',
+                  categorie5: 'inleiding',
+                  component: 'ComponentComponentsUtrechtRichText',
+                } as UtrechtRichText2,
+              ],
+            },
+          ],
         },
       });
       mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
@@ -523,8 +497,8 @@ describe('Objects controller', () => {
     });
 
     it('should return 200 and vac object when uuid is valid', async () => {
-      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
-      mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelDataByUUID());
+      mockedFetchData.mockResolvedValueOnce(getStrapiVacDataByUUID());
       const response = await request(app)
         .get('/api/v2/objects/22D89EB2-2238-4885-A352-07C02CF8FCDF')
         .set('Authorization', 'Token YOUR_API_TOKEN');
@@ -534,7 +508,7 @@ describe('Objects controller', () => {
     });
 
     it('should return 200 and Kennisartikel object when uuid is valid', async () => {
-      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
+      mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelDataByUUID());
       mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get('/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb')
@@ -545,8 +519,8 @@ describe('Objects controller', () => {
     });
 
     it('should return 404 when id is not found', async () => {
-      mockedFetchData.mockResolvedValueOnce({ data: { products: { data: [] } } });
-      mockedFetchData.mockResolvedValueOnce({ data: { vacs: { data: [] } } });
+      mockedFetchData.mockResolvedValueOnce({ data: { products_connection: { nodes: [] } } });
+      mockedFetchData.mockResolvedValueOnce({ data: { vacs_connection: { nodes: [] } } });
       const response = await request(app)
         .get('/api/v2/objects/not-exist-uuid')
         .set('Authorization', 'Token YOUR_API_TOKEN');

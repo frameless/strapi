@@ -1,0 +1,14 @@
+{
+  "type": "http://localhost:4001/api/v2/objecttypes/vac",
+  "record": {
+    "typeVersion": 1,
+    "startAt": "2024-01-01",
+    "data": {
+      "vraag": "Hoe vraag ik een paspoort aan? (updated)",
+      "status": "actief",
+      "antwoord": "Bijgewerkt antwoord",
+      "doelgroep": "eu-burger",
+      "url": "http://example.com/vac/1"
+    }
+  }
+}

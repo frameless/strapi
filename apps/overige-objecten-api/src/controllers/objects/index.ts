@@ -3,13 +3,12 @@ import type { RequestHandler } from 'express';
 
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS } from '../../queries';
 import { getObjectByUUID } from '../../service/object';
-import type { Section, StrapiProductType, VACSData } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
 import { generateKennisartikelObject, getPaginatedResponse, getTheServerURL, getVacData } from '../../utils';
 import type { PaginationType } from '../../utils';
-interface ModifiedSection extends Section {
-  categorie5?: string;
-}
+import type { GetAllProductsQuery, GetAllVacItemsQuery } from '../../../gql/graphql';
+import type { KennisartikelMetadata, PageSection, PriceItem } from '../../shared-types';
+
 type GetKennisartikelReturnData = components['schemas']['ObjectData'];
 
 const sum = (a: number, b: number): number => a + b;
@@ -45,7 +44,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     };
     const fetchKennisartikelen = async () => {
       // Fetch product data from GraphQL
-      const { data } = await fetchData<StrapiProductType>({
+      const { data } = await fetchData<{ data: GetAllProductsQuery }>({
         url: graphqlURL.href,
         query: GET_ALL_PRODUCTS,
         variables: { locale, ...paginationParams },
@@ -55,29 +54,65 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       });
       return data;
     };
-    const getKennisartikelData = ({ data }: StrapiProductType): GetKennisartikelReturnData[] | [] => {
-      const products = data?.products?.data || [];
+    const getKennisartikelData = ({
+      data,
+    }: {
+      data: GetAllProductsQuery | undefined;
+    }): GetKennisartikelReturnData[] => {
+      const products = data?.products_connection?.nodes ?? [];
       if (products.length === 0) return [];
-      const kennisartikel = products.map(({ attributes, id }) => {
-        const modifiedAttributes = {
-          ...attributes,
+      return products.map((product) => {
+        const modifiedProduct = {
+          ...product,
           sections: [
             {
-              content: attributes?.content,
-              kennisartikelCategorie: 'inleiding',
               component: 'ComponentComponentsUtrechtRichText',
+              content: product?.content,
+              kennisartikelCategorie: 'inleiding',
               categorie5: 'inleiding',
-            } as ModifiedSection,
-            ...attributes.sections,
+            },
+            ...(product.sections ?? []),
           ],
         };
-        return generateKennisartikelObject({ attributes: modifiedAttributes, url: serverURL, id });
+        return generateKennisartikelObject({
+          sections: (modifiedProduct.sections?.filter(Boolean) ?? []) as PageSection[],
+          title: modifiedProduct.title,
+          uuid: modifiedProduct?.uuid,
+          locale: modifiedProduct.locale,
+          updatedAt: modifiedProduct.updatedAt,
+          createdAt: modifiedProduct.createdAt,
+          metaTags: modifiedProduct.metaTags ?? null,
+          kennisartikelMetadata: (modifiedProduct.kennisartikelMetadata as KennisartikelMetadata) ?? null,
+          price: modifiedProduct.price
+            ? {
+                price: (modifiedProduct.price.price?.filter(Boolean) ?? []) as PriceItem[],
+              }
+            : null,
+          additional_information: {
+            content: {
+              uuid: modifiedProduct.additional_information?.content?.uuid ?? '',
+              // Map the content blocks to match your ContentBlock interface exactly
+              contentBlock: (modifiedProduct.additional_information?.content?.contentBlock ?? [])
+                .filter((block): block is NonNullable<typeof block> => block !== null)
+                .map((block) => ({
+                  id: block.id,
+                  content: block.content,
+                  // Map the GraphQL 'categorie10' to the required 'kennisartikelCategorie'
+                  kennisartikelCategorie: block.categorie10 ?? 'onbekend',
+                  categorie10: block.categorie10,
+                  component: 'ComponentComponentsUtrechtRichText' as const,
+                })),
+            },
+          },
+          id: modifiedProduct.id,
+          url: serverURL,
+          publicationState: 'PUBLISHED',
+        });
       });
-      return kennisartikel;
     };
     const fetchVac = async () => {
       // Fetch VACs data from GraphQL
-      const { data } = await fetchData<{ data: VACSData }>({
+      const { data } = await fetchData<{ data: GetAllVacItemsQuery }>({
         url: graphqlURL.href,
         query: GET_ALL_VAC_ITEMS,
         variables: { ...paginationParams },
@@ -92,19 +127,22 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     // Send results based on the requested type
     if (isKennisartikel) {
       const data = await fetchKennisartikelen();
-      pagination = await getPaginatedResponse(req, data?.products);
+      pagination = await getPaginatedResponse(req, data?.products_connection?.pageInfo ?? undefined);
       const kennisartikelData = getKennisartikelData({ data });
       results = kennisartikelData;
     } else if (isVac) {
       const data = await fetchVac();
       const vac = getVacData({ data, serverURL, vacSchemaURL });
-      pagination = await getPaginatedResponse(req, data?.vacs as any);
+      pagination = await getPaginatedResponse(req, data?.vacs_connection?.pageInfo ?? undefined);
       results = vac;
     } else if (!type && !isVac && !isKennisartikel) {
       const productsData = await fetchKennisartikelen();
       const data = await fetchVac();
-      const kennisartikelPagination = await getPaginatedResponse(req, productsData?.products);
-      const vacPagination = await getPaginatedResponse(req, data?.vacs as any);
+      const kennisartikelPagination = await getPaginatedResponse(
+        req,
+        productsData?.products_connection?.pageInfo ?? undefined,
+      );
+      const vacPagination = await getPaginatedResponse(req, data?.vacs_connection?.pageInfo ?? undefined);
       const count = [kennisartikelPagination?.count, vacPagination?.count].filter(isFiniteNumber).reduce(sum, 0);
       const total = [kennisartikelPagination?.total, vacPagination?.total].filter(isFiniteNumber).reduce(sum, 0);
       pagination = {

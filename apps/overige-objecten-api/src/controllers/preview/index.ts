@@ -7,10 +7,10 @@ import { KennisartikelObject, VACObject } from '../../types';
 import { getTheServerURL } from '../../utils';
 
 export const previewController = async (req: Request, res: Response) => {
-  const { slug, secret, uuid } = req.query as {
+  const { slug, secret, uuid, status } = req.query as {
     slug?: 'vac' | 'kennisartikelen';
     secret?: string;
-    // status?: 'DRAFT' | 'PUBLISHED'; this will be enable when we migrate to Strapi v5 with draft and publish system
+    status?: 'DRAFT' | 'PUBLISHED';
     uuid?: string;
   };
   const serverURL = getTheServerURL(req);
@@ -19,7 +19,7 @@ export const previewController = async (req: Request, res: Response) => {
     return res.status(400).send('Missing query parameters');
   }
 
-  if (secret !== process.env.PREVIEW_SECRET_TOKEN) {
+  if (secret !== process.env.KISS_PREVIEW_TOKEN) {
     return res.status(401).send('Unauthorized');
   }
 
@@ -27,10 +27,11 @@ export const previewController = async (req: Request, res: Response) => {
     if (slug === 'vac') {
       const vacData = (await getObjectByUUID({
         uuid,
+        documentId: uuid,
         locale: 'nl',
         apiToken: process.env.STRAPI_API_TOKEN,
         serverURL,
-        publicationState: 'PREVIEW',
+        status,
       })) as VACObject;
 
       return res.send(
@@ -45,8 +46,9 @@ export const previewController = async (req: Request, res: Response) => {
       const kennisartikelData = (await getObjectByUUID({
         uuid,
         locale: 'nl',
+        documentId: uuid,
         serverURL,
-        publicationState: 'PREVIEW',
+        status,
         apiToken: process.env.STRAPI_API_TOKEN,
       })) as KennisartikelObject;
 
@@ -68,7 +70,7 @@ export const previewController = async (req: Request, res: Response) => {
         }),
       );
     }
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console, no-undef
     console.error(err);
     return res.status(500).end(
       errorRenderer({

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Button, ButtonGroup } from '@utrecht/component-library-react';
 import React, { useState } from 'react';
 import { renderToString } from 'react-dom/server';

@@ -5,10 +5,11 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
         type: 'http://localhost:3000/api/v2/objecttypes/kennisartikel',
         url: 'http://localhost:3000/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb',
         uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ceb',
+        publicationState: 'PUBLISHED',
         record: {
           endAt: null,
           geometry: null,
-          index: 1,
+          index: 2342910951,
           registrationAt: '2024-11-05T16:03:50.975Z',
           startAt: '2024-11-05T16:03:50.975Z',
           typeVersion: 3,
@@ -60,7 +61,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
         record: {
           endAt: null,
           geometry: null,
-          index: 1,
+          index: 2973921480,
           registrationAt: '2024-11-05T16:03:50.975Z',
           startAt: '2024-11-05T16:03:50.975Z',
           typeVersion: 1,
@@ -79,7 +80,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
                 afdelingNaam: 'Demo Afdeling',
               },
             ],
-            toelichting: null,
+            toelichting: '',
             trefwoorden: [
               {
                 trefwoord: 'paspoort',
@@ -99,7 +100,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
         record: {
           endAt: null,
           geometry: null,
-          index: 2,
+          index: 135603824,
           registrationAt: '2024-11-05T16:03:50.975Z',
           startAt: '2024-11-05T16:03:50.975Z',
           typeVersion: 1,
@@ -118,7 +119,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
                 afdelingNaam: 'Demo Afdeling',
               },
             ],
-            toelichting: null,
+            toelichting: '',
             trefwoorden: [
               {
                 trefwoord: 'rijbewijs',
@@ -138,7 +139,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
         record: {
           endAt: null,
           geometry: null,
-          index: 3,
+          index: 482341232,
           registrationAt: '2024-11-05T16:03:50.975Z',
           startAt: '2024-11-05T16:03:50.975Z',
           typeVersion: 1,
@@ -156,7 +157,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
                 afdelingNaam: 'Demo Afdeling',
               },
             ],
-            toelichting: null,
+            toelichting: '',
             trefwoorden: [
               {
                 trefwoord: 'verhuizing',

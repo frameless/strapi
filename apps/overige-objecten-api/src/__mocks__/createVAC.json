@@ -1,0 +1,25 @@
+{
+  "type": "http://localhost:4001/api/v2/objecttypes/vac",
+  "record": {
+    "typeVersion": 1,
+    "startAt": "2024-01-01",
+    "data": {
+      "vraag": "Hoe vraag ik een paspoort aan?",
+      "status": "actief",
+      "antwoord": "U kunt een paspoort aanvragen bij de gemeente.",
+      "doelgroep": "eu-burger",
+      "url": "http://example.com/vac/1",
+
+      "afdelingen": [
+        {
+          "afdelingId": "123",
+          "afdelingNaam": "Burgerzaken"
+        }
+      ],
+
+      "toelichting": "Extra info",
+
+      "trefwoorden": [{ "trefwoord": "paspoort" }]
+    }
+  }
+}

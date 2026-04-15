@@ -4,7 +4,7 @@ import { vi, describe, it, expect, beforeAll, afterEach } from 'vitest';
 import kennisartikelObjectTypes from '../../docs/kennisartikel.json';
 import vacObjectTypes from '../../docs/vac.json';
 import app from '../../server';
-import * as readFileUtils from '../../utils/readFile';
+import * as docUtils from '../../utils/resolveDoc';
 
 vi.mock('../../utils/getTheServerURL.ts', () => ({
   getTheServerURL: () => 'http://localhost:3000',
@@ -37,21 +37,25 @@ describe('objecttypesController', () => {
     expect(response.status).toBe(404);
   });
   it('GET /api/v2/objecttypes/:type should return 500 when an error occurs', async () => {
-    const spy = vi.spyOn(readFileUtils, 'readFile').mockImplementation(() => 'invalid-path');
+    const spy = vi.spyOn(docUtils, 'resolveDoc').mockImplementation(() => 'invalid-path');
     const response = await request(app).get('/api/v2/objecttypes/kennisartikel');
     expect(response.status).toBe(500);
     spy.mockRestore();
   });
 
   it('GET /api/v2/objecttypes/:type should return 500 when kennisartikel.json is not found', async () => {
-    const spy = vi.spyOn(readFileUtils, 'readFile').mockImplementation(() => undefined);
+    const spy = vi.spyOn(docUtils, 'resolveDoc').mockImplementation(() => {
+      throw new Error('mocked file not found');
+    });
     const response = await request(app).get('/api/v2/objecttypes/kennisartikel');
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ message: 'An unexpected error occurred.' });
     spy.mockRestore();
   });
   it('GET /api/v2/objecttypes/:type should return 500 when VAC.json is not found', async () => {
-    const spy = vi.spyOn(readFileUtils, 'readFile').mockImplementation(() => undefined);
+    const spy = vi.spyOn(docUtils, 'resolveDoc').mockImplementation(() => {
+      throw new Error('mocked file not found');
+    });
     const response = await request(app).get('/api/v2/objecttypes/vac');
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ message: 'An unexpected error occurred.' });

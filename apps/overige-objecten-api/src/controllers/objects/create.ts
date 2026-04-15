@@ -5,8 +5,8 @@ import slugify from 'slugify';
 import { v4 } from 'uuid';
 
 import { CREATE_INTERNAL_FIELD, CREATE_KENNISARTIKEL, CREATE_VAC } from '../../queries';
-import type { CreateInternalField, CreateProduct, CreateVacResponse } from '../../strapi-product-type';
 import type { components } from '../../types/openapi';
+import type { CreateInternalFieldMutation, CreateKennisartikelMutation, CreateVacMutation } from '../../../gql/graphql';
 import {
   generateKennisartikelObject,
   getCurrentTypeParam,
@@ -14,6 +14,7 @@ import {
   getVacData,
   mapContentByCategory,
 } from '../../utils';
+import type { KennisartikelMetadata, PageSection, PriceItem } from '../../shared-types';
 
 const categoryToKeyMap: { [key: string]: string } = {
   bewijs: 'bewijs',
@@ -59,7 +60,7 @@ export const createVacController: RequestHandler = async (req, res, next) => {
           keywords: vac?.trefwoorden?.map(({ trefwoord }) => trefwoord).join(' ,'),
         },
       };
-      const { data: responseData } = await fetchData<CreateVacResponse>({
+      const { data: responseData } = await fetchData<{ data: CreateVacMutation }>({
         url: graphqlURL.href,
         query: CREATE_VAC,
         variables: { locale, data: vacPayload },
@@ -67,31 +68,56 @@ export const createVacController: RequestHandler = async (req, res, next) => {
           Authorization: `Bearer ${tokenAuth}`,
         },
       });
-      const vacResponse = getVacData({
-        data: {
-          vacs: { data: [responseData.createVac.data] },
-        },
-        serverURL,
-        vacSchemaURL,
-      });
+      const vacNode = responseData.createVac;
+      const vacResponse = vacNode
+        ? getVacData({
+            data: {
+              vacs_connection: {
+                nodes: [
+                  {
+                    ...vacNode,
+                    contact_information_internal: [],
+                    relatedVACs: [],
+                    relatedProducts: [],
+                  },
+                ],
+                pageInfo: { total: 1, page: 1, pageSize: 1, pageCount: 1 },
+              },
+            },
+            serverURL,
+            vacSchemaURL,
+          })
+        : [];
 
       response = vacResponse[0];
     } else if (isKennisartikel) {
+      if (!body?.record?.data) {
+        return res.status(400).json({ message: 'Missing record.data' });
+      }
       const kennisartikel = body?.record?.data as components['schemas']['kennisartikel'];
+      if (!kennisartikel?.vertalingen?.length) {
+        return res.status(400).json({ message: 'Missing vertalingen' });
+      }
       const kennisartikelNl = kennisartikel?.vertalingen?.find(({ taal }) => taal === 'nl');
-
+      if (!kennisartikelNl) {
+        return res.status(400).json({ message: 'Missing nl translation' });
+      }
       const kennisartikelenBlocks = Object.entries(kennisartikelNl || {})
         .map(([key, value]) => {
-          const mappedContent = mapContentByCategory(key, value as any, categoryToKeyMap);
+          if (typeof value !== 'string') return null;
+          const mappedContent = mapContentByCategory(key, value, categoryToKeyMap);
           if (Object.keys(mappedContent).length === 0) return null;
           const [kennisartikelCategorie, content] = Object.entries(mappedContent)[0];
           return { content, kennisartikelCategorie, __typename: 'ComponentComponentsUtrechtRichText' };
         })
         .filter(Boolean);
       const deskMemo = kennisartikelNl?.deskMemo;
+      if (!kennisartikelNl.titel) {
+        return res.status(400).json({ message: 'titel is required' });
+      }
       const kennisartikelPayload = {
-        title: kennisartikelNl?.titel,
-        slug: slugify(kennisartikelNl?.titel as string, { lower: true }),
+        title: kennisartikelNl.titel,
+        slug: slugify(kennisartikelNl.titel, { lower: true }),
         uuid: v4(),
         metaTags: {
           keymatch: kennisartikelNl?.trefwoorden?.map((trefwoord) => trefwoord.trefwoord).join(','),
@@ -112,6 +138,7 @@ export const createVacController: RequestHandler = async (req, res, next) => {
           upnUri: kennisartikel.upnUri,
         },
       };
+
       const internalFieldPayload = {
         title: kennisartikelNl?.titel,
         content: {
@@ -122,7 +149,7 @@ export const createVacController: RequestHandler = async (req, res, next) => {
         },
       };
       if (deskMemo) {
-        const { data: internalResponse } = await fetchData<CreateInternalField>({
+        const { data: internalResponse } = await fetchData<{ data: CreateInternalFieldMutation }>({
           url: graphqlURL.href,
           query: CREATE_INTERNAL_FIELD,
           variables: { locale, data: internalFieldPayload },
@@ -131,16 +158,16 @@ export const createVacController: RequestHandler = async (req, res, next) => {
           },
         });
         // check if the internal field was created
-        if (internalResponse?.createInternalField?.data?.attributes?.content?.id) {
+        if (internalResponse?.createInternalField?.content?.id) {
           kennisartikelPayload.sections.push({
             __typename: 'ComponentComponentsInternalBlockContent',
-            internal_field: internalResponse?.createInternalField?.data?.id,
+            internal_field: internalResponse?.createInternalField.id,
             __component: 'components.internal-block-content',
           } as any);
         }
       }
 
-      const { data: responseData } = await fetchData<{ data: CreateProduct }>({
+      const { data: responseData } = await fetchData<{ data: CreateKennisartikelMutation }>({
         url: graphqlURL.href,
         query: CREATE_KENNISARTIKEL,
         variables: { locale, data: kennisartikelPayload },
@@ -149,11 +176,43 @@ export const createVacController: RequestHandler = async (req, res, next) => {
         },
       });
 
-      const results = generateKennisartikelObject({
-        attributes: responseData?.createProduct?.data?.attributes,
-        url: serverURL,
-        id: responseData?.createProduct?.data?.id,
-      });
+      const createdProduct = responseData?.createProduct;
+      const results = createdProduct
+        ? generateKennisartikelObject({
+            url: serverURL,
+            sections: (createdProduct.sections?.filter(Boolean) ?? []) as PageSection[],
+            title: createdProduct.title,
+            uuid: createdProduct?.uuid,
+            locale: createdProduct.locale,
+            updatedAt: createdProduct.updatedAt,
+            createdAt: createdProduct.createdAt,
+            metaTags: createdProduct.metaTags ?? null,
+            kennisartikelMetadata: (createdProduct.kennisartikelMetadata as KennisartikelMetadata) ?? null,
+            price: createdProduct.price
+              ? {
+                  price: (createdProduct.price.price?.filter(Boolean) ?? []) as PriceItem[],
+                }
+              : null,
+            additional_information: {
+              content: {
+                uuid: createdProduct.additional_information?.content?.uuid ?? '',
+                // Map the content blocks to match your ContentBlock interface exactly
+                contentBlock: (createdProduct.additional_information?.content?.contentBlock ?? [])
+                  .filter((block): block is NonNullable<typeof block> => block !== null)
+                  .map((block) => ({
+                    id: block.id,
+                    content: block.content,
+                    // Map the GraphQL 'categorie10' to the required 'kennisartikelCategorie'
+                    kennisartikelCategorie: block.categorie10 ?? 'onbekend',
+                    categorie10: block.categorie10,
+                    component: 'ComponentComponentsUtrechtRichText' as const,
+                  })),
+              },
+            },
+            id: createdProduct?.id,
+            publicationState: 'PUBLISHED',
+          })
+        : null;
       response = results;
     } else {
       return res.status(400).json({ message: 'Type is not allowed' });

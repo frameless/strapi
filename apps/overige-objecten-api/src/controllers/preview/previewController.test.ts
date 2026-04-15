@@ -14,7 +14,7 @@ vi.mock('../../utils/getTheServerURL', () => ({
 describe('previewController', () => {
   beforeAll(() => {
     vi.resetAllMocks();
-    process.env.PREVIEW_SECRET_TOKEN = 'secret123';
+    process.env.KISS_PREVIEW_TOKEN = 'secret123';
     process.env.Strapi_API_TOKEN = 'token';
   });
 
