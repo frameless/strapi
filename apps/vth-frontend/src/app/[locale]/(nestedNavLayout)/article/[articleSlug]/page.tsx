@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
+import { Get_Article_By_SlugQuery } from '../../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
@@ -24,7 +26,6 @@ import {
 import { Main } from '@/components/Main';
 import { Markdown } from '@/components/Markdown';
 import { GET_ARTICLE_BY_SLUG } from '@/query';
-import { SiblingData } from '@/types';
 import { config } from '@/util';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { getNavData } from '@/util/getNavData';
@@ -36,15 +37,15 @@ type Params = {
   };
 };
 
-export async function generateMetadata({ params: { locale, articleSlug } }: Params): Promise<Metadata> {
-  const { data } = await fetchData({
+export async function generateMetadata({ params: { articleSlug } }: Params): Promise<Metadata> {
+  const { data } = await fetchData<Get_Article_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_ARTICLE_BY_SLUG,
-    variables: { slug: articleSlug, locale },
+    variables: { slug: articleSlug, pageMode: 'PUBLISHED' },
   });
   return {
-    title: data.findSlug.data?.attributes?.title,
-    description: data.findSlug.data?.attributes?.description,
+    title: data.articlePages?.[0]?.title ?? '',
+    description: data.articlePages?.[0]?.description ?? '',
   };
 }
 
@@ -52,38 +53,37 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
   const { isEnabled } = draftMode();
-  const { data } = await fetchData({
+  const { data } = await fetchData<Get_Article_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_ARTICLE_BY_SLUG,
-    variables: { slug: articleSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
+    variables: { slug: articleSlug, pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED' },
   });
-  const navList = await getNavData({ pageMode: isEnabled ? 'PREVIEW' : 'LIVE', articleSlug });
-  if (!data.findSlug?.data) return notFound();
+  const navList = await getNavData({ pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED', articleSlug });
+  if (!data.articlePages?.[0]) return notFound();
 
-  const parentThemaSlug = data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.slug;
-  const parentHoofditemSlug = data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.slug;
+  const article = data.articlePages?.[0];
+  const parentThemaSlug = article?.theme_pages?.[0]?.slug;
+  const parentHoofditemSlug = article?.navigation_pages?.[0]?.slug;
 
   const hasHoofditemParentOnly = !parentThemaSlug && parentHoofditemSlug;
 
-  const siblingThemas: SiblingData[] = hasHoofditemParentOnly
-    ? data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.theme_pages?.data
-    : [];
-  const siblingContent: SiblingData[] = hasHoofditemParentOnly
-    ? data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.article_pages?.data
-    : data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.article_pages?.data;
+  const siblingThemas = hasHoofditemParentOnly ? (article?.navigation_pages?.[0]?.theme_pages ?? []) : [];
+  const siblingContent = hasHoofditemParentOnly
+    ? (article?.navigation_pages?.[0]?.article_pages ?? [])
+    : (article?.theme_pages?.[0]?.article_pages ?? []);
 
   const themasLinks =
-    siblingThemas?.map(({ attributes: { slug, title } }: SiblingData) => ({
-      textContent: title,
-      href: `/${locale}/theme/${slug}`,
-      isCurrent: slug === articleSlug,
+    siblingThemas?.map((page) => ({
+      textContent: page?.title ?? '',
+      href: `/${locale}/theme/${page?.slug}`,
+      isCurrent: page?.slug === articleSlug,
     })) || [];
 
   const contentLinks =
-    siblingContent?.map(({ attributes: { slug, title } }: SiblingData) => ({
-      textContent: title,
-      href: `/${locale}/article/${slug}`,
-      isCurrent: slug === articleSlug,
+    siblingContent?.map((page) => ({
+      textContent: page?.title ?? '',
+      href: `/${locale}/article/${page?.slug}`,
+      isCurrent: page?.slug === articleSlug,
     })) || [];
 
   const sideNavigationLinks = [...themasLinks, ...contentLinks];
@@ -96,23 +96,23 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
     },
   ];
 
-  if (data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]) {
+  const parentNavPage = article?.theme_pages?.[0]?.navigation_pages?.[0];
+  if (parentNavPage) {
     breadcrumbNavigationElements.push({
-      label:
-        data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]?.attributes?.title,
-      href: `/${locale}/${data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.navigation_pages?.data[0]?.attributes?.slug}`,
+      label: parentNavPage.title ?? '',
+      href: `/${locale}/${parentNavPage.slug}`,
       current: false,
     });
   }
 
   const parentElement = hasHoofditemParentOnly
     ? {
-        label: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
+        label: article?.navigation_pages?.[0]?.title ?? '',
         href: `/${locale}/${parentHoofditemSlug}`,
         current: false,
       }
     : {
-        label: data.findSlug.data?.attributes?.theme_pages?.data[0]?.attributes?.title,
+        label: article?.theme_pages?.[0]?.title ?? '',
         href: `/theme/${parentThemaSlug}`,
         current: true,
       };
@@ -120,9 +120,9 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
   breadcrumbNavigationElements.push(parentElement);
 
   const DynamicContent = () =>
-    data.findSlug.data?.attributes?.content &&
-    data.findSlug.data?.attributes?.content.length > 0 &&
-    data.findSlug.data?.attributes?.content?.map((component: any, index: number) => {
+    article?.content &&
+    article?.content.length > 0 &&
+    article?.content?.map((component: any, index: number) => {
       switch (component?.__typename) {
         case 'ComponentComponentsUtrechtRichText':
           return component.content ? (
@@ -174,7 +174,7 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
             <GridCell md={8}>
               <Main id="main">
                 <RichText>
-                  <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
+                  <Heading1>{article?.title}</Heading1>
                   <DynamicContent />
                 </RichText>
               </Main>

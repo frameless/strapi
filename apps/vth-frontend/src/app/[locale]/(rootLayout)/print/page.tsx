@@ -9,6 +9,8 @@ import {
 } from '@utrecht/component-library-react';
 import React from 'react';
 
+import { Get_Print_PageQuery } from '../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
@@ -29,73 +31,35 @@ import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import '@/styles/print.css';
 import '@/styles/space.css';
 
-type PrintPageData = {
-  title: string;
-  versiondate: string;
-  introductionBody: string;
-};
-
-type ArticlePage = {
-  title: string;
-  content: any[];
-};
-
-type ArticlePagesResponse = {
-  data: {
-    attributes: ArticlePage;
-  }[];
-};
-
-type ThemePage = {
-  title: string;
-  content: any[];
-  article_pages: ArticlePagesResponse;
-};
-
-type ThemePagesResponse = {
-  data: {
-    attributes: ThemePage;
-  }[];
-};
-
-type NavigationPage = {
-  title: string;
-  content: any[];
-  theme_pages: ThemePagesResponse;
-  article_pages: ArticlePagesResponse;
-};
-
-type NavigationPagesResponse = {
-  data: {
-    attributes: NavigationPage;
-  }[];
-};
-
 const PrintPage = async ({ params: { locale } }: { params: { locale: string } }) => {
   const { t } = await useTranslation(locale, ['common']);
-  const { data } = await fetchData({
+  const { data } = await fetchData<Get_Print_PageQuery>({
     url: createStrapiURL(),
     query: GET_PRINT_PAGE,
     variables: { locale: locale },
   });
 
-  const printPageData: PrintPageData = data?.printPage?.data?.attributes;
-  const navigationPagesResponse: NavigationPagesResponse = data?.navigationPages;
+  const printPageData = data?.printPage;
+  const navigationPages = data?.navigationPages;
 
-  navigationPagesResponse?.data?.sort((a, b) => {
-    return a.attributes.title.localeCompare(b.attributes.title);
+  navigationPages?.sort((a, b) => {
+    return (a?.title ?? '').localeCompare(b?.title ?? '');
   });
 
-  navigationPagesResponse?.data?.forEach(({ attributes: navigationPage }) => {
-    navigationPage.theme_pages?.data?.sort((a, b) => {
-      return a.attributes.title.localeCompare(b.attributes.title);
+  navigationPages?.forEach((navigationPage) => {
+    if (!navigationPage) return;
+
+    navigationPage.theme_pages?.sort((a, b) => {
+      return (a?.title ?? '').localeCompare(b?.title ?? '');
     });
-    navigationPage.article_pages?.data?.sort((a, b) => {
-      return a.attributes.title.localeCompare(b.attributes.title);
+    navigationPage.article_pages?.sort((a, b) => {
+      return (a?.title ?? '').localeCompare(b?.title ?? '');
     });
-    navigationPage.theme_pages?.data?.forEach(({ attributes: themePage }) => {
-      themePage.article_pages?.data?.sort((a, b) => {
-        return a.attributes.title.localeCompare(b.attributes.title);
+    navigationPage.theme_pages?.forEach((themePage) => {
+      if (!themePage) return;
+
+      themePage.article_pages?.sort((a, b) => {
+        return (a?.title ?? '').localeCompare(b?.title ?? '');
       });
     });
   });
@@ -114,13 +78,14 @@ const PrintPage = async ({ params: { locale } }: { params: { locale: string } })
               </section>
               <section>
                 <Heading2>Inhoudsopgave</Heading2>
-                <TableOfContents navigationPagesResponse={navigationPagesResponse} />
+                <TableOfContents navigationPages={navigationPages} />
               </section>
             </GridCell>
           </Grid>
           <Grid spacing="lg">
-            {navigationPagesResponse.data[0] &&
-              navigationPagesResponse.data.map(({ attributes: navigationPage }, index) => {
+            {navigationPages?.[0] &&
+              navigationPages.map((navigationPage, index) => {
+                if (!navigationPage) return null;
                 return (
                   <GridCell sm={12} key={index}>
                     {NavigationPageDisplay(navigationPage, (index + 1).toString())}
@@ -139,26 +104,26 @@ const PrintPage = async ({ params: { locale } }: { params: { locale: string } })
   );
 };
 
-const TableOfContents = ({ navigationPagesResponse }: { navigationPagesResponse: NavigationPagesResponse }) => {
+const TableOfContents = ({ navigationPages }: { navigationPages: Get_Print_PageQuery['navigationPages'] }) => {
   return (
     <ol>
-      {navigationPagesResponse.data[0] &&
-        navigationPagesResponse.data.map(({ attributes: navigationPage }, index) => {
+      {navigationPages?.[0] &&
+        navigationPages?.map((navigationPage, index) => {
           return (
             <li key={index}>
-              <a href={`#navigation-page-${navigationPage.title}`}>{navigationPage.title}</a>
+              <a href={`#navigation-page-${navigationPage?.title}`}>{navigationPage?.title}</a>
               <ol>
-                {navigationPage.theme_pages.data &&
-                  navigationPage.theme_pages.data.map(({ attributes: themePage }, index) => {
+                {navigationPage?.theme_pages &&
+                  navigationPage.theme_pages.map((themePage, index) => {
                     return (
                       <li key={index}>
-                        <a href={`#theme-page-${themePage.title}`}>{themePage.title}</a>
+                        <a href={`#theme-page-${themePage?.title}`}>{themePage?.title}</a>
                         <ol>
-                          {themePage.article_pages.data &&
-                            themePage.article_pages.data.map(({ attributes: articlePage }, index) => {
+                          {themePage?.article_pages &&
+                            themePage.article_pages.map((articlePage, index) => {
                               return (
                                 <li key={index}>
-                                  <a href={`#article-page-${articlePage.title}`}>{articlePage.title}</a>
+                                  <a href={`#article-page-${articlePage?.title}`}>{articlePage?.title}</a>
                                 </li>
                               );
                             })}
@@ -166,11 +131,11 @@ const TableOfContents = ({ navigationPagesResponse }: { navigationPagesResponse:
                       </li>
                     );
                   })}
-                {navigationPage.article_pages.data &&
-                  navigationPage.article_pages.data.map(({ attributes: articlePage }, index) => {
+                {navigationPage?.article_pages &&
+                  navigationPage.article_pages.map((articlePage, index) => {
                     return (
                       <li key={index}>
-                        <a href={`#article-page-${articlePage.title}`}>{articlePage.title}</a>
+                        <a href={`#article-page-${articlePage?.title}`}>{articlePage?.title}</a>
                       </li>
                     );
                   })}
@@ -215,7 +180,10 @@ const DynamicContent: React.FC<{
   </>
 );
 
-const NavigationPageDisplay = (navigationPage: NavigationPage, indexString: string) => {
+const NavigationPageDisplay = (
+  navigationPage: NonNullable<Get_Print_PageQuery['navigationPages'][number]>,
+  indexString: string,
+) => {
   let levelIndex = 0;
 
   return (
@@ -223,41 +191,51 @@ const NavigationPageDisplay = (navigationPage: NavigationPage, indexString: stri
       <Heading2 id={`navigation-page-${navigationPage.title}`}>
         {indexString}. {navigationPage.title}
       </Heading2>
-      <DynamicContent content={navigationPage.content} />
-      {navigationPage.theme_pages.data &&
-        navigationPage.theme_pages.data.map(({ attributes: themePage }) => {
+      <DynamicContent content={navigationPage.content ?? []} />
+      {navigationPage.theme_pages &&
+        navigationPage.theme_pages?.map((themePage) => {
+          if (!themePage) return null;
+
           return ThemePageDisplay(themePage, `${indexString}.${++levelIndex}`);
         })}
-      {navigationPage.article_pages.data &&
-        navigationPage.article_pages.data.map(({ attributes: articlePage }) => {
+      {navigationPage.article_pages &&
+        navigationPage.article_pages.map((articlePage) => {
+          if (!articlePage) return null;
           return ArticlePageDisplay(articlePage, `${indexString}.${++levelIndex}`);
         })}
     </RichText>
   );
 };
 
-const ThemePageDisplay = (themePage: ThemePage, indexString: string) => {
+const ThemePageDisplay = (
+  themePage: NonNullable<Get_Print_PageQuery['navigationPages'][number]>['theme_pages'][number],
+  indexString: string,
+) => {
   return (
     <RichText>
-      <Heading3 id={`theme-page-${themePage.title}`}>
-        {indexString}. {themePage.title}
+      <Heading3 id={`theme-page-${themePage?.title}`}>
+        {indexString}. {themePage?.title}
       </Heading3>
-      <DynamicContent content={themePage.content} />
-      {themePage.article_pages.data &&
-        themePage.article_pages.data.map(({ attributes: articlePage }, index) => {
+      <DynamicContent content={themePage?.content ?? []} />
+      {themePage?.article_pages &&
+        themePage.article_pages.map((articlePage, index) => {
+          if (!articlePage) return null;
           return ArticlePageDisplay(articlePage, `${indexString}.${index + 1}`);
         })}
     </RichText>
   );
 };
 
-const ArticlePageDisplay = (articlePage: ArticlePage, indexString: string) => {
+const ArticlePageDisplay = (
+  articlePage: NonNullable<Get_Print_PageQuery['navigationPages'][number]>['article_pages'][number],
+  indexString: string,
+) => {
   return (
     <RichText>
-      <Heading4 id={`article-page-${articlePage.title}`}>
-        {indexString}. {articlePage.title}
+      <Heading4 id={`article-page-${articlePage?.title}`}>
+        {indexString}. {articlePage?.title}
       </Heading4>
-      <DynamicContent content={articlePage.content} />
+      <DynamicContent content={articlePage?.content ?? []} />
     </RichText>
   );
 };

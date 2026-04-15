@@ -46,7 +46,7 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const { t } = await useTranslation(locale, ['layout', 'common']);
   const { isEnabled } = draftMode();
-  const navList = await getNavData({ pageMode: isEnabled ? 'PREVIEW' : 'LIVE' });
+  const navList = await getNavData({ pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED' });
 
   const footerData = {
     title: t('footer.title'),

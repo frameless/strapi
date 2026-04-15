@@ -5,7 +5,12 @@ interface FetchDataProps {
   method?: string;
 }
 
-export const fetchData = async ({ url, query, variables, method = 'POST' }: FetchDataProps) => {
+export const fetchData = async <TData = any>({
+  url,
+  query,
+  variables,
+  method = 'POST',
+}: FetchDataProps): Promise<{ data: TData }> => {
   try {
     const response = await fetch(url, {
       method,

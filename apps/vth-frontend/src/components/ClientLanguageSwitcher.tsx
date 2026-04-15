@@ -10,16 +10,17 @@ import { LanguageSwitcher, LanguageSwitcherSkeleton } from './LanguageSwitcher';
 
 import { createURL } from '@/util/create-url';
 import { fetchData } from '@/util/fetchData';
-
-export interface Localizations {
-  locale: string;
-  slug: string;
-}
-
 export interface ClientLanguageSwitcherProps {
   localizations?: Localizations[];
   locales: typeof languages;
   currentLocale: string;
+}
+export interface Localizations {
+  locale: string;
+  slug: string;
+}
+export interface LocalizationsResponse {
+  localizations: Localizations[];
 }
 
 export const ClientLanguageSwitcher = ({ locales, currentLocale }: ClientLanguageSwitcherProps) => {
@@ -40,15 +41,26 @@ export const ClientLanguageSwitcher = ({ locales, currentLocale }: ClientLanguag
     locale: params.locale,
     segment: currentSegment,
   };
+
   const getSlugsURL = createURL('/api/current-pathname', getSlugsURLParams);
   const { data, isFetching } = useQuery({
     queryKey: ['getSlugs'],
     enabled: !!params.slug,
-    queryFn: async () => fetchData({ url: getSlugsURL, method: 'GET' }),
+    queryFn: async () => fetchData<LocalizationsResponse>({ url: getSlugsURL, method: 'GET' }),
   });
 
-  if (!isFetching && data?.localizations.length > 0) {
-    return <LanguageSwitcher items={data.localizations} currentLocale={currentLocale} />;
+  if (!isFetching && data?.data?.localizations && data.data.localizations.length > 0) {
+    return (
+      <LanguageSwitcher
+        items={data.data.localizations.map(({ slug, locale }) => ({
+          pathname: redirectedPathName(locale)
+            .replace(params.locale as string, locale)
+            .replace(/[^/]+$/, slug),
+          locale,
+        }))}
+        currentLocale={currentLocale}
+      />
+    );
   }
 
   return !isFetching ? (

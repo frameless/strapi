@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
+import { GetHomepageQuery } from '../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import {
   Grid,
@@ -19,8 +21,8 @@ import {
 } from '@/components';
 import { Card } from '@/components/Card';
 import { Markdown } from '@/components/Markdown';
-import { GET_HOMEPAGE } from '@/query';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
+import { GET_HOMEPAGE } from '@/query';
 
 export interface Fields {
   title: string;
@@ -45,25 +47,26 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
 const Home = async ({ params: { locale } }: { params: any }) => {
   const { isEnabled } = draftMode();
   const { t } = await useTranslation(locale, ['common']);
-  const { data } = await fetchData({
+  const { data } = await fetchData<GetHomepageQuery>({
     url: createStrapiURL(),
     query: GET_HOMEPAGE,
-    variables: { locale: locale, pageMode: isEnabled ? 'PREVIEW' : 'LIVE' },
+    variables: { locale: locale, pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED' },
   });
 
-  const navigationPages = data?.navigationPages?.data;
-  const bannerAttributes = data?.homepage?.data?.attributes?.bannerImage?.data?.attributes;
-  if (!data.homepage.data) return notFound();
+  if (!data?.homepage) return notFound();
+  const navigationPages = data?.navigationPages;
+  const bannerImage = data?.homepage?.bannerImage;
+
   return (
     <>
       <Page>
         <PageContent className="utrecht-page-content--full-width utrecht-custom-page-content ">
-          {bannerAttributes?.url && (
+          {bannerImage?.url && (
             <Image
               width={1200}
               height={400}
-              src={`${getImageBaseUrl()}${bannerAttributes.url}`}
-              alt={bannerAttributes.alternativeText || ''}
+              src={`${getImageBaseUrl()}${bannerImage.url}`}
+              alt={bannerImage.alternativeText || ''}
               priority
               className={'utrecht-image utrecht-image--banner'}
             />
@@ -75,25 +78,26 @@ const Home = async ({ params: { locale } }: { params: any }) => {
               <Grid>
                 <GridCell md={8}>
                   <RichText>
-                    <Heading1>{data?.homepage?.data?.attributes?.title}</Heading1>
-                    <Markdown imageUrl={getImageBaseUrl()}>{data?.homepage?.data?.attributes?.content}</Markdown>
+                    <Heading1>{data?.homepage?.title}</Heading1>
+                    <Markdown imageUrl={getImageBaseUrl()}>{data?.homepage?.content ?? ''}</Markdown>
                   </RichText>
                 </GridCell>
               </Grid>
             </GridCell>
             {navigationPages &&
-              navigationPages.map((navigationPage: any) => {
-                const { title, description, slug, previewImage: imageData } = navigationPage.attributes;
-                const imageUrl = imageData?.data?.attributes?.url;
-                const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
+              navigationPages.map((navigationPage) => {
+                if (!navigationPage) return null;
+                const { title, description, slug, previewImage } = navigationPage;
+                const imageUrl = previewImage?.url;
+                const imageAlt = previewImage?.alternativeText ?? '';
 
                 return (
                   <GridCell sm={6} md={4} key={`hoofditem-${slug}`}>
                     <Card
-                      title={title}
-                      description={description}
+                      title={title!}
+                      description={description!}
                       image={{
-                        url: imageUrl && `${getImageBaseUrl()}${imageUrl}`,
+                        url: imageUrl ? `${getImageBaseUrl()}${imageUrl}` : '',
                         alt: imageAlt,
                       }}
                       link={{ href: `/${locale}/${slug}` }}
