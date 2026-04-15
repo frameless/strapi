@@ -1,5 +1,5 @@
 import { Heading } from '@utrecht/component-library-react';
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 import { ReactNode } from 'react';
 
 import { Grid, GridCell } from '../Grid';

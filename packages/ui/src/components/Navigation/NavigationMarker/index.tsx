@@ -1,4 +1,4 @@
-import classnames from 'classnames/bind';
+import classnames from 'classnames';
 import { PropsWithChildren, SVGProps } from 'react';
 
 import styles from './index.module.css';

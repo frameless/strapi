@@ -1,4 +1,4 @@
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
 import React, { ForwardedRef, forwardRef, PropsWithChildren, ReactNode } from 'react';
 
 import styles from './index.module.scss';
