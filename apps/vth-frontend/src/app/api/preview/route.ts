@@ -51,7 +51,7 @@ export async function GET(request: Request) {
     url: createStrapiURL(),
     query: getCurrentPage(type).query,
     variables: {
-      pageMode: 'PREVIEW',
+      pageMode: 'DRAFT',
     },
   });
 

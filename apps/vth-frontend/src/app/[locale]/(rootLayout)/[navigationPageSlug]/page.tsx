@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
+import { Get_Navigation_Page_By_SlugQuery } from '../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
@@ -30,33 +32,33 @@ type Params = {
   };
 };
 
-export async function generateMetadata({ params: { locale, navigationPageSlug } }: Params): Promise<Metadata> {
+export async function generateMetadata({ params: { navigationPageSlug } }: Params): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { data } = await fetchData({
+  const { data } = await fetchData<Get_Navigation_Page_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_NAVIGATION_PAGE_BY_SLUG,
-    variables: { slug: navigationPageSlug, locale },
+    variables: { slug: navigationPageSlug, pageMode: 'PUBLISHED' },
   });
   return {
-    title: data.findSlug?.data?.attributes?.title,
-    description: data.findSlug?.data?.attributes?.description,
+    title: data.navigationPages?.[0]?.title ?? '',
+    description: data.navigationPages?.[0]?.description,
   };
 }
 
 const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params) => {
   const { isEnabled } = draftMode();
   const { t } = await useTranslation(locale, ['common']);
-  const { data } = await fetchData({
+  const { data } = await fetchData<Get_Navigation_Page_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_NAVIGATION_PAGE_BY_SLUG,
-    variables: { slug: navigationPageSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
+    variables: { slug: navigationPageSlug, locale, pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED' },
   });
-  const navigationPage = data.findSlug?.data;
+  const navigationPage = data.navigationPages?.[0];
   if (!navigationPage) return notFound();
-  const content = navigationPage.attributes.content;
-  const title = navigationPage.attributes.title;
-  const articles = navigationPage.attributes.article_pages?.data;
-  const themes = navigationPage.attributes.theme_pages?.data;
+  const content = navigationPage.content;
+  const title = navigationPage.title;
+  const articles = navigationPage.article_pages;
+  const themes = navigationPage.theme_pages;
 
   const DynamicContent = () =>
     content &&
@@ -105,33 +107,36 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
           <GridCell md={8}>
             <Grid spacing="sm">
               {themes?.length > 0 &&
-                themes.map((theme: any) => {
-                  const { title, description, slug: childSlug, previewImage: imageData } = theme.attributes;
-                  const imageUrl = imageData?.data?.attributes?.url;
-                  const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
+                themes.map((theme) => {
+                  if (!theme) return null;
+                  const { title, description, slug: childSlug, previewImage } = theme;
+                  const imageUrl = previewImage?.url;
+                  const imageAlt = previewImage?.alternativeText ?? '';
+
                   return (
                     <GridCell sm={6} key={`theme-${childSlug}`}>
                       <Card
-                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: imageAlt }}
+                        image={{ url: imageUrl ? `${getImageBaseUrl()}${imageUrl}` : '', alt: imageAlt }}
                         title={title}
-                        description={description}
+                        description={description!}
                         link={{ href: `/${locale}/theme/${childSlug}` }}
                       />
                     </GridCell>
                   );
                 })}
               {articles?.length > 0 &&
-                articles.map((article: any) => {
-                  const { title, description, slug: articleSlug, previewImage: imageData } = article.attributes;
-                  const imageUrl = imageData?.data?.attributes?.url;
-                  const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
+                articles.map((article) => {
+                  if (!article) return null;
+                  const { title, description, slug: articleSlug, previewImage } = article;
+                  const imageUrl = previewImage?.url;
+                  const imageAlt = previewImage?.alternativeText ?? '';
                   return (
                     <GridCell sm={6} key={`thema-${articleSlug}`}>
                       <Card
-                        title={title}
-                        description={description}
+                        title={title!}
+                        description={description!}
                         key={`thema-${articleSlug}`}
-                        image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: imageAlt }}
+                        image={{ url: imageUrl ? `${getImageBaseUrl()}${imageUrl}` : '', alt: imageAlt }}
                         link={{ href: `/${locale}/article/${articleSlug}` }}
                       />
                     </GridCell>
