@@ -1,138 +1,99 @@
 const gql = (query: any) => query;
 
 export const GET_NOT_FOUND_PAGE = gql(`
-query getNotFoundPage{
+query getNotFoundPage {
   notFoundPage {
-    data {
-       attributes {
-        title
-        body
-      }
-    }
+    title
+    body
   }
 }
 `);
 
 export const GET_HOMEPAGE = gql(`
-query getHomepage($pageMode: PublicationState) {
-  homepage(publicationState: $pageMode) {
-    data {
-      attributes {
-        title
-        content
-        bannerImage {
-          data {
-            attributes {
-              url
-              alternativeText
-            }
-          }
-        }
-      }
+query getHomepage($pageMode: PublicationStatus) {
+  homepage(status: $pageMode) {
+    title
+    content
+    bannerImage {
+      url
+      alternativeText
     }
   }
-  navigationPages(publicationState: $pageMode, sort: ["order:asc", "title:asc"]) {
-    data {
-      id
-      attributes {
-        title
-        slug
-        description
-        previewImage {
-          data {
-            attributes {
-              url
-              alternativeText
-            }
-          }
-        }
-      }
+
+  navigationPages(
+    status: $pageMode
+    sort: ["order:asc", "title:asc"]
+  ) {
+    documentId
+    title
+    slug
+    description
+    previewImage {
+      url
+      alternativeText
     }
   }
-}`);
+}
+`);
 
 export const GET_NAVIGATION_PAGES = gql(`
-query getNavigationPages($pageMode: PublicationState) {
+query getNavigationPages($pageMode: PublicationStatus) {
   navigationPages(
-    publicationState: $pageMode
+    status: $pageMode
     sort: ["order:asc", "title:asc"]
     pagination: { start: 0, limit: -1 }
   ) {
-    data {
-      id
-      attributes {
-        title
-        slug
-        updatedAt
-      }
-    }
+    documentId
+    title
+    slug
+    updatedAt
   }
-}`);
+}
+`);
 
 export const GET_NAVIGATION_PAGE_BY_SLUG = gql(`
-query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
-  findSlug(
-    modelName: "navigation-page"
-    slug: $slug
-    publicationState: $pageMode
+query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: PublicationStatus) {
+  navigationPages(
+    filters: { slug: { eq: $slug } }
+    status: $pageMode
   ) {
-    ... on NavigationPageEntityResponse {
-      data {
-        id
-        attributes {
-          title
-          description
-          slug
-          content {
-            ... on ComponentComponentsUtrechtRichText {
-              __typename
-              content
-            }
-            ... on ComponentComponentsUtrechtAccordion {
-              __typename
-              item {
-                id
-                label
-                body
-                headingLevel
-              }
-            }
-          }
-          theme_pages {
-            data {
-              attributes {
-                title
-                slug
-                description
-                previewImage {
-                  data {
-                    attributes {
-                      url
-                      alternativeText
-                    }
-                  }
-                }
-              }
-            }
-          }
-          article_pages {
-            data {
-              attributes {
-                title
-                slug
-                description
-                previewImage {
-                  data {
-                    attributes {
-                      url
-                      alternativeText
-                    }
-                  }
-                }
-              }
-            }
-          }
+    documentId
+    title
+    description
+    slug
+
+    content {
+      __typename
+      ... on ComponentComponentsUtrechtRichText {
+        content
+      }
+      ... on ComponentComponentsUtrechtAccordion {
+        item {
+          id
+          label
+          body
+          headingLevel
         }
+      }
+    }
+
+    theme_pages {
+      title
+      slug
+      description
+      previewImage {
+        url
+        alternativeText
+      }
+    }
+
+    article_pages {
+      title
+      slug
+      description
+      previewImage {
+        url
+        alternativeText
       }
     }
   }
@@ -140,71 +101,53 @@ query GET_NAVIGATION_PAGE_BY_SLUG($slug: String, $pageMode: String) {
 `);
 
 export const GET_THEME_BY_SLUG = gql(`
-query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
-  findSlug(modelName: "theme-page", slug: $slug, publicationState: $pageMode) {
-    ... on ThemePageEntityResponse {
-      data {
-        id
-        attributes {
-          title
-          description
-          content {
-            ... on  ComponentComponentsUtrechtRichText{
-              __typename
-              content
-            }
-            ... on ComponentComponentsUtrechtAccordion {
-              __typename
-              item {
-                id
-                label
-                body
-                headingLevel
-              }
-            }
-          }
-          navigation_pages {
-            data {
-              attributes {
-                title
-                slug
-                theme_pages {
-                  data {
-                    attributes {
-                      title
-                      slug
-                    }
-                  }
-                }
-                article_pages {
-                  data {
-                    attributes {
-                      title
-                      slug
-                    }
-                  }
-                }
-              }
-            }
-          }
-          article_pages {
-            data {
-              attributes {
-                title
-                slug
-                description
-                previewImage {
-                  data {
-                    attributes {
-                      url
-                      alternativeText
-                    }
-                  }
-                }
-              }
-            }
-          }
+query GET_THEME_BY_SLUG($slug: String, $pageMode: PublicationStatus) {
+  themePages(
+    filters: { slug: { eq: $slug } }
+    status: $pageMode
+  ) {
+    documentId
+    title
+    description
+    slug
+
+    content {
+      __typename
+      ... on ComponentComponentsUtrechtRichText {
+        content
+      }
+      ... on ComponentComponentsUtrechtAccordion {
+        item {
+          id
+          label
+          body
+          headingLevel
         }
+      }
+    }
+
+    navigation_pages {
+      title
+      slug
+
+      theme_pages {
+        title
+        slug
+      }
+
+      article_pages {
+        title
+        slug
+      }
+    }
+
+    article_pages {
+      title
+      slug
+      description
+      previewImage {
+        url
+        alternativeText
       }
     }
   }
@@ -213,110 +156,84 @@ query GET_THEME_BY_SLUG($slug: String, $pageMode: String) {
 
 export const GET_ALL_THEME_SLUGS = gql(`
 query getAllThemeSlugs {
-  themePages(sort: ["title:asc"], pagination: { start: 0, limit: -1 }) {
-    data {
-      id
-      attributes {
-        title
-        slug
-        updatedAt
-      }
-    }
+  themePages(
+    sort: ["title:asc"]
+    pagination: { start: 0, limit: -1 }
+  ) {
+    documentId
+    title
+    slug
+    updatedAt
   }
 }
 `);
 
 export const GET_ALL_ARTICLES_SLUGS = gql(`
 query getAllAriclesSlugs {
-  articlePages(pagination: { start: 0, limit: -1 }, sort: ["title:asc"]) {
-    data {
-      attributes {
-        title
-        slug
-        updatedAt
-      }
-    }
+  articlePages(
+    pagination: { start: 0, limit: -1 }
+    sort: ["title:asc"]
+  ) {
+    title
+    slug
+    updatedAt
   }
 }
 `);
 
 export const GET_ARTICLE_BY_SLUG = gql(`
-query GET_ARTICLE_BY_SLUG($slug: String, $pageMode: String) {
-  findSlug(
-    modelName: "article-page"
-    slug: $slug
-    publicationState: $pageMode
+query GET_ARTICLE_BY_SLUG($slug: String, $pageMode: PublicationStatus) {
+  articlePages(
+    filters: { slug: { eq: $slug } }
+    status: $pageMode
   ) {
-    ... on ArticlePageEntityResponse {
-      data {
-        id
-        attributes {
-          title
-          description
-          content {
-            ... on ComponentComponentsUtrechtRichText {
-              __typename
-              content
-            }
-            ... on ComponentComponentsUtrechtAccordion {
-              __typename
-              item {
-                id
-                label
-                body
-                headingLevel
-              }
-            }
-          }
-          theme_pages {
-            data {
-              attributes {
-                title
-                slug
-                navigation_pages {
-                  data {
-                    attributes {
-                      title
-                      slug
-                    }
-                  }
-                }
-                article_pages {
-                  data {
-                    attributes {
-                      title
-                      slug
-                    }
-                  }
-                }
-              }
-            }
-          }
-          navigation_pages {
-            data {
-              attributes {
-                title
-                slug
-                article_pages {
-                  data {
-                    attributes {
-                      title
-                      slug
-                    }
-                  }
-                }
-                theme_pages {
-                  data {
-                    attributes {
-                      title
-                      slug
-                    }
-                  }
-                }
-              }
-            }
-          }
+    documentId
+    title
+    description
+    slug
+
+    content {
+      __typename
+      ... on ComponentComponentsUtrechtRichText {
+        content
+      }
+      ... on ComponentComponentsUtrechtAccordion {
+        item {
+          id
+          label
+          body
+          headingLevel
         }
+      }
+    }
+
+    theme_pages {
+      title
+      slug
+
+      navigation_pages {
+        title
+        slug
+      }
+
+      article_pages {
+        title
+        slug
+      }
+    }
+
+    navigation_pages {
+      title
+      slug
+
+      article_pages {
+        title
+        slug
+      }
+
+      theme_pages {
+        title
+        slug
       }
     }
   }
@@ -326,19 +243,52 @@ query GET_ARTICLE_BY_SLUG($slug: String, $pageMode: String) {
 export const GET_PRINT_PAGE = gql(`
 query GET_PRINT_PAGE {
   printPage {
-    data {
-      attributes {
-        title
-        versiondate
-        introductionBody
+    title
+    versiondate
+    introductionBody
+  }
+
+  navigationPages(sort: ["order:asc", "title:asc"]) {
+    documentId
+    title
+
+    content {
+      ... on ComponentComponentsUtrechtRichText {
+        __typename
+        content
+      }
+      ... on ComponentComponentsUtrechtAccordion {
+        __typename
+        item {
+          id
+          label
+          body
+          headingLevel
+        }
       }
     }
-  }
-  navigationPages(sort: ["order:asc", "title:asc"]){
-    data {
-      id
-      attributes {
+
+    theme_pages {
+      title
+
+      content {
+        ... on ComponentComponentsUtrechtRichText {
+          __typename
+          content
+        }
+        ... on ComponentComponentsUtrechtAccordion {
+          __typename
+          item {
+            id
+            label
+            body
+          }
+        }
+      }
+
+      article_pages {
         title
+
         content {
           ... on ComponentComponentsUtrechtRichText {
             __typename
@@ -354,199 +304,105 @@ query GET_PRINT_PAGE {
             }
           }
         }
-        theme_pages {
-          data {
-            attributes {
-              title
-              content {
-                ... on ComponentComponentsUtrechtRichText {
-                  __typename
-                  content
-                }
-                ... on ComponentComponentsUtrechtAccordion {
-                  __typename
-                  item {
-                    id
-                    label
-                    body
-                  }
-                }
-              }
-              article_pages {
-                data {
-                  attributes {
-                    title
-                    content {
-                      ... on ComponentComponentsUtrechtRichText {
-                        __typename
-                        content
-                      }
-                      ... on ComponentComponentsUtrechtAccordion {
-                        __typename
-                        item {
-                          id
-                          label
-                          body
-                          headingLevel
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        article_pages {
-          data {
-            attributes {
-              title
-              content {
-                ... on ComponentComponentsUtrechtRichText {
-                  __typename
-                  content
-                }
-                ... on ComponentComponentsUtrechtAccordion {
-                  __typename
-                  item {
-                    id
-                    label
-                    body
-                    headingLevel
-                  }
-                }
-              }
-            }
-          }
-        }
+      }
+    }
 
+    article_pages {
+      title
+
+      content {
+        ... on ComponentComponentsUtrechtRichText {
+          __typename
+          content
+        }
+        ... on ComponentComponentsUtrechtAccordion {
+          __typename
+          item {
+            id
+            label
+            body
+            headingLevel
+          }
+        }
       }
     }
   }
-}`);
+}
+`);
 
 export const GET_NAVIGATION_DATA = gql(`
 query getNavigationData(
-  $pageMode: PublicationState
+  $pageMode: PublicationStatus
   $themeSlug: String
   $articleSlug: String
 ) {
   navigationPages(
-    publicationState: $pageMode
+    status: $pageMode
     sort: ["order:asc", "title:asc"]
     pagination: { start: 0, limit: -1 }
   ) {
-    data {
-      attributes {
+    title
+    slug
+
+    theme_pages(
+      filters: {
+        slug: { eq: $themeSlug }
+        article_pages: { slug: { eq: $articleSlug } }
+      }
+    ) {
+      title
+      slug
+
+      article_pages {
         title
         slug
-        theme_pages(
-          filters: {
-            slug: { eq: $themeSlug }
-            article_pages: { slug: { eq: $articleSlug } }
-          }
-        ) {
-          data {
-            attributes {
-              title
-              slug
-              article_pages {
-                data {
-                  attributes {
-                    title
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        }
-        article_pages(
-          filters: {
-            theme_pages: { slug: { eq: $themeSlug } }
-            slug: { eq: $articleSlug }
-          }
-        ) {
-          data {
-            attributes {
-              title
-              slug
-              theme_pages {
-                data {
-                  attributes {
-                    title
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        }
+      }
+    }
+
+    article_pages(
+      filters: {
+        theme_pages: { slug: { eq: $themeSlug } }
+        slug: { eq: $articleSlug }
+      }
+    ) {
+      title
+      slug
+
+      theme_pages {
+        title
+        slug
       }
     }
   }
+
   currentLink: navigationPages(
-    publicationState: $pageMode
-    sort: ["order:asc", "title:asc"]
-    pagination: { start: 0, limit: -1 }
+    status: $pageMode
     filters: {
       theme_pages: { slug: { eq: $themeSlug } }
       article_pages: { slug: { eq: $articleSlug } }
     }
   ) {
-    data {
-      attributes {
+    title
+    slug
+    order
+
+    theme_pages {
+      slug
+      title
+
+      article_pages {
         title
         slug
-        order
-        theme_pages(
-          publicationState: $pageMode
-          sort: ["title:asc"]
-          pagination: { start: 0, limit: -1 }
-        ) {
-          data {
-            attributes {
-              slug
-              title
-              article_pages(
-                publicationState: $pageMode
-                sort: ["title:asc"]
-                pagination: { start: 0, limit: -1 }
-              ) {
-                data {
-                  attributes {
-                    title
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        }
-        article_pages(
-          publicationState: $pageMode
-          sort: ["title:asc"]
-          pagination: { start: 0, limit: -1 }
-        ) {
-          data {
-            attributes {
-              title
-              slug
-              theme_pages(
-                publicationState: $pageMode
-                sort: ["title:asc"]
-                pagination: { start: 0, limit: -1 }
-              ) {
-                data {
-                  attributes {
-                    title
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        }
+      }
+    }
+
+    article_pages {
+      title
+      slug
+
+      theme_pages {
+        title
+        slug
       }
     }
   }

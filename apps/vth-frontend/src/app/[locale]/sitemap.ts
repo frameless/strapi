@@ -1,23 +1,23 @@
 import { MetadataRoute } from 'next';
 import { cookies } from 'next/headers';
 
+import { GetAllAriclesSlugsQuery, GetNavigationPagesQuery, GetAllThemeSlugsQuery } from '@/../../gql/graphql';
+
 import { GET_ALL_ARTICLES_SLUGS, GET_ALL_THEME_SLUGS, GET_NAVIGATION_PAGES } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 
 const { origin } = new URL(process.env.FRONTEND_PUBLIC_URL || 'http://localhost:3000');
-export type Attributes = {
+
+export type UrlItem = {
   slug: string;
   updatedAt: string;
-};
-export type Urls = {
-  attributes: Attributes;
 };
 export interface GenerateUrlParameter {
   locale?: string;
   origin: string;
   segment?: string;
-  urls: Urls[];
+  urls: UrlItem[];
 }
 const constructHref = ({ segments, baseURL }: { segments: any[]; baseURL: string | URL }) => {
   const href = new URL(
@@ -34,8 +34,8 @@ export const generateUrl = ({ locale, origin, segment, urls }: GenerateUrlParame
 
   return isURls
     ? urls.map((url) => ({
-        url: constructHref({ segments: [origin, locale, segment, url.attributes.slug], baseURL: new URL(origin) }),
-        lastModified: url.attributes.updatedAt,
+        url: constructHref({ segments: [origin, locale, segment, url.slug], baseURL: new URL(origin) }),
+        lastModified: url.updatedAt,
       }))
     : [];
 };
@@ -47,30 +47,56 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     origin,
     urls: [
       {
-        attributes: { slug: '', updatedAt: new Date().toISOString() }, // home page
+        slug: '',
+        updatedAt: new Date().toISOString(),
       },
     ],
   });
-  const { data: articleSlugsData } = await fetchData({
+  const { data: articleSlugsData } = await fetchData<GetAllAriclesSlugsQuery>({
     url: createStrapiURL(),
     query: GET_ALL_ARTICLES_SLUGS,
   });
-  const { data: navigationSlugsData } = await fetchData({
+  const { data: navigationSlugsData } = await fetchData<GetNavigationPagesQuery>({
     url: createStrapiURL(),
     query: GET_NAVIGATION_PAGES,
   });
-  const { data: themeSlugsData } = await fetchData({
+  const { data: themeSlugsData } = await fetchData<GetAllThemeSlugsQuery>({
     url: createStrapiURL(),
     query: GET_ALL_THEME_SLUGS,
   });
 
-  const articlePages = generateUrl({ locale, origin, segment: 'article', urls: articleSlugsData.articlePages.data });
+  const articlePages = generateUrl({
+    locale,
+    origin,
+    segment: 'article',
+    urls: articleSlugsData.articlePages
+      .filter((page) => page?.slug && page?.updatedAt)
+      .map((page) => ({
+        slug: page!.slug!,
+        updatedAt: page!.updatedAt!,
+      })),
+  });
   const navigationPages = generateUrl({
     locale,
     origin,
-    urls: navigationSlugsData?.navigationPages?.data,
+    urls: navigationSlugsData?.navigationPages
+      .filter((page) => page?.slug && page?.updatedAt)
+      .map((page) => ({
+        slug: page!.slug!,
+        updatedAt: page!.updatedAt!,
+      })),
   });
-  const themePages = generateUrl({ locale, origin, segment: 'theme', urls: themeSlugsData?.themePages?.data });
+  const themePages = generateUrl({
+    locale,
+    origin,
+    segment: 'theme',
+    urls: themeSlugsData?.themePages
+      .filter((page) => page?.slug && page?.updatedAt)
+      .map((page) => ({
+        slug: page!.slug!,
+        updatedAt: page!.updatedAt!,
+      })),
+  });
 
   const fields = [...articlePages, ...themePages, ...staticPages, ...navigationPages];
 

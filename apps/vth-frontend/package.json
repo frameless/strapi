@@ -7,6 +7,8 @@
   "license": "EUPL-1.2",
   "keywords": [],
   "scripts": {
+    "codegen": "wait-on http://localhost:1337 && graphql-codegen",
+    "codegen:docker": "graphql-codegen",
     "dev": "next dev -p 3000",
     "prebuild": "npm run clean",
     "clean": "rimraf build .next",
@@ -19,6 +21,7 @@
   "dependencies": {
     "@frameless/editoria11y": "workspace:*",
     "@frameless/ui": "workspace:*",
+    "@frameless/utils": "workspace:*",
     "@tanstack/react-query": "4.29.25",
     "@utrecht/component-library-css": "9.0.0",
     "@utrecht/component-library-react": "13.0.2",
@@ -41,9 +44,12 @@
     "sharp": "0.34.5"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.2",
+    "@graphql-codegen/client-preset": "4.1.0",
     "@frameless/eslint-config": "1.2.0",
     "rimraf": "6.1.3",
-    "sass": "1.98.0"
+    "sass": "1.98.0",
+    "wait-on": "7.2.0"
   },
   "repository": {
     "type": "git+ssh",

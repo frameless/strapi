@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
+import { Get_Theme_By_SlugQuery } from '../../../../../../gql/graphql';
+
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
@@ -25,7 +27,6 @@ import {
 import { Card } from '@/components/Card';
 import { Main } from '@/components/Main';
 import { GET_THEME_BY_SLUG } from '@/query';
-import { SiblingData } from '@/types';
 import { config } from '@/util';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { getNavData } from '@/util/getNavData';
@@ -37,15 +38,15 @@ type Params = {
   };
 };
 
-export async function generateMetadata({ params: { locale, themeSlug } }: Params): Promise<Metadata> {
-  const { data } = await fetchData({
+export async function generateMetadata({ params: { themeSlug } }: Params): Promise<Metadata> {
+  const { data } = await fetchData<Get_Theme_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_THEME_BY_SLUG,
-    variables: { slug: themeSlug, locale },
+    variables: { slug: themeSlug, pageMode: 'PUBLISHED' },
   });
   return {
-    title: data.findSlug.data?.attributes?.title,
-    description: data.findSlug.data?.attributes?.description,
+    title: data.themePages?.[0]?.title ?? '',
+    description: data.themePages?.[0]?.description ?? '',
   };
 }
 
@@ -53,32 +54,31 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
   const { isEnabled } = draftMode();
-  const { data } = await fetchData({
+  const { data } = await fetchData<Get_Theme_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_THEME_BY_SLUG,
-    variables: { slug: themeSlug, locale, pageMode: isEnabled ? 'preview' : 'live' },
+    variables: { slug: themeSlug, locale, pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED' },
   });
 
-  if (!data.findSlug?.data) return notFound();
+  if (!data.themePages?.[0]) return notFound();
 
-  const navigationPageSlug = data.findSlug.data?.attributes.navigation_pages?.data[0]?.attributes?.slug;
-  const siblingThemes: SiblingData[] =
-    data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.theme_pages?.data || [];
-  const siblingArticles: SiblingData[] =
-    data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.contents?.data || [];
+  const theme = data.themePages?.[0];
+  const navigationPageSlug = theme?.navigation_pages?.[0]?.slug;
+  const siblingThemes = theme?.navigation_pages?.[0]?.theme_pages ?? [];
+  const siblingArticles = theme?.navigation_pages?.[0]?.article_pages ?? [];
 
   const themasLinks =
-    siblingThemes?.map(({ attributes: { slug, title } }: SiblingData) => ({
-      textContent: title,
-      href: `/${locale}/theme/${slug}`,
-      isCurrent: slug === themeSlug,
+    siblingThemes?.map((page) => ({
+      textContent: page?.title ?? '',
+      href: `/${locale}/theme/${page?.slug}`,
+      isCurrent: page?.slug === themeSlug,
     })) || [];
 
   const contentLinks =
-    siblingArticles?.map(({ attributes: { slug, title } }: SiblingData) => ({
-      textContent: title,
-      href: `/${locale}/article/${slug}`,
-      isCurrent: slug === themeSlug,
+    siblingArticles?.map((page) => ({
+      textContent: page?.title ?? '',
+      href: `/${locale}/article/${page?.slug}`,
+      isCurrent: page?.slug === themeSlug,
     })) || [];
 
   const sideNavigationLinks = [...themasLinks, ...contentLinks];
@@ -91,9 +91,10 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
     },
   ];
 
-  const parentElement = data.findSlug.data?.attributes.navigation_pages?.data[0] && {
-    label: data.findSlug.data?.attributes?.navigation_pages?.data[0]?.attributes?.title,
+  const parentElement = theme.navigation_pages?.[0] && {
+    label: theme?.navigation_pages?.[0]?.title ?? '',
     href: `/${locale}/${navigationPageSlug}`,
+    current: false,
   };
 
   if (parentElement) {
@@ -101,9 +102,9 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
   }
 
   const DynamicContent = () =>
-    data.findSlug.data?.attributes?.content &&
-    data.findSlug.data?.attributes?.content.length > 0 &&
-    data.findSlug.data?.attributes?.content?.map((component: any, index: number) => {
+    theme?.content &&
+    theme?.content.length > 0 &&
+    theme?.content?.map((component: any, index: number) => {
       switch (component?.__typename) {
         case 'ComponentComponentsUtrechtRichText':
           return component.content ? (
@@ -126,7 +127,7 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
           return null;
       }
     });
-  const navList = await getNavData({ pageMode: isEnabled ? 'PREVIEW' : 'LIVE', themeSlug });
+  const navList = await getNavData({ pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED', themeSlug });
 
   return (
     <Page>
@@ -152,22 +153,26 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
               <Grid spacing="sm">
                 <GridCell sm={12}>
                   <RichText>
-                    <Heading1>{data.findSlug.data?.attributes?.title}</Heading1>
+                    <Heading1>{theme.title}</Heading1>
                     <DynamicContent />
                   </RichText>
                 </GridCell>
-                {data.findSlug.data?.attributes?.article_pages.data &&
-                  data.findSlug.data?.attributes?.article_pages.data[0] &&
-                  data.findSlug.data?.attributes?.article_pages.data.map((content: any) => {
-                    const { title, description, slug: contentSlug, previewImage: imageData } = content.attributes;
-                    const imageUrl = imageData?.data?.attributes?.url;
-                    const imageAlt = imageData?.data?.attributes?.alternativeText ?? '';
+                {theme?.article_pages &&
+                  theme?.article_pages[0] &&
+                  theme?.article_pages.map((content) => {
+                    if (!content) return null;
+                    const { title, description, slug: contentSlug, previewImage } = content;
+                    const imageUrl = previewImage?.url;
+                    const imageAlt = previewImage?.alternativeText ?? '';
                     return (
                       <GridCell sm={6} key={`content-${contentSlug}`}>
                         <Card
-                          title={title}
-                          description={description}
-                          image={{ url: imageUrl && `${getImageBaseUrl()}${imageUrl}`, alt: imageAlt }}
+                          title={title ?? ''}
+                          description={description ?? ''}
+                          image={{
+                            url: imageUrl ? `${getImageBaseUrl()}${imageUrl}` : '',
+                            alt: imageAlt,
+                          }}
                           link={{ href: `/${locale}/article/${contentSlug}` }}
                         />
                       </GridCell>
