@@ -48,7 +48,7 @@
   },
   "license": "EUPL-1.2",
   "devDependencies": {
-    "@frameless/eslint-config": "1.1.2",
+    "@frameless/eslint-config": "1.2.0",
     "@strapi/typescript-utils": "5.39.0",
     "node-gyp": "12.2.0",
     "sass": "1.98.0"

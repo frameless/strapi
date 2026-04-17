@@ -27,7 +27,7 @@
     "react": "18.3.1"
   },
   "devDependencies": {
-    "@frameless/eslint-config": "1.1.2",
+    "@frameless/eslint-config": "1.2.0",
     "nodemon": "3.0.3",
     "tsup": "8.5.1"
   },

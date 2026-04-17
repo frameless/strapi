@@ -1,12 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "es2022",
-    "moduleResolution": "node16",
     "jsx": "react-jsx",
-    "target": "ESNext",
+    "target": "es2022",
     "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["./jest.config.ts", "./global.d.ts", "**/*.test.ts", "**/*.test.tsx", "./tests/__mocks__/tabbable.js"],
-  "exclude": ["**/node_modules/*"]
+  "include": ["./jest.config.ts", "./global.d.ts"],
+  "exclude": ["node_modules"]
 }

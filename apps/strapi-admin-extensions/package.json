@@ -35,6 +35,7 @@
     "uuid": "13.0.0"
   },
   "devDependencies": {
+    "@frameless/eslint-config": "1.2.0",
     "@types/cors": "2.8.17",
     "@types/dompurify": "3.2.0",
     "@types/lodash.memoize": "4.1.9",

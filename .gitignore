@@ -148,3 +148,9 @@ apps/overige-objecten-api/src/types
 ############################
 apps/pdc-frontend/public/flo-client-plugin.js
 apps/pdc-frontend/public/flo-client-plugin-polyfills.js
+
+
+############################
+# TypeScript
+############################
+tsconfig.test.tsbuildinfo
