@@ -26,7 +26,10 @@
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "generate": "stencil generate",
-    "clean": "rimraf dist .stencil"
+    "clean": "rimraf dist .stencil",
+    "lint": "eslint --report-unused-disable-directives .",
+    "lint:fix": "eslint --fix .",
+    "lint-build": "tsc --noEmit --project tsconfig.json"
   },
   "repository": {
     "type": "git+ssh",
@@ -45,6 +48,7 @@
   },
   "license": "EUPL-1.2",
   "devDependencies": {
+    "@frameless/eslint-config": "1.2.0",
     "@stencil/core": "4.0.0",
     "rimraf": "6.1.3"
   }

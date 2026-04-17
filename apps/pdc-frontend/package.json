@@ -63,7 +63,7 @@
     "sharp": "0.34.5"
   },
   "devDependencies": {
-    "@frameless/eslint-config": "1.1.2",
+    "@frameless/eslint-config": "1.2.0",
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.1.0",
     "@testing-library/jest-dom": "6.4.5",

@@ -50,7 +50,7 @@
     "jsdom": "25.0.1"
   },
   "devDependencies": {
-    "@frameless/eslint-config": "1.1.2",
+    "@frameless/eslint-config": "1.2.0",
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.1.0",
     "@types/cors": "2.8.17",
