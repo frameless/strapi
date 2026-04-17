@@ -23,8 +23,9 @@
   },
   "dependencies": {
     "@frameless/catalogi-data": "0.0.1",
-    "xmlbuilder2": "3.0.2",
-    "@frameless/upl": "0.0.1"
+    "@frameless/upl": "0.0.1",
+    "dotenv": "17.4.2",
+    "xmlbuilder2": "3.0.2"
   },
   "scripts": {
     "prebuild": "pnpm clean",
