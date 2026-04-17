@@ -41,7 +41,7 @@
     "sharp": "0.34.5"
   },
   "devDependencies": {
-    "@frameless/eslint-config": "1.1.2",
+    "@frameless/eslint-config": "1.2.0",
     "rimraf": "6.1.3",
     "sass": "1.98.0"
   },
