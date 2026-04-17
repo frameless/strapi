@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import * as fs from 'node:fs';
 
 import csvParser from 'csv-parser';
 import { v4 } from 'uuid';
