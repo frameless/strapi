@@ -18,6 +18,9 @@ export default ({ env }) => ({
       salt: env('TRANSFER_TOKEN_SALT'),
     },
   },
+  secrets: {
+    encryptionKey: env('ENCRYPTION_KEY'),
+  },
   flags: {
     nps: false, // disable the Net Promoter Score popup
     promoteEE: false, // disable the promotion of Strapi Enterprise features
