@@ -120,6 +120,7 @@ export const buildURL = ({
 
     return baseUrl;
   } catch (error) {
-    throw new Error('Failed to build URL: Invalid URL or configuration.');
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Failed to build URL: ${message}`);
   }
 };
