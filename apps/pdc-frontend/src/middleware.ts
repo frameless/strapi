@@ -19,6 +19,30 @@ export const config = {
 
 const cookieName = 'i18next';
 
+/**
+ * Encodes a string to base64 in a cross-runtime safe way.
+ *
+ * Why this is needed:
+ * - Our app runs in multiple environments:
+ *   - Edge runtime (e.g. Vercel middleware) → supports `btoa`
+ *   - Node.js runtime (e.g. local dev / other platforms) → supports `Buffer`
+ *
+ * - These environments are not fully compatible:
+ *   - `btoa` is NOT available in Node.js
+ *   - `Buffer` is NOT available in Edge runtimes
+ *
+ * This helper ensures the code works reliably in both environments
+ * by selecting the correct implementation at runtime.
+ */
+
+const toBase64 = (str: string) => {
+  if (typeof btoa === 'function') {
+    return btoa(str); // Edge / browser
+  }
+  // eslint-disable-next-line no-undef
+  return Buffer.from(str).toString('base64'); // Node.js
+};
+
 export async function middleware(req: NextRequest) {
   let locale;
   if (req.cookies.has(cookieName)) locale = acceptLanguage.get(req.cookies.get(cookieName)?.value);
@@ -33,8 +57,7 @@ export async function middleware(req: NextRequest) {
     },
   });
 
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
-
+  const nonce = toBase64(crypto.randomUUID());
   const cspHeader = getContentSecurityPolicy({ nonce, node_env: process.env.NODE_ENV });
   const headers = new Headers(req.headers);
   headers.set('X-Nonce', nonce);
