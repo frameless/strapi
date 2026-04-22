@@ -55,7 +55,7 @@ const corsOption: CorsOptions = {
 const app: Express = express();
 app.use(express.json());
 
-app.use('/public/vendor', express.static(path.resolve(process.cwd(), 'public/vendor')));
+app.use('/public/vendor', express.static(path.resolve(__dirname, '../public/vendor')));
 
 const port = process.env.OVERIGE_OBJECTEN_API_PORT;
 // Centralized error handler middleware
