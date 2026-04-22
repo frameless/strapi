@@ -9,6 +9,8 @@ describe('getStrapiGraphqlURL', () => {
 
   it('should throw an error if no strapi url is provided', () => {
     delete process.env.STRAPI_PRIVATE_URL;
-    expect(() => getStrapiGraphqlURL()).toThrow('Failed to build URL: Invalid URL or configuration.');
+    expect(() => getStrapiGraphqlURL()).toThrow(
+      'Failed to build URL: Environment variable "STRAPI_PRIVATE_URL" is not defined',
+    );
   });
 });
