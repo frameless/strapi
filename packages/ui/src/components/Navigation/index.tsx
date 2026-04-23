@@ -1,5 +1,5 @@
 import { Drawer } from '@utrecht/component-library-react';
-import classnames from 'classnames';
+import classnames from 'classnames/bind';
 import FocusTrap from 'focus-trap-react';
 import type { ForwardedRef, HTMLAttributes, PropsWithChildren } from 'react';
 import { forwardRef, useLayoutEffect, useRef, useState } from 'react';
