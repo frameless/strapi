@@ -213,7 +213,7 @@ describe('buildURL', () => {
         env,
         key,
       });
-    }).toThrow('Failed to build URL: Invalid URL or configuration.');
+    }).toThrow('Failed to build URL: Environment variable "NEXT_PUBLIC_PDC_URL" is not defined');
   });
   it('should build a valid URL with the given parameters', () => {
     const queryParams = { q: 'test' };
@@ -334,6 +334,38 @@ describe('buildURL', () => {
         env,
         key,
       });
-    }).toThrow('Failed to build URL: Invalid URL or configuration.');
+    }).toThrow('Failed to build URL: "NEXT_PUBLIC_PDC_URL" contains an invalid URL: "invalid-url"');
+  });
+  it('should build a URL with require env variable', () => {
+    const segments = ['search'];
+    const env = { NEXT_PUBLIC_PDC_URL: 'https://example.com' };
+    const key = 'NEXT_PUBLIC_PDC_URL';
+    const url = buildURL({
+      segments,
+      env,
+      key,
+    });
+    const expectedURL = 'https://example.com/search';
+    expect(url?.href).toBe(expectedURL);
+  });
+  it('should throw an error when the required environment variable is not defined', () => {
+    const env = {};
+    const key = 'NEXT_PUBLIC_PDC_URL';
+    expect(() => {
+      buildURL({
+        env,
+        key,
+      });
+    }).toThrow('Failed to build URL: Environment variable "NEXT_PUBLIC_PDC_URL" is not defined');
+  });
+  it('should return null when the environment variable is not provided and is not required', () => {
+    const env = {};
+    const key = 'NEXT_PUBLIC_PDC_URL';
+    const url = buildURL({
+      env,
+      key,
+      required: false,
+    });
+    expect(url).toBeUndefined();
   });
 });
