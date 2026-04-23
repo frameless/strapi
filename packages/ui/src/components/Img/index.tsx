@@ -1,9 +1,9 @@
-import classNames from 'classnames';
+import classnames from 'classnames/bind';
 import React, { ComponentType, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 
 import styles from './index.module.css';
 
-const css = classNames.bind(styles);
+const css = classnames.bind(styles);
 interface ImageComponentProps extends React.DetailedHTMLProps<
   React.ImgHTMLAttributes<HTMLImageElement>,
   HTMLImageElement

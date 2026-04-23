@@ -1,6 +1,6 @@
 import { Link as UtrechtLink } from '@utrecht/component-library-react';
 import type { LinkProps as UtrechtLinkProps } from '@utrecht/component-library-react';
-import classnames from 'classnames';
+import classnames from 'classnames/bind';
 import React, { ComponentType, ForwardedRef, forwardRef, PropsWithChildren } from 'react';
 import Skeleton from 'react-loading-skeleton';
 

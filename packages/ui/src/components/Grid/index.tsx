@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classnames from 'classnames/bind';
 import React, { ForwardedRef, forwardRef, PropsWithChildren, ReactNode } from 'react';
 
 import styles from './index.module.scss';
@@ -11,7 +11,7 @@ type JustifyContent = 'flex-start' | 'center' | 'flex-end' | 'space-between';
 type AlignItems = 'flex-start' | 'center' | 'flex-end';
 type FlexDirection = 'column' | 'column-reverse' | 'row' | 'row-reverse';
 
-const css = classNames.bind(styles);
+const css = classnames.bind(styles);
 
 export interface GridProps extends React.HTMLAttributes<HTMLElement> {
   children?: ReactNode;
