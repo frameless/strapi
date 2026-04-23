@@ -1,5 +1,4 @@
 import { getURL } from '../getURL';
-import { setEnv } from '../setEnv';
 
 describe('getURL', () => {
   const originalEnv = process.env;
@@ -11,79 +10,48 @@ describe('getURL', () => {
     process.env = originalEnv;
   });
 
-  it('should return undefined if the environment variable is not defined', () => {
-    const consoleSpy = jest.spyOn(console, 'error');
-    const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env: {} });
-    expect(result).toBeUndefined();
-    expect(consoleSpy).toHaveBeenCalled();
-    expect(consoleSpy).toHaveBeenCalledWith(
-      'No valid URL found in the required environment variable NON_EXISTENT_ENV_VAR',
-      expect.any(Error),
-    );
+  describe('missing environment variable', () => {
+    it('should throw if the env var is missing and required=true (default)', () => {
+      expect(() => getURL({ key: 'NON_EXISTENT_ENV_VAR', env: {} })).toThrow(
+        'Environment variable "NON_EXISTENT_ENV_VAR" is not defined',
+      );
+    });
+
+    it('should return undefined if the env var is missing and required=false', () => {
+      const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env: {}, required: false });
+      expect(result).toBeUndefined();
+    });
   });
 
-  it('should return the origin if isOrigin is true', () => {
-    const env = { NON_EXISTENT_ENV_VAR: 'https://example.com' };
-    const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env, isOrigin: true });
-    expect(result).toBe('https://example.com');
+  describe('invalid URL', () => {
+    it('should throw if the env var contains an invalid URL and required=true (default)', () => {
+      const env = { NON_EXISTENT_ENV_VAR: 'invalid-url' };
+      expect(() => getURL({ key: 'NON_EXISTENT_ENV_VAR', env })).toThrow(
+        '"NON_EXISTENT_ENV_VAR" contains an invalid URL: "invalid-url"',
+      );
+    });
+
+    it('should throw if the env var contains an invalid URL even when required=false', () => {
+      // An invalid URL is always a misconfiguration — optional only skips missing vars
+      const env = { NON_EXISTENT_ENV_VAR: 'invalid-url' };
+      expect(() => getURL({ key: 'NON_EXISTENT_ENV_VAR', env, required: false })).toThrow(
+        '"NON_EXISTENT_ENV_VAR" contains an invalid URL: "invalid-url"',
+      );
+    });
   });
 
-  it('should return the URL object if isOrigin is false', () => {
-    const env = { NON_EXISTENT_ENV_VAR: 'https://example.com' };
-    const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env, isOrigin: false }) as URL;
-    expect(result).toBeInstanceOf(URL);
-    expect(result?.href).toBe('https://example.com/');
-  });
-  it('should return undefined if the URL is invalid', () => {
-    const consoleSpy = jest.spyOn(console, 'error');
-    const env = { NON_EXISTENT_ENV_VAR: 'invalid-url' };
-    const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env });
-    expect(result).toBeUndefined();
-    expect(consoleSpy).toHaveBeenCalled();
-    expect(consoleSpy).toHaveBeenCalledWith(
-      'No valid URL found in the required environment variable NON_EXISTENT_ENV_VAR',
-      expect.any(Error),
-    );
-  });
-  it('should not throw an error message when the URL is invalid in production mode', () => {
-    setEnv('NODE_ENV', 'production');
-    const consoleSpy = jest.spyOn(console, 'error');
-    const env = { NON_EXISTENT_ENV_VAR: 'invalid-url' };
-    const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env });
-    expect(result).toBeUndefined();
-    expect(consoleSpy).not.toThrow();
-  });
-  it('should throw an error message when the URL is invalid in development mode', () => {
-    setEnv('NODE_ENV', 'development');
-    const consoleSpy = jest.spyOn(console, 'error');
-    const env = { NON_EXISTENT_ENV_VAR: 'invalid-url' };
-    const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env });
-    expect(result).toBeUndefined();
-    expect(consoleSpy).toHaveBeenCalledWith(
-      'No valid URL found in the required environment variable NON_EXISTENT_ENV_VAR',
-      expect.any(Error),
-    );
-  });
-  it('should throw an error message when the URL is invalid in test mode', () => {
-    setEnv('NODE_ENV', 'test');
-    const consoleSpy = jest.spyOn(console, 'error');
-    const env = { NON_EXISTENT_ENV_VAR: 'invalid-url' };
-    const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env });
-    expect(result).toBeUndefined();
-    expect(consoleSpy).toHaveBeenCalledWith(
-      'No valid URL found in the required environment variable NON_EXISTENT_ENV_VAR',
-      expect.any(Error),
-    );
-  });
-  it('should throw an error message when the URL is invalid in debug mode', () => {
-    setEnv('DEBUG', 'true');
-    const consoleSpy = jest.spyOn(console, 'error');
-    const env = { NON_EXISTENT_ENV_VAR: 'invalid-url' };
-    const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env });
-    expect(result).toBeUndefined();
-    expect(consoleSpy).toHaveBeenCalledWith(
-      'No valid URL found in the required environment variable NON_EXISTENT_ENV_VAR',
-      expect.any(Error),
-    );
+  describe('valid URL', () => {
+    it('should return the origin string if isOrigin=true (default)', () => {
+      const env = { NON_EXISTENT_ENV_VAR: 'https://example.com' };
+      const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env, isOrigin: true });
+      expect(result).toBe('https://example.com');
+    });
+
+    it('should return a URL instance if isOrigin=false', () => {
+      const env = { NON_EXISTENT_ENV_VAR: 'https://example.com' };
+      const result = getURL({ key: 'NON_EXISTENT_ENV_VAR', env, isOrigin: false }) as URL;
+      expect(result).toBeInstanceOf(URL);
+      expect(result.href).toBe('https://example.com/');
+    });
   });
 });
