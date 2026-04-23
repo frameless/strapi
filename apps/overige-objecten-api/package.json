@@ -19,14 +19,14 @@
     "build:openapi": "mkdir -p dist/docs && cp -R src/docs/* dist/docs/",
     "build:vite": "vite build",
     "watch": "npm-run-all --parallel watch:*",
-    "watch:server": "tsup --watch --onSuccess \"nodemon dist/server.js\"",
     "watch:vite": "vite",
-    "start": "NODE_ENV=production node ./dist/server.js",
     "dev": "npm run watch",
     "clean": "rimraf dist src/types tmp",
     "generate-types": "openapi-typescript src/docs/openapi.yaml --output src/types/openapi.ts",
     "test": "OVERIGE_OBJECTEN_API_PORT=3000 vitest run --coverage",
-    "test:watch": "OVERIGE_OBJECTEN_API_PORT=3000 vitest"
+    "test:watch": "OVERIGE_OBJECTEN_API_PORT=3000 vitest",
+    "start": "NODE_ENV=production node --import ./register-loader.mjs ./dist/server.js",
+    "watch:server": "tsup --watch --onSuccess \"nodemon --import ./register-loader.mjs dist/server.js\""
   },
   "dependencies": {
     "@frameless/ui": "workspace:*",
