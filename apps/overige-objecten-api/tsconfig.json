@@ -16,6 +16,13 @@
     "lib": ["ES2021", "DOM"],
     "strict": true
   },
-  "include": ["src/**/*", "./jest.config.ts", "./global.d.ts", "./vite.config.ts"],
+  "include": [
+    "src/**/*",
+    "./jest.config.ts",
+    "./global.d.ts",
+    "./vite.config.ts",
+    "./esm-loader.mjs",
+    "./register-loader.mjs"
+  ],
   "exclude": ["node_modules", "**/*.test.ts", "./src/types/openapi.ts"]
 }
