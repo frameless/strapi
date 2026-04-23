@@ -1,7 +1,7 @@
 import { Button } from '@utrecht/component-library-react';
 import type { ButtonProps } from '@utrecht/component-library-react';
 import { UtrechtIconClose } from '@utrecht/web-component-library-react';
-import classnames from 'classnames';
+import classnames from 'classnames/bind';
 import type { ForwardedRef, ReactNode } from 'react';
 import { forwardRef } from 'react';
 

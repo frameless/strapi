@@ -8,7 +8,7 @@ import {
   UtrechtIconWhatsapp,
   UtrechtIconX,
 } from '@utrecht/web-component-library-react';
-import classnames from 'classnames';
+import classnames from 'classnames/bind';
 import { Fragment } from 'react';
 
 import { Grid, GridCell } from '../Grid';

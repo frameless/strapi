@@ -6,7 +6,7 @@ import {
 } from '@utrecht/component-library-react';
 import type { BreadcrumbNavProps } from '@utrecht/component-library-react';
 import { UtrechtIconChevronLeft, UtrechtIconChevronRight } from '@utrecht/web-component-library-react';
-import classnames from 'classnames';
+import classnames from 'classnames/bind';
 import { ComponentType, Fragment } from 'react';
 
 import { useScreenSize } from '../../hooks';

@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from '@utrecht/component-library-react';
-import classNames from 'classnames';
+import classnames from 'classnames/bind';
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithChildren, useState } from 'react';
 
 import styles from './index.module.css';
@@ -13,7 +13,7 @@ export interface LoadMoreButtonProps extends HTMLAttributes<HTMLButtonElement> {
   initialPageIndex?: number;
 }
 
-const css = classNames.bind(styles);
+const css = classnames.bind(styles);
 
 export const LoadMoreButton = forwardRef(
   (
