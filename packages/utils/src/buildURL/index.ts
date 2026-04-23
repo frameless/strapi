@@ -1,6 +1,6 @@
 import { getURL, GetURL } from '../getURL';
 
-type TFunction<K extends string = string, T = any, TK extends string = string> = (key: K | K[], options?: T) => TK;
+type TFunction<K extends string = string, T = any, TK extends string = string> = (_key: K | K[], _options?: T) => TK;
 
 /**
  * Get the query parameters for a given set of parameters.
@@ -10,6 +10,7 @@ type TFunction<K extends string = string, T = any, TK extends string = string> =
  * const queryParams = getQueryParams({ q: 'test' });
  */
 export const getQueryParams = (queryParams?: Record<string, string>) => {
+  // eslint-disable-next-line no-undef
   const params = new URLSearchParams(queryParams).toString();
   if (!params) return '';
   return params.startsWith('?') ? params : `?${params}`;
@@ -59,6 +60,11 @@ export const getPathAndSearchParams = ({
 };
 
 interface BuildURLProps extends GetPathAndSearchParams, GetURL {}
+interface BuildURLFn {
+  (_props: BuildURLProps & { required?: true }): URL;
+  (_props: BuildURLProps & { required: false }): URL | undefined;
+}
+
 /**
  * Build a URL object from the given parameters.
  * @param {BuildURLProps} props - The properties for building the URL.
@@ -69,19 +75,27 @@ interface BuildURLProps extends GetPathAndSearchParams, GetURL {}
  * @param {string} props.env - The environment variable to use for the base URL.
  * @param {string} props.key - The key to use for the base URL.
  * @param {boolean} props.isOrigin - Whether to return the origin or the full URL.
- * @returns {URL} The built URL object.
+ * @param {boolean} props.required - Whether the env variable is required. Defaults to true.
+ *                                   If false, returns undefined when the env variable is missing.
+ * @returns {URL | undefined} The built URL object, or undefined if the env variable is optional and not set.
  * @example
- * const { t } = await useTranslation(locale, ['common']);
+ * // Required URL — throws if NEXT_PUBLIC_PDC_URL is not set
  * const url = buildURL({
- *   queryParams: { q: 'test' },
+ *   key: 'NEXT_PUBLIC_PDC_URL',
+ *   env: process.env,
  *   segments: ['search'],
  *   locale: 'en',
  *   translations: t,
+ * });
+ *
+ * //Optional URL — returns undefined if NEXT_PUBLIC_OPTIONAL_URL is not set
+ * const url = buildURL({
+ *   key: 'NEXT_PUBLIC_OPTIONAL_URL',
  *   env: process.env,
- *   key: 'NEXT_PUBLIC_PDC_URL',
+ *   required: false,
  * });
  */
-export const buildURL = ({
+export const buildURL = (({
   queryParams,
   isOrigin = true,
   locale,
@@ -89,7 +103,8 @@ export const buildURL = ({
   env,
   key,
   translations,
-}: BuildURLProps): URL => {
+  required = true,
+}: BuildURLProps): URL | undefined => {
   const { pathSegments, searchParams } = getPathAndSearchParams({
     queryParams,
     segments,
@@ -97,24 +112,15 @@ export const buildURL = ({
     translations,
   });
   try {
-    const url = getURL({
-      env,
-      key,
-      isOrigin,
-    });
-    if (!url || (typeof url === 'string' && !url.trim())) {
-      throw new Error(
-        `Invalid URL: getURL returned an empty or invalid value ('${url}'). Ensure the environment variable '${key}' is correctly set and valid.`,
-      );
-    }
+    const url = required
+      ? getURL({ env, key, isOrigin, required: true })
+      : getURL({ env, key, isOrigin, required: false });
+
+    if (!url) return undefined;
 
     const baseUrl = new URL(url);
-
-    // Ensure no double slashes between the base path and new segments
-    const cleanBasePath = baseUrl.pathname.replace(/\/+$/, ''); // Remove trailing slashes from base URL path
-    const cleanPathSegments = pathSegments.replace(/^\/+/, ''); // Remove leading slashes from path segments
-
-    // Rebuild the pathname
+    const cleanBasePath = baseUrl.pathname.replace(/\/+$/, '');
+    const cleanPathSegments = pathSegments.replace(/^\/+/, '');
     baseUrl.pathname = `${cleanBasePath}/${cleanPathSegments}`;
     baseUrl.search = searchParams;
 
@@ -123,4 +129,4 @@ export const buildURL = ({
     const message = error instanceof Error ? error.message : String(error);
     throw new Error(`Failed to build URL: ${message}`);
   }
-};
+}) as BuildURLFn;
