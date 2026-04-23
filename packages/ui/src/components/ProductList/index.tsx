@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classnames from 'classnames/bind';
 import {
   DetailedHTMLProps,
   ForwardedRef,
@@ -10,7 +10,7 @@ import {
 
 import styles from './index.module.css';
 
-const css = classNames.bind(styles);
+const css = classnames.bind(styles);
 
 export interface ProductListProps extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {}
 
