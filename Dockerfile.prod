@@ -23,7 +23,7 @@ RUN pnpm dlx turbo prune \
     @frameless/pdc-frontend \
     @frameless/vth-frontend \
     @frameless/pdc-sc \
-    # @frameless/strapi-admin-extensions \
+    @frameless/strapi-admin-extensions \
     @frameless/overige-objecten-api \
     @frameless/editoria11y \
     @frameless/samenwerkende-catalogi \
@@ -64,6 +64,7 @@ RUN NODE_OPTIONS="--max-old-space-size=4096" \
     --filter @frameless/pdc-dashboard \
     --filter @frameless/pdc-frontend \
     --filter @frameless/overige-objecten-api \
+    --filter @frameless/strapi-admin-extensions \
     --filter @frameless/vth-dashboard \
     --filter @frameless/vth-frontend \
     --filter @frameless/pdc-sc \
