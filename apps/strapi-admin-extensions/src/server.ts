@@ -62,7 +62,7 @@ const globalErrorHandler = (err: ErrorHandler, _req: Request, res: Response, _ne
  * OpenAPI
  * Serve the OpenAPI documentation
  */
-app.use('/api/v2', openapiRoute);
+app.use('/api/v1', openapiRoute);
 
 /**
  * CORS

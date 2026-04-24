@@ -1,14 +1,15 @@
 import fs from 'node:fs';
-import path from 'node:path';
 
 import type { RequestHandler } from 'express';
 import yaml from 'js-yaml';
+
+import { resolveDoc } from '../../utils';
 
 export const openAPIController: RequestHandler = async (req, res, next) => {
   try {
     const serverURL = `${req.protocol}://${req.get('host')}`;
     const url = new URL('api/v2', serverURL).href;
-    const OPEN_API_YAML = fs.readFileSync(path.join(__dirname, '../../docs/openapi.yaml'), 'utf8');
+    const OPEN_API_YAML = fs.readFileSync(resolveDoc('openapi.yaml'), 'utf8');
 
     if (!OPEN_API_YAML) throw new Error('openapi.yaml file not found');
 
