@@ -182,6 +182,22 @@ services:
       - pdc_network
     depends_on:
       - pdc_strapi
+  strapi-admin-extensions:
+    container_name: strapi-admin-extensions
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    command: pnpm strapi-admin-extensions
+    environment:
+      OVERIGE_OBJECTEN_API_URL: ${OVERIGE_OBJECTEN_API_URL}
+      FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL}
+    ports:
+      - "4002:4002"
+    networks:
+      - pdc_strapi_network
+    depends_on:
+      - overige-objecten-api
 volumes:
   pdc-strapi-data:
 
