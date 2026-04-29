@@ -1,0 +1,182 @@
+diff --git a/dist/migrations/internal-migrations/5.0.0-05-drop-slug-unique-index.js b/dist/migrations/internal-migrations/5.0.0-05-drop-slug-unique-index.js
+index cc1b216e20e68d5152e641e9e92ef90b16e61e98..234154f412c5e8c8f65cfc19fc0e8e05f7325670 100644
+--- a/dist/migrations/internal-migrations/5.0.0-05-drop-slug-unique-index.js
++++ b/dist/migrations/internal-migrations/5.0.0-05-drop-slug-unique-index.js
+@@ -6,35 +6,75 @@
+  *
+  * This migration drops existing unique indexes from slug fields so downstream migrations
+  * can work on the data without violating the unique index.
+- */ const dropIndex = async (knex, tableName, columnName)=>{
++ *
++ * PATCH: Original caught JS errors but not PostgreSQL transaction-level abort state.
++ * In PostgreSQL, any failed statement inside a transaction marks the ENTIRE transaction
++ * as aborted, rejecting all subsequent commands including harmless hasTable() calls.
++ * Fix: Use SAVEPOINT / ROLLBACK TO SAVEPOINT to isolate each DROP INDEX attempt.
++ */
++
++const isPostgres = (knex) => {
++    const client = knex.client?.config?.client ?? '';
++    return client === 'pg' || client === 'postgres' || client === 'postgresql';
++};
++
++const dropIndex = async (knex, tableName, columnName) => {
++    const usesSavepoints = isPostgres(knex);
++
++    const savepointName = `sp_drop_${tableName}_${columnName}`
++        .replace(/[^a-z0-9_]/gi, '_')
++        .toLowerCase()
++        .slice(0, 63);
++
+     try {
+-        await knex.schema.alterTable(tableName, (table)=>{
++        if (usesSavepoints) {
++            await knex.raw(`SAVEPOINT ${savepointName}`);
++        }
++
++        await knex.schema.alterTable(tableName, (table) => {
+             // NOTE: Can not use "identifiers" utility, as the 5.0.0-01 migration does not rename this particular index
+             // to `tableName_columnName_uq`.
+-            table.dropUnique([
+-                columnName
+-            ], `${tableName}_${columnName}_unique`);
++            table.dropUnique([columnName], `${tableName}_${columnName}_unique`);
+         });
++
++        if (usesSavepoints) {
++            await knex.raw(`RELEASE SAVEPOINT ${savepointName}`);
++        }
+     } catch (error) {
+-    // If unique index does not exist, do nothing
++        if (usesSavepoints) {
++            try {
++                await knex.raw(`ROLLBACK TO SAVEPOINT ${savepointName}`);
++            } catch (_) {
++                // Savepoint may not exist if failure happened before it was created
++            }
++        }
++        // Index did not exist or already dropped — acceptable, move on
+     }
+ };
++
+ const dropSlugFieldsIndex = {
+     name: '5.0.0-05-drop-slug-fields-index',
+-    async up (knex, db) {
+-        for (const meta of db.metadata.values()){
+-            const hasTable = await knex.schema.hasTable(meta.tableName);
++    async up(knex, db) {
++        for (const meta of db.metadata.values()) {
++            let hasTable = false;
++            try {
++                hasTable = await knex.schema.hasTable(meta.tableName);
++            } catch (_error) {
++                continue;
++            }
++
+             if (!hasTable) {
+                 continue;
+             }
+-            for (const attribute of Object.values(meta.attributes)){
++
++            for (const attribute of Object.values(meta.attributes)) {
+                 if (attribute.type === 'uid' && attribute.columnName) {
+                     await dropIndex(knex, meta.tableName, attribute.columnName);
+                 }
+             }
+         }
+     },
+-    async down () {
++    async down() {
+         throw new Error('not implemented');
+     }
+ };
+diff --git a/dist/migrations/internal-migrations/5.0.0-05-drop-slug-unique-index.mjs b/dist/migrations/internal-migrations/5.0.0-05-drop-slug-unique-index.mjs
+index 75fe5257f065c59930b21761ff70de975604e488..90722a798d9bbc616c9d9f7b372cc57cfb67dbed 100644
+--- a/dist/migrations/internal-migrations/5.0.0-05-drop-slug-unique-index.mjs
++++ b/dist/migrations/internal-migrations/5.0.0-05-drop-slug-unique-index.mjs
+@@ -4,35 +4,75 @@
+  *
+  * This migration drops existing unique indexes from slug fields so downstream migrations
+  * can work on the data without violating the unique index.
+- */ const dropIndex = async (knex, tableName, columnName)=>{
++ *
++ * PATCH: Original caught JS errors but not PostgreSQL transaction-level abort state.
++ * In PostgreSQL, any failed statement inside a transaction marks the ENTIRE transaction
++ * as aborted, rejecting all subsequent commands including harmless hasTable() calls.
++ * Fix: Use SAVEPOINT / ROLLBACK TO SAVEPOINT to isolate each DROP INDEX attempt.
++ */
++
++const isPostgres = (knex) => {
++    const client = knex.client?.config?.client ?? '';
++    return client === 'pg' || client === 'postgres' || client === 'postgresql';
++};
++
++const dropIndex = async (knex, tableName, columnName) => {
++    const usesSavepoints = isPostgres(knex);
++
++    const savepointName = `sp_drop_${tableName}_${columnName}`
++        .replace(/[^a-z0-9_]/gi, '_')
++        .toLowerCase()
++        .slice(0, 63);
++
+     try {
+-        await knex.schema.alterTable(tableName, (table)=>{
++        if (usesSavepoints) {
++            await knex.raw(`SAVEPOINT ${savepointName}`);
++        }
++
++        await knex.schema.alterTable(tableName, (table) => {
+             // NOTE: Can not use "identifiers" utility, as the 5.0.0-01 migration does not rename this particular index
+             // to `tableName_columnName_uq`.
+-            table.dropUnique([
+-                columnName
+-            ], `${tableName}_${columnName}_unique`);
++            table.dropUnique([columnName], `${tableName}_${columnName}_unique`);
+         });
++
++        if (usesSavepoints) {
++            await knex.raw(`RELEASE SAVEPOINT ${savepointName}`);
++        }
+     } catch (error) {
+-    // If unique index does not exist, do nothing
++        if (usesSavepoints) {
++            try {
++                await knex.raw(`ROLLBACK TO SAVEPOINT ${savepointName}`);
++            } catch (_) {
++                // Savepoint may not exist if failure happened before it was created
++            }
++        }
++        // Index did not exist or already dropped — acceptable, move on
+     }
+ };
++
+ const dropSlugFieldsIndex = {
+     name: '5.0.0-05-drop-slug-fields-index',
+-    async up (knex, db) {
+-        for (const meta of db.metadata.values()){
+-            const hasTable = await knex.schema.hasTable(meta.tableName);
++    async up(knex, db) {
++        for (const meta of db.metadata.values()) {
++            let hasTable = false;
++            try {
++                hasTable = await knex.schema.hasTable(meta.tableName);
++            } catch (_error) {
++                continue;
++            }
++
+             if (!hasTable) {
+                 continue;
+             }
+-            for (const attribute of Object.values(meta.attributes)){
++
++            for (const attribute of Object.values(meta.attributes)) {
+                 if (attribute.type === 'uid' && attribute.columnName) {
+                     await dropIndex(knex, meta.tableName, attribute.columnName);
+                 }
+             }
+         }
+     },
+-    async down () {
++    async down() {
+         throw new Error('not implemented');
+     }
+ };
