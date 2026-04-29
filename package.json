@@ -98,6 +98,9 @@
   "pnpm": {
     "overrides": {
       "eslint": "^9.39.3"
+    },
+    "patchedDependencies": {
+      "@strapi/database": "patches/@strapi__database.patch"
     }
   },
   "resolutions": {
