@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@frameless/strapi-plugin-env-label": "1.0.0",
-    "@frameless/strapi-tiptap-editor": "1.0.1",
+    "@frameless/strapi-tiptap-editor": "1.0.3",
     "@strapi/admin": "5.39.0",
     "@strapi/design-system": "2.2.0",
     "@strapi/icons": "2.2.0",
