@@ -32,6 +32,22 @@ query getAllProducts(
         slug
         uuid
         locale
+        pdc_subcategories{
+          data{
+            id
+            attributes{
+              pdc_category{
+                data{
+                  id
+                  attributes{
+                    title
+                  }
+                }
+              }
+              title
+            }
+          }
+        }
         updatedAt
         createdAt
         locale
@@ -264,6 +280,22 @@ export const GET_PRODUCT_BY_UUID = gql(`
             slug
             uuid
             locale
+            pdc_subcategories{
+              data{
+                id
+              attributes{
+              pdc_category{
+                data{
+                  id
+                  attributes{
+                    title
+                  }
+                }
+              }
+              title
+            }
+          }
+        }
             updatedAt
             createdAt
             locale
@@ -688,6 +720,22 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
         createdAt
         updatedAt
         title
+        subcategories{
+          data{
+            id
+            attributes{
+              title
+              pdc_category{
+                data{
+                  id
+                  attributes{
+                    title
+                  }
+                }
+              }
+            }
+          }
+        }
         contact_information_internal {
           data {
             attributes {
@@ -758,6 +806,22 @@ query getVacItemByUUID($uuid: String, $publicationState: PublicationState) {
         updatedAt
         publishedAt
         title
+        subcategories{
+          data{
+            id
+            attributes{
+              title
+              pdc_category{
+                data{
+                  id
+                  attributes{
+                    title
+                  }
+                }
+              }
+            }
+          }
+        }
         contact_information_internal {
           data {
             attributes {
