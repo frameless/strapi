@@ -22,18 +22,18 @@ describe('getRedirectURL', () => {
   it('should return the redirect url if a matching slug is found', () => {
     const redirectUrl = getRedirectURL({
       data: [{ slug: 'new-slug', oldSlugs: ['old-slug'] }],
-      url: new URL('https://example.com/old-slug'),
-      currentPathname: '/old-slug',
+      url: new URL('https://example.com/nl/products/old-slug'),
+      currentPathname: '/nl/products/old-slug',
     });
-    expect(redirectUrl?.pathname).toBe('/new-slug');
+    expect(redirectUrl?.pathname).toBe('/nl/products/new-slug');
   });
   it('should handle multiple old slugs', () => {
     const redirectUrl = getRedirectURL({
       data: [{ slug: 'new-slug', oldSlugs: ['old-slug', 'another-old-slug'] }],
-      url: new URL('https://example.com/another-old-slug'),
-      currentPathname: '/another-old-slug',
+      url: new URL('https://example.com/nl/products/another-old-slug'),
+      currentPathname: '/nl/products/another-old-slug',
     });
-    expect(redirectUrl?.pathname).toBe('/new-slug');
+    expect(redirectUrl?.pathname).toBe('/nl/products/new-slug');
   });
   it('should handle multiple data entries', () => {
     const redirectUrl = getRedirectURL({
@@ -41,10 +41,10 @@ describe('getRedirectURL', () => {
         { slug: 'new-slug', oldSlugs: ['old-slug'] },
         { slug: 'another-new-slug', oldSlugs: ['another-old-slug'] },
       ],
-      url: new URL('https://example.com/another-old-slug'),
-      currentPathname: '/another-old-slug',
+      url: new URL('https://example.com/nl/products/another-old-slug'),
+      currentPathname: '/nl/products/another-old-slug',
     });
-    expect(redirectUrl?.pathname).toBe('/another-new-slug');
+    expect(redirectUrl?.pathname).toBe('/nl/products/another-new-slug');
   });
   it('should handle empty old slugs', () => {
     const redirectUrl = getRedirectURL({

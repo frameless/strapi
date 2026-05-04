@@ -17,11 +17,13 @@ interface GetRedirectURL {
  */
 export const getRedirectURL = ({ data, url, currentPathname }: GetRedirectURL): URL | null => {
   if (!Array.isArray(data)) return null;
-  const currentSlug = currentPathname.split('/').pop() || '';
+  const pathSegments = currentPathname.split('/');
+  const currentSlug = pathSegments.pop() || '';
+  const pathPrefix = pathSegments.join('/');
   for (const item of data) {
     if (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(currentSlug)) {
       const redirectUrl = new URL(url.toString());
-      redirectUrl.pathname = new URL(item.slug, redirectUrl.origin).pathname;
+      redirectUrl.pathname = `${pathPrefix}/${item.slug}`;
       return redirectUrl;
     }
   }
