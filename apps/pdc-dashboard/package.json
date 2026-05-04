@@ -20,9 +20,9 @@
     "config-sync-import": "config-sync import"
   },
   "dependencies": {
-    "@frameless/content-compliance-checker": "1.0.0",
+    "@frameless/content-compliance-checker": "1.0.1",
     "@frameless/preview-button": "2.1.0",
-    "@frameless/strapi-plugin-env-label": "1.0.0",
+    "@frameless/strapi-plugin-env-label": "1.0.1",
     "@frameless/strapi-plugin-flo-legal-embed": "2.0.0",
     "@frameless/strapi-plugin-language": "1.0.0",
     "@frameless/strapi-plugin-nl-government-fields": "1.0.0",
