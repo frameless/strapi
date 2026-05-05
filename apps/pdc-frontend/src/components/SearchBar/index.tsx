@@ -4,7 +4,7 @@ import { getPathAndSearchParams } from '@frameless/utils';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { experimental_useOptimistic as useOptimistic } from 'react';
+import React, { useState } from 'react';
 
 import { UtrechtSearchBar } from '../UtrechtSearchBar';
 
@@ -37,30 +37,24 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   hitsTitle,
   locale,
 }) => {
-  const [optimisticSearchValue, addOptimisticSearchValue] = useOptimistic('', (state: any, newValue: any) => {
-    const results = [
-      {
-        title: newValue?.suggestions.length > 0 ? suggestionsTitle : undefined,
-        list: newValue?.suggestions,
-      },
-      {
-        title: newValue?.hits.length > 0 ? hitsTitle : undefined,
-        list: newValue?.hits,
-      },
-    ];
-    return {
-      ...state,
-      value: newValue.hits.length > 0 || newValue.suggestions.length > 0 ? results : [],
-      sending: true,
-    };
-  });
+  const [optimisticSearchValue, setSearchValue] = useState<{ value: any[] }>({ value: [] });
   const { t } = useTranslation(locale, ['common']);
   const { push } = useRouter();
   const handleStateChange = (changes: any) => {
     if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
       if (onSearchChange) {
         onSearchChange(changes.inputValue).then((data) => {
-          addOptimisticSearchValue(data);
+          const results = [
+            {
+              title: data?.suggestions?.length > 0 ? suggestionsTitle : undefined,
+              list: data?.suggestions,
+            },
+            {
+              title: data?.hits?.length > 0 ? hitsTitle : undefined,
+              list: data?.hits,
+            },
+          ];
+          setSearchValue({ value: data?.hits?.length > 0 || data?.suggestions?.length > 0 ? results : [] });
         });
       }
     }
