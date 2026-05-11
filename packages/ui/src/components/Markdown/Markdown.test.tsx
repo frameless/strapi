@@ -204,7 +204,7 @@ describe('Markdown', () => {
         </Markdown>,
       );
       const a = container.querySelector('a');
-      expect(a).toHaveAttribute('href', 'https://example.com');
+      expect(a).toHaveAttribute('href', 'https://example.com/');
     });
     it('should render Utrecht Link component with correct id', () => {
       const content = '<a href="#id">Utrecht Link</a>';

@@ -159,17 +159,20 @@ const defaultComponents = (config?: Components) => {
 };
 
 const transformUri = (url: string) => {
-  try {
-    const parsedURL = new URL(url);
-    if (parsedURL.protocol === 'tel:') {
-      // normalize the URL now that we have the URL object
-      return parsedURL.toString();
+  // Handle tel links directly
+  if (url.startsWith('tel:')) {
+    return url;
+  }
+  // Only parse absolute URLs
+  if (/^https?:\/\//i.test(url)) {
+    try {
+      return new URL(url).toString();
+    } catch {
+      return defaultUrlTransform(url);
     }
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.error(e);
   }
 
+  // Fallback for relative or invalid URLs
   return defaultUrlTransform(url);
 };
 
