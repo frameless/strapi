@@ -21,18 +21,20 @@ import '../../../styles/globals.css';
 
 interface LayoutProps {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { locale } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
   return {
@@ -43,9 +45,13 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   };
 }
 
-const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
+const RootLayout = async (props: LayoutProps) => {
+  const params = await props.params;
+  const { locale } = params;
+  const { children } = props;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['layout', 'common']);
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const navList = await getNavData({ pageMode: isEnabled ? 'DRAFT' : 'PUBLISHED' });
 
   const footerData = {
@@ -113,7 +119,13 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   };
 
   return (
-    <html lang={locale} dir={dir(locale)} id="top" className="utrecht-scroll-to-top-container">
+    <html
+      lang={locale}
+      dir={dir(locale)}
+      id="top"
+      className="utrecht-scroll-to-top-container"
+      suppressHydrationWarning={true}
+    >
       <body
         className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-vth-theme')}
         suppressHydrationWarning={true}

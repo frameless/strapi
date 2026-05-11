@@ -2,16 +2,13 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import React from 'react';
 
 import { Get_Article_By_SlugQuery } from '../../../../../../gql/graphql';
 
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
-  Breadcrumbs,
   Grid,
   GridCell,
   Header,
@@ -20,8 +17,6 @@ import {
   Page,
   PageContent,
   RichText,
-  ScrollToTopButton,
-  UtrechtIconChevronUp,
 } from '@/components';
 import { Main } from '@/components/Main';
 import { Markdown } from '@/components/Markdown';
@@ -29,15 +24,19 @@ import { GET_ARTICLE_BY_SLUG } from '@/query';
 import { config } from '@/util';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { getNavData } from '@/util/getNavData';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
     articleSlug: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { articleSlug } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { articleSlug } = params;
   const { data } = await fetchData<Get_Article_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_ARTICLE_BY_SLUG,
@@ -49,10 +48,12 @@ export async function generateMetadata({ params: { articleSlug } }: Params): Pro
   };
 }
 
-const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
+const ArticlePage = async (props: Params) => {
+  const params = await props.params;
+  const { locale, articleSlug } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const { data } = await fetchData<Get_Article_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_ARTICLE_BY_SLUG,
@@ -163,7 +164,6 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
         <PageContent className="utrecht-custom-page-content">
           <Breadcrumbs
             links={breadcrumbNavigationElements}
-            Link={Link}
             backLink={{
               label: parentElement.label,
               href: parentElement.href,
@@ -189,7 +189,7 @@ const ArticlePage = async ({ params: { locale, articleSlug } }: Params) => {
           </Grid>
           <Grid spacing="lg">
             <GridCell md={12} justifyContent="flex-end">
-              <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+              <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
             </GridCell>
           </Grid>
         </PageContent>

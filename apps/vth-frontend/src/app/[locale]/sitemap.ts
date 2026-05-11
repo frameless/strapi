@@ -41,7 +41,7 @@ export const generateUrl = ({ locale, origin, segment, urls }: GenerateUrlParame
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const locale = cookies().get('i18next')?.value;
+  const locale = (await cookies()).get('i18next')?.value;
   const staticPages = generateUrl({
     locale,
     origin,

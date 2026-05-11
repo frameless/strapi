@@ -2,38 +2,28 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import React from 'react';
 
 import { Get_Navigation_Page_By_SlugQuery } from '../../../../../gql/graphql';
 
 import { useTranslation } from '@/app/i18n';
-import {
-  AccordionProvider,
-  Breadcrumbs,
-  Grid,
-  GridCell,
-  Heading1,
-  Markdown,
-  Page,
-  PageContent,
-  ScrollToTopButton,
-  UtrechtIconChevronUp,
-} from '@/components';
+import { AccordionProvider, Grid, GridCell, Heading1, Markdown, Page, PageContent } from '@/components';
 import { Card } from '@/components/Card';
 import { GET_NAVIGATION_PAGE_BY_SLUG } from '@/query';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
     navigationPageSlug: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { navigationPageSlug } }: Params): Promise<Metadata> {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { navigationPageSlug } = params;
   const { data } = await fetchData<Get_Navigation_Page_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_NAVIGATION_PAGE_BY_SLUG,
@@ -45,8 +35,11 @@ export async function generateMetadata({ params: { navigationPageSlug } }: Param
   };
 }
 
-const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params) => {
-  const { isEnabled } = draftMode();
+const NavigationPage = async (props: Params) => {
+  const params = await props.params;
+  const { locale, navigationPageSlug } = params;
+  const { isEnabled } = await draftMode();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
   const { data } = await fetchData<Get_Navigation_Page_By_SlugQuery>({
     url: createStrapiURL(),
@@ -91,7 +84,6 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
     <Page>
       <PageContent className="utrecht-custom-page-content">
         <Breadcrumbs
-          Link={Link}
           links={[{ label: 'Home', href: '/', current: false }]}
           backLink={{ label: 'Home', href: '/', current: false }}
         />
@@ -147,7 +139,7 @@ const NavigationPage = async ({ params: { locale, navigationPageSlug } }: Params
         </Grid>
         <Grid spacing="lg">
           <GridCell md={12} justifyContent="flex-end">
-            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+            <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>
       </PageContent>

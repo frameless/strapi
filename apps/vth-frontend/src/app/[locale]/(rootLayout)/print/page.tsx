@@ -12,26 +12,21 @@ import React from 'react';
 import { Get_Print_PageQuery } from '../../../../../gql/graphql';
 
 import { useTranslation } from '@/app/i18n';
-import {
-  AccordionProvider,
-  Grid,
-  GridCell,
-  Markdown,
-  ScrollToTopButton,
-  UtrechtIconChevronUp,
-  Page,
-  PageContent,
-} from '@/components';
+import { AccordionProvider, Grid, GridCell, Markdown, Page, PageContent } from '@/components';
 import { PrintButton } from '@/components/PrintButton';
 import { GET_PRINT_PAGE } from '@/query';
 import { createStrapiURL } from '@/util/createStrapiURL';
 import { fetchData } from '@/util/fetchData';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 
 import '@/styles/print.css';
 import '@/styles/space.css';
 
-const PrintPage = async ({ params: { locale } }: { params: { locale: string } }) => {
+const PrintPage = async (props: { params: Promise<{ locale: string }> }) => {
+  const params = await props.params;
+  const { locale } = params;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
   const { data } = await fetchData<Get_Print_PageQuery>({
     url: createStrapiURL(),
@@ -96,7 +91,7 @@ const PrintPage = async ({ params: { locale } }: { params: { locale: string } })
         </div>
         <Grid spacing="lg">
           <GridCell md={12} justifyContent="flex-end">
-            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+            <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>
       </PageContent>
