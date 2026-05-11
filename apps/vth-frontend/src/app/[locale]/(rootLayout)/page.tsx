@@ -4,25 +4,16 @@ import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import React from 'react';
 
 import { GetHomepageQuery } from '../../../../gql/graphql';
 
 import { useTranslation } from '@/app/i18n';
-import {
-  Grid,
-  GridCell,
-  Heading1,
-  Page,
-  PageContent,
-  RichText,
-  ScrollToTopButton,
-  UtrechtIconChevronUp,
-} from '@/components';
+import { Grid, GridCell, Heading1, Page, PageContent, RichText } from '@/components';
 import { Card } from '@/components/Card';
 import { Markdown } from '@/components/Markdown';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { GET_HOMEPAGE } from '@/query';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 
 export interface Fields {
   title: string;
@@ -30,12 +21,14 @@ export interface Fields {
 }
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { locale } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'home-page');
   return {
@@ -44,8 +37,11 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   };
 }
 
-const Home = async ({ params: { locale } }: { params: any }) => {
-  const { isEnabled } = draftMode();
+const Home = async (props: { params: Promise<any> }) => {
+  const params = await props.params;
+  const { locale } = params;
+  const { isEnabled } = await draftMode();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
   const { data } = await fetchData<GetHomepageQuery>({
     url: createStrapiURL(),
@@ -108,7 +104,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           </Grid>
           <Grid spacing="lg">
             <GridCell md={12} justifyContent="flex-end">
-              <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+              <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
             </GridCell>
           </Grid>
         </PageContent>

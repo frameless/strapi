@@ -28,7 +28,17 @@ export const Card = ({ description, title, image: { url = '', alt }, link: { hre
 
   return (
     <div {...props} className={css('utrecht-card', props.className)} onClick={() => linkRef.current?.click()}>
-      {url && <Image src={url} alt={alt} className={css('utrecht-card__image')} width={312} height={200} />}
+      {url && (
+        <Image
+          src={url}
+          alt={alt}
+          className={css('utrecht-card__image')}
+          width={312}
+          height={200}
+          // Mark as priority because this is the above-the-fold (LCP) image for faster initial load
+          loading="eager"
+        />
+      )}
       <div className={css('utrecht-card__content')}>
         <Heading2 className={css('utrecht-card__title')}>
           <Link ref={linkRef} href={href} className={css('utrecht-link utrecht-link--html-a')}>

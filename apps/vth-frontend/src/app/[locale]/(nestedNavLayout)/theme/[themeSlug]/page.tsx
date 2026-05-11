@@ -2,16 +2,13 @@ import { createStrapiURL } from '@frameless/vth-frontend/src/util/createStrapiUR
 import { fetchData } from '@frameless/vth-frontend/src/util/fetchData';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import React from 'react';
 
 import { Get_Theme_By_SlugQuery } from '../../../../../../gql/graphql';
 
 import { useTranslation } from '@/app/i18n';
 import {
   AccordionProvider,
-  Breadcrumbs,
   Grid,
   GridCell,
   Header,
@@ -21,8 +18,6 @@ import {
   Page,
   PageContent,
   RichText,
-  ScrollToTopButton,
-  UtrechtIconChevronUp,
 } from '@/components';
 import { Card } from '@/components/Card';
 import { Main } from '@/components/Main';
@@ -30,15 +25,19 @@ import { GET_THEME_BY_SLUG } from '@/query';
 import { config } from '@/util';
 import { getImageBaseUrl } from '@/util/getImageBaseUrl';
 import { getNavData } from '@/util/getNavData';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
     themeSlug: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { themeSlug } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { themeSlug } = params;
   const { data } = await fetchData<Get_Theme_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_THEME_BY_SLUG,
@@ -50,10 +49,12 @@ export async function generateMetadata({ params: { themeSlug } }: Params): Promi
   };
 }
 
-const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
+const ThemePage = async (props: Params) => {
+  const params = await props.params;
+  const { locale, themeSlug } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const { data } = await fetchData<Get_Theme_By_SlugQuery>({
     url: createStrapiURL(),
     query: GET_THEME_BY_SLUG,
@@ -144,7 +145,6 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
       <PageContent className="utrecht-custom-page-content">
         <Breadcrumbs
           links={breadcrumbNavigationElements}
-          Link={Link}
           backLink={{ label: parentElement?.label || 'Home', href: parentElement?.href || '/', current: false }}
         />
         <Main id="main">
@@ -191,7 +191,7 @@ const ThemePage = async ({ params: { locale, themeSlug } }: Params) => {
         </Main>
         <Grid spacing="lg">
           <GridCell md={12} justifyContent="flex-end">
-            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+            <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>
       </PageContent>

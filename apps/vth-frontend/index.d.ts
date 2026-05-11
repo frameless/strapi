@@ -1,3 +1,5 @@
+declare module '@utrecht/component-library-css';
+
 declare module 'editoria11y/dist/editoria11y.min.js' {
   export interface Ed11yTheme {
     bg: string;

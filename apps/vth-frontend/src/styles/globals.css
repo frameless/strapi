@@ -236,3 +236,10 @@ footer.utrecht-footer {
   padding-inline-end: 0;
   padding-inline-start: 0;
 }
+
+/* Preserve aspect ratio when resizing via CSS (Next.js 16)
+https://nextjs.org/docs/app/api-reference/components/image */
+img {
+  block-size: 100%;
+  inline-size: 100%;
+}

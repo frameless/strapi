@@ -9,23 +9,18 @@ const __dirname = path.dirname(__filename);
 const nextConfig = {
   transpilePackages: ['@frameless/ui', '@utrecht/component-library-react', '@utrecht/web-component-library-react'],
   images: {
+    // Allow localhost images in dev only (blocked in production for security)
+    // https://nextjs.org/docs/app/api-reference/components/image#dangerouslyallowlocalip
+    dangerouslyAllowLocalIP: process.env.NODE_ENV === 'development',
     remotePatterns: [
       {
         protocol: protocol.replace(/:$/, ''),
-        hostname: hostname,
+        hostname,
         port: port,
       },
     ],
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.conditionNames = ['import', 'require', 'default'];
-    }
-    return config;
-  },
-  experimental: {
-    serverActions: true,
-  },
+  turbopack: {},
 };
 
 export default nextConfig;

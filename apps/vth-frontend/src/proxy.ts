@@ -10,7 +10,7 @@ export const config = {
 
 const cookieName = 'i18next';
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1)
     return NextResponse.next();
   let lng;

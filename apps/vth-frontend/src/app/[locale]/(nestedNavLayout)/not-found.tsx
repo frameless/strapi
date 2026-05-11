@@ -14,9 +14,10 @@ import { getNavData } from '@/util/getNavData';
 
 const NotFoundPage = async () => {
   new Response(null, { status: 404 });
-  const locale = cookies().get('i18next')?.value;
+  const locale = (await cookies()).get('i18next')?.value;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale || fallbackLng, ['common']);
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const { data } = await fetchData({
     url: createStrapiURL(),
     query: GET_NOT_FOUND_PAGE,
