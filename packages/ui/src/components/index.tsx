@@ -41,4 +41,5 @@ export type { ModalDialogProps, HeadingLevel } from './ModalDialog';
 export type { NavigationListType } from './Navigation';
 export type { PreviewAlertProps } from './PreviewAlert';
 export type { ProductListItemProps, ProductListPaginationInfoProps, ProductListProps } from './ProductList';
+export type { ScrollToTopButtonProps } from './ScrollToTopButton';
 export type { YouTubeVideoProps } from './YouTubeVideo';

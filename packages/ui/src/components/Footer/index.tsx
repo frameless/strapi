@@ -79,34 +79,32 @@ export const Footer = ({ data, headingLevel, socialMediaLabel }: FooterProps) =>
               <GridCell md={6} sm={6}>
                 {data?.list &&
                   data.list?.listItem?.length > 0 &&
-                  data?.list?.listItem?.map((item) => {
-                    return (
-                      <Fragment key={item.id}>
-                        {item?.title && item?.title && (
-                          <Heading3 className={css('utrecht-footer__list-title')}>{item?.title}</Heading3>
-                        )}
-                        {Array.isArray(item.link) && item.link.length >= 1 && (
-                          <LinkList>
-                            {item?.link?.map((item, index) => {
-                              const isPhoneNumber = item.href.includes('tel:14030');
-                              return (
-                                <LinkListLink
-                                  key={index}
-                                  icon={!isPhoneNumber && <UtrechtIconChevronRight />}
-                                  className={css({
-                                    'utrecht-link-list__link--phone': isPhoneNumber,
-                                  })}
-                                  href={item.href}
-                                >
-                                  {item.textContent}
-                                </LinkListLink>
-                              );
-                            })}
-                          </LinkList>
-                        )}
-                      </Fragment>
-                    );
-                  })}
+                  data?.list?.listItem?.map((item, index) => (
+                    <Fragment key={index}>
+                      {item?.title && item?.title && (
+                        <Heading3 className={css('utrecht-footer__list-title')}>{item?.title}</Heading3>
+                      )}
+                      {Array.isArray(item.link) && item.link.length >= 1 && (
+                        <LinkList>
+                          {item?.link?.map((item, index) => {
+                            const isPhoneNumber = item.href.includes('tel:14030');
+                            return (
+                              <LinkListLink
+                                key={index}
+                                icon={!isPhoneNumber && <UtrechtIconChevronRight />}
+                                className={css({
+                                  'utrecht-link-list__link--phone': isPhoneNumber,
+                                })}
+                                href={item.href}
+                              >
+                                {item.textContent}
+                              </LinkListLink>
+                            );
+                          })}
+                        </LinkList>
+                      )}
+                    </Fragment>
+                  ))}
               </GridCell>
               <GridCell md={6} sm={6}>
                 {data?.address && <Markdown>{data?.address}</Markdown>}
