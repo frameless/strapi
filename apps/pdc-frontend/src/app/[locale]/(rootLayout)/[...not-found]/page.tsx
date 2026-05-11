@@ -8,7 +8,10 @@ import { GET_NOT_FOUND_PAGE } from '@/query';
 import { getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
 import { fetchData } from '@/util/fetchData';
 
-const NotFoundPage = async ({ params: { locale } }: { params: { locale: string } }) => {
+const NotFoundPage = async (props: { params: Promise<{ locale: string }> }) => {
+  const params = await props.params;
+  const { locale } = params;
+
   new Response(null, { status: 404 });
   const { t } = await useTranslation(locale, ['common']);
   const { data } = await fetchData<{ data: GetNotFoundPageQuery }>({
@@ -37,7 +40,6 @@ const NotFoundPage = async ({ params: { locale } }: { params: { locale: string }
           label: t('components.breadcrumbs.label.online-loket'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <Heading level={1}>{data?.notFoundPage?.title}</Heading>

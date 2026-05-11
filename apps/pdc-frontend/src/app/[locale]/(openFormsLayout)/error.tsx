@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { forwardRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { PropsWithChildren } from 'react';
 
 import { useTranslation } from '../../i18n/client';
@@ -19,12 +18,12 @@ interface ErrorPageContentProps {
   message?: string;
 }
 
-const ErrorPageContent = forwardRef(({ title, message }: PropsWithChildren<ErrorPageContentProps>) => (
+const ErrorPageContent = ({ title, message }: PropsWithChildren<ErrorPageContentProps>) => (
   <>
     {title && <Heading level={1}>{title}</Heading>}
     {message && <Paragraph>{message}</Paragraph>}
   </>
-));
+);
 
 ErrorPageContent.displayName = 'ErrorPageContent';
 
@@ -61,7 +60,6 @@ export default function Error({ error, reset }: ErrorPageProps) {
           label: t('components.breadcrumbs.label.online-loket'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <ErrorPageContent

@@ -28,7 +28,6 @@ import {
   Logo,
   LogoImage,
   MatomoTagManager,
-  Navigation,
   NavigationListType,
   Page,
   PageContent,
@@ -38,6 +37,7 @@ import {
   SkipLink,
   Surface,
 } from '@/components';
+import { Navigation } from '@/components/Navigation';
 // import { ClientLanguageSwitcher } from '@/components/ClientLanguageSwitcher';
 import { GoogleTranslate } from '@/components/GoogleTranslate';
 import { Main } from '@/components/Main';
@@ -54,21 +54,23 @@ import '../../../styles/globals.css';
 
 interface LayoutProps {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { locale } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
-  const nonce = headers().get('x-nonce') || '';
+  const nonce = (await headers()).get('x-nonce') || '';
   const url = buildURL({
     env: process.env,
     key: 'FRONTEND_PUBLIC_URL',
@@ -129,10 +131,13 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   };
 }
 
-const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
-  const nonce = headers().get('x-nonce') || '';
+const RootLayout = async (props: LayoutProps) => {
+  const params = await props.params;
+  const { locale } = params;
+  const { children } = props;
+  const nonce = (await headers()).get('x-nonce') || '';
   const { t } = await useTranslation(locale, ['layout', 'common']);
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const { data } = await fetchData<{ data: GetTemplateDataQuery }>({
     url: getStrapiGraphqlURL(),
     query: GET_TEMPLATE,
@@ -159,7 +164,13 @@ const RootLayout = async ({ children, params: { locale } }: LayoutProps) => {
   const matomoScripts = websiteSettingData.websiteSetting?.triggerMatomoScript;
 
   return (
-    <html lang={locale} dir={dir(locale)} id="top" className="utrecht-scroll-to-top-container">
+    <html
+      lang={locale}
+      dir={dir(locale)}
+      id="top"
+      className="utrecht-scroll-to-top-container"
+      suppressHydrationWarning={true}
+    >
       <body
         className={classnames(
           'utrecht-theme',

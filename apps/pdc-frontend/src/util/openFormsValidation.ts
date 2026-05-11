@@ -5,6 +5,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 import { ErrorHandler } from './fetchData';
+import { isOpenFormsMockEnabled } from './openFormsSettings';
 
 import { useTranslation } from '@/app/i18n';
 
@@ -18,6 +19,10 @@ interface BasicFormInfo {
 }
 
 export const openFormValidator = async ({ formId }: OpenFormValidatorFunction): Promise<BasicFormInfo | null> => {
+  if (isOpenFormsMockEnabled()) {
+    return { uuid: 'e450890a-4166-410e-8d64-0a54ad30ba01', name: 'Demo formulier' };
+  }
+
   if (!formId || !process.env.OPEN_FORMS_API_TOKEN) return null;
 
   const openFormsURL = buildURL({
@@ -27,7 +32,7 @@ export const openFormValidator = async ({ formId }: OpenFormValidatorFunction): 
     isOrigin: false,
   });
 
-  const locale = cookies().get('i18nextLng')?.value || 'nl';
+  const locale = (await cookies()).get('i18nextLng')?.value || 'nl';
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['common']);

@@ -1,14 +1,15 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 import { useTranslation } from '../../../../i18n/index';
 
 import { getSuggestedSearch } from '@/app/actions';
 import { languages } from '@/app/i18n/settings';
-import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
+import { Grid, GridCell, Heading } from '@/components';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { buildAlternateLinks } from '@/util';
@@ -18,17 +19,19 @@ type ParamsType = {
 };
 
 interface SearchProps {
-  params: ParamsType;
+  params: Promise<ParamsType>;
 }
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
     query: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { locale, query } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { locale, query } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['search-page', 'common']);
   const decodeQuery = decodeURIComponent(query)?.trim();
@@ -64,9 +67,11 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
   };
 }
 
-const Search = async ({ params: { locale, query } }: SearchProps) => {
+const Search = async (props: SearchProps) => {
+  const params = await props.params;
+  const { locale, query } = params;
   const { t } = await useTranslation(locale, ['search-page', 'common']);
-  const nonce = headers().get('x-nonce') || '';
+  const nonce = (await headers()).get('x-nonce') || '';
   const decodeQuery = decodeURIComponent(query)?.trim();
   const searchResults = await getSuggestedSearch(locale, decodeQuery);
 
@@ -121,7 +126,6 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
           label: t('components.breadcrumbs.label.online-loket'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <Heading level={1}>{t('page-title', { query: decodeQuery, interpolation: { escapeValue: false } })}</Heading>
@@ -139,7 +143,7 @@ const Search = async ({ params: { locale, query } }: SearchProps) => {
             <KCMSurvey nonce={nonce} />
           </GridCell>
           <GridCell justifyContent="flex-end">
-            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+            <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>
       </main>

@@ -1,7 +1,7 @@
-@import "~@utrecht/multiline-data-css/src/mixin";
-@import "~@utrecht/form-label-css/src/mixin";
-@import "~@utrecht/textbox-css/src/mixin";
-@import "~@utrecht/spotlight-section-css/src/mixin";
+@use "~@utrecht/multiline-data-css/src/mixin" as multiline-data;
+@use "~@utrecht/form-label-css/src/mixin" as form-label;
+@use "~@utrecht/textbox-css/src/mixin" as textbox;
+@use "~@utrecht/spotlight-section-css/src/mixin" as spotlight-section;
 
 :root {
   --of-progress-indicator-padding-block-end: 0;
@@ -10,46 +10,21 @@
 }
 
 .utrecht-form-container--openforms .utrecht-form-label--openforms.utrecht-form-label--radio {
-  @include utrecht-form-label--radio;
+  @include form-label.utrecht-form-label--radio;
 }
 
 .utrecht-form-container--openforms .utrecht-textbox--openforms:disabled {
-  @include utrecht-textbox--read-only;
+  @include textbox.utrecht-textbox--read-only;
 }
 
 .formio-editor-read-only-content {
-  @include utrecht-multiline-data;
+  @include multiline-data.utrecht-multiline-data;
 }
 
 /* previous button alignment */
 .utrecht-form-container--openforms .openforms-toolbar .openforms-toolbar__list-item .utrecht-link--openforms {
   justify-content: left;
 }
-
-/**
- * Workaround for Open Forms SDK 2.1.3
- * The selected value for the combobox, when not expanded, would overflow the form control.
- * @see https://github.com/frameless/strapi/issues/847
- */
-
-// TODO remove the code below when uen upgrade open Forms SDK to 2.3.1 version
-
-/* stylelint-disable-next-line selector-class-pattern */
-.utrecht-form-field.utrecht-form-field--select .selection {
-  height: 100% !important;
-
-  /* This line is still needed in Open Forms to leave 44px space for the "Clear" button and the expanded icon */
-  max-inline-size: calc(100% - 44px);
-}
-
-/* stylelint-disable selector-class-pattern */
-.utrecht-form-field.utrecht-form-field--select .selection .choices__item,
-.utrecht-form-field.utrecht-form-field--select .selection + .choices__list .choices__item {
-  block-size: fit-content !important;
-  overflow-wrap: break-word;
-  text-wrap: wrap;
-}
-/* stylelint-enable selector-class-pattern */
 
 /* openforms datalist */
 .openforms-app > .openforms-app__body > .openforms-card {
@@ -75,29 +50,29 @@
   &--info {
     --of-formio-content-info-border-inline-start-style: none;
 
-    @include utrecht-spotlight-section;
-    @include utrecht-spotlight-section-type("info");
+    @include spotlight-section.utrecht-spotlight-section;
+    @include spotlight-section.utrecht-spotlight-section-type("info");
   }
 
   &--warning {
     --of-formio-content-warning-border-inline-start-style: none;
 
-    @include utrecht-spotlight-section;
-    @include utrecht-spotlight-section-type("warning");
+    @include spotlight-section.utrecht-spotlight-section;
+    @include spotlight-section.utrecht-spotlight-section-type("warning");
   }
 
   &--error {
     --of-formio-content-error-border-inline-start-style: none;
 
-    @include utrecht-spotlight-section;
-    @include utrecht-spotlight-section-type("warning");
+    @include spotlight-section.utrecht-spotlight-section;
+    @include spotlight-section.utrecht-spotlight-section-type("warning");
   }
 
   &--success {
     --of-formio-content-success-border-inline-start-style: none;
 
-    @include utrecht-spotlight-section;
-    @include utrecht-spotlight-section-type("ok");
+    @include spotlight-section.utrecht-spotlight-section;
+    @include spotlight-section.utrecht-spotlight-section-type("ok");
   }
 
   &--success,

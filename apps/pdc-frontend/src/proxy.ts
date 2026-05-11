@@ -43,7 +43,7 @@ const toBase64 = (str: string) => {
   return Buffer.from(str).toString('base64'); // Node.js
 };
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   let locale;
   if (req.cookies.has(cookieName)) locale = acceptLanguage.get(req.cookies.get(cookieName)?.value);
   if (!locale) locale = acceptLanguage.get(req.headers.get('Accept-Language'));

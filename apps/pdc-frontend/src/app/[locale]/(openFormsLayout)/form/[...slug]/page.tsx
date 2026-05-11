@@ -1,28 +1,27 @@
 import { headers } from 'next/headers';
-import Link from 'next/link';
-import React from 'react';
 
 import { useTranslation } from '@/app/i18n';
-import { Breadcrumbs, Heading1 } from '@/components';
+import { Heading1 } from '@/components';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { OpenFormsEmbed } from '@/components/OpenFormsEmbed/OpenFormsEmbed';
 import { openFormValidator } from '@/util';
-import { createOpenFormsApiUrl, createOpenFormsCssUrl, createOpenFormsSdkUrl } from '@/util/openFormsSettings';
+import { createOpenFormsClientApiUrl } from '@/util/openFormsSettings';
 
 type FormPageProps = {
-  params: {
+  params: Promise<{
     locale: string;
     slug: [formId: string, formStep: string];
-  };
+  }>;
 };
 
-const FormPage = async ({
-  params: {
+const FormPage = async (props: FormPageProps) => {
+  const params = await props.params;
+  const {
     locale,
     slug: [formId],
-  },
-}: FormPageProps) => {
+  } = params;
   const { t } = await useTranslation(locale, 'common');
-  const nonce = headers().get('x-nonce') || '';
+  const nonce = (await headers()).get('x-nonce') || '';
   const formInfo = await openFormValidator({ formId });
 
   return (
@@ -50,14 +49,11 @@ const FormPage = async ({
           label: t('components.breadcrumbs.label.products'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <div className="utrecht-form-container utrecht-form-container--openforms">
           <OpenFormsEmbed
-            apiUrl={createOpenFormsApiUrl()?.href || ''}
-            sdkUrl={createOpenFormsSdkUrl()?.href || ''}
-            cssUrl={createOpenFormsCssUrl()?.href || ''}
+            apiUrl={createOpenFormsClientApiUrl() || ''}
             nonce={nonce}
             slug={formId}
             fallback={formInfo ? <Heading1>{formInfo.name}</Heading1> : null}

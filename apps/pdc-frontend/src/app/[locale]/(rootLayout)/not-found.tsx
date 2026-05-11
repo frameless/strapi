@@ -1,17 +1,17 @@
 import { cookies } from 'next/headers';
-import Link from 'next/link';
 
 import { GetNotFoundPageQuery } from '../../../../gql/graphql';
 import { useTranslation } from '../../i18n';
 import { fallbackLng } from '../../i18n/settings';
 
-import { Heading, Markdown, Breadcrumbs } from '@/components';
+import { Heading, Markdown } from '@/components';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { GET_NOT_FOUND_PAGE } from '@/query';
 import { fetchData, getImageBaseUrl, getStrapiGraphqlURL } from '@/util';
 
 const NotFoundPage = async () => {
   new Response(null, { status: 404 });
-  const locale = cookies().get('i18next')?.value;
+  const locale = (await cookies()).get('i18next')?.value;
   const { t } = await useTranslation(locale || fallbackLng, ['common']);
   const { data } = await fetchData<{ data: GetNotFoundPageQuery }>({
     url: getStrapiGraphqlURL(),
@@ -39,7 +39,6 @@ const NotFoundPage = async () => {
           label: t('components.breadcrumbs.label.online-loket'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <Heading level={1}>{data?.notFoundPage?.title}</Heading>

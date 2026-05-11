@@ -1,20 +1,21 @@
 import { getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
-import Link from 'next/link';
 
 import { useTranslation } from '@/app/i18n';
 import { Breadcrumbs, Heading, UnorderedList, UnorderedListItem } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
     query: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { locale, query } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { locale, query } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['tips-page']);
   return {
@@ -26,9 +27,12 @@ export async function generateMetadata({ params: { locale, query } }: Params): P
   };
 }
 
-const SearchTips = async ({ params: { locale }, searchParams }: any) => {
+const SearchTips = async (props: any) => {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
+  const { locale } = params;
   const { t } = await useTranslation(locale, ['tips-page', 'common']);
-  const nonce = headers().get('x-nonce') || '';
+  const nonce = (await headers()).get('x-nonce') || '';
   const query = searchParams?.query;
   const tipsList = t('body.section.unordered-list', { returnObjects: true }) as string[];
   const decodeQuery = decodeURIComponent(query);
@@ -64,7 +68,6 @@ const SearchTips = async ({ params: { locale }, searchParams }: any) => {
           label: t('components.breadcrumbs.label.online-loket'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <Heading level={1}>

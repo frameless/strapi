@@ -1,8 +1,6 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
-import Link from 'next/link';
-import React from 'react';
 
 import {
   CheckAlphabeticallyProductsAvailabilityQuery,
@@ -11,17 +9,9 @@ import {
 } from '../../../../gql/graphql';
 import { useTranslation } from '../../i18n';
 
-import {
-  Breadcrumbs,
-  Grid,
-  GridCell,
-  Heading,
-  Heading2,
-  IndexCharNav,
-  IndexCharNavLink,
-  ScrollToTopButton,
-  UtrechtIconChevronUp,
-} from '@/components';
+import { Grid, GridCell, Heading, Heading2, IndexCharNav, IndexCharNavLink } from '@/components';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { TopTask, TopTaskDataTypes } from '@/components/Toptask';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY, GET_PDC_HOME_PAGE } from '@/query';
@@ -34,12 +24,14 @@ export interface Fields {
 }
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { locale } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['home-page', 'common']);
   const title = t('seo.title');
@@ -66,9 +58,11 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   };
 }
 
-const Home = async ({ params: { locale } }: { params: any }) => {
+const Home = async (props: { params: Promise<any> }) => {
+  const params = await props.params;
+  const { locale } = params;
   const { t } = await useTranslation(locale, ['home-page', 'common']);
-  const nonce = headers().get('x-nonce') || '';
+  const nonce = (await headers()).get('x-nonce') || '';
   const { data } = await fetchData<{ data: GetPdcHomePageQuery }>({
     url: getStrapiGraphqlURL(),
     query: GET_PDC_HOME_PAGE,
@@ -127,7 +121,6 @@ const Home = async ({ params: { locale } }: { params: any }) => {
           label: t('components.breadcrumbs.label.home'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <Heading level={1}>{t('h1')}</Heading>
@@ -151,7 +144,7 @@ const Home = async ({ params: { locale } }: { params: any }) => {
             <KCMSurvey nonce={nonce} />
           </GridCell>
           <GridCell justifyContent="flex-end">
-            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+            <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>
       </main>

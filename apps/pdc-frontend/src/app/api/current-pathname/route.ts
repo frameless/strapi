@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ localizations: [] });
   }
 
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   cookieStore.set('slug', slug);
   const { data } = await fetchData<{ data: GetProductBySlugQuery }>({
     url: getStrapiGraphqlURL(),
