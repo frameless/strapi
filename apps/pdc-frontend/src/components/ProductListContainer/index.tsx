@@ -125,7 +125,6 @@ export const ProductListContainer = ({
                       <Link
                         className={classnames('utrecht-link', 'utrecht-link--html-a')}
                         href={url}
-                        locale={locale}
                         dangerouslySetInnerHTML={{ __html: title }}
                       />
                     )}

@@ -72,6 +72,8 @@ export const Markdown = ({
               height={Number(height)}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               figure={dataFigcaption}
+              // Mark as priority because this is the above-the-fold (LCP) image for faster initial load
+              loading="eager"
             />
           ) : null;
         },

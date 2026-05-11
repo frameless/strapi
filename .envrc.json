@@ -25,6 +25,14 @@
       "developmentDefault": "http://localhost:8000/static/sdk/open-forms-sdk.js"
     },
     {
+      "name": "OPEN_FORMS_MOCK",
+      "description": "Whether to use a mock implementation of the Open Forms API. This can be used for development and testing without needing to set up an actual Open Forms instance.",
+      "required": false,
+      "valueType": "string",
+      "examples": ["true", "false"],
+      "developmentDefault": "false"
+    },
+    {
       "name": "OVERIGE_OBJECTEN_API_PORT",
       "description": "Port number for the Overige Objecten API. This is used to access the Overige Objecten API from the frontend.",
       "required": false,

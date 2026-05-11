@@ -4,10 +4,8 @@ import isAbsoluteUrl from 'is-absolute-url';
 import { Metadata } from 'next';
 import { draftMode, headers } from 'next/headers';
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
-import React from 'react';
 
 import { GetProductBySlugQuery, ProductSectionsDynamicZone } from '../../../../../../gql/graphql';
 
@@ -30,12 +28,11 @@ import {
   Markdown,
   MultiColumnsButton,
   RichText,
-  ScrollToTopButton,
   SpotlightSection,
-  UtrechtIconChevronUp,
 } from '@/components';
 import { ContactCard } from '@/components/ContactCard';
 import { KCMSurvey } from '@/components/KCMSurvey';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { GET_PRODUCT_BY_SLUG } from '@/query';
 import {
   buildAlternateLinks,
@@ -49,7 +46,7 @@ import '@/styles/print.css';
 
 type SpotlightSectionType = 'info' | 'warning' | 'error' | 'ok';
 const getAllProducts = async (locale: string, slug: string) => {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const { data } = await fetchData<{ data: GetProductBySlugQuery }>({
     url: getStrapiGraphqlURL(),
     query: GET_PRODUCT_BY_SLUG,
@@ -73,11 +70,12 @@ type ParamsType = {
 };
 
 interface ProductProps {
-  params: ParamsType;
-  searchParams: { [key: string]: string | undefined };
+  params: Promise<ParamsType>;
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }
 
-export async function generateMetadata({ params }: { params: ParamsType }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<ParamsType> }): Promise<Metadata> {
+  const params = await props.params;
   const locale = params?.locale;
   const slug = params?.slug;
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -124,7 +122,7 @@ interface SectionsProps {
   sections: ProductSectionsDynamicZone[];
   priceData: any;
   locale: string;
-  t: TFunction<string, any, string>;
+  t: TFunction;
   nonce?: string;
 }
 
@@ -270,6 +268,8 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
                   alt={component?.imageData?.alternativeText || ''}
                   figure={component?.imageData?.caption || ''}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  // Mark as priority because this is the above-the-fold (LCP) image for faster initial load
+                  loading="eager"
                 />
               );
             }
@@ -327,13 +327,13 @@ const Sections = ({ sections, locale, priceData, t, nonce }: SectionsProps) => (
   </>
 );
 
-const Product = async ({ params: { locale, slug } }: ProductProps) => {
+const Product = async (props: ProductProps) => {
+  const params = await props.params;
+  const { locale, slug } = params;
   const { product } = await getAllProducts(locale, slug);
-  const nonce = headers().get('x-nonce') || '';
+  const nonce = (await headers()).get('x-nonce') || '';
   const priceData: any = product?.price && product?.price?.price;
-
   const { t } = await useTranslation(locale, 'common');
-
   const { pathSegments: productsSegment } = getPathAndSearchParams({
     locale,
     translations: t,
@@ -370,7 +370,6 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
           label: t('components.breadcrumbs.label.products'),
           current: false,
         }}
-        Link={Link}
       />
 
       <main id="main">
@@ -396,9 +395,7 @@ const Product = async ({ params: { locale, slug } }: ProductProps) => {
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell>{(product?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}</GridCell>
           <GridCell justifyContent="flex-end">
-            <ScrollToTopButton className="utrecht-scroll-to-top-button" Icon={UtrechtIconChevronUp}>
-              {t('actions.scroll-to-top')}
-            </ScrollToTopButton>
+            <ScrollToTopButton className="utrecht-scroll-to-top-button">{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>
       </main>

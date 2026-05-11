@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { GetOpenFormsErrorPageQuery } from '../../../../../../../gql/graphql';
 
 import { useTranslation } from '@/app/i18n';
@@ -13,8 +11,8 @@ type ParamsType = {
 };
 
 interface OpenFormsErrorPageProps {
-  params: ParamsType;
-  searchParams: { [key: string]: string | undefined };
+  params: Promise<ParamsType>;
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }
 
 type ErrorKey = 'formulier-niet-gevonden' | 'formulier-server-is-offline' | 'form-not-found' | 'form-server-down';
@@ -30,7 +28,9 @@ const getMappedError = (key: string): NormalizedError => {
   return mappedErrorKies[normalized];
 };
 
-const OpenFormsErrorPage = async ({ params: { errorKey, locale } }: OpenFormsErrorPageProps) => {
+const OpenFormsErrorPage = async (props: OpenFormsErrorPageProps) => {
+  const params = await props.params;
+  const { errorKey, locale } = params;
   const { t } = await useTranslation(locale, ['open-forms-error-pages', 'common']);
   const type = getMappedError(errorKey);
   const { data } = await fetchData<{ data: GetOpenFormsErrorPageQuery }>({
@@ -38,7 +38,7 @@ const OpenFormsErrorPage = async ({ params: { errorKey, locale } }: OpenFormsErr
     query: GET_OPEN_FORMS_ERROR_PAGE,
     variables: { locale, type },
   });
-  const openFromsErrorPageData = data?.openFormsErrorPages[0];
+  const openFormsErrorPageData = data?.openFormsErrorPages[0];
 
   return (
     <div>
@@ -65,11 +65,10 @@ const OpenFormsErrorPage = async ({ params: { errorKey, locale } }: OpenFormsErr
           label: t('components.breadcrumbs.label.online-loket'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
-        <Heading level={1}>{openFromsErrorPageData?.title}</Heading>
-        {openFromsErrorPageData?.body && <Markdown>{openFromsErrorPageData.body}</Markdown>}
+        <Heading level={1}>{openFormsErrorPageData?.title}</Heading>
+        {openFormsErrorPageData?.body && <Markdown>{openFormsErrorPageData.body}</Markdown>}
       </main>
     </div>
   );

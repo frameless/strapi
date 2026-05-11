@@ -1,13 +1,13 @@
 'use client';
 
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { useTranslation } from '../../i18n/client';
 import { fallbackLng } from '../../i18n/settings';
 
-import { Breadcrumbs, Button, Heading, Paragraph } from '@/components';
+import { Button, Heading, Paragraph } from '@/components';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 interface ErrorPageProps {
   error: Error;
   reset: () => void;
@@ -46,7 +46,6 @@ export default function Error({ error, reset }: ErrorPageProps) {
           label: t('components.breadcrumbs.label.online-loket'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <Heading level={1}>{t('common.title')}</Heading>

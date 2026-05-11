@@ -1,5 +1,4 @@
 'use client';
-
 import { ButtonLink } from '@utrecht/component-library-react';
 import type { ButtonLinkProps } from '@utrecht/component-library-react';
 import dynamic from 'next/dynamic';
@@ -30,14 +29,12 @@ export {
   ModalDialogFooter,
   ModalDialogHeader,
   Nav,
-  Navigation,
   NavigationList,
   PreviewAlert,
   PriceWidget,
   ProductListItem,
   ProductListPaginationInfo,
   ProductsList,
-  ScrollToTopButton,
   SearchIndexContent,
   type ButtonAppearance,
   type Columns,
@@ -86,13 +83,9 @@ export { SiteImproveAnalytics } from './SiteImproveAnalytics';
 // Overwrite `@frameless/ui` version with `"use client"` component
 export { GoogleTranslate } from './GoogleTranslate';
 
-export const Breadcrumbs = dynamic(
-  async () => {
-    const Component = (await import('@frameless/ui')).Breadcrumbs;
-    return { default: Component };
-  },
-  { ssr: false },
-);
+export { Breadcrumbs } from './Breadcrumbs';
+export { Navigation } from './Navigation';
+export { ScrollToTopButton } from './ScrollToTopButton';
 export const MultiColumnsButton = dynamic(
   async () => {
     const Component = (await import('@frameless/ui')).MultiColumnsButton;

@@ -35,6 +35,9 @@ const nextConfig = {
     ];
   },
   images: {
+    // Allow localhost images in dev only (blocked in production for security)
+    // https://nextjs.org/docs/app/api-reference/components/image#dangerouslyallowlocalip
+    dangerouslyAllowLocalIP: process.env.NODE_ENV === 'development',
     remotePatterns: [
       {
         protocol: protocol.replace(/:$/, ''),
@@ -43,20 +46,13 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.conditionNames = ['import', 'require', 'default'];
-    }
-    config.module.rules.push({
-      test: /\.md$/,
-      // This is the asset module.
-      type: 'asset/source',
-    });
-    return config;
-  },
-
-  experimental: {
-    serverActions: true,
+  turbopack: {
+    rules: {
+      '*.md': {
+        loaders: ['raw-loader'],
+        as: '*.js',
+      },
+    },
   },
 };
 

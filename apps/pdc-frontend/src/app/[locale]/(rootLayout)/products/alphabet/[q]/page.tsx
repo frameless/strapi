@@ -1,24 +1,14 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
-import Link from 'next/link';
 
 import { CheckAlphabeticallyProductsAvailabilityQuery, Product } from '../../../../../../../gql/graphql';
 
 import { useTranslation } from '@/app/i18n';
 import { languages } from '@/app/i18n/settings';
-import {
-  Breadcrumbs,
-  Grid,
-  GridCell,
-  Heading,
-  IndexCharNav,
-  IndexCharNavLink,
-  Paragraph,
-  ScrollToTopButton,
-  UtrechtIconChevronUp,
-} from '@/components';
+import { Breadcrumbs, Grid, GridCell, Heading, IndexCharNav, IndexCharNavLink, Paragraph } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { ProductListContainer } from '@/components/ProductListContainer';
 import { CHECK_ALPHABETICALLY_PRODUCTS_AVAILABILITY } from '@/query';
 import {
@@ -33,10 +23,10 @@ import { fetchData } from '@/util/fetchData';
 export const revalidate = 3600; // revalidate the data at most every hour
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
     q: string;
-  };
+  }>;
 };
 
 export interface Fields {
@@ -44,7 +34,9 @@ export interface Fields {
   body: string;
 }
 
-export async function generateMetadata({ params: { locale, q } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { locale, q } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
   const title = t('seo.title');
@@ -78,10 +70,12 @@ export async function generateMetadata({ params: { locale, q } }: Params): Promi
   };
 }
 
-const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
+const ProductsAlphabetPage = async (props: Params) => {
+  const params = await props.params;
+  const { locale, q } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['alphabet-page', 'common']);
-  const nonce = headers().get('x-nonce') || '';
+  const nonce = (await headers()).get('x-nonce') || '';
   const { products_connection } = await getAlphabeticallyProductsByLetter({
     locale,
     page: 1,
@@ -152,7 +146,6 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
           label: t('components.breadcrumbs.label.products'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <Heading level={1}>{t('h1')}</Heading>
@@ -178,7 +171,7 @@ const ProductsAlphabetPage = async ({ params: { locale, q } }: Params) => {
             <KCMSurvey nonce={nonce} />
           </GridCell>
           <GridCell justifyContent="flex-end">
-            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+            <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>
       </main>

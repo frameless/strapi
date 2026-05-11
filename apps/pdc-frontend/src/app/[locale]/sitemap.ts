@@ -17,7 +17,7 @@ const generateStaticPagesPath = (paths: string[]) => {
   });
 };
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const locale = cookies().get('i18nextLng')?.value || 'nl';
+  const locale = (await cookies()).get('i18nextLng')?.value || 'nl';
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, 'common');
   const productsUrl = buildURL({

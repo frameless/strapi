@@ -1,16 +1,16 @@
 import { buildURL, getPathAndSearchParams } from '@frameless/utils';
 import { Metadata } from 'next';
 import { headers } from 'next/headers';
-import Link from 'next/link';
 
 import { GetAllProductsSlugQueryQuery, Product } from '../../../../../gql/graphql';
 import { GET_ALL_PRODUCTS_SLUG } from '../../../../query';
 import { useTranslation } from '../../../i18n';
 
 import { languages } from '@/app/i18n/settings';
-import { Breadcrumbs, Grid, GridCell, Heading, ScrollToTopButton, UtrechtIconChevronUp } from '@/components';
+import { Breadcrumbs, Grid, GridCell, Heading } from '@/components';
 import { KCMSurvey } from '@/components/KCMSurvey';
 import { ProductListContainer } from '@/components/ProductListContainer';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { apiSettings, getStrapiGraphqlURL, mappingProducts, buildAlternateLinks, fetchData } from '@/util';
 export interface Fields {
   title: string;
@@ -18,9 +18,9 @@ export interface Fields {
 }
 
 type Params = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
 const fetchAllProducts = async ({ locale }: { locale: string }) => {
@@ -32,7 +32,9 @@ const fetchAllProducts = async ({ locale }: { locale: string }) => {
   return data;
 };
 
-export async function generateMetadata({ params: { locale } }: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
+  const { locale } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['products-page', 'common']);
   const title = t('seo.title');
@@ -66,10 +68,12 @@ export async function generateMetadata({ params: { locale } }: Params): Promise<
   };
 }
 
-const Products = async ({ params: { locale } }: { params: { locale: string } }) => {
+const Products = async (props: { params: Promise<{ locale: string }> }) => {
+  const params = await props.params;
+  const { locale } = params;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(locale, ['products-page', 'common']);
-  const nonce = headers().get('x-nonce') || '';
+  const nonce = (await headers()).get('x-nonce') || '';
   const { pathSegments: productSegment } = getPathAndSearchParams({
     translations: t,
     segments: ['segments.products'],
@@ -109,7 +113,6 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
           label: t('components.breadcrumbs.label.online-loket'),
           current: false,
         }}
-        Link={Link}
       />
       <main id="main">
         <Heading level={1}>{t('h1')}</Heading>
@@ -126,7 +129,7 @@ const Products = async ({ params: { locale } }: { params: { locale: string } }) 
             <KCMSurvey nonce={nonce} />
           </GridCell>
           <GridCell justifyContent="flex-end">
-            <ScrollToTopButton Icon={UtrechtIconChevronUp}>{t('actions.scroll-to-top')}</ScrollToTopButton>
+            <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>{' '}
       </main>
