@@ -43,7 +43,7 @@
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
     "react-loading-skeleton": ">=3",
-    "react-markdown": ">=9",
+    "react-markdown": ">=10",
     "rehype-raw": ">=7"
   },
   "peerDependenciesMeta": {
@@ -89,6 +89,8 @@
     "jest-environment-jsdom": "29.7.0",
     "react": "19.2.6",
     "react-dom": "19.2.6",
+    "react-markdown": "10.1.0",
+    "rehype-raw": "7.0.0",
     "sass": "1.98.0",
     "ts-jest": "29.2.3",
     "ts-node": "10.9.2",
