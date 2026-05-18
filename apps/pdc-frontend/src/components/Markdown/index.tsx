@@ -3,7 +3,7 @@ import { Markdown as BaseMarkdown, Img, PriceWidget } from '@frameless/ui';
 import isAbsoluteUrl from 'is-absolute-url';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import type { Options } from 'react-markdown';
+import type { Components } from 'react-markdown';
 
 import { useTranslation } from '../../app/i18n/client';
 import { fallbackLng } from '../../app/i18n/settings';
@@ -37,7 +37,7 @@ export const Markdown = ({
   priceData?: PriceTypes[];
   locale?: string;
 }) => {
-  const priceWidget: Options['components'] = {
+  const priceWidget: Components = {
     span: ({ node, children: spanChildren }) => {
       if (node?.properties.dataStrapiCategory === 'price') {
         // eslint-disable-next-line react-hooks/rules-of-hooks
