@@ -98,7 +98,9 @@
   },
   "pnpm": {
     "overrides": {
-      "eslint": "^9.39.3"
+      "eslint": "^9.39.3",
+      "sanitize-html": "2.17.4",
+      "handlebars": "4.7.9"
     },
     "patchedDependencies": {
       "@strapi/database": "patches/@strapi__database.patch",
