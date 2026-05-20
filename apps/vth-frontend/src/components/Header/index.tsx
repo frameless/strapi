@@ -39,7 +39,6 @@ export const Header = ({ navList, logo: { ariaLabel, href } }: HeaderProps) => (
         {navList && (
           <Navigation
             list={navList}
-            mobileBreakpoint={998}
             toggleButton={{
               openText: 'Menu',
               closeText: 'Sluiten',

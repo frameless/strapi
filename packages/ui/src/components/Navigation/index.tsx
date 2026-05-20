@@ -2,9 +2,9 @@ import { Drawer } from '@utrecht/component-library-react';
 import classnames from 'classnames/bind';
 import FocusTrap from 'focus-trap-react';
 import type { HTMLAttributes, PropsWithChildren } from 'react';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
-import { useClickOutside, useScreenSize } from '../../hooks';
+import { useClickOutside } from '../../hooks';
 import { useLockBody } from '../../hooks/useLockBody';
 
 import { NavigationList } from './NavigationList';
@@ -22,22 +22,13 @@ export type NavigationListType = {
 interface NavigationProps extends HTMLAttributes<HTMLElement> {
   list: NavigationListType[];
   targetId?: string;
-  mobileBreakpoint: number;
   toggleButton?: {
     openText?: string;
     closeText?: string;
   };
 }
 
-export const Navigation = ({
-  list,
-  mobileBreakpoint,
-  toggleButton,
-  targetId,
-  ...restProps
-}: PropsWithChildren<NavigationProps>) => {
-  const screenSize = useScreenSize();
-  const [visible, setVisible] = useState<boolean>(false);
+export const Navigation = ({ list, toggleButton, targetId, ...restProps }: PropsWithChildren<NavigationProps>) => {
   const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
   const navigationListRef = useRef<HTMLUListElement | null>(null);
   const drawerRef = useRef<HTMLDialogElement | null>(null);
@@ -55,48 +46,28 @@ export const Navigation = ({
     }
   };
   useClickOutside(drawerRef, showModal);
-  useLayoutEffect(() => {
-    if (mobileBreakpoint && screenSize) {
-      setVisible(screenSize < mobileBreakpoint);
-    }
-  }, [screenSize, mobileBreakpoint]);
 
   useLockBody({
     elementRef: navigationListRef,
-    visible: drawerVisible && visible,
+    visible: drawerVisible,
   });
-  useLayoutEffect(() => {
-    if (!visible && drawerRef?.current) {
-      setDrawerVisible(false);
-      drawerRef.current.close();
-    }
-  }, [visible, drawerRef.current]);
 
   return (
     <>
-      <nav
-        className={css(
-          'utrecht-navigation',
-          {
-            'utrecht-navigation--mobile': visible,
-          },
-          restProps.className,
-        )}
-        {...restProps}
-      >
-        {!visible ? (
-          <NavigationList id={targetId} list={list} mobile={visible} />
-        ) : (
+      <nav className={css('utrecht-navigation', restProps.className)} {...restProps}>
+        <div className={css('utrecht-navigation__desktop-list')}>
+          <NavigationList id={targetId} list={list} mobile={false} />
+        </div>
+        <div className={css('utrecht-navigation__mobile-toggle')}>
           <NavToggleButton
-            id={targetId}
             text={toggleButton?.openText}
             icon="hamburger"
             ref={hamburgerButtonRef}
-            className={css({ 'utrecht-navigation__toggle-button--start-end': !drawerVisible })}
+            className={!drawerVisible ? 'utrecht-navigation__toggle-button--start-end' : undefined}
             aria-expanded={drawerVisible}
             onClick={showModal}
           />
-        )}
+        </div>
       </nav>
       <FocusTrap
         active={drawerVisible}
@@ -108,13 +79,8 @@ export const Navigation = ({
         }}
       >
         <Drawer align="inline-end" className={css('utrecht-drawer--nav')} ref={drawerRef}>
-          <nav
-            className={css('utrecht-navigation', {
-              'utrecht-navigation--mobile': visible,
-            })}
-            {...restProps}
-          >
-            <NavigationList list={list} mobile={visible} ref={navigationListRef}>
+          <nav className={css('utrecht-navigation', 'utrecht-navigation--mobile')} {...restProps}>
+            <NavigationList list={list} mobile ref={navigationListRef}>
               <NavToggleButton
                 text={toggleButton?.closeText}
                 id="nav-toggle-button-close"

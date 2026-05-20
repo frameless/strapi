@@ -31,8 +31,11 @@
 }
 
 .utrecht-navigation__link:focus {
-  --utrecht-link-focus-color: var(--utrecht-navigation-link-focus-color, var(--utrecht-color-black));
-  --utrecht-link-focus-background-color: var(--utrecht-color-yellow-80);
+  --utrecht-link-focus-color: var(--utrecht-navigation-link-focus-visible-color, var(--utrecht-color-black));
+  --utrecht-link-focus-background-color: var(
+    --utrecht-navigation-link-focus-visible-background-color,
+    var(--utrecht-color-yellow-80)
+  );
   --utrecht-navigation-marker-color: currentColor;
   --utrecht-navigation-marker-outline-hover-fill: currentColor;
 }

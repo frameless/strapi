@@ -23,7 +23,7 @@ h6 {
 }
 
 /* mobile-verse */
-.utrecht-vth-theme {
+.utrecht-theme.utrecht-vth-theme {
   --utrecht-space-around: 1;
   --utrecht-list-social-margin-block-start: 24px;
   --utrecht-page-header-background-color: var(--utrecht-color-white);
@@ -92,11 +92,6 @@ h6 {
   padding-inline: 0;
 }
 
-/* nav-open */
-.utrecht-vth-theme:has(.utrecht-drawer[open]) {
-  --utrecht-page-padding-inline-end: 8px;
-}
-
 /* --- navigation tokens end --- */
 
 a {
@@ -118,10 +113,6 @@ a {
 .utrecht-logo__wrapper {
   margin-block-end: var(--utrecht-logo-wrapper-margin-block-end, 16px);
   margin-inline-start: var(--utrecht-logo-wrapper-margin-block-start, 16px);
-}
-
-.utrecht-navigation--mobile:has(button[aria-expanded="false"]) {
-  padding-inline-end: var(--utrecht-navigation-toggle-button-padding-end);
 }
 
 .utrecht-page-header {

@@ -1,11 +1,10 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { jest } from '@jest/globals';
 
 // ESM-native mocking — must use unstable_mockModule, must come before dynamic imports
 jest.unstable_mockModule('../../hooks', () => ({
-  useScreenSize: jest.fn().mockReturnValue(1024),
   useClickOutside: jest.fn(),
   useDialog: jest.fn(),
   useLockBody: jest.fn().mockImplementation(({ visible }: any) => {
@@ -18,10 +17,9 @@ jest.unstable_mockModule('../../hooks', () => ({
 }));
 
 // Dynamic imports MUST come after unstable_mockModule calls
-const { useScreenSize, useClickOutside } = await import('../../hooks');
+const { useClickOutside } = await import('../../hooks');
 const { Navigation } = await import('./index');
 
-const mockedUseScreenSize = jest.mocked(useScreenSize);
 const mockedUseClickOutside = jest.mocked(useClickOutside);
 
 const mockList = [
@@ -35,7 +33,6 @@ const mockToggleButton = {
 
 describe('Navigation Component', () => {
   beforeEach(() => {
-    mockedUseScreenSize.mockReturnValue(1024);
     mockedUseClickOutside.mockImplementation(() => {});
 
     HTMLDialogElement.prototype.show = jest.fn(function (this: HTMLDialogElement) {
@@ -54,15 +51,14 @@ describe('Navigation Component', () => {
   });
 
   it('renders Navigation component', () => {
-    const { container } = render(<Navigation list={mockList} mobileBreakpoint={768} toggleButton={mockToggleButton} />);
+    const { container } = render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
     expect(container.querySelector(':only-child')).toBeInTheDocument();
   });
 
-  test('should render the Navigation list on desktop view', () => {
-    const { container } = render(<Navigation list={mockList} mobileBreakpoint={768} toggleButton={mockToggleButton} />);
+  test('should render the Navigation list', () => {
+    const { container } = render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
     const nav = container.querySelector('nav');
-    const navList = nav?.querySelector(':only-child');
-    const navListItems = navList?.querySelectorAll('li a');
+    const navListItems = nav?.querySelectorAll('li a');
 
     expect(navListItems?.length).toBe(2);
     navListItems?.forEach((item) => {
@@ -70,29 +66,25 @@ describe('Navigation Component', () => {
       expect(item).toHaveAttribute('href');
       expect(item).toHaveTextContent(/Home|About/);
     });
-    expect(navList).toBeInTheDocument();
     expect(nav).toBeInTheDocument();
   });
 
-  test('should render the hamburger button in mobile view', () => {
-    mockedUseScreenSize.mockReturnValue(500);
-    const { container } = render(<Navigation list={mockList} mobileBreakpoint={768} toggleButton={mockToggleButton} />);
+  test('should always render the hamburger toggle button', () => {
+    const { container } = render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
     expect(screen.getByRole('button', { name: 'Open Menu' })).toBeInTheDocument();
     expect(container.querySelector('nav')).toBeInTheDocument();
   });
 
   test('should toggle the dialog when hamburger button is clicked', () => {
-    mockedUseScreenSize.mockReturnValue(450);
-    const { container } = render(<Navigation list={mockList} mobileBreakpoint={600} toggleButton={mockToggleButton} />);
+    const { container } = render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
     fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
     expect(container.querySelector('dialog[open]')).toBeInTheDocument();
     expect(container.querySelector('nav')).toBeInTheDocument();
   });
 
   test('should close the dialog when close button is clicked', async () => {
-    mockedUseScreenSize.mockReturnValue(450);
     const user = userEvent.setup();
-    const { container } = render(<Navigation list={mockList} mobileBreakpoint={600} toggleButton={mockToggleButton} />);
+    const { container } = render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
 
     await user.click(screen.getByRole('button', { name: 'Open Menu' }));
     const dialog = container.querySelector('dialog[open]');
@@ -106,30 +98,27 @@ describe('Navigation Component', () => {
   });
 
   test('should close the drawer when clicking outside', () => {
-    mockedUseScreenSize.mockReturnValue(450);
     const clickOutsideHandler = jest.fn();
     mockedUseClickOutside.mockImplementation((...args: unknown[]) => {
       const handler = args[1] as () => void;
       clickOutsideHandler.mockImplementation(handler);
     });
 
-    const { container } = render(<Navigation list={mockList} mobileBreakpoint={600} toggleButton={mockToggleButton} />);
+    const { container } = render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
     const dialog = container.querySelector('dialog[open]');
     clickOutsideHandler();
     expect(dialog).not.toBeInTheDocument();
   });
 
   test('should lock body scroll when drawer is open', () => {
-    mockedUseScreenSize.mockReturnValue(500);
-    render(<Navigation list={mockList} mobileBreakpoint={768} toggleButton={mockToggleButton} />);
+    render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
     fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
     expect(document.body).toHaveStyle('overflow: hidden');
   });
 
   test('FocusTrap traps focus within the drawer when it is open', async () => {
     const user = userEvent.setup();
-    mockedUseScreenSize.mockReturnValue(450);
-    const { container } = render(<Navigation list={mockList} mobileBreakpoint={600} toggleButton={mockToggleButton} />);
+    const { container } = render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
 
     fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
@@ -137,18 +126,19 @@ describe('Navigation Component', () => {
       expect(container.querySelector('dialog')).toBeInTheDocument();
       expect(screen.getByText('Close Menu')).toHaveFocus();
     });
+
+    const dialog = container.querySelector('dialog')!;
     await user.tab();
-    await waitFor(() => expect(screen.getByText('Home')).toHaveFocus());
+    await waitFor(() => expect(within(dialog).getByText('Home')).toHaveFocus());
     await user.tab();
-    await waitFor(() => expect(screen.getByText('About')).toHaveFocus());
+    await waitFor(() => expect(within(dialog).getByText('About')).toHaveFocus());
     await user.tab();
-    await waitFor(() => expect(screen.getByText('Close Menu')).toHaveFocus());
+    await waitFor(() => expect(within(dialog).getByText('Close Menu')).toHaveFocus());
   });
 
   test('FocusTrap should deactivate when the drawer is closed', async () => {
-    mockedUseScreenSize.mockReturnValue(450);
     const user = userEvent.setup();
-    render(<Navigation list={mockList} mobileBreakpoint={600} toggleButton={mockToggleButton} />);
+    render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
 
     await user.click(screen.getByRole('button', { name: 'Open Menu' }));
     await user.click(screen.getByText('Close Menu'));
@@ -156,19 +146,17 @@ describe('Navigation Component', () => {
   });
 
   test('Pressing Escape should close the drawer and deactivate FocusTrap', async () => {
-    mockedUseScreenSize.mockReturnValue(450);
     const user = userEvent.setup();
-    render(<Navigation list={mockList} mobileBreakpoint={600} toggleButton={mockToggleButton} />);
+    render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
 
     await user.click(screen.getByRole('button', { name: 'Open Menu' }));
     fireEvent.keyDown(document, { key: 'Escape', code: 'Escape' });
     await waitFor(() => expect(screen.getByRole('button', { name: 'Open Menu' })).toHaveFocus());
   });
 
-  test('should render the Navigation list on mobile view', () => {
-    mockedUseScreenSize.mockReturnValue(450);
-    const { container } = render(<Navigation list={mockList} mobileBreakpoint={600} toggleButton={mockToggleButton} />);
-    const navListItems = container.querySelector('nav')?.querySelector(':only-child')?.querySelectorAll('li a');
+  test('should render navigation list items', () => {
+    const { container } = render(<Navigation list={mockList} toggleButton={mockToggleButton} />);
+    const navListItems = container.querySelector('nav')?.querySelectorAll('li a');
 
     navListItems?.forEach((item) => {
       expect(item).toBeInTheDocument();

@@ -29,3 +29,21 @@
   --utrecht-link-focus-background-color: var(--utrecht-color-yellow-80);
   --utrecht-icon-color: var(--utrecht-color-black);
 }
+
+.utrecht-breadcrumb-nav__mobile-view {
+  display: contents;
+}
+
+.utrecht-breadcrumb-nav__full-view {
+  display: none;
+}
+
+@media screen and (width >= 361px) {
+  .utrecht-breadcrumb-nav__mobile-view {
+    display: none;
+  }
+
+  .utrecht-breadcrumb-nav__full-view {
+    display: contents;
+  }
+}

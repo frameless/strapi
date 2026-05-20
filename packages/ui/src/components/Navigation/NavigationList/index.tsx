@@ -39,6 +39,7 @@ export const NavigationList = ({
   sideNav,
   children,
   subList,
+  className,
   ...restProps
 }: PropsWithChildren<NavigationListProps>) => {
   const navListRef = useRef<HTMLUListElement>(null);
@@ -56,15 +57,19 @@ export const NavigationList = ({
 
   return (
     <ul
-      className={css('utrecht-navigation__list', {
-        'utrecht-navigation__list--mobile': mobile,
-        'utrecht-navigation__list--side-nav': sideNav,
-        'utrecht-navigation__list--sub-list': subList,
-      })}
+      {...restProps}
+      className={css(
+        'utrecht-navigation__list',
+        {
+          'utrecht-navigation__list--mobile': mobile,
+          'utrecht-navigation__list--side-nav': sideNav,
+          'utrecht-navigation__list--sub-list': subList,
+        },
+        className,
+      )}
       ref={navListRef}
       tabIndex={-1}
       onFocus={onNavListLinkFocusHandler}
-      {...restProps}
     >
       {children}
 

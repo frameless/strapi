@@ -254,7 +254,6 @@ const RootLayout = async (props: LayoutProps) => {
                           }) as string
                         }
                         list={navigationData.navigationList as NavigationListType[]}
-                        mobileBreakpoint={961}
                         toggleButton={{
                           openText: 'Menu',
                           closeText: 'Sluiten',
