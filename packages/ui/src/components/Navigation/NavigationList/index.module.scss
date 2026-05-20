@@ -34,8 +34,9 @@
   @include utrecht-navigation__list--mobile;
 
   inline-size: 100%;
-  padding-block-end: 0;
-  padding-block-start: 0;
+  padding-block-end: var(--utrecht-navigation-list-sub-list-padding-block-end, 0);
+  padding-block-start: var(--utrecht-navigation-list-sub-list-padding-block-start, 0);
+  padding-inline-start: var(--utrecht-navigation-list-sub-list-padding-inline-start, 1ch);
 }
 
 @mixin utrecht-navigation__list--sub-list-item {

@@ -31,7 +31,7 @@ h6 {
   --utrecht-emphasis-strong-font-weight: var(--utrecht-heading-6-font-weight);
 }
 
-.utrecht-pdc-theme {
+.utrecht-theme.utrecht-pdc-theme {
   --utrecht-page-footer-padding-block-end: 24px;
   --utrecht-page-footer-padding-block-start: 24px;
   --utrecht-page-footer-padding-inline-start: 16px;
@@ -242,13 +242,9 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
   margin-block-start: 0;
 }
 
-.utrecht-navigation--mobile:has(button[aria-expanded="false"]) {
-  padding-inline-end: var(--utrecht-navigation-toggle-button-padding-end);
-}
-
 /* Screens 428px wide or larger */
 @media (width >= 428px) {
-  .utrecht-pdc-theme {
+  .utrecht-theme.utrecht-pdc-theme {
     --utrecht-page-padding-inline-start: 32px;
     --utrecht-page-padding-inline-end: 32px;
     --utrecht-search-bar-wrapper-padding-inline-end: 32px;
@@ -259,7 +255,8 @@ p:has(a[class="utrecht-skip-link utrecht-skip-link--visible-on-focus"]) {
     --utrecht-page-footer-padding-block-end: 48px;
     --utrecht-page-footer-padding-block-start: 48px;
     --utrecht-page-footer-padding-inline-start: 32px;
-    --utrecht-page-footer-padding-inline-end: 32px --utrecht-drawer-padding-inline-end: 32px;
+    --utrecht-page-footer-padding-inline-end: 32px;
+    --utrecht-drawer-padding-inline-end: 32px;
   }
 }
 
