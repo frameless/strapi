@@ -119,11 +119,11 @@ export const generateKennisartikelObject = ({
         productValtOnder: kennisartikelMetadata?.productValtOnder ?? null, // we need an extra field for this
         verantwoordelijkeOrganisatie: getVerantwoordelijkeOrganisatie({
           metadata: kennisartikelMetadata?.verantwoordelijkeOrganisatie ?? {
-            owmsEndDate: '',
+            owmsEndDate: null,
             owmsIdentifier: '',
           },
           url,
-        }),
+        }) as components['schemas']['kennisartikel']['verantwoordelijkeOrganisatie'],
         locaties: null, //Een lijst met locaties waarop dit product beschikbaar is. Deze is nog niet nodig voor KISS en mag null zijn. Dit obecjt is dus nog niet opgenomen in dit schema
         doelgroep: kennisartikelMetadata?.doelgroep?.replace('_', '-') as 'eu-burger' | 'eu-bedrijf',
         afdelingen: kennisartikelMetadata?.afdelingen,

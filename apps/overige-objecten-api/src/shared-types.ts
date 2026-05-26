@@ -223,7 +223,7 @@ export interface Afdelingen {
 export interface VerantwoordelijkeOrganisatie {
   owmsIdentifier: string;
   owmsPrefLabel: string;
-  owmsEndDate: string;
+  owmsEndDate: string | null;
 }
 
 export interface Kennisartikel {

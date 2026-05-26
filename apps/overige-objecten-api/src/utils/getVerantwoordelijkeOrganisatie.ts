@@ -1,11 +1,11 @@
-import type { components } from '../types/openapi';
-
-export type ReturnedGetVerantwoordelijkeOrganisatieValue =
-  components['schemas']['kennisartikel']['verantwoordelijkeOrganisatie'];
-export interface GetVerantwoordelijkeOrganisatieProps {
-  metadata: Omit<components['schemas']['kennisartikel']['verantwoordelijkeOrganisatie'], 'url'>;
-  url: string;
-}
+export type {
+  ReturnedGetVerantwoordelijkeOrganisatieValue,
+  GetVerantwoordelijkeOrganisatieProps,
+} from './getVerantwoordelijkeOrganisatie.types';
+import type {
+  GetVerantwoordelijkeOrganisatieProps,
+  ReturnedGetVerantwoordelijkeOrganisatieValue,
+} from './getVerantwoordelijkeOrganisatie.types';
 
 export const getVerantwoordelijkeOrganisatie = ({
   metadata,
@@ -14,5 +14,5 @@ export const getVerantwoordelijkeOrganisatie = ({
   url: `${new URL('api/v2/objecttypes/kennisartikel', url).href}#verantwoordelijkeOrganisatie`,
   owmsIdentifier: metadata?.owmsIdentifier,
   owmsPrefLabel: metadata?.owmsPrefLabel,
-  owmsEndDate: metadata?.owmsEndDate,
+  owmsEndDate: metadata?.owmsEndDate || null,
 });
