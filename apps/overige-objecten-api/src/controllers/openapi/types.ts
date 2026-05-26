@@ -181,7 +181,7 @@ export interface VerantwoordelijkeOrganisatie {
   url: string;
   owmsIdentifier: string;
   owmsPrefLabel?: string;
-  owmsEndDate: string;
+  owmsEndDate: string | null;
 }
 
 export interface Afdeling {
