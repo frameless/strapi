@@ -25,6 +25,7 @@ query getAllProducts(
     nodes {
       id: documentId
       documentId
+      publishedAt
       content
       title
       slug
@@ -38,33 +39,35 @@ query getAllProducts(
         description
       }
       sections {
-        __typename
         ... on ComponentComponentsContactInformationPublic {
+          component: __typename
           contact_information_public {
-            contentBlock(pagination: { limit: -1 }) {
+            contentBlock(pagination: { start: 0, limit: -1 }) {
               id
               content
             }
           }
         }
         ... on ComponentComponentsInternalBlockContent {
+          component: __typename
           id
           internal_field {
             title
             id: documentId
             contact_information_internal {
-              contentBlock(pagination: { limit: -1 }) {
+              contentBlock(pagination: { start: 0, limit: -1 }) {
                 id
                 content
               }
             }
             contact_information_public {
-              contentBlock(pagination: { limit: -1 }) {
+              contentBlock(pagination: { start: 0, limit: -1 }) {
                 id
                 content
               }
             }
             content {
+              id
               uuid
               contentBlock {
                 content
@@ -75,11 +78,14 @@ query getAllProducts(
           }
         }
         ... on ComponentComponentsUtrechtRichText {
+          component: __typename
           id
           content
           kennisartikelCategorie
+          categorie5: kennisartikelCategorie
         }
         ... on ComponentComponentsUtrechtImage {
+          component: __typename
           categorie2: kennisartikelCategorie
           imageData {
             name
@@ -92,6 +98,7 @@ query getAllProducts(
           }
         }
         ... on ComponentComponentsUtrechtLogoButton {
+          component: __typename
           categorie3: kennisartikelCategorie
           appearance
           href
@@ -101,6 +108,7 @@ query getAllProducts(
           textContent
         }
         ... on ComponentComponentsUtrechtSpotlight {
+          component: __typename
           categorie4: kennisartikelCategorie
           content
           type
@@ -111,14 +119,17 @@ query getAllProducts(
             textContent
             logo
             appearance
+            __typename
           }
         }
         ... on ComponentComponentsUtrechtMultiColumnsButton {
+          component: __typename
           categorie6: kennisartikelCategorie
           column {
             id
             title
             logoButton {
+              component: __typename
               appearance
               href
               label
@@ -129,6 +140,7 @@ query getAllProducts(
           }
         }
         ... on ComponentComponentsUtrechtLink {
+          component: __typename
           categorie7: kennisartikelCategorie
           href
           textContent
@@ -136,10 +148,11 @@ query getAllProducts(
           language
         }
         ... on ComponentComponentsFaq {
+          component: __typename
           categorie8: kennisartikelCategorie
           pdc_faq {
             title
-            faq(pagination: { limit: -1 }) {
+            faq(pagination: { start: 0, limit: -1 }) {
               body
               headingLevel
               id
@@ -148,8 +161,9 @@ query getAllProducts(
           }
         }
         ... on ComponentComponentsUtrechtAccordion {
+          component: __typename
           categorie9: kennisartikelCategorie
-          item(pagination: { limit: -1 }) {
+          item(pagination: { start: 0, limit: -1 }) {
             body
             headingLevel
             id
@@ -161,15 +175,16 @@ query getAllProducts(
         content {
           id
           uuid
-          contentBlock(pagination: { limit: -1 }) {
+          contentBlock(pagination: { start: 0, limit: -1 }) {
             id
             content
             categorie10: kennisartikelCategorie
+            component: __typename
           }
         }
       }
       price {
-        price(pagination: { limit: -1 }) {
+        price(pagination: { start: 0, limit: -1 }) {
           currency
           id
           label
@@ -197,7 +212,6 @@ query getAllProducts(
   }
 }
 `);
-
 export const GET_PRODUCT_BY_UUID = gql(`
 query getProductByUUIDOrDocumentId(
   $locale: I18NLocaleCode

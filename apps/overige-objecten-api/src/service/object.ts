@@ -23,7 +23,7 @@ const isDefined = <T>(argument: T | undefined | null): argument is T => argument
 const getStatus = (items: (GQLProduct | GQLVac | null | undefined)[]): 'DRAFT' | 'PUBLISHED' =>
   items.filter(isDefined)[0]?.publishedAt === null ? 'DRAFT' : 'PUBLISHED';
 
-const formatKennisartikel = (
+export const formatKennisartikel = (
   product: GQLProduct,
   serverURL: string,
   publicationState: 'DRAFT' | 'PUBLISHED',
@@ -50,7 +50,7 @@ const formatKennisartikel = (
     url: serverURL,
     uuid: safeUuid,
     locale: product.locale ?? 'nl',
-    title: product.title ?? '',
+    title: product.title,
     updatedAt: product.updatedAt,
     createdAt: product.createdAt,
     publicationState,

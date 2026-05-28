@@ -2,18 +2,17 @@ import { fetchData } from '@frameless/utils';
 import type { RequestHandler } from 'express';
 
 import { GET_ALL_PRODUCTS, GET_ALL_VAC_ITEMS } from '../../queries';
-import { getObjectByUUID } from '../../service/object';
+import { getObjectByUUID, formatKennisartikel } from '../../service/object';
 import type { components } from '../../types/openapi';
-import { generateKennisartikelObject, getPaginatedResponse, getTheServerURL, getVacData } from '../../utils';
+import { getPaginatedResponse, getTheServerURL, getVacData } from '../../utils';
 import type { PaginationType } from '../../utils';
-import type { GetAllProductsQuery, GetAllVacItemsQuery } from '../../../gql/graphql';
-import type { KennisartikelMetadata, PageSection, PriceItem } from '../../shared-types';
+import type { GetAllProductsQuery, GetAllVacItemsQuery, GetProductByUuidOrDocumentIdQuery } from '../../../gql/graphql';
 
 type GetKennisartikelReturnData = components['schemas']['ObjectData'];
 
 const sum = (a: number, b: number): number => a + b;
 const isFiniteNumber = (arg: unknown): arg is number => typeof arg === 'number' && isFinite(arg);
-let results: any = [];
+let results: GetKennisartikelReturnData[] = [];
 let pagination: PaginationType = {};
 export const getAllObjectsController: RequestHandler = async (req, res, next) => {
   try {
@@ -59,56 +58,16 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
     }: {
       data: GetAllProductsQuery | undefined;
     }): GetKennisartikelReturnData[] => {
+      const isDefined = <T>(argument: T | undefined | null): argument is T =>
+        argument !== null && argument !== undefined;
       const products = data?.products_connection?.nodes ?? [];
       if (products.length === 0) return [];
-      return products.map((product) => {
-        const modifiedProduct = {
-          ...product,
-          sections: [
-            {
-              component: 'ComponentComponentsUtrechtRichText',
-              content: product?.content,
-              kennisartikelCategorie: 'inleiding',
-              categorie5: 'inleiding',
-            },
-            ...(product.sections ?? []),
-          ],
-        };
-        return generateKennisartikelObject({
-          sections: (modifiedProduct.sections?.filter(Boolean) ?? []) as PageSection[],
-          title: modifiedProduct.title,
-          uuid: modifiedProduct?.uuid,
-          locale: modifiedProduct.locale,
-          updatedAt: modifiedProduct.updatedAt,
-          createdAt: modifiedProduct.createdAt,
-          metaTags: modifiedProduct.metaTags ?? null,
-          kennisartikelMetadata: (modifiedProduct.kennisartikelMetadata as KennisartikelMetadata) ?? null,
-          price: modifiedProduct.price
-            ? {
-                price: (modifiedProduct.price.price?.filter(Boolean) ?? []) as PriceItem[],
-              }
-            : null,
-          additional_information: {
-            content: {
-              uuid: modifiedProduct.additional_information?.content?.uuid ?? '',
-              // Map the content blocks to match your ContentBlock interface exactly
-              contentBlock: (modifiedProduct.additional_information?.content?.contentBlock ?? [])
-                .filter((block): block is NonNullable<typeof block> => block !== null)
-                .map((block) => ({
-                  id: block.id,
-                  content: block.content,
-                  // Map the GraphQL 'categorie10' to the required 'kennisartikelCategorie'
-                  kennisartikelCategorie: block.categorie10 ?? 'onbekend',
-                  categorie10: block.categorie10,
-                  component: 'ComponentComponentsUtrechtRichText' as const,
-                })),
-            },
-          },
-          id: modifiedProduct.id,
-          url: serverURL,
-          publicationState: 'PUBLISHED',
-        });
-      });
+      type GQLProduct = NonNullable<NonNullable<GetProductByUuidOrDocumentIdQuery['products']>[number]>;
+      return products
+        .filter(isDefined)
+        .map(
+          (product) => formatKennisartikel(product as GQLProduct, serverURL, 'PUBLISHED') as GetKennisartikelReturnData,
+        );
     };
     const fetchVac = async () => {
       // Fetch VACs data from GraphQL
@@ -134,7 +93,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       const data = await fetchVac();
       const vac = getVacData({ data, serverURL, vacSchemaURL });
       pagination = await getPaginatedResponse(req, data?.vacs_connection?.pageInfo ?? undefined);
-      results = vac;
+      results = vac as unknown as GetKennisartikelReturnData[];
     } else if (!type && !isVac && !isKennisartikel) {
       const productsData = await fetchKennisartikelen();
       const data = await fetchVac();
@@ -153,7 +112,7 @@ export const getAllObjectsController: RequestHandler = async (req, res, next) =>
       };
       const kennisartikelData = getKennisartikelData({ data: productsData });
       const vac = getVacData({ data, serverURL, vacSchemaURL });
-      results = [...kennisartikelData, ...vac];
+      results = [...kennisartikelData, ...(vac as unknown as GetKennisartikelReturnData[])];
     } else {
       pagination = {
         page: 0,
@@ -196,9 +155,11 @@ export const getObjectByUUIDController: RequestHandler = async (req, res, next) 
     });
 
     return res.status(200).set('Content-Type', 'application/json').json(object);
-  } catch (error: any) {
-    if (error.message === 'UUID not provided' || error.message === 'Object not found') {
-      return res.status(404).json({ message: error.message });
+  } catch (error: unknown) {
+    // Forward any errors to the error handler middleware
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    if (errorMessage === 'UUID not provided' || errorMessage === 'Object not found') {
+      return res.status(404).json({ message: errorMessage });
     }
     next(error);
     return null;
