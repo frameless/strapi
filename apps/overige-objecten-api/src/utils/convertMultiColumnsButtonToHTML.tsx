@@ -20,7 +20,7 @@ const MultiColumnsButton = ({ item, withDesignSystem }: MultiColumnsButtonProps)
     return (
       <div style={{ display: 'inline-grid' }}>
         <Heading level={3}>{item.title}</Heading>
-        {item.logoButton.map((btn: LogoButtonItemType, index: number) => (
+        {item.logoButton?.map((btn: LogoButtonItemType, index: number) => (
           <LogoButton item={btn} headingLevel={4} key={index} />
         ))}
       </div>
@@ -29,7 +29,7 @@ const MultiColumnsButton = ({ item, withDesignSystem }: MultiColumnsButtonProps)
   return (
     <div style={{ display: 'inline-grid' }}>
       <h3>{item.title}</h3>
-      {item.logoButton.map((btn: LogoButtonItemType, index: number) => (
+      {item.logoButton?.map((btn: LogoButtonItemType, index: number) => (
         <BasicLogoButton item={btn} headingLevel={4} key={index} />
       ))}
     </div>
@@ -37,6 +37,6 @@ const MultiColumnsButton = ({ item, withDesignSystem }: MultiColumnsButtonProps)
 };
 
 export const convertMultiColumnsButtonToHTML = (item: MultiColumnsButtonTypes, withDesignSystem?: boolean) =>
-  item.column
+  (item.column ?? [])
     .map((col) => renderToString(<MultiColumnsButton item={col} withDesignSystem={withDesignSystem} key={col.title} />))
     .join('');

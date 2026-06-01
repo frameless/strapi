@@ -45,7 +45,7 @@ export const generateKennisartikelObject = ({
     categoryKey: 'categorie10',
   });
   const mergedContactInformationInternal = getInternalField?.contact_information_internal?.flatMap(
-    (item) => item.contentBlock,
+    (item) => item?.contentBlock ?? [],
   );
   const contactInformationInternal = mergedContactInformationInternal;
   const contactInformationPublic = getInternalField?.contact_information_public?.contentBlock;
@@ -64,7 +64,7 @@ export const generateKennisartikelObject = ({
 
       // Scenario B: It's nested inside the internal block
       if (isInternalBlock(block)) {
-        return block.internal_field.contact_information_public?.contentBlock ?? [];
+        return block.internal_field?.contact_information_public?.contentBlock ?? [];
       }
 
       return [];
