@@ -80,6 +80,7 @@ const renderMultiColumnsButton = (item: MultiColumnsButton): Record<string, stri
   mapContent(item.categorie, convertMultiColumnsButtonToHTML(item));
 
 const renderFaq = (item: FaqComponent): Record<string, string> => {
+  if (!item.pdc_faq?.faq) return {};
   const html = safeRenderToString(
     <>
       {item.pdc_faq.faq.map((faq, index) => (
@@ -104,6 +105,7 @@ const renderLink = (item: UtrechtLink): Record<string, string> => {
 };
 
 const renderAccordion = (item: UtrechtAccordion): Record<string, string> => {
+  if (!item.item) return {};
   const html = safeRenderToString(
     <>
       {item.item.map((accordionItem) => (
