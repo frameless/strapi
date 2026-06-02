@@ -1,6 +1,6 @@
 import { URL } from 'node:url';
 
-const { hostname, protocol, port } = new URL(process.env.STRAPI_PUBLIC_URL || 'http://localhost:1337');
+const { hostname, protocol, port } = new URL(process.env.STRAPI_PRIVATE_URL || 'http://localhost:1337');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
