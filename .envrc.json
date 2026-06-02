@@ -225,6 +225,14 @@
       "developmentDefault": "http://localhost:1337"
     },
     {
+      "name": "NEXT_IMAGES_DANGEROUSLY_ALLOW_LOCAL_IP",
+      "description": "Allow Next.js image optimization (/_next/image) to fetch images from private or local IP addresses. Next.js 14+ blocks this by default as SSRF protection. Set to 'true' only when the Next.js server and Strapi run on the same Docker host or Kubernetes cluster, where STRAPI_PUBLIC_URL resolves to a private IP. Safe because remotePatterns already restricts the image optimizer to a single trusted hostname. See: https://nextjs.org/docs/app/api-reference/components/image#dangerouslyallowlocalip",
+      "required": false,
+      "valueType": "string",
+      "examples": ["true", "false"],
+      "developmentDefault": "false"
+    },
+    {
       "name": "TRANSFER_TOKEN_SALT",
       "description": "Salt for generating Transfer tokens. If no transfer token salt is defined, transfer features will be disabled. See: https://docs.strapi.io/user-docs/settings/transfer-tokens",
       "required": false,
