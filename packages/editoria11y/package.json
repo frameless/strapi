@@ -1,6 +1,6 @@
 {
   "name": "@frameless/editoria11y",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Editoria11y web component wrapper",
   "module": "./dist/index.js",
   "es2015": "./dist/esm/index.mjs",

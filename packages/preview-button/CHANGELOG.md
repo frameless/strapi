@@ -1,5 +1,44 @@
 # @frameless/preview-button [1.3.0](https://github.com/frameless/strapi/compare/@frameless/preview-button@1.2.0...@frameless/preview-button@1.3.0) (2024-02-02)
 
+## 1.3.0
+
+### Minor Changes
+
+- d82bf39: Contactinformatie is nu opgesplitst in twee aparte verzamelingen:
+
+  - **Contactinformatie (openbaar)**: Zichtbaar voor alle bezoekers op de website
+  - **Contactinformatie (intern)**: Alleen zichtbaar voor medewerkers in het KISS-dashboard
+
+  Deze wijziging maakt het mogelijk om verschillende contactgegevens te tonen aan het publiek en aan interne medewerkers.
+
+  ## Waar worden de nieuwe verzamelingen gebruikt?
+
+  ### PDC Strapi Dashboard - Voorbeeld in dialoogvenster
+
+  - **Interne informatie**: Wanneer je contactinformatie koppelt aan de verzameling "Interne informatie", wordt deze onderaan weergegeven
+  - **VAC**: Werkt op dezelfde manier als bij Interne informatie
+  - **Producten**: Alleen contactinformatie (openbaar) kan gekoppeld worden aan een product. Via de productblokken (Onderdelen) kun je een contactinformatie-blok toevoegen en vervolgens een contactinformatie selecteren via de dropdown
+
+  ### Overige Objecten API
+
+  De contactinformatie wordt op dezelfde manier verwerkt als in het voorbeelddialoogvenster en wordt uiteindelijk weergegeven in het KISS-dashboard.
+
+  ### PDC Frontend
+
+  Wanneer contactinformatie (openbaar) aan een product is gekoppeld, wordt deze weergegeven op de website van het digitaal loket.
+
+  ### Documentatie
+
+  De [rollendocumentatie](https://cms.frameless.io/docs/handboek/rollen-en-mogelijkheden-in-strapi-dashboard) is bijgewerkt met informatie over de nieuwe verzamelingen.
+
+  ([GitHub Issue Frameless/strapi#1165](https://github.com/frameless/strapi/issues/1165))
+
+### Patch Changes
+
+- 0d6d9f2: Het is nu mogelijk om meerdere interne contactgegevens toe te voegen aan VAC en de interne informatieverzameling.
+
+  ([GitHub Issue Frameless/strapi#1316](https://github.com/frameless/strapi/issues/1316))
+
 ## 1.2.0
 
 ### Minor Changes

@@ -1,5 +1,103 @@
 # @frameless/pdc-frontend
 
+## 0.8.0
+
+### Minor Changes
+
+- b85c24d: Integreer het **Noto Sans** lettertype en de nieuwste versies van de **Utrecht component libraries** in de Online Loket-website.
+  Deze update bevat diverse verbeteringen en bugfixes uit het Utrecht Design System, zodat de PDC-frontend up-to-date blijft met de meest recente UI-componenten en stijlen.
+
+  De belangrijkste reden voor het bijwerken van de Utrecht component libraries is dat na het bijwerken van `@utrecht/design-tokens` om het **Noto Sans** lettertype toe te voegen, sommige bestaande stijlen niet meer compatibel waren met de huidige componenten.
+  Door de component libraries bij te werken, wordt volledige compatibiliteit met de nieuwe design tokens gegarandeerd.
+
+  ### Verbeteringen in deze update
+
+  - Toegevoegd Noto Sans lettertype aan de PDC-frontend via @utrecht/design-tokens
+  - Bijgewerkte accordion-component
+  - Verbeterde layout-spacing voor zowel grote als kleine schermen
+  - Algemene verbeteringen in UI en consistentie
+  - Opgeloste bugs in verschillende componenten
+
+- e24723d: KTO-formulier (KCM) embed toegevoegd aan productpagina's met schakeloptie
+
+  - KTO-formulier embed onderaan alle PDC productpagina's geplaatst
+  - Schakeloptie in CMS toegevoegd om KTO-formulier per product in/uit te schakelen (standaard: ingeschakeld)
+  - CSP-beleid geconfigureerd voor KCM survey resources (\*.kcmg.nl, v.kcmg.nl)
+  - Omgevingsvariabelen toegevoegd voor KCM survey configuratie (API key, survey ID, URL, stylesheet)
+  - KTO-formulier embed ziet er hetzelfde uit en werkt zoals op de hoofdwebsite
+  - Update de rollen en permissies voor CMS-gebruikers om KTO-formulier schakeloptie te beheren
+
+  ([GitHub Issue Frameless/strapi#1218](https://github.com/frameless/strapi/issues/1218))
+
+- 684446c: # We hebben de manier waarop de beslisboom in de applicatie wordt geladen en weergegeven verbeterd:
+
+  - De beslisboom wordt nu als een npm-pakket beheerd in plaats van via een los script. Dit maakt het veiliger en zorgt dat we beter kunnen bijhouden welke versie gebruikt wordt.
+  - Er is een wrapper gemaakt voor ons design systeem, zodat de beslisboom automatisch het uiterlijk en de stijl van Gemeente Utrecht krijgt.
+  - De beslisboom maakt nu gebruik van de nieuwste versie (1.13.2).
+  - In de Strapi-omgeving is een React-wrapper toegevoegd, zodat de integratie makkelijker en consistenter is.
+  - De nieuwe implementatie is volledig geïntegreerd in de PDC-frontend, waardoor gebruikers de beslisboom naadloos in de juiste huisstijl zien.
+
+- d82bf39: Contactinformatie is nu opgesplitst in twee aparte verzamelingen:
+
+  - **Contactinformatie (openbaar)**: Zichtbaar voor alle bezoekers op de website
+  - **Contactinformatie (intern)**: Alleen zichtbaar voor medewerkers in het KISS-dashboard
+
+  Deze wijziging maakt het mogelijk om verschillende contactgegevens te tonen aan het publiek en aan interne medewerkers.
+
+  ## Waar worden de nieuwe verzamelingen gebruikt?
+
+  ### PDC Strapi Dashboard - Voorbeeld in dialoogvenster
+
+  - **Interne informatie**: Wanneer je contactinformatie koppelt aan de verzameling "Interne informatie", wordt deze onderaan weergegeven
+  - **VAC**: Werkt op dezelfde manier als bij Interne informatie
+  - **Producten**: Alleen contactinformatie (openbaar) kan gekoppeld worden aan een product. Via de productblokken (Onderdelen) kun je een contactinformatie-blok toevoegen en vervolgens een contactinformatie selecteren via de dropdown
+
+  ### Overige Objecten API
+
+  De contactinformatie wordt op dezelfde manier verwerkt als in het voorbeelddialoogvenster en wordt uiteindelijk weergegeven in het KISS-dashboard.
+
+  ### PDC Frontend
+
+  Wanneer contactinformatie (openbaar) aan een product is gekoppeld, wordt deze weergegeven op de website van het digitaal loket.
+
+  ### Documentatie
+
+  De [rollendocumentatie](https://cms.frameless.io/docs/handboek/rollen-en-mogelijkheden-in-strapi-dashboard) is bijgewerkt met informatie over de nieuwe verzamelingen.
+
+  ([GitHub Issue Frameless/strapi#1165](https://github.com/frameless/strapi/issues/1165))
+
+- 4610e4a: Toegevoegde open-forms-error-page functie
+
+  ### Minor Changes
+
+  Geeft redacteuren de mogelijkheid om de inhoud van de foutpagina's van open formulieren bij te werken via het Strapi-dashboard.
+
+  - ([GitHub Issue UtrechtStrapiCMS/projects#937](https://github.com/orgs/frameless/projects/45/views/1?pane=issue&itemId=84125224&issue=frameless%7Cstrapi%7C937))
+
+- 30b3273: **Toegankelijkheid tracking toegevoegd**
+
+  Nieuwe functionaliteit om gebruikersgedrag en toegankelijkheidsinstellingen te volgen:
+
+  - **Donkere modus detectie**: Registreert wanneer gebruikers donkere modus gebruiken
+  - **Hoog contrast modus**: Volgt gebruik van geforceerde kleuren/hoog contrast instellingen
+  - **Zoom niveau bij formulieren**: Detecteert wanneer gebruikers inzoomen (>130%) en formulieren gebruiken
+  - **Google Translate gebruik**: Registreert wanneer pagina's worden vertaald
+
+  ([GitHub Issue Frameless/strapi#996](https://github.com/frameless/strapi/issues/996));
+
+### Patch Changes
+
+- 6abe014: Update Flo-legal to 1.17.0
+- 2dc3a93: Formulierenpagina’s uitgesloten van indexering in zoekmachines.
+
+  ([GitHub Issue Frameless/strapi#992](https://github.com/frameless/strapi/issues/992))
+
+- Updated dependencies [140c0fa]
+- Updated dependencies [268d5f0]
+- Updated dependencies [c663a36]
+  - @frameless/ui@0.1.3
+  - @frameless/editoria11y@1.0.0
+
 ## 0.7.0
 
 ### Minor Changes
