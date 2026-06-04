@@ -376,6 +376,7 @@
       "properties": {
         "fields": [
           "title",
+          "slug",
           "content",
           "sections",
           "price",
@@ -395,7 +396,6 @@
           "metadata.contact.name",
           "metadata.contact.email",
           "metadata.eForm.linkedEForm",
-          "slug",
           "pdc_subcategories",
           "pdc_metadata.productCode",
           "pdc_metadata.beoogdResultaat",
@@ -438,7 +438,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "efhsm2bby5peka6ogps5w0zd",
+      "documentId": "d4axw386orixnzkbevl7thrj",
       "locale": null
     },
     {
@@ -470,6 +470,7 @@
       "properties": {
         "fields": [
           "title",
+          "slug",
           "content",
           "sections",
           "price",
@@ -489,7 +490,6 @@
           "metadata.contact.name",
           "metadata.contact.email",
           "metadata.eForm.linkedEForm",
-          "slug",
           "pdc_subcategories",
           "pdc_metadata.productCode",
           "pdc_metadata.beoogdResultaat",
@@ -533,7 +533,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "vx5rlytpg8c21ejxupc8bj3z",
+      "documentId": "cia49wtpdlglkwjghrm5pje3",
       "locale": null
     },
     {
@@ -543,6 +543,7 @@
       "properties": {
         "fields": [
           "title",
+          "slug",
           "content",
           "sections",
           "price",
@@ -562,7 +563,6 @@
           "metadata.contact.name",
           "metadata.contact.email",
           "metadata.eForm.linkedEForm",
-          "slug",
           "pdc_subcategories",
           "pdc_metadata.productCode",
           "pdc_metadata.beoogdResultaat",
@@ -605,7 +605,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "iz47s1cawamjxsjm3dj0dhzt",
+      "documentId": "mvjdcj7apulje3hi9ubfmz98",
       "locale": null
     },
     {
@@ -637,6 +637,60 @@
       },
       "conditions": [],
       "documentId": "pj3labztp3itvkw0qmzyzh07",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.assets.copy-link",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "uwdxbzplweut22815i202jcg",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.assets.create",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "m78661xbqfbanm4g22sijnup",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.assets.download",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "d65j9w1as3zsh8mv2l5hkozk",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.assets.update",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "s4z5xazojt2lct0ip9xig1rd",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.configure-view",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "xtdklqmndhemr5bw7cdesq2g",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.read",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "z04yip5t19ysb9qc1m1xs36s",
       "locale": null
     }
   ]
