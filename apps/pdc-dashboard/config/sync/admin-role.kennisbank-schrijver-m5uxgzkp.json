@@ -380,6 +380,7 @@
       "properties": {
         "fields": [
           "title",
+          "slug",
           "content",
           "sections",
           "price",
@@ -399,7 +400,6 @@
           "metadata.contact.name",
           "metadata.contact.email",
           "metadata.eForm.linkedEForm",
-          "slug",
           "pdc_subcategories",
           "pdc_metadata.productCode",
           "pdc_metadata.beoogdResultaat",
@@ -443,7 +443,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "qcas6ta6yexmorqihz2dp7dp",
+      "documentId": "apwef6262x99z8ppk3mk5vfd",
       "locale": null
     },
     {
@@ -555,6 +555,60 @@
       },
       "conditions": [],
       "documentId": "g7djox5u5630pmovqzag1h7l",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.assets.copy-link",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "vuzwwaz42pugam5rcqx16xn0",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.assets.create",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "mnewdxcd4bdtvy81l0mutjqg",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.assets.download",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "fboexxp6p9bi9guluc6s9zia",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.assets.update",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "whfq91ilshi2jwu42cjughop",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.configure-view",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "o824317gz6k8cwu695fmm186",
+      "locale": null
+    },
+    {
+      "action": "plugin::upload.read",
+      "actionParameters": {},
+      "subject": null,
+      "properties": {},
+      "conditions": [],
+      "documentId": "pdsyvvcz0rzzu4pw3v5fncoq",
       "locale": null
     }
   ]
