@@ -27,7 +27,6 @@ import {
   Page,
   PageContent,
   PageHeader,
-  PreviewAlert,
   SiteImproveAnalytics,
   SkipLink,
   Surface,
@@ -209,15 +208,6 @@ const RootLayout = async (props: LayoutProps) => {
         )}
         suppressHydrationWarning={true}
       >
-        {isEnabled && (
-          <PreviewAlert
-            link={{
-              href: '/api/clear-preview',
-              text: t('preview-alert.link'),
-            }}
-            message={t('preview-alert.message')}
-          />
-        )}
         <QueryClientProvider>
           <Surface>
             {isEnabled && <Editoria11yWrapper />}

@@ -13,14 +13,12 @@ export {
   Nav,
   Navigation,
   NavigationList,
-  PreviewAlert,
   ScrollToTopButton,
   type FooterData,
   type HeadingLevel,
   type LanguageSwitcherProps,
   type NavigationListType,
   type NavProps,
-  type PreviewAlertProps,
 } from '@frameless/ui';
 export { Markdown } from './Markdown';
 export { Header } from './Header';
