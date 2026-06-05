@@ -18,7 +18,7 @@ Gebruik de taalselectie wanneer je binnen een pagina een stuk tekst hebt dat in 
 
 Content Manager -> **Producten** -> open of voeg een **Contentblok** component toe
 
-<!-- [Bekijk voorbeeld](/img/strapi-plugins/...) -->
+![Bekijk voorbeeld](/img/strapi-plugins/strapi-dashboard-producten-onderdelen.png)
 
 ### 2. Selecteer de tekst
 

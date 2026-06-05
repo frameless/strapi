@@ -18,7 +18,7 @@ Content Manager -> **Producten** -> open een product/nieuwe aanmaken
 
 Scroll naar het knop **+ Voeg een onderdeel toe** en klik hierop. Kies het component **Beslisboom**.
 
-<!-- [Bekijk voorbeeld](/img/strapi-plugins/...) -->
+![Bekijk voorbeeld](/img/strapi-plugins/strapi-dashboard-producten-onderdelen.png)
 
 ### 3. Selecteer een formulier
 

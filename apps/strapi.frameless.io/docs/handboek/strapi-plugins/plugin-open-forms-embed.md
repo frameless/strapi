@@ -18,7 +18,7 @@ Content Manager -> **Producten** -> open of maak een product waaraan je een form
 
 Scroll en klik het **+ Voeg een onderdeel toe** knop. Kies het component **Call to Action knop (CTA)**.
 
-<!-- [Bekijk voorbeeld](/img/strapi-plugins/...) -->
+![Bekijk voorbeeld](/img/strapi-plugins/strapi-dashboard-producten-onderdelen.png)
 
 ### 3. Selecteer een formulier
 
