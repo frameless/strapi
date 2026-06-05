@@ -59,7 +59,7 @@ const config = {
       'content-manager.components.empty-repeatable': 'Nog geen items. Klik op de + om iets toe te voegen.',
       'content-manager.relation.publicationState.published': 'Gepubliceerd',
       'content-manager.relation.publicationState.draft': 'Concept',
-      'preview-button.button.pagePreview': 'KISS-Voorbeeld',
+      'preview-button.button.pagePreview': 'KISS-voorbeeld',
       'Not Found Page': 'Pagina niet gevonden',
       'primary-action-button': 'Inwoners (blauw)',
       'secondary-action-button': 'Aanvullende knop (wit)',
