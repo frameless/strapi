@@ -11,6 +11,7 @@ export async function GET(request: Request) {
   const slug = searchParams.get('slug');
   const type = searchParams.get('type');
   const locale = searchParams.get('locale');
+  const status = searchParams.get('status')?.toUpperCase();
 
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
@@ -36,7 +37,7 @@ export async function GET(request: Request) {
     url: getStrapiGraphqlURL(),
     query: getCurrentPage(type).query,
     variables: {
-      status: 'DRAFT',
+      status,
     },
   });
 
@@ -46,8 +47,14 @@ export async function GET(request: Request) {
 
   const path = getCurrentPage(type).path;
 
-  // Enable Draft Mode by setting the cookie
-  (await draftMode()).enable();
+  if (status === 'DRAFT') {
+    // Enable Draft Mode by setting the cookie
+    (await draftMode()).enable();
+  } else {
+    // Disable Draft Mode by clearing the cookie
+    (await draftMode()).disable();
+  }
+
   // Redirect to the path from the fetched post
   // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
   redirect(path ? path : '/');

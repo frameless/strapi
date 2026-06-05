@@ -1,8 +1,4 @@
 {
-  "preview-alert": {
-    "message": "Preview Mode: Enabled",
-    "link": "(Click here to disable it)"
-  },
   "actions": {
     "try-again": "Try again",
     "scroll-to-top": "Back to top",

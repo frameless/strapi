@@ -7,7 +7,7 @@ import React from 'react';
 
 import { useTranslation } from '@/app/i18n';
 import { QueryClientProvider } from '@/client';
-import { Footer, FooterData, Page, PreviewAlert, Surface } from '@/components';
+import { Footer, FooterData, Page, Surface } from '@/components';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import '@utrecht/design-tokens/dist/font-family';
@@ -125,15 +125,6 @@ const RootLayout = async (props: LayoutProps) => {
         className={classnames('utrecht-theme', 'utrecht-document', 'utrecht-vth-theme')}
         suppressHydrationWarning={true}
       >
-        {isEnabled && (
-          <PreviewAlert
-            link={{
-              href: '/api/clear-preview',
-              text: t('preview-alert.link'),
-            }}
-            message={t('preview-alert.message')}
-          />
-        )}
         <QueryClientProvider>
           <Surface>
             <Page className="utrecht-page--full-width">
