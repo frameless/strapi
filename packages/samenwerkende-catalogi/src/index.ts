@@ -1,7 +1,7 @@
 import gemeente from '@frameless/catalogi-data';
 import { uplKeyValues } from '@frameless/upl';
 import dotenv from 'dotenv';
-import { mapKeys } from 'lodash';
+import { mapKeys } from 'es-toolkit';
 import { create } from 'xmlbuilder2';
 
 import { createScheme, getPrefLabel, isValidURL } from './helpers';
