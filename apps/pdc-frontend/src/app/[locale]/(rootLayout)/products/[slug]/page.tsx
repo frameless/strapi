@@ -395,7 +395,7 @@ const Product = async (props: ProductProps) => {
         <Grid justifyContent="space-between" spacing="sm">
           <GridCell>{(product?.enable_kcm_survey ?? true) && <KCMSurvey nonce={nonce} />}</GridCell>
           <GridCell justifyContent="flex-end">
-            <ScrollToTopButton className="utrecht-scroll-to-top-button">{t('actions.scroll-to-top')}</ScrollToTopButton>
+            <ScrollToTopButton>{t('actions.scroll-to-top')}</ScrollToTopButton>
           </GridCell>
         </Grid>
       </main>
