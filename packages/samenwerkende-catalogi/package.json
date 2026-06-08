@@ -25,6 +25,7 @@
     "@frameless/catalogi-data": "0.0.1",
     "@frameless/upl": "0.0.1",
     "dotenv": "17.4.2",
+    "es-toolkit": "1.47.0",
     "xmlbuilder2": "3.0.2"
   },
   "scripts": {
