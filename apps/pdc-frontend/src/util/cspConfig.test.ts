@@ -93,6 +93,7 @@ describe('cspConfig', () => {
 
       beforeEach(async () => {
         process.env.OPEN_FORMS_API_URL = 'https://openforms.example.com';
+        delete process.env.STRAPI_PUBLIC_URL;
         jest.resetModules();
 
         ({ getContentSecurityPolicy } = await import('./cspConfig'));
