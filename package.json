@@ -51,6 +51,7 @@
     "lint-build": "pnpm -r run --if-present lint-build",
     "format:env": "node scripts/env-format.mjs",
     "prettier": "prettier --list-different --write .",
+    "prepare": "husky install",
     "postinstall": "pnpm --filter @frameless/pdc-frontend copy-flo-legal-decision-tree-client-script",
     "publish": "changeset publish",
     "test-update": "pnpm lint && pnpm build && pnpm test",
