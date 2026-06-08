@@ -14,12 +14,12 @@
   --utrecht-link-list-row-gap: 16px;
   --utrecht-link-social-border-color: transparent;
 
-  display: block;
+  display: block !important;
 }
 
 .utrecht-footer__container {
-  padding-inline-end: 0;
-  padding-inline-start: 0;
+  padding-inline-end: 0 !important;
+  padding-inline-start: 0 !important;
 }
 
 .utrecht-footer__list-title {

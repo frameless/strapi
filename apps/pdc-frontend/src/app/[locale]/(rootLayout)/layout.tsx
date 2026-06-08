@@ -45,11 +45,11 @@ import { SearchBar } from '@/components/SearchBar';
 import { Editoria11yWrapper } from '@/lib/stencil-client';
 import { GET_TEMPLATE, GET_WEBSITE_SETTINGS } from '@/query';
 import { buildAlternateLinks, config, fetchData, getStrapiGraphqlURL } from '@/util';
-import '@frameless/ui/dist/bundle.css';
 import '@utrecht/component-library-css';
 import '@utrecht/design-tokens/dist/index.css';
 import '@utrecht/design-tokens/dist/font-family';
 import 'react-loading-skeleton/dist/skeleton.css';
+import '@frameless/ui/dist/bundle.css';
 import '../../../styles/globals.css';
 
 interface LayoutProps {
