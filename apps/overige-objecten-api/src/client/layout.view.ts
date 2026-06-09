@@ -22,9 +22,9 @@ export const renderLayout = ({ app, vacData, kennisartikelData, status, title, e
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title}</title>
     <link rel="stylesheet" href="${basePath}/public/vendor/preview-style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@9.0.0/dist/index.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@9.0.0/dist/html.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@utrecht/design-tokens@5.0.1/dist/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@9.0.12/dist/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@9.0.12/dist/html.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/design-tokens@6.2.1/dist/index.css" />
 </head>
 
 <body class="utrecht-theme">
