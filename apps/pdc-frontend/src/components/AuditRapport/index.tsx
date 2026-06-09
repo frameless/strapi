@@ -20,7 +20,7 @@ import {
   UnorderedList,
   UnorderedListItem,
 } from '@utrecht/component-library-react';
-import { groupBy } from 'lodash';
+import { groupBy } from 'es-toolkit';
 
 import wcagJSON from '../../../wcag-evaluation.json';
 import { DigiToegankelijkStatus } from '../DigiToegankelijkStatus';
