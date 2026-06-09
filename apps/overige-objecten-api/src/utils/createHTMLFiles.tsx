@@ -107,11 +107,11 @@ const PageComponent = ({ data, priceData }: CategoryProps) => {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@7.0.0/dist/index.css" />
-        <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@7.0.0/dist/html.css" />
-        <link rel="stylesheet" href="https://unpkg.com/@utrecht/design-tokens@2.4.0/dist/index.css" />
+        <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@9.0.12/dist/index.css" />
+        <link rel="stylesheet" href="https://unpkg.com/@utrecht/component-library-css@9.0.12/dist/html.css" />
+        <link rel="stylesheet" href="https://unpkg.com/@utrecht/design-tokens@6.2.1/dist/index.css" />
         <script
-          src="https://unpkg.com/@utrecht/web-component-library-stencil@3.0.1/dist/utrecht/utrecht.esm.js"
+          src="https://unpkg.com/@utrecht/web-component-library-stencil@4.2.1/dist/utrecht/utrecht.esm.js"
           type="module"
         ></script>
         <script
