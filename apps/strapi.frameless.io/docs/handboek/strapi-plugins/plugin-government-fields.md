@@ -58,14 +58,6 @@ In het **Kennisartikel Metadata** component vind je het veld **UPN URI**. Hier s
 - De opties in deze dropdown komen uit het npm-package `@frameless/upl`, dat de officiële UPN-waardelijst van OWMS bevat
 - Typ een (deel van de) productnaam om te zoeken in de lijst
 
-### 5. Vul de overige velden in
-
-Vul ook de andere verplichte velden in, zoals _Doelgroep_, _Online aanvragen_ en _Korte omschrijving_. Verplichte velden zijn gemarkeerd met een rood sterretje (**\***).
-
-### 6. Sla op en publiceer
-
-Klik op **Bewaar** en vervolgens op **Publiceer** om de wijzigingen door te voeren.
-
 ---
 
 ## Aandachtspunten
