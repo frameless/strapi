@@ -17,7 +17,7 @@ FROM base AS pruner
 COPY . .
 
 # Prune everything - no specific app, builds all
-RUN pnpm dlx turbo prune \
+RUN pnpm dlx turbo@2.8.13 prune \
     @frameless/pdc-dashboard \
     @frameless/vth-dashboard \
     @frameless/pdc-frontend \
