@@ -7,6 +7,7 @@ import { create } from 'xmlbuilder2';
 import { createScheme, getPrefLabel, isValidURL } from './helpers';
 
 dotenv.config();
+
 const prefixMap = {
   xsi: 'http://www.w3.org/2001/XMLSchema-instance',
   dcterms: 'http://purl.org/dc/terms/',
@@ -16,56 +17,26 @@ const prefixMap = {
 
 const xmlnsPrefixMap = mapKeys(prefixMap, (_value, key) => `xmlns:${key}`);
 
-type SpatialType = {
-  resourceIdentifier: string;
-  scheme: string;
-  label: string;
-};
-
-type AuthorityType = {
-  scheme: string;
-  resourceIdentifier: string;
-  label: string;
-};
-
-type OnlineRequestType = {
-  type: string;
-};
-
-type CatalogiMetaType = {
-  spatial: SpatialType;
-  authority: AuthorityType;
-  audience: AudienceType[];
-  onlineRequest: OnlineRequestType;
-  abstract: string;
-};
-
-type PdcMetaType = {
-  uplProductNaam?: string;
-};
-
-type AudienceType = {
+export type ScProduct = {
   id: string;
-  type: string;
-  scheme: string;
-};
-
-type SamenWerkendeCatalogiAttributesTypes = {
-  documentId: string;
-  catalogiMeta: CatalogiMetaType;
-  pdc_metadata: PdcMetaType;
-  locale: string;
-  slug: string;
   title: string;
-  updatedAt: string;
+  slug: string;
+  language: string;
+  modifiedAt: string;
+  abstract?: string | null;
+  onlineRequest?: string | null;
+  spatial: { scheme: string; resourceIdentifier: string };
+  authority: { scheme: string; resourceIdentifier: string };
+  audiences: { id: string; type: string }[];
+  uplProductNaam?: string | null;
 };
 
-export const convertJsonToXML = (data: SamenWerkendeCatalogiAttributesTypes[], frontend_url: string) => {
+export const convertJsonToXML = (data: ScProduct[], frontend_url: string | undefined) => {
   if (!frontend_url) {
     throw new Error('frontend_url is required');
   } else if (!isValidURL(frontend_url)) {
     throw new Error('Invalid frontend_url value');
-  } else if (!data && data.length === 0) {
+  } else if (!data || data.length === 0) {
     throw new Error('The `data` parameter is required');
   } else {
     const root = create({ version: '1.0', encoding: 'utf-8' })
@@ -76,42 +47,35 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiAttributesTypes[], f
       });
 
     const meta = data.map((item) => {
-      const gemeenteSpatial = item.catalogiMeta?.spatial.resourceIdentifier;
-      const gemeenteAuthority = item.catalogiMeta?.authority.resourceIdentifier;
-      const uniformProductName = uplKeyValues.find(({ uri }) => uri === item.pdc_metadata?.uplProductNaam);
-      const prefLabelSpatial = getPrefLabel(gemeente.cv.value, item.catalogiMeta?.spatial.resourceIdentifier);
-      const prefLabelAuthority = getPrefLabel(gemeente.cv.value, item.catalogiMeta?.authority.resourceIdentifier);
-      const schemeAuthority = createScheme(item.catalogiMeta?.authority?.scheme, prefixMap);
-      const schemeSpatial = createScheme(item.catalogiMeta?.spatial?.scheme, prefixMap);
+      const uniformProductName = uplKeyValues.find(({ uri }) => uri === item.uplProductNaam);
+      const prefLabelSpatial = getPrefLabel(gemeente.cv.value, item.spatial.resourceIdentifier);
+      const prefLabelAuthority = getPrefLabel(gemeente.cv.value, item.authority.resourceIdentifier);
+      const schemeAuthority = createScheme(item.authority.scheme, prefixMap);
+      const schemeSpatial = createScheme(item.spatial.scheme, prefixMap);
       const path = 'products'; // can be from the CMS
-      const identifier = `${frontend_url.endsWith('/') ? frontend_url : `${frontend_url}/`}${item.locale}/${path}/${
-        item.slug
-      }`;
+      const identifier = `${frontend_url.endsWith('/') ? frontend_url : `${frontend_url}/`}${item.language}/${path}/${item.slug}`;
 
       const spatial = {
         scheme: schemeSpatial,
-        resourceIdentifier: gemeenteSpatial,
+        resourceIdentifier: item.spatial.resourceIdentifier,
         label: prefLabelSpatial,
       };
 
       const authority = {
         scheme: schemeAuthority,
-        resourceIdentifier: gemeenteAuthority,
+        resourceIdentifier: item.authority.resourceIdentifier,
         label: prefLabelAuthority,
       };
 
-      const audiences =
-        item.catalogiMeta && item.catalogiMeta?.audience
-          ? item.catalogiMeta?.audience.map(({ id, type }) => ({ id, type, scheme: 'overheid:Doelgroep' }))
-          : [];
+      const audiences = item.audiences.map(({ id, type }) => ({ id, type, scheme: 'overheid:Doelgroep' }));
 
       return {
-        productId: item.documentId,
+        productId: item.id,
         title: item.title,
-        language: item.locale,
-        modified: item.updatedAt,
-        abstract: item.catalogiMeta?.abstract,
-        onlineAanvragen: item.catalogiMeta?.onlineRequest.type,
+        language: item.language,
+        modified: item.modifiedAt,
+        abstract: item.abstract,
+        onlineAanvragen: item.onlineRequest,
         identifier,
         spatial,
         authority,
@@ -161,14 +125,14 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiAttributesTypes[], f
           scheme: item.authority.scheme,
           resourceIdentifier: item.spatial.resourceIdentifier,
         })
-        .txt(item.spatial.label)
+        .txt(item.spatial.label ?? '')
         .up()
         .ele('overheid:authority')
         .att({
           scheme: item.authority.scheme,
           resourceIdentifier: item.authority.resourceIdentifier,
         })
-        .txt(item.authority.label)
+        .txt(item.authority.label ?? '')
         .up();
       const owmsmantel = meta.ele('overheidproduct:owmsmantel');
       item.audiences.forEach((audience) => {
@@ -195,7 +159,6 @@ export const convertJsonToXML = (data: SamenWerkendeCatalogiAttributesTypes[], f
       scproduct.ele('overheidproduct:body');
     });
 
-    // convert the XML tree to string
     const xml = root.end({ prettyPrint: true });
 
     return xml;

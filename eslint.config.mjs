@@ -6,6 +6,7 @@ const myAdditionalIgnores = [
   'apps/pdc-frontend/public/flo-client-plugin.js',
   'apps/pdc-frontend/gql/**',
   'apps/vth-frontend/gql/**',
+  'apps/pdc-sc/src/gql/**',
   '**/loader/**',
   '**/www/**',
 ];

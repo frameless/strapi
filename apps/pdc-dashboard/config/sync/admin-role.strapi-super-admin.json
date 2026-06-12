@@ -724,7 +724,6 @@
           "catalogiMeta.authority.scheme",
           "catalogiMeta.audience.type",
           "catalogiMeta.onlineRequest.type",
-          "catalogiMeta.abstract",
           "metadata.singleDigitalGateway",
           "metadata.attachementAdded",
           "metadata.contact.name",
@@ -773,7 +772,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "y5q6axwsk961hv9dystlzewe",
+      "documentId": "fnwzrvfdyg073h3wpic4bh5p",
       "locale": null
     },
     {
@@ -819,7 +818,6 @@
           "catalogiMeta.authority.scheme",
           "catalogiMeta.audience.type",
           "catalogiMeta.onlineRequest.type",
-          "catalogiMeta.abstract",
           "metadata.singleDigitalGateway",
           "metadata.attachementAdded",
           "metadata.contact.name",
@@ -868,7 +866,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "cos42yfdq4bkf4fxr13hedpu",
+      "documentId": "xg5mrgm7hmnci9ro89ubexow",
       "locale": null
     },
     {
@@ -892,7 +890,6 @@
           "catalogiMeta.authority.scheme",
           "catalogiMeta.audience.type",
           "catalogiMeta.onlineRequest.type",
-          "catalogiMeta.abstract",
           "metadata.singleDigitalGateway",
           "metadata.attachementAdded",
           "metadata.contact.name",
@@ -941,7 +938,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "p5e0etgwvslwwnk00qnwxvl0",
+      "documentId": "vnauofvbam2pd09w7kv7nhhs",
       "locale": null
     },
     {

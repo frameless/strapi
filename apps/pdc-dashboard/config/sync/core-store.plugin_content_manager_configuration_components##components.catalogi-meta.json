@@ -76,20 +76,6 @@
           "sortable": false
         }
       },
-      "abstract": {
-        "edit": {
-          "label": "Korte omschrijving",
-          "description": "Korte omschrijving van het product.",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "abstract",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "documentId": {
         "edit": {},
         "list": {
@@ -124,12 +110,6 @@
           {
             "name": "onlineRequest",
             "size": 12
-          }
-        ],
-        [
-          {
-            "name": "abstract",
-            "size": 6
           }
         ]
       ]
