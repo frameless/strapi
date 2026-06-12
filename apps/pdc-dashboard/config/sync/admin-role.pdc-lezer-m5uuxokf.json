@@ -105,6 +105,7 @@
       "properties": {
         "fields": [
           "title",
+          "slug",
           "content",
           "sections",
           "price",
@@ -118,13 +119,11 @@
           "catalogiMeta.authority.scheme",
           "catalogiMeta.audience.type",
           "catalogiMeta.onlineRequest.type",
-          "catalogiMeta.abstract",
           "metadata.singleDigitalGateway",
           "metadata.attachementAdded",
           "metadata.contact.name",
           "metadata.contact.email",
           "metadata.eForm.linkedEForm",
-          "slug",
           "pdc_subcategories",
           "pdc_metadata.productCode",
           "pdc_metadata.beoogdResultaat",

@@ -9,7 +9,8 @@
       "pageSize": 10,
       "mainField": "title",
       "defaultSortBy": "keymatch",
-      "defaultSortOrder": "ASC"
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
     },
     "metadatas": {
       "id": {
@@ -51,7 +52,7 @@
       "description": {
         "edit": {
           "label": "Korte omschrijving",
-          "description": "Korte samenvatting voor zoekvoorbeelden en delen op sociale media.",
+          "description": "Korte samenvatting voor zoekmachines, delen op sociale media en de Samenwerkende Catalogi.",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -86,7 +87,6 @@
       }
     },
     "layouts": {
-      "list": ["id", "keymatch", "title", "description"],
       "edit": [
         [
           {
@@ -108,7 +108,8 @@
             "size": 6
           }
         ]
-      ]
+      ],
+      "list": ["id", "keymatch", "title", "description"]
     },
     "isComponent": true
   },

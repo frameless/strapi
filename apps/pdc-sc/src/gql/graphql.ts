@@ -28,6 +28,7 @@ export type Scalars = {
 };
 
 export type AdditionalInformation = {
+  __typename?: 'AdditionalInformation';
   content?: Maybe<ComponentComponentsAdditionalInformationField>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -38,6 +39,7 @@ export type AdditionalInformation = {
 };
 
 export type AdditionalInformationEntityResponseCollection = {
+  __typename?: 'AdditionalInformationEntityResponseCollection';
   nodes: Array<AdditionalInformation>;
   pageInfo: Pagination;
 };
@@ -88,11 +90,13 @@ export type BooleanFilterInput = {
 };
 
 export type ComponentComponentsAdditionalInformation = {
+  __typename?: 'ComponentComponentsAdditionalInformation';
   additional_information?: Maybe<AdditionalInformation>;
   id: Scalars['ID']['output'];
 };
 
 export type ComponentComponentsAdditionalInformationField = {
+  __typename?: 'ComponentComponentsAdditionalInformationField';
   contentBlock?: Maybe<Array<Maybe<ComponentComponentsUtrechtRichText>>>;
   id: Scalars['ID']['output'];
   uuid?: Maybe<Scalars['String']['output']>;
@@ -120,6 +124,7 @@ export type ComponentComponentsAdditionalInformationFieldInput = {
 };
 
 export type ComponentComponentsAfdelingen = {
+  __typename?: 'ComponentComponentsAfdelingen';
   afdelingId: Scalars['String']['output'];
   afdelingNaam: Scalars['String']['output'];
   id: Scalars['ID']['output'];
@@ -140,6 +145,7 @@ export type ComponentComponentsAfdelingenInput = {
 };
 
 export type ComponentComponentsAntwoord = {
+  __typename?: 'ComponentComponentsAntwoord';
   content?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsantwoord_Kennisartikelcategorie>;
@@ -163,6 +169,7 @@ export type ComponentComponentsAntwoordInput = {
 };
 
 export type ComponentComponentsAudience = {
+  __typename?: 'ComponentComponentsAudience';
   id: Scalars['ID']['output'];
   type: Enum_Componentcomponentsaudience_Type;
 };
@@ -180,6 +187,7 @@ export type ComponentComponentsAudienceInput = {
 };
 
 export type ComponentComponentsCatalogiMeta = {
+  __typename?: 'ComponentComponentsCatalogiMeta';
   audience: Array<Maybe<ComponentComponentsAudience>>;
   authority: ComponentComponentsSpatial;
   id: Scalars['ID']['output'];
@@ -213,6 +221,7 @@ export type ComponentComponentsCatalogiMetaInput = {
 };
 
 export type ComponentComponentsCimPdcProductAspectBeschrijving = {
+  __typename?: 'ComponentComponentsCimPdcProductAspectBeschrijving';
   id: Scalars['ID']['output'];
   onderwerp?: Maybe<Scalars['String']['output']>;
   uitleg: Scalars['String']['output'];
@@ -233,6 +242,7 @@ export type ComponentComponentsCimPdcProductAspectBeschrijvingInput = {
 };
 
 export type ComponentComponentsCimPdcProductBeschrijving = {
+  __typename?: 'ComponentComponentsCimPdcProductBeschrijving';
   cimPdcProductAspectBeschrijving?: Maybe<Array<Maybe<ComponentComponentsCimPdcProductAspectBeschrijving>>>;
   id: Scalars['ID']['output'];
   omschrijving?: Maybe<Scalars['String']['output']>;
@@ -269,6 +279,7 @@ export type ComponentComponentsCimPdcProductBeschrijvingInput = {
 };
 
 export type ComponentComponentsCimPdcProductMetadata = {
+  __typename?: 'ComponentComponentsCimPdcProductMetadata';
   afnemer?: Maybe<Scalars['String']['output']>;
   beoogdResultaat?: Maybe<Scalars['String']['output']>;
   bestelwijze?: Maybe<Enum_Componentcomponentscimpdcproductmetadata_Bestelwijze>;
@@ -332,15 +343,18 @@ export type ComponentComponentsCimPdcProductMetadataInput = {
 };
 
 export type ComponentComponentsContact = {
+  __typename?: 'ComponentComponentsContact';
   id: Scalars['ID']['output'];
 };
 
 export type ComponentComponentsContactInformationPublic = {
+  __typename?: 'ComponentComponentsContactInformationPublic';
   contact_information_public?: Maybe<ContactInformationPublic>;
   id: Scalars['ID']['output'];
 };
 
 export type ComponentComponentsContactInformationRichText = {
+  __typename?: 'ComponentComponentsContactInformationRichText';
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   label?: Maybe<Scalars['String']['output']>;
@@ -361,36 +375,43 @@ export type ComponentComponentsContactInformationRichTextInput = {
 };
 
 export type ComponentComponentsEForm = {
+  __typename?: 'ComponentComponentsEForm';
   id: Scalars['ID']['output'];
 };
 
 export type ComponentComponentsFaq = {
+  __typename?: 'ComponentComponentsFaq';
   id: Scalars['ID']['output'];
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsfaq_Kennisartikelcategorie>;
   pdc_faq?: Maybe<PdcFaq>;
 };
 
 export type ComponentComponentsFloLegalForm = {
+  __typename?: 'ComponentComponentsFloLegalForm';
   floLegalFormSelector?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
 };
 
 export type ComponentComponentsInternalBlockContent = {
+  __typename?: 'ComponentComponentsInternalBlockContent';
   id: Scalars['ID']['output'];
   internal_field?: Maybe<InternalField>;
 };
 
 export type ComponentComponentsInternalContentBlock = {
+  __typename?: 'ComponentComponentsInternalContentBlock';
   id: Scalars['ID']['output'];
 };
 
 export type ComponentComponentsInternalContentBlockComponent = {
+  __typename?: 'ComponentComponentsInternalContentBlockComponent';
   content?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsinternalcontentblockcomponent_Kennisartikelcategorie>;
 };
 
 export type ComponentComponentsInternalField = {
+  __typename?: 'ComponentComponentsInternalField';
   contentBlock?: Maybe<Array<Maybe<ComponentComponentsUtrechtRichText>>>;
   id: Scalars['ID']['output'];
   keywords?: Maybe<Scalars['String']['output']>;
@@ -421,6 +442,7 @@ export type ComponentComponentsInternalFieldInput = {
 };
 
 export type ComponentComponentsKennisartikel = {
+  __typename?: 'ComponentComponentsKennisartikel';
   afdelingen?: Maybe<Array<Maybe<ComponentComponentsAfdelingen>>>;
   doelgroep: Enum_Componentcomponentskennisartikel_Doelgroep;
   id: Scalars['ID']['output'];
@@ -463,11 +485,13 @@ export type ComponentComponentsKennisartikelInput = {
 };
 
 export type ComponentComponentsMetadata = {
+  __typename?: 'ComponentComponentsMetadata';
   eForm?: Maybe<ComponentComponentsEForm>;
   id: Scalars['ID']['output'];
 };
 
 export type ComponentComponentsOnlineRequest = {
+  __typename?: 'ComponentComponentsOnlineRequest';
   id: Scalars['ID']['output'];
   type: Enum_Componentcomponentsonlinerequest_Type;
 };
@@ -485,6 +509,7 @@ export type ComponentComponentsOnlineRequestInput = {
 };
 
 export type ComponentComponentsPrice = {
+  __typename?: 'ComponentComponentsPrice';
   currency: Enum_Componentcomponentsprice_Currency;
   id: Scalars['ID']['output'];
   label: Scalars['String']['output'];
@@ -511,6 +536,7 @@ export type ComponentComponentsPriceInput = {
 };
 
 export type ComponentComponentsSpatial = {
+  __typename?: 'ComponentComponentsSpatial';
   id: Scalars['ID']['output'];
   resourceIdentifier?: Maybe<Scalars['String']['output']>;
   scheme: Scalars['String']['output'];
@@ -531,6 +557,7 @@ export type ComponentComponentsSpatialInput = {
 };
 
 export type ComponentComponentsTrackingScripts = {
+  __typename?: 'ComponentComponentsTrackingScripts';
   enabled?: Maybe<Scalars['Boolean']['output']>;
   id: Scalars['ID']['output'];
   slug?: Maybe<Enum_Componentcomponentstrackingscripts_Slug>;
@@ -551,6 +578,7 @@ export type ComponentComponentsTrackingScriptsInput = {
 };
 
 export type ComponentComponentsTrefwoorden = {
+  __typename?: 'ComponentComponentsTrefwoorden';
   id: Scalars['ID']['output'];
   trefwoord?: Maybe<Scalars['String']['output']>;
 };
@@ -563,6 +591,7 @@ export type ComponentComponentsTrefwoordenFiltersInput = {
 };
 
 export type ComponentComponentsTriggerMatomoScript = {
+  __typename?: 'ComponentComponentsTriggerMatomoScript';
   id: Scalars['ID']['output'];
   title?: Maybe<Scalars['String']['output']>;
   trackingScripts?: Maybe<Array<Maybe<ComponentComponentsTrackingScripts>>>;
@@ -582,11 +611,13 @@ export type ComponentComponentsTriggerMatomoScriptInput = {
 };
 
 export type ComponentComponentsUrl = {
+  __typename?: 'ComponentComponentsUrl';
   id: Scalars['ID']['output'];
   value?: Maybe<Scalars['String']['output']>;
 };
 
 export type ComponentComponentsUtrechtAccordion = {
+  __typename?: 'ComponentComponentsUtrechtAccordion';
   id: Scalars['ID']['output'];
   item?: Maybe<Array<Maybe<ComponentComponentsUtrechtAccordionSection>>>;
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtaccordion_Kennisartikelcategorie>;
@@ -600,6 +631,7 @@ export type ComponentComponentsUtrechtAccordionItemArgs = {
 };
 
 export type ComponentComponentsUtrechtAccordionSection = {
+  __typename?: 'ComponentComponentsUtrechtAccordionSection';
   body?: Maybe<Scalars['String']['output']>;
   headingLevel?: Maybe<Scalars['Int']['output']>;
   id: Scalars['ID']['output'];
@@ -626,6 +658,7 @@ export type ComponentComponentsUtrechtAccordionSectionInput = {
 };
 
 export type ComponentComponentsUtrechtFooter = {
+  __typename?: 'ComponentComponentsUtrechtFooter';
   address?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   list?: Maybe<ComponentComponentsUtrechtFooterList>;
@@ -634,6 +667,7 @@ export type ComponentComponentsUtrechtFooter = {
 };
 
 export type ComponentComponentsUtrechtFooterLink = {
+  __typename?: 'ComponentComponentsUtrechtFooterLink';
   href?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   textContent?: Maybe<Scalars['String']['output']>;
@@ -648,6 +682,7 @@ export type ComponentComponentsUtrechtFooterLinkFiltersInput = {
 };
 
 export type ComponentComponentsUtrechtFooterList = {
+  __typename?: 'ComponentComponentsUtrechtFooterList';
   id: Scalars['ID']['output'];
   listItem?: Maybe<Array<Maybe<ComponentComponentsUtrechtFooterListItem>>>;
 };
@@ -660,6 +695,7 @@ export type ComponentComponentsUtrechtFooterListListItemArgs = {
 };
 
 export type ComponentComponentsUtrechtFooterListItem = {
+  __typename?: 'ComponentComponentsUtrechtFooterListItem';
   id: Scalars['ID']['output'];
   link?: Maybe<Array<Maybe<ComponentComponentsUtrechtFooterLink>>>;
   title?: Maybe<Scalars['String']['output']>;
@@ -681,12 +717,14 @@ export type ComponentComponentsUtrechtFooterListItemFiltersInput = {
 };
 
 export type ComponentComponentsUtrechtImage = {
+  __typename?: 'ComponentComponentsUtrechtImage';
   id: Scalars['ID']['output'];
   imageData?: Maybe<UploadFile>;
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtimage_Kennisartikelcategorie>;
 };
 
 export type ComponentComponentsUtrechtLink = {
+  __typename?: 'ComponentComponentsUtrechtLink';
   href?: Maybe<Scalars['String']['output']>;
   icon?: Maybe<Enum_Componentcomponentsutrechtlink_Icon>;
   id: Scalars['ID']['output'];
@@ -696,6 +734,7 @@ export type ComponentComponentsUtrechtLink = {
 };
 
 export type ComponentComponentsUtrechtLogoButton = {
+  __typename?: 'ComponentComponentsUtrechtLogoButton';
   appearance?: Maybe<Enum_Componentcomponentsutrechtlogobutton_Appearance>;
   href?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
@@ -720,6 +759,7 @@ export type ComponentComponentsUtrechtLogoButtonFiltersInput = {
 };
 
 export type ComponentComponentsUtrechtMultiColumnsButton = {
+  __typename?: 'ComponentComponentsUtrechtMultiColumnsButton';
   column?: Maybe<Array<Maybe<ComponentComponentsUtrechtMultiColumnsButtonItem>>>;
   id: Scalars['ID']['output'];
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtmulticolumnsbutton_Kennisartikelcategorie>;
@@ -733,6 +773,7 @@ export type ComponentComponentsUtrechtMultiColumnsButtonColumnArgs = {
 };
 
 export type ComponentComponentsUtrechtMultiColumnsButtonItem = {
+  __typename?: 'ComponentComponentsUtrechtMultiColumnsButtonItem';
   id: Scalars['ID']['output'];
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtmulticolumnsbuttonitem_Kennisartikelcategorie>;
   logoButton?: Maybe<Array<Maybe<ComponentComponentsUtrechtLogoButton>>>;
@@ -756,6 +797,7 @@ export type ComponentComponentsUtrechtMultiColumnsButtonItemFiltersInput = {
 };
 
 export type ComponentComponentsUtrechtNavigation = {
+  __typename?: 'ComponentComponentsUtrechtNavigation';
   id: Scalars['ID']['output'];
   navigationList?: Maybe<Array<Maybe<ComponentComponentsUtrechtNavigationLink>>>;
 };
@@ -768,6 +810,7 @@ export type ComponentComponentsUtrechtNavigationNavigationListArgs = {
 };
 
 export type ComponentComponentsUtrechtNavigationLink = {
+  __typename?: 'ComponentComponentsUtrechtNavigationLink';
   href?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   textContent?: Maybe<Scalars['String']['output']>;
@@ -782,6 +825,7 @@ export type ComponentComponentsUtrechtNavigationLinkFiltersInput = {
 };
 
 export type ComponentComponentsUtrechtRichText = {
+  __typename?: 'ComponentComponentsUtrechtRichText';
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie>;
@@ -805,6 +849,7 @@ export type ComponentComponentsUtrechtRichTextInput = {
 };
 
 export type ComponentComponentsUtrechtSocialMediaLink = {
+  __typename?: 'ComponentComponentsUtrechtSocialMediaLink';
   href?: Maybe<Scalars['String']['output']>;
   icon: Enum_Componentcomponentsutrechtsocialmedialink_Icon;
   id: Scalars['ID']['output'];
@@ -821,6 +866,7 @@ export type ComponentComponentsUtrechtSocialMediaLinkFiltersInput = {
 };
 
 export type ComponentComponentsUtrechtSocialMediaList = {
+  __typename?: 'ComponentComponentsUtrechtSocialMediaList';
   id: Scalars['ID']['output'];
   link?: Maybe<Array<Maybe<ComponentComponentsUtrechtSocialMediaLink>>>;
 };
@@ -833,6 +879,7 @@ export type ComponentComponentsUtrechtSocialMediaListLinkArgs = {
 };
 
 export type ComponentComponentsUtrechtSpotlight = {
+  __typename?: 'ComponentComponentsUtrechtSpotlight';
   content: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   kennisartikelCategorie?: Maybe<Enum_Componentcomponentsutrechtspotlight_Kennisartikelcategorie>;
@@ -848,6 +895,7 @@ export type ComponentComponentsUtrechtSpotlightLogoButtonArgs = {
 };
 
 export type ComponentComponentsUtrechtTopTaskLink = {
+  __typename?: 'ComponentComponentsUtrechtTopTaskLink';
   href?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   textContent?: Maybe<Scalars['String']['output']>;
@@ -864,6 +912,7 @@ export type ComponentComponentsUtrechtTopTaskLinkFiltersInput = {
 };
 
 export type ComponentComponentsUtrechtTopTasks = {
+  __typename?: 'ComponentComponentsUtrechtTopTasks';
   id: Scalars['ID']['output'];
   link?: Maybe<Array<Maybe<ComponentComponentsUtrechtTopTaskLink>>>;
 };
@@ -876,6 +925,7 @@ export type ComponentComponentsUtrechtTopTasksLinkArgs = {
 };
 
 export type ComponentComponentsVac = {
+  __typename?: 'ComponentComponentsVac';
   afdelingen?: Maybe<Array<Maybe<ComponentComponentsAfdelingen>>>;
   antwoord?: Maybe<Array<Maybe<ComponentComponentsAntwoord>>>;
   doelgroep?: Maybe<Enum_Componentcomponentsvac_Doelgroep>;
@@ -928,6 +978,7 @@ export type ComponentComponentsVacInput = {
 };
 
 export type ComponentComponentsVacUitklapmenu = {
+  __typename?: 'ComponentComponentsVacUitklapmenu';
   afdelingen?: Maybe<Array<Maybe<ComponentComponentsAfdelingen>>>;
   body?: Maybe<Scalars['String']['output']>;
   doelgroep?: Maybe<Enum_Componentcomponentsvacuitklapmenu_Doelgroep>;
@@ -955,6 +1006,7 @@ export type ComponentComponentsVacUitklapmenuTrefwoordenArgs = {
 };
 
 export type ComponentComponentsVerantwoordelijkeOrganisatie = {
+  __typename?: 'ComponentComponentsVerantwoordelijkeOrganisatie';
   id: Scalars['ID']['output'];
   owmsEndDate: Scalars['DateTime']['output'];
   owmsIdentifier: Scalars['String']['output'];
@@ -978,6 +1030,7 @@ export type ComponentComponentsVerantwoordelijkeOrganisatieInput = {
 };
 
 export type ComponentSeoMeta = {
+  __typename?: 'ComponentSeoMeta';
   description: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   keymatch: Scalars['String']['output'];
@@ -1003,6 +1056,7 @@ export type ComponentSeoMetaInput = {
 };
 
 export type ContactInformationInternal = {
+  __typename?: 'ContactInformationInternal';
   contentBlock?: Maybe<Array<Maybe<ComponentComponentsContactInformationRichText>>>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -1051,6 +1105,7 @@ export type ContactInformationInternalVacs_ConnectionArgs = {
 };
 
 export type ContactInformationInternalEntityResponseCollection = {
+  __typename?: 'ContactInformationInternalEntityResponseCollection';
   nodes: Array<ContactInformationInternal>;
   pageInfo: Pagination;
 };
@@ -1078,10 +1133,12 @@ export type ContactInformationInternalInput = {
 };
 
 export type ContactInformationInternalRelationResponseCollection = {
+  __typename?: 'ContactInformationInternalRelationResponseCollection';
   nodes: Array<ContactInformationInternal>;
 };
 
 export type ContactInformationPublic = {
+  __typename?: 'ContactInformationPublic';
   contentBlock?: Maybe<Array<Maybe<ComponentComponentsContactInformationRichText>>>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -1146,6 +1203,7 @@ export type ContactInformationPublicVacs_ConnectionArgs = {
 };
 
 export type ContactInformationPublicEntityResponseCollection = {
+  __typename?: 'ContactInformationPublicEntityResponseCollection';
   nodes: Array<ContactInformationPublic>;
   pageInfo: Pagination;
 };
@@ -1225,6 +1283,7 @@ export type DateTimeFilterInput = {
 };
 
 export type DeleteMutationResponse = {
+  __typename?: 'DeleteMutationResponse';
   documentId: Scalars['ID']['output'];
 };
 
@@ -1526,6 +1585,7 @@ export enum Enum_Productencatalogus_Doelgroep {
 }
 
 export type EntityNotesNote = {
+  __typename?: 'EntityNotesNote';
   content?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -1537,6 +1597,7 @@ export type EntityNotesNote = {
 };
 
 export type EntityNotesNoteEntityResponseCollection = {
+  __typename?: 'EntityNotesNoteEntityResponseCollection';
   nodes: Array<EntityNotesNote>;
   pageInfo: Pagination;
 };
@@ -1564,6 +1625,7 @@ export type EntityNotesNoteInput = {
 };
 
 export type Error = {
+  __typename?: 'Error';
   code: Scalars['String']['output'];
   message?: Maybe<Scalars['String']['output']>;
 };
@@ -1602,6 +1664,7 @@ export type FloatFilterInput = {
 export type GenericMorph = AdditionalInformation | ComponentComponentsAdditionalInformation | ComponentComponentsAdditionalInformationField | ComponentComponentsAfdelingen | ComponentComponentsAntwoord | ComponentComponentsAudience | ComponentComponentsCatalogiMeta | ComponentComponentsCimPdcProductAspectBeschrijving | ComponentComponentsCimPdcProductBeschrijving | ComponentComponentsCimPdcProductMetadata | ComponentComponentsContact | ComponentComponentsContactInformationPublic | ComponentComponentsContactInformationRichText | ComponentComponentsEForm | ComponentComponentsFaq | ComponentComponentsFloLegalForm | ComponentComponentsInternalBlockContent | ComponentComponentsInternalContentBlock | ComponentComponentsInternalContentBlockComponent | ComponentComponentsInternalField | ComponentComponentsKennisartikel | ComponentComponentsMetadata | ComponentComponentsOnlineRequest | ComponentComponentsPrice | ComponentComponentsSpatial | ComponentComponentsTrackingScripts | ComponentComponentsTrefwoorden | ComponentComponentsTriggerMatomoScript | ComponentComponentsUrl | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtAccordionSection | ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtFooterLink | ComponentComponentsUtrechtFooterList | ComponentComponentsUtrechtFooterListItem | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtMultiColumnsButtonItem | ComponentComponentsUtrechtNavigation | ComponentComponentsUtrechtNavigationLink | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSocialMediaLink | ComponentComponentsUtrechtSocialMediaList | ComponentComponentsUtrechtSpotlight | ComponentComponentsUtrechtTopTaskLink | ComponentComponentsUtrechtTopTasks | ComponentComponentsVac | ComponentComponentsVacUitklapmenu | ComponentComponentsVerantwoordelijkeOrganisatie | ComponentSeoMeta | ContactInformationInternal | ContactInformationPublic | EntityNotesNote | I18NLocale | InternalField | NotFoundPage | OpenFormsErrorPage | PdcCategory | PdcFaq | PdcHomePage | PdcSubcategory | PdcTemplate | Price | Product | Productencatalogus | PublisherAction | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Vac | WebsiteSetting;
 
 export type I18NLocale = {
+  __typename?: 'I18NLocale';
   code?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -1611,6 +1674,7 @@ export type I18NLocale = {
 };
 
 export type I18NLocaleEntityResponseCollection = {
+  __typename?: 'I18NLocaleEntityResponseCollection';
   nodes: Array<I18NLocale>;
   pageInfo: Pagination;
 };
@@ -1678,6 +1742,7 @@ export type IntFilterInput = {
 };
 
 export type InternalField = {
+  __typename?: 'InternalField';
   contact_information_internal: Array<Maybe<ContactInformationInternal>>;
   contact_information_internal_connection?: Maybe<ContactInformationInternalRelationResponseCollection>;
   contact_information_public?: Maybe<ContactInformationPublic>;
@@ -1705,6 +1770,7 @@ export type InternalFieldContact_Information_Internal_ConnectionArgs = {
 };
 
 export type InternalFieldEntityResponseCollection = {
+  __typename?: 'InternalFieldEntityResponseCollection';
   nodes: Array<InternalField>;
   pageInfo: Pagination;
 };
@@ -1734,6 +1800,7 @@ export type InternalFieldInput = {
 };
 
 export type InternalFieldRelationResponseCollection = {
+  __typename?: 'InternalFieldRelationResponseCollection';
   nodes: Array<InternalField>;
 };
 
@@ -1763,6 +1830,7 @@ export type JsonFilterInput = {
 };
 
 export type Mutation = {
+  __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
   changePassword?: Maybe<UsersPermissionsLoginPayload>;
   createAdditionalInformation?: Maybe<AdditionalInformation>;
@@ -2263,6 +2331,7 @@ export type MutationUpdateWebsiteSettingArgs = {
 };
 
 export type NotFoundPage = {
+  __typename?: 'NotFoundPage';
   body?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -2281,10 +2350,12 @@ export type NotFoundPageInput = {
 };
 
 export type NotFoundPageRelationResponseCollection = {
+  __typename?: 'NotFoundPageRelationResponseCollection';
   nodes: Array<NotFoundPage>;
 };
 
 export type OpenFormsErrorPage = {
+  __typename?: 'OpenFormsErrorPage';
   body?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -2312,6 +2383,7 @@ export type OpenFormsErrorPageLocalizations_ConnectionArgs = {
 };
 
 export type OpenFormsErrorPageEntityResponseCollection = {
+  __typename?: 'OpenFormsErrorPageEntityResponseCollection';
   nodes: Array<OpenFormsErrorPage>;
   pageInfo: Pagination;
 };
@@ -2339,10 +2411,12 @@ export type OpenFormsErrorPageInput = {
 };
 
 export type OpenFormsErrorPageRelationResponseCollection = {
+  __typename?: 'OpenFormsErrorPageRelationResponseCollection';
   nodes: Array<OpenFormsErrorPage>;
 };
 
 export type Pagination = {
+  __typename?: 'Pagination';
   page: Scalars['Int']['output'];
   pageCount: Scalars['Int']['output'];
   pageSize: Scalars['Int']['output'];
@@ -2357,6 +2431,7 @@ export type PaginationArg = {
 };
 
 export type PdcCategory = {
+  __typename?: 'PdcCategory';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   pdc_subcategories: Array<Maybe<PdcSubcategory>>;
@@ -2381,6 +2456,7 @@ export type PdcCategoryPdc_Subcategories_ConnectionArgs = {
 };
 
 export type PdcCategoryEntityResponseCollection = {
+  __typename?: 'PdcCategoryEntityResponseCollection';
   nodes: Array<PdcCategory>;
   pageInfo: Pagination;
 };
@@ -2404,6 +2480,7 @@ export type PdcCategoryInput = {
 };
 
 export type PdcFaq = {
+  __typename?: 'PdcFaq';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   faq?: Maybe<Array<Maybe<ComponentComponentsUtrechtAccordionSection>>>;
@@ -2437,6 +2514,7 @@ export type PdcFaqLocalizations_ConnectionArgs = {
 };
 
 export type PdcFaqEntityResponseCollection = {
+  __typename?: 'PdcFaqEntityResponseCollection';
   nodes: Array<PdcFaq>;
   pageInfo: Pagination;
 };
@@ -2462,10 +2540,12 @@ export type PdcFaqInput = {
 };
 
 export type PdcFaqRelationResponseCollection = {
+  __typename?: 'PdcFaqRelationResponseCollection';
   nodes: Array<PdcFaq>;
 };
 
 export type PdcHomePage = {
+  __typename?: 'PdcHomePage';
   components?: Maybe<Array<Maybe<PdcHomePageComponentsDynamicZone>>>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -2484,10 +2564,12 @@ export type PdcHomePageInput = {
 };
 
 export type PdcHomePageRelationResponseCollection = {
+  __typename?: 'PdcHomePageRelationResponseCollection';
   nodes: Array<PdcHomePage>;
 };
 
 export type PdcSubcategory = {
+  __typename?: 'PdcSubcategory';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   pdc_category?: Maybe<PdcCategory>;
@@ -2529,6 +2611,7 @@ export type PdcSubcategoryVacs_ConnectionArgs = {
 };
 
 export type PdcSubcategoryEntityResponseCollection = {
+  __typename?: 'PdcSubcategoryEntityResponseCollection';
   nodes: Array<PdcSubcategory>;
   pageInfo: Pagination;
 };
@@ -2556,10 +2639,12 @@ export type PdcSubcategoryInput = {
 };
 
 export type PdcSubcategoryRelationResponseCollection = {
+  __typename?: 'PdcSubcategoryRelationResponseCollection';
   nodes: Array<PdcSubcategory>;
 };
 
 export type PdcTemplate = {
+  __typename?: 'PdcTemplate';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   locale?: Maybe<Scalars['String']['output']>;
@@ -2576,12 +2661,14 @@ export type PdcTemplateInput = {
 };
 
 export type PdcTemplateRelationResponseCollection = {
+  __typename?: 'PdcTemplateRelationResponseCollection';
   nodes: Array<PdcTemplate>;
 };
 
 export type PdcTemplateSectionsDynamicZone = ComponentComponentsUtrechtFooter | ComponentComponentsUtrechtNavigation | Error;
 
 export type Price = {
+  __typename?: 'Price';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   price?: Maybe<Array<Maybe<ComponentComponentsPrice>>>;
@@ -2615,6 +2702,7 @@ export type PriceProducts_ConnectionArgs = {
 };
 
 export type PriceEntityResponseCollection = {
+  __typename?: 'PriceEntityResponseCollection';
   nodes: Array<Price>;
   pageInfo: Pagination;
 };
@@ -2642,6 +2730,7 @@ export type PriceInput = {
 };
 
 export type Product = {
+  __typename?: 'Product';
   additional_information?: Maybe<AdditionalInformation>;
   catalogiMeta?: Maybe<ComponentComponentsCatalogiMeta>;
   contact_information_public?: Maybe<ContactInformationPublic>;
@@ -2698,6 +2787,7 @@ export type ProductPdc_Subcategories_ConnectionArgs = {
 };
 
 export type ProductEntityResponseCollection = {
+  __typename?: 'ProductEntityResponseCollection';
   nodes: Array<Product>;
   pageInfo: Pagination;
 };
@@ -2752,12 +2842,14 @@ export type ProductInput = {
 };
 
 export type ProductRelationResponseCollection = {
+  __typename?: 'ProductRelationResponseCollection';
   nodes: Array<Product>;
 };
 
 export type ProductSectionsDynamicZone = ComponentComponentsContactInformationPublic | ComponentComponentsFaq | ComponentComponentsFloLegalForm | ComponentComponentsInternalBlockContent | ComponentComponentsUtrechtAccordion | ComponentComponentsUtrechtImage | ComponentComponentsUtrechtLink | ComponentComponentsUtrechtLogoButton | ComponentComponentsUtrechtMultiColumnsButton | ComponentComponentsUtrechtRichText | ComponentComponentsUtrechtSpotlight | Error;
 
 export type Productencatalogus = {
+  __typename?: 'Productencatalogus';
   begindatumVersie: Scalars['Date']['output'];
   beherendeOrganisatie?: Maybe<Scalars['String']['output']>;
   contactpersoonBeheerEmail?: Maybe<Scalars['String']['output']>;
@@ -2793,6 +2885,7 @@ export type ProductencatalogusReferentieCatalogus_ConnectionArgs = {
 };
 
 export type ProductencatalogusEntityResponseCollection = {
+  __typename?: 'ProductencatalogusEntityResponseCollection';
   nodes: Array<Productencatalogus>;
   pageInfo: Pagination;
 };
@@ -2838,6 +2931,7 @@ export type ProductencatalogusInput = {
 };
 
 export type ProductencatalogusRelationResponseCollection = {
+  __typename?: 'ProductencatalogusRelationResponseCollection';
   nodes: Array<Productencatalogus>;
 };
 
@@ -2847,6 +2941,7 @@ export enum PublicationStatus {
 }
 
 export type PublisherAction = {
+  __typename?: 'PublisherAction';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   entityId: Scalars['String']['output'];
@@ -2858,6 +2953,7 @@ export type PublisherAction = {
 };
 
 export type PublisherActionEntityResponseCollection = {
+  __typename?: 'PublisherActionEntityResponseCollection';
   nodes: Array<PublisherAction>;
   pageInfo: Pagination;
 };
@@ -2885,6 +2981,7 @@ export type PublisherActionInput = {
 };
 
 export type Query = {
+  __typename?: 'Query';
   additionalInformation?: Maybe<AdditionalInformation>;
   additionalInformations: Array<Maybe<AdditionalInformation>>;
   additionalInformations_connection?: Maybe<AdditionalInformationEntityResponseCollection>;
@@ -3489,6 +3586,7 @@ export type QueryWebsiteSettingArgs = {
 };
 
 export type ReviewWorkflowsWorkflow = {
+  __typename?: 'ReviewWorkflowsWorkflow';
   contentTypes: Scalars['JSON']['output'];
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -3515,6 +3613,7 @@ export type ReviewWorkflowsWorkflowStages_ConnectionArgs = {
 };
 
 export type ReviewWorkflowsWorkflowEntityResponseCollection = {
+  __typename?: 'ReviewWorkflowsWorkflowEntityResponseCollection';
   nodes: Array<ReviewWorkflowsWorkflow>;
   pageInfo: Pagination;
 };
@@ -3542,6 +3641,7 @@ export type ReviewWorkflowsWorkflowInput = {
 };
 
 export type ReviewWorkflowsWorkflowStage = {
+  __typename?: 'ReviewWorkflowsWorkflowStage';
   color?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -3552,6 +3652,7 @@ export type ReviewWorkflowsWorkflowStage = {
 };
 
 export type ReviewWorkflowsWorkflowStageEntityResponseCollection = {
+  __typename?: 'ReviewWorkflowsWorkflowStageEntityResponseCollection';
   nodes: Array<ReviewWorkflowsWorkflowStage>;
   pageInfo: Pagination;
 };
@@ -3577,6 +3678,7 @@ export type ReviewWorkflowsWorkflowStageInput = {
 };
 
 export type ReviewWorkflowsWorkflowStageRelationResponseCollection = {
+  __typename?: 'ReviewWorkflowsWorkflowStageRelationResponseCollection';
   nodes: Array<ReviewWorkflowsWorkflowStage>;
 };
 
@@ -3606,6 +3708,7 @@ export type StringFilterInput = {
 };
 
 export type UploadFile = {
+  __typename?: 'UploadFile';
   alternativeText?: Maybe<Scalars['String']['output']>;
   caption?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
@@ -3629,6 +3732,7 @@ export type UploadFile = {
 };
 
 export type UploadFileEntityResponseCollection = {
+  __typename?: 'UploadFileEntityResponseCollection';
   nodes: Array<UploadFile>;
   pageInfo: Pagination;
 };
@@ -3659,10 +3763,12 @@ export type UploadFileFiltersInput = {
 };
 
 export type UsersPermissionsCreateRolePayload = {
+  __typename?: 'UsersPermissionsCreateRolePayload';
   ok: Scalars['Boolean']['output'];
 };
 
 export type UsersPermissionsDeleteRolePayload = {
+  __typename?: 'UsersPermissionsDeleteRolePayload';
   ok: Scalars['Boolean']['output'];
 };
 
@@ -3673,11 +3779,13 @@ export type UsersPermissionsLoginInput = {
 };
 
 export type UsersPermissionsLoginPayload = {
+  __typename?: 'UsersPermissionsLoginPayload';
   jwt?: Maybe<Scalars['String']['output']>;
   user: UsersPermissionsMe;
 };
 
 export type UsersPermissionsMe = {
+  __typename?: 'UsersPermissionsMe';
   blocked?: Maybe<Scalars['Boolean']['output']>;
   confirmed?: Maybe<Scalars['Boolean']['output']>;
   documentId: Scalars['ID']['output'];
@@ -3688,6 +3796,7 @@ export type UsersPermissionsMe = {
 };
 
 export type UsersPermissionsMeRole = {
+  __typename?: 'UsersPermissionsMeRole';
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
@@ -3695,10 +3804,12 @@ export type UsersPermissionsMeRole = {
 };
 
 export type UsersPermissionsPasswordPayload = {
+  __typename?: 'UsersPermissionsPasswordPayload';
   ok: Scalars['Boolean']['output'];
 };
 
 export type UsersPermissionsPermission = {
+  __typename?: 'UsersPermissionsPermission';
   action: Scalars['String']['output'];
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
@@ -3720,6 +3831,7 @@ export type UsersPermissionsPermissionFiltersInput = {
 };
 
 export type UsersPermissionsPermissionRelationResponseCollection = {
+  __typename?: 'UsersPermissionsPermissionRelationResponseCollection';
   nodes: Array<UsersPermissionsPermission>;
 };
 
@@ -3730,6 +3842,7 @@ export type UsersPermissionsRegisterInput = {
 };
 
 export type UsersPermissionsRole = {
+  __typename?: 'UsersPermissionsRole';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   documentId: Scalars['ID']['output'];
@@ -3772,6 +3885,7 @@ export type UsersPermissionsRoleUsers_ConnectionArgs = {
 };
 
 export type UsersPermissionsRoleEntityResponseCollection = {
+  __typename?: 'UsersPermissionsRoleEntityResponseCollection';
   nodes: Array<UsersPermissionsRole>;
   pageInfo: Pagination;
 };
@@ -3801,10 +3915,12 @@ export type UsersPermissionsRoleInput = {
 };
 
 export type UsersPermissionsUpdateRolePayload = {
+  __typename?: 'UsersPermissionsUpdateRolePayload';
   ok: Scalars['Boolean']['output'];
 };
 
 export type UsersPermissionsUser = {
+  __typename?: 'UsersPermissionsUser';
   blocked?: Maybe<Scalars['Boolean']['output']>;
   confirmed?: Maybe<Scalars['Boolean']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
@@ -3818,10 +3934,12 @@ export type UsersPermissionsUser = {
 };
 
 export type UsersPermissionsUserEntityResponse = {
+  __typename?: 'UsersPermissionsUserEntityResponse';
   data?: Maybe<UsersPermissionsUser>;
 };
 
 export type UsersPermissionsUserEntityResponseCollection = {
+  __typename?: 'UsersPermissionsUserEntityResponseCollection';
   nodes: Array<UsersPermissionsUser>;
   pageInfo: Pagination;
 };
@@ -3854,10 +3972,12 @@ export type UsersPermissionsUserInput = {
 };
 
 export type UsersPermissionsUserRelationResponseCollection = {
+  __typename?: 'UsersPermissionsUserRelationResponseCollection';
   nodes: Array<UsersPermissionsUser>;
 };
 
 export type Vac = {
+  __typename?: 'Vac';
   contact_information_internal: Array<Maybe<ContactInformationInternal>>;
   contact_information_internal_connection?: Maybe<ContactInformationInternalRelationResponseCollection>;
   contact_information_public?: Maybe<ContactInformationPublic>;
@@ -3932,6 +4052,7 @@ export type VacSubcategories_ConnectionArgs = {
 };
 
 export type VacEntityResponseCollection = {
+  __typename?: 'VacEntityResponseCollection';
   nodes: Array<Vac>;
   pageInfo: Pagination;
 };
@@ -3965,10 +4086,12 @@ export type VacInput = {
 };
 
 export type VacRelationResponseCollection = {
+  __typename?: 'VacRelationResponseCollection';
   nodes: Array<Vac>;
 };
 
 export type WebsiteSetting = {
+  __typename?: 'WebsiteSetting';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
@@ -3981,120 +4104,12 @@ export type WebsiteSettingInput = {
   triggerMatomoScript?: InputMaybe<ComponentComponentsTriggerMatomoScriptInput>;
 };
 
-export type GetAllProductsQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-  page?: InputMaybe<Scalars['Int']['input']>;
-  pageSize?: InputMaybe<Scalars['Int']['input']>;
-  start?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-}>;
-
-
-export type GetAllProductsQuery = { products_connection?: { pageInfo: { total: number, page: number, pageSize: number, pageCount: number }, nodes: Array<{ documentId: string, publishedAt?: any | null, content?: string | null, title: string, slug: string, uuid?: string | null, locale?: string | null, updatedAt?: any | null, createdAt?: any | null, id: string, metaTags?: { keymatch: string, title: string, description: string } | null, sections?: Array<{ component: 'ComponentComponentsContactInformationPublic', contact_information_public?: { contentBlock?: Array<{ id: string, content: string } | null> | null } | null } | { component: 'ComponentComponentsFaq', categorie8?: Enum_Componentcomponentsfaq_Kennisartikelcategorie | null, pdc_faq?: { title?: string | null, faq?: Array<{ body?: string | null, headingLevel?: number | null, id: string, label?: string | null } | null> | null } | null } | { id: string, component: 'ComponentComponentsInternalBlockContent', internal_field?: { title: string, id: string, contact_information_internal: Array<{ contentBlock?: Array<{ id: string, content: string } | null> | null } | null>, contact_information_public?: { contentBlock?: Array<{ id: string, content: string } | null> | null } | null, content?: { id: string, uuid?: string | null, keywords?: string | null, contentBlock?: Array<{ content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null } | { component: 'ComponentComponentsUtrechtAccordion', categorie9?: Enum_Componentcomponentsutrechtaccordion_Kennisartikelcategorie | null, item?: Array<{ body?: string | null, headingLevel?: number | null, id: string, label?: string | null } | null> | null } | { component: 'ComponentComponentsUtrechtImage', categorie2?: Enum_Componentcomponentsutrechtimage_Kennisartikelcategorie | null, imageData?: { name: string, alternativeText?: string | null, caption?: string | null, width?: number | null, height?: number | null, formats?: any | null, url: string } | null } | { href?: string | null, textContent?: string | null, icon?: Enum_Componentcomponentsutrechtlink_Icon | null, language?: string | null, component: 'ComponentComponentsUtrechtLink', categorie7?: Enum_Componentcomponentsutrechtlink_Kennisartikelcategorie | null } | { appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null, component: 'ComponentComponentsUtrechtLogoButton', categorie3?: Enum_Componentcomponentsutrechtlogobutton_Kennisartikelcategorie | null } | { component: 'ComponentComponentsUtrechtMultiColumnsButton', categorie6?: Enum_Componentcomponentsutrechtmulticolumnsbutton_Kennisartikelcategorie | null, column?: Array<{ id: string, title?: string | null, logoButton?: Array<{ appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null, component: 'ComponentComponentsUtrechtLogoButton' } | null> | null } | null> | null } | { id: string, content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null, component: 'ComponentComponentsUtrechtRichText', categorie5?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | { content: string, type?: Enum_Componentcomponentsutrechtspotlight_Type | null, component: 'ComponentComponentsUtrechtSpotlight', categorie4?: Enum_Componentcomponentsutrechtspotlight_Kennisartikelcategorie | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', id: string, label?: string | null, href?: string | null, textContent?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | {} | null> | null, additional_information?: { content?: { id: string, uuid?: string | null, contentBlock?: Array<{ id: string, content: string, categorie10?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null, component: 'ComponentComponentsUtrechtRichText' } | null> | null } | null } | null, price?: { price?: Array<{ currency: Enum_Componentcomponentsprice_Currency, id: string, label: string, uuid?: string | null, value: number } | null> | null } | null, kennisartikelMetadata?: { uuid?: string | null, doelgroep: Enum_Componentcomponentskennisartikel_Doelgroep, productAanwezig: boolean, productValtOnder?: string | null, upnUri: string, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null, verantwoordelijkeOrganisatie?: { owmsIdentifier: string, owmsPrefLabel?: string | null, owmsEndDate: any } | null } | null }> } | null };
-
-export type GetProductByUuidOrDocumentIdQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-  uuid?: InputMaybe<Scalars['String']['input']>;
-  documentId?: InputMaybe<Scalars['ID']['input']>;
-  status?: InputMaybe<PublicationStatus>;
-}>;
-
-
-export type GetProductByUuidOrDocumentIdQuery = { products: Array<{ publishedAt?: any | null, content?: string | null, title: string, slug: string, uuid?: string | null, locale?: string | null, updatedAt?: any | null, createdAt?: any | null, id: string, metaTags?: { keymatch: string, title: string, description: string } | null, sections?: Array<{ component: 'ComponentComponentsContactInformationPublic', contact_information_public?: { contentBlock?: Array<{ id: string, content: string } | null> | null } | null } | { component: 'ComponentComponentsFaq', categorie8?: Enum_Componentcomponentsfaq_Kennisartikelcategorie | null, pdc_faq?: { title?: string | null, faq?: Array<{ body?: string | null, headingLevel?: number | null, id: string, label?: string | null } | null> | null } | null } | { id: string, component: 'ComponentComponentsInternalBlockContent', internal_field?: { title: string, id: string, contact_information_internal: Array<{ contentBlock?: Array<{ id: string, content: string } | null> | null } | null>, contact_information_public?: { contentBlock?: Array<{ id: string, content: string } | null> | null } | null, content?: { id: string, uuid?: string | null, keywords?: string | null, contentBlock?: Array<{ content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null } | { component: 'ComponentComponentsUtrechtAccordion', categorie9?: Enum_Componentcomponentsutrechtaccordion_Kennisartikelcategorie | null, item?: Array<{ body?: string | null, headingLevel?: number | null, id: string, label?: string | null } | null> | null } | { component: 'ComponentComponentsUtrechtImage', categorie2?: Enum_Componentcomponentsutrechtimage_Kennisartikelcategorie | null, imageData?: { name: string, alternativeText?: string | null, caption?: string | null, width?: number | null, height?: number | null, formats?: any | null, url: string } | null } | { href?: string | null, textContent?: string | null, icon?: Enum_Componentcomponentsutrechtlink_Icon | null, language?: string | null, component: 'ComponentComponentsUtrechtLink', categorie7?: Enum_Componentcomponentsutrechtlink_Kennisartikelcategorie | null } | { appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null, component: 'ComponentComponentsUtrechtLogoButton', categorie3?: Enum_Componentcomponentsutrechtlogobutton_Kennisartikelcategorie | null } | { component: 'ComponentComponentsUtrechtMultiColumnsButton', categorie6?: Enum_Componentcomponentsutrechtmulticolumnsbutton_Kennisartikelcategorie | null, column?: Array<{ id: string, title?: string | null, logoButton?: Array<{ appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null, component: 'ComponentComponentsUtrechtLogoButton' } | null> | null } | null> | null } | { id: string, content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null, component: 'ComponentComponentsUtrechtRichText', categorie5?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | { content: string, type?: Enum_Componentcomponentsutrechtspotlight_Type | null, component: 'ComponentComponentsUtrechtSpotlight', categorie4?: Enum_Componentcomponentsutrechtspotlight_Kennisartikelcategorie | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', id: string, label?: string | null, href?: string | null, textContent?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | {} | null> | null, additional_information?: { content?: { id: string, uuid?: string | null, contentBlock?: Array<{ id: string, content: string, categorie10?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null, component: 'ComponentComponentsUtrechtRichText' } | null> | null } | null } | null, price?: { price?: Array<{ currency: Enum_Componentcomponentsprice_Currency, id: string, label: string, uuid?: string | null, value: number } | null> | null } | null, kennisartikelMetadata?: { uuid?: string | null, doelgroep: Enum_Componentcomponentskennisartikel_Doelgroep, productAanwezig: boolean, productValtOnder?: string | null, upnUri: string, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null, verantwoordelijkeOrganisatie?: { owmsIdentifier: string, owmsPrefLabel?: string | null, owmsEndDate: any } | null } | null } | null> };
-
-export type GetProductForUpdateQueryVariables = Exact<{
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-  uuid?: InputMaybe<Scalars['String']['input']>;
-  documentId?: InputMaybe<Scalars['ID']['input']>;
-  status?: InputMaybe<PublicationStatus>;
-}>;
-
-
-export type GetProductForUpdateQuery = { products: Array<{ publishedAt?: any | null, content?: string | null, title: string, slug: string, uuid?: string | null, locale?: string | null, updatedAt?: any | null, createdAt?: any | null, id: string, metaTags?: { keymatch: string, title: string, description: string } | null, sections?: Array<{ component: 'ComponentComponentsContactInformationPublic', contact_information_public?: { contentBlock?: Array<{ content: string } | null> | null } | null } | { component: 'ComponentComponentsFaq', categorie8?: Enum_Componentcomponentsfaq_Kennisartikelcategorie | null, pdc_faq?: { title?: string | null, faq?: Array<{ body?: string | null, headingLevel?: number | null, label?: string | null } | null> | null } | null } | { component: 'ComponentComponentsInternalBlockContent', internal_field?: { title: string, id: string, contact_information_internal: Array<{ contentBlock?: Array<{ content: string } | null> | null } | null>, contact_information_public?: { contentBlock?: Array<{ content: string } | null> | null } | null, content?: { uuid?: string | null, keywords?: string | null, contentBlock?: Array<{ content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null } | { component: 'ComponentComponentsUtrechtAccordion', categorie9?: Enum_Componentcomponentsutrechtaccordion_Kennisartikelcategorie | null, item?: Array<{ body?: string | null, headingLevel?: number | null, label?: string | null } | null> | null } | { component: 'ComponentComponentsUtrechtImage', categorie2?: Enum_Componentcomponentsutrechtimage_Kennisartikelcategorie | null, imageData?: { name: string, alternativeText?: string | null, caption?: string | null, width?: number | null, height?: number | null, formats?: any | null, url: string } | null } | { href?: string | null, textContent?: string | null, icon?: Enum_Componentcomponentsutrechtlink_Icon | null, language?: string | null, component: 'ComponentComponentsUtrechtLink', categorie7?: Enum_Componentcomponentsutrechtlink_Kennisartikelcategorie | null } | { appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null, component: 'ComponentComponentsUtrechtLogoButton', categorie3?: Enum_Componentcomponentsutrechtlogobutton_Kennisartikelcategorie | null } | { component: 'ComponentComponentsUtrechtMultiColumnsButton', categorie6?: Enum_Componentcomponentsutrechtmulticolumnsbutton_Kennisartikelcategorie | null, column?: Array<{ title?: string | null, logoButton?: Array<{ appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null, href?: string | null, label?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, openFormsEmbed?: string | null, textContent?: string | null, component: 'ComponentComponentsUtrechtLogoButton' } | null> | null } | null> | null } | { content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null, component: 'ComponentComponentsUtrechtRichText', categorie5?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | { content: string, type?: Enum_Componentcomponentsutrechtspotlight_Type | null, component: 'ComponentComponentsUtrechtSpotlight', categorie4?: Enum_Componentcomponentsutrechtspotlight_Kennisartikelcategorie | null, logoButton?: Array<{ __typename: 'ComponentComponentsUtrechtLogoButton', label?: string | null, href?: string | null, textContent?: string | null, logo?: Enum_Componentcomponentsutrechtlogobutton_Logo | null, appearance?: Enum_Componentcomponentsutrechtlogobutton_Appearance | null } | null> | null } | {} | null> | null, additional_information?: { content?: { uuid?: string | null, contentBlock?: Array<{ id: string, content: string, categorie10?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null, component: 'ComponentComponentsUtrechtRichText' } | null> | null } | null } | null, price?: { price?: Array<{ currency: Enum_Componentcomponentsprice_Currency, label: string, uuid?: string | null, value: number } | null> | null } | null, kennisartikelMetadata?: { uuid?: string | null, doelgroep: Enum_Componentcomponentskennisartikel_Doelgroep, productAanwezig: boolean, productValtOnder?: string | null, upnUri: string, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null, verantwoordelijkeOrganisatie?: { owmsIdentifier: string, owmsPrefLabel?: string | null, owmsEndDate: any } | null } | null } | null> };
-
-export type GetInternalFieldsQueryVariables = Exact<{
-  uuid?: InputMaybe<Scalars['String']['input']>;
-}>;
-
-
-export type GetInternalFieldsQuery = { internalFields: Array<{ title: string, id: string, content?: { uuid?: string | null, contentBlock?: Array<{ content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null> };
-
-export type CreateInternalFieldMutationVariables = Exact<{
-  data: InternalFieldInput;
-}>;
-
-
-export type CreateInternalFieldMutation = { createInternalField?: { title: string, id: string, content?: { id: string, uuid?: string | null, contentBlock?: Array<{ content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null };
-
-export type UpdateInternalFieldMutationVariables = Exact<{
-  data: InternalFieldInput;
-  id: Scalars['ID']['input'];
-}>;
-
-
-export type UpdateInternalFieldMutation = { updateInternalField?: { content?: { id: string, uuid?: string | null, contentBlock?: Array<{ content: string } | null> | null } | null } | null };
-
-export type CreateKennisartikelMutationVariables = Exact<{
-  data: ProductInput;
+export type GetSamenwerkendeCatalogiFetchQueryVariables = Exact<{
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 }>;
 
 
-export type CreateKennisartikelMutation = { createProduct?: { content?: string | null, title: string, slug: string, uuid?: string | null, updatedAt?: any | null, createdAt?: any | null, locale?: string | null, id: string, metaTags?: { keymatch: string, title: string, description: string } | null, sections?: Array<{ id: string, component: 'ComponentComponentsInternalBlockContent', internal_field?: { title: string, id: string, content?: { uuid?: string | null, contentBlock?: Array<{ content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null } | { id: string, content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null, component: 'ComponentComponentsUtrechtRichText' } | {} | null> | null, price?: { price?: Array<{ currency: Enum_Componentcomponentsprice_Currency, id: string, label: string, uuid?: string | null, value: number } | null> | null } | null, additional_information?: { content?: { id: string, uuid?: string | null, contentBlock?: Array<{ id: string, content: string, categorie10?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null, kennisartikelMetadata?: { uuid?: string | null, doelgroep: Enum_Componentcomponentskennisartikel_Doelgroep, productAanwezig: boolean, productValtOnder?: string | null, upnUri: string, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null, verantwoordelijkeOrganisatie?: { owmsIdentifier: string, owmsPrefLabel?: string | null, owmsEndDate: any } | null } | null } | null };
-
-export type UpdateKennisartikelMutationVariables = Exact<{
-  data: ProductInput;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-  id: Scalars['ID']['input'];
-}>;
+export type GetSamenwerkendeCatalogiFetchQuery = { __typename?: 'Query', products: Array<{ __typename?: 'Product', documentId: string, title: string, slug: string, locale?: string | null, updatedAt?: any | null, metaTags?: { __typename?: 'ComponentSeoMeta', description: string } | null, catalogiMeta?: { __typename?: 'ComponentComponentsCatalogiMeta', spatial: { __typename?: 'ComponentComponentsSpatial', scheme: string, resourceIdentifier?: string | null }, authority: { __typename?: 'ComponentComponentsSpatial', scheme: string, resourceIdentifier?: string | null }, audience: Array<{ __typename?: 'ComponentComponentsAudience', id: string, type: Enum_Componentcomponentsaudience_Type } | null>, onlineRequest: { __typename?: 'ComponentComponentsOnlineRequest', type: Enum_Componentcomponentsonlinerequest_Type } } | null, pdc_metadata?: { __typename?: 'ComponentComponentsCimPdcProductMetadata', uplProductNaam?: string | null } | null } | null> };
 
 
-export type UpdateKennisartikelMutation = { updateProduct?: { content?: string | null, title: string, slug: string, uuid?: string | null, locale?: string | null, updatedAt?: any | null, createdAt?: any | null, id: string, metaTags?: { keymatch: string, title: string, description: string } | null, sections?: Array<{ id: string, component: 'ComponentComponentsInternalBlockContent', internal_field?: { title: string, id: string, content?: { uuid?: string | null, contentBlock?: Array<{ content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null } | { id: string, content: string, kennisartikelCategorie?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null, component: 'ComponentComponentsUtrechtRichText' } | {} | null> | null, price?: { price?: Array<{ currency: Enum_Componentcomponentsprice_Currency, id: string, label: string, uuid?: string | null, value: number } | null> | null } | null, additional_information?: { content?: { id: string, uuid?: string | null, contentBlock?: Array<{ id: string, content: string, categorie10?: Enum_Componentcomponentsutrechtrichtext_Kennisartikelcategorie | null } | null> | null } | null } | null, kennisartikelMetadata?: { uuid?: string | null, doelgroep: Enum_Componentcomponentskennisartikel_Doelgroep, productAanwezig: boolean, productValtOnder?: string | null, upnUri: string, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null, verantwoordelijkeOrganisatie?: { owmsIdentifier: string, owmsPrefLabel?: string | null, owmsEndDate: any } | null } | null } | null };
-
-export type GetAllVacItemsQueryVariables = Exact<{
-  page?: InputMaybe<Scalars['Int']['input']>;
-  pageSize?: InputMaybe<Scalars['Int']['input']>;
-  start?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-}>;
-
-
-export type GetAllVacItemsQuery = { vacs_connection?: { pageInfo: { total: number, page: number, pageSize: number, pageCount: number }, nodes: Array<{ createdAt?: any | null, updatedAt?: any | null, title?: string | null, id: string, contact_information_internal: Array<{ contentBlock?: Array<{ id: string, content: string } | null> | null } | null>, contact_information_public?: { contentBlock?: Array<{ id: string, content: string } | null> | null } | null, relatedVACs: Array<{ vac?: { uuid?: string | null } | null } | null>, relatedProducts: Array<{ uuid?: string | null, title: string } | null>, vac?: { uuid?: string | null, vraag?: string | null, status?: Enum_Componentcomponentsvac_Status | null, doelgroep?: Enum_Componentcomponentsvac_Doelgroep | null, toelichting?: string | null, keywords?: string | null, antwoord?: Array<{ content?: string | null, kennisartikelCategorie?: Enum_Componentcomponentsantwoord_Kennisartikelcategorie | null } | null> | null, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null } | null }> } | null };
-
-export type GetVacItemByUuidOrDocumentIdQueryVariables = Exact<{
-  uuid?: InputMaybe<Scalars['String']['input']>;
-  documentId?: InputMaybe<Scalars['ID']['input']>;
-  status?: InputMaybe<PublicationStatus>;
-}>;
-
-
-export type GetVacItemByUuidOrDocumentIdQuery = { vacs: Array<{ createdAt?: any | null, updatedAt?: any | null, publishedAt?: any | null, title?: string | null, id: string, contact_information_internal: Array<{ contentBlock?: Array<{ id: string, content: string } | null> | null } | null>, contact_information_public?: { contentBlock?: Array<{ id: string, content: string } | null> | null } | null, relatedVACs: Array<{ vac?: { uuid?: string | null } | null } | null>, relatedProducts: Array<{ uuid?: string | null, title: string } | null>, vac?: { uuid?: string | null, vraag?: string | null, status?: Enum_Componentcomponentsvac_Status | null, doelgroep?: Enum_Componentcomponentsvac_Doelgroep | null, toelichting?: string | null, keywords?: string | null, antwoord?: Array<{ content?: string | null, kennisartikelCategorie?: Enum_Componentcomponentsantwoord_Kennisartikelcategorie | null } | null> | null, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null } | null } | null> };
-
-export type CreateVacMutationVariables = Exact<{
-  data: VacInput;
-}>;
-
-
-export type CreateVacMutation = { createVac?: { createdAt?: any | null, publishedAt?: any | null, title?: string | null, id: string, vac?: { id: string, status?: Enum_Componentcomponentsvac_Status | null, doelgroep?: Enum_Componentcomponentsvac_Doelgroep | null, uuid?: string | null, toelichting?: string | null, keywords?: string | null, antwoord?: Array<{ content?: string | null, kennisartikelCategorie?: Enum_Componentcomponentsantwoord_Kennisartikelcategorie | null } | null> | null, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null } | null } | null };
-
-export type UpdateVacMutationVariables = Exact<{
-  data: VacInput;
-  id: Scalars['ID']['input'];
-}>;
-
-
-export type UpdateVacMutation = { updateVac?: { createdAt?: any | null, publishedAt?: any | null, title?: string | null, id: string, vac?: { id: string, status?: Enum_Componentcomponentsvac_Status | null, doelgroep?: Enum_Componentcomponentsvac_Doelgroep | null, uuid?: string | null, toelichting?: string | null, keywords?: string | null, antwoord?: Array<{ content?: string | null, kennisartikelCategorie?: Enum_Componentcomponentsantwoord_Kennisartikelcategorie | null } | null> | null, afdelingen?: Array<{ afdelingId: string, afdelingNaam: string } | null> | null } | null } | null };
-
-
-export const GetAllProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAllProducts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"start"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products_connection"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"Variable","name":{"kind":"Name","value":"start"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"pageSize"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pageInfo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"pageSize"}},{"kind":"Field","name":{"kind":"Name","value":"pageCount"}}]}},{"kind":"Field","name":{"kind":"Name","value":"nodes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"keymatch"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsContactInformationPublic"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_public"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsInternalBlockContent"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"internal_field"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_internal"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_public"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtRichText"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie5"},"name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtImage"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie2"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"imageData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLogoButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie3"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"openFormsEmbed"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtSpotlight"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie4"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtMultiColumnsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie6"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"column"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"openFormsEmbed"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLink"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie7"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"language"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsFaq"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie8"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"pdc_faq"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"faq"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"headingLevel"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtAccordion"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie9"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"item"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"headingLevel"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"additional_information"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie10"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"value"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelMetadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"productAanwezig"}},{"kind":"Field","name":{"kind":"Name","value":"productValtOnder"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"verantwoordelijkeOrganisatie"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owmsIdentifier"}},{"kind":"Field","name":{"kind":"Name","value":"owmsPrefLabel"}},{"kind":"Field","name":{"kind":"Name","value":"owmsEndDate"}}]}},{"kind":"Field","name":{"kind":"Name","value":"upnUri"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAllProductsQuery, GetAllProductsQueryVariables>;
-export const GetProductByUuidOrDocumentIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProductByUUIDOrDocumentId"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uuid"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"documentId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"status"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationStatus"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"or"},"value":{"kind":"ListValue","values":[{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"uuid"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uuid"}}}]}}]},{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"documentId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"documentId"}}}]}}]}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"status"},"value":{"kind":"Variable","name":{"kind":"Name","value":"status"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"keymatch"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsContactInformationPublic"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_public"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsInternalBlockContent"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"internal_field"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_internal"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_public"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtRichText"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie5"},"name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtImage"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie2"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"imageData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLogoButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie3"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"openFormsEmbed"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtSpotlight"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie4"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtMultiColumnsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie6"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"column"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"openFormsEmbed"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLink"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie7"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"language"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsFaq"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie8"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"pdc_faq"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"faq"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"headingLevel"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtAccordion"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie9"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"item"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"headingLevel"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"additional_information"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie10"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"value"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelMetadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"productAanwezig"}},{"kind":"Field","name":{"kind":"Name","value":"productValtOnder"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"verantwoordelijkeOrganisatie"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owmsIdentifier"}},{"kind":"Field","name":{"kind":"Name","value":"owmsPrefLabel"}},{"kind":"Field","name":{"kind":"Name","value":"owmsEndDate"}}]}},{"kind":"Field","name":{"kind":"Name","value":"upnUri"}}]}}]}}]}}]} as unknown as DocumentNode<GetProductByUuidOrDocumentIdQuery, GetProductByUuidOrDocumentIdQueryVariables>;
-export const GetProductForUpdateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProductForUpdate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uuid"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"documentId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"status"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationStatus"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"or"},"value":{"kind":"ListValue","values":[{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"uuid"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uuid"}}}]}}]},{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"documentId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"documentId"}}}]}}]}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"status"},"value":{"kind":"Variable","name":{"kind":"Name","value":"status"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"keymatch"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsContactInformationPublic"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_public"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsInternalBlockContent"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"internal_field"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_internal"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_public"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtRichText"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie5"},"name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtImage"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie2"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"imageData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"alternativeText"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"formats"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLogoButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie3"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"openFormsEmbed"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtSpotlight"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie4"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtMultiColumnsButton"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie6"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"column"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"logoButton"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"appearance"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"logo"}},{"kind":"Field","name":{"kind":"Name","value":"openFormsEmbed"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtLink"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie7"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"href"}},{"kind":"Field","name":{"kind":"Name","value":"textContent"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}},{"kind":"Field","name":{"kind":"Name","value":"language"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsFaq"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie8"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"pdc_faq"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"faq"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"headingLevel"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtAccordion"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie9"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","name":{"kind":"Name","value":"item"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"headingLevel"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"additional_information"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie10"},"name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"value"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelMetadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"productAanwezig"}},{"kind":"Field","name":{"kind":"Name","value":"productValtOnder"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"verantwoordelijkeOrganisatie"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owmsIdentifier"}},{"kind":"Field","name":{"kind":"Name","value":"owmsPrefLabel"}},{"kind":"Field","name":{"kind":"Name","value":"owmsEndDate"}}]}},{"kind":"Field","name":{"kind":"Name","value":"upnUri"}}]}}]}}]}}]} as unknown as DocumentNode<GetProductForUpdateQuery, GetProductForUpdateQueryVariables>;
-export const GetInternalFieldsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getInternalFields"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uuid"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"internalFields"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"content"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"uuid"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uuid"}}}]}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetInternalFieldsQuery, GetInternalFieldsQueryVariables>;
-export const CreateInternalFieldDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createInternalField"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"InternalFieldInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createInternalField"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}}]}}]}}]}}]} as unknown as DocumentNode<CreateInternalFieldMutation, CreateInternalFieldMutationVariables>;
-export const UpdateInternalFieldDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"updateInternalField"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"InternalFieldInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateInternalField"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}},{"kind":"Argument","name":{"kind":"Name","value":"documentId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}}]}}]}}]} as unknown as DocumentNode<UpdateInternalFieldMutation, UpdateInternalFieldMutationVariables>;
-export const CreateKennisartikelDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createKennisartikel"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ProductInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"keymatch"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtRichText"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsInternalBlockContent"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"internal_field"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"value"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"additional_information"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie10"},"name":{"kind":"Name","value":"kennisartikelCategorie"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelMetadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"productAanwezig"}},{"kind":"Field","name":{"kind":"Name","value":"productValtOnder"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"verantwoordelijkeOrganisatie"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owmsIdentifier"}},{"kind":"Field","name":{"kind":"Name","value":"owmsPrefLabel"}},{"kind":"Field","name":{"kind":"Name","value":"owmsEndDate"}}]}},{"kind":"Field","name":{"kind":"Name","value":"upnUri"}}]}}]}}]}}]} as unknown as DocumentNode<CreateKennisartikelMutation, CreateKennisartikelMutationVariables>;
-export const UpdateKennisartikelDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"updateKennisartikel"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ProductInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"documentId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"keymatch"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsUtrechtRichText"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}},{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ComponentComponentsInternalBlockContent"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"component"},"name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"internal_field"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"price"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"price"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currency"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"value"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"additional_information"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","alias":{"kind":"Name","value":"categorie10"},"name":{"kind":"Name","value":"kennisartikelCategorie"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelMetadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"productAanwezig"}},{"kind":"Field","name":{"kind":"Name","value":"productValtOnder"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"verantwoordelijkeOrganisatie"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"owmsIdentifier"}},{"kind":"Field","name":{"kind":"Name","value":"owmsPrefLabel"}},{"kind":"Field","name":{"kind":"Name","value":"owmsEndDate"}}]}},{"kind":"Field","name":{"kind":"Name","value":"upnUri"}}]}}]}}]}}]} as unknown as DocumentNode<UpdateKennisartikelMutation, UpdateKennisartikelMutationVariables>;
-export const GetAllVacItemsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAllVacItems"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"start"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"vacs_connection"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"Variable","name":{"kind":"Name","value":"start"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"pageSize"},"value":{"kind":"Variable","name":{"kind":"Name","value":"pageSize"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pageInfo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"total"}},{"kind":"Field","name":{"kind":"Name","value":"page"}},{"kind":"Field","name":{"kind":"Name","value":"pageSize"}},{"kind":"Field","name":{"kind":"Name","value":"pageCount"}}]}},{"kind":"Field","name":{"kind":"Name","value":"nodes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_internal"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_public"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relatedVACs"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"vac"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relatedProducts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}},{"kind":"Field","name":{"kind":"Name","value":"vac"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"vraag"}},{"kind":"Field","name":{"kind":"Name","value":"antwoord"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"toelichting"}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetAllVacItemsQuery, GetAllVacItemsQueryVariables>;
-export const GetVacItemByUuidOrDocumentIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getVacItemByUUIDOrDocumentId"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uuid"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"documentId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"status"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PublicationStatus"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"vacs"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"or"},"value":{"kind":"ListValue","values":[{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"vac"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"uuid"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uuid"}}}]}}]}}]},{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"documentId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"documentId"}}}]}}]}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"status"},"value":{"kind":"Variable","name":{"kind":"Name","value":"status"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_internal"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"contact_information_public"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contentBlock"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"content"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relatedVACs"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"vac"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relatedProducts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}},{"kind":"Field","name":{"kind":"Name","value":"vac"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"vraag"}},{"kind":"Field","name":{"kind":"Name","value":"antwoord"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"toelichting"}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}}]} as unknown as DocumentNode<GetVacItemByUuidOrDocumentIdQuery, GetVacItemByUuidOrDocumentIdQueryVariables>;
-export const CreateVacDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createVac"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"VacInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createVac"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"vac"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"antwoord"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"toelichting"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}}]} as unknown as DocumentNode<CreateVacMutation, CreateVacMutationVariables>;
-export const UpdateVacDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"updateVac"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"VacInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateVac"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"documentId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}},{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"vac"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"antwoord"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"kennisartikelCategorie"}}]}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"doelgroep"}},{"kind":"Field","name":{"kind":"Name","value":"uuid"}},{"kind":"Field","name":{"kind":"Name","value":"toelichting"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingen"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"afdelingId"}},{"kind":"Field","name":{"kind":"Name","value":"afdelingNaam"}}]}},{"kind":"Field","name":{"kind":"Name","value":"keywords"}}]}}]}}]}}]} as unknown as DocumentNode<UpdateVacMutation, UpdateVacMutationVariables>;
+export const GetSamenwerkendeCatalogiFetchDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getSamenwerkendeCatalogiFetch"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"I18NLocaleCode"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"pagination"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"start"},"value":{"kind":"IntValue","value":"0"}},{"kind":"ObjectField","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"-1"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"documentId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"locale"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"catalogiMeta"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"spatial"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"scheme"}},{"kind":"Field","name":{"kind":"Name","value":"resourceIdentifier"}}]}},{"kind":"Field","name":{"kind":"Name","value":"authority"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"scheme"}},{"kind":"Field","name":{"kind":"Name","value":"resourceIdentifier"}}]}},{"kind":"Field","name":{"kind":"Name","value":"audience"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}},{"kind":"Field","name":{"kind":"Name","value":"onlineRequest"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"pdc_metadata"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uplProductNaam"}}]}}]}}]}}]} as unknown as DocumentNode<GetSamenwerkendeCatalogiFetchQuery, GetSamenwerkendeCatalogiFetchQueryVariables>;

@@ -9,30 +9,26 @@
   "attributes": {
     "spatial": {
       "type": "component",
-      "repeatable": false,
       "component": "components.spatial",
+      "repeatable": false,
       "required": true
     },
     "authority": {
       "type": "component",
-      "repeatable": false,
       "component": "components.spatial",
+      "repeatable": false,
       "required": true
     },
     "audience": {
       "type": "component",
-      "repeatable": true,
       "component": "components.audience",
+      "repeatable": true,
       "required": true
     },
     "onlineRequest": {
       "type": "component",
-      "repeatable": false,
       "component": "components.online-request",
-      "required": true
-    },
-    "abstract": {
-      "type": "text",
+      "repeatable": false,
       "required": true
     }
   }
