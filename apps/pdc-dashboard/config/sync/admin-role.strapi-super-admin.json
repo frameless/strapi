@@ -717,7 +717,6 @@
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
-          "metaTags.ogImage",
           "catalogiMeta.spatial.resourceIdentifier",
           "catalogiMeta.spatial.scheme",
           "catalogiMeta.authority.resourceIdentifier",
@@ -728,7 +727,6 @@
           "metadata.attachementAdded",
           "metadata.contact.name",
           "metadata.contact.email",
-          "metadata.eForm.linkedEForm",
           "pdc_subcategories",
           "pdc_metadata.productCode",
           "pdc_metadata.beoogdResultaat",
@@ -772,7 +770,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "fnwzrvfdyg073h3wpic4bh5p",
+      "documentId": "pxv0nkr1m0k9bucbkoh253kq",
       "locale": null
     },
     {
@@ -811,7 +809,6 @@
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
-          "metaTags.ogImage",
           "catalogiMeta.spatial.resourceIdentifier",
           "catalogiMeta.spatial.scheme",
           "catalogiMeta.authority.resourceIdentifier",
@@ -822,7 +819,6 @@
           "metadata.attachementAdded",
           "metadata.contact.name",
           "metadata.contact.email",
-          "metadata.eForm.linkedEForm",
           "pdc_subcategories",
           "pdc_metadata.productCode",
           "pdc_metadata.beoogdResultaat",
@@ -866,7 +862,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "xg5mrgm7hmnci9ro89ubexow",
+      "documentId": "j4hk30c8mboq5si2l5krserl",
       "locale": null
     },
     {
@@ -883,7 +879,6 @@
           "metaTags.keymatch",
           "metaTags.title",
           "metaTags.description",
-          "metaTags.ogImage",
           "catalogiMeta.spatial.resourceIdentifier",
           "catalogiMeta.spatial.scheme",
           "catalogiMeta.authority.resourceIdentifier",
@@ -894,7 +889,6 @@
           "metadata.attachementAdded",
           "metadata.contact.name",
           "metadata.contact.email",
-          "metadata.eForm.linkedEForm",
           "pdc_subcategories",
           "pdc_metadata.productCode",
           "pdc_metadata.beoogdResultaat",
@@ -938,7 +932,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "vnauofvbam2pd09w7kv7nhhs",
+      "documentId": "c5v4oa0mnw0e0l1vp83z4a27",
       "locale": null
     },
     {
