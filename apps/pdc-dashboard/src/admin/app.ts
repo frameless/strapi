@@ -1,5 +1,6 @@
 import UtrechtFavicon from './extensions/favicon.ico';
 import UtrechtLogo from './extensions/logo.svg';
+import TranslatedEnumerationInput from './extensions/TranslatedEnumerationInput';
 
 const config = {
   locales: ['nl'],
@@ -33,6 +34,7 @@ const config = {
       info: 'Blue',
       warning: 'Yellow',
       gray: 'Gray',
+      arrow: 'Arrow',
       'dark-mode': 'Dark Mode Detection',
       'forced-colors': 'Forced Color Mode Detection',
       'google-translate': 'Google Translate Detection',
@@ -95,7 +97,9 @@ const config = {
   },
 };
 
-const bootstrap = () => {};
+const bootstrap = ({ addFields }: { addFields: (_field: object) => void }) => {
+  addFields({ type: 'enumeration', Component: TranslatedEnumerationInput });
+};
 
 export default {
   config,

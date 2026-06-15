@@ -17,7 +17,8 @@
     "lint-build": "tsc --noEmit --project tsconfig.json",
     "clean": "rimraf build .cache dist .strapi",
     "config-sync-export": "config-sync export",
-    "config-sync-import": "config-sync import"
+    "config-sync-import": "config-sync import",
+    "check:enum-workaround": "node ../../scripts/check-strapi-enum-workaround.mjs"
   },
   "dependencies": {
     "@frameless/content-compliance-checker": "1.0.2",
