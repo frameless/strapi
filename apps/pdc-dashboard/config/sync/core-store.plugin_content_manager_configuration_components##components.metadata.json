@@ -62,20 +62,6 @@
           "sortable": false
         }
       },
-      "eForm": {
-        "edit": {
-          "label": "eForm",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "eForm",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "documentId": {
         "edit": {},
         "list": {
@@ -101,12 +87,6 @@
         [
           {
             "name": "contact",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "eForm",
             "size": 12
           }
         ]

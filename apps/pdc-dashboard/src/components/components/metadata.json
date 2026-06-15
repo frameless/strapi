@@ -22,11 +22,6 @@
       "component": "components.contact",
       "private": true,
       "required": false
-    },
-    "eForm": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.e-form"
     }
   }
 }

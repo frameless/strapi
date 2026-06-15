@@ -26,7 +26,8 @@
     "ogImage": {
       "allowedTypes": ["images", "files", "videos", "audios"],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "visible": false
     }
   }
 }
