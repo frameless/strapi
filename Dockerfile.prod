@@ -89,7 +89,7 @@ COPY --from=builder /app .
 COPY bin ./bin
 RUN chmod +x ./bin/wait-for-it.sh 2>/dev/null || true
 
-RUN pnpm install --prod --frozen-lockfile
+RUN pnpm install --prod --frozen-lockfile --ignore-scripts
 
 RUN addgroup -S pdcgroup -g 1001 \
     && adduser -S pdcuser -u 1001 -G pdcgroup \
