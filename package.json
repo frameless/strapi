@@ -100,7 +100,8 @@
     "overrides": {
       "eslint": "^9.39.3",
       "sanitize-html": "2.17.4",
-      "handlebars": "4.7.9"
+      "handlebars": "4.7.9",
+      "shell-quote": "1.8.4"
     },
     "patchedDependencies": {
       "@strapi/database": "patches/@strapi__database.patch",
