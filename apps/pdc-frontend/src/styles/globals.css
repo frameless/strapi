@@ -50,7 +50,7 @@ h6 {
   --utrecht-spotlight-section-margin-block-end: 16px;
   --utrecht-link-list-marker-background-image: url("https://pki.utrecht.nl/Loket/base/files/getImageAction.do?key=kl_pijltje-wit-SVG");
   --utrecht-list-social-margin-block-start: 24px;
-  --utrecht-heading-1-margin-block-start: var(--utrecht-space-block-2xl);
+  --utrecht-heading-1-margin-block-start: 0;
   --utrecht-heading-1-margin-block-end: var(--utrecht-space-block-2xl);
   --utrecht-page-footer-background-image: linear-gradient(
     45deg,
