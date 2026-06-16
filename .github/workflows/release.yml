@@ -41,7 +41,7 @@ jobs:
             ${{ runner.os }}-puppeteer-
       - name: Check for known security issues with npm packages
         run: |
-          echo "Auditing npm dependencies before installing them. For more information."
+          echo "Auditing npm dependencies before installing them."
           pnpm audit --audit-level critical
 
       - run: pnpm install --frozen-lockfile
@@ -158,7 +158,7 @@ jobs:
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 #v5.0.0
       - name: Check for known security issues with npm packages
         run: |
-          echo "Auditing npm dependencies before installing them. For more information."
+          echo "Auditing npm dependencies before installing them."
           pnpm audit --audit-level critical
       - name: Install
         run: pnpm install --frozen-lockfile
