@@ -31,14 +31,15 @@
   "dependencies": {
     "@frameless/ui": "workspace:*",
     "@frameless/utils": "workspace:*",
-    "@utrecht/component-library-react": "7.3.5",
-    "@utrecht/web-component-library-react": "3.0.0",
+    "@utrecht/component-library-react": "14.0.1",
+    "@utrecht/web-component-library-react": "4.0.5",
     "cors": "2.8.5",
     "dompurify": "3.2.1",
     "dotenv": "16.4.5",
     "express": "4.21.0",
     "express-openapi-validator": "5.3.7",
     "js-yaml": "4.1.0",
+    "jsdom": "25.0.1",
     "lodash.memoize": "4.1.2",
     "lodash.merge": "4.6.2",
     "lodash.snakecase": "4.1.1",
@@ -47,8 +48,7 @@
     "react-markdown": "10.1.0",
     "rehype-raw": "7.0.0",
     "slugify": "1.6.9",
-    "swagger-ui-express": "5.0.1",
-    "jsdom": "25.0.1"
+    "swagger-ui-express": "5.0.1"
   },
   "devDependencies": {
     "@frameless/eslint-config": "1.2.0",
