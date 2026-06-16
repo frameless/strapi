@@ -140,6 +140,7 @@ describe('Objects controller', () => {
     });
 
     it('should return kennisartikel objects when type is kennisartikel', async () => {
+      const spy = vi.spyOn(getPaginatedResponseUtils, 'getPaginatedResponse').mockResolvedValue({});
       mockedFetchData.mockResolvedValueOnce(getStrapiKennisartikelData());
       const response = await request(app)
         .get(`/api/v2/objects?type=${encodeURIComponent('http://localhost:4001/api/v2/objecttypes/kennisartikel')}`)
@@ -147,9 +148,11 @@ describe('Objects controller', () => {
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(objectsResponseData({ type: 'kennisartikel' }));
+      spy.mockRestore();
     });
 
     it('should return vac objects when type is vac', async () => {
+      const spy = vi.spyOn(getPaginatedResponseUtils, 'getPaginatedResponse').mockResolvedValue({});
       mockedFetchData.mockResolvedValueOnce(getStrapiVacData());
       const response = await request(app)
         .get(`/api/v2/objects?type=${encodeURIComponent('http://localhost:4001/api/v2/objecttypes/vac')}`)
@@ -157,6 +160,7 @@ describe('Objects controller', () => {
       expect(response.status).toBe(200);
       expect(response.ok).toBe(true);
       expect(response.body).toStrictEqual(objectsResponseData({ type: 'vac' }));
+      spy.mockRestore();
     });
 
     it('should include contact_information_internal in VAC antwoord', async () => {
