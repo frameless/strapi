@@ -27,7 +27,7 @@
     "@frameless/strapi-plugin-flo-legal-embed": "2.0.1",
     "@frameless/strapi-plugin-language": "1.0.1",
     "@frameless/strapi-plugin-nl-government-fields": "1.0.1",
-    "@frameless/strapi-plugin-notes": "1.0.1",
+    "@frameless/strapi-plugin-notes": "1.1.1",
     "@frameless/strapi-plugin-old-slugs": "2.0.1",
     "@frameless/strapi-plugin-open-forms-embed": "1.0.1",
     "@frameless/strapi-tiptap-editor": "1.0.4",
