@@ -63,6 +63,8 @@ const config = {
       'content-manager.relation.publicationState.draft': 'Concept',
       'content-manager.preview.panel.button': 'Voorbeeld online loket',
       'preview-button.button.pagePreview': 'KISS-voorbeeld',
+      'publisher.action.footer.publish.button.add': 'Publiceren inplannen',
+      'publisher.action.footer.unpublish.button.add': 'Depubliceren inplannen',
       'Not Found Page': 'Pagina niet gevonden',
       'primary-action-button': 'Inwoners (blauw)',
       'secondary-action-button': 'Aanvullende knop (wit)',
