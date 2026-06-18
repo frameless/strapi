@@ -754,8 +754,6 @@
           "kennisartikelMetadata.productValtOnder",
           "kennisartikelMetadata.afdelingen.afdelingId",
           "kennisartikelMetadata.afdelingen.afdelingNaam",
-          "kennisartikelMetadata.afdelingen.contact.name",
-          "kennisartikelMetadata.afdelingen.contact.email",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
@@ -770,7 +768,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "pxv0nkr1m0k9bucbkoh253kq",
+      "documentId": "opl7eo1gdqn0tx8eps9qjlix",
       "locale": null
     },
     {
@@ -846,8 +844,6 @@
           "kennisartikelMetadata.productValtOnder",
           "kennisartikelMetadata.afdelingen.afdelingId",
           "kennisartikelMetadata.afdelingen.afdelingNaam",
-          "kennisartikelMetadata.afdelingen.contact.name",
-          "kennisartikelMetadata.afdelingen.contact.email",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
@@ -862,7 +858,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "j4hk30c8mboq5si2l5krserl",
+      "documentId": "rcbb5sv5hyvjfeh2z24hr429",
       "locale": null
     },
     {
@@ -916,8 +912,6 @@
           "kennisartikelMetadata.productValtOnder",
           "kennisartikelMetadata.afdelingen.afdelingId",
           "kennisartikelMetadata.afdelingen.afdelingNaam",
-          "kennisartikelMetadata.afdelingen.contact.name",
-          "kennisartikelMetadata.afdelingen.contact.email",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsIdentifier",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsPrefLabel",
           "kennisartikelMetadata.verantwoordelijkeOrganisatie.owmsEndDate",
@@ -932,7 +926,7 @@
         "locales": ["en", "nl"]
       },
       "conditions": [],
-      "documentId": "c5v4oa0mnw0e0l1vp83z4a27",
+      "documentId": "ubmxveijkuhqxnfnsfk4t0vr",
       "locale": null
     },
     {
@@ -1042,8 +1036,6 @@
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
           "vac.afdelingen.afdelingNaam",
-          "vac.afdelingen.contact.name",
-          "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
           "vac.keywords",
@@ -1056,7 +1048,7 @@
         ]
       },
       "conditions": [],
-      "documentId": "kl1bq7dcnegg4xy5c5z9l6gt",
+      "documentId": "ic164mafvqumzuhfgbz0cd2r",
       "locale": null
     },
     {
@@ -1091,8 +1083,6 @@
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
           "vac.afdelingen.afdelingNaam",
-          "vac.afdelingen.contact.name",
-          "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
           "vac.keywords",
@@ -1105,7 +1095,7 @@
         ]
       },
       "conditions": [],
-      "documentId": "tmuveyubqfovbwf1qfbx0lp5",
+      "documentId": "gksgvibe8d12vtsa1jkme9ug",
       "locale": null
     },
     {
@@ -1122,8 +1112,6 @@
           "vac.doelgroep",
           "vac.afdelingen.afdelingId",
           "vac.afdelingen.afdelingNaam",
-          "vac.afdelingen.contact.name",
-          "vac.afdelingen.contact.email",
           "vac.uuid",
           "vac.toelichting",
           "vac.keywords",
@@ -1136,7 +1124,7 @@
         ]
       },
       "conditions": [],
-      "documentId": "dq0pw2cf4ts9an3y4svmav8n",
+      "documentId": "simnyzz6qmqzaq3gbb13dqtj",
       "locale": null
     },
     {
