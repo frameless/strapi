@@ -14,13 +14,6 @@
     "afdelingNaam": {
       "type": "string",
       "required": true
-    },
-    "contact": {
-      "type": "component",
-      "repeatable": true,
-      "component": "components.contact",
-      "private": true,
-      "required": false
     }
   }
 }

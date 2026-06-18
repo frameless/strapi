@@ -47,20 +47,6 @@
           "sortable": true
         }
       },
-      "contact": {
-        "edit": {
-          "label": "Contact",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "contact",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "documentId": {
         "edit": {},
         "list": {
@@ -71,7 +57,7 @@
       }
     },
     "layouts": {
-      "list": ["id", "afdelingId", "afdelingNaam", "contact"],
+      "list": ["id", "afdelingId", "afdelingNaam"],
       "edit": [
         [
           {
@@ -81,12 +67,6 @@
           {
             "name": "afdelingNaam",
             "size": 6
-          }
-        ],
-        [
-          {
-            "name": "contact",
-            "size": 12
           }
         ]
       ]
