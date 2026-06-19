@@ -17,8 +17,8 @@
     "clean": "rimraf build .cache dist"
   },
   "dependencies": {
-    "@frameless/strapi-plugin-env-label": "1.0.1",
-    "@frameless/strapi-tiptap-editor": "1.0.3",
+    "@frameless/strapi-plugin-env-label": "1.0.3",
+    "@frameless/strapi-tiptap-editor": "1.0.5",
     "@strapi/admin": "5.44.0",
     "@strapi/design-system": "2.2.0",
     "@strapi/icons": "2.2.0",
