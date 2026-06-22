@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@frameless/content-compliance-checker": "1.0.3",
-    "@frameless/preview-button": "2.1.1",
+    "@frameless/preview-button": "2.2.0",
     "@frameless/strapi-plugin-env-label": "1.0.3",
     "@frameless/strapi-plugin-flo-legal-embed": "2.0.2",
     "@frameless/strapi-plugin-language": "1.0.1",
