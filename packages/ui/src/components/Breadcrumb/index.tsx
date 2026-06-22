@@ -12,21 +12,24 @@ import './index.module.scss';
 import styles from './index.module.scss';
 import { useScreenSize } from '../../hooks';
 
+export const extendLink = (link: BreadcrumbLinkType) => ({
+  // Use default `rel`, but actual optional rel should override this
+  rel: link.current ? undefined : link.href === '/' ? 'home' : 'up',
+  ...link,
+});
+
 const css = classnames.bind(styles);
 type BreadcrumbLinkType = {
   href: string;
   label: string;
   current: boolean;
+  rel?: string;
 };
 
 interface BreadcrumbProps extends BreadcrumbNavProps {
   links: BreadcrumbLinkType[];
   Link?: ComponentType<any>;
-  backLink?: {
-    href: string;
-    label: string;
-    current: boolean;
-  };
+  backLink?: BreadcrumbLinkType;
   breakpoint?: number;
 }
 
@@ -41,59 +44,51 @@ export const Breadcrumbs = ({
 
   const smallScreen = Number(screenSize) <= breakpoint;
 
-  if (smallScreen && backLink?.href && backLink.label) {
+  const linkData = links.map(extendLink);
+  const backLinkData = backLink && extendLink(backLink);
+
+  if (
+    (smallScreen && backLinkData?.href && backLinkData.label) ||
+    (links.length === 1 && backLinkData?.href && backLinkData.label)
+  ) {
     return (
-      <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')} {...restBreadcrumbProps}>
-        <Fragment>
-          <BreadcrumbNavLink
-            className={css('utrecht-link', 'utrecht-link--html-a', 'utrecht-breadcrumb-nav__link-custom')}
-            href={backLink.href}
-            rel={backLink.href === '/' ? 'home' : 'up'}
-            current={backLink.current}
-            Link={Link}
-          >
-            {backLink?.label?.toLowerCase() !== 'home' && (
-              <BreadcrumbNavSeparator>
-                <UtrechtIconChevronLeft />
-              </BreadcrumbNavSeparator>
-            )}
-            {backLink.label}
-          </BreadcrumbNavLink>
-        </Fragment>
+      <BreadcrumbNav {...restBreadcrumbProps}>
+        <BreadcrumbNavLink
+          className={css('utrecht-link', 'utrecht-link--html-a')}
+          href={backLinkData.href}
+          rel={backLinkData.rel}
+          current={backLinkData.current}
+          Link={Link}
+        >
+          {backLinkData?.rel === 'up' && <UtrechtIconChevronLeft />} {backLinkData.label}
+        </BreadcrumbNavLink>
       </BreadcrumbNav>
     );
   }
 
   return (
-    <BreadcrumbNav className={css('utrecht-breadcrumb-nav-theme')} {...restBreadcrumbProps}>
-      {links &&
-        links.length > 0 &&
-        links
-          .filter(({ label }) => label)
-          .map(({ href, label, current }: any, index: number) => (
-            <Fragment key={`${href}-${index}`}>
-              <BreadcrumbNavLink
-                className={css('utrecht-link', 'utrecht-link--html-a', 'utrecht-breadcrumb-nav__link-custom')}
-                href={href}
-                rel={href === '/' ? 'home' : 'up'}
-                index={index}
-                current={current}
-                Link={UtrechtLink}
-              >
-                {links.length === 1 && label?.toLowerCase() !== 'home' && (
-                  <BreadcrumbNavSeparator>
-                    <UtrechtIconChevronLeft />
-                  </BreadcrumbNavSeparator>
-                )}
-                {label}
-                {index !== links.length - 1 && (
-                  <BreadcrumbNavSeparator>
-                    <UtrechtIconChevronRight />
-                  </BreadcrumbNavSeparator>
-                )}
-              </BreadcrumbNavLink>
-            </Fragment>
-          ))}
+    <BreadcrumbNav {...restBreadcrumbProps}>
+      {linkData
+        .filter(({ label }) => label)
+        .map(({ href, label, current, rel }: any, index: number) => (
+          <Fragment key={`${href}-${index}`}>
+            <BreadcrumbNavLink
+              className={css('utrecht-link', 'utrecht-link--html-a')}
+              href={href}
+              rel={rel}
+              index={index}
+              current={current}
+              Link={Link}
+            >
+              {label}
+            </BreadcrumbNavLink>
+            {index !== links.length - 1 && (
+              <BreadcrumbNavSeparator>
+                <UtrechtIconChevronRight />
+              </BreadcrumbNavSeparator>
+            )}
+          </Fragment>
+        ))}
     </BreadcrumbNav>
   );
 };
