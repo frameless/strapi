@@ -1,6 +1,5 @@
 import classnames from 'classnames/bind';
-import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren, useRef } from 'react';
-import { FocusEvent } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
 import styles from './index.module.scss';
 import { NavigationItem } from '../NavigationItem';
 import { NavigationLink } from '../NavigationLink';
@@ -11,6 +10,7 @@ export interface NavigationListProps extends DetailedHTMLProps<HTMLAttributes<HT
   mobile?: boolean;
   sideNav?: boolean;
   subList?: boolean;
+  targetId?: string;
 }
 
 const css = classnames.bind(styles);
@@ -38,21 +38,9 @@ export const NavigationList = ({
   sideNav,
   children,
   subList,
+  targetId,
   ...restProps
 }: PropsWithChildren<NavigationListProps>) => {
-  const navListRef = useRef<HTMLUListElement>(null);
-  const navLinkRef = useRef<HTMLAnchorElement>(null);
-
-  // focus on first link in list when list is focused
-  const onNavListLinkFocusHandler = (event: FocusEvent<HTMLUListElement, Element>) => {
-    if (mobile) return; // prevent behavior on mobile
-    if (event.target !== navListRef.current) return; // ignore bubbling focus event in React
-
-    if (navListRef.current && navLinkRef?.current) {
-      navLinkRef.current.focus();
-    }
-  };
-
   return (
     <ul
       className={css('utrecht-navigation__list', {
@@ -60,9 +48,6 @@ export const NavigationList = ({
         'utrecht-navigation__list--side-nav': sideNav,
         'utrecht-navigation__list--sub-list': subList,
       })}
-      ref={navListRef}
-      tabIndex={-1}
-      onFocus={onNavListLinkFocusHandler}
       {...restProps}
     >
       {children}
@@ -76,7 +61,7 @@ export const NavigationList = ({
                 mobile={mobile}
                 href={item.href}
                 isCurrent={item.isCurrent}
-                ref={isTheFirstElement ? navLinkRef : null}
+                id={isTheFirstElement ? targetId : undefined}
                 marker={mobile && <NavigationMarker isCurrent={item.isCurrent} />}
               >
                 {item.textContent}
