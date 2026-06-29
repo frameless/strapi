@@ -268,8 +268,8 @@ importers:
         specifier: 1.0.1
         version: 1.0.1(5493914702d14c8da59db8928d40ab9c)
       '@frameless/strapi-plugin-notes':
-        specifier: 1.1.1
-        version: 1.1.1(5493914702d14c8da59db8928d40ab9c)
+        specifier: 1.1.2
+        version: 1.1.2(5493914702d14c8da59db8928d40ab9c)
       '@frameless/strapi-plugin-old-slugs':
         specifier: 2.0.2
         version: 2.0.2(c2096e61867fe9ac80f439b6dd1cd6d5)
@@ -3316,8 +3316,8 @@ packages:
       react: ^18.0.0
       react-dom: ^18.0.0
 
-  '@frameless/strapi-plugin-notes@1.1.1':
-    resolution: {integrity: sha512-Hh3MkusJZ28Mds0BdU9bcyv0tHsAt+sq0xuJisVy1SQ1scrlOrr2AxmGYEksf4+RbrqRbM/xh8zuc2U23UOOPQ==}
+  '@frameless/strapi-plugin-notes@1.1.2':
+    resolution: {integrity: sha512-jKDxDjKOd7cGeQUlcTN1ti93dPaN3wwowsACahehwdMH6gQlXsMcX8PWjaXmV4h+z90hC6boEF1P2Hrt7aHMlA==}
     engines: {node: '>=22.0.0 <25', pnpm: '>=10.0.0'}
     peerDependencies:
       '@strapi/design-system': '>=2.0.0'
@@ -22870,7 +22870,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@frameless/strapi-plugin-notes@1.1.1(5493914702d14c8da59db8928d40ab9c)':
+  '@frameless/strapi-plugin-notes@1.1.2(5493914702d14c8da59db8928d40ab9c)':
     dependencies:
       '@strapi/design-system': 2.2.0(@babel/runtime@7.29.7)(@codemirror/autocomplete@6.20.1)(@codemirror/language@6.12.2)(@codemirror/lint@6.9.5)(@codemirror/search@6.6.0)(@codemirror/state@6.5.4)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.39.16)(@strapi/icons@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.3.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(@types/react-dom@18.3.1)(@types/react@18.3.12)(codemirror@5.65.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.3.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@strapi/icons': 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.3.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
