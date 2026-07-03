@@ -1,5 +1,11 @@
 # Old Slugs
 
+## Wat doet deze plugin?
+
+De Old Slugs plugin zorgt ervoor dat bezoekers automatisch worden doorgestuurd naar de juiste pagina wanneer een URL is gewijzigd. De oude URL wordt automatisch opgeslagen en blijft werken als redirect ook voor bezoekers die nog een bladwijzer of oude link gebruiken. Zo gaan er geen bezoekers verloren bij het hernoemen van pagina's.
+
+---
+
 ## Wat is een slug?
 
 Een slug is het deel van een URL dat een pagina identificeert. Bijvoorbeeld:
