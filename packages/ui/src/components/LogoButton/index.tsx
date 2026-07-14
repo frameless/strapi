@@ -123,7 +123,7 @@ export const LogoButton = ({ logo, appearance, href, children, label, headingLev
           {label && <Heading level={headingLevel}>{label}</Heading>}
           <ButtonGroup>
             <ButtonLink
-              appearance="primary-action-button"
+              appearance={buttonAppearance}
               href={href}
               className={isMagenta ? css('utrecht-button-link--magenta') : undefined}
             >
