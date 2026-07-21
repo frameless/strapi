@@ -49,7 +49,7 @@
     a[href]::after {
       content: " (" attr(href) ")";
       font-size: 0.8em;
-      font-style: italic;
+      font-style: normal;
       font-weight: 400;
     }
 
