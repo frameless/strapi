@@ -105,7 +105,7 @@
     },
     "patchedDependencies": {
       "@strapi/database": "patches/@strapi__database.patch",
-      "@open-formulieren/sdk@3.4.2": "patches/@open-formulieren__sdk@3.4.2.patch"
+      "@open-formulieren/sdk@3.5.6": "patches/@open-formulieren__sdk@3.5.6.patch"
     }
   },
   "resolutions": {
