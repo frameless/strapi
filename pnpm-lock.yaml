@@ -8,7 +8,7 @@ overrides:
   '@types/minimatch': 5.1.2
   eslint: ^9.39.3
   sanitize-html: 2.17.4
-  handlebars: 4.7.9
+  handlebars: 4.7.10
   shell-quote: 1.11.0
   websocket-driver: 0.7.5
   tar: 7.5.19
@@ -10636,6 +10636,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -11552,8 +11553,8 @@ packages:
   handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
 
-  handlebars@4.7.9:
-    resolution: {integrity: sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ==}
+  handlebars@4.7.10:
+    resolution: {integrity: sha512-P5VJMVM7qgBn6vjXMw8WG9uVI+ncf2pi72j4de4yz5ZULLj2RGqLYaKOYGsgyrViQ0tePOVlN1tDCCXXtFqXKg==}
     engines: {node: '>=0.4.7'}
     hasBin: true
 
@@ -28324,7 +28325,7 @@ snapshots:
       '@strapi/utils': 5.44.0
       chalk: 4.1.2
       fs-extra: 11.3.4
-      handlebars: 4.7.9
+      handlebars: 4.7.10
       jscodeshift: 17.3.0(@babel/preset-env@7.24.8(@babel/core@7.29.0))
       lodash: 4.18.1
       plop: 4.0.5(@types/node@25.9.2)
@@ -33516,7 +33517,7 @@ snapshots:
     dependencies:
       conventional-commits-filter: 2.0.7
       dateformat: 3.0.3
-      handlebars: 4.7.9
+      handlebars: 4.7.10
       json-stringify-safe: 5.0.1
       lodash: 4.18.1
       meow: 8.1.2
@@ -36383,7 +36384,7 @@ snapshots:
 
   handle-thing@2.0.1: {}
 
-  handlebars@4.7.9:
+  handlebars@4.7.10:
     dependencies:
       minimist: 1.2.8
       neo-async: 2.6.2
@@ -39872,7 +39873,7 @@ snapshots:
       '@types/picomatch': 4.0.2
       change-case: 5.4.4
       dlv: 1.1.3
-      handlebars: 4.7.9
+      handlebars: 4.7.10
       inquirer: 9.3.8(@types/node@25.9.2)
       isbinaryfile: 5.0.7
       resolve: 1.22.11
@@ -44700,12 +44701,12 @@ snapshots:
 
   typedoc-plugin-markdown@3.17.1(typedoc@0.25.10(typescript@5.4.5)):
     dependencies:
-      handlebars: 4.7.9
+      handlebars: 4.7.10
       typedoc: 0.25.10(typescript@5.4.5)
 
   typedoc-plugin-markdown@3.17.1(typedoc@0.25.10(typescript@5.8.3)):
     dependencies:
-      handlebars: 4.7.9
+      handlebars: 4.7.10
       typedoc: 0.25.10(typescript@5.8.3)
 
   typedoc@0.25.10(typescript@5.4.5):
