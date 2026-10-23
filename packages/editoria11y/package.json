@@ -43,7 +43,7 @@
     "name": "@frameless"
   },
   "engines": {
-    "node": ">=22.0.0 <25",
+    "node": ">=24.22.1",
     "pnpm": "10.23.0"
   },
   "license": "EUPL-1.2",

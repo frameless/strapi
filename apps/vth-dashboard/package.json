@@ -43,7 +43,7 @@
     "uuid": "3d9f46d7-679c-4633-8821-761d8bbb5bea"
   },
   "engines": {
-    "node": "24.x.x",
+    "node": ">=24.22.1",
     "pnpm": "10.23.0"
   },
   "license": "EUPL-1.2",
