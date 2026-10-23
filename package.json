@@ -105,7 +105,8 @@
       "websocket-driver": "0.7.5",
       "tar": "7.5.19",
       "proxy-addr": "2.0.8",
-      "tinypool": "2.1.2"
+      "tinypool": "2.1.2",
+      "dompurify": "3.4.17"
     },
     "patchedDependencies": {
       "@strapi/database": "patches/@strapi__database.patch",
