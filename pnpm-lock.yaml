@@ -15,6 +15,7 @@ overrides:
   proxy-addr: 2.0.8
   tinypool: 2.1.2
   dompurify: 3.4.17
+  git-diff: 2.0.7
 
 patchedDependencies:
   '@open-formulieren/sdk@3.5.6':
@@ -11312,8 +11313,8 @@ packages:
   getopts@2.3.0:
     resolution: {integrity: sha512-5eDf9fuSXwxBL6q5HX+dhDj+dslFGWzU5thZ9kNKUkcPtaPdatmUFKwHFrLb/uf/WpA4BHET+AX3Scl56cAjpA==}
 
-  git-diff@2.0.6:
-    resolution: {integrity: sha512-/Iu4prUrydE3Pb3lCBMbcSNIf81tgGt0W1ZwknnyF62t3tHmtiJTRj0f+1ZIhp3+Rh0ktz1pJVoa7ZXUCskivA==}
+  git-diff@2.0.7:
+    resolution: {integrity: sha512-/+vyWaKNUJLcVT+tm5Hsly2xDcIs49EkZstxqW7ap1ZiZ0BECviLK1iv9/f4cGhlKBokeAf61QkTDnL88H+Uhg==}
     engines: {node: '>= 4.8.0'}
 
   git-hooks-list@3.2.0:
@@ -36022,7 +36023,7 @@ snapshots:
 
   getopts@2.3.0: {}
 
-  git-diff@2.0.6:
+  git-diff@2.0.7:
     dependencies:
       chalk: 2.4.2
       diff: 3.5.1
@@ -43520,7 +43521,7 @@ snapshots:
       cli-table: 0.3.11
       commander: 14.0.3
       file-saver: 2.0.5
-      git-diff: 2.0.6
+      git-diff: 2.0.7
       immutable: 4.3.8
       inquirer: 13.3.0(@types/node@25.9.2)
       lodash: 4.18.1
@@ -43555,7 +43556,7 @@ snapshots:
       cli-table: 0.3.11
       commander: 14.0.3
       file-saver: 2.0.5
-      git-diff: 2.0.6
+      git-diff: 2.0.7
       immutable: 4.3.8
       inquirer: 13.3.0(@types/node@25.9.2)
       lodash: 4.18.1

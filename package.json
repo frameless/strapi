@@ -97,24 +97,10 @@
     "validator": "13.15.26"
   },
   "pnpm": {
-    "overrides": {
-      "eslint": "^9.39.3",
-      "sanitize-html": "2.17.4",
-      "handlebars": "4.7.10",
-      "shell-quote": "1.11.0",
-      "websocket-driver": "0.7.5",
-      "tar": "7.5.19",
-      "proxy-addr": "2.0.8",
-      "tinypool": "2.1.2",
-      "dompurify": "3.4.17"
-    },
     "patchedDependencies": {
       "@strapi/database": "patches/@strapi__database.patch",
       "@open-formulieren/sdk@3.5.6": "patches/@open-formulieren__sdk@3.5.6.patch"
     }
-  },
-  "resolutions": {
-    "@types/minimatch": "5.1.2"
   },
   "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b"
 }
