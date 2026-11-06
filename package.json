@@ -52,7 +52,7 @@
     "format:env": "node scripts/env-format.mjs",
     "prettier": "prettier --list-different --write .",
     "prepare": "husky install",
-    "postinstall": "pnpm --filter @frameless/pdc-frontend copy-flo-legal-decision-tree-client-script",
+    "postinstall": "pnpm --filter @frameless/pdc-frontend --if-present copy-flo-legal-decision-tree-client-script",
     "publish": "changeset publish",
     "test-update": "pnpm lint && pnpm build && pnpm test",
     "update-major": "npm-check-updates --configFileName .ncurc.major.mjs",

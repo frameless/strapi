@@ -2,6 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "pnpm -r --filter @frameless/pdc-frontend... build",
   "framework": "nextjs",
-  "installCommand": "pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install --frozen-lockfile --filter @frameless/pdc-frontend...",
   "relatedProjects": ["prj_lCkIDvZnn4NudPf31jFBlZ7hxQRx", "prj_Kvn4W8zKiyR07V4aPYZCgLAQu2d9"]
 }
