@@ -1,0 +1,110 @@
+flowchart TB
+
+  %% ────────────────────────────────
+  %% PDC DOMEIN
+  %% ────────────────────────────────
+  subgraph PDC["PDC Domein"]
+    direction TB
+
+    subgraph PDC_INFRA["Infrastructuur"]
+      PDC_DB[("PostgreSQL")]
+    end
+
+    subgraph PDC_HUB["CMS Kern"]
+      PDC_STRAPI["pdc-dashboard (Strapi)"]
+    end
+
+    subgraph PDC_CONSUMERS["Frontend & Diensten"]
+      PDC_FRONT["Online loket website"]
+      PDC_SC["pdc-sc (Samenwerkende Catalogi) API"]
+    end
+
+    subgraph PDC_API["API- & Uitbreidingslaag"]
+      OOA["overige-objecten-api REST API"]
+      SAE["strapi-admin-extensions REST API"]
+    end
+  end
+
+  %% ────────────────────────────────
+  %% VTH DOMEIN
+  %% ────────────────────────────────
+  subgraph VTH["VTH (Toezicht en Handhaving) Domein"]
+    direction TB
+
+    subgraph VTH_INFRA["Infrastructuur"]
+      VTH_DB[("PostgreSQL")]
+    end
+
+    subgraph VTH_HUB["CMS Kern"]
+      VTH_STRAPI["vth-dashboard (Strapi)"]
+    end
+
+    subgraph VTH_CONSUMERS["Frontend"]
+      VTH_FRONT["vth-frontend"]
+    end
+  end
+
+
+  %% ────────────────────────────────
+  %% EXTERNE DIENSTEN
+  %% ────────────────────────────────
+  subgraph EXT["Externe Diensten"]
+    direction LR
+    FLO["FLO Legal API"]
+    OPENFORMS["Open Forms API"]
+    MATOMO["Matomo"]
+    KCM["KCM klanttevredenheidsonderzoeken"]
+    PANDO["Pandosearch"]
+  end
+
+  %% ────────────────────────────────
+  %% EXTERNE AFNEMERS
+  %% ────────────────────────────────
+  subgraph CONSUMERS["Externe Afnemers"]
+    direction LR
+    KISS["KISS Dashboard"]
+    SC_NET["samenwerkende-catalogi.nl XML-afnemers"]
+  end
+
+  %% ════════════════════════════════
+  %% VERBINDINGEN — PDC
+  %% ════════════════════════════════
+  PDC_DB      -->|"gegevens opgeslagen in"| PDC_STRAPI
+  PDC_STRAPI  -->|"GraphQL"| PDC_FRONT
+  PDC_STRAPI  -->|"GraphQL"| PDC_SC
+  PDC_STRAPI  -->|"GraphQL"| OOA
+  PDC_STRAPI  -.->|"KISS-voorbeeld via preview-plugin → GET "| OOA
+  SAE         -->|"CSV-upload → POST /api/v2/objects"| OOA
+
+  %% ════════════════════════════════
+  %% VERBINDINGEN — VTH
+  %% ════════════════════════════════
+  VTH_DB     -->|"gegevens opgeslagen in"| VTH_STRAPI
+  VTH_STRAPI -->|"GraphQL"| VTH_FRONT
+
+  %% ════════════════════════════════
+  %% GEDEELDE PAKKETTEN
+  %% ════════════════════════════════
+  %% PKG_UI     -.->|"npm-afhankelijkheid"| PDC_FRONT
+  %% PKG_UI     -.->|"npm-afhankelijkheid"| VTH_FRONT
+  %% PKG_UTILS  -.->|"npm-afhankelijkheid"| PDC_FRONT
+  %% PKG_UTILS  -.->|"npm-afhankelijkheid"| VTH_FRONT
+  %% PKG_SC_PKG -.->|"npm-afhankelijkheid"| PDC_SC
+  %% PKG_A11Y   -.->|"npm-afhankelijkheid"| PDC_FRONT
+  %% PKG_A11Y   -.->|"npm-afhankelijkheid"| VTH_FRONT
+
+  %% ════════════════════════════════
+  %% EXTERNE DIENSTEN via frontends
+  %% ════════════════════════════════
+  PDC_FRONT -.->|"formulieren insluiten"| OPENFORMS
+  PDC_FRONT -.->|"beslissingen insluiten"| FLO
+  PDC_FRONT -.->|"statistieken"| MATOMO
+  PDC_FRONT -.->|"zoeken"| PANDO
+  PDC_FRONT -.->|"Feedbackformulier"| KCM
+  VTH_FRONT -.->|"statistieken"| MATOMO
+
+  %% ════════════════════════════════
+  %% UITVOER NAAR EXTERNE AFNEMERS
+  %% ════════════════════════════════
+  OOA    -->|"Kennisartikelen\nVAC-data + HTML-opmaak"| KISS
+  PDC_SC -->|"XML-feed Samenwerkende Catalogi"| SC_NET
