@@ -16,6 +16,11 @@
   margin-inline-end: 8px;
 }
 
+.utrecht-breadcrumb-nav__separator {
+  /* Replaces the inline style set by BreadcrumbNavSeparator, which is blocked by CSP */
+  display: var(--_utrecht-breadcrumb-nav-separator-display, block);
+}
+
 .utrecht-breadcrumb-nav__link {
   --utrecht-link-focus-color: var(--utrecht-color-black);
 }
