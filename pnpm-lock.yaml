@@ -18,9 +18,9 @@ overrides:
   git-diff: 2.0.7
 
 patchedDependencies:
-  '@open-formulieren/sdk@3.5.6':
-    hash: 020791792f7c917faa52b29769863ec4045d05519143980a1bfd49c604858819
-    path: patches/@open-formulieren__sdk@3.5.6.patch
+  '@open-formulieren/sdk@3.5.10':
+    hash: 1e941dbe7a7498c15735fcf5f456dd26e89540b2354e7833f9daf28c3247cdf9
+    path: patches/@open-formulieren__sdk@3.5.10.patch
   '@strapi/database':
     hash: 9c4780d1218c8890076fdec3b7f7455b15668a2706cad02d828572686276897c
     path: patches/@strapi__database.patch
@@ -365,8 +365,8 @@ importers:
         specifier: 1.9.0
         version: 1.9.0
       '@open-formulieren/sdk':
-        specifier: 3.5.6
-        version: 3.5.6(patch_hash=020791792f7c917faa52b29769863ec4045d05519143980a1bfd49c604858819)(71e96bc354b91e64695240ef16013e0d)
+        specifier: 3.5.10
+        version: 3.5.10(patch_hash=1e941dbe7a7498c15735fcf5f456dd26e89540b2354e7833f9daf28c3247cdf9)(71e96bc354b91e64695240ef16013e0d)
       '@tanstack/react-query':
         specifier: 4.29.25
         version: 4.29.25(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -4696,8 +4696,8 @@ packages:
   '@open-formulieren/design-tokens@0.66.0':
     resolution: {integrity: sha512-zMs6937ostu1b6q7WHYq4yjtKifnExOGAjWNYLMWuc+7ZttnhFnsf5QFXBR6P+YFDkzQNhJSKnGZnmmY1zZPOQ==}
 
-  '@open-formulieren/formio-renderer@1.8.2':
-    resolution: {integrity: sha512-kZjNSBrjEzXVDoO1nwtUXM2z4dx7z7NTm+1Y9JdOcF1kc8FYuZXSMJclK/ls9gWb4l0NsQkJa+lyitI8TAuiFQ==}
+  '@open-formulieren/formio-renderer@1.8.8':
+    resolution: {integrity: sha512-pe95WjTLpEPmO9sx9TLhYw23oTA5wmsowZvCzropiGghZx3vWimhtu4dMciiGqIwVlZYRYwwOcm9Usu+4ubSeQ==}
     peerDependencies:
       '@floating-ui/react': '>= 0.27.5'
       '@formatjs/intl': ^3.1.8
@@ -4736,8 +4736,8 @@ packages:
     peerDependencies:
       leaflet: ^1.7.1
 
-  '@open-formulieren/sdk@3.5.6':
-    resolution: {integrity: sha512-WWK95EVLKXJiUDwytQIHyKkv+9h8W+nnoL3QvU5WIxH3t9V7nwQjTL/cdzfwaFgBcrRQwez+qAwdH91nI0C0eg==}
+  '@open-formulieren/sdk@3.5.10':
+    resolution: {integrity: sha512-AV4shewG1YQuLa+y/P3zIQqL4Or1t11Es84Jo7DiI2jLCVvk0iM6kmvp0ND2JXOwD+3WOAbO1VKH8wKguTMZxw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -25062,7 +25062,7 @@ snapshots:
 
   '@open-formulieren/design-tokens@0.66.0': {}
 
-  '@open-formulieren/formio-renderer@1.8.2(3df03d9eefe05dd265e50d560dd484ea)':
+  '@open-formulieren/formio-renderer@1.8.8(3df03d9eefe05dd265e50d560dd484ea)':
     dependencies:
       '@babel/runtime': 7.29.7
       '@floating-ui/react': 0.27.19(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -25154,14 +25154,14 @@ snapshots:
       leaflet: 1.9.4
       proj4leaflet: 1.0.2
 
-  '@open-formulieren/sdk@3.5.6(patch_hash=020791792f7c917faa52b29769863ec4045d05519143980a1bfd49c604858819)(71e96bc354b91e64695240ef16013e0d)':
+  '@open-formulieren/sdk@3.5.10(patch_hash=1e941dbe7a7498c15735fcf5f456dd26e89540b2354e7833f9daf28c3247cdf9)(71e96bc354b91e64695240ef16013e0d)':
     dependencies:
       '@date-fns/tz': 1.5.0
       '@floating-ui/react': 0.27.19(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@formio/protected-eval': 1.2.2(formiojs@4.21.7(encoding@0.1.13))
       '@fortawesome/fontawesome-free': 6.7.2
       '@open-formulieren/design-tokens': 0.66.0
-      '@open-formulieren/formio-renderer': 1.8.2(3df03d9eefe05dd265e50d560dd484ea)
+      '@open-formulieren/formio-renderer': 1.8.8(3df03d9eefe05dd265e50d560dd484ea)
       '@open-formulieren/formiojs': 4.13.14(encoding@0.1.13)
       '@open-formulieren/leaflet-tools': 1.0.0(leaflet@1.9.4)
       '@sentry/react': 8.55.0(react@19.2.6)
