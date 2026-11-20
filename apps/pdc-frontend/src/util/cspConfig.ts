@@ -36,7 +36,12 @@ export const normalizeCSPDirectives = (directives: Partial<CSPDirectives>) => {
     .reduce(
       (obj, [key, value]) => ({
         ...obj,
-        [key]: Array.isArray(value) ? value.sort(stringSort) : value,
+        // `'none'` must be the only source expression in a directive, otherwise browsers ignore it
+        // and log a warning. When other sources were merged in (e.g. `frame-ancestors` for the
+        // Strapi preview), drop `'none'`.
+        [key]: Array.isArray(value)
+          ? (value.length > 1 ? value.filter((v) => v !== NONE) : value).sort(stringSort)
+          : value,
       }),
       {},
     );

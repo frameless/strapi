@@ -4,6 +4,7 @@ import {
   getContentSecurityPolicy,
   mergeCSPDirectives,
   mergeCustomizer,
+  normalizeCSPDirectives,
   normalizeURL,
   subdomainWildcard,
 } from './cspConfig';
@@ -63,6 +64,18 @@ describe('cspConfig', () => {
         'font-src': ["'self'", 'https://font.example.com/'],
       };
       expect(mergeCSPDirectives(configA, undefined, configB)).toEqual(expected);
+    });
+  });
+
+  describe('normalizeCSPDirectives', () => {
+    it("should drop 'none' when a directive has other sources", () => {
+      expect(normalizeCSPDirectives({ 'frame-ancestors': ["'none'", "'self'", 'https://cms.example.com/'] })).toEqual({
+        'frame-ancestors': ["'self'", 'https://cms.example.com/'],
+      });
+    });
+
+    it("should keep 'none' when it is the only source", () => {
+      expect(normalizeCSPDirectives({ 'object-src': ["'none'"] })).toEqual({ 'object-src': ["'none'"] });
     });
   });
 

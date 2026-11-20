@@ -1,5 +1,5 @@
 'use client';
-import { OpenFormsContainer } from '@utrecht/open-forms-container-react/dist/css';
+import { OpenFormsContainer } from '@utrecht/open-forms-container-react';
 import { usePathname } from 'next/navigation';
 import { type ReactNode, useId, useRef } from 'react';
 
