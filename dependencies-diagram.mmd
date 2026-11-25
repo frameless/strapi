@@ -1,0 +1,155 @@
+flowchart TB
+
+  %% ─────────────────────────────────────
+  %% PDC DOMEIN — Applicaties
+  %% ─────────────────────────────────────
+  subgraph PDC["PDC Domein"]
+    direction TB
+    PDC_FRONT["Online loket website"]
+    PDC_DASH["pdc-dashboard (Strapi)"]
+    PDC_SC["pdc-sc (Samenwerkende Catalogi) REST API"]
+    OOA["overige-objecten-api REST API"]
+    SAE["strapi-admin-extensions REST API"]
+  end
+
+  %% ─────────────────────────────────────
+  %% VTH DOMEIN — Applicaties
+  %% ─────────────────────────────────────
+  subgraph VTH["VTH (Toezicht en Handhaving) Domein"]
+    direction TB
+    VTH_DASH["vth-dashboard (Strapi)"]
+    VTH_FRONT["vth-frontend (Toezicht en Handhaving website)"]
+  end
+
+  %% ─────────────────────────────────────
+  %% LOKALE WORKSPACE PAKKETTEN
+  %% ─────────────────────────────────────
+  subgraph LOCAL["Lokale Workspace Pakketten (@frameless)"]
+    direction LR
+    PKG_UI["@frameless/ui"]
+    PKG_UTILS["@frameless/utils"]
+    PKG_A11Y["@frameless/editoria11y"]
+    PKG_SC_PKG["@frameless/samenwerkende-catalogi"]
+  end
+
+  %% ─────────────────────────────────────
+  %% EXTERNE FRAMELESS PAKKETTEN (GitHub)
+  %% ─────────────────────────────────────
+  subgraph FRAMELESS_GH["Extern · github.com/frameless/strapi-v5-extensions"]
+    direction TB
+    subgraph STRAPI_PLUGINS_GRP["Strapi Plugins"]
+      direction LR
+      SP1["@frameless/content-compliance-checker"]
+      SP2["@frameless/preview-button"]
+      SP3["@frameless/strapi-plugin-env-label"]
+      SP4["@frameless/strapi-plugin-flo-legal-embed"]
+      SP5["@frameless/strapi-plugin-language"]
+      SP6["@frameless/strapi-plugin-nl-government-fields"]
+      SP7["@frameless/strapi-plugin-notes"]
+      SP8["@frameless/strapi-plugin-old-slugs"]
+      SP9["@frameless/strapi-plugin-open-forms-embed"]
+      SP10["@frameless/strapi-tiptap-editor"]
+    end
+    subgraph CATALOGI_GRP["Cataloguspakketten"]
+      direction LR
+      CP1["@frameless/catalogi-data"]
+      CP2["@frameless/upl"]
+    end
+  end
+
+  %% ─────────────────────────────────────
+  %% UTRECHT DESIGN SYSTEM
+  %% ─────────────────────────────────────
+  subgraph UTRECHT["@utrecht/* · NL Utrecht Design System"]
+    direction TB
+    subgraph UTR_CORE_GRP["Kerncomponenten"]
+      direction LR
+      UC1["@utrecht/component-library-react"]
+      UC2["@utrecht/component-library-css"]
+      UC3["@utrecht/web-component-library-react"]
+      UC4["@utrecht/design-tokens"]
+      UC5["@utrecht/backdrop-css"]
+    end
+    subgraph UTR_FORMS_GRP["Formuliercomponenten"]
+      direction LR
+      UF1["@utrecht/open-forms-container-css"]
+      UF2["@utrecht/open-forms-container-react"]
+      UF3["@utrecht/flo-legal-decision-tree-client"]
+      UF4["@utrecht/flolegal-decision-tree-css"]
+    end
+    subgraph UTR_CSS_GRP["Aanvullende stijlen"]
+      direction LR
+      UA1["@utrecht/focus-ring-css"]
+      UA2["@utrecht/form-label-css"]
+      UA3["@utrecht/multiline-data-css"]
+      UA4["@utrecht/spotlight-section-css"]
+      UA5["@utrecht/textbox-css"]
+    end
+  end
+
+  %% ─────────────────────────────────────
+  %% OVERIGE EXTERNE PAKKETTEN
+  %% ─────────────────────────────────────
+  OPEN_FORMS["@open-formulieren/sdk"]
+  NLDS["@nl-design-system-unstable/documentation"]
+
+  %% ══════════════════════════════════════
+  %% VERBINDINGEN — pdc-dashboard
+  %% ══════════════════════════════════════
+  PDC_DASH --> STRAPI_PLUGINS_GRP
+
+  %% ══════════════════════════════════════
+  %% VERBINDINGEN — pdc-frontend
+  %% ══════════════════════════════════════
+  PDC_FRONT --> PKG_UI
+  PDC_FRONT --> PKG_UTILS
+  PDC_FRONT --> PKG_A11Y
+  PDC_FRONT --> UTR_CORE_GRP
+  PDC_FRONT --> UTR_FORMS_GRP
+  PDC_FRONT --> UTR_CSS_GRP
+  PDC_FRONT --> OPEN_FORMS
+  PDC_FRONT --> NLDS
+
+  %% ══════════════════════════════════════
+  %% VERBINDINGEN — pdc-sc
+  %% ══════════════════════════════════════
+  PDC_SC --> PKG_SC_PKG
+  PDC_SC --> UTR_CORE_GRP
+
+  %% ══════════════════════════════════════
+  %% VERBINDINGEN — overige-objecten-api
+  %% ══════════════════════════════════════
+  OOA --> PKG_UI
+  OOA --> PKG_UTILS
+  OOA --> UTR_CORE_GRP
+
+  %% ══════════════════════════════════════
+  %% VERBINDINGEN — strapi-admin-extensions
+  %% ══════════════════════════════════════
+  SAE --> PKG_UTILS
+
+  %% ══════════════════════════════════════
+  %% VERBINDINGEN — vth-dashboard
+  %% ══════════════════════════════════════
+  VTH_DASH --> STRAPI_PLUGINS_GRP
+
+  %% ══════════════════════════════════════
+  %% VERBINDINGEN — vth-frontend
+  %% ══════════════════════════════════════
+  VTH_FRONT --> PKG_UI
+  VTH_FRONT --> PKG_UTILS
+  VTH_FRONT --> PKG_A11Y
+  VTH_FRONT --> UTR_CORE_GRP
+
+  %% ══════════════════════════════════════
+  %% VERBINDINGEN — lokale pakketten
+  %% ══════════════════════════════════════
+  PKG_UI     --> UTR_CORE_GRP
+  PKG_SC_PKG --> CATALOGI_GRP
+
+  %% ══════════════════════════════════════
+  %% KLIKBARE LINK — externe GitHub repo
+  %% ══════════════════════════════════════
+  click FRAMELESS_GH href "https://github.com/frameless/strapi-v5-extensions" _blank
+  click STRAPI_PLUGINS_GRP href "https://github.com/frameless/strapi-v5-extensions" _blank
+  click CATALOGI_GRP href "https://github.com/frameless/strapi-v5-extensions" _blank
