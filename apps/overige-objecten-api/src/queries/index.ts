@@ -33,6 +33,20 @@ query getAllProducts(
       locale
       updatedAt
       createdAt
+      pdc_subcategories(pagination: { start: 0, limit: -1 }) {
+        documentId
+        title
+        createdAt
+        updatedAt
+        publishedAt
+        pdc_category {
+          documentId
+          title
+          createdAt
+          updatedAt
+          publishedAt
+        }
+      }
       metaTags {
         keymatch
         title
@@ -238,6 +252,20 @@ query getProductByUUIDOrDocumentId(
     locale
     updatedAt
     createdAt
+    pdc_subcategories(pagination: { start: 0, limit: -1 }) {
+      documentId
+      title
+      createdAt
+      updatedAt
+      publishedAt
+      pdc_category {
+        documentId
+        title
+        createdAt
+        updatedAt
+        publishedAt
+      }
+    }
     metaTags {
       keymatch
       title
@@ -854,6 +882,20 @@ query getAllVacItems($page: Int, $pageSize: Int, $start: Int, $limit: Int) {
         uuid
         title
       }
+      subcategories(pagination: { start: 0, limit: -1 }) {
+        documentId
+        title
+        createdAt
+        updatedAt
+        publishedAt
+        pdc_category {
+          documentId
+          title
+          createdAt
+          updatedAt
+          publishedAt
+        }
+      }
 
       vac {
         uuid
@@ -896,6 +938,20 @@ query getVacItemByUUIDOrDocumentId(
     updatedAt
     publishedAt
     title
+    subcategories(pagination: { start: 0, limit: -1 }) {
+      documentId
+      title
+      createdAt
+      updatedAt
+      publishedAt
+      pdc_category {
+        documentId
+        title
+        createdAt
+        updatedAt
+        publishedAt
+      }
+    }
     contact_information_internal {
       contentBlock(pagination: { start: 0, limit: -1 }) {
         id

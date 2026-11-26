@@ -79,6 +79,7 @@ export const createVacController: RequestHandler = async (req, res, next) => {
                     contact_information_internal: [],
                     relatedVACs: [],
                     relatedProducts: [],
+                    subcategories: [],
                   },
                 ],
                 pageInfo: { total: 1, page: 1, pageSize: 1, pageCount: 1 },
