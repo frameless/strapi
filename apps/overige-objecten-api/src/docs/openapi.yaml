@@ -552,6 +552,12 @@ components:
                 type: string
                 title: Naam Afdeling
                 description: De naam van de afdeling.
+        subcategorieen:
+          type: array
+          title: Subcategorieën
+          description: De subcategorieën waar dit product onder valt, elk met de bijbehorende categorie.
+          items:
+            $ref: "#/components/schemas/subcategorie"
         vertalingen:
           type: array
           title: Vertalingen
@@ -911,6 +917,68 @@ components:
                 description: De naam van het gerelateerde product.
           title: Gerelateerde Producten
           description: Producten die gerelateerd zijn aan de VAC.
+        subcategorieen:
+          type: array
+          title: Subcategorieën
+          description: De subcategorieën waar de VAC onder valt, elk met de bijbehorende categorie.
+          items:
+            $ref: "#/components/schemas/subcategorie"
+    categorie:
+      type: object
+      title: Categorie
+      required:
+        - documentId
+        - titel
+      properties:
+        documentId:
+          type: string
+          title: Document ID
+          description: De unieke identifier van de categorie.
+        titel:
+          type: string
+          title: Titel
+          description: De naam van de categorie.
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        publishedAt:
+          type: string
+          format: date-time
+          nullable: true
+    subcategorie:
+      type: object
+      title: Subcategorie
+      required:
+        - documentId
+        - titel
+      properties:
+        documentId:
+          type: string
+          title: Document ID
+          description: De unieke identifier van de subcategorie.
+        titel:
+          type: string
+          title: Titel
+          description: De naam van de subcategorie.
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        publishedAt:
+          type: string
+          format: date-time
+          nullable: true
+        categorie:
+          type: object
+          allOf:
+            - $ref: "#/components/schemas/categorie"
+          nullable: true
+          description: De hoofdcategorie waar deze subcategorie onder valt.
     postObject:
       type: object
       properties:
