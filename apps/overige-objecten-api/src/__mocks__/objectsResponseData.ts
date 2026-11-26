@@ -1,3 +1,5 @@
+import { subcategorieen } from './subcategorieen';
+
 export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }) => {
   const data = {
     results: [
@@ -34,6 +36,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
                 afdelingNaam: 'Demo Afdeling',
               },
             ],
+            subcategorieen,
             beschikbareTalen: ['nl'],
             vertalingen: [
               {
@@ -74,6 +77,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
             doelgroep: 'eu-burger',
             gerelateerdeProducten: [],
             gerelateerdeVACs: [],
+            subcategorieen,
             afdelingen: [
               {
                 afdelingId: '4DFE293E-FCDE-4913-81E5-E82F92CC8DB6',
@@ -113,6 +117,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
             doelgroep: 'eu-burger',
             gerelateerdeProducten: [],
             gerelateerdeVACs: [],
+            subcategorieen: [],
             afdelingen: [
               {
                 afdelingId: 'B97257C5-589E-4FC0-8C7E-F744649A13B7',
@@ -151,6 +156,7 @@ export const objectsResponseData = ({ type }: { type?: 'kennisartikel' | 'vac' }
             doelgroep: 'eu-burger',
             gerelateerdeProducten: [],
             gerelateerdeVACs: [],
+            subcategorieen: [],
             afdelingen: [
               {
                 afdelingId: '8B2EC293-AB4D-46BA-A4FE-7B5E84772D93',

@@ -1,3 +1,5 @@
+import { subcategorieen } from './subcategorieen';
+
 export const kennisartikelObject = () => ({
   url: 'http://localhost:3000/api/v2/objects/b77a89a0-3ec2-467d-84b2-b484d5726ceb',
   uuid: 'b77a89a0-3ec2-467d-84b2-b484d5726ceb',
@@ -31,6 +33,7 @@ export const kennisartikelObject = () => ({
           afdelingNaam: 'Demo Afdeling',
         },
       ],
+      subcategorieen,
       beschikbareTalen: ['nl'],
       vertalingen: [
         {

@@ -242,4 +242,17 @@ export interface Kennisartikel {
   url: string;
   id?: string;
   publicationState: 'PUBLISHED' | 'DRAFT';
+  pdc_subcategories?: (StrapiSubcategory | null)[] | null;
+}
+
+export interface StrapiCategory {
+  documentId: string;
+  title?: string | null;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+  publishedAt?: string | null;
+}
+
+export interface StrapiSubcategory extends StrapiCategory {
+  pdc_category?: StrapiCategory | null;
 }

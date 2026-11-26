@@ -11,6 +11,7 @@ import {
   getVerantwoordelijkeOrganisatie,
   getVertalingen,
   createComponentGuard,
+  mapSubcategorieen,
   normalizeCategories,
   processData,
   uuidToIndex,
@@ -30,6 +31,7 @@ export const generateKennisartikelObject = ({
   url,
   id,
   publicationState,
+  pdc_subcategories,
 }: Kennisartikel) => {
   const trefwoorden = generateKeywords(metaTags?.keymatch);
   const isInternalBlock = createComponentGuard('ComponentComponentsInternalBlockContent');
@@ -127,6 +129,7 @@ export const generateKennisartikelObject = ({
         locaties: null, //Een lijst met locaties waarop dit product beschikbaar is. Deze is nog niet nodig voor KISS en mag null zijn. Dit obecjt is dus nog niet opgenomen in dit schema
         doelgroep: kennisartikelMetadata?.doelgroep?.replace('_', '-') as 'eu-burger' | 'eu-bedrijf',
         afdelingen: kennisartikelMetadata?.afdelingen,
+        subcategorieen: mapSubcategorieen(pdc_subcategories),
         beschikbareTalen: [locale ?? 'nl'],
         vertalingen,
       },
