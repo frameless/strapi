@@ -103,6 +103,64 @@
       },
       "title": "Gerelateerde Producten",
       "description": "Producten die gerelateerd zijn aan de VAC."
+    },
+    "subcategorieen": {
+      "type": "array",
+      "title": "Subcategorieën",
+      "description": "De subcategorieën waar de VAC onder valt, elk met de bijbehorende categorie.",
+      "items": {
+        "type": "object",
+        "required": ["documentId", "titel"],
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "description": "De unieke identifier van de subcategorie."
+          },
+          "titel": {
+            "type": "string",
+            "description": "De naam van de subcategorie."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "publishedAt": {
+            "type": ["string", "null"],
+            "format": "date-time"
+          },
+          "categorie": {
+            "type": ["object", "null"],
+            "description": "De hoofdcategorie waar deze subcategorie onder valt.",
+            "required": ["documentId", "titel"],
+            "properties": {
+              "documentId": {
+                "type": "string",
+                "description": "De unieke identifier van de categorie."
+              },
+              "titel": {
+                "type": "string",
+                "description": "De naam van de categorie."
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
+                "type": ["string", "null"],
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

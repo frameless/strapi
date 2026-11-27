@@ -5,6 +5,7 @@ import { components } from '../types/openapi';
 
 import { concatenateFieldValues } from './concatenateFieldValues';
 import { generateKeywords } from './generateKeywords';
+import { mapSubcategorieen } from './mapSubcategorieen';
 import { uuidToIndex } from './uuidToIndex';
 
 type GetKennisartikelReturnData = components['schemas']['vacObject'];
@@ -65,6 +66,7 @@ const createVacRecord = (item: VacNode, vacUrl: string, antwoord: string): creat
         product: new URL(`/api/v2/objects/${product?.uuid}`, vacUrl).href,
         productNaam: product?.title ?? '',
       })) ?? [],
+    subcategorieen: mapSubcategorieen(item.subcategories),
   },
   geometry: null,
   endAt: null,

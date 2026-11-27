@@ -54,6 +54,7 @@ export const formatKennisartikel = (
     updatedAt: product.updatedAt,
     createdAt: product.createdAt,
     publicationState,
+    pdc_subcategories: product.pdc_subcategories,
     sections,
     metaTags: product.metaTags ?? null,
     kennisartikelMetadata: (product.kennisartikelMetadata as KennisartikelMetadata) ?? null,

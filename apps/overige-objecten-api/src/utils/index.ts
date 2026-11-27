@@ -18,6 +18,7 @@ export { getVacData } from './getVacData';
 export { getVerantwoordelijkeOrganisatie } from './getVerantwoordelijkeOrganisatie';
 export { getVertalingen } from './getVertalingen';
 export { mapContentByCategory } from './mapContentByCategory';
+export { mapSubcategorieen } from './mapSubcategorieen';
 export { normalizeCategories } from './normalizeCategories';
 export { processData } from './processData';
 export { readFile } from './readFile';
