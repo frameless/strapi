@@ -157,6 +157,11 @@ h6 {
   /* Search bar */
   --utrecht-search-bar-wrapper-padding-inline-end: 16px;
   --utrecht-search-bar-wrapper-padding-inline-start: 16px;
+
+  /* Openformulier */
+  --of-form-field-container-gap: 0;
+  --utrecht-form-fieldset-margin-block-start: 24px;
+  --utrecht-form-fieldset-margin-block-end: 24px;
 }
 
 a {
