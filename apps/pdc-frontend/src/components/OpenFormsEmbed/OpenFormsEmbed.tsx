@@ -10,7 +10,6 @@ import { OpenFormsSDK } from './OpenFormsSDK';
 import '@open-formulieren/sdk/styles.css';
 import '@utrecht/component-library-css/dist/html.css';
 import '@utrecht/open-forms-container-css/dist/index.css';
-import './OpenFormsEmbed.scss';
 
 export type OpenFormsEmbedProps = {
   nonce: string;
